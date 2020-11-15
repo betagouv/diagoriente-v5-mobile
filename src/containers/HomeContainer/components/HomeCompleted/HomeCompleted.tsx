@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo, useCallback } from 'react';
+import React, { useContext, useState, useMemo, useCallback, useEffect } from 'react';
 import UserContext from 'contexts/UserContext';
 import { Link, useHistory } from 'react-router-dom';
 import defaultAvatar from 'assets/svg/defaultAvatar.svg';
@@ -23,6 +23,8 @@ const HomeCompleted = () => {
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState(-1);
   const [openModal, setOpenModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  console.log('isOpen', isOpen);
 
   const getState = (index: number) => {
     switch (open) {
@@ -40,6 +42,16 @@ const HomeCompleted = () => {
     }
     if (p) history.push(`${p}`);
   };
+  useEffect(() => {
+    const state: string[] = [];
+    dashboardContent.map((e, i) => {
+      let s = getState(i);
+      state.push(s);
+    });
+    const res = state.some((e) => e === 'open');
+    setIsOpen(res);
+  });
+  console.log('isOpen', isOpen);
   const renderContentItem = useCallback(
     (
       title: string,
@@ -66,6 +78,7 @@ const HomeCompleted = () => {
         title: 'ME CONNAÎTRE',
         titleBackground: blueLine,
         background: '#4D6EC5',
+        secondBackground: '#3B58A6',
         image: IlluMeConnaitre,
         initialChildren: (
           <div className={classes.contentChild}>
@@ -94,6 +107,7 @@ const HomeCompleted = () => {
         title: 'ME PROJETER',
         titleBackground: yellowLine,
         background: '#FFA600',
+        secondBackground: '#DB8F00',
         image: IlluMeProtejer,
         initialChildren: (
           <div className={classNames(classes.contentChild, classes.black)}>
@@ -112,6 +126,7 @@ const HomeCompleted = () => {
         title: 'M’ENGAGER',
         titleBackground: pinkLine,
         background: '#D60051',
+        secondBackground: '#BB0147',
         image: IlluMengager,
         initialChildren: (
           <div className={classes.contentChild}>
@@ -128,12 +143,21 @@ const HomeCompleted = () => {
   return (
     <>
       <div className={classes.container}>
-        <div className={classes.profileHeader}>MON PROFIL</div>
-        <Avatar className={classes.logo} src={user?.logo ? user?.logo : defaultAvatar} />
-        <div className={classes.info}>Ma carte de compétences, mes infos..</div>
-        <Link className={classes.link} to="/profile">
-          Voir mon profil
-        </Link>
+        <div className={classes.headerWrapper}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Avatar className={classes.logo} src={user?.logo ? user?.logo : defaultAvatar} />
+            <div className={classes.profileHeader}>MON PROFIL</div>
+          </div>
+          {!isOpen && (
+            <div style={{ marginLeft: 75 }}>
+              <div className={classes.info}>Ma carte de compétences, mes infos..</div>
+              <Link className={classes.link} to="/profile">
+                Voir mon profil
+              </Link>
+            </div>
+          )}
+        </div>
+
         <div className={classes.content}>
           {dashboardContent.map((content, index) => (
             <DashboardStep
@@ -141,6 +165,7 @@ const HomeCompleted = () => {
               onClick={() => setOpen(open === index ? -1 : index)}
               {...content}
               state={getState(index)}
+              isOpen={isOpen}
             />
           ))}
         </div>

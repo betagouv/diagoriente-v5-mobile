@@ -2,8 +2,8 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import Route from 'components/ui/Route/Route';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import logo from 'assets/svg/diagoriente_logo_01_bg_transparent 2.svg';
-import open from 'assets/svg/menu_close.svg';
+import logo from 'assets/svg/diagoriente_logo.svg';
+import open from 'assets/images/menu.png';
 
 import useStyles from './styles';
 

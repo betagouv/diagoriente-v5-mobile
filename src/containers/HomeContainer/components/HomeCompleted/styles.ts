@@ -7,12 +7,21 @@ export default makeStyles({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  headerWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: 20,
+    width: '90%',
+    maxHeight: '100px',
+  },
   profileHeader: {
     color: '#223A7A',
     fontFamily: 'Ocean',
     fontWeight: 900,
     fontSize: '2.2em',
     lineHeight: 1,
+    marginLeft: 15,
+    marginTop: 11,
   },
   logo: {
     marginTop: 4,
@@ -23,7 +32,6 @@ export default makeStyles({
     fontSize: '1em',
     lineHeight: 1,
     color: '#223A7A',
-    marginTop: 12,
   },
   link: {
     fontSize: '1em',
@@ -38,10 +46,11 @@ export default makeStyles({
   },
   content: {
     display: 'flex',
-    flex: '1 1 0%',
+    flexDirection: 'column',
     width: '100%',
-    paddingTop: 25,
-    alignItems: 'stretch',
+    flex: '1 1 0%',
+    justifyContent: 'stretch',
+    marginTop: 20
   },
   contentChild: {
     color: '#fff',
@@ -55,15 +64,18 @@ export default makeStyles({
   },
   firstContent: {
     display: 'flex',
-    justifyContent: 'space-between',
-    width: '85%',
+    flexDirection: 'column',
+    width: '90%',
+    marginTop: 30,
   },
   itemContainer: {
-    width: '38%',
+    width: '100%',
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
     marginTop: 10,
+    /*   height: '100%',
+    justifyContent: 'center', */
   },
   itemLink: {
     width: '100%',
@@ -72,8 +84,9 @@ export default makeStyles({
   },
   itemButton: {
     backgroundColor: '#fff',
+    height: 49,
     width: '90%',
-    fontSize: '1.7vw',
+    fontSize: '32px',
     fontFamily: 'Ocean',
     fontWeight: 900,
     paddingTop: 11,
@@ -85,7 +98,7 @@ export default makeStyles({
   },
   itemDescription: {
     textAlign: 'center',
-    fontSize: '0.96vw',
+    fontSize: '12px',
     color: '#fff',
   },
   black: {
