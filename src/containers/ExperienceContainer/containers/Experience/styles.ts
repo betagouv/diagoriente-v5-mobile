@@ -105,7 +105,7 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
       lineHeight: '21px',
       fontWeight: 'bold',
-      width: 90,
+      width: 100,
     },
     title: {
       fontFamily: 'Andika New Basic',
