@@ -6,37 +6,39 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      // justifyContent: 'center',
       overflow: 'auto',
-      paddingTop: 110,
       position: 'relative',
       background: '#F3F2F4',
       height: '100vh',
     },
     boxInfo: {
-      width: '289px',
-      height: '269px',
+      width: '100%',
       position: 'absolute',
       backgroundColor: 'white',
-      top: 50,
-      right: 50,
-      borderRadius: 10,
       boxShadow: '0px 0px 5px -3px rgba(0, 0, 0, 0.75)',
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center',
+      padding: '2px 35px',
+      [theme.breakpoints.down(350)]: {
+        padding: '2px 15px',
+      },
     },
+
+    boxInfoImgSubBox: {
+      display: 'flex',
+      flexDirection: 'row',
+    },
+
     boxInfoImg: {
-      marginTop: 19,
+      marginTop: 15,
       marginBottom: 24,
     },
-    boxInfoDescription: {
-      marginBottom: 10,
-    },
     descriptionBoxInfo: {
-      marginTop: 2,
-      marginBottom: 2,
-      textAlign: 'center',
+      marginLeft: 20,
+    },
+    gameLinksContainer: {
+      display: 'flex',
+      justifyContent: 'space-between',
     },
     linkBoxInfo: {
       textAlign: 'center',
@@ -47,9 +49,6 @@ export default makeStyles((theme: Theme) =>
       marginTop: 12,
       marginBottom: 12,
     },
-    textDescription: {
-      marginTop: 30,
-    },
 
     textColor: {
       color: theme.palette.background.default,
@@ -57,10 +56,8 @@ export default makeStyles((theme: Theme) =>
 
     root: {
       display: 'flex',
-      width: '70%',
+      flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'space-between',
-      marginTop: 20,
     },
 
     square: {
@@ -70,10 +67,14 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: '#C9C9C7',
     },
 
+    avatarWrapper: {
+      display: 'flex',
+      justifyContent: 'center',
+    },
+
     circleContainer: {
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
+      justifyContent: 'center',
     },
     illus: {
       width: '100%',
@@ -99,18 +100,19 @@ export default makeStyles((theme: Theme) =>
       },
     },
 
-    btnLabel: {
-      color: '#fff',
-      textTransform: 'none',
+    linkLabel: {
+      color: '#223A7A',
+      fontSize: 14,
+      lineHeight: '21px',
       fontWeight: 'bold',
-      fontSize: 18,
-      textAlign: 'center',
+      width: 90,
     },
-
     title: {
+      fontFamily: 'Andika New Basic',
       textAlign: 'center',
       color: '#424242',
-      fontSize: 18,
+      fontSize: 14,
+      lineHeight: '21px',
     },
 
     help: {
@@ -120,11 +122,36 @@ export default makeStyles((theme: Theme) =>
       paddingRight: 22,
     },
 
+    avatarContainer: {
+      flexDirection: 'row',
+      width: '100%',
+    },
+
+    reverseAvatarContainer: {
+      flexDirection: 'row-reverse',
+      width: '100%',
+    },
+
     marginTitle: {
-      marginTop: 41,
-      marginBottom: 16,
+      alignSelf: 'center',
+      width: 100,
       color: '#424242',
       fontSize: 14,
+    },
+
+    titleAlignLeft: {
+      textAlign: 'left',
+      marginLeft: 10,
+    },
+
+    titleAlignRight: {
+      textAlign: 'right',
+      marginRight: 10,
+    },
+
+    linkContainer: {
+      display: 'flex',
+      justifyContent: 'flex-end',
     },
 
     hideLine: {
@@ -136,9 +163,17 @@ export default makeStyles((theme: Theme) =>
     },
     circleStyle: {
       width: 220,
+      [theme.breakpoints.down(350)]: {
+        width: 200,
+        height: '95%',
+      },
     },
     circleStyleEng: {
       width: 240,
+      [theme.breakpoints.down(350)]: {
+        width: 210,
+        height: '95%',
+      },
     },
   }),
 );
