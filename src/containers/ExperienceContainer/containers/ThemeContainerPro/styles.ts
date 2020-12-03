@@ -1,9 +1,12 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { CollectionsBookmarkOutlined } from '@material-ui/icons';
+import { size } from 'lodash';
 import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 
 export default makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      height:'auto',
       display: 'flex',
       flexDirection: 'column',
     },
@@ -14,18 +17,19 @@ export default makeStyles((theme: Theme) =>
       padding: '50px 120px',
       width: '100%',
       [theme.breakpoints.down('sm')]: {
-        padding: '40px',
+        padding: '0px',
       },
     },
 
     themeContainer: {
       position: 'relative',
       width: '100%',
+      // height: '563px',
       backgroundColor: '#F3F2F4',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      paddingTop: 34,
+      // paddingTop: 34,
     },
 
     themeTitle: {
@@ -35,6 +39,7 @@ export default makeStyles((theme: Theme) =>
 
     gridContainer: {
       padding: SKILL_CONTAINER_PADDING,
+
       [theme.breakpoints.down('md')]: {
         padding: '40px 15px',
       },
@@ -43,10 +48,12 @@ export default makeStyles((theme: Theme) =>
     circleContainer: {
       display: 'flex',
       width: '100%',
-      alignItems: 'stretch',
+      alignItems: 'center',
+      flexDirection:'column',
+      paddingBottom:100,
     },
     searchContainer: {
-      width: '80%',
+      width: '100%',
     },
     boxSearch: {
       background: '#B7ECFA',
@@ -54,7 +61,8 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '30px 98px',
+      padding: '40px 0px 30px 0px ',
+      margin: '28px 29px 20px 28px',
     },
     itemData: {
       border: '1px solid #00CFFF',
@@ -67,6 +75,9 @@ export default makeStyles((theme: Theme) =>
       '&:hover': {
         backgroundColor: 'rgba(122, 230, 255, 0.2)',
       },
+      [theme.breakpoints.down(450)]: {
+        width: 'auto',
+      },
     },
     selected: {
       backgroundColor: '#7AE6FF',
@@ -76,14 +87,17 @@ export default makeStyles((theme: Theme) =>
     },
     boxSearchTitle: {
       fontWeight: 'bold',
-      fontSize: 18,
-      lineHeight: ' 26px',
+      fontSize: 14,
+      width: 256,
+      lineHeight: ' 20px',
+      textAlign: 'center',
+
     },
     searchProp: {
       color: '#00CFFF',
     },
     inputSearchContainer: {
-      marginTop: 25,
+      marginTop: 17,
     },
     title: {
       fontWeight: 900,
@@ -110,13 +124,14 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'normal',
     },
 
-    header: {
-      height: 50,
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      width: '100%',
-    },
+    // header: {
+    //   height: 50,
+    //   display: 'flex',
+    //   justifyContent: 'space-between',
+    //   margin: '27px 0px 14px 27px',
+    //   alignItems: 'center',
+    //   // width: '100%',
+    // },
 
     hideLine: {
       textDecoration: 'none',
@@ -178,15 +193,35 @@ export default makeStyles((theme: Theme) =>
       },
     },
     btn: {
-      backgroundColor: theme.palette.background.default,
-      '&:hover': {
-        backgroundColor: theme.palette.background.default,
-      },
+      // backgroundColor: theme.palette.background.default,
+      // '&:hover': {
+      //   backgroundColor: theme.palette.background.default,
+      // },
     },
     classNameTitle: {
-      color: '#fff',
+      color: '#4D6EC5',  
+      fontSize: 18,
+      lineHeight: '26px'
+    
+    
     },
-    ArrowColor: {
-      color: '#fff',
+    // ArrowColor: {
+    //   color: '#fff',
+    // },
+    previousNext: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      margin: '8px 8px ',
+      
+
     },
+    footerContainer: {
+      position: 'fixed' ,
+      bottom: 0,
+      width: '100%',
+      backgroundColor: 'white'
+
+    }
+
   }));
