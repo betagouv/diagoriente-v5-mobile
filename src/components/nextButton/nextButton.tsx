@@ -12,6 +12,7 @@ interface Props {
   ArrowColor?: string;
   fetching?: boolean;
   children?: React.ReactChild;
+  arrowClassName?: string;
 }
 
 const NextButton = ({ className, classNameTitle, ArrowColor, fetching, children, ...props }: IProps & Props) => {
@@ -25,7 +26,7 @@ const NextButton = ({ className, classNameTitle, ArrowColor, fetching, children,
     >
       <div className={classes.contentBtn}>
         <div className={classNames(classes.btnLabel, classNameTitle)}>{children || 'Suivant'}</div>
-        <Arrow color={ArrowColor || '#223A7A'} width="12" height="12" className={classes.arrow} />
+        <Arrow color={ArrowColor || '#223A7A'} width="12" height="19" className={classes.arrow} />
         {fetching && (
           <div className={classes.loaderContainer}>
             <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
