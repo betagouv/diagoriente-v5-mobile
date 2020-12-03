@@ -1,12 +1,15 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles , Theme} from '@material-ui/core/styles';
 
-export default makeStyles(() => ({
+export default makeStyles((theme: Theme) => ({
   btnperso: {
-    position: 'absolute',
-    backgroundColor: '#00CFFF',
-    bottom: -25,
+    // position: 'absolute',
+    backgroundColor: '#7AE6FF',
+    // bottom: -25,
     left: '50%',
-    minWidth: 156,
+    minWidth: 175,
+    [theme.breakpoints.down(340)]: {
+      minWidth: 150,
+    },
     transform: 'translate(-50%,0)',
     height: 50,
     borderRadius: 10,
@@ -16,6 +19,7 @@ export default makeStyles(() => ({
     '&:disabled': {
       backgroundColor: '#7AE6FF',
     },
+
   },
 
   contentBtn: {
@@ -25,12 +29,14 @@ export default makeStyles(() => ({
   },
 
   btnLabel: {
+
     color: '#223A7A',
     textTransform: 'none',
     fontWeight: 'bold',
     fontSize: 18,
     textAlign: 'center',
     marginRight: 10,
+    lineHeight: '26px',
     paddingBottom: 4,
     flex: 1,
   },
@@ -38,6 +44,8 @@ export default makeStyles(() => ({
   arrow: {
     position: 'absolute',
     right: 19,
+
+
   },
 
   margin: {
@@ -50,5 +58,6 @@ export default makeStyles(() => ({
   },
   colorPrimaryLoader: {
     color: '#fff',
+
   },
 }));
