@@ -1,8 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import parcourContext from 'contexts/ParcourContext';
 import Title from 'components/common/TitleImage/TitleImage';
-import blueline from 'assets/svg/blueline.svg';
-import Button from 'components/button/Button';
 import Avatar from 'components/common/Avatar/Avatar';
 import ModalContainer from 'components/common/Modal/ModalContainer';
 import GameContainer from 'containers/HomeContainer/components/Modals/KItchenGame/Game';
@@ -14,8 +12,6 @@ import { Link, useHistory } from 'react-router-dom';
 import Game from '../Game/gameModal/GameModal';
 import classNames from 'utils/classNames';
 import useStyles from './styles';
-
-// import help from 'assets/svg/help.svg';
 
 const Experience = () => {
   const classes = useStyles();
@@ -31,6 +27,16 @@ const Experience = () => {
 
   const { parcours } = useContext(parcourContext);
 
+  const [height, setHeight] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (ref && ref.current && ref.current.clientHeight) {
+      setHeight(ref.current.clientHeight);
+    }
+  });
+
   useEffect(() => {
     if (!parcours?.played) openModal();
   }, [parcours]);
@@ -45,16 +51,20 @@ const Experience = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={classes.boxInfo}>
-        <div className={classes.boxInfoImg}>
-          <img src={Picto} alt="" />
+    <div className={classes.container} ref={ref}>
+      <div className={classes.boxInfo} style={{ top: height + 100 }}>
+        <div className={classes.boxInfoImgSubBox}>
+          <div className={classes.boxInfoImg}>
+            <img src={Picto} alt="" />
+          </div>
+          <div>
+            <p className={classes.descriptionBoxInfo}>
+              Familiarise toi avec les <br />
+              compétences grâce aux modules :
+            </p>
+          </div>
         </div>
-        <div className={classes.boxInfoDescription}>
-          <p className={classes.descriptionBoxInfo}>Familiarise toi avec les</p>
-          <p className={classes.descriptionBoxInfo}>compétences grâce aux modules :</p>
-        </div>
-        <div>
+        <div className={classes.gameLinksContainer}>
           <div>
             <Link to="/experience/gameCard">
               <p className={classes.linkBoxInfo}>Rectec</p>
@@ -72,69 +82,75 @@ const Experience = () => {
           </div>
         </div>
       </div>
-      <Title title="MES EXPERIENCES" image={blueline} color="#223A7A" />
+      <Title title="mes expériences" size={32} color="#223A7A" />
       <p className={classes.title}>
         Nous apprenons de toutes nos expériences.
         <br />
         Ajoute à ton profil tes expériences,
         <br />
-        <p className={classes.textDescription}>quel que soit le domaine.</p>
+        quel que soit le domaine.
       </p>
       <div className={classes.root}>
         <div className={classes.circleContainer}>
           <Avatar
             title="Ajouter une"
+            link={
+              <Link to="/experience/theme">
+                <div className={classes.linkLabel}>experience personnelle </div>
+              </Link>
+            }
             size={200}
-            titleClassName={classes.marginTitle}
+            className={classes.avatarContainer}
+            titleClassName={classNames(classes.marginTitle, classes.titleAlignLeft)}
             avatarCircleBackground="transparent"
             circleClassName={classes.circleStyle}
           >
             <img src={IlluExpPerso} alt="" className={classes.illus} />
           </Avatar>
-          <Link to="/experience/theme">
-            <Button childrenClassName={classes.margin} className={classes.btnperso} type="submit">
-              <div className={classes.btnLabel}>Expérience perso </div>
-            </Button>
-          </Link>
         </div>
-        <div>
+        <div className={classes.avatarWrapper}>
           <div className={classes.circleContainer}>
             <Avatar
               title="Ajouter une"
+              link={
+                <div className={classes.linkContainer}>
+                  <Link to="/experience/theme-pro" className={classes.hideLine}>
+                    <div className={classes.linkLabel}>
+                      experience
+                      <br />
+                      professionnelle
+                    </div>
+                  </Link>
+                </div>
+              }
               size={200}
-              titleClassName={classes.marginTitle}
+              className={classes.reverseAvatarContainer}
+              titleClassName={classNames(classes.marginTitle, classes.titleAlignRight)}
               avatarCircleBackground="transparent"
               circleClassName={classes.circleStyle}
             >
               <img src={IlluExpPro} alt="" className={classes.illus} />
             </Avatar>
-            <Link to="/experience/theme-pro" className={classes.hideLine}>
-              <Button childrenClassName={classes.margin} className={classes.btnpro} type="submit">
-                <div className={classes.btnLabel}>Expérience pro</div>
-              </Button>
-            </Link>
           </div>
         </div>
         <div className={classes.circleContainer}>
           <Avatar
             title="Ajouter une"
+            link={
+              <div onClick={onClickEng} className={classes.hideLine}>
+                <div className={classes.linkLabel}>experience d’engagement</div>
+              </div>
+            }
             avatarCircleBackground="transparent"
             size={200}
-            titleClassName={classes.marginTitle}
+            className={classes.avatarContainer}
+            titleClassName={classNames(classes.marginTitle, classes.titleAlignLeft)}
             circleClassName={classes.circleStyleEng}
           >
             <img src={illExpEng} alt="ill" className={classes.illus} />
           </Avatar>
-          <div onClick={onClickEng} className={classes.hideLine}>
-            <Button childrenClassName={classes.margin} className={classes.btnpro} type="submit">
-              <div className={classes.btnLabel}>Expérience d'engagement</div>
-            </Button>
-          </div>
         </div>
       </div>
-      {/* <div className={classes.help}>
-        <img src={help} alt="help" />
-      </div> */}
 
       <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={70}>
         <GameContainer onHandelClose={handleClose} />

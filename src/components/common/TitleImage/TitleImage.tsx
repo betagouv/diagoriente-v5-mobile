@@ -5,7 +5,8 @@ import Title from '../Title/Title';
 
 interface Props {
   title: string;
-  image: string;
+  image?: string;
+  number?: number;
   color: string;
   height?: string;
   size?: number;
@@ -14,7 +15,7 @@ interface Props {
   className?: string;
 }
 
-const TitleImage = ({ title, image, color, height, size, font, width, className }: Props) => {
+const TitleImage = ({ title, image, number, color, height, size, font, width, className }: Props) => {
   const classes = useStyles({
     color,
     size,
@@ -22,11 +23,24 @@ const TitleImage = ({ title, image, color, height, size, font, width, className 
     width,
   });
   return (
-    <div className={classNames(classes.container, className)}>
+    <div
+      className={classNames(
+        classes.container,
+        number ? classes.containerPositionWithNumber : classes.containerPosition,
+        className,
+      )}
+    >
+      <Title
+        title={title}
+        color={color}
+        size={size}
+        font={font}
+        className={number ? classes.positionWithNumber : classes.position}
+      />
       <div className={classes.imageContainer}>
-        <img src={image} alt="trait" className={classes.image} height={height} />
+        {image && <img src={image} alt="trait" className={classes.image} height={height} />}
+        {number && <div className={classes.number}>{number}</div>}
       </div>
-      <Title title={title} color={color} size={size} font={font} className={classes.position} />
     </div>
   );
 };
