@@ -4,12 +4,12 @@ import Title from 'components/common/TitleImage/TitleImage';
 import Input from 'components/inputs/Input/Input';
 import Tooltip from '@material-ui/core/Tooltip';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
+import NavigationButton from 'components/NavigationButton/NavigationButton';
 
 import { useThemes } from 'requests/themes';
-import NextButton from 'components/nextButton/nextButton';
-import PreviousButton from 'components/previousButton/previousButton';
 
-import { Link, RouteComponentProps } from 'react-router-dom';
+
+import {  RouteComponentProps } from 'react-router-dom';
 import RestLogo from 'components/common/Rest/Rest';
 import Grid from '@material-ui/core/Grid';
 import Selection from 'components/theme/ThemeSelection/ThemeSelection';
@@ -23,7 +23,8 @@ import { decodeUri, encodeUri } from 'utils/url';
 import { Theme } from 'requests/types';
 import classNames from 'utils/classNames';
 import useStyles from './styles';
-
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Portal from '@material-ui/core/Portal';
 const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const classes = useStyles();
 
@@ -76,6 +77,16 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClickAway = () => {
+    setOpen(false);
+  };
+  const [open, setOpen] = React.useState(false);
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -126,20 +137,20 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                           );
                         }
                       }  
-
+                  
                       return (
                         <Tooltip 
                           key={theme.id}
                           open={!tooltip ? false : undefined}
                           title= 
-                          {  <Child key={index}>
+                          {  <Child key={index} >
                               {tooltip.map((el) => (
-                                <div key={el.id}>{`-${el.title}`}</div>
+                                <div key={el.id} className={classes.child}>{`-${el.title}`}</div>
                               ))} 
                             </Child> 
                           }
                           
-                          placement="left" >  
+                        placement="bottom">  
 
                           <Grid key={theme.id} item >
                             <div
@@ -153,7 +164,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                             </div>
                         
                           </Grid>
-                        </Tooltip>
+                        </Tooltip> 
                       );
                     })} 
               </Grid> 
@@ -164,34 +175,10 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
       </div>
       <div className={classes.footerContainer} >
       <Selection theme={selectedTheme} activities={[]} />
-        <div  className={classes.previousNext}>
-       
-          <div> 
-          <Link
-            to="/experience"
-            className={classes.hideLine}
-          >
-            <PreviousButton
-              disabled={!selectedTheme}
-              classNameTitle={classes.classNameTitle}
-              ArrowColor="#4D6EC5"
-            />
-          </Link>
-          </div>
-          <div>
-          <Link
-            to={selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''}
-            className={classes.hideLine}
-          >
-            <NextButton
-              disabled={!selectedTheme}
-              // className={classes.btn}
-              classNameTitle={classes.classNameTitle}
-              ArrowColor="#4D6EC5"
-            />
-          </Link>
-          </div>
-           </div>
+          <NavigationButton selectedTheme={ selectedTheme}
+           nextLink={selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''}
+           previousLink={'/experience'}
+           />   
            </div>
           </div>
   );
