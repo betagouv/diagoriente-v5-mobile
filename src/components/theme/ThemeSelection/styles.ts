@@ -4,14 +4,12 @@ import { Theme as RequestTheme } from 'requests/types';
 export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | null }>((theme: Theme) =>
   createStyles({
     appBar: {
-      position: 'fixed',
       bottom: 0,
-      width: 318,
+      width: '100%',
       background: theme.palette.background.default,
       display: 'flex',
       justifyContent: 'center',
-      zIndex: 10,
-      borderRadius: '0px 15px 0px 0px',
+    
       flexDirection: 'column',
       transition: 'all 250ms cubic-bezier(0.4, 0, 1, 1) 0ms',
       boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.25)',
@@ -19,6 +17,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
 
     container: {
       display: 'flex',
+      height: '58px',
       alignItems: 'center',
       width: '100%',
       justifyContent: 'space-between',
@@ -112,8 +111,8 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
 
     themeSelection: {
       display: 'flex',
-      paddingTop: 31,
       alignItems: 'center',
+      padding:30,
     },
 
     themeTile: {
@@ -133,7 +132,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     },
 
     themeAvatar: {
-      paddingRight: 2,
+      paddingBottom: 2,
       alignItems: 'flex-start',
     },
     circleClassName: {

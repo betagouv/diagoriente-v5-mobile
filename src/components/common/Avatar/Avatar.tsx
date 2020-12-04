@@ -5,6 +5,7 @@ import useStyles from './styles';
 
 interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   title?: string;
+  link?: any;
   size: number;
   className?: string;
   titleClassName?: string;
@@ -16,6 +17,7 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElem
 
 const Avatar = ({
   title,
+  link,
   size,
   className,
   titleClassName,
@@ -35,6 +37,7 @@ const Avatar = ({
       {title && (
         <p className={classNames(classes.title, titleClassName)}>
           {title}
+          {link && <div>{link}</div>}
           {checked && <img src={check} alt="check" className={classes.checked} />}
         </p>
       )}

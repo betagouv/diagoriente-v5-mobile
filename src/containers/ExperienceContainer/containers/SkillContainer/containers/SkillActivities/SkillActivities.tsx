@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 
 import { useTheme } from 'requests/themes';
@@ -9,7 +9,7 @@ import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
 
 import TitleImage from 'components/common/TitleImage/TitleImage';
-import Title from 'components/common/Title/Title';
+import Title from 'components/common/TitleImage/TitleImage';
 import NextButton from 'components/nextButton/nextButton';
 import Button from 'components/button/Button';
 import CancelButton from 'components/cancelButton/CancelButton';
@@ -32,9 +32,7 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   isCreate?: boolean;
 }
 
-const ExperienceActivity = ({
- match, activities, setActivities, history, theme, isCreate, location,
-}: Props) => {
+const ExperienceActivity = ({ match, activities, setActivities, history, theme, isCreate, location }: Props) => {
   const classes = useStyles();
   const { redirect } = decodeUri(location.search);
   const addActivity = (activite: Activity) => {
@@ -47,35 +45,29 @@ const ExperienceActivity = ({
 
   const { data, loading } = useTheme({ variables: { id: match.params.themeId } });
 
+  const isBrowser = typeof window !== 'undefined';
+  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
+  });
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <div className={classes.header}>
-          <Title
-            title={theme.type === 'professional' ? 'MES EXPERIENCES PROFESSIONNELLES' : 'MES EXPERIENCES PERSONNELLES'}
-            color="#223A7A"
-            size={26}
-          />
-          <RestLogo
-            onClick={() => {
-              let path = '/experience';
-              if (!isCreate) path = `/profile/experience?type=${data && data.theme.type}`;
-              else if (redirect) path = redirect;
-              history.replace(path);
-            }}
-            color="#4D6EC5"
-            label="Annuler"
-          />
-        </div>
+        <Title
+          title={theme.type === 'professional' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
+          color="#223A7A"
+          size={width > 380 ? 32 : 25}
+          image={blueline}
+          number={2}
+        />
         <div className={classes.themeContainer}>
-          <TitleImage title="2." image={blueline} color="#223A7A" width={180} />
           <p className={classes.title}>
             Peux-tu nous en dire un peu plus sur
             <br />
             <strong>les activités </strong>
             que tu pratiques ?
-            <br />
-            <small>(Plusieurs choix possibles)</small>
           </p>
           <div className={classes.circleContainer}>
             {loading && (
