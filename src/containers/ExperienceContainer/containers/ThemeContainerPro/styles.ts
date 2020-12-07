@@ -65,6 +65,7 @@ export default makeStyles((theme: Theme) =>
       margin: '28px 29px 20px 28px',
     },
     itemData: {
+      margin: 5,
       border: '1px solid #00CFFF',
       borderRadius: 30,
       width: 'max-content',
@@ -133,9 +134,7 @@ export default makeStyles((theme: Theme) =>
     //   // width: '100%',
     // },
 
-    hideLine: {
-      textDecoration: 'none',
-    },
+
 
     loadingContainer: {
       width: '100%',
@@ -198,30 +197,30 @@ export default makeStyles((theme: Theme) =>
       //   backgroundColor: theme.palette.background.default,
       // },
     },
-    classNameTitle: {
-      color: '#4D6EC5',  
-      fontSize: 18,
-      lineHeight: '26px'
-    
-    
-    },
+   
     // ArrowColor: {
     //   color: '#fff',
     // },
-    previousNext: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      margin: '8px 8px ',
-      
-
-    },
+   
     footerContainer: {
       position: 'fixed' ,
       bottom: 0,
       width: '100%',
       backgroundColor: 'white'
 
-    }
+    },
+    child:{
+      position: 'fixed',
+      bottom : 0,
+      width: '100%',
+      display: 'flex',
+      padding: '2px 35px',
+      // box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
+      flexDirection: 'column',
+      backgroundColor:'white',
+
+  }
+    
+ 
 
   }));
