@@ -62,20 +62,24 @@ const PrivateHeader = ({ theme, activities }: Props) => {
   return (
     <div className={classes.appBar}>
       <div onClick={toggle} className={classes.container}>
+        <div className={classes.selctionBlob}>
         <p className={classes.titleSelection}>Ta sélection</p>
         {((isAct && activities.length > 0) || (isTheme && theme)) && (
           <div className={classNames(classes.blob, EffectState && classes.animation)}>
             <div className={classes.badgeText}>{(isAct && activities.length) || (isTheme && theme && '1')}</div>
           </div>
         )}
+        </div>
+       
         <img
           src={arrow}
           alt="menu"
           height={12}
           className={classNames(classes.menuIcon, !open ? classes.menuIconClosed : undefined)}
         />
+     
       </div>
-
+    
       {open && (
         <div className={classes.childrenSelection}>
           <div className={classes.themeRoot}>
