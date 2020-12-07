@@ -154,7 +154,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      margin: 10,
+      margin: 30,
       height: 26,
       width: 26,
     },
@@ -189,4 +189,8 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
         height: 40,
       },
     },
+    selctionBlob:{
+      display: 'flex',
+    alignItems: 'center',
+    }
   }));
