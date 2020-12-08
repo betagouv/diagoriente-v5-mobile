@@ -25,9 +25,9 @@ export default makeStyles((theme: Theme) =>
 
     circleContainer: {
       display: 'flex',
-      width: '55%',
-      justifyContent: 'center',
-      flexWrap: 'wrap',
+      width: 'auto',
+      alignItems: 'center',
+      flexDirection: 'column',
       padding: '30px 0px 192px 0px',
     },
 
@@ -87,6 +87,7 @@ export default makeStyles((theme: Theme) =>
       margin: 8,
       fontSize: 14,
       maxWidth: '100%',
+      width: 'fit-content',
       '&:hover': {
         backgroundColor: 'rgba(122, 230, 255, 0.2)',
       },
@@ -98,8 +99,8 @@ export default makeStyles((theme: Theme) =>
 
     selectedActivity: {
       backgroundColor: '#7AE6FF',
+      border: 'transparent',
       color: '#424242',
-      fontWeight: 'bold',
       fontSize: 14,
       '&:hover': {
         backgroundColor: '#7AE6FF',
