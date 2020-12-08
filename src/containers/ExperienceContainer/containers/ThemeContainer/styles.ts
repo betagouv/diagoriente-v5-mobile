@@ -11,11 +11,7 @@ export default makeStyles((theme: Theme) =>
     container: {
       display: 'flex',
       flexDirection: 'column',
-      padding: '50px 120px',
       width: '100%',
-      [theme.breakpoints.down('sm')]: {
-        padding: '40px',
-      },
     },
 
     themeContainer: {
@@ -32,7 +28,11 @@ export default makeStyles((theme: Theme) =>
     themeTitle: {
       color: '#424242',
       fontSize: 14,
+      fontWeight: 400,
+      marginBottom: 60,
     },
+
+    selectThemeContainer: {},
 
     gridContainer: {
       padding: SKILL_CONTAINER_PADDING,
@@ -102,13 +102,13 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'normal',
     },
 
-    header: {
+    /*  header: {
       height: 50,
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       width: '100%',
-    },
+    }, */
 
     hideLine: {
       textDecoration: 'none',
@@ -182,6 +182,13 @@ export default makeStyles((theme: Theme) =>
     },
     errorMessage: {
       color: theme.palette.error.main,
+    },
+
+    footerContainer: {
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      backgroundColor: 'white',
     },
   }),
 );

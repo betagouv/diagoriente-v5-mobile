@@ -1,22 +1,14 @@
-import React, {
-  useState, useEffect, useContext, useMemo,
-} from 'react';
-import TitleImage from 'components/common/TitleImage/TitleImage';
-import Avatar from 'components/common/AvatarTheme/AvatarTheme';
-import Title from 'components/common/Title/Title';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
+import Title from 'components/common/TitleImage/TitleImage';
 import SelectionContext from 'contexts/SelectionContext';
-
 import { useThemes } from 'requests/themes';
 import Button from 'components/nextButton/nextButton';
+import NavigationButton from 'components/NavigationButton/NavigationButton';
 import { RouteComponentProps } from 'react-router-dom';
-import RestLogo from 'components/common/Rest/Rest';
-import Grid from '@material-ui/core/Grid';
 import Selection from 'components/theme/ThemeSelection/ThemeSelection';
 import parcoursContext from 'contexts/ParcourContext';
-import Tooltip from '@material-ui/core/Tooltip';
-import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
 import Spinner from 'components/SpinnerXp/Spinner';
-
+import SelectTheme from 'components/inputs/SelectTheme/SelectTheme';
 import blueline from 'assets/svg/blueline.svg';
 import classNames from 'utils/classNames';
 import { decodeUri, encodeUri } from 'utils/url';
@@ -51,6 +43,13 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
     type,
   ]);
 
+  const isBrowser = typeof window !== 'undefined';
+  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
+  });
+
   useEffect(() => {
     if (data) {
       const id = localStorage.getItem('theme');
@@ -72,94 +71,47 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <div className={classes.header}>
-          <Title
-            title={type === 'engagement' ? 'MES EXPERIENCES D’ENGAGEMENT' : 'MES EXPERIENCES PERSONNELLES'}
-            color="#223A7A"
-            size={42}
-          />
-          <RestLogo
-            onClick={() => {
-              history.replace(redirect || '/experience');
-            }}
-            color="#4D6EC5"
-            label="Annuler"
-          />
-        </div>
+        <Title
+          title={type === 'engagement' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
+          color="#223A7A"
+          size={width > 380 ? 32 : 25}
+          image={blueline}
+          number={1}
+        />
+
         <div className={classes.themeContainer}>
-          <TitleImage title="1." image={blueline} color="#223A7A" width={180} />
           {themeFiltered.length === 0 && !loading ? (
             <div className={classes.errorMessage}>
               Il n&apos;y a plus de thèmes disponible, vous les avez deja tous choisis !{' '}
             </div>
           ) : (
-            <p className={classes.themeTitle}>
-              Choisis un
-              <span className={classes.themeText}> thème :</span>
-            </p>
+            <p className={classes.themeTitle}>Choisis un thème :</p>
           )}
-          <div className={classes.gridContainer}>
-            <Grid className={classes.circleContainer} container spacing={2}>
-              {loading && (
-                <div className={classes.loadingContainer}>
-                  <Spinner />
-                </div>
-              )}
+          <div className={classes.selectThemeContainer}>
+            <SelectTheme avatarsTab={themeFiltered} selectedTheme={selectedTheme} showAvatar={showAvatar} />
+          </div>
+          {/*  {loading && (
+            <div className={classes.loadingContainer}>
+              <Spinner />
+            </div>
+          )} */}
 
-              {themeFiltered.map((theme) => (
-                <Grid key={theme.id} item xs={12} sm={3} md={2}>
-                  <Tooltip
-                    classes={{
-                      tooltipPlacementRight: classes.tooltipRight,
-                      tooltipPlacementLeft: classes.tooltipLeft,
-                    }}
-                    title={
-                      theme.activities.length ? (
-                        <Child>
-                          {theme.activities.map((act) => (
-                            <li className={classes.dot} key={act.title}>
-                              {act.title}
-                            </li>
-                          ))}
-                        </Child>
-                      ) : (
-                        ''
-                      )
-                    }
-                    arrow
-                    placement="right"
-                  >
-                    <Child>
-                      <Avatar
-                        title={theme.title.replace(new RegExp('[//,]', 'g'), '\n')}
-                        size={62}
-                        titleClassName={selectedTheme?.id === theme.id ? classes.textSelected : classes.marginTitle}
-                        className={classes.circle}
-                        onClick={() => showAvatar(theme)}
-                        avatarCircleBackground={selectedTheme?.id === theme.id ? 'rgba(122, 230, 255, 0.2)' : ''}
-                      >
-                        <img
-                          src={theme.resources?.icon}
-                          alt=""
-                          className={classNames(
-                            classes.avatarStyle,
-                            selectedTheme?.id === theme.id && classes.selectedImg,
-                          )}
-                        />
-                      </Avatar>
-                    </Child>
-                  </Tooltip>
-                </Grid>
-              ))}
-            </Grid>
-          </div>
-          <div onClick={onNavigate} className={classes.hideLine}>
+          {/*  <div onClick={onNavigate} className={classes.hideLine}>
             <Button disabled={!selectedTheme} />
-          </div>
+          </div> */}
         </div>
       </div>
 
-      <Selection theme={selectedTheme} activities={[]} />
+      <div className={classes.footerContainer}>
+        <Selection theme={selectedTheme} activities={[]} />
+        <NavigationButton
+          disabled={!selectedTheme}
+          nextLink={
+            selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''
+          }
+          previousLink={'/experience'}
+        />
+      </div>
     </div>
   );
 };
