@@ -25,7 +25,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
   const [theme, setTheme] = React.useState(defaultTheme);
   const [open, setOpen] = React.useState(false);
 
-  useEffect(() => {
+  useDidMount(() => {
     if (selectedTheme?.id) {
       for (let i = 0; i < avatarsTab.length; i += 1) {
         if (selectedTheme?.id === avatarsTab[i].id) setDefaultTheme(avatarsTab[i].title);
@@ -76,7 +76,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
           ),
 
           startAdornment: {
-            ...(theme !== 'Thèmes :' ? (
+            ...(theme !== 'Thèmes :' && theme && theme !== '' ? (
               <Avatar
                 size={29}
                 className={classes.avatarCircleSelected}
