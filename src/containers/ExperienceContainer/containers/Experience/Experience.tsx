@@ -96,7 +96,7 @@ const Experience = () => {
             title="Ajouter une"
             link={
               <Link to="/experience/theme">
-                <div className={classes.linkLabel}>experience personnelle </div>
+                <div className={classes.linkLabel}>expérience personnelle </div>
               </Link>
             }
             size={200}
@@ -116,7 +116,7 @@ const Experience = () => {
                 <div className={classes.linkContainer}>
                   <Link to="/experience/theme-pro" className={classes.hideLine}>
                     <div className={classes.linkLabel}>
-                      experience
+                      expérience
                       <br />
                       professionnelle
                     </div>
@@ -138,7 +138,7 @@ const Experience = () => {
             title="Ajouter une"
             link={
               <div onClick={onClickEng} className={classes.hideLine}>
-                <div className={classes.linkLabel}>experience d’engagement</div>
+                <div className={classes.linkLabel}>expérience d’engagement</div>
               </div>
             }
             avatarCircleBackground="transparent"
