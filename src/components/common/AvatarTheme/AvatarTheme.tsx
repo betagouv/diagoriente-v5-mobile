@@ -13,6 +13,7 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElem
   avatarCircleBackground?: string;
   checked?: boolean;
   squareContainerClassName?: string;
+  theme?: boolean;
 }
 
 const AvatarTheme = forwardRef(
@@ -26,6 +27,7 @@ const AvatarTheme = forwardRef(
       avatarCircleBackground,
       checked,
       squareContainerClassName,
+      theme,
       ...rest
     }: Props,
     ref: Ref<HTMLDivElement>,
@@ -35,7 +37,12 @@ const AvatarTheme = forwardRef(
       avatarCircleBackground,
     });
     return (
-      <div className={classNames(classes.circle, className)} {...rest} ref={ref}>
+      <div
+        className={classNames(classes.circle, className)}
+        style={{ flexDirection: theme ? 'row' : 'column' }}
+        {...rest}
+        ref={ref}
+      >
         <div className={classNames(classes.squareContainer, squareContainerClassName)}>{children}</div>
         {title && (
           <p className={classNames(classes.title, titleClassName)}>

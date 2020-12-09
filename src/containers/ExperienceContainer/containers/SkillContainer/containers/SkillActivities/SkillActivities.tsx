@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
-
 import { useTheme } from 'requests/themes';
 import { Theme } from 'requests/types';
 import { Tooltip } from '@material-ui/core';
-
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
-
-import TitleImage from 'components/common/TitleImage/TitleImage';
 import Title from 'components/common/TitleImage/TitleImage';
 import NextButton from 'components/nextButton/nextButton';
 import Button from 'components/button/Button';
 import CancelButton from 'components/cancelButton/CancelButton';
 import Spinner from 'components/SpinnerXp/Spinner';
-
-import RestLogo from 'components/common/Rest/Rest';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
-
 import blueline from 'assets/svg/blueline.svg';
-
 import { Unpacked } from 'utils/types';
 import useStyles from './styles';
 
@@ -56,7 +48,7 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
     <div className={classes.root}>
       <div className={classes.container}>
         <Title
-          title={theme.type === 'professional' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
+          title={theme.type === 'professional' ? 'mes expériences pro' : 'mes expériences personnelles'}
           color="#223A7A"
           size={width > 380 ? 32 : 25}
           image={blueline}
