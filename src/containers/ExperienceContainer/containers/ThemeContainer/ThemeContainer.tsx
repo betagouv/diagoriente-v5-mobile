@@ -105,7 +105,7 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
       <div className={classes.footerContainer}>
         <Selection theme={selectedTheme} activities={[]} />
         <NavigationButton
-          disabled={!selectedTheme}
+          selectedTheme={selectedTheme}
           nextLink={
             selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''
           }
