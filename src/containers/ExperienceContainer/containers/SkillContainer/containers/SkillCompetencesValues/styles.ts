@@ -13,19 +13,6 @@ export default makeStyles((theme: Theme) =>
     container: {
       display: 'flex',
       flexDirection: 'column',
-      padding: '50px 120px',
-
-      width: '100%',
-      [theme.breakpoints.down('sm')]: {
-        padding: '40px',
-      },
-    },
-
-    header: {
-      height: 50,
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
       width: '100%',
     },
 
@@ -41,14 +28,26 @@ export default makeStyles((theme: Theme) =>
     title: {
       textAlign: 'center',
       color: '#424242',
-      fontSize: 18,
+      fontSize: 14,
+      width: 255,
+      marginBottom: 50,
+    },
+
+    echelonWrapper: {
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: '0px 30px',
     },
 
     echelonContainer: {
+      width: '100%',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'stretch',
-      padding: SKILL_CONTAINER_PADDING,
+      /* padding: SKILL_CONTAINER_PADDING, */
+      padding: '30px 0px 80px 0px',
     },
 
     empty: {
@@ -94,7 +93,6 @@ export default makeStyles((theme: Theme) =>
       justifyContent: 'space-between',
       width: '100%',
       paddingBottom: 10,
-      paddingLeft: 30,
       '&:last-child': {
         paddingBottom: 36,
       },
@@ -211,12 +209,24 @@ export default makeStyles((theme: Theme) =>
       textDecoration: 'none',
     },
 
+    avatarContainer: {
+      position: 'absolute',
+      display: 'flex',
+      justifyContent: 'center',
+      width: '100%',
+      left: 0,
+      top: 118,
+    },
+
     echelonBackground: {
       background: '#ffff',
-      padding: '12px 56px',
-      width: 650,
+      border: '1px dashed #C9C9C7',
+      borderRadius: 5,
+      padding: '65px 0px 20px 30px',
+      width: '100%',
       display: 'flex',
-      alignItems: 'center',
+      flexDirection: 'column',
+      justifyContent: 'center',
     },
     avatarStyle: {
       position: 'relative',
@@ -228,24 +238,24 @@ export default makeStyles((theme: Theme) =>
       padding: 0,
     },
     themeAvatar: {
-      paddingRight: 2,
-      alignItems: 'flex-start',
+      alignItems: 'center',
+      width: 'auto !important',
     },
     squareContainerClassName: {
       alignSelf: 'center',
-      height: 90,
-      width: 90,
+      height: 54,
+      width: 56,
     },
     dataOptions: {
       display: 'flex',
       flexDirection: 'column',
       color: '#00B2DB',
       fontSize: 14,
-      marginLeft: 50,
       fontWeight: 'bold',
       flex: '1 1 0',
     },
     titleClassName: {
       margin: 0,
     },
-  }));
+  }),
+);
