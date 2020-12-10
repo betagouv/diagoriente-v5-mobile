@@ -14,7 +14,7 @@ child:{
     lineHeight: '30px',
     height: '165px',
     textAlign: 'justify',
-    /* max-height: 180px; */
+    boxShadow : "4px -4px 4px rgba(0, 0, 0, 0.25)",
     position: 'fixed',
     backgroundColor: 'white',
 }
