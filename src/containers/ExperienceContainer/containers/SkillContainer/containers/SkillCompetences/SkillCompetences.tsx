@@ -23,7 +23,6 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   competences: Competence[];
   setCompetences: (Competences: Competence[]) => void;
   theme: Theme | null;
-  addSkillCompetences: () => void;
   isCreate?: boolean;
 }
 
