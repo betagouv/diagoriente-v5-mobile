@@ -23,11 +23,10 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   activities: Activity[];
   setActivities: (activities: Activity[]) => void;
   isCreate?: boolean;
-  addActivities: () => void;
 
 }
 
-const ExperienceActivity = ({ match, activities, setActivities, history,   addActivities , theme, isCreate, location }: Props) => {
+const ExperienceActivity = ({ match, activities, setActivities, history , theme, isCreate, location }: Props) => {
   const classes = useStyles();
   const { redirect } = decodeUri(location.search);
   const addActivity = (activite: Activity) => {
