@@ -10,7 +10,7 @@ import Dialog from '@material-ui/core/Dialog';
 import Divider from '@material-ui/core/Divider';
 import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
-import { useDidMount } from 'common/hooks/useLifeCycle';
+import { useDidMount } from 'hooks/useLifeCycle';
 
 interface Props {
   avatarsTab: any[];
