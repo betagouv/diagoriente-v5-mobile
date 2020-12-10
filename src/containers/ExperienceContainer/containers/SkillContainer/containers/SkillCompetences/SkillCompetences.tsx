@@ -6,6 +6,8 @@ import { Competence, Theme } from 'requests/types';
 import Title from 'components/common/TitleImage/TitleImage';
 import Grid from '@material-ui/core/Grid';
 import Slide from '@material-ui/core/Slide';
+import PreviousButton from 'components/previousButton/previousButton';
+import NavigationButton from 'components/NavigationButton/NavigationButton';
 import NextButton from 'components/nextButton/nextButton';
 import Button from 'components/button/Button';
 import CancelButton from 'components/cancelButton/CancelButton';
@@ -64,7 +66,10 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
-
+  const onNavigate = () => {
+    if (competences.length || competences.length > 4) history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
+    setOpen(false);
+  };
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -126,21 +131,24 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
               );
             })}
           </Grid>
+          <div  className={classes.previousNext}>
+          
           <Link
-            to={`/experience/skill/${match.params.themeId}/competencesValues${location.search}`}
+          //   to="/experience"
+          to={`/experience/skill/${match.params.themeId}/activities${location.search}`}
             className={classes.hideLine}
           >
-            <NextButton disabled={!competences.length || competences.length > 4} />
+            <PreviousButton
+              classNameTitle={classes.classNameTitle}
+              ArrowColor="#4D6EC5"
+            />
           </Link>
-        </div>
-
-        <Link
-          to={`/experience/skill/${match.params.themeId}/activities${location.search}`}
-          className={classes.btnpreced}
-        >
-          <CancelButton />
-          Précedent
-        </Link>
+          
+          <div onClick={onNavigate} className={classes.hideLine}>
+                  <NextButton disabled={!competences.length || competences.length > 4} />
+                </div> 
+                </div>
+       
       </div>
       <Popup open={open} handleClose={handleClose} iconClassName={classes.iconClassName}>
         <div className={classes.popupContainer}>
@@ -150,6 +158,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
           </Button>
         </div>
       </Popup>
+    </div>
     </div>
   );
 };

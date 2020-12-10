@@ -4,12 +4,13 @@ import SelectionContext from 'contexts/SelectionContext';
 import { useThemes } from 'requests/themes';
 import Button from 'components/nextButton/nextButton';
 import NavigationButton from 'components/NavigationButton/NavigationButton';
-import { RouteComponentProps } from 'react-router-dom';
+import {Link, RouteComponentProps } from 'react-router-dom';
 import Selection from 'components/theme/ThemeSelection/ThemeSelection';
 import parcoursContext from 'contexts/ParcourContext';
 import Spinner from 'components/SpinnerXp/Spinner';
 import SelectTheme from 'components/inputs/SelectTheme/SelectTheme';
 import blueline from 'assets/svg/blueline.svg';
+import PreviousButton from 'components/previousButton/previousButton';
 import classNames from 'utils/classNames';
 import { decodeUri, encodeUri } from 'utils/url';
 import { Theme } from 'requests/types';
@@ -90,28 +91,41 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
           <div className={classes.selectThemeContainer}>
             <SelectTheme avatarsTab={themeFiltered} selectedTheme={selectedTheme} showAvatar={showAvatar} />
           </div>
-          {/*  {loading && (
+           {/* {loading && (
             <div className={classes.loadingContainer}>
               <Spinner />
             </div>
-          )} */}
+          )}  */}
+       
 
-          {/*  <div onClick={onNavigate} className={classes.hideLine}>
+          <Selection theme={selectedTheme} activities={[]} />
+
+          
+           <div  className={classes.previousNext}>
+          
+          
+    <Link
+    //   to="/experience"
+    to={"/experience"}
+      className={classes.hideLine}
+    >
+      <PreviousButton
+        classNameTitle={classes.classNameTitle}
+        ArrowColor="#4D6EC5"
+      />
+    </Link>
+    
+    <div onClick={onNavigate} className={classes.hideLine}>
             <Button disabled={!selectedTheme} />
-          </div> */}
+          </div> 
+          </div>
+           
+       
+          
         </div>
+      
       </div>
 
-      <div className={classes.footerContainer}>
-        <Selection theme={selectedTheme} activities={[]} />
-        <NavigationButton
-          selectedTheme={selectedTheme}
-          nextLink={
-            selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''
-          }
-          previousLink={'/experience'}
-        />
-      </div>
     </div>
   );
 };
