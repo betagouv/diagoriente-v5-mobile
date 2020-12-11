@@ -2,13 +2,18 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) => ({
   root: {
-    display: 'flex',
+    display: 'grid',
+    gridTemplateAreas: '"label input"',
+    gridTemplateColumns: '70px 229px',
+    gridGap: '15px',
+    gridTemplateRows: '35px',
     alignItems: 'center',
     justifyContent: 'center',
     margin: '0px 0px 0px 0px',
     width: '100%',
   },
   wrapperInput: {
+    gridArea: 'input',
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
@@ -97,21 +102,14 @@ export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) =
     },
   },
   labelContainer: {
+    gridArea: 'label',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
     height: '100%',
-    // width: 260,
     justifyContent: 'center',
-    [theme.breakpoints.down('xs')]: {
-      alignItems: 'flex-start',
-    },
-    [theme.breakpoints.up('sm')]: {
-      alignItems: 'flex-end',
-    },
   },
   label: {
-    marginRight: 14,
     fontWeight: 'bold',
   },
   subTitle: {
