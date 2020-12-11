@@ -8,6 +8,8 @@ import NameFormator from 'utils/NameFormator';
 import { Unpacked } from 'utils/types';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import Button from 'components/button/Button';
+import NextButton from 'components/nextButton/nextButton';
+import PreviousButton from 'components/previousButton/previousButton';
 import { UserParcour } from 'requests/types';
 import { TextField } from '@material-ui/core';
 import { useForm } from 'hooks/useInputs';
@@ -48,11 +50,12 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
   useEffect(() => {
     if (secondOpen) {
       actions.setValues({
-        comment: `${user && NameFormator(user?.profile.firstName)} ${user &&
+        comment: `Bonjour${NameFormator(state.values.firstName)} ${NameFormator(state.values.lastName)}, \n\n${user &&
+          NameFormator(user?.profile.firstName)} ${user &&
           NameFormator(
             user?.profile.lastName,
             // eslint-disable-next-line
-          )} a effectué une expérience professionnelle chez vous et sollicite une recommandation de votre part. Vous pouvez l'aider en montrant que vous validez cette expérience sur la plateforme Diagoriente, l'outil ultime pour trouver son orientation et accéder à l'emploi. Bien cordialement,`,
+          )} a effectué une expérience professionnelle chez vous et sollicite une recommandation de votre part. Vous pouvez l'aider en montrant que vous validez cette expérience sur Diagoriente, la plateforme pour trouver son orientation et accéder à l'emploi.\nBien cordialement,`,
       });
     }
     // eslint-disable-next-line
@@ -116,7 +119,6 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
 
   return (
     <>
-      <div></div>
       <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5">
         <div className={classes.modalContainer}>
           <div className={classes.titleContainer}>
@@ -180,14 +182,23 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               {!state.values.email ? 'Champ requis ' : 'Email invalide'}
             </span>
           </form>
-          <div className={classes.btnContainerModal}>
-            <Button className={classes.btn} onClick={() => handleSecondOpen()}>
-              <div className={classes.btnLabel}>Suivant</div>
-            </Button>
-          </div>
           <div className={classes.required}>
             <span className={classes.start}>* </span>
             Champs obligatoires
+          </div>
+
+          {/*           <div className={classes.btnContainerModal}>
+            <Button className={classes.btn} onClick={() => handleSecondOpen()}>
+              <div className={classes.btnLabel}>Suivant</div>
+            </Button>
+          </div> */}
+          <div className={classes.previousNext}>
+            <div>
+              <PreviousButton deleteArrow children="Annuler" onClick={() => handleClose()} />
+            </div>
+            <div>
+              <NextButton onClick={() => handleSecondOpen()} />{' '}
+            </div>
           </div>
         </div>
       </ModalContainer>
@@ -239,7 +250,7 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
             </div>
           </form>
 
-          <div className={classes.btnSuccModal}>
+          {/*  <div className={classes.btnSuccModal}>
             <Button className={classes.btn} onClick={handleThirdOpen}>
               <div className={classes.btnLabel}>Suivant</div>
             </Button>
@@ -247,6 +258,18 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
           <div className={classes.precedbutton} onClick={handlePreced}>
             <CancelButton />
             <span> Précedent</span>
+          </div> */}
+          <div className={classes.previousNext}>
+            <div>
+              <PreviousButton
+                onClick={() => {
+                  handlePreced();
+                }}
+              />
+            </div>
+            <div>
+              <NextButton children="J’envoie" onClick={() => handleThirdOpen()} />{' '}
+            </div>
           </div>
         </div>
       </ModalContainer>
