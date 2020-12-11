@@ -25,6 +25,9 @@ export default makeStyles((theme) => ({
   imgContainer: {
     width: 'fit-content !important',
   },
+  squareContainerClassName: {
+    height: '10px !important',
+  },
   titleThemeDone: {
     fontSize: 14,
   },
@@ -39,6 +42,8 @@ export default makeStyles((theme) => ({
   titleClassName: {
     whiteSpace: 'nowrap',
     fontSize: 14,
+    fontWeight: 700,
+    marginTop: 50,
   },
 
   classNameTitle: {
@@ -99,14 +104,22 @@ export default makeStyles((theme) => ({
     fontWeight: 'bold',
   },
 
+  titleContainer: {
+    width: '100%',
+    height: 160,
+    backgroundColor: '#FFFFFF',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   modalContainer: {
     display: 'flex',
-    paddingTop: '30px',
-    paddingBottom: '20px',
+    paddingBottom: '74px',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
+    backgroundColor: '#F3F2F4',
   },
 
   titleModal: {
@@ -115,11 +128,12 @@ export default makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.primary.main,
     textTransform: 'uppercase',
-    marginTop: 10,
+    marginBottom: 10,
   },
 
   descriptionModal: {
-    fontSize: 18,
+    fontSize: 14,
+    fontWeight: 400,
     textAlign: 'center',
     color: '#424242',
     marginTop: 15,
@@ -132,6 +146,7 @@ export default makeStyles((theme) => ({
     color: '#424242',
     marginTop: 20,
     marginBottom: 50,
+    width: '85%',
   },
 
   subTitle: {
@@ -161,23 +176,19 @@ export default makeStyles((theme) => ({
   },
 
   experienceContainer: {
-    width: '100%',
+    width: '85%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    paddingLeft: 91,
-    paddingRight: 107,
     marginBottom: 15,
   },
 
   formContainer: {
-    width: '100%',
+    width: '85%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     marginBottom: 15,
-    paddingLeft: 91,
-    paddingRight: 107,
   },
 
   inputContainer: {
@@ -192,8 +203,8 @@ export default makeStyles((theme) => ({
   message: {
     color: '#FF0060',
     fontSize: 14,
-    fontWeight: 'bold',
     marginTop: 15,
+    textAlign: 'center',
   },
 
   btnpreced: {
@@ -256,12 +267,22 @@ export default makeStyles((theme) => ({
     borderRadius: 5,
     width: '100%',
     resize: 'none',
+    '&: root': {
+      height: 265,
+    },
+    '&: multiline': {
+      padding: '35px 40px 30px 30px',
+    },
   },
 
   defaultValue: {
     fontSize: 14,
     color: '#6B6B6A',
+    lineHeight: '21px',
+    height: 265,
   },
+
+  multiline: { padding: '35px 40px 30px 30px' },
 
   popupContainer: {
     display: 'flex',
@@ -321,18 +342,5 @@ export default makeStyles((theme) => ({
     marginTop: 15,
     textAlign: 'center',
     paddingLeft: 20,
-    [theme.breakpoints.up('lg')]: {
-      paddingLeft: 20,
-    },
-    [theme.breakpoints.down('md')]: {
-      paddingLeft: 15,
-    },
-    [theme.breakpoints.down('sm')]: {
-      paddingRight: 0,
-    },
-    [theme.breakpoints.down('xs')]: {
-      paddingLeft: 9,
-      width: '95%',
-    },
   },
 }));
