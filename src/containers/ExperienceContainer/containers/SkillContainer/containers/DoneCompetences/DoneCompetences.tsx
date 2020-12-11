@@ -32,7 +32,7 @@ const ResultCompetences = ({ theme, match }: Props) => {
       typeXp = 'professionnelle';
       break;
     default:
-      typeXp = 'personnelle';
+      typeXp = ' personnelle';
   }
 
   return (
@@ -43,8 +43,7 @@ const ResultCompetences = ({ theme, match }: Props) => {
         </div>
         <div className={classes.description}>
           <p className={classes.text}>
-            Tu as ajouté une expérience
-            {typeXp}à ton parcours, et tu as identifié de nouvelles compétences.
+            Tu as ajouté une expérience {typeXp} à ton parcours et identifié de nouvelles compétences.
           </p>
         </div>
         {skill?.theme.type === 'professional' ? (
@@ -61,8 +60,8 @@ const ResultCompetences = ({ theme, match }: Props) => {
         <div className={classes.btnskillContainer}>
           <div className={classes.btnContainer}>
             <Link to="/experience">
-              <Button className={classes.btn}>
-                <div className={classes.btnLabel}>Ajouter une nouvelle expérience</div>
+              <Button className={classes.btn} childrenClassName={classes.btnChildrenClassName}>
+                <div className={classes.btnLabel}>J’ajoute une nouvelle expérience</div>
               </Button>
             </Link>
           </div>
