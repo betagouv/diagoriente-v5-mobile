@@ -190,6 +190,16 @@ export default makeStyles(() => ({
     height: '10px !important',
   },
 
+  selectedTooltipPoint: {
+    display: 'flex',
+    background: '#00CFFF',
+    borderRadius: '50%',
+    width: '10px !important',
+    height: '10px !important',
+    marginRight: 6,
+    marginTop: 8,
+  },
+
   tooltipPoint: {
     display: 'flex',
     background: '#00CFFF',
@@ -207,6 +217,17 @@ export default makeStyles(() => ({
     height: '10px !important',
     marginRight: 6,
   },
+
+  selectedTooltip: {
+    display: 'flex',
+    background: '#7AE6FF',
+    borderRadius: '50%',
+    width: '10px !important',
+    height: '10px !important',
+    marginRight: 6,
+    marginTop: 8,
+  },
+
   levelTitle: {
     fontSize: 12,
     lineHeight: '15px',
@@ -214,7 +235,7 @@ export default makeStyles(() => ({
   },
 
   dialogPaper: {
-    top: 155,
+    top: 162,
     width: '100% !important',
   },
 }));

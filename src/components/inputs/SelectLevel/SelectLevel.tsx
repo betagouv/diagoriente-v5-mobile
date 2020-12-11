@@ -73,11 +73,11 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
                 <div className={classes.selectedTooltipPointContainer}>
                   {[...Array(echelonValue[indexSelectedLevel])].map((p, point) => (
                     // eslint-disable-next-line
-                    <div key={point} className={classes.tooltipPoint} />
+                    <div key={point} className={classes.selectedTooltipPoint} />
                   ))}
                   {[...Array(4 - echelonValue[indexSelectedLevel])].map((p, point) => (
                     // eslint-disable-next-line
-                    <div key={point} className={classes.tooltip} />
+                    <div key={point} className={classes.selectedTooltip} />
                   ))}
                 </div>
               )}
