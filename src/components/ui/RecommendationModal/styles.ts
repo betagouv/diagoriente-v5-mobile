@@ -95,6 +95,17 @@ export default makeStyles((theme) => ({
     color: theme.palette.info.main,
   },
 
+  previousNext: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '8px 8px ',
+    position: 'fixed',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: 'white',
+  },
+
   info: {
     textAlign: 'center',
     textDecoration: 'underline',
