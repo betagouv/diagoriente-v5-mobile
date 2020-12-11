@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     paddingBottom: 20,
+    backgroundColor: '#F3F2F4',
   },
 
   content: {
@@ -15,18 +16,18 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    padding: '60px 30px 75px 30px',
   },
 
   header: {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    marginTop: 45,
   },
 
   title: {
     fontFamily: 'ocean',
-    fontSize: 62,
+    fontSize: 32,
     fontWeight: 900,
     color: '#FF0060',
   },
@@ -34,10 +35,11 @@ export default makeStyles((theme) => ({
   description: {
     marginTop: 30,
     marginBottom: 20,
-    width: 500,
+    width: '100%',
     alignItems: 'center',
-    fontSize: 42,
-    fontWeight: 900,
+    fontSize: 14,
+    fontWeight: 700,
+    padding: '0px 15px',
   },
 
   text: {
@@ -76,8 +78,8 @@ export default makeStyles((theme) => ({
   btn: {
     backgroundColor: theme.palette.secondary.main,
     fontSize: 18,
-    fontWeight: 'bold',
-    width: 340,
+    fontWeight: 700,
+    width: '100%',
     '&:hover': {
       backgroundColor: '#00B2DB',
     },
@@ -100,7 +102,7 @@ export default makeStyles((theme) => ({
     backgroundColor: '#D60051',
     fontSize: 18,
     fontWeight: 'bold',
-    width: 340,
+    width: '100%',
     color: '#fff',
     '&:hover': {
       backgroundColor: '#FF0060',
@@ -109,6 +111,10 @@ export default makeStyles((theme) => ({
 
   btnLabel: {
     color: theme.palette.info.main,
+  },
+
+  btnChildrenClassName: {
+    margin: '3px 10px 3px 10px !important',
   },
 
   info: {
@@ -141,11 +147,18 @@ export default makeStyles((theme) => ({
   },
 
   size: {
-    fontSize: 18,
+    fontSize: 14,
+    paddingTop: 10,
+  },
+
+  themeDoneContainer: {
+    width: '100%',
+    marginTop: 25,
   },
 
   titleThemeDone: {
-    fontSize: 20,
+    fontSize: '14px',
+    fontWeight: 400,
   },
 
   checked: {
