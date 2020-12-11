@@ -23,10 +23,9 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   activities: Activity[];
   setActivities: (activities: Activity[]) => void;
   isCreate?: boolean;
-
 }
 
-const ExperienceActivity = ({ match, activities, setActivities, history , theme, isCreate, location }: Props) => {
+const ExperienceActivity = ({ match, activities, setActivities, history, theme, isCreate, location }: Props) => {
   const classes = useStyles();
   const { redirect } = decodeUri(location.search);
   const addActivity = (activite: Activity) => {
@@ -45,12 +44,12 @@ const ExperienceActivity = ({ match, activities, setActivities, history , theme,
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
-console.log("activite",activities.length)
-console.log("disabled",!activities.length)
+  console.log('activite', activities.length);
+  console.log('disabled', !activities.length);
 
-const onNavigate = () => {
-  if (activities.length)  history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`)
-};
+  const onNavigate = () => {
+    if (activities.length) history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
+  };
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -100,43 +99,25 @@ const onNavigate = () => {
                 );
               })}
           </div>
-          </div>
-          </div>
-          {/* <div className={classes.footerContainer}> */}
-          <div  className={classes.previousNext}>
-            <div> 
-            {isCreate && (
+        </div>
+      </div>
+      <div className={classes.previousNext}>
+        <div>
+          {/*  {isCreate && ( */}
           <Link
             to={`/experience/${theme.type === 'professional' ? 'theme-pro' : 'theme'}${location.search}`}
             className={classes.btnpreced}
-          > 
-          <PreviousButton
-          classNameTitle={classes.classNameTitle}
-          ArrowColor="#4D6EC5"
-        />
+          >
+            <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
           </Link>
-        )}
-        
-            </div>
+          {/*  )} */}
+        </div>
 
-<div onClick={onNavigate} className={classes.hideLine}  > 
-           {/* <Link
-            to={`/experience/skill/${match.params.themeId}/competences${location.search}`}
-            className={classes.hideLine}
-          > */}
-            <NextButton  disabled={!activities.length}  />
-          {/* </Link> */}
-   </div>
-     
-
-  
-          
-       
-       </div>
-  </div>
-         
-      // </div>
-    
+        <div onClick={onNavigate} className={classes.hideLine}>
+          <NextButton disabled={!activities.length} />
+        </div>
+      </div>
+    </div>
   );
 };
 export default ExperienceActivity;
