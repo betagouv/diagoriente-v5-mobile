@@ -185,11 +185,24 @@ export default makeStyles((theme: Theme) =>
       paddingBottom: 10,
     },
 
-    footerContainer: {
+
+    previousNext: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '8px 8px ',
       position: 'fixed',
       bottom: 0,
       width: '100%',
       backgroundColor: 'white',
-    },
+  },
+  classNameTitle: {
+    color: '#4D6EC5',  
+    fontSize: 18,
+    lineHeight: '26px'
+  
+  },
+  
+
   }),
 );

@@ -19,17 +19,17 @@ export default makeStyles((theme: Theme) =>
       [theme.breakpoints.down('sm')]: {
         padding: '0px',
       },
+      minHeight:'calc(100vh - 148px)',
     },
 
     themeContainer: {
       position: 'relative',
       width: '100%',
-      // height: '563px',
       backgroundColor: '#F3F2F4',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      // paddingTop: 34,
+      flex:1,
     },
 
     themeTitle: {
@@ -125,14 +125,7 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'normal',
     },
 
-    // header: {
-    //   height: 50,
-    //   display: 'flex',
-    //   justifyContent: 'space-between',
-    //   margin: '27px 0px 14px 27px',
-    //   alignItems: 'center',
-    //   // width: '100%',
-    // },
+    
 
 
 
@@ -198,28 +191,37 @@ export default makeStyles((theme: Theme) =>
       // },
     },
    
-    // ArrowColor: {
-    //   color: '#fff',
-    // },
+
    
-    footerContainer: {
-      position: 'fixed' ,
+   
+    previousNext: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '8px 8px ',
+      position: 'fixed',
       bottom: 0,
       width: '100%',
-      backgroundColor: 'white'
+      backgroundColor: 'white',
+  },
+  classNameTitle: {
+    color: '#4D6EC5',  
+    fontSize: 18,
+    lineHeight: '26px'
+  
+  },
 
-    },
-    child:{
-      position: 'fixed',
-      bottom : 0,
-      width: '100%',
-      display: 'flex',
-      padding: '2px 35px',
-      // box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
-      flexDirection: 'column',
-      backgroundColor:'white',
+  btnpreced: {
+    color: '#6B6B6A',
+    height: 50,
+    marginTop: 33,
+    fontSize: 14,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    textDecoration: 'none',
 
-  }
+  },
+
     
  
 
