@@ -182,6 +182,7 @@ export default makeStyles((theme: Theme) =>
     },
     errorMessage: {
       color: theme.palette.error.main,
+      paddingBottom: 10,
     },
 
     footerContainer: {
