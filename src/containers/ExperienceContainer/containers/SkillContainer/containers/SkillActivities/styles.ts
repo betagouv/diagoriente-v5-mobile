@@ -47,9 +47,11 @@ export default makeStyles((theme: Theme) =>
       marginTop: 33,
       fontSize: 14,
       textAlign: 'center',
-      textDecoration: 'underline',
       fontWeight: 'bold',
+      textDecoration: 'none',
+
     },
+  
 
     arrowpreced: {
       marginRight: 13,
@@ -141,5 +143,28 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
       margin: '0px 10px',
     },
+    // footerContainer: {
+    //   position: 'fixed',
+    //   bottom: 0,
+    //   width: '100%',
+    //   backgroundColor: 'white',
+    // },
+    previousNext: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '8px 8px ',
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      backgroundColor: 'white',
+  },
+  classNameTitle: {
+    color: '#4D6EC5',  
+    fontSize: 18,
+    lineHeight: '26px',
+
+  
+  },
   }),
 );
