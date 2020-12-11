@@ -8,13 +8,17 @@ export default makeStyles(() => ({
       width: 500,
     },
   },
+  paper: {
+    margin: '0px !important',
+    position: 'absolute!important' as 'absolute',
+  },
   select: {
     padding: '0px',
     width: '100%',
   },
   closeThemeModal: {
     height: 82,
-    paddingLeft: 70,
+    paddingLeft: 30,
   },
   closeModelContainer: {
     minHeight: 26,
@@ -166,7 +170,7 @@ export default makeStyles(() => ({
   },
 
   ItemMenuContent: {
-    padding: '15px 55px',
+    padding: '15px 30px',
   },
 
   pointsTitleContainer: {
@@ -235,7 +239,7 @@ export default makeStyles(() => ({
   },
 
   dialogPaper: {
-    top: 162,
+    bottom: 0,
     width: '100% !important',
   },
 }));
