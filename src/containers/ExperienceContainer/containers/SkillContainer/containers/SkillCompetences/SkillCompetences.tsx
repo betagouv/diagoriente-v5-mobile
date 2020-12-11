@@ -30,13 +30,21 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
   const [open, setOpen] = React.useState(false);
   const [text, setText] = React.useState('');
   const [showInfo, setShowInfo] = useState(false);
+  const [currentInfoId, setCurrentInfoId] = useState('');
+  const [currentInfoIndex, setCurrentInfoIndex] = useState(-1);
   const { redirect } = decodeUri(location.search);
 
-  const handleShowInfo = () => {
+  const handleShowInfo = (id: string) => {
+    const index = theme?.tooltips.findIndex((e) => e.competenceId === id);
+    {
+      index && setCurrentInfoIndex(index);
+    }
+    setCurrentInfoId(id);
     setShowInfo(true);
   };
 
   const addCompetence = (competence: Competence) => {
+    setShowInfo(false);
     if (competences.length < 4) {
       setCompetences([...competences, competence]);
     } else if (competences.length === 4) {
@@ -96,31 +104,24 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
             {data?.competences.data.map((comp, index) => {
               const selected = competences.find((e) => e.id === comp.id);
               const tooltip = theme?.tooltips.find((e) => e.competenceId === comp.id);
-              console.log('competence', selected);
-              console.log('tooltip', tooltip);
-              console.log('showInfo', showInfo);
               return (
                 <Grid key={comp.id} item xs={12} md={6}>
-                  <Tooltip
-                    open={!tooltip?.tooltip ? false : undefined}
-                    title={<Child key={index}>{tooltip && tooltip.tooltip}</Child>}
-                    arrow
-                    placement="left"
+                  <Button
+                    childrenClassName={classes.margin}
+                    className={classNames(classes.competences, selected && classes.selectedCompetence)}
+                    onClick={() => {
+                      setShowInfo(false);
+                      !selected
+                        ? !showInfo || (showInfo && currentInfoId !== comp.id)
+                          ? handleShowInfo(comp.id)
+                          : addCompetence(comp as any)
+                        : deleteCompetence(comp.id);
+                    }}
                   >
-                    <Button
-                      childrenClassName={classes.margin}
-                      className={classNames(classes.competences, selected && classes.selectedCompetence)}
-                      onClick={() => {
-                        handleShowInfo();
-                        !selected ? addCompetence(comp as any) : deleteCompetence(comp.id);
-                      }}
-                      /* onDoubleClick={() => (!selected ? addCompetence(comp as any) : deleteCompetence(comp.id))} */
-                    >
-                      {comp.title}
-                    </Button>
-                  </Tooltip>
+                    {comp.title}
+                  </Button>
                   <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
-                    <Child key={index}>{tooltip && tooltip.tooltip}</Child>
+                    <Child key={index}>{currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}</Child>
                   </Slide>
                 </Grid>
               );
