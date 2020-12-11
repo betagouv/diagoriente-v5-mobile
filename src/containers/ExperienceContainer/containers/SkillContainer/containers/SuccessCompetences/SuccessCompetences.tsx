@@ -1,15 +1,11 @@
 import React, { useContext } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
 import { Theme } from 'requests/types';
-
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import Recommendation from 'components/ui/RecommendationModal/RecommendationModal';
-
 import Button from 'components/button/Button';
-
 import ParcourContext from 'contexts/ParcourContext';
 import check from 'assets/svg/check.svg';
-
 import useStyles from './styles';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
