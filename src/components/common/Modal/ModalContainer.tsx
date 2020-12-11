@@ -39,12 +39,12 @@ const ModalContainer = ({
     >
       <div className={classes.modalContainer}>
         <div className={classes.modal}>
-          {handleClose && (
+          {/*  {handleClose && (
             <div className={classes.header}>
               {title}
               <Reset className={classes.reset} color={colorIcon} label="Fermer" onClick={onReset || handleClose} />
             </div>
-          )}
+          )} */}
           <div className={classes.modalContainerBody}>{children}</div>
         </div>
       </div>
