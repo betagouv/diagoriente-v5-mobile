@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   root: {
     width: '100%',
-    height: '100%',
+    height: '100vh',
     display: 'flex',
     justifyContent: 'center',
     backgroundColor: '#F3F2F4',
