@@ -40,22 +40,33 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
       firstName: '',
       lastName: '',
       comment: '',
+      confirmEmail: '',
     },
     validation: {
       email: validateEmail,
+      firstName: (value) => {
+        if (!value) return 'Champ requis ';
+        if (value.length < 3) return 'Nom invalide (3 caractères minimum)';
+        return '';
+      },
+      lastName: (value) => {
+        if (!value) return 'Champ requis ';
+        if (value.length < 3) return 'Prénom invalide (3 caractères minimum)';
+        return '';
+      },
     },
-    required: ['email', 'comment'],
+    required: ['firstName', 'lastName', 'email', 'comment', 'confirmEmail'],
   });
 
   useEffect(() => {
     if (secondOpen) {
       actions.setValues({
-        comment: `Bonjour${NameFormator(state.values.firstName)} ${NameFormator(state.values.lastName)}, \n\n${user &&
+        comment: `Bonjour ${NameFormator(state.values.firstName)} ${NameFormator(state.values.lastName)}, \n\n${user &&
           NameFormator(user?.profile.firstName)} ${user &&
           NameFormator(
             user?.profile.lastName,
             // eslint-disable-next-line
-          )} a effectué une expérience professionnelle chez vous et sollicite une recommandation de votre part. Vous pouvez l'aider en montrant que vous validez cette expérience sur Diagoriente, la plateforme pour trouver son orientation et accéder à l'emploi.\nBien cordialement,`,
+          )} a effectué une expérience professionnelle chez vous et sollicite une recommandation de votre part. Vous pouvez l'aider en montrant que vous validez cette expérience sur Diagoriente, la plateforme pour trouver son orientation et accéder à l'emploi.\n \nBien cordialement,`,
       });
     }
     // eslint-disable-next-line
@@ -138,10 +149,10 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
             </Avatar>
           )}
 
-          <div className={classes.descriptionModal}>Je souhaite demander une recommandation à :</div>
+          <span className={classes.descriptionModal}>Je souhaite demander une recommandation à :</span>
           <form className={classes.formContainer}>
             <Input
-              label="Nom :"
+              label="Nom"
               name="firstName"
               value={state.values.firstName}
               onChange={actions.handleChange}
@@ -149,10 +160,11 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               className={classes.marginInput}
               placeholder="ex : Marie"
               inputClassName={classes.fontInput}
+              required
             />
 
             <Input
-              label="Prénom :"
+              label="Prénom"
               name="lastName"
               value={state.values.lastName}
               onChange={actions.handleChange}
@@ -160,6 +172,7 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               className={classes.marginInput}
               placeholder="ex : Dupont"
               inputClassName={classes.fontInput}
+              required
             />
 
             <Input
@@ -173,13 +186,34 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               inputClassName={classes.fontInput}
               required
             />
+            {state.touched.email && validateEmail(state.values.email) && (
+              <span
+                className={classNames(
+                  classes.hideText,
+                  state.touched.email && validateEmail(state.values.email) && classes.errorName,
+                )}
+              >
+                {!state.values.email ? '  Champ requis ' : 'Email invalide'}
+              </span>
+            )}
+            <Input
+              label="Confirmez votre email"
+              name="confirmEmail"
+              placeholder="ex : mail@exemple.com "
+              value={state.values.confirmEmail}
+              onChange={actions.handleChange}
+              errorText={state.touched.confirmEmail && state.errors.confirmEmail}
+              className={classes.marginInput}
+              inputClassName={classes.fontInput}
+              required
+            />
             <span
               className={classNames(
                 classes.hideText,
-                state.touched.email && validateEmail(state.values.email) && classes.errorName,
+                state.touched.confirmEmail && state.errors.confirmEmail && classes.errorName,
               )}
             >
-              {!state.values.email ? 'Champ requis ' : 'Email invalide'}
+              {state.touched.confirmEmail && state.errors.confirmEmail}
             </span>
           </form>
           <div className={classes.required}>
