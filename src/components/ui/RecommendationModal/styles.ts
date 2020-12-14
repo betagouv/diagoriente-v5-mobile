@@ -30,6 +30,9 @@ export default makeStyles((theme) => ({
   },
   titleThemeDone: {
     fontSize: 14,
+    marginTop: 30,
+    fontWeight: 700,
+    marginBottom: 30,
   },
 
   title: {
@@ -104,6 +107,8 @@ export default makeStyles((theme) => ({
     bottom: 0,
     width: '100%',
     backgroundColor: 'white',
+    boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+    zIndex: 1,
   },
 
   info: {
@@ -128,7 +133,7 @@ export default makeStyles((theme) => ({
     paddingBottom: '74px',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    height: '100%',
     flex: 1,
     backgroundColor: '#F3F2F4',
   },
