@@ -42,6 +42,10 @@ const Experience = () => {
     }
   };
 
+  const onClickLink = (link: string) => {
+    history.push(link);
+  };
+
   return (
     <div className={classes.container}>
       <Title title="mes expériences" size={32} color="#223A7A" />
@@ -67,7 +71,7 @@ const Experience = () => {
             avatarCircleBackground="transparent"
             circleClassName={classes.circleStyle}
           >
-            <img src={IlluExpPerso} alt="" className={classes.illus} />
+            <img src={IlluExpPerso} alt="" className={classes.illus} onClick={() => onClickLink('/experience/theme')} />
           </Avatar>
         </div>
         <div className={classes.avatarWrapper}>
@@ -91,7 +95,12 @@ const Experience = () => {
               avatarCircleBackground="transparent"
               circleClassName={classes.circleStyle}
             >
-              <img src={IlluExpPro} alt="" className={classes.illus} />
+              <img
+                src={IlluExpPro}
+                alt=""
+                className={classes.illus}
+                onClick={() => onClickLink('/experience/theme-pro')}
+              />
             </Avatar>
           </div>
         </div>
@@ -109,7 +118,7 @@ const Experience = () => {
             titleClassName={classNames(classes.marginTitle, classes.titleAlignLeft)}
             circleClassName={classes.circleStyleEng}
           >
-            <img src={illExpEng} alt="ill" className={classes.illus} />
+            <img src={illExpEng} alt="ill" className={classes.illus} onClick={onClickEng} />
           </Avatar>
         </div>
 
