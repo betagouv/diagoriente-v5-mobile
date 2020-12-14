@@ -185,7 +185,6 @@ export default makeStyles((theme: Theme) =>
       paddingBottom: 10,
     },
 
-
     previousNext: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -195,14 +194,13 @@ export default makeStyles((theme: Theme) =>
       bottom: 0,
       width: '100%',
       backgroundColor: 'white',
-  },
-  classNameTitle: {
-    color: '#4D6EC5',  
-    fontSize: 18,
-    lineHeight: '26px'
-  
-  },
-  
-
+      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+      zIndex: 1,
+    },
+    classNameTitle: {
+      color: '#4D6EC5',
+      fontSize: 18,
+      lineHeight: '26px',
+    },
   }),
 );
