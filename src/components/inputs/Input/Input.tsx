@@ -44,7 +44,7 @@ const Input = ({
   const classes = useStyles({ error: !!(errorText || errorForm), isfull });
 
   return (
-    <div className={classNames(classes.root, className)}>
+    <div className={label ? classNames(classes.rootGrid, className) : classNames(classes.root, className)}>
       {label && (
         <div className={classes.labelContainer}>
           <div className={classes.label}>
@@ -60,7 +60,7 @@ const Input = ({
         </div>
       )}
 
-      <div className={classes.wrapperInput}>
+      <div className={label ? classes.wrapperInputGrid : classes.wrapperInput}>
         <TextField
           value={value}
           className={classes.inputRoot}

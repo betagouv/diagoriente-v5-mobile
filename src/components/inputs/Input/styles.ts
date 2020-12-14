@@ -1,23 +1,45 @@
+import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) => ({
-  root: {
+  rootGrid: {
     display: 'grid',
     gridTemplateAreas: '"label input"',
-    gridTemplateColumns: '70px 229px',
+    gridTemplateColumns: '158px 229px',
     gridGap: '15px',
     gridTemplateRows: '35px',
     alignItems: 'center',
     justifyContent: 'center',
     margin: '0px 0px 0px 0px',
     width: '100%',
+    [theme.breakpoints.down(480)]: {
+      display: 'flex',
+      width: '100%',
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      gridGap: '0px',
+    },
   },
-  wrapperInput: {
+  root: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: '0px 0px 0px 0px',
+    width: '100%',
+  },
+
+  wrapperInputGrid: {
     gridArea: 'input',
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
   },
+  wrapperInput: {
+    display: 'flex',
+    alignItems: 'center',
+    position: 'relative',
+  },
+
   inputBase: {
     height: 35,
     width: 229,
@@ -108,6 +130,11 @@ export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) =
     alignItems: 'flex-end',
     height: '100%',
     justifyContent: 'center',
+    [theme.breakpoints.down(480)]: {
+      gridArea: '"label"',
+      alignItems: 'flex-start',
+      height: 'auto',
+    },
   },
   label: {
     fontWeight: 'bold',
