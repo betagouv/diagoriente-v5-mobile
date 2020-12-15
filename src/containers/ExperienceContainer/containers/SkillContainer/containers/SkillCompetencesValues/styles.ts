@@ -22,7 +22,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      minHeight: "calc(100vh - 150px)",
+      minHeight: 'calc(100vh - 150px)',
       paddingTop: 34,
     },
 
@@ -267,12 +267,13 @@ export default makeStyles((theme: Theme) =>
       bottom: 0,
       width: '100%',
       backgroundColor: 'white',
-  },
-  classNameTitle: {
-    color: '#4D6EC5',  
-    fontSize: 18,
-    lineHeight: '26px'
-  
-  },
+      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+      zIndex: 1,
+    },
+    classNameTitle: {
+      color: '#4D6EC5',
+      fontSize: 18,
+      lineHeight: '26px',
+    },
   }),
 );
