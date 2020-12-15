@@ -7,6 +7,7 @@ import RestLogo from 'components/common/Rest/Rest';
 import Button from 'components/nextButton/nextButton';
 import CancelButton from 'components/cancelButton/CancelButton';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
+import PreviousButton from 'components/previousButton/previousButton';
 import Select from 'components/inputs/SelectLevel/SelectLevel';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
 import classNames from 'utils/classNames';
@@ -132,20 +133,24 @@ const SkillCompetencesValues = ({
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className={classes.previousNext}>
+        <div>
+          <Link
+            to={`/experience/skill/${match.params.themeId}/competences${location.search}`}
+            className={classes.btnpreced}
+          >
+            <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
+          </Link>
+        </div>
+        <div>
           <Button
             fetching={addSkillState}
             disabled={!(competencesValues.length === competences.length)}
             onClick={addSkill}
-          />
+          />{' '}
         </div>
-
-        <Link
-          to={`/experience/skill/${match.params.themeId}/competences${location.search}`}
-          className={classes.btnpreced}
-        >
-          <CancelButton />
-          Précedent
-        </Link>
       </div>
     </div>
   );

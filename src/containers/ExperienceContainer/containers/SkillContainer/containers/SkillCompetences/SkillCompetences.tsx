@@ -6,6 +6,8 @@ import { Competence, Theme } from 'requests/types';
 import Title from 'components/common/TitleImage/TitleImage';
 import Grid from '@material-ui/core/Grid';
 import Slide from '@material-ui/core/Slide';
+import PreviousButton from 'components/previousButton/previousButton';
+import NavigationButton from 'components/NavigationButton/NavigationButton';
 import NextButton from 'components/nextButton/nextButton';
 import Button from 'components/button/Button';
 import CancelButton from 'components/cancelButton/CancelButton';
@@ -30,13 +32,21 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
   const [open, setOpen] = React.useState(false);
   const [text, setText] = React.useState('');
   const [showInfo, setShowInfo] = useState(false);
+  const [currentInfoId, setCurrentInfoId] = useState('');
+  const [currentInfoIndex, setCurrentInfoIndex] = useState(-1);
   const { redirect } = decodeUri(location.search);
 
-  const handleShowInfo = () => {
+  const handleShowInfo = (id: string) => {
+    const index = theme?.tooltips.findIndex((e) => e.competenceId === id);
+    {
+      index && setCurrentInfoIndex(index);
+    }
+    setCurrentInfoId(id);
     setShowInfo(true);
   };
 
   const addCompetence = (competence: Competence) => {
+    setShowInfo(false);
     if (competences.length < 4) {
       setCompetences([...competences, competence]);
     } else if (competences.length === 4) {
@@ -64,7 +74,10 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
-
+  const onNavigate = () => {
+    if (competences.length || competences.length > 4) history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
+    setOpen(false);
+  };
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -96,51 +109,47 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
             {data?.competences.data.map((comp, index) => {
               const selected = competences.find((e) => e.id === comp.id);
               const tooltip = theme?.tooltips.find((e) => e.competenceId === comp.id);
-              console.log('competence', selected);
-              console.log('tooltip', tooltip);
-              console.log('showInfo', showInfo);
               return (
                 <Grid key={comp.id} item xs={12} md={6}>
-                  <Tooltip
-                    open={!tooltip?.tooltip ? false : undefined}
-                    title={<Child key={index}>{tooltip && tooltip.tooltip}</Child>}
-                    arrow
-                    placement="left"
+                  <Button
+                    childrenClassName={classes.margin}
+                    className={classNames(classes.competences, selected && classes.selectedCompetence)}
+                    onClick={() => {
+                      setShowInfo(false);
+                      !selected
+                        ? !showInfo || (showInfo && currentInfoId !== comp.id)
+                          ? handleShowInfo(comp.id)
+                          : addCompetence(comp as any)
+                        : deleteCompetence(comp.id);
+                    }}
                   >
-                    <Button
-                      childrenClassName={classes.margin}
-                      className={classNames(classes.competences, selected && classes.selectedCompetence)}
-                      onClick={() => {
-                        handleShowInfo();
-                        !selected ? addCompetence(comp as any) : deleteCompetence(comp.id);
-                      }}
-                      /* onDoubleClick={() => (!selected ? addCompetence(comp as any) : deleteCompetence(comp.id))} */
-                    >
-                      {comp.title}
-                    </Button>
-                  </Tooltip>
+                    {comp.title}
+                  </Button>
                   <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
-                    <Child key={index}>{tooltip && tooltip.tooltip}</Child>
+                    <Child key={index}>{currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}</Child>
                   </Slide>
                 </Grid>
               );
             })}
           </Grid>
+          <div  className={classes.previousNext}>
+          
           <Link
-            to={`/experience/skill/${match.params.themeId}/competencesValues${location.search}`}
+          //   to="/experience"
+          to={`/experience/skill/${match.params.themeId}/activities${location.search}`}
             className={classes.hideLine}
           >
-            <NextButton disabled={!competences.length || competences.length > 4} />
+            <PreviousButton
+              classNameTitle={classes.classNameTitle}
+              ArrowColor="#4D6EC5"
+            />
           </Link>
-        </div>
-
-        <Link
-          to={`/experience/skill/${match.params.themeId}/activities${location.search}`}
-          className={classes.btnpreced}
-        >
-          <CancelButton />
-          Précedent
-        </Link>
+          
+          <div onClick={onNavigate} className={classes.hideLine}>
+                  <NextButton disabled={!competences.length || competences.length > 4} />
+                </div> 
+                </div>
+       
       </div>
       <Popup open={open} handleClose={handleClose} iconClassName={classes.iconClassName}>
         <div className={classes.popupContainer}>
@@ -150,6 +159,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
           </Button>
         </div>
       </Popup>
+    </div>
     </div>
   );
 };

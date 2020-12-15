@@ -21,6 +21,7 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       paddingTop: 34,
+      height: '100vh',
     },
 
     circleContainer: {
@@ -47,8 +48,8 @@ export default makeStyles((theme: Theme) =>
       marginTop: 33,
       fontSize: 14,
       textAlign: 'center',
-      textDecoration: 'underline',
       fontWeight: 'bold',
+      textDecoration: 'none',
     },
 
     arrowpreced: {
@@ -140,6 +141,24 @@ export default makeStyles((theme: Theme) =>
       justifyContent: 'center',
       width: '100%',
       margin: '0px 10px',
+    },
+
+    previousNext: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '8px 8px ',
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      backgroundColor: 'white',
+      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+      zIndex: 1,
+    },
+    classNameTitle: {
+      color: '#4D6EC5',
+      fontSize: 18,
+      lineHeight: '26px',
     },
   }),
 );

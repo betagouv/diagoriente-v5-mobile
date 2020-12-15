@@ -8,13 +8,17 @@ export default makeStyles(() => ({
       width: 500,
     },
   },
+  paper: {
+    margin: '0px !important',
+    position: 'absolute!important' as 'absolute',
+  },
   select: {
     padding: '0px',
     width: '100%',
   },
   closeThemeModal: {
     height: 82,
-    paddingLeft: 70,
+    paddingLeft: 30,
   },
   closeModelContainer: {
     minHeight: 26,
@@ -166,7 +170,7 @@ export default makeStyles(() => ({
   },
 
   ItemMenuContent: {
-    padding: '15px 55px',
+    padding: '15px 30px',
   },
 
   pointsTitleContainer: {
@@ -190,6 +194,16 @@ export default makeStyles(() => ({
     height: '10px !important',
   },
 
+  selectedTooltipPoint: {
+    display: 'flex',
+    background: '#00CFFF',
+    borderRadius: '50%',
+    width: '10px !important',
+    height: '10px !important',
+    marginRight: 6,
+    marginTop: 8,
+  },
+
   tooltipPoint: {
     display: 'flex',
     background: '#00CFFF',
@@ -207,6 +221,17 @@ export default makeStyles(() => ({
     height: '10px !important',
     marginRight: 6,
   },
+
+  selectedTooltip: {
+    display: 'flex',
+    background: '#7AE6FF',
+    borderRadius: '50%',
+    width: '10px !important',
+    height: '10px !important',
+    marginRight: 6,
+    marginTop: 8,
+  },
+
   levelTitle: {
     fontSize: 12,
     lineHeight: '15px',
@@ -214,7 +239,7 @@ export default makeStyles(() => ({
   },
 
   dialogPaper: {
-    top: 155,
+    bottom: 0,
     width: '100% !important',
   },
 }));
