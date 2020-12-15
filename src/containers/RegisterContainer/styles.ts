@@ -9,6 +9,12 @@ export default makeStyles((theme: Theme) => ({
     height: '100%',
     paddingBottom: 80,
     paddingTop: 60,
+    // [theme.breakpoints.down(392)]: {
+    //   width:'max-content',
+    //   },
+    // [theme.breakpoints.down(470)]: {
+    // width:'max-content',
+    // },
   },
   registerContainer: {
     maxWidth: 757,
@@ -33,25 +39,35 @@ export default makeStyles((theme: Theme) => ({
     lineHeight: 1.8,
   },
   formContainer: {
-    [theme.breakpoints.up('lg')]: {
-      paddingRight: 100,
-    },
-    [theme.breakpoints.down('md')]: {
-      paddingRight: 100,
-      paddingLeft: 0,
-    },
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: 80,
-    },
-    [theme.breakpoints.down('xs')]: {
-      paddingLeft: 20,
-      width: '95%',
-    },
+    // [theme.breakpoints.up('lg')]: {
+    //   paddingRight: 100,
+    // },
+    // [theme.breakpoints.down('md')]: {
+    //   paddingRight: 100,
+    //   paddingLeft: 0,
+    // },
+    // [theme.breakpoints.down('sm')]: {
+    //   paddingLeft: 80,
+    // },
+    // [theme.breakpoints.down('xs')]: {
+    //   paddingLeft: 20,
+    //   width: '95%',
+    // },
+    width:'min-content',
   },
   form: {
     marginTop: 30,
     display: 'flex',
+    alignItems:'center',
     flexDirection: 'column',
+    [theme.breakpoints.down(500)]: {
+      // paddingLeft: 50,
+      alignItems:'center',
+    },
+    [theme.breakpoints.down(350)]: {
+      paddingLeft: 20,
+      // alignItems:'flex-start',
+    },
   },
   avatarsWrapper: {
     margin: '9px 0px',
@@ -63,17 +79,23 @@ export default makeStyles((theme: Theme) => ({
     flexWrap: 'wrap',
   },
   labelContainer: {
-    textAlign: 'right',
     marginRight: 14,
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'left',
+    [theme.breakpoints.down(470)]: {
       marginRight: 0,
       marginBottom: 5,
+    //  [theme.breakpoints.down(470)]: {
+    //   paddingTop:20,
+    // }
+
+
     },
   },
   label: {
     fontSize: 14,
     fontWeight: 'bold',
+    // [theme.breakpoints.down(470)]: {
+    //   paddingTop:20,
+    // }
   },
   subLabel: {
     fontSize: 12,
@@ -98,7 +120,10 @@ export default makeStyles((theme: Theme) => ({
     marginTop: 15,
   },
   paddingBtn: {
-    paddingLeft: 30,
+    paddingLeft: 120,
+    [theme.breakpoints.down(470)]: {
+      paddingLeft:0
+      },
   },
   btn: {
     backgroundColor: theme.palette.secondary.main,
@@ -123,12 +148,21 @@ export default makeStyles((theme: Theme) => ({
   },
   groupText: {
     fontSize: 12,
+    paddingLeft:'155px',
+    [theme.breakpoints.down(470)]: {
+      paddingLeft:5
+      },
   },
   conditionText: {
     fontSize: 14,
     marginLeft: 8,
-    width: '95%',
+    marginRight:15,
+    width: 'max-content',
     cursor: 'pointer',
+    [theme.breakpoints.down(500)]: {
+     width: 255,
+     marginTop:30,
+    },
   },
   containerCheckbox: {
     display: 'flex',
@@ -174,18 +208,10 @@ export default makeStyles((theme: Theme) => ({
     fontSize: 14,
     textAlign: 'center',
     paddingLeft: 55,
-    [theme.breakpoints.up('lg')]: {
-      paddingLeft: 55,
-    },
-    [theme.breakpoints.down('md')]: {
-      paddingLeft: 50,
-    },
-    [theme.breakpoints.down('sm')]: {
-      paddingRight: 90,
-    },
-    [theme.breakpoints.down('xs')]: {
-      paddingLeft: 24,
-      width: '95%',
+    [theme.breakpoints.down(470)]: {
+      paddingLeft: 20,
+      textAlign: 'left',
+
     },
   },
 
@@ -203,4 +229,30 @@ export default makeStyles((theme: Theme) => ({
   requiredInput: {
     color: theme.palette.success.main,
   },
+  inputContainer:{
+    display: 'grid',
+    gridTemplateAreas: '"label input"',
+    gridTemplateColumns: '140px 229px',
+    gridGap: '15px',
+    gridTemplateRows: '45px',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: '0px 0px 0px 0px',
+    width: '100%',
+    [theme.breakpoints.down(470)]: {
+      display:'flex',
+      flexDirection:'column',
+      gridGap:0,
+      alignItems:'flex-start',
+      marginTop:20
+      },
+  },
+
+passeItem:{
+  paddingLeft:154,
+  
+  [theme.breakpoints.down(500)]: {
+    paddingLeft:5
+    },
+}
 }));
