@@ -52,6 +52,7 @@ const ForgotPassword = () => {
               label="Ton adresse e-mail"
               name="email"
               required
+              className={classes.inputContainer}
               placeholder="exmaple@gmail.com"
               value={state.values.email}
               onChange={actions.handleChange}
