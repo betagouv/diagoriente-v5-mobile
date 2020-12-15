@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import arrow from 'assets/images/Arrow.png';
-import classNames from 'utils/classNames';
 import useStyles from './styles';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import arrowClose from 'assets/svg/arrowDown.svg';
@@ -52,18 +51,11 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
     setOpen(false);
   };
 
-  const handleChange = (event: any, e: string) => {
-    // event.stopPropagation();
-    // event.preventDefault();
-    setTheme(e);
-  };
-
   return (
     <>
       <TextField
         label=""
         value={theme}
-        /*  defaultValue="Thèmes :" */
         variant="outlined"
         className={indexSelectedLevel < 0 ? classes.selectContainer : classes.selectLevelContainer}
         InputProps={{
@@ -73,11 +65,11 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
                 <div className={classes.selectedTooltipPointContainer}>
                   {[...Array(echelonValue[indexSelectedLevel])].map((p, point) => (
                     // eslint-disable-next-line
-                    <div key={point} className={classes.tooltipPoint} />
+                    <div key={point} className={classes.selectedTooltipPoint} />
                   ))}
                   {[...Array(4 - echelonValue[indexSelectedLevel])].map((p, point) => (
                     // eslint-disable-next-line
-                    <div key={point} className={classes.tooltip} />
+                    <div key={point} className={classes.selectedTooltip} />
                   ))}
                 </div>
               )}
@@ -92,6 +84,10 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
       ></TextField>
       <Dialog
         fullWidth
+        classes={{
+          /*  root: classes.dialogPaper, */
+          paper: classes.paper,
+        }}
         open={open}
         onClose={handleDialogClose}
         /*   TransitionComponent={Transition} */
@@ -136,7 +132,7 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
                   <div className={classes.echelon}>{e}</div>
                 </div>
                 <div className={classes.levelTitle}>
-                  "{levelsTab[index].title}"{/*  {levelsTab[index].sub_title} */}
+                  <p>"{levelsTab[index].title}"</p>
                 </div>
               </div>
               <Divider />

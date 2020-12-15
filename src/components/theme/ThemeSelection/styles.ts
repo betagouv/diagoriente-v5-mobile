@@ -4,15 +4,15 @@ import { Theme as RequestTheme } from 'requests/types';
 export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | null }>((theme: Theme) =>
   createStyles({
     appBar: {
-      bottom: 0,
       width: '100%',
       background: theme.palette.background.default,
       display: 'flex',
       justifyContent: 'center',
-    
+      position: 'fixed',
+      bottom: 66,
       flexDirection: 'column',
       transition: 'all 250ms cubic-bezier(0.4, 0, 1, 1) 0ms',
-      boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.25)',
+      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
     },
 
     container: {
@@ -112,7 +112,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     themeSelection: {
       display: 'flex',
       alignItems: 'center',
-      padding:30,
+      padding: 30,
     },
 
     themeTile: {
@@ -189,8 +189,9 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
         height: 40,
       },
     },
-    selctionBlob:{
+    selctionBlob: {
       display: 'flex',
-    alignItems: 'center',
-    }
-  }));
+      alignItems: 'center',
+    },
+  }),
+);

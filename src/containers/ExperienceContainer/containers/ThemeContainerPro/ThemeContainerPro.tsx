@@ -10,16 +10,16 @@ import SelectionContext from 'contexts/SelectionContext';
 import { useThemes } from 'requests/themes';
 
 
-import {  RouteComponentProps } from 'react-router-dom';
+import { Link ,  RouteComponentProps } from 'react-router-dom';
 import RestLogo from 'components/common/Rest/Rest';
 import Grid from '@material-ui/core/Grid';
 import Selection from 'components/theme/ThemeSelection/ThemeSelection';
 import parcoursContext from 'contexts/ParcourContext';
-
+import NextButton from 'components/nextButton/nextButton';
 import blueline from 'assets/svg/blueline.svg';
 import LoupeGray from 'assets/svg/loupe.svg';
 import LoupeBlue from 'assets/svg/loupeBlue.svg';
-
+import PreviousButton from 'components/previousButton/previousButton';
 import { decodeUri, encodeUri } from 'utils/url';
 import { Theme } from 'requests/types';
 import classNames from 'utils/classNames';
@@ -89,7 +89,9 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     setOpenedTheme(theme);
   };
 
-  
+  const onNavigate = () => {
+    if (selectedTheme) history.push(`/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` )
+  };
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -172,34 +174,6 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                      
                
                      )
-                      // return (
-                      //   <Tooltip 
-                      //     key={theme.id}
-                      //     open={!tooltip ? false : undefined}
-                      //     title= 
-                      //     {  <Child key={index} >
-                      //         {tooltip.map((el) => (
-                      //           <div key={el.id} className={classes.child}>{`-${el.title}`}</div>
-                      //         ))} 
-                      //       </Child> 
-                      //     }
-                          
-                      //   placement="bottom">  
-
-                      //     <Grid key={theme.id} item >
-                      //       <div
-                      //         className={classNames(
-                      //           classes.itemData,
-                      //           selectedTheme?.id === theme.id && classes.selected,
-                      //         )}
-                      //         onClick={() => showAvatar(theme)}
-                      //       > 
-                      //         {title}
-                      //       </div>
-                        
-                      //     </Grid>
-                      //   </Tooltip>
-                      // );
                     })} 
               </Grid> 
             </div>
@@ -207,14 +181,30 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
         
         </div>
       </div>
-      <div className={classes.footerContainer} >
       <Selection theme={selectedTheme} activities={[]} />
-          <NavigationButton selectedTheme={ selectedTheme}
+      <div  className={classes.previousNext}>
+        <div>
+        <Link
+          to={'/experience'}
+          className={classes.btnpreced}
+        >
+     <PreviousButton
+        classNameTitle={classes.classNameTitle}
+        ArrowColor="#4D6EC5"
+      />          
+        </Link>
+           </div>
+    <div onClick={onNavigate}>
+       <NextButton disabled={!selectedTheme}  /> 
+          </div>
+  
+          </div>
+          {/* <NavigationButton disabled={!selectedTheme}
            nextLink={selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''}
            previousLink={'/experience'}
-           />   
+           />    */}
            </div>
-          </div>
+        
   );
 };
 export default ThemeContainerPro;
