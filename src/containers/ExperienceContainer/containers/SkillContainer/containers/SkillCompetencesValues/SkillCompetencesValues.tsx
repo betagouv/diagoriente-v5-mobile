@@ -133,31 +133,25 @@ const SkillCompetencesValues = ({
               </div>
             </div>
           </div>
-       
         </div>
-
-       
       </div>
-      <div  className={classes.previousNext}>
+      <div className={classes.previousNext}>
         <div>
-        <Link
-          to={`/experience/skill/${match.params.themeId}/competences${location.search}`}
-          className={classes.btnpreced}
-        >
-     <PreviousButton
-        classNameTitle={classes.classNameTitle}
-        ArrowColor="#4D6EC5"
-      />          
-        </Link>
-           </div>
-    <div>
-       <Button
+          <Link
+            to={`/experience/skill/${match.params.themeId}/competences${location.search}`}
+            className={classes.btnpreced}
+          >
+            <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
+          </Link>
+        </div>
+        <div>
+          <Button
             fetching={addSkillState}
             disabled={!(competencesValues.length === competences.length)}
             onClick={addSkill}
-          /> </div>
-  
-          </div>
+          />{' '}
+        </div>
+      </div>
     </div>
   );
 };

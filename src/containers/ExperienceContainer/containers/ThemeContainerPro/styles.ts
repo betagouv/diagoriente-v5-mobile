@@ -6,7 +6,7 @@ import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 export default makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      height:'auto',
+      height: 'auto',
       display: 'flex',
       flexDirection: 'column',
     },
@@ -19,7 +19,7 @@ export default makeStyles((theme: Theme) =>
       [theme.breakpoints.down('sm')]: {
         padding: '0px',
       },
-      minHeight:'calc(100vh - 148px)',
+      minHeight: 'calc(100vh - 148px)',
     },
 
     themeContainer: {
@@ -29,7 +29,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      flex:1,
+      flex: 1,
     },
 
     themeTitle: {
@@ -49,8 +49,8 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       width: '100%',
       alignItems: 'center',
-      flexDirection:'column',
-      paddingBottom:100,
+      flexDirection: 'column',
+      paddingBottom: 100,
     },
     searchContainer: {
       width: '100%',
@@ -92,7 +92,6 @@ export default makeStyles((theme: Theme) =>
       width: 256,
       lineHeight: ' 20px',
       textAlign: 'center',
-
     },
     searchProp: {
       color: '#00CFFF',
@@ -124,10 +123,6 @@ export default makeStyles((theme: Theme) =>
     text: {
       fontWeight: 'normal',
     },
-
-    
-
-
 
     loadingContainer: {
       width: '100%',
@@ -190,10 +185,7 @@ export default makeStyles((theme: Theme) =>
       //   backgroundColor: theme.palette.background.default,
       // },
     },
-   
 
-   
-   
     previousNext: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -203,26 +195,23 @@ export default makeStyles((theme: Theme) =>
       bottom: 0,
       width: '100%',
       backgroundColor: 'white',
-  },
-  classNameTitle: {
-    color: '#4D6EC5',  
-    fontSize: 18,
-    lineHeight: '26px'
-  
-  },
+      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+      zIndex: 1,
+    },
+    classNameTitle: {
+      color: '#4D6EC5',
+      fontSize: 18,
+      lineHeight: '26px',
+    },
 
-  btnpreced: {
-    color: '#6B6B6A',
-    height: 50,
-    marginTop: 33,
-    fontSize: 14,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    textDecoration: 'none',
-
-  },
-
-    
- 
-
-  }));
+    btnpreced: {
+      color: '#6B6B6A',
+      height: 50,
+      marginTop: 33,
+      fontSize: 14,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      textDecoration: 'none',
+    },
+  }),
+);
