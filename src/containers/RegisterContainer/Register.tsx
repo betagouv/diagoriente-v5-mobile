@@ -61,7 +61,8 @@ const Register = () => {
   });
   const { values, errors, touched } = state;
   const [locationCall, { data, loading }] = useLocation({ variables: { search } });
-
+  const isBrowser = typeof window !== "undefined";
+  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
   const { loading: loadingAvatar, data: avatarData } = useAvatars();
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -148,6 +149,7 @@ const Register = () => {
               onChange={actions.handleChange}
               value={values.firstName}
               placeholder="prénom"
+              className={classes.inputContainer}
               required
               error={touched.firstName && errors.firstName !== ''}
               errorText={touched.firstName ? errors.firstName : ''}
@@ -156,6 +158,7 @@ const Register = () => {
               label="Ton nom de famille"
               onChange={actions.handleChange}
               value={values.lastName}
+              className={classes.inputContainer}
               name="lastName"
               required
               placeholder="nom"
@@ -163,8 +166,8 @@ const Register = () => {
               errorText={touched.lastName ? errors.lastName : ''}
             />
             <div className={classes.avatarsWrapper}>
-              <Grid container spacing={0}>
-                <Grid item xs={12} sm={4} md={5} lg={5}>
+              <div className={classes.avatarContainer}>
+                <div >
                   <div className={classes.labelContainer}>
                     <div className={classes.label}>
                       Ton image de profil
@@ -172,12 +175,12 @@ const Register = () => {
                     </div>
                     <div className={classes.subLabel}>Choisis un avatar</div>
                   </div>
-                </Grid>
-                <Grid item xs={12} sm={8} md={7} lg={7}>
+                </div>
+                <div className={classes.subAvatar} >
                   <div className={classes.avatarsContainer}>
                     {loadingAvatar && <Spinner />}
                     {avatarData?.avatars.data.map((el) => (
-                      <div key={el.id} style={{ margin: '0px 7px' }} onClick={() => onAvatarClick(el.url)}>
+                      <div key={el.id}  onClick={() => onAvatarClick(el.url)}>
                         <img
                           src={el.url}
                           alt=""
@@ -186,14 +189,15 @@ const Register = () => {
                       </div>
                     ))}
                   </div>
-                </Grid>
-              </Grid>
+                </div>
+              </div>
             </div>
             <Input
               label="Ton e-mail"
               onChange={actions.handleChange}
               value={values.email}
               name="email"
+              className={classes.inputContainer}
               required
               placeholder="email@gmail.com"
               error={touched.email && (errors.email !== '' || errorFormObject.key === 'email')}
@@ -206,6 +210,7 @@ const Register = () => {
               value={values.password}
               name="password"
               required
+              className={classes.inputContainer}
               type={!showPasswordState ? 'password' : ''}
               showPassword={() => onShowPassword()}
               placeholder="*******"
@@ -221,14 +226,14 @@ const Register = () => {
               errorText={touched.password ? errors.password : ''}
             />
             <div>
-              <Grid container spacing={0}>
-                <Grid item xs={12} sm={4} md={5} lg={5}>
+              <Grid  spacing={0}>
+                <Grid item >
                   <div className={classes.emptyDiv} />
                 </Grid>
-                <Grid item xs={12} sm={8} md={7} lg={7}>
-                  <div>
+                <Grid item >
+                  <div className={classes.passeItem}>
                     <div className={classes.optionItem}>
-                      Ton mot de passe doit comporter 6 caractères minimum, dont au moins :
+                      Ton mot de passe doit comporter 6 <br/> caractères minimum, dont au moins :
                     </div>
                     <div className={classes.option}>
                       <div className={classes.optionWrapper}>
@@ -286,6 +291,8 @@ const Register = () => {
               label="Code groupe"
               onChange={actions.handleChange}
               value={values.codeGroupe}
+              className={classes.inputContainer}
+
               name="codeGroupe"
               placeholder="ex: codeGroupe1"
               error={touched.codeGroupe && (errors.codeGroupe !== '' || errorFormObject.key === 'codeGroupe')}
@@ -293,23 +300,23 @@ const Register = () => {
               errorForm={errorFormObject.key === 'codeGroupe' ? errorFormObject.value : ''}
             />
             <div className={classes.groupTextContainer}>
-              <Grid container spacing={0}>
-                <Grid item xs={12} sm={4} md={5} lg={5}>
+              <Grid  spacing={0}>
+                <Grid item >
                   <div className={classes.emptyDiv} />
                 </Grid>
-                <Grid item xs={12} sm={8} md={7} lg={7}>
+                <Grid item >
                   <div className={classes.groupText}>
-                    Si tu es dans un groupe, renseigne ici le code qui t&lsquo;a été remis.
+                    Si tu es dans un groupe, renseigne ici <br/> le code qui t&lsquo;a été remis.
                   </div>
                 </Grid>
               </Grid>
             </div>
             <div className={classes.groupTextContainer}>
-              <Grid container spacing={0}>
-                <Grid item xs={12} sm={4} md={5} lg={5}>
+              <Grid spacing={0} xs={4} sm={6}>
+                <Grid item >
                   <div className={classes.emptyDiv} />
                 </Grid>
-                <Grid item xs={12} sm={8} md={7} lg={7}>
+                <Grid item spacing={0}  xs={4} >
                   <div className={classes.containerCheckbox}>
                     <CheckBox
                       onChange={actions.handleChange}
@@ -319,7 +326,8 @@ const Register = () => {
                     />
                     <div className={classes.conditionText} onClick={onClickCondition}>
                       J&lsquo;accepte les{' '}
-                      <span className={classes.conditionColorText}>conditions d&lsquo;utilisation</span> de Diagoriente
+              
+                      <span className={classes.conditionColorText}>conditions d&lsquo;utilisation</span>  de Diagoriente
                       <span className={classes.start}>*</span>
                     </div>
                   </div>
@@ -335,10 +343,10 @@ const Register = () => {
             </div>
             <div className={classNames(classes.btnContainer, classes.paddingBtn)}>
               <Grid container spacing={0}>
-                <Grid item xs={12} sm={4} md={5} lg={5}>
+                <Grid item >
                   <div className={classes.emptyDiv} />
                 </Grid>
-                <Grid item xs={12} sm={8} md={7} lg={7}>
+                <Grid item >
                   <Button
                     className={classes.btn}
                     type="submit"
