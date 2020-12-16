@@ -11,7 +11,7 @@ export default makeStyles<Theme, { left?: number; top?: number; width?: number |
       fontFamily: 'Andika New Basic !important',
       WebkitTextStroke: '#424242',
       WebkitTextStrokeWidth: '0.1px',
-      width: 'auto',
+      width: '305px !important',
       overflow: 'hidden',
       borderRadius: 30,
       fontWeight: 'bold',
@@ -20,11 +20,21 @@ export default makeStyles<Theme, { left?: number; top?: number; width?: number |
       '& fieldset': {
         display: 'none',
       },
+      [theme.breakpoints.down(475)]: {
+        width: '235px !important',
+      },
+      [theme.breakpoints.down(420)]: {
+        fontSize: 13,
+      },
     },
 
     padding: {
       paddingLeft: 15,
       paddingRight: 84,
+      [theme.breakpoints.down(475)]: {
+        paddingLeft: 0,
+        paddingRight: 75,
+      },
     },
 
     selected: {
@@ -108,7 +118,9 @@ export default makeStyles<Theme, { left?: number; top?: number; width?: number |
       bottom: 3,
     },
 
-    select: { padding: 10 },
+    select: {
+      padding: 10,
+    },
 
     formControl: {
       margin: theme.spacing(1),
