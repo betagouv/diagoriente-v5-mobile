@@ -207,9 +207,7 @@ export default makeStyles((theme: Theme) => ({
   required: {
     fontSize: 14,
     textAlign: 'center',
-    paddingLeft: 55,
     [theme.breakpoints.down(470)]: {
-      paddingLeft: 20,
       textAlign: 'left',
 
     },
