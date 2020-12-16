@@ -19,30 +19,30 @@ export default makeStyles((theme) => ({
   },
   loginContainer: {
     maxWidth: 757,
-    width: '100%',
+    width: 'min-content',
   },
   container: {
     margin: 'auto',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    [theme.breakpoints.down('xl')]: {
-      paddingRight: 50,
-    },
-    [theme.breakpoints.down('lg')]: {
-      paddingRight: 50,
-    },
-    [theme.breakpoints.down('md')]: {
-      paddingRight: 50,
-      paddingLeft: 0,
-    },
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: 60,
-    },
-    [theme.breakpoints.down('xs')]: {
-      paddingLeft: 20,
-      width: '95%',
-    },
+    // [theme.breakpoints.down('xl')]: {
+    //   paddingRight: 50,
+    // },
+    // [theme.breakpoints.down('lg')]: {
+    //   paddingRight: 50,
+    // },
+    // [theme.breakpoints.down('md')]: {
+    //   paddingRight: 50,
+    //   paddingLeft: 0,
+    // },
+    // [theme.breakpoints.down('sm')]: {
+    //   paddingLeft: 60,
+    // },
+    // [theme.breakpoints.down('xs')]: {
+    //   paddingLeft: 20,
+    //   width: '95%',
+    // },
   },
   errorText: {
     color: theme.palette.error.main,
@@ -72,7 +72,7 @@ export default makeStyles((theme) => ({
     textAlign: 'center',
   },
   emptyDiv: {
-    width: 260,
+    // width: 260,
   },
   groupTextContainer: {
     display: 'flex',
@@ -113,4 +113,36 @@ export default makeStyles((theme) => ({
       color: '#00CFFF',
     },
   },
+  groupBtnTextContainer:{
+    justifyContent: 'center',
+    width:'max-content',
+    paddingLeft:75,
+    [theme.breakpoints.down(450)]: {
+      display:'flex',
+      flexDirection:'column',
+      paddingRight:69,
+      justifyContent:'flex-end',
+      paddingLeft:0,
+
+      },
+  },
+  inputContainer:{
+    display: 'grid',
+    gridTemplateAreas: '"label input"',
+    gridTemplateColumns: '138px 269px',
+    gridGap: '15px',
+    gridTemplateRows: '41px',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: '0px 0px 0px 0px',
+    width: '100%',
+   [theme.breakpoints.down(450)]: {
+     display:'flex',
+     flexDirection:'column',
+     gridGap:0,
+     alignItems:'flex-start',
+     },
+  }
+
+
 }));

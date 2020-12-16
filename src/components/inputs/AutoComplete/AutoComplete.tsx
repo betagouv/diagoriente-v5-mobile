@@ -48,7 +48,7 @@ const AutoComplete = ({
     <div className={classNames(classes.container, containerClassName)}>
       <Grid container spacing={0}>
         {label && (
-          <Grid item xs={12} sm={4} md={5} lg={5}>
+          <Grid item  sm={4}>
             <div className={classes.labelContainer}>
               <div className={classes.label}>
                 {label}
@@ -57,7 +57,7 @@ const AutoComplete = ({
             </div>
           </Grid>
         )}
-        <Grid item xs={12} sm={8} md={7} lg={7}>
+        <Grid item  sm={4}>
           <div style={{ width: 229 }}>
             <Autocomplete
               freeSolo={freeSolo}
