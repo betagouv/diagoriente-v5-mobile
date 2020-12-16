@@ -6,8 +6,9 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    height: 'calc(100vh - 113px)',
+    // height: 'calc(100vh - 113px)',
     paddingBottom: 40,
+    paddingTop:40,
     alignItems: 'center',
   },
   title: {
@@ -22,6 +23,7 @@ export default makeStyles((theme) => ({
     fontSize: 14,
     textAlign: 'center',
     marginBottom: 40,
+    padding:'0px 13px',
   },
   subTitleSent: {
     fontSize: 14,
@@ -54,7 +56,7 @@ export default makeStyles((theme) => ({
   btn: {
     backgroundColor: theme.palette.secondary.main,
     height: 50,
-    width: 'max-content',
+    width: '100%',
     padding: '0px 7px',
     '&:hover': {
       backgroundColor: '#223A7A',
@@ -70,5 +72,25 @@ export default makeStyles((theme) => ({
   },
   emptyDiv: {
     width: 260,
+  },
+  inputContainer:{
+    display: 'grid',
+    gridTemplateAreas: '"label input"',
+    gridTemplateColumns: '138px 229px',
+    gridGap: '15px',
+    gridTemplateRows: '45px',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: '0px 0px 0px 0px',
+    width: '100%',
+    [theme.breakpoints.down(400)]: {
+      display:'flex',
+      // flexDirection:'column',
+      // gridGap:0,
+      flexWrap:'wrap',
+      alignItems:'center',
+      justifyContent:'center'
+
+      },
   },
 }));
