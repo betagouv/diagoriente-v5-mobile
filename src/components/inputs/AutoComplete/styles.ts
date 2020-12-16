@@ -4,9 +4,10 @@ export default makeStyles<Theme, { error: boolean }>((theme) => ({
   container: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    margin: '5px 0px 0px 0px',
+    // justifyContent: 'center',
+    margin: '0px 0px 0px 0px',
     width: '100%',
+    
   },
 
   dropDown: {
@@ -89,6 +90,7 @@ export default makeStyles<Theme, { error: boolean }>((theme) => ({
   label: {
     marginRight: 14,
     fontWeight: 'bold',
+    paddingTop:30
   },
   wrapperInput: {
     display: 'flex',

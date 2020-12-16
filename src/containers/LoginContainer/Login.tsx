@@ -105,6 +105,7 @@ const Login = ({ location }: RouteComponentProps) => {
           <Input
             label="Ton adresse e-mail"
             name="email"
+            className={classes.inputContainer}
             required
             placeholder="email@gmail.com"
             value={state.values.email}
@@ -115,6 +116,7 @@ const Login = ({ location }: RouteComponentProps) => {
             label="Ton mot de passe"
             name="password"
             required
+            className={classes.inputContainer}
             placeholder="*******"
             type={!showPasswordState ? 'password' : ''}
             showPassword={() => onShowPassword()}
@@ -122,12 +124,13 @@ const Login = ({ location }: RouteComponentProps) => {
             onChange={actions.handleChange}
             errorText={state.touched.password && state.errors.password}
           />
+          <div className={classes.groupBtnTextContainer}>
           <div className={classes.groupTextContainer}>
             <Grid container spacing={0}>
-              <Grid item xs={12} sm={4} md={5} lg={5}>
+              <Grid item >
                 <div className={classes.emptyDiv} />
               </Grid>
-              <Grid item xs={12} sm={8} md={7} lg={7}>
+              <Grid item >
                 <Link to="/forgotPassword">
                   <div className={classes.forgotText}>Mot de passe oublié ?</div>
                 </Link>
@@ -137,10 +140,10 @@ const Login = ({ location }: RouteComponentProps) => {
           {openVerif && <Recaptcha verification={verificationCall} />}
           <div className={classes.groupTextContainer}>
             <Grid container spacing={0}>
-              <Grid item xs={12} sm={4} md={5} lg={5}>
+              <Grid item >
                 <div className={classes.emptyDiv} />
               </Grid>
-              <Grid item xs={12} sm={8} md={7} lg={7}>
+              <Grid item >
                 <div className={classes.containerCheckbox}>
                   <CheckBox
                     onChange={actions.handleChange}
@@ -157,10 +160,10 @@ const Login = ({ location }: RouteComponentProps) => {
           </div>
           <div className={classes.btnContainer}>
             <Grid container spacing={0}>
-              <Grid item xs={12} sm={4} md={5} lg={5}>
+              <Grid item >
                 <div className={classes.emptyDiv} />
               </Grid>
-              <Grid item xs={12} sm={8} md={7} lg={7}>
+              <Grid item >
                 <Button className={classes.btn} type="submit" fetching={loginState.loading}>
                   <div className={classes.btnLabel}>Je me connecte</div>
                 </Button>
@@ -169,15 +172,16 @@ const Login = ({ location }: RouteComponentProps) => {
           </div>
           <div className={classes.btnContainer}>
             <Grid container spacing={0}>
-              <Grid item xs={12} sm={4} md={5} lg={5}>
+              <Grid item >
                 <div className={classes.emptyDiv} />
               </Grid>
-              <Grid item xs={12} sm={8} md={7} lg={7}>
+              <Grid item >
                 <Link to="/register">
                   <div className={classes.registerLabel}>Je n’ai pas encore de compte</div>
                 </Link>
               </Grid>
             </Grid>
+          </div>
           </div>
         </form>
       </div>
