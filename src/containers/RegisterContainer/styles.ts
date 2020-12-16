@@ -72,6 +72,10 @@ export default makeStyles((theme: Theme) => ({
   },
   avatarsWrapper: {
     margin: '9px 0px',
+    [theme.breakpoints.down(500)]: {
+      margin: '20px 0px',
+    },
+
   },
   avatarContainer:{
     display:'flex',
@@ -190,6 +194,7 @@ export default makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginTop: 14,
+    paddingTop:10,
   },
   conditionColorText: {
     color: theme.palette.success.main,
