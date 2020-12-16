@@ -166,8 +166,8 @@ const Register = () => {
               errorText={touched.lastName ? errors.lastName : ''}
             />
             <div className={classes.avatarsWrapper}>
-              <Grid  spacing={0}>
-                <Grid item >
+              <div className={classes.avatarContainer}>
+                <div >
                   <div className={classes.labelContainer}>
                     <div className={classes.label}>
                       Ton image de profil
@@ -175,12 +175,12 @@ const Register = () => {
                     </div>
                     <div className={classes.subLabel}>Choisis un avatar</div>
                   </div>
-                </Grid>
-                <Grid item > 
+                </div>
+                <div className={classes.subAvatar} >
                   <div className={classes.avatarsContainer}>
                     {loadingAvatar && <Spinner />}
                     {avatarData?.avatars.data.map((el) => (
-                      <div key={el.id} style={{ margin: '0px 7px' }} onClick={() => onAvatarClick(el.url)}>
+                      <div key={el.id}  onClick={() => onAvatarClick(el.url)}>
                         <img
                           src={el.url}
                           alt=""
@@ -189,8 +189,8 @@ const Register = () => {
                       </div>
                     ))}
                   </div>
-                </Grid>
-              </Grid>
+                </div>
+              </div>
             </div>
             <Input
               label="Ton e-mail"

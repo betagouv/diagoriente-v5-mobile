@@ -1,4 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import { FullscreenExit } from '@material-ui/icons';
 
 export default makeStyles((theme: Theme) => ({
   root: {
@@ -72,6 +73,21 @@ export default makeStyles((theme: Theme) => ({
   avatarsWrapper: {
     margin: '9px 0px',
   },
+  avatarContainer:{
+    display:'flex',
+    [theme.breakpoints.down(450)]: {
+      display:'inline',
+    },
+  },
+  subAvatar:{
+    width:'70%',
+    marginLeft:10,
+    [theme.breakpoints.down(450)]: {
+      width:'80%',
+      marginLeft:0,
+    },
+    
+  },
   avatarsContainer: {
     width: '100%',
     height: '100%',
@@ -86,6 +102,12 @@ export default makeStyles((theme: Theme) => ({
     //  [theme.breakpoints.down(470)]: {
     //   paddingTop:20,
     // }
+    // [theme.breakpoints.down('xs')]: {
+    //   textAlign: 'left',
+    //   marginRight: 0,
+    //   marginBottom: 5,
+    // },
+
 
 
     },
