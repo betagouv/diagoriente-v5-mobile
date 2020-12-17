@@ -3,7 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import arrow from 'assets/images/Arrow.png';
 import useStyles from './styles';
-import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import arrowClose from 'assets/svg/arrowDown.svg';
 import Dialog from '@material-ui/core/Dialog';
 import Divider from '@material-ui/core/Divider';
@@ -85,7 +84,6 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
       <Dialog
         fullWidth
         classes={{
-          /*  root: classes.dialogPaper, */
           paper: classes.paper,
         }}
         open={open}
@@ -113,7 +111,7 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
           <MenuItem
             key={index}
             value={e}
-            className={classes.item}
+            className={index === indexSelectedLevel ? classes.selectedItem : classes.item}
             onClick={() => (handleLevelSelection(skill.id, echelonValue[index]), setOpen(false))}
           >
             <div className={classes.itemContainer}>

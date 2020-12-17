@@ -223,11 +223,14 @@ export default makeStyles((theme: Theme) =>
       background: '#ffff',
       border: '1px dashed #C9C9C7',
       borderRadius: 5,
-      padding: '65px 0px 20px 30px',
+      padding: '70px 20px 20px 30px',
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
+      [theme.breakpoints.down(340)]: {
+        padding: '70px 20px 20px 20px',
+      },
     },
     avatarStyle: {
       position: 'relative',
@@ -240,7 +243,8 @@ export default makeStyles((theme: Theme) =>
     },
     themeAvatar: {
       alignItems: 'center',
-      width: 'auto !important',
+      width: '100% !important',
+      padding: '0px 50px 10px 50px',
     },
     squareContainerClassName: {
       alignSelf: 'center',

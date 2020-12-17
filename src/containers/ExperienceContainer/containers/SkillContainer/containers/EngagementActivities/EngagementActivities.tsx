@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Theme } from 'requests/types';
 import TextField from '@material-ui/core/TextField/TextField';
-
-import TitleImage from 'components/common/TitleImage/TitleImage';
-import Title from 'components/common/Title/Title';
+import PreviousButton from 'components/previousButton/previousButton';
+import Title from 'components/common/TitleImage/TitleImage';
 import NextButton from 'components/nextButton/nextButton';
-import CancelButton from 'components/cancelButton/CancelButton';
-import RestLogo from 'components/common/Rest/Rest';
 import add from 'assets/svg/pictoadd.svg';
-
 import blueline from 'assets/svg/blueline.svg';
-
 import useStyles from './styles';
 import QuestionList from './components/QuestionList/QuestionList';
 
@@ -56,23 +51,30 @@ const EngagementActivities = ({
     setValid(valid.filter((v, i) => i !== index));
   };
 
+  const isBrowser = typeof window !== 'undefined';
+  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
+  });
+
+  const onNavigate = () => {
+    if (optionActivities[0].length === 0 ? activity.length : valid.findIndex((e) => !e) === -1)
+      history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
+  };
 
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <div className={classes.header}>
-          <Title title="MES EXPÉRIENCES D’ENGAGEMENT" color="#223A7A" size={26} />
-          <RestLogo
-            onClick={() => {
-              const path = '/experience';
-              history.replace(path);
-            }}
-            color="#4D6EC5"
-            label="Annuler"
-          />
-        </div>
+        <Title
+          title={theme && theme.type === 'engagement' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
+          color="#223A7A"
+          size={width > 380 ? 32 : 25}
+          image={blueline}
+          number={2}
+        />
+
         <div className={classes.themeContainer}>
-          <TitleImage title="2." image={blueline} color="#223A7A" width={180} />
           <p className={classes.title}>
             Peux-tu nous en dire un peu plus sur
             <br />
@@ -94,7 +96,7 @@ const EngagementActivities = ({
                   />
                 ))}
 
-                <img src={add} alt="" height={28} className={classes.addIcon} onClick={addActivityRow} />
+                <img src={add} alt="" height={24} className={classes.addIcon} onClick={addActivityRow} />
               </div>
             </div>
             <p className={classes.activityTitle}>Ou décris toi-même une activité:</p>
@@ -117,27 +119,25 @@ const EngagementActivities = ({
             />
             <p className={classes.activityCaracter}>{140 - activity.length} caractères restant</p>
           </div>
-          <Link
-            to={`/experience/skill/${match.params.themeId}/competences${location.search}`}
-            className={classes.hideLine}
-          >
-            <NextButton
-              disabled={optionActivities[0].length === 0 ? !activity.length : valid.findIndex((e) => !e) !== -1}
-            />
-          </Link>
         </div>
-        {isCreate && (
-          <Link
-            to={{
-              pathname: '/experience/theme',
-              search: location.search ? `${location.search}&type=${theme.type}` : `?type=${theme.type}`,
-            }}
-            className={classes.btnpreced}
-          >
-            <CancelButton />
-            Précedent
-          </Link>
-        )}
+      </div>
+      <div className={classes.previousNext}>
+        {/*  {isCreate && ( */}
+        <Link
+          to={{
+            pathname: '/experience/theme',
+            search: location.search ? `${location.search}&type=${theme.type}` : `?type=${theme.type}`,
+          }}
+          className={classes.hideLine}
+        >
+          <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
+        </Link>
+        {/*  )} */}
+        <div onClick={onNavigate} className={classes.hideLine}>
+          <NextButton
+            disabled={optionActivities[0].length === 0 ? !activity.length : valid.findIndex((e) => !e) !== -1}
+          />
+        </div>
       </div>
     </div>
   );

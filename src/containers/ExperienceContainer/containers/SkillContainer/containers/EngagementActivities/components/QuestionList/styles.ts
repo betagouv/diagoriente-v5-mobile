@@ -187,6 +187,9 @@ export default makeStyles((theme: Theme) =>
       color: '#FF0060',
       fontSize: 28,
       cursor: 'pointer',
+      [theme.breakpoints.down(420)]: {
+        right: 8,
+      },
     },
     questionRow: {
       display: 'flex',
@@ -204,4 +207,5 @@ export default makeStyles((theme: Theme) =>
     rowActivityHidden: {
       opacity: 0,
     },
-  }));
+  }),
+);
