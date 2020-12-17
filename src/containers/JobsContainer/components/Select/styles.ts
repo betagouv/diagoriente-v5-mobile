@@ -38,6 +38,9 @@ export default makeStyles<Theme, { fullSelect?: boolean; open?: boolean }>((them
       fontSize: 14,
       fontWeight: 'bold',
     },
+    [theme.breakpoints.down(380)]: {
+      width: 290,
+    },
   },
   logoContainer: {
     position: 'absolute',
