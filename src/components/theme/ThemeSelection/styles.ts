@@ -68,7 +68,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     },
 
     activityContainer: {
-      paddingBottom: '0px 15px 54px 15px',
+      padding: '0px 15px 30px 15px',
     },
 
     activitySelected: {
