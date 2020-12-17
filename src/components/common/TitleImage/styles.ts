@@ -21,6 +21,11 @@ export default makeStyles<Theme, { color: string; size?: number; font?: string; 
       paddingLeft: 20,
     },
   },
+
+  logo: {
+    paddingRight: 16,
+  },
+
   imageContainer: {
     height: 'auto',
     paddingRight: 5,
