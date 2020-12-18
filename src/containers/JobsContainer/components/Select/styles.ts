@@ -17,12 +17,12 @@ export default makeStyles<Theme, { fullSelect?: boolean; open?: boolean }>((them
     zIndex: 1200,
   },
   inputContainer: {
-    height: 35,
-    width: 235,
+    height: 46,
+    width: 320,
     fontFamily: 'Andika New Basic',
     border: (props) => `1px solid  ${props.open ? theme.palette.success.main : '#C9C9C7'}`,
     borderRadius: 5,
-    margin: '9px 0px',
+    margin: '6px 0px',
     background: '#fff',
     paddingLeft: (props) => (props.fullSelect ? 30 : 5),
     outline: 0,
@@ -37,6 +37,9 @@ export default makeStyles<Theme, { fullSelect?: boolean; open?: boolean }>((them
       color: (props) => (props.open ? theme.palette.success.main : '#424242'),
       fontSize: 14,
       fontWeight: 'bold',
+    },
+    [theme.breakpoints.down(380)]: {
+      width: 290,
     },
   },
   logoContainer: {
