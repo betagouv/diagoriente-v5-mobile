@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() =>
+export default makeStyles((theme) =>
   createStyles({
     cardContainer: {
       width: '100%',
@@ -28,12 +28,19 @@ export default makeStyles(() =>
       alignItems: 'center',
       paddingBottom: 9,
       paddingLeft: 25,
+      [theme.breakpoints.down(500)]: {
+        paddingLeft: 0, 
+      },
+      
     },
 
     childrenCardContainer: {
       display: 'flex',
       width: '100%',
       paddingTop: 20,
+      [theme.breakpoints.down(500)]: {
+        flexDirection:'column',
+      },
     },
 
     childrenCard: {
@@ -45,6 +52,7 @@ export default makeStyles(() =>
       WebkitTextStroke: '#424242',
       WebkitTextStrokeWidth: '0.4px',
       justifyContent: 'center',
+     
     },
 
     link: {
@@ -57,6 +65,11 @@ export default makeStyles(() =>
       alignSelf: 'flex-start',
       marginLeft: 16,
       width: 200,
+      [theme.breakpoints.down(500)]: {
+        margin: '20px 0px',
+
+
+      },
     },
 
     footerCardContainer: {
