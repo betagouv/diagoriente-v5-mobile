@@ -5,9 +5,7 @@ import localForage from 'localforage';
 import { Link } from 'react-router-dom';
 import useOnclickOutside from 'hooks/useOnclickOutside';
 import ParcoursContext from 'contexts/ParcourContext';
-
 import { Jobs } from 'requests/types';
-import Trait from 'assets/images/trait_jaune.svg';
 import Reset from 'components/common/Rest/Rest';
 import Spinner from 'components/Spinner/Spinner';
 import Button from 'components/button/Button';
@@ -196,24 +194,16 @@ const JobsContainer = ({
 
       <div className={classes.root}>
         <div className={classes.content}>
-          <div className={classes.titleContainer}>
-            <div className={classes.logoContainer}>
-              <img src={Logo} alt="log" />
-            </div>
-            <Title
-              title={parcours?.completed ? 'MON TOP MÉTIERS' : 'TOUS LES MÉTIERS'}
-              font="ocean"
-              size={42}
-              width={225}
-              color="#DB8F00"
-              image={Trait}
-            />
-          </div>
+          <Title
+            title={parcours?.completed ? 'MON TOP MÉTIERS' : 'TOUS LES MÉTIERS'}
+            font="ocean"
+            size={32}
+            color="#DB8F00"
+            logo={Logo}
+            logoHeight="28px"
+          />
           <div className={classes.subTitle}>Sélectionné en fonction de tes réponses</div>
           <div className={classes.filtersContainer}>
-            <div className={classes.filterTitleContainer}>
-              <div className={classes.titleFilter}>FILTRER :</div>
-            </div>
             <Autocomplete
               options={filteredArray}
               onChange={onChangeSelect}

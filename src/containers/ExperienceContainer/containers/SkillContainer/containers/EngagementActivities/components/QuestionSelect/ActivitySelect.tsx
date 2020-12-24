@@ -1,6 +1,4 @@
-import React, {
- useState, useEffect, useContext, useMemo,
-} from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import { Question, Option } from 'requests/types';
 import Select from 'components/Select/Select';
 import { useOptions, useAddOption, useDeleteOption } from 'requests/options';
@@ -19,9 +17,7 @@ interface Props {
   parent?: string;
   index?: number;
 }
-const ActivitySelect = ({
- question, onChange, open, value, openActivity, setOpen, parent, index,
-}: Props) => {
+const ActivitySelect = ({ question, onChange, open, value, openActivity, setOpen, parent, index }: Props) => {
   const classes = useStyles();
   const { user } = useContext(UserContext);
   const ownOption = (id: string) => {
@@ -101,6 +97,7 @@ const ActivitySelect = ({
       </div>
     );
   };
+  console.log('index', index);
   return (
     <Select
       index={index}
