@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
   root: {
     borderRadius: 10,
   },
@@ -12,6 +12,10 @@ export default makeStyles(() => ({
     alignItems: 'center',
     width: '100%',
     justifyContent: 'center',
+    [theme.breakpoints.down(330)]: {
+      margin:'0px 0px'
+    },
+  
   },
   loaderContainer: {
     marginLeft: 7,
