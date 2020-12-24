@@ -75,7 +75,8 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
   const onNavigate = () => {
-    if (competences.length || competences.length > 4) history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
+    if (competences.length && competences.length < 4)
+      history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
     setOpen(false);
   };
   return (
@@ -132,34 +133,29 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
               );
             })}
           </Grid>
-          <div  className={classes.previousNext}>
-          
-          <Link
-          //   to="/experience"
-          to={`/experience/skill/${match.params.themeId}/activities${location.search}`}
-            className={classes.hideLine}
-          >
-            <PreviousButton
-              classNameTitle={classes.classNameTitle}
-              ArrowColor="#4D6EC5"
-            />
-          </Link>
-          
-          <div onClick={onNavigate} className={classes.hideLine}>
-                  <NextButton disabled={!competences.length || competences.length > 4} />
-                </div> 
-                </div>
-       
-      </div>
-      <Popup open={open} handleClose={handleClose} iconClassName={classes.iconClassName}>
-        <div className={classes.popupContainer}>
-          <p className={classes.popupDescription}>{text}</p>
-          <Button className={classes.incluse} onClick={handleClose}>
-            compris
-          </Button>
+          <div className={classes.previousNext}>
+            <Link
+              //   to="/experience"
+              to={`/experience/skill/${match.params.themeId}/activities${location.search}`}
+              className={classes.hideLine}
+            >
+              <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
+            </Link>
+
+            <div onClick={onNavigate} className={classes.hideLine}>
+              <NextButton disabled={!competences.length || competences.length > 4} />
+            </div>
+          </div>
         </div>
-      </Popup>
-    </div>
+        <Popup open={open} handleClose={handleClose} iconClassName={classes.iconClassName}>
+          <div className={classes.popupContainer}>
+            <p className={classes.popupDescription}>{text}</p>
+            <Button className={classes.incluse} onClick={handleClose}>
+              compris
+            </Button>
+          </div>
+        </Popup>
+      </div>
     </div>
   );
 };

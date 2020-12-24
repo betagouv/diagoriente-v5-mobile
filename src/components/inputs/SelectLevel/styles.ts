@@ -11,7 +11,9 @@ export default makeStyles(() => ({
   paper: {
     margin: '0px !important',
     position: 'absolute!important' as 'absolute',
+    borderRadius: '10px 10px 0px 0px',
   },
+
   select: {
     padding: '0px',
     width: '100%',
@@ -111,7 +113,17 @@ export default makeStyles(() => ({
   item: {
     padding: '0px !important',
     width: '100%',
+    '&:hover': {
+      background: 'rgba(122, 230, 255, 0.2)',
+    },
   },
+
+  selectedItem: {
+    padding: '0px !important',
+    width: '100%',
+    background: 'rgba(122, 230, 255, 0.2)',
+  },
+
   itemContainer: {
     width: '100%',
     display: 'flex',
@@ -130,7 +142,7 @@ export default makeStyles(() => ({
     fontSize: 14,
     color: '#00B2DB',
   },
-  avatarCircle: {
+  /*  avatarCircle: {
     width: '100%',
     minWidth: '100%',
     height: '51px !important',
@@ -142,7 +154,7 @@ export default makeStyles(() => ({
     '&:hover': {
       background: 'rgba(122, 230, 255, 0.2)',
     },
-  },
+  }, */
   squareContainerClassName: {
     width: '30px !important',
     height: '30px !important',

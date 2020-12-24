@@ -68,7 +68,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     },
 
     activityContainer: {
-      paddingBottom: 54,
+      padding: '0px 15px 30px 15px',
     },
 
     activitySelected: {
@@ -99,7 +99,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     },
 
     themeRoot: {
-      padding: (props) => (props.theme ? '0 40px' : 0),
+      padding: (props) => (props.theme ? '0 0px' : 0),
     },
 
     activityTitleSelection: {
@@ -112,7 +112,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     themeSelection: {
       display: 'flex',
       alignItems: 'center',
-      padding: 30,
+      padding: '30px 15px',
     },
 
     themeTile: {
