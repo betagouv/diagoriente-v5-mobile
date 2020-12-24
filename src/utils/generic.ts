@@ -13,7 +13,7 @@ export const ACTIVITY_TYPES_OPTIONS = [
   { value: 'engagement', label: 'Engagement' },
 ];
 
-export const SKILL_CONTAINER_PADDING = '30px 70px 80px 70px';
+export const SKILL_CONTAINER_PADDING = '10px 10px 10px 10px';
 
 export function formatType(type: string) {
   const typeObject = THEME_TYPES_OPTIONS.find((typeOption) => type === typeOption.value);

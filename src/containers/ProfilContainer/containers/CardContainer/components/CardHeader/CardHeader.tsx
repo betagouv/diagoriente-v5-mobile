@@ -34,8 +34,8 @@ const CardHeader = ({ children }: CardHeaderProps) => {
     <div className={classes.cardHeader}>
       {userInfo}
       <div className={classes.appInfo}>
-        <img className={classes.appLogo} height={65} src={logo} alt="logo" />
-        <img height={55} src={betaGouv} alt="betaGov" />
+        <img className={classes.appLogo} height={33} width={123} src={logo} alt="logo" />
+        <img height={28} width={53} src={betaGouv} alt="betaGov" />
       </div>
     </div>
   );

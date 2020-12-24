@@ -1,22 +1,29 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles({
+export default makeStyles((theme)=>
+createStyles({
   cardHeader: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottom: '1px solid #6B6B6A',
-    paddingBottom: 20,
+    paddingTop: 35,
+    [theme.breakpoints.down(330)]: {
+      padding:'35px 15px 0px 15px',
+
+    },
   },
   userInfo: {
     display: 'flex',
     flexDirection: 'column',
     whiteSpace: 'pre-wrap',
+    [theme.breakpoints.down(330)]: {
+marginRight:10
+    },
   },
   userName: {
     fontWeight: 'bold',
     textTransform: 'capitalize',
-    fontSize: 18,
+    fontSize: 14,
   },
   appInfo: {
     display: 'flex',
@@ -25,4 +32,5 @@ export default makeStyles({
   appLogo: {
     marginRight: 30,
   },
-});
+})
+);

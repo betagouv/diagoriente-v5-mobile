@@ -1,13 +1,26 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles({
+export default makeStyles((theme)=>
+createStyles({
   container: {
     flex: '1 0 auto',
     display: 'flex',
     flexDirection: 'column',
-    padding: 70,
+    padding: 80,
     paddingTop: 18,
     backgroundColor: '#E5E5E5',
+    [theme.breakpoints.down(500)]: {
+      padding:40,
+
+    },
+    [theme.breakpoints.down(400)]: {
+      padding:10,
+
+    },
+    [theme.breakpoints.down(330)]: {
+      padding:0,
+
+    },
   },
   header: {
     display: 'grid',
@@ -19,6 +32,10 @@ export default makeStyles({
   headerImage: {
     width: 56,
     marginRight: 25,
+    [theme.breakpoints.down(330)]: {
+      marginLeft:15
+
+    },
   },
   headerTitle: {
     gridArea: 'title',
@@ -34,6 +51,9 @@ export default makeStyles({
     color: '#D60051',
     fontFamily: 'Ocean',
     textTransform: 'uppercase',
+    [theme.breakpoints.down(330)]: {
+     fontSize:32
+    },
   },
   competenceContainer: {
     display: 'flex',
@@ -47,6 +67,10 @@ export default makeStyles({
     flexDirection: 'column',
     padding: 40,
     color: 'inherit',
+    [theme.breakpoints.down(330)]: {
+      padding:20,
+
+    },
   },
 
   footerIcons: {
@@ -93,4 +117,5 @@ export default makeStyles({
     marginTop: 12,
     marginBottom: 12,
   },
-});
+}),
+)
