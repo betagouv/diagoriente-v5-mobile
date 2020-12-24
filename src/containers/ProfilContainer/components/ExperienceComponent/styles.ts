@@ -1,7 +1,7 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 
-export default makeStyles(() =>
+export default makeStyles((theme) =>
   createStyles({
     profilContainer: {
       position: 'relative',
@@ -13,11 +13,28 @@ export default makeStyles(() =>
       paddingTop: 34,
       flex: 1,
       padding: SKILL_CONTAINER_PADDING,
+      [theme.breakpoints.down(330)]: {
+    padding:'0px 0px'
+      },
     },
 
+    childrenCardContainer: {
+      [theme.breakpoints.down(500)]: {
+        display: 'flex',
+        width: '100%',
+        flexDirection:'column',
+        paddingTop: 20,
+      },
+   
+    },
     cardGridContainer: {
       width: '100%',
       paddingTop: 57,
+      padding : '57px 35px 20px 35px',
+      [theme.breakpoints.down(500)]: {
+        padding : '10px 10px 10px 10px',
+
+      },
     },
 
     cardClassName: {
@@ -28,8 +45,18 @@ export default makeStyles(() =>
       display: 'flex',
       alignItems: 'center',
       paddingBottom: 45,
+      paddingLeft:115,
       width: '100%',
       justifyContent: 'space-between',
+      [theme.breakpoints.down(500)]: {
+        paddingLeft:35,
+
+      },
+      [theme.breakpoints.down(350)]: {
+        paddingLeft:15,
+
+      },
+    
     },
     spinner: {
       flex: '1 1 0',
@@ -43,6 +70,11 @@ export default makeStyles(() =>
       fontSize: '2.2em',
       lineHeight: 1,
       paddingTop: 9,
+      [theme.breakpoints.down(330)]: {
+        paddingTop:50,
+
+      },
+  
     },
 
     logo: {
@@ -97,19 +129,28 @@ export default makeStyles(() =>
 
     text: {
       fontSize: 18,
+      [theme.breakpoints.down(500)]: {
+        textAlign:'justify',
+        padding: '15px 15px'
+      },
     },
-
+ 
     btn: {
       backgroundColor: '#011A5E',
       '&:hover': {
         backgroundColor: '#223A7A',
       },
+      [theme.breakpoints.down(330)]: {
+        margin: '0px 0px'
+      },
+   
     },
 
     textButton: {
       color: '#fff',
       fontSize: 18,
       width: 262,
+      padding:'0px 0px'
     },
 
     btnLink: {
@@ -117,7 +158,7 @@ export default makeStyles(() =>
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
-      marginTop: 40,
+      margin: 7,
       maxWidth: '100%',
       background: 'transparent',
     },
@@ -172,4 +213,11 @@ export default makeStyles(() =>
         color: '#00CFFF',
       },
     },
+    btnEx:{
+    backgroundColor:'#FFFFFF',
+    width:'100%',
+    position:'fixed',
+    bottom:0,
+    zIndex:1
+    }
   }));
