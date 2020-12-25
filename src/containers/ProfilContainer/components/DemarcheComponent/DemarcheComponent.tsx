@@ -123,7 +123,6 @@ const DemarcheComponent = ({  history }: RouteComponentProps)  => {
 
   
   
-  console.log("hello",value)
   return (
     <div className={classes.demarcheContainer}>
         <Title
@@ -148,9 +147,7 @@ const DemarcheComponent = ({  history }: RouteComponentProps)  => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
           className={classes.topAccordion}
-          // className={classNames( classes.headerAccordion,
-          //   expandedInfo && activeHeader,
-          // )}
+        
           >
           <Typography className={classes.topText} > 
           <div className={classes.logoStar}> 
@@ -181,9 +178,7 @@ const DemarcheComponent = ({  history }: RouteComponentProps)  => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
           className={classes.topAccordion}
-          // className={classNames( classes.headerAccordion,
-          //   expandedInfo && activeHeader,
-          // )}
+      
           >
           <Typography className={classes.topText} >  
           
@@ -222,9 +217,7 @@ const DemarcheComponent = ({  history }: RouteComponentProps)  => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
           className={classes.topAccordion}
-          // className={classNames( classes.headerAccordion,
-          //   expandedInfo && activeHeader,
-          // )}
+      
           >
           <Typography className={classes.topText} > MES ENTREPRISES ENREGISTREES </Typography>
         </AccordionSummary>

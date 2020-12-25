@@ -93,7 +93,7 @@ const CardContainer = () => {
         />
         <CardSkills
           skills={skills.filter((skill) => skill.theme && skill.theme.type === 'professional')}
-          title="Expériences professionnelles"
+          title="Epériences professionnelles"
           emptyMessage="Tu n’as pas encore renseigné d'expérience professionnelle"
           emptyButton="J’ajoute une expérience pro"
           path={`/experience/theme-pro${encodeUri({ redirect: '/profile/card', type: 'professional' })}`}

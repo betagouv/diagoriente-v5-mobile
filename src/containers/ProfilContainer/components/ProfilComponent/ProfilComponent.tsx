@@ -138,7 +138,6 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
   //     color: '#fff',
   //     path: '/profile/interest',
   
-  console.log("hello",value)
   return (
     <div className={classes.profilContainer}>
         <Title
@@ -163,9 +162,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
           className={classes.infoAccordion}
-          // className={classNames( classes.headerAccordion,
-          //   expandedInfo && activeHeader,
-          // )}
+     
           >
           <Typography   className={classes.headingText} >MES INFOS PERSONNELLES</Typography>
         </AccordionSummary>
@@ -209,9 +206,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
           className={classes.headerInteret}
-          // className={classNames( classes.headerAccordion,
-          //   expandedInfo && activeHeader,
-          // )}
+     
           >
           <Typography className={classes.TextInteret} > MES CENTRES D’INTÉRÊT </Typography>
         </AccordionSummary>
@@ -252,9 +247,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
           className={classes.headerCompetence}
-          // className={classNames( classes.headerAccordion,
-          //   expandedInfo && activeHeader,
-          // )}
+       
           >
           <Typography className={classes.TextCompetence} > MA CARTE DE COMPÉTENCES </Typography>
         </AccordionSummary>

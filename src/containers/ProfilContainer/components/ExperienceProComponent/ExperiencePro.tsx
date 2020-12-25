@@ -144,9 +144,7 @@ const ExperienceProComponent = ({  history }: RouteComponentProps)  => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
           className={classes.persoAccordion}
-          // className={classNames( classes.headerAccordion,
-          //   expandedInfo && activeHeader,
-          // )}
+
           >
           <Typography className={classes.persoText} >MES EXPÉRIENCES PERSONNELLES</Typography>
         </AccordionSummary>
@@ -200,9 +198,7 @@ const ExperienceProComponent = ({  history }: RouteComponentProps)  => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
           className={classes.persoAccordion}
-          // className={classNames( classes.headerAccordion,
-          //   expandedInfo && activeHeader,
-          // )}
+     
           >
           <Typography className={classes.persoText} >MES EXPÉRIENCES PROFESSIONNELLES </Typography>
         </AccordionSummary>
@@ -255,9 +251,7 @@ const ExperienceProComponent = ({  history }: RouteComponentProps)  => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
           className={classes.persoAccordion}
-          // className={classNames( classes.headerAccordion,
-          //   expandedInfo && activeHeader,
-          // )}
+     
           >
           <Typography className={classes.persoText} > MES EXPÉRIENCES D’ENGAGEMENT </Typography>
         </AccordionSummary>
