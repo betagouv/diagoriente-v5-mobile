@@ -15,9 +15,25 @@ interface Props {
   font?: string;
   width?: number;
   className?: string;
+  btnImage?: string;
+  onClick?: () => void;
 }
 
-const TitleImage = ({ title, image, logo, number, color, height, logoHeight, size, font, width, className }: Props) => {
+const TitleImage = ({
+  title,
+  image,
+  logo,
+  number,
+  color,
+  height,
+  logoHeight,
+  size,
+  font,
+  width,
+  className,
+  btnImage,
+  onClick,
+}: Props) => {
   const classes = useStyles({
     color,
     size,
@@ -28,7 +44,7 @@ const TitleImage = ({ title, image, logo, number, color, height, logoHeight, siz
     <div
       className={classNames(
         classes.container,
-        number ? classes.containerPositionWithNumber : classes.containerPosition,
+        number || btnImage ? classes.containerPositionWithNumber : classes.containerPosition,
         className,
       )}
     >
@@ -38,12 +54,13 @@ const TitleImage = ({ title, image, logo, number, color, height, logoHeight, siz
         color={color}
         size={size}
         font={font}
-        className={number || logo ? classes.positionWithNumber : classes.position}
+        className={number || logo || btnImage ? classes.positionWithNumber : classes.position}
       />
       <div className={classes.imageContainer}>
         {image && <img src={image} alt="trait" className={classes.image} height={height} />}
         {number && <div className={classes.number}>{number}</div>}
       </div>
+      {btnImage && <img src={btnImage} alt="btnImg" className={classes.btnImage} onClick={onClick} />}
     </div>
   );
 };
