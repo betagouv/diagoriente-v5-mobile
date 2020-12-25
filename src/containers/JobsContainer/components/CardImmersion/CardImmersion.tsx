@@ -21,36 +21,35 @@ const CardImmersion = ({ data, onClickContact, onClickConseil, showMap }: IProps
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   return (
-    <div className={classNames(classes.root, open && classes.height2)}>
+    <div className={classNames(classes.root /* , open && classes.height2 */)}>
       <div className={classes.infoImmersion}>
-        <div className={classes.leftInfo}>
+        <div className={classes.titleFavorisContainer}>
           <div className={classes.titleCard}>{data.name}</div>
-          <div className={classes.description}>{data.naf_text}</div>
-          <div>{data.headcount_text}</div>
-          <div className={classes.icons}>
-            <div className={classes.logoItemDescription}>
-              <img src={Location} alt="" />
-              <div className={classes.textLogo}>1.9 km de ton lieu de recherche</div>
-            </div>
-            <div className={classes.logoItemDescription}>
-              <img src={Car} alt="" />
-              <div className={classes.textLogo}>4 min en voiture</div>
-            </div>
+          <div className={classes.favorisText}>
+            {/* Ajouter à mes favoris */}
+            <img src={Heart} alt="" width={34} height={34} className={classes.heartLogo} />
           </div>
         </div>
-        <div className={classes.rightInfo}>
-          {<div className={classes.favorisText}>
-          {/*   Ajouter à mes favoris
-            <img src={Heart} alt="" width={34} height={34} className={classes.heartLogo} /> */}
-          </div>}
-          {!open && (
-            <div>
-              <Button className={classes.btnContainer} onClick={() => setOpen(!open)}>
-                <div className={classes.btnLabel}>+ d’infos et contact</div>
-              </Button>
-            </div>
-          )}
+
+        <div className={classes.description}>{data.naf_text}</div>
+        <div>{data.headcount_text}</div>
+        <div className={classes.icons}>
+          <div className={classes.logoItemDescription}>
+            <img src={Location} alt="" />
+            <div className={classes.textLogo}>1.9 km de ton lieu de recherche</div>
+          </div>
+          <div className={classes.logoItemDescription}>
+            <img src={Car} alt="" />
+            <div className={classes.textLogo}>4 min en voiture</div>
+          </div>
         </div>
+        {!open && (
+          <div className={classes.btnWrapper}>
+            <Button className={classes.btnContainer} onClick={() => setOpen(!open)}>
+              <div className={classes.btnLabel}>+ d’infos et contact</div>
+            </Button>
+          </div>
+        )}
       </div>
       {open && (
         <div className={classes.extends}>
