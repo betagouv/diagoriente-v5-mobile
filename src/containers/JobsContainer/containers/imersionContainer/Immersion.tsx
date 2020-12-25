@@ -14,9 +14,11 @@ import Button from 'components/nextButton/nextButton';
 
 import Arrow from 'assets/svg/arrow';
 import TraitJaune from 'assets/images/trait_jaune.svg';
+import filter from 'assets/svg/filter.svg';
 import Edit from 'assets/svg/edit.svg';
 import LogoLocation from 'assets/form/location.png';
 import msg from 'assets/svg/msgorange.svg';
+import arrowClose from 'assets/svg/orangeArrow.svg';
 import attention from 'assets/svg/attentionpink.svg';
 import { decodeUri } from 'utils/url';
 
@@ -54,6 +56,7 @@ const ImmersionContainer = ({
   const [open, setOpen] = React.useState(false);
   const [openImmersion, setOpenImmersion] = useState(false);
   const [openLocation, setOpenLocation] = useState(false);
+  const [openFilter, setOpenFilter] = useState(false);
   const [update, setUpdate] = useState(false);
 
   const [selectedTaille, setSelectedTaille] = useState('Toutes tailles');
@@ -82,9 +85,7 @@ const ImmersionContainer = ({
 
   const [immersionCall, immersionState] = useImmersion();
   const { search } = location;
-  const {
-    romeCodes, latitude, longitude, pageSize, distances, selectedLoc,
-  } = decodeUri(search);
+  const { romeCodes, latitude, longitude, pageSize, distances, selectedLoc } = decodeUri(search);
   const param = match.params.id;
   const [loadJob, { data, loading }] = useJob({ variables: { id: param } });
   useDidMount(() => {
@@ -104,6 +105,14 @@ const ImmersionContainer = ({
 
   const handleCloseContact = () => {
     setOpen(false);
+  };
+
+  const onOpenFilter = () => {
+    setOpenFilter(true);
+  };
+
+  const onCloseFilter = () => {
+    setOpenFilter(false);
   };
 
   const handleOk = () => {
@@ -224,7 +233,7 @@ const ImmersionContainer = ({
     }
   };
 
- /*  const onChangeRayon = (s: string) => {
+  /*  const onChangeRayon = (s: string) => {
     if (state.values.switchRayon === s) {
       actions.setValues({ switchRayon: '' });
     } else {
@@ -280,22 +289,7 @@ const ImmersionContainer = ({
   return (
     <div className={classes.root}>
       <div className={classes.content}>
-        <div className={classes.titleContainer}>
-          <Link to={`/jobs/job/${param}`}>
-            <div className={classes.back}>
-              <Arrow color="#DB8F00" height="15" width="9.5" className={classes.arrow} />
-              {!loading && <div className={classes.textBack}>{`Retour à la page ${data?.job.title}`}</div>}
-            </div>
-          </Link>
-          <ImageTitle
-            title="TROUVER UNE IMMERSION"
-            color="#DB8F00"
-            image={TraitJaune}
-            size={42}
-            className={classes.titleImmersion}
-          />
-          <div className={classes.empty} />
-        </div>
+        <ImageTitle title="TROUVER UNE IMMERSION" color="#DB8F00" size={32} btnImage={filter} onClick={onOpenFilter} />
 
         <div className={classes.wrapper}>
           <div className={classes.filtersContainer}>
@@ -319,60 +313,68 @@ const ImmersionContainer = ({
               </div>
             ) : (
               <div className={classes.boxSearch}>
-                <div className={classes.textTitleContainer}>
-                  <Loupe color="#FFA600" width="32" height="32" />
-                  <div className={classes.textTitle}>MA RECHERCHE</div>
-                </div>
                 <div>
                   Je recherche une <strong>immersion</strong> pour le métier de
-                  <b> {data?.job.title} </b>à {selectedLoc}.
+                  <b> {data?.job.title} </b>à <b>{selectedLoc}</b>.
                 </div>
                 <div className={classes.edit}>
                   <img src={Edit} alt="" />
                   <div className={classes.textEdit} onClick={() => setUpdate(!update)}>
-                    Modifier
+                    Modifier la recherche
                   </div>
                 </div>
               </div>
             )}
-            <div className={classes.filters}>
-              <div className={classes.switchMask}>
-                <Switch
-                  checked={state.values.switch}
-                  onClick={() => actions.setValues({ switch: !state.values.switch })}
-                />
-                <div className={classes.maskTitle}>Masquer la carte</div>
-              </div>
-              <div className={classes.TrierContainer}>
-                <div className={classes.filterMainTitle}>Trier</div>
-                {tri.map((el) => (
-                  <CheckBox key={el.label} label={el.label} onClick={() => onChangeTri(el)} value={selectedTri} />
-                ))}
-              </div>
-              <hr className={classes.bar} />
-              <div className={classes.filterMainTitle}>Affiner la rechercher</div>
+            {openFilter && (
+              <div className={classes.secteurContainerFullScreen}>
+                <div className={classes.closeFullModelContainer} onClick={onCloseFilter}>
+                  <img src={arrowClose} alt="arrowClose" className={classes.arrowClose} />
+                  <span className={classes.closeModelLabel}> Filtrer </span>
+                </div>
+                <div className={classes.filters}>
+                  <div className={classes.switchMask}>
+                    <Switch
+                      checked={state.values.switch}
+                      onClick={() => actions.setValues({ switch: !state.values.switch })}
+                    />
+                    <div className={classes.maskTitle}>Masquer la carte</div>
+                  </div>
+                  <div className={classes.TrierContainer}>
+                    <div className={classes.filterMainTitle}>Trier</div>
+                    {tri.map((el) => (
+                      <CheckBox key={el.label} label={el.label} onClick={() => onChangeTri(el)} value={selectedTri} />
+                    ))}
+                  </div>
 
-              <div className={classes.tailleContainer}>
-                <div className={classes.filterTitle}>Taille de l’entreprise</div>
-                {taille.map((el) => (
-                  <CheckBox key={el.label} label={el.label} value={selectedTaille} onClick={() => onChangeTaille(el)} />
-                ))}
-              </div>
+                  <div className={classes.filterMainTitle}>Affiner la rechercher</div>
 
-              {/*  <div className={classes.filterTitle}>Rayon de recherche</div>
+                  <div className={classes.tailleContainer}>
+                    <div className={classes.filterTitle}>Taille de l’entreprise</div>
+                    {taille.map((el) => (
+                      <CheckBox
+                        key={el.label}
+                        label={el.label}
+                        value={selectedTaille}
+                        onClick={() => onChangeTaille(el)}
+                      />
+                    ))}
+                  </div>
+                  {/*  <div className={classes.filterTitle}>Rayon de recherche</div>
               <SwitchRayon checked={state.values.switchRayon} onClick={onChangeRayon} /> */}
-              <div className={classes.distanceContainer}>
-                <div className={classes.filterTitle}>Distance</div>
-                {distance.map((el) => (
-                  <CheckBox
-                    key={el.label}
-                    label={el.label}
-                    value={selectedDistance}
-                    onClick={() => onChangeDistance(el)}
-                  />
-                ))}
+                  <div className={classes.distanceContainer}>
+                    <div className={classes.filterTitle}>Distance</div>
+                    {distance.map((el) => (
+                      <CheckBox
+                        key={el.label}
+                        label={el.label}
+                        value={selectedDistance}
+                        onClick={() => onChangeDistance(el)}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
+            )}
           </div>
           <div className={classes.results}>
             {immersionState.loading && (
@@ -391,10 +393,10 @@ const ImmersionContainer = ({
             )}
             {immersionState.data ? (
               <>
-                <div className={classes.resultTitle}>
-                  {`${immersionState.data?.immersions.companies_count} résultats`}
+                <div>
+                  {immersionState.data?.immersions.companies.length === 0 &&
+                    'Augmente ta zone de recherche pour plus de résultats'}
                 </div>
-                <div>{immersionState.data?.immersions.companies.length === 0 && 'Augmente ta zone de recherche pour plus de résultats'}</div>
                 {immersionState.data?.immersions.companies?.map((e: Company) => (
                   <CardImmersion
                     data={e}

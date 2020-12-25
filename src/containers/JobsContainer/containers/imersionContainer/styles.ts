@@ -7,10 +7,7 @@ export default makeStyles<Theme>((theme) => ({
     alignItems: 'center',
   },
   content: {
-    maxWidth: '1080px',
     width: '100%',
-    marginTop: 30,
-    padding: 4,
   },
   titleContainer: {
     display: 'flex',
@@ -42,6 +39,8 @@ export default makeStyles<Theme>((theme) => ({
   },
   wrapper: {
     display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   immersionFormContainer: {
     marginBottom: 20,
@@ -49,16 +48,15 @@ export default makeStyles<Theme>((theme) => ({
   filtersContainer: {
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
   },
   filters: {
-    borderRadius: 10,
-    background: '#F3F2F4',
-    width: 286,
     padding: '27px 30px',
-    marginTop: 10,
   },
   switchMask: {
     display: 'flex',
+    paddingBottom: 25,
+    borderBottom: '0.5px solid #C9C9C7',
   },
   maskTitle: {
     marginLeft: 13,
@@ -69,29 +67,35 @@ export default makeStyles<Theme>((theme) => ({
   filterMainTitle: {
     fontWeight: 'bold',
     fontSize: 18,
+    color: '#DB8F00',
+    marginTop: 25,
   },
   filterTitle: {
     fontWeight: 'bold',
     fontSize: 14,
   },
   TrierContainer: {
-    marginTop: 30,
+    marginTop: 25,
+    paddingBottom: 25,
+    borderBottom: '0.5px solid #C9C9C7',
   },
   distanceContainer: {
     marginTop: 30,
   },
   tailleContainer: {
     marginTop: 25,
+    paddingBottom: 25,
+    borderBottom: '0.5px solid #C9C9C7',
   },
   boxSearch: {
-    width: 286,
-    height: 207,
-    borderRadius: 10,
+    width: '100%',
+    minHeight: 121,
     backgroundColor: '#ffe9c3',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: 22,
+    padding: '20px 40px',
+    textAlign: 'center',
   },
   textTitleContainer: {
     display: 'flex',
@@ -112,10 +116,11 @@ export default makeStyles<Theme>((theme) => ({
     textDecorationLine: 'underline',
     paddingLeft: 5,
     cursor: 'pointer',
+    color: '#DB8F00',
   },
   results: {
     flex: 1,
-    paddingLeft: 30,
+    padding: '0px 20px',
   },
   loadingContainer: {
     paddingBottom: 300,
@@ -213,5 +218,64 @@ export default makeStyles<Theme>((theme) => ({
   },
   okText: {
     marginRight: 10,
+  },
+
+  secteurContainerFullScreen: {
+    background: '#FFFFFF',
+    boxSizing: 'border-box',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    overflow: 'auto',
+    zIndex: 99999,
+  },
+  closeFullModelContainer: {
+    width: '100%',
+    height: 80,
+    display: 'flex',
+    alignItems: 'center',
+    paddingLeft: 30,
+    borderBottom: '0.5px solid #C9C9C7',
+  },
+  closeModelLabel: {
+    fontFamily: 'Andika New Basic',
+    fontWeight: 'bold',
+    fontSize: 18,
+    lineHeight: '26px',
+    color: '#DB8F00',
+    marginLeft: 20,
+  },
+
+  fullScreenItem: {
+    height: 'auto',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+
+  itemSecteurWrapper: {
+    height: 56,
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    paddingLeft: 20,
+    '&:hover': {
+      backgroundColor: 'rgba(255,211,130,0.2)',
+    },
+  },
+
+  itemSecteur: {
+    margin: 2,
+    width: 284,
+    cursor: 'pointer',
+    '&:hover': {
+      color: theme.palette.primary.main,
+    },
+    padding: '3px 0px',
   },
 }));
