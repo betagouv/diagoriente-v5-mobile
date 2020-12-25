@@ -339,11 +339,16 @@ export default makeStyles((theme) =>
     headerAccordion: {
       margin: '0px !important',
       boxShadow: 'none !important',
+
+   
+
+
     },
   
    
       
     persoAccordion : {
+      
     height: '80px',
         borderRadius: '0px',
       boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
