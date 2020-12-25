@@ -14,11 +14,8 @@ interface Props {
   img?: string;
 }
 const CheckBox = forwardRef(
-  ({
- checked, onChange, name, color, border, img, className,
-}: Props, ref: Ref<HTMLInputElement>) => {
+  ({ checked, onChange, name, color, border, img, className }: Props, ref: Ref<HTMLInputElement>) => {
     const classes = useStyles({ color, checked, border });
-
     return (
       <label className={classNames(classes.container, className)}>
         <input type="checkbox" checked={checked} onChange={onChange} name={name} ref={ref} />
