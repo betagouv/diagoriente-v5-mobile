@@ -37,7 +37,7 @@ const CardSkill = ({ comment: allComments, theme, activities, engagement }: Card
     //   classes={{ tooltipPlacementRight: classes.tooltipRight, tooltipPlacementLeft: classes.tooltipLeft }}
     //   title={comment.length ? comment.map((c) => <Comment key={c.id} {...c} />) : ''}
     // >
-    <div> 
+    <div className={classes.puces}> 
       <Grid className={classes.skill} item xs={12}>
         <div className={classes.skillHeader}>
           <div className={classes.themeTitle}>
@@ -45,6 +45,7 @@ const CardSkill = ({ comment: allComments, theme, activities, engagement }: Card
             {comment.length ? <img className={classes.commentIcon} src={medaille} alt=""  onClick={handleClickOpen}/> : null}
           </div>
         </div>
+        <div > 
         <ul className={classes.activityContainer}>
           {(act as any)?.map((activity: any, i: number) => (
             <li className={classes.activity} key={activity.id || i}>
@@ -61,6 +62,8 @@ const CardSkill = ({ comment: allComments, theme, activities, engagement }: Card
             <div className={classes.activity}>{engagement?.activity}</div>
           )}
         </ul>
+        </div>
+
       </Grid>
       <Dialog onClose={handleClose} className={classes.Dialog} open={open}>
       <DialogContent dividers >

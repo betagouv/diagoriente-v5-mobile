@@ -64,6 +64,9 @@ height:200
 
     
   },
+  puces:{
+    width:'100%'
+  }
   // MuiDialogScrollPaper:{
   //   display:'flex',
   //   justifyContent:'center',
