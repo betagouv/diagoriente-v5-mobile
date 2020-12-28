@@ -13,21 +13,36 @@ interface Props {
   font?: string;
   width?: number;
   className?: string;
+  classNameTitle?: string;
+  backgroudColor?: string;
 }
 
-const TitleImage = ({ title, image, number, color, height, size, font, width, className }: Props) => {
+const TitleImage = ({
+  title,
+  image,
+  number,
+  color,
+  height,
+  size,
+  font,
+  width,
+  className,
+  classNameTitle,
+  backgroudColor,
+}: Props) => {
   const classes = useStyles({
     color,
     size,
     font,
     width,
+    backgroudColor,
   });
   return (
     <div
       className={classNames(
+        className,
         classes.container,
         number ? classes.containerPositionWithNumber : classes.containerPosition,
-        className,
       )}
     >
       <Title
@@ -35,7 +50,7 @@ const TitleImage = ({ title, image, number, color, height, size, font, width, cl
         color={color}
         size={size}
         font={font}
-        className={number ? classes.positionWithNumber : classes.position}
+        className={classNames(classNameTitle, number ? classes.positionWithNumber : classes.position)}
       />
       <div className={classes.imageContainer}>
         {image && <img src={image} alt="trait" className={classes.image} height={height} />}
