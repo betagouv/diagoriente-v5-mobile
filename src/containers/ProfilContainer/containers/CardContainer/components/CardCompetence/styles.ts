@@ -13,11 +13,13 @@ export default makeStyles({
   title: {
     position: 'relative',
     lineHeight: 1,
-    fontSize: 42,
+    fontSize: 30,
     top: 2,
     color: '#D60051',
     fontFamily: 'Ocean',
     textTransform: 'uppercase',
+    marginBottom:20,
+    width:290
   },
   subTitle: {
     color: '#D60051',
@@ -31,7 +33,7 @@ export default makeStyles({
     fontWeight: 'bold',
   },
   competencesPart: {
-    width: '80%',
+    width: 'min-content',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -39,7 +41,7 @@ export default makeStyles({
     fontSize: 10,
     width: '100%',
     lineHeight: '13px',
-    marginTop: 10,
+    marginTop: 20,
   },
   emptyCompetences: {
     fontSize: 18,

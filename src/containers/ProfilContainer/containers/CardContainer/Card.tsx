@@ -61,15 +61,15 @@ const CardContainer = () => {
   return (
     <div className={classes.container}>
       <div className={classes.header}>
-        <Arrow />
+        {/* <Arrow /> */}
         <div className={classes.headerTitle}>
           <img className={classes.headerImage} src={carte} alt="" />
           <span className={classes.title}>CARTE DE COMPÉTENCES</span>
         </div>
-        {icons}
+        {/* {icons} */}
       </div>
+      <CardHeader />
       <Paper className={classes.card}>
-        <CardHeader />
         <div className={classes.competenceContainer}>
           <CardCompetence
             title="COMPÉTENCES TRANSVERSALES"
@@ -93,7 +93,7 @@ const CardContainer = () => {
         />
         <CardSkills
           skills={skills.filter((skill) => skill.theme && skill.theme.type === 'professional')}
-          title="Expériences professionnelles"
+          title="Epériences professionnelles"
           emptyMessage="Tu n’as pas encore renseigné d'expérience professionnelle"
           emptyButton="J’ajoute une expérience pro"
           path={`/experience/theme-pro${encodeUri({ redirect: '/profile/card', type: 'professional' })}`}
@@ -106,7 +106,7 @@ const CardContainer = () => {
           path={`/experience/theme?type=engagement${encodeUri({ redirect: '/profile/card', type: 'engagement' })}`}
         />
       </Paper>
-      <div className={classes.footerIcons}>{icons}</div>
+      {/* <div className={classes.footerIcons}>{icons}</div> */}
       {element}
       <ModalContainer open={toggle} handleClose={closeModal} backdropColor="#011A5E" colorIcon="#D60051">
         <div className={classes.boxInfo}>

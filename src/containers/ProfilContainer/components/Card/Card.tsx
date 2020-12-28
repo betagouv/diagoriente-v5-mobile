@@ -55,9 +55,9 @@ const Card = ({
     <div className={classNames(classes.cardContainer, className)}>
       <div className={classes.root}>
         <div className={classes.titleContainer}>
-          {src && <img src={src} alt="" className={classes.image} height={65} width={65} />}
+       <div>   {src && <img src={src} alt="" className={classes.image} height={85} width={85} />} </div>
           <span className={classes.title}>{title}</span>
-          {icon && <img src={icon} alt="" className={classes.icon} height={44} width={44} />}
+        <div>  {icon && <img src={icon} alt="" className={classes.icon} height={44} width={44} />} </div>
         </div>
 
         {competence.map((comp) => (
