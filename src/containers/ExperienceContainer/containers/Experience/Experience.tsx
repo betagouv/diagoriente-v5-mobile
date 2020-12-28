@@ -153,10 +153,11 @@ const Experience = () => {
           </div>
         </div>
       </div>
-      <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={70}>
+
+      <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={90}>
         <GameContainer onHandelClose={handleClose} />
       </ModalContainer>
-      <ModalContainer open={openEng} handleClose={handleEngClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={70}>
+      <ModalContainer open={openEng} handleClose={handleEngClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={90}>
         <Game />
       </ModalContainer>
     </div>
