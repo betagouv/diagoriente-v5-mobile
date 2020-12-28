@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { echelon } from 'utils/generic';
 import { useCompetences } from 'requests/competences';
+import Divider from '@material-ui/core/Divider';
 import Point from 'assets/svg/point.svg';
 import useStyles from './styles';
 
@@ -27,17 +28,19 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
     }
     return res;
   };
-  let widthBlue = 0;
 
-  const getWidth = (id: string) => {
+  let competenceValue = 0;
+
+  const getCompetenceValue = (id: string) => {
     competenceUser?.map((el) => {
-      if (el.value === 1 && el.id === id) widthBlue = 70.5;
-      if (el.value === 2 && el.id === id) widthBlue = 510 / 2 - 36;
-      if (el.value === 3 && el.id === id) widthBlue = 510 / 2 + 645 / 4 - 51.25;
-      if (el.value === 4 && el.id === id) widthBlue = 510 / 1;
+      if (el.value === 1 && el.id === id) competenceValue = 1;
+      if (el.value === 2 && el.id === id) competenceValue = 2;
+      if (el.value === 3 && el.id === id) competenceValue = 3;
+      if (el.value === 4 && el.id === id) competenceValue = 4;
     });
-    return widthBlue;
+    return competenceValue;
   };
+
   const isLess = (id: string) => {
     let value = false;
     const valueRequis = competencesrequises?.find((selected) => selected._id.id === id);
@@ -62,38 +65,29 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
         </div>
       </div>
       <div>
-        <div className={classes.echelonContainer}>
-          <div className={classes.echelon}>
-            <div className={classes.empty} />
-            {echelon.map((value) => (
-              <strong key={value} className={classes.echelonTitle}>
-                {value}
-              </strong>
-            ))}
-          </div>
-        </div>
         <div className={classes.competencesContainer}>
           {competences?.competences.data.map((competence) => {
-            let width = 0;
+            let compValue = 0;
             if (competencesrequises && competencesrequises?.length !== 0) {
               const valueCompetence = competencesrequises.find((selected) => selected._id.id === competence.id);
               if (valueCompetence) {
                 switch (valueCompetence.weight) {
                   case 1:
-                    width = 70.5;
+                    compValue = 1;
                     break;
                   case 2:
-                    width = 510 / 2 - 36;
+                    compValue = 2;
                     break;
                   case 3:
-                    width = 510 / 2 + 645 / 4 - 51.25;
+                    compValue = 3;
                     break;
                   case 4:
-                    width = 510 / 1;
+                    compValue = 4;
                     break;
                 }
               }
             }
+
             return (
               <div
                 key={competence.id}
@@ -103,35 +97,54 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
                     : classes.competencesValues
                 }
               >
-                <p className={classes.competenceTitle}>{competence.title}</p>
-                <div
-                  className={
-                    select === 'parcoursCompetence' && isExist(competence.id) && !isLess(competence.id)
-                      ? classes.arrowEchelonBlue
-                      : classes.arrowEchelon
-                  }
-                  ref={arrowRef}
+                <p
+                  className={classes.competenceTitle}
+                  style={{
+                    fontWeight:
+                      (select === 'jobCompetence' && compValue === 4) ||
+                      (select === 'parcoursCompetence' &&
+                        isExist(competence.id) &&
+                        !isLess(competence.id) &&
+                        getCompetenceValue(competence.id) === 4)
+                        ? 700
+                        : 400,
+                  }}
                 >
-                  <div
-                    className={
-                      select === 'parcoursCompetence' && isExist(competence.id) && !isLess(competence.id)
-                        ? classes.darkArrowEchelonBlue
-                        : classes.darkArrowEchelon
-                    }
-                    style={{
-                      width: `${
-                        select === 'parcoursCompetence' && isExist(competence.id) ? getWidth(competence.id) : width
-                      }px`,
-                    }}
-                  />
-                  {select === 'parcoursCompetence' && isExist(competence.id) && !isLess(competence.id) && (
-                    <img
-                      src={Point}
-                      alt=""
-                      style={{ position: 'absolute', left: getWidth(competence.id) - 15, top: 26 }}
-                    />
-                  )}
-                </div>
+                  {competence.title}
+                </p>
+                {select === 'jobCompetence' ? (
+                  <div className={classes.pointsContainer} ref={arrowRef}>
+                    {[...Array(compValue)].map((p, point) => (
+                      // eslint-disable-next-line
+                      <div key={point} className={classes.point} style={{ background: '#FFA600' }} />
+                    ))}
+                    {[...Array(4 - compValue)].map((p, point) => (
+                      // eslint-disable-next-line
+                      <div key={point} className={classes.point} style={{ background: '#FFD382' }} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className={classes.pointsContainer} ref={arrowRef}>
+                    {[...Array(getCompetenceValue(competence.id))].map((p, point) => (
+                      // eslint-disable-next-line
+                      <div
+                        key={point}
+                        className={classes.point}
+                        style={{ background: isExist(competence.id) && !isLess(competence.id) ? '#00CFFF' : '#FFA600' }}
+                      />
+                    ))}
+                    {[...Array(4 - getCompetenceValue(competence.id))].map((p, point) => (
+                      // eslint-disable-next-line
+                      <div
+                        key={point}
+                        className={classes.point}
+                        style={{ background: isExist(competence.id) && !isLess(competence.id) ? '#7AE6FF' : '#FFD382' }}
+                      />
+                    ))}
+                  </div>
+                )}
+
+                <br />
               </div>
             );
           })}

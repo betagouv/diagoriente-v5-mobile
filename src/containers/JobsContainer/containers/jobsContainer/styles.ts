@@ -13,15 +13,12 @@ export default makeStyles((theme) => ({
     flex: '1 1 auto',
   },
   content: {
-    /*  maxWidth: 1080, */
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
   },
   filtersContainer: {
-    /* backgroundColor: theme.palette.secondary.main, */
     backgroundColor: 'rgba(255,211,130, 0.5)',
-    /* borderRadius: 10, */
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -35,7 +32,6 @@ export default makeStyles((theme) => ({
     fontWeight: 700,
     lineHeight: '20px',
     marginBottom: 24,
-    /*   marginTop: -20, */
   },
   filterTitleContainer: {
     height: 35,
@@ -80,6 +76,7 @@ export default makeStyles((theme) => ({
     width: '100%',
     flex: '1 1 auto',
   },
+
   messages: {
     backgroundColor: '#fff1f6',
     width: '100%',

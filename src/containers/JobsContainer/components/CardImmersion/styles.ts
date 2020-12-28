@@ -1,3 +1,4 @@
+import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles<Theme>((theme) => ({
@@ -5,33 +6,46 @@ export default makeStyles<Theme>((theme) => ({
     border: '1px solid #C9C9C7',
     borderRadius: 5,
     minHeight: 165,
-    margin: '10px 0px',
+    margin: '15px 0px',
     transition: '1s ease-in-out',
   },
   infoImmersion: {
     display: 'flex',
+    flexDirection: 'column',
     padding: 25,
+    width: 340,
+    [theme.breakpoints.down(380)]: {
+      width: 'calc(100% - 40px)',
+    },
   },
   height2: {
     height: 'auto',
     transition: '1s ease-in-out',
   },
+  titleFavorisContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
   titleCard: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 14,
+    lineHeight: '32px',
     color: theme.palette.success.main,
-    marginBottom: 6,
   },
   description: {
     fontWeight: 'bold',
+    marginTop: 6,
   },
   icons: {
-    marginTop: 5,
+    marginTop: 15,
+    marginBottom: 10,
     display: 'flex',
+    flexDirection: 'column',
   },
   logoItemDescription: {
     display: 'flex',
     paddingRight: 10,
+    marginBottom: 15,
   },
   textLogo: {
     paddingLeft: 10,
@@ -55,6 +69,11 @@ export default makeStyles<Theme>((theme) => ({
   heartLogo: {
     paddingLeft: 4,
   },
+  btnWrapper: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
   btnContainer: {
     backgroundColor: theme.palette.primary.main,
     '&:hover': {
@@ -64,16 +83,19 @@ export default makeStyles<Theme>((theme) => ({
   btnLabel: {
     color: '#011A5E',
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 14,
   },
   extends: {
-    width: '100%',
     height: 'auto',
+    /*  width: 340,
+    [theme.breakpoints.down(380)]: {
+      width: 'calc(100% - 40px)',
+    }, */
   },
   headerInfo: {
     backgroundColor: '#ffe9c3',
-    height: 182,
-    padding: '23px 23px 0px 23px',
+    height: 'fit-content',
+    padding: 23,
     position: 'relative',
   },
   arrow: {
@@ -85,10 +107,12 @@ export default makeStyles<Theme>((theme) => ({
   },
   infoExtended: {
     display: 'flex',
+    flexDirection: 'column',
     width: '100%',
   },
   item: {
-    width: '33.33%',
+    width: '90%',
+    marginBottom: 9,
   },
   itemTitle: {
     fontWeight: 'bold',
@@ -96,10 +120,12 @@ export default makeStyles<Theme>((theme) => ({
   logoContainer: {
     display: 'flex',
     marginTop: 10,
+    justifyContent: 'space-between',
   },
   logoItem: {
     display: 'flex',
-    width: '33.33%',
+    flexDirection: 'column',
+    width: '35%',
     cursor: 'pointer',
     alignItems: 'center',
   },
@@ -107,6 +133,6 @@ export default makeStyles<Theme>((theme) => ({
     fontWeight: 'bold',
     fontSize: 14,
     color: theme.palette.primary.main,
-    paddingLeft: 15,
+    textAlign: 'center',
   },
 }));
