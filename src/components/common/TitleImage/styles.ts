@@ -1,14 +1,17 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { size } from 'lodash';
 
-export default makeStyles<Theme, { color: string; size?: number; font?: string; width?: number }>((theme: Theme) => ({
+export default makeStyles<
+  Theme,
+  { color: string; size?: number; font?: string; width?: number; backgroudColor?: string;}
+>((theme: Theme) => ({
   container: {
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
     width: '100%',
     height: 80,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: (props) => props.backgroudColor || '#FFFFFF',
   },
   containerPosition: {
     justifyContent: 'center',
