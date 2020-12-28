@@ -11,12 +11,8 @@ export default makeStyles((theme: Theme) =>
     container: {
       display: 'flex',
       flexDirection: 'column',
-      padding: '50px 120px',
 
       width: '100%',
-      [theme.breakpoints.down('sm')]: {
-        padding: '40px',
-      },
     },
 
     themeContainer: {
@@ -32,14 +28,15 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       width: '100%',
       flexWrap: 'wrap',
-      padding: SKILL_CONTAINER_PADDING,
+      /*  padding: SKILL_CONTAINER_PADDING, */
+      padding: '30px 30px 80px 30px',
       justifyContent: 'center',
-      [theme.breakpoints.down('xs')]: {
+      /*  [theme.breakpoints.down('xs')]: {
         justifyContent: 'center',
       },
       [theme.breakpoints.down('md')]: {
         padding: 50,
-      },
+      }, */
     },
 
     circle: {
@@ -64,14 +61,6 @@ export default makeStyles((theme: Theme) =>
 
     arrowpreced: {
       marginRight: 13,
-    },
-
-    header: {
-      height: 50,
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      width: '100%',
     },
 
     hideLine: {
@@ -103,6 +92,7 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
       margin: 0,
       border: '1px solid #4D6EC5',
+      borderRadius: 5,
       padding: 10,
       fontSize: 18,
       color: '#424242',
@@ -187,4 +177,28 @@ export default makeStyles((theme: Theme) =>
     popupDescription: {
       textAlign: 'center',
     },
-  }));
+    footerContainer: {
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      backgroundColor: 'white',
+    },
+    previousNext: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '8px 8px ',
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      backgroundColor: 'white',
+      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+      zIndex: 1,
+    },
+    classNameTitle: {
+      color: '#4D6EC5',
+      fontSize: 18,
+      lineHeight: '26px',
+    },
+  }),
+);

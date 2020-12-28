@@ -18,8 +18,8 @@ export default makeStyles<Theme, { backdropColor: string; size?: number }>((them
     backgroundColor: '#fff',
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     borderRadius: 15,
-    width: (props) => `${props.size ? props.size : 60}%`,
-    maxHeight: '89%',
+    width: (props) => `${props.size ? props.size : 100}%`,
+    maxHeight: '100%',
   },
   header: {
     display: 'flex',
@@ -38,7 +38,7 @@ export default makeStyles<Theme, { backdropColor: string; size?: number }>((them
   },
   modalContainerBody: {
     overflow: 'auto',
-    height: 'auto',
+    height: '100vh',
     flex: 1,
   },
 }));

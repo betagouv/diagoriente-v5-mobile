@@ -24,6 +24,11 @@ export default makeStyles<
       paddingLeft: 20,
     },
   },
+
+  logo: {
+    paddingRight: 16,
+  },
+
   imageContainer: {
     height: 'auto',
     paddingRight: 5,
@@ -31,6 +36,9 @@ export default makeStyles<
   image: {
     width: (props) => props.width || 68,
     height: 'auto',
+  },
+  btnImage: {
+    marginRight: 27,
   },
   number: {
     position: 'absolute',

@@ -23,7 +23,7 @@ const CardSkills = ({ title, path, emptyButton, emptyMessage, showBtn, skills }:
   return (
     <CardPart title={title}>
       {skills.length ? (
-        <Grid className={classes.skillsContainer} container spacing={3}>
+        <Grid className={classes.skillsContainer}  container spacing={3}>
           {skills.map((skill) => (
             <CardSkill key={skill.id} {...skill} />
           ))}

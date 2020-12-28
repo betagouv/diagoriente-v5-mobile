@@ -161,6 +161,9 @@ export default makeStyles((theme: Theme) =>
       '&:hover $deleteIcon': {
         display: 'flex',
       },
+      [theme.breakpoints.down(475)]: {
+        fontSize: 13,
+      },
     },
     deleteIcon: {
       color: '#FF0060',

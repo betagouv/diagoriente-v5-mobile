@@ -27,15 +27,7 @@ const Experience = () => {
 
   const { parcours } = useContext(parcourContext);
 
-  const [height, setHeight] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    if (ref && ref.current && ref.current.clientHeight) {
-      setHeight(ref.current.clientHeight);
-    }
-  });
 
   useEffect(() => {
     if (!parcours?.played) openModal();
@@ -50,38 +42,12 @@ const Experience = () => {
     }
   };
 
+  const onClickLink = (link: string) => {
+    history.push(link);
+  };
+
   return (
-    <div className={classes.container} ref={ref}>
-      <div className={classes.boxInfo} style={{ top: height + 100 }}>
-        <div className={classes.boxInfoImgSubBox}>
-          <div className={classes.boxInfoImg}>
-            <img src={Picto} alt="" />
-          </div>
-          <div>
-            <p className={classes.descriptionBoxInfo}>
-              Familiarise toi avec les <br />
-              compétences grâce aux modules :
-            </p>
-          </div>
-        </div>
-        <div className={classes.gameLinksContainer}>
-          <div>
-            <Link to="/experience/gameCard">
-              <p className={classes.linkBoxInfo}>Rectec</p>
-            </Link>
-          </div>
-          <div>
-            <Link to="/experience/game">
-              <p className={classes.linkBoxInfo}>Rectec Engagement</p>
-            </Link>
-          </div>
-          <div>
-            <Link to="/game">
-              <p className={classes.linkBoxInfo}>Burger speed</p>
-            </Link>
-          </div>
-        </div>
-      </div>
+    <div className={classes.container}>
       <Title title="mes expériences" size={32} color="#223A7A" />
       <p className={classes.title}>
         Nous apprenons de toutes nos expériences.
@@ -96,7 +62,7 @@ const Experience = () => {
             title="Ajouter une"
             link={
               <Link to="/experience/theme">
-                <div className={classes.linkLabel}>experience personnelle </div>
+                <div className={classes.linkLabel}>expérience personnelle </div>
               </Link>
             }
             size={200}
@@ -105,7 +71,7 @@ const Experience = () => {
             avatarCircleBackground="transparent"
             circleClassName={classes.circleStyle}
           >
-            <img src={IlluExpPerso} alt="" className={classes.illus} />
+            <img src={IlluExpPerso} alt="" className={classes.illus} onClick={() => onClickLink('/experience/theme')} />
           </Avatar>
         </div>
         <div className={classes.avatarWrapper}>
@@ -116,7 +82,7 @@ const Experience = () => {
                 <div className={classes.linkContainer}>
                   <Link to="/experience/theme-pro" className={classes.hideLine}>
                     <div className={classes.linkLabel}>
-                      experience
+                      expérience
                       <br />
                       professionnelle
                     </div>
@@ -129,7 +95,12 @@ const Experience = () => {
               avatarCircleBackground="transparent"
               circleClassName={classes.circleStyle}
             >
-              <img src={IlluExpPro} alt="" className={classes.illus} />
+              <img
+                src={IlluExpPro}
+                alt=""
+                className={classes.illus}
+                onClick={() => onClickLink('/experience/theme-pro')}
+              />
             </Avatar>
           </div>
         </div>
@@ -138,7 +109,7 @@ const Experience = () => {
             title="Ajouter une"
             link={
               <div onClick={onClickEng} className={classes.hideLine}>
-                <div className={classes.linkLabel}>experience d’engagement</div>
+                <div className={classes.linkLabel}>expérience d’engagement</div>
               </div>
             }
             avatarCircleBackground="transparent"
@@ -147,8 +118,39 @@ const Experience = () => {
             titleClassName={classNames(classes.marginTitle, classes.titleAlignLeft)}
             circleClassName={classes.circleStyleEng}
           >
-            <img src={illExpEng} alt="ill" className={classes.illus} />
+            <img src={illExpEng} alt="ill" className={classes.illus} onClick={onClickEng} />
           </Avatar>
+        </div>
+
+        <div className={classes.boxInfo}>
+          <div className={classes.boxInfoImgSubBox}>
+            <div className={classes.boxInfoImg}>
+              <img src={Picto} alt="" />
+            </div>
+            <div>
+              <p className={classes.descriptionBoxInfo}>
+                Familiarise toi avec les <br />
+                compétences grâce aux modules :
+              </p>
+            </div>
+          </div>
+          <div className={classes.gameLinksContainer}>
+            <div>
+              <Link to="/experience/gameCard">
+                <p className={classes.linkBoxInfo}>Rectec</p>
+              </Link>
+            </div>
+            <div>
+              <Link to="/experience/game">
+                <p className={classes.linkBoxInfo}>Rectec Engagement</p>
+              </Link>
+            </div>
+            <div>
+              <Link to="/game">
+                <p className={classes.linkBoxInfo}>Burger speed</p>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 

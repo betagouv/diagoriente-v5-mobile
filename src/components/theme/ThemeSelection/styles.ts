@@ -4,15 +4,15 @@ import { Theme as RequestTheme } from 'requests/types';
 export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | null }>((theme: Theme) =>
   createStyles({
     appBar: {
-      bottom: 0,
       width: '100%',
       background: theme.palette.background.default,
       display: 'flex',
       justifyContent: 'center',
-    
+      position: 'fixed',
+      bottom: 66,
       flexDirection: 'column',
       transition: 'all 250ms cubic-bezier(0.4, 0, 1, 1) 0ms',
-      boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.25)',
+      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
     },
 
     container: {
@@ -68,7 +68,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     },
 
     activityContainer: {
-      paddingBottom: 54,
+      padding: '0px 15px 30px 15px',
     },
 
     activitySelected: {
@@ -99,7 +99,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     },
 
     themeRoot: {
-      padding: (props) => (props.theme ? '0 40px' : 0),
+      padding: (props) => (props.theme ? '0 0px' : 0),
     },
 
     activityTitleSelection: {
@@ -112,7 +112,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     themeSelection: {
       display: 'flex',
       alignItems: 'center',
-      padding:30,
+      padding: '30px 15px',
     },
 
     themeTile: {
@@ -154,7 +154,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      margin: 10,
+      margin: 30,
       height: 26,
       width: 26,
     },
@@ -189,4 +189,9 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
         height: 40,
       },
     },
-  }));
+    selctionBlob: {
+      display: 'flex',
+      alignItems: 'center',
+    },
+  }),
+);

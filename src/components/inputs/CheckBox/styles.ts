@@ -36,7 +36,7 @@ export default makeStyles<Theme, { color?: string; checked?: boolean; border?: s
     height: 20,
     backgroundColor: (props) => (props.checked ? props.color : '#fff'),
     borderRadius: 5,
-    border: (props) => (props.border ? `1px solid ${props.border}` : '1px solid #C9C9C7'),
+    border: (props) => (props.checked ? `1px solid ${props.border}` : '1px solid #C9C9C7'),
     '&:after': {
       content: '""',
       position: 'absolute',

@@ -6,7 +6,6 @@ export default makeStyles((theme) => ({
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
-    paddingTop: 30,
   },
   wrapper: {
     display: 'flex',
@@ -14,34 +13,25 @@ export default makeStyles((theme) => ({
     flex: '1 1 auto',
   },
   content: {
-    maxWidth: 1080,
     width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
   },
   filtersContainer: {
-    backgroundColor: theme.palette.secondary.main,
-    borderRadius: 10,
+    backgroundColor: 'rgba(255,211,130, 0.5)',
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-    height: 92,
-    padding: 20,
-  },
-  titleContainer: {
-    display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-  },
-  logoContainer: {
-    width: 56,
-    height: 57,
-    marginRight: 20,
+    height: 286,
+    padding: '35px 45px',
   },
   subTitle: {
     textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 900,
-    marginBottom: 30,
-    marginTop: -20,
+    fontSize: 14,
+    fontWeight: 700,
+    lineHeight: '20px',
+    marginBottom: 24,
   },
   filterTitleContainer: {
     height: 35,
@@ -56,8 +46,14 @@ export default makeStyles((theme) => ({
     color: theme.palette.success.main,
   },
   containerAutoComp: {
+    width: 320,
+    height: 46,
+    marginBottom: 6,
     '& .MuiAutocomplete-inputRoot-228': {
       padding: 0,
+    },
+    [theme.breakpoints.down(380)]: {
+      width: 290,
     },
   },
   wrapperInput: {
@@ -67,9 +63,10 @@ export default makeStyles((theme) => ({
   },
   boxsContainer: {
     display: 'flex',
+    flexDirection: 'column',
     flexWrap: 'wrap',
-    justifyContent: 'center',
-    marginTop: 40,
+    alignItems: 'center',
+    marginTop: 24,
     flex: '1 1 auto',
   },
   spinnerContainer: {
@@ -79,6 +76,7 @@ export default makeStyles((theme) => ({
     width: '100%',
     flex: '1 1 auto',
   },
+
   messages: {
     backgroundColor: '#fff1f6',
     width: '100%',
@@ -133,13 +131,13 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
   },
   footerContent: {
-    maxWidth: '1080px',
     width: '100%',
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  itemFooter: { width: '33%' },
+  itemFooter: { width: '100%' },
   centerItem: { display: 'flex', justifyContent: 'center' },
-  rightItem: { display: 'flex', justifyContent: 'flex-end', alignItems: 'center' },
+  rightItem: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 20 },
 }));

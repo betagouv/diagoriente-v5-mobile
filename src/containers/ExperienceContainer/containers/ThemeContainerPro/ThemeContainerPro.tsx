@@ -5,26 +5,28 @@ import Input from 'components/inputs/Input/Input';
 import Tooltip from '@material-ui/core/Tooltip';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
 import NavigationButton from 'components/NavigationButton/NavigationButton';
+import SelectionContext from 'contexts/SelectionContext';
 
 import { useThemes } from 'requests/themes';
 
 
-import {  RouteComponentProps } from 'react-router-dom';
+import { Link ,  RouteComponentProps } from 'react-router-dom';
 import RestLogo from 'components/common/Rest/Rest';
 import Grid from '@material-ui/core/Grid';
 import Selection from 'components/theme/ThemeSelection/ThemeSelection';
 import parcoursContext from 'contexts/ParcourContext';
-
+import NextButton from 'components/nextButton/nextButton';
 import blueline from 'assets/svg/blueline.svg';
 import LoupeGray from 'assets/svg/loupe.svg';
 import LoupeBlue from 'assets/svg/loupeBlue.svg';
-
+import PreviousButton from 'components/previousButton/previousButton';
 import { decodeUri, encodeUri } from 'utils/url';
 import { Theme } from 'requests/types';
 import classNames from 'utils/classNames';
 import useStyles from './styles';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Portal from '@material-ui/core/Portal';
+import { Slide } from '@material-ui/core';
 const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const classes = useStyles();
 
@@ -33,6 +35,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
 
 
+  const [openedTheme, setOpenedTheme ]= useState<Theme | null>(null);
 
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
   const [valueSearch, setValueSearch] = useState('');
@@ -54,9 +57,13 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
       if (selected) setSelectedTheme(selected);
     }
   }, [data]);
+  const { open , setOpen } = useContext(SelectionContext);
 
   const showAvatar = (theme: Theme) => {
-    setSelectedTheme(theme);
+    if(openedTheme?.id===theme.id) {
+      setSelectedTheme(theme);
+      setOpenedTheme(null)
+    }
   };
   useEffect(() => {
     if (selectedTheme) {
@@ -78,15 +85,13 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
 
-  const handleClick = () => {
-    setOpen(true);
+  const handleClick = (theme:any) => {
+    setOpenedTheme(theme);
   };
 
-  const handleClickAway = () => {
-    setOpen(false);
+  const onNavigate = () => {
+    if (selectedTheme) history.push(`/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` )
   };
-  const [open, setOpen] = React.useState(false);
-
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -99,11 +104,8 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
         />
         
         <div className={classes.themeContainer}>
-          {/* <TitleImage title="1." image={blueline} color="#223A7A" width={180} /> */}
-          {/* <p className={classes.themeTitle}>Choisis une expérience pro : </p> */}
           <div className={classes.searchContainer}>
             <div className={classes.boxSearch}>
-              {/* <div className={classes.boxSearchTitle}>Tu as réalisé un petit boulot chez KFC ? Tu bricoles sur ton temps libre ?</div> */}
               <div className={classes.boxSearchTitle}>Tape les premières lettres de ton expérience pro</div>
               <div className={classes.inputSearchContainer}>
                 <Input
@@ -137,35 +139,41 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                           );
                         }
                       }  
+                     return (
                   
-                      return (
-                        <Tooltip 
-                          key={theme.id}
-                          open={!tooltip ? false : undefined}
-                          title= 
-                          {  <Child key={index} >
-                              {tooltip.map((el) => (
-                                <div key={el.id} className={classes.child}>{`-${el.title}`}</div>
-                              ))} 
-                            </Child> 
-                          }
-                          
-                        placement="bottom">  
-
-                          <Grid key={theme.id} item >
+                      
+                       <div key={theme.id} > 
+                        <Grid key={theme.id} item onClick={()=>{handleClick(theme)}} >
                             <div
                               className={classNames(
                                 classes.itemData,
                                 selectedTheme?.id === theme.id && classes.selected,
                               )}
-                              onClick={() => showAvatar(theme)}
+                              onClick ={() => {showAvatar(theme)}}
                             > 
                               {title}
                             </div>
                         
                           </Grid>
-                        </Tooltip> 
-                      );
+                          
+                          <div>
+                          { openedTheme?.id===theme.id ? (
+                          <Slide direction="up" in={!(selectedTheme?.id===theme.id)} mountOnEnter unmountOnExit >  
+                             <Child key={index} >
+                          {tooltip.map((el) => (
+                            <div key={el.id}>{`-${el.title}`}</div>
+                          ))} 
+                        </Child>
+                         </Slide>
+                   
+                        ) : null }
+            
+                          </div>
+                       </div>
+                  
+                     
+               
+                     )
                     })} 
               </Grid> 
             </div>
@@ -173,14 +181,30 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
         
         </div>
       </div>
-      <div className={classes.footerContainer} >
       <Selection theme={selectedTheme} activities={[]} />
-          <NavigationButton selectedTheme={ selectedTheme}
+      <div  className={classes.previousNext}>
+        <div>
+        <Link
+          to={'/experience'}
+          className={classes.btnpreced}
+        >
+     <PreviousButton
+        classNameTitle={classes.classNameTitle}
+        ArrowColor="#4D6EC5"
+      />          
+        </Link>
+           </div>
+    <div onClick={onNavigate}>
+       <NextButton disabled={!selectedTheme}  /> 
+          </div>
+  
+          </div>
+          {/* <NavigationButton disabled={!selectedTheme}
            nextLink={selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''}
            previousLink={'/experience'}
-           />   
+           />    */}
            </div>
-          </div>
+        
   );
 };
 export default ThemeContainerPro;
