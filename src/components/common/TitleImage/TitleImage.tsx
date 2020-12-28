@@ -35,9 +35,9 @@ const TitleImage = ({
   className,
   btnImage,
   onClick,
-}: Props) => {
   backgroudColor,
   classNameTitle,
+}: Props) => {
   const classes = useStyles({
     color,
     size,
