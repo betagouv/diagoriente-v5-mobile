@@ -3,6 +3,7 @@ import Loupe from 'assets/svg/loupe';
 import Button from 'components/button/Button';
 import { Jobs } from 'requests/types';
 import AutoComplete from '../Autocomplete/AutoCompleteJob';
+import loupe from 'assets/svg/magnif.svg';
 import useStyles from './styles';
 
 interface IProps {
@@ -42,10 +43,11 @@ const ImmersionForm = ({
   return (
     <div className={classes.immersion}>
       <div className={classes.logoContainer}>
-        <Loupe color="#FFA600" width="42" height="42" />
+        {/* <Loupe color="#FFA600" width="29" height="92" /> */}
+        <img src={loupe} />
       </div>
       <div className={classes.titleImersion}>Trouver une immersion ou une formation</div>
-      <div>Je recherche :</div>
+      {/* <div>Je recherche :</div> */}
       <div className={classes.autocompleteContainer}>
         <AutoComplete
           options={filteredArray}
@@ -65,13 +67,14 @@ const ImmersionForm = ({
           onSelectText={onSelect}
           value={selectedLocation}
           name="location"
-          placeholder="paris"
+          placeholder="à Paris, Dijon, Lille..."
           options={listLocation}
           icon={LogoLocation}
           type="location"
           open={openLocation}
           error={errorLocation && !selectedLocation}
           setOpen={setOpenLocation}
+          className={classes.autocompleteStyle}
         />
       </div>
 

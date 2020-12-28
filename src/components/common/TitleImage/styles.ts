@@ -34,6 +34,9 @@ export default makeStyles<Theme, { color: string; size?: number; font?: string; 
     width: (props) => props.width || 68,
     height: 'auto',
   },
+  btnImage: {
+    marginRight: 27,
+  },
   number: {
     position: 'absolute',
     top: 20,
