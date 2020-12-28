@@ -1,3 +1,4 @@
+import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Bandeau from 'assets/svg/bandeau.svg';
 
@@ -9,7 +10,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   bandeau: {
     width: '100%',
-    height: 162,
+    height: 80,
     backgroundImage: `url(${Bandeau})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
@@ -19,11 +20,14 @@ export default makeStyles<Theme>((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  jobTitle: {
+    maxWidth: 'calc(100% - 40px)',
+    textAlign: 'center',
+  },
   contentInfo: {
-    maxWidth: '1080px',
     width: '100%',
-    marginTop: 30,
-    padding: 4,
+    display: 'flex',
+    flexDirection: 'column',
   },
   headerInfo: {
     display: 'flex',
@@ -49,7 +53,7 @@ export default makeStyles<Theme>((theme) => ({
     margin: '10px 0px',
   },
   immersionFormContainer: {
-    marginTop: 45,
+    width: '100%',
   },
   containerAutoComp: {
     backgroundColor: 'red',
@@ -74,15 +78,14 @@ export default makeStyles<Theme>((theme) => ({
   },
   JobInfo: {
     display: 'flex',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
     width: '100%',
-    marginBottom: 60,
-    padding: 4,
   },
   jobDescription: {
-    maxWidth: '60%',
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
+    padding: '49px 45px 13px 45px',
   },
   titleDescription: {
     fontWeight: 'bold',
@@ -91,11 +94,15 @@ export default makeStyles<Theme>((theme) => ({
   },
   footerDescription: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     marginTop: 19,
   },
   testContainer: {
     display: 'flex',
+    height: 87,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   testLogo: {
     paddingRight: 17,
@@ -106,6 +113,7 @@ export default makeStyles<Theme>((theme) => ({
     fontWeight: 'bold',
     fontSize: 14,
     cursor: 'pointer',
+    marginRight: 40,
   },
   immersion: {
     width: 285,
@@ -139,6 +147,7 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
+    padding: '28px 17px',
   },
   wrapInterest: {
     maxWidth: '1080px',
@@ -147,22 +156,25 @@ export default makeStyles<Theme>((theme) => ({
   },
   interestTitleContainer: {
     display: 'flex',
-    alignItems: 'baseline',
-    marginTop: 30,
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   interestTitle: {
     fontWeight: 'bold',
     fontSize: 24,
-    marginRight: 20,
+    lineHeight: '26px',
+    marginBottom: 10,
   },
   interestContainer: {
     display: 'flex',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   interests: {
     display: 'flex',
-    flexWrap: 'wrap',
-    width: '70%',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100%',
     marginTop: 30,
   },
   infoInterstDescription: {
@@ -183,29 +195,30 @@ export default makeStyles<Theme>((theme) => ({
     left: 0,
   },
   titleInterest: {
-    width: '56%',
+    width: '50%',
     overflow: 'hidden',
     whiteSpace: 'pre-wrap',
-    paddingLeft: 10,
+    paddingLeft: 30,
   },
   infoInterst: {
-    width: 285,
-    height: 200,
     position: 'relative',
-    backgroundColor: 'white',
-    borderRadius: '15px 15px 0px 0px',
-    alignSelf: 'flex-end',
-    padding: '30px 20px',
+    marginTop: 60,
+    display: 'flex',
+  },
+  communInfoText: {},
+  infoTextContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    maxWidth: 'calc(100% - 95px)',
   },
   infoInterestPurpleText: {
-    fontWeight: 'bold',
-    fontSize: 18,
+    fontWeight: 400,
+    fontSize: 14,
     color: '#420FAB',
   },
   logo: {
-    position: 'absolute',
-    top: -40,
-    right: 112,
+    width: 'auto',
+    marginRight: 30,
   },
   competenceInfo: {
     width: '100%',
@@ -214,7 +227,18 @@ export default makeStyles<Theme>((theme) => ({
   },
   competenceContainer: {
     width: '100%',
-    maxWidth: 1080,
-    padding: 4,
+    paddingTop: 40,
+  },
+
+  infoModalWrapper: {
+    width: '100%',
+    height: '100%',
+    zIndex: 3,
+    position: 'fixed',
+    left: 0,
+    top: 45,
+    backgroundColor: '#ffff',
+    display: 'flex',
+    flexDirection: 'column',
   },
 }));

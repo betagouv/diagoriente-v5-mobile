@@ -12,17 +12,22 @@ export default makeStyles<Theme>(() => ({
     zIndex: 5,
   },
   item: {
-    height: 46,
+    height: 52,
     borderBottom: '0.5px solid #C9C9C7',
     display: 'flex',
     alignItems: 'center',
-    paddingLeft: 10,
+    paddingLeft: 25,
     cursor: 'pointer',
     position: 'relative',
   },
   itemText: {
     fontSize: 14,
     paddingLeft: 10,
+  },
+  selectedItemText: {
+    fontSize: 14,
+    paddingLeft: 10,
+    fontWeight: 'bold',
   },
   mask: {
     position: 'absolute',

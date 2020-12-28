@@ -59,4 +59,18 @@ export default makeStyles<Theme, { recommended?: Boolean }>(() => ({
       left: 0,
     },
   },
+  Dialog:{
+height:200
+
+    
+  },
+  puces:{
+    width:'100%'
+  }
+  // MuiDialogScrollPaper:{
+  //   display:'flex',
+  //   justifyContent:'center',
+  // paddingTop:14,
+  // alignItems:'flex-start !important'
+  // }
 }));

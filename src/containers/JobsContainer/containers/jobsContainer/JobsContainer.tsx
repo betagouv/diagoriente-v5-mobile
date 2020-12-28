@@ -5,9 +5,7 @@ import localForage from 'localforage';
 import { Link } from 'react-router-dom';
 import useOnclickOutside from 'hooks/useOnclickOutside';
 import ParcoursContext from 'contexts/ParcourContext';
-
 import { Jobs } from 'requests/types';
-import Trait from 'assets/images/trait_jaune.svg';
 import Reset from 'components/common/Rest/Rest';
 import Spinner from 'components/Spinner/Spinner';
 import Button from 'components/button/Button';
@@ -196,24 +194,16 @@ const JobsContainer = ({
 
       <div className={classes.root}>
         <div className={classes.content}>
-          <div className={classes.titleContainer}>
-            <div className={classes.logoContainer}>
-              <img src={Logo} alt="log" />
-            </div>
-            <Title
-              title={parcours?.completed ? 'MON TOP MÉTIERS' : 'TOUS LES MÉTIERS'}
-              font="ocean"
-              size={42}
-              width={225}
-              color="#DB8F00"
-              image={Trait}
-            />
-          </div>
+          <Title
+            title={parcours?.completed ? 'MON TOP MÉTIERS' : 'TOUS LES MÉTIERS'}
+            font="ocean"
+            size={32}
+            color="#DB8F00"
+            logo={Logo}
+            logoHeight="28px"
+          />
           <div className={classes.subTitle}>Sélectionné en fonction de tes réponses</div>
           <div className={classes.filtersContainer}>
-            <div className={classes.filterTitleContainer}>
-              <div className={classes.titleFilter}>FILTRER :</div>
-            </div>
             <Autocomplete
               options={filteredArray}
               onChange={onChangeSelect}
@@ -232,9 +222,10 @@ const JobsContainer = ({
               placeholder="Domaine d’activité"
               className={classes.containerAutoComp}
               open={openDomain}
-              fullSelect
+              fullScreenModal
               onClick={() => setOpenDomain(!openDomain)}
-              reference={divDomaine}
+              onClose={() => setOpenDomain(false)}
+              referenceFullScreen={divDomaine}
             />
             <Select
               options={listTypeData}
@@ -244,7 +235,9 @@ const JobsContainer = ({
               placeholder="Type de métier"
               className={classes.containerAutoComp}
               open={openType}
+              modal
               onClick={() => setOpenType(!openType)}
+              onClose={() => setOpenType(false)}
               reference={divType}
             />
             <Select
@@ -255,7 +248,9 @@ const JobsContainer = ({
               value={accessibility}
               className={classes.containerAutoComp}
               open={openAcc}
+              modal
               onClick={() => setOpenAcc(!openAcc)}
+              onClose={() => setOpenAcc(false)}
               reference={divAcc}
               parcourAcc={parcours?.accessibility}
             />

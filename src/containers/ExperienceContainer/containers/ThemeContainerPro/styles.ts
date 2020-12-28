@@ -6,7 +6,7 @@ import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 export default makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      height:'auto',
+      height: 'auto',
       display: 'flex',
       flexDirection: 'column',
     },
@@ -19,17 +19,17 @@ export default makeStyles((theme: Theme) =>
       [theme.breakpoints.down('sm')]: {
         padding: '0px',
       },
+      minHeight: 'calc(100vh - 148px)',
     },
 
     themeContainer: {
       position: 'relative',
       width: '100%',
-      // height: '563px',
       backgroundColor: '#F3F2F4',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      // paddingTop: 34,
+      flex: 1,
     },
 
     themeTitle: {
@@ -49,8 +49,8 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       width: '100%',
       alignItems: 'center',
-      flexDirection:'column',
-      paddingBottom:100,
+      flexDirection: 'column',
+      paddingBottom: 100,
     },
     searchContainer: {
       width: '100%',
@@ -65,6 +65,7 @@ export default makeStyles((theme: Theme) =>
       margin: '28px 29px 20px 28px',
     },
     itemData: {
+      margin: 5,
       border: '1px solid #00CFFF',
       borderRadius: 30,
       width: 'max-content',
@@ -91,7 +92,6 @@ export default makeStyles((theme: Theme) =>
       width: 256,
       lineHeight: ' 20px',
       textAlign: 'center',
-
     },
     searchProp: {
       color: '#00CFFF',
@@ -123,17 +123,6 @@ export default makeStyles((theme: Theme) =>
     text: {
       fontWeight: 'normal',
     },
-
-    // header: {
-    //   height: 50,
-    //   display: 'flex',
-    //   justifyContent: 'space-between',
-    //   margin: '27px 0px 14px 27px',
-    //   alignItems: 'center',
-    //   // width: '100%',
-    // },
-
-
 
     loadingContainer: {
       width: '100%',
@@ -196,24 +185,33 @@ export default makeStyles((theme: Theme) =>
       //   backgroundColor: theme.palette.background.default,
       // },
     },
-   
-    // ArrowColor: {
-    //   color: '#fff',
-    // },
-   
-    footerContainer: {
-      position: 'fixed' ,
+
+    previousNext: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '8px 8px ',
+      position: 'fixed',
       bottom: 0,
       width: '100%',
-      backgroundColor: 'white'
-
+      backgroundColor: 'white',
+      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+      zIndex: 1,
     },
-    child:{
-      position: 'fixed',
-      bottom : 0,
-  
-
+    classNameTitle: {
+      color: '#4D6EC5',
+      fontSize: 18,
+      lineHeight: '26px',
     },
- 
 
-  }));
+    btnpreced: {
+      color: '#6B6B6A',
+      height: 50,
+      marginTop: 33,
+      fontSize: 14,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      textDecoration: 'none',
+    },
+  }),
+);

@@ -189,38 +189,26 @@ const JobContainer = ({
   return (
     <div className={classes.root}>
       <div className={classes.bandeau}>
-        {loading ? <Spinner /> : <Title color="#fff" title={data?.job.title || ''} size={42} />}
+        {loading ? (
+          <Spinner />
+        ) : (
+          <Title color="#fff" title={data?.job.title || ''} size={32} className={classes.jobTitle} />
+        )}
       </div>
       <div className={classes.contentInfo}>
         <div className={classes.JobInfo}>
           <div className={classes.jobDescription}>
-            <Link to="/jobs">
-              <div className={classes.back}>
-                <Arrow color="#DB8F00" height="15" width="9.5" className={classes.arrow} />
-                <div className={classes.textBack}>Retour à Mon Top métiers</div>
-              </div>
-            </Link>
-            <div className={classes.titleDescription}>{data?.job.title}</div>
             <div>{data?.job.description}</div>
             <div className={classes.footerDescription}>
               <div className={classes.textTest} onClick={() => setInfo(true)}>
                 En savoir plus
               </div>
-              <div className={classes.testContainer}>
-                <img src={TestImage} alt="" className={classes.testLogo} />
-                <div className={classes.textTest} onClick={() => setOpenTest(true)}>
-                  Ce métier est-il fait pour toi ?
-                </div>
+              <div className={classes.favoris} onClick={!data?.job.favorite ? addToFav : deleteFromFav}>
+                <img src={data?.job.favorite ? fullHeart : HeartOutLine} alt="" />
               </div>
             </div>
           </div>
           <div className={classes.favorisContainer}>
-            <div className={classes.favoris} onClick={!data?.job.favorite ? addToFav : deleteFromFav}>
-              <img src={data?.job.favorite ? fullHeart : HeartOutLine} alt="" />
-              <div className={classes.textFavoris}>
-                {!data?.job.favorite ? 'Ajouter à mes favoris' : 'Enlever de mes favoris'}
-              </div>
-            </div>
             <div className={classes.immersionFormContainer}>
               <ImmersionForm
                 filteredArray={filteredArray}
@@ -240,13 +228,19 @@ const JobContainer = ({
               />
             </div>
           </div>
+          <div className={classes.testContainer}>
+            <img src={TestImage} alt="" className={classes.testLogo} />
+            <div className={classes.textTest} onClick={() => setOpenTest(true)}>
+              Ce métier est-il fait pour toi ?
+            </div>
+          </div>
         </div>
       </div>
       <div className={classes.interestInfo}>
         <div className={classes.wrapInterest}>
           <div className={classes.interestTitleContainer}>
-            <span className={classes.interestTitle}>Centres d’intérêt</span>
-            <span className={classes.descriptionTitle}>Voici les centres d’intérêt associés à ce métier :</span>
+            <span className={classes.interestTitle}>Centres d’intérêts</span>
+            <span className={classes.descriptionTitle}>Voici les centres d’intérêts associés à ce métier :</span>
           </div>
           <div className={classes.interestContainer}>
             <div className={classes.interests}>
@@ -266,15 +260,17 @@ const JobContainer = ({
             </div>
             <div className={classes.infoInterst}>
               <div className={classes.logo}>
-                <img src={user?.logo || defaultAvatar} alt="" width={69} height={61} />
+                <img src={user?.logo || defaultAvatar} alt="" width={69} height={69} />
               </div>
-              <div>
-                <span className={classes.infoInterestPurpleText}>
-                  {`${d.length} intérêts sur ${data?.job.interests.length}`}
-                </span>{' '}
-                en commun avec les tiens.
+              <div className={classes.infoTextContainer}>
+                <div className={classes.communInfoText}>
+                  <span className={classes.infoInterestPurpleText}>
+                    {`${d.length} intérêts sur ${data?.job.interests.length}`}
+                  </span>{' '}
+                  en commun avec les tiens.
+                </div>
+                <div> Ce métier semble plutôt bien te correspondre ! </div>
               </div>
-              <div> Ce métier semble plutôt bien te correspondre ! </div>
             </div>
           </div>
         </div>
@@ -286,28 +282,22 @@ const JobContainer = ({
             <span className={classes.descriptionTitle}>Voici les compétences associées à ce métier :</span>
           </div>
           <Graph competencesrequises={data?.job.competences} competenceUser={competences} />
-          <div className={classes.headerInfo}>
-            <Link to="/jobs">
-              <div className={classes.back}>
-                <Arrow color="#DB8F00" height="15" width="9.5" className={classes.arrow} />
-                <div className={classes.textBack}>Retour à Mon Top métiers</div>
-              </div>
-            </Link>
-          </div>
         </div>
       </div>
-      <ModalContainer
-        open={openTest || openInfo}
-        handleClose={handleClose}
-        backdropColor="#011A5E"
-        colorIcon="#DB8F00"
-        size={70}
-      >
-        {openInfo ? (
+      {openInfo && (
+        <div className={classes.infoModalWrapper}>
+          <div className={classes.bandeau}>
+            {loading ? (
+              <Spinner />
+            ) : (
+              <Title color="#fff" title={data?.job.title || ''} size={32} className={classes.jobTitle} />
+            )}
+          </div>
           <ModalContainerInfo job={data?.job} handleClose={handleClose} />
-        ) : (
-          <ModalQuestion job={data?.job} handleClose={handleClose} />
-        )}
+        </div>
+      )}
+      <ModalContainer open={openTest} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#DB8F00" size={70}>
+        <ModalQuestion job={data?.job} handleClose={handleClose} />
       </ModalContainer>
     </div>
   );

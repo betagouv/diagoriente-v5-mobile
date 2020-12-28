@@ -4,6 +4,9 @@ import Menu from 'assets/svg/Group.svg';
 import classNames from 'utils/classNames';
 import { useTheme } from '@material-ui/core';
 import OptionList from '../optionsList/OptionsList';
+import Divider from '@material-ui/core/Divider';
+import Slide from '@material-ui/core/Slide';
+import arrowClose from 'assets/svg/orangeArrow.svg';
 import useStyles from './styles';
 
 interface IProps {
@@ -20,12 +23,16 @@ interface IProps {
   className?: string;
   errorForm?: string;
   open?: boolean;
+  onClose?: () => void;
   onClick: () => void;
   fullSelect?: boolean;
   loading?: boolean;
   reference?: any;
+  referenceFullScreen?: any;
   small?: boolean;
   parcourAcc?: { id: string };
+  fullScreenModal?: boolean;
+  modal?: boolean;
 }
 
 const SelectJobs = ({
@@ -35,19 +42,31 @@ const SelectJobs = ({
   placeholder,
   options,
   open,
+  onClose,
   onSelectText,
   onClick,
   fullSelect,
   reference,
   parcourAcc,
+  fullScreenModal,
+  modal,
 }: IProps) => {
-  const classes = useStyles({ fullSelect, open });
+  const classes = useStyles({ fullSelect, fullScreenModal, open });
   const isInclude = (id: string) => value && value.includes(id);
   const theme = useTheme();
+  const [openModal, setOpenModal] = React.useState(open);
+
+  const handleDialogClose = () => {
+    setOpenModal(false);
+  };
+
+  const handleClose = () => {
+    setOpenModal(false);
+  };
   return (
     <div className={classes.content} ref={reference}>
       <div className={classes.inputWrapper} onClick={onClick}>
-        {fullSelect && (
+        {(fullSelect || fullScreenModal) && (
           <div className={classes.menu}>
             <img src={Menu} alt="menu" />
           </div>
@@ -64,7 +83,52 @@ const SelectJobs = ({
       </div>
       {open && (
         <div className={classes.optionsContainer}>
-          {fullSelect ? (
+          {fullScreenModal ? (
+            <Slide direction="right" in={open} mountOnEnter unmountOnExit>
+              <div className={classes.secteurContainerFullScreen}>
+                <div className={classes.closeFullModelContainer} onClick={onClose}>
+                  <img src={arrowClose} alt="arrowClose" className={classes.arrowClose} />
+                  <span className={classes.closeModelLabel}> {placeholder} </span>
+                </div>
+                {options?.map((el) => (
+                  <div key={el.title} className={classes.fullScreenItem}>
+                    <div className={classes.itemSecteurWrapper} onClick={() => onSelectText(el.id)}>
+                      <div
+                        key={el.title}
+                        className={classNames(classes.itemSecteur, isInclude(el.id) && classes.itemSecteurSelected)}
+                      >
+                        <span className={classNames(classes.item, isInclude(el.id) && classes.selected)}>
+                          {el.title}
+                        </span>
+                      </div>
+                    </div>
+                    <Divider />
+                  </div>
+                ))}
+              </div>
+            </Slide>
+          ) : modal ? (
+            <div className={classes.modalWrapper}>
+              <div className={classes.backdrop} onClick={onClose} />
+              <div className={classes.modalItemsContainer}>
+                <div className={classes.closeModelContainer} onClick={onClose}>
+                  <img
+                    src={arrowClose}
+                    alt="arrowClose"
+                    className={modal ? classes.modalArrowClose : classes.arrowClose}
+                  />
+                  <span className={classes.closeModelLabel}> {placeholder} </span>
+                </div>
+                <OptionList
+                  options={options}
+                  onSelectText={onSelectText}
+                  selected={value}
+                  name={name}
+                  className={classes.optionList}
+                />
+              </div>
+            </div>
+          ) : fullSelect ? (
             <div className={classes.secteurContainer}>
               {options?.map((el) => (
                 <div
@@ -77,12 +141,7 @@ const SelectJobs = ({
               ))}
             </div>
           ) : (
-            <OptionList
-              options={options}
-              onSelectText={onSelectText}
-              selected={value}
-              name={name}
-            />
+            <OptionList options={options} onSelectText={onSelectText} selected={value} name={name} />
           )}
         </div>
       )}

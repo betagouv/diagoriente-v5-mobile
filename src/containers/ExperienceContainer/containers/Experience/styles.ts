@@ -10,10 +10,12 @@ export default makeStyles((theme: Theme) =>
       position: 'relative',
       background: '#F3F2F4',
       height: '100vh',
+      paddingBottom: '100px',
     },
     boxInfo: {
       width: '100%',
-      position: 'absolute',
+      position: 'fixed',
+      bottom: 0,
       backgroundColor: 'white',
       boxShadow: '0px 0px 5px -3px rgba(0, 0, 0, 0.75)',
       display: 'flex',

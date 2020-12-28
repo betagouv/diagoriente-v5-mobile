@@ -3,9 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   root: {
     width: '100%',
-    height: '100%',
+    height: '100vh',
     display: 'flex',
     justifyContent: 'center',
+    backgroundColor: '#F3F2F4',
   },
 
   content: {
@@ -14,6 +15,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    padding: '30px 30px 80px 30px',
   },
 
   header: {
@@ -24,10 +26,11 @@ export default makeStyles((theme) => ({
   },
   imgContainer: {
     width: 'fit-content !important',
+    marginTop: 10,
   },
   title: {
     fontFamily: 'ocean',
-    fontSize: 62,
+    fontSize: 32,
     fontWeight: 900,
     color: '#FF0060',
   },
@@ -38,15 +41,17 @@ export default makeStyles((theme) => ({
   },
 
   classNameTitle: {
-    fontSize: 18,
+    fontSize: 14,
+    color: ' #424242',
+    paddingTop: 10,
   },
   description: {
     marginTop: 20,
     marginBottom: 20,
-    width: 500,
+    width: 285,
     alignItems: 'center',
-    fontSize: 42,
-    fontWeight: 900,
+    fontSize: 14,
+    fontWeight: 700,
   },
 
   textDescription: {
@@ -55,14 +60,15 @@ export default makeStyles((theme) => ({
     width: 500,
     alignItems: 'center',
     fontSize: 18,
+    padding: '0px 18px',
+    maxWidth: 340,
   },
 
   text: {
-    fontSize: 18,
+    fontSize: 14,
     color: '#424242',
     width: '100%',
     textAlign: 'center',
-    margin: 10,
   },
 
   btnContainer: {

@@ -119,7 +119,7 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
   return (
     <div className={classes.profilContainer}>
       <div className={classes.titleContainer}>
-        <Arrow />
+        {/* <Arrow /> */}
         <Title title={getTitle()} color="#4D6EC5" size={42} className={classes.title} />
         <div className={classes.empty} />
       </div>
@@ -134,7 +134,7 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
             {skills
               ?.filter((s) => s.theme?.type === type)
               .map((s) => (
-                <Grid key={s.id} item xs={12} sm={12} md={6} lg={4} className={classes.cardGrid}>
+                <Grid key={s.id} item xs={12} className={classes.cardGrid}>
                   <Card
                     edit={onEdit}
                     recommendation={handleRecommendation}
@@ -142,6 +142,7 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
                     id={s.id}
                     competence={s.competences}
                     title={s.theme.title}
+                    className={classes.childrenCardContainer}
                     src={
                       type === 'professional'
                         ? secteurs?.themes.data.find((secteur) => secteur.id === s.theme.parentId)?.resources?.icon
@@ -153,13 +154,10 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
                 </Grid>
               ))}
 
-            <Link to={getUrl()} className={classNames(!showAddCard ? classes.btnLink : classes.link)}>
-              <Button className={classes.btn}>
-                <span className={classes.textButton}>J’ajoute une expérience {getSubTitle()}</span>
-              </Button>
-            </Link>
           </Grid>
-        </div>
+        
+                </div>
+              
       )}
       {skill && <Recommendation skill={skill} open={open} setOpen={setOpen} />}
 
@@ -183,7 +181,15 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
           </Button>
         </div>
       </Popup>
+        <div className={classes.btnEx}> 
+                 <Link to={getUrl()} className={classNames(!showAddCard ? classes.btnLink : classes.link)}>
+                      <Button className={classes.btn}>
+                        <span className={classes.textButton}>J’ajoute une expérience {getSubTitle()}</span>
+                      </Button>
+                    </Link>
+        </div>
     </div>
+    
   );
 };
 export default ExperienceComponent;

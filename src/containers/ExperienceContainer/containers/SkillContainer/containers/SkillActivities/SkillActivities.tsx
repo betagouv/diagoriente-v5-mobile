@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
-
 import { useTheme } from 'requests/themes';
 import { Theme } from 'requests/types';
 import { Tooltip } from '@material-ui/core';
-
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
-
-import TitleImage from 'components/common/TitleImage/TitleImage';
 import Title from 'components/common/TitleImage/TitleImage';
 import NextButton from 'components/nextButton/nextButton';
 import Button from 'components/button/Button';
+import PreviousButton from 'components/previousButton/previousButton';
 import CancelButton from 'components/cancelButton/CancelButton';
 import Spinner from 'components/SpinnerXp/Spinner';
-
-import RestLogo from 'components/common/Rest/Rest';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
-
 import blueline from 'assets/svg/blueline.svg';
-
 import { Unpacked } from 'utils/types';
 import useStyles from './styles';
 
@@ -51,12 +44,17 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
+  console.log('activite', activities.length);
+  console.log('disabled', !activities.length);
 
+  const onNavigate = () => {
+    if (activities.length) history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
+  };
   return (
     <div className={classes.root}>
       <div className={classes.container}>
         <Title
-          title={theme.type === 'professional' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
+          title={theme.type === 'professional' ? 'mes expériences pro' : 'mes expériences personnelles'}
           color="#223A7A"
           size={width > 380 ? 32 : 25}
           image={blueline}
@@ -101,22 +99,23 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
                 );
               })}
           </div>
-          <Link
-            to={`/experience/skill/${match.params.themeId}/competences${location.search}`}
-            className={classes.hideLine}
-          >
-            <NextButton disabled={!activities.length} />
-          </Link>
         </div>
-        {isCreate && (
+      </div>
+      <div className={classes.previousNext}>
+        <div>
+          {/*  {isCreate && ( */}
           <Link
             to={`/experience/${theme.type === 'professional' ? 'theme-pro' : 'theme'}${location.search}`}
             className={classes.btnpreced}
           >
-            <CancelButton />
-            Précedent
+            <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
           </Link>
-        )}
+          {/*  )} */}
+        </div>
+
+        <div onClick={onNavigate} className={classes.hideLine}>
+          <NextButton disabled={!activities.length} />
+        </div>
       </div>
     </div>
   );

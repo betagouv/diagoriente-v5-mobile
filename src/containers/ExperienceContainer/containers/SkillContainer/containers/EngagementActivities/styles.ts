@@ -12,11 +12,8 @@ export default makeStyles((theme: Theme) =>
     container: {
       display: 'flex',
       flexDirection: 'column',
-      padding: '50px 120px',
       width: '100%',
-      [theme.breakpoints.down('sm')]: {
-        padding: '40px',
-      },
+      paddingBottom: 100,
     },
 
     themeContainer: {
@@ -25,7 +22,8 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       paddingTop: 34,
-      paddingBottom: 250,
+      /*  paddingBottom: 250, */
+      height: '100vh',
     },
 
     circleContainer: {
@@ -139,8 +137,11 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       width: '100%',
       alignItems: 'center',
-      padding: '0px 50px',
+      padding: '15px 50px',
       justifyContent: 'center',
+      [theme.breakpoints.down(380)]: {
+        padding: '15px 25px',
+      },
     },
 
     selectGrid: {
@@ -178,9 +179,12 @@ export default makeStyles((theme: Theme) =>
 
     addIcon: {
       position: 'absolute',
-      bottom: 5,
+      bottom: 7,
       right: 0,
       cursor: 'pointer',
+      [theme.breakpoints.down(420)]: {
+        right: -20,
+      },
     },
 
     questionRow: {
@@ -231,6 +235,23 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
       display: 'flex',
       justifyContent: 'flex-end',
+    },
+    previousNext: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '8px 8px ',
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      backgroundColor: 'white',
+      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+      zIndex: 1,
+    },
+    classNameTitle: {
+      color: '#4D6EC5',
+      fontSize: 18,
+      lineHeight: '26px',
     },
   }),
 );

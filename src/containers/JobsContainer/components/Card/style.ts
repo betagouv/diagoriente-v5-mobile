@@ -4,11 +4,14 @@ export default makeStyles<Theme, { selected: boolean }>((theme) => ({
   root: {
     backgroundColor: (props) => (props.selected ? theme.palette.secondary.main : '#F3F2F4'),
     borderRadius: 10,
-    width: 252,
+    width: 320,
     height: 237,
     margin: 9,
     padding: 20,
     cursor: 'pointer',
+    [theme.breakpoints.down(380)]: {
+      width: 290,
+    },
   },
   selectedBox: {
     backgroundColor: theme.palette.secondary.main,

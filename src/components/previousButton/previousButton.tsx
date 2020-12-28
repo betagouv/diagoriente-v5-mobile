@@ -12,28 +12,36 @@ interface Props {
   ArrowColor?: string;
   fetching?: boolean;
   children?: React.ReactChild;
+  deleteArrow?: boolean;
 }
 
-const PreviousButton = ({ className, classNameTitle, ArrowColor, fetching, children, ...props }: IProps & Props) => {
+const PreviousButton = ({
+  className,
+  classNameTitle,
+  ArrowColor,
+  fetching,
+  children,
+  deleteArrow,
+  ...props
+}: IProps & Props) => {
   const classes = useStyles();
   return (
-   <Button 
-   type="submit"
-   childrenClassName={classes.margin}
-   className={classNames(classes.btnperso, className)}
-   {...props}
-   > 
-    <div className={classes.contentBtn}>
-    <Arrow color={ArrowColor || '#223A7A'} width="12" height="19" className={classes.arrow} />
-    {fetching && (
+    <Button
+      type="submit"
+      childrenClassName={classes.margin}
+      className={classNames(classes.btnperso, className)}
+      {...props}
+    >
+      <div className={classes.contentBtn}>
+        {!deleteArrow && <Arrow color={ArrowColor || '#223A7A'} width="12" height="19" className={classes.arrow} />}
+        {fetching && (
           <div className={classes.loaderContainer}>
             <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
           </div>
         )}
         <div className={classNames(classes.btnLabel, classNameTitle)}>{children || 'Précédent'}</div>
-      
       </div>
-   </Button>
+    </Button>
   );
 };
 

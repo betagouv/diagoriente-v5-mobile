@@ -150,6 +150,7 @@ export default makeStyles((theme) =>
     secondContainer: {
       display: 'flex',
       flexDirection: 'column',
+      alignItems:'center',
       paddingTop: 0,
     },
 
@@ -175,7 +176,8 @@ export default makeStyles((theme) =>
 
     input: {
       marginTop: 12,
-      marginBottom: 2,
+      marginBottom: 15,
+      gridTemplateColumns: '45px 229px',
     },
 
     btn: {
