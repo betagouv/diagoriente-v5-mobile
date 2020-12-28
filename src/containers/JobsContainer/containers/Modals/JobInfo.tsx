@@ -28,14 +28,12 @@ const JobInfo = ({ job, handleClose }: IProps) => {
     handleClose();
   };
   return (
-    <div>
-      <div className={classes.titleContainer}>
-        <div className={classes.title}>{job?.title}</div>
+    <div className={classes.contentModal}>
+      <div className={classes.infoContainer}>
+        <div className={classes.TextTitle}>Niveau d’accès :</div>
+        <div className={classes.textAccessibility}>{job.accessibility}</div>
       </div>
-      <div className={classes.contentModal}>
-        <div className={classes.TextTitle}>
-          Niveau d’accès : <span className={classes.textAccessibility}>{job.accessibility}</span>
-        </div>
+      <div className={classes.infoContainer}>
         <div className={classes.TextTitle}>L&lsquo;offre et la demande :</div>
         <div className={classes.offreContainer}>
           <div className={classes.offreConatinerItems}>
@@ -57,7 +55,9 @@ const JobInfo = ({ job, handleClose }: IProps) => {
             </div>
           </div>
         </div>
-        <div className={classes.description}>
+      </div>
+      <div className={classes.description}>
+        <div className={classes.infoContainer}>
           <div className={classes.similaireJob}>
             <div className={classes.TextTitle}>Métiers similaires :</div>
             <div className={classes.metiersContainer}>
@@ -69,11 +69,11 @@ const JobInfo = ({ job, handleClose }: IProps) => {
               ))}
             </div>
           </div>
-          <div className={classes.graph}>
-            <div className={classes.TextTitle}>Types de contrat :</div>
-            <div>
-              <Chart />
-            </div>
+        </div>
+        <div className={classes.graph}>
+          <div className={classes.TextTitle}>Types de contrat :</div>
+          <div>
+            <Chart />
           </div>
         </div>
       </div>
