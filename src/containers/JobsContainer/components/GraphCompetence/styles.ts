@@ -8,9 +8,7 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
   root: {
     border: '1px solid #C9C9C7',
     boxSizing: 'border-box',
-    borderRadius: 15,
-    marginTop: 40,
-    marginBottom: 40,
+    marginTop: 35,
   },
   header: {
     display: 'flex',
@@ -22,11 +20,13 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
   },
   titleJobCompetence: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 12,
+    lineHeight: '15px',
     color: '#DB8F00',
     width: '50%',
-    borderRadius: '15px 0px 0px 0px',
+    padding: '0px 25px',
     backgroundColor: (props) => (props.select === 'jobCompetence' ? '#fff' : '#F3F2F4'),
+    border: (props) => (props.select === 'jobCompetence' ? '#fff' : '1px solid #C9C9C7'),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -38,10 +38,12 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 12,
+    lineHeight: '15px',
     color: '#00B2DB',
     backgroundColor: (props) => (props.select === 'parcoursCompetence' ? '#fff' : '#F3F2F4'),
-    borderRadius: '0px 15px 0px 0px',
+    border: (props) => (props.select === 'parcoursCompetence' ? '#fff' : '1px solid #C9C9C7'),
+    padding: '0px 25px',
     cursor: 'pointer',
   },
   echelonContainer: {
@@ -72,16 +74,18 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'flex-end',
     margin: 0,
     paddingRight: 30,
-    width: 335,
+    width: '60%',
     color: '#424242',
-    fontSize: 18,
+    fontSize: 12,
   },
 
   competencesContainer: {
     display: 'flex',
     flexDirection: 'column',
+    marginTop: 30,
   },
 
   competencesValues: {
@@ -89,6 +93,7 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     width: '100%',
     paddingBottom: 10,
     paddingLeft: 30,
+    borderBottom: '0.5px solid #C9C9C7',
     '&:last-child': {
       paddingBottom: 36,
     },
@@ -98,6 +103,7 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     width: '100%',
     paddingBottom: 10,
     paddingLeft: 30,
+    borderBottom: '0.5px solid #C9C9C7',
     '&:last-child': {
       paddingBottom: 36,
     },
@@ -150,5 +156,23 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     left: 0,
     bottom: 0,
     height: 85,
+  },
+
+  pointsContainer: {
+    display: 'flex',
+    marginTop: 6,
+    marginBottom: 13,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '10px !important',
+  },
+
+  point: {
+    display: 'flex',
+    borderRadius: '50%',
+    width: '10px !important',
+    height: '10px !important',
+    marginRight: 6,
+    marginTop: 8,
   },
 }));

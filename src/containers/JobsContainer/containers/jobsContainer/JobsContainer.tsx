@@ -222,9 +222,10 @@ const JobsContainer = ({
               placeholder="Domaine d’activité"
               className={classes.containerAutoComp}
               open={openDomain}
-              fullSelect
+              fullScreenModal
               onClick={() => setOpenDomain(!openDomain)}
-              reference={divDomaine}
+              onClose={() => setOpenDomain(false)}
+              referenceFullScreen={divDomaine}
             />
             <Select
               options={listTypeData}
@@ -234,7 +235,9 @@ const JobsContainer = ({
               placeholder="Type de métier"
               className={classes.containerAutoComp}
               open={openType}
+              modal
               onClick={() => setOpenType(!openType)}
+              onClose={() => setOpenType(false)}
               reference={divType}
             />
             <Select
@@ -245,7 +248,9 @@ const JobsContainer = ({
               value={accessibility}
               className={classes.containerAutoComp}
               open={openAcc}
+              modal
               onClick={() => setOpenAcc(!openAcc)}
+              onClose={() => setOpenAcc(false)}
               reference={divAcc}
               parcourAcc={parcours?.accessibility}
             />
