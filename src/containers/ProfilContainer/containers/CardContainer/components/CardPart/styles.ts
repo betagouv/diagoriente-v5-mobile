@@ -13,7 +13,7 @@ export default makeStyles({
   title: {
     position: 'relative',
     lineHeight: 1,
-    fontSize: 42,
+    fontSize: 30,
     top: 2,
     color: '#D60051',
     fontFamily: 'Ocean',

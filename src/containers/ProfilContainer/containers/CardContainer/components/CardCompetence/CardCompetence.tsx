@@ -33,7 +33,7 @@ const CardCompetence = ({ title, description, type }: IProps) => {
         {globals.length ? (
           <Grid className={classes.competences} container spacing={3}>
             {globals.map((comp) => (
-              <Grid item lg={6} key={comp.id}>
+              <Grid item xs={12} key={comp.id}>
                 <div className={classes.competenceTitle}>{comp.title}</div>
                 <CompetenceEchelon value={comp.value} />
                 <div className={classes.competenceNiveau}>{`${comp?.niveau?.title} ${comp.niveau?.sub_title}`}</div>

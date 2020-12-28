@@ -2,7 +2,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) =>
   createStyles({
-    profilContainer: {
+    experienceContainer: {
       flex: '1 0 auto',
       position: 'relative',
       width: '100%',
@@ -11,25 +11,15 @@ export default makeStyles((theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       paddingBottom:56,
-      [theme.breakpoints.down(350)]: {
+      [theme.breakpoints.down(380)]: {
         overflowX:'hidden'
-  
       },
     },
-    rootContainer:{
-      width: '100%',
-      margin: '0px !important',
-      boxShadow: 'none !important',
-    },
+
     cardGridContainer: {
       padding: '30px 70px 30px 70px',
-      display:'flex',
-      alignItems:'center',
-      [theme.breakpoints.down(450)]: {
-        padding: '10px 10px 30px 10px',
-  
-      },
-      
+      display:'contents',
+      alignItems:'center'
     },
 
     cardClassName: {
@@ -39,7 +29,7 @@ export default makeStyles((theme) =>
     title: {
       fontFamily: 'Ocean',
       fontWeight: 900,
-      backgroundColor:'#FF0060',
+      backgroundColor:'#4D6EC5',
       // fontSize: '2.2em',
       // lineHeight: 1,
       // paddingBottom: 15,
@@ -190,8 +180,15 @@ export default makeStyles((theme) =>
     selected: {
       opacity: 0.5,
     },
-
-    infoContainer: {
+    accordionContainer:{
+        width:'100%',
+        margin: '0px !important',
+        boxShadow: 'none !important',
+      },
+      activeHeader: {
+        backgroundColor: '#e1e7f7 !important',
+      },
+    persoContainer: {
       display: 'flex',
       flexDirection: 'column',
       marginTop: 15,
@@ -290,17 +287,12 @@ export default makeStyles((theme) =>
       alignItems: 'center',
       marginTop: 8,
     },
-    interestItem: {
+    proItem: {
       padding: 40,
       '&:focus': {
         outline: 'none',
         border: 'none',
       },
-      [theme.breakpoints.down(450)]: {
-        padding: '15px 0px',
-  
-      },
-
     },
     themeImage: {
       maxHeight: '100%',
@@ -316,6 +308,9 @@ export default makeStyles((theme) =>
       backgroundColor: '#011A5E',
       '&:hover': {
         backgroundColor: '#223A7A',
+      },
+      [theme.breakpoints.down(330)]: {
+          margin:'0px 0px !important '  
       },
     },
 
@@ -344,71 +339,54 @@ export default makeStyles((theme) =>
     headerAccordion: {
       margin: '0px !important',
       boxShadow: 'none !important',
-    },
-    accordionContainer:{
-      width:'100%',
-      margin: '0px !important',
-      boxShadow: 'none !important',
-    },
-    activeHeader: {
-      backgroundColor: '#e1e7f7 !important',
-    },
+
    
-      
-    infoAccordion : {
-        height: '80px',
-        borderRadius: '0px',
-      boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
-      backgroundColor: 'rgba(243, 242, 244, 0.3)',
+
 
     },
-    headingText : {
+  
+   
+      
+    persoAccordion : {
+      
+    height: '80px',
+        borderRadius: '0px',
+      boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
+      backgroundColor: '#E1E7F7',
+
+    },
+    persoText : {
       fontSize: '26px',
       lineHeight: '26px',
-      color: '#424242',
+      color: '#4D6EC5',
       marginLeft: '70px',
       fontFamily: 'Ocean',
       fontWeight: 900,
-      [theme.breakpoints.down(330)]: {
-marginLeft:30 
+      [theme.breakpoints.down(380)]: {
+        marginLeft:10
       },
     },
-    iconInfo:{
+    iconPerso:{
       width:30,
       height:30,
-      color:"#424242",
-      borderRadius: '50%',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginRight:'0px !important'
+      color:"#4D6EC5"
     },
-    MuiExpansionPanelDetailsRoot:{
-      padding: '0px',
-    },
-    MuiIconButtonEdgeEnd255:{
-marginRight:0
-    },
-    headerInteret:{
+    headerPro:{
       backgroundColor: 'rgba(162, 117, 255, 0.3)',
       boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
       height: '80px',
       borderRadius: '0px',
 
     },
-    TextInteret:{
+    TextPro:{
       fontSize: '26px',
       lineHeight: '26px',
       marginLeft: '70px',
       fontFamily: 'Ocean',
       fontWeight: 900,
       color:'#420FAB',
-      [theme.breakpoints.down(330)]: {
-        marginLeft:30 
-              },
-      
     },
-    iconInteret:{
+    iconPro:{
       width:30,
       height:30,
       color:"#420FAB"
@@ -427,9 +405,6 @@ marginRight:0
       fontFamily: 'Ocean',
       fontWeight: 900,
       color:'#D60051',
-      [theme.breakpoints.down(330)]: {
-        marginLeft:30 
-              },
     },
     iconCompetence:{
       width:30,
@@ -446,7 +421,7 @@ marginRight:0
 
     },
     profilLabel:{
-      opacity:1 ,
+      opacity:0.5 ,
       color:'#FFFFFF ',
       fontFamily: 'Ocean',
       fontWeight: 900,
@@ -464,7 +439,7 @@ marginRight:0
       justifyContent:'center',
     },
     experienceLabel:{
-      opacity:0.5 ,
+      opacity:1 ,
       color:'#FFFFFF',
       fontFamily: 'Ocean',
       fontWeight: 900,
@@ -495,7 +470,7 @@ marginRight:0
 
     },
     label:{
-    maxWidth:'100% '
+    maxWidth:'100% !important'
 
     },
     navigation:{
@@ -503,25 +478,24 @@ marginRight:0
       position:'fixed',
       bottom:0,
       height:65,
-      display:'flex',
-
+      display:'flex'
     },
-    modifierProfile:{
+    detail:{
       right: '65px',
     position: 'absolute',
-    bottom: '20px',
-    [theme.breakpoints.down(400)]: {
-      right: '19px',
-      bottom: '9px',
+    bottom: '30px',
+    color:'#4D6EC5',
+    fontWeight:700,
+    size:14,
+    [theme.breakpoints.down(380)]: {
+      right: '35px',
+
     },
+
     },
     competenceContainer:{
     flexDirection: 'row',
-    padding: '20px 20px 20px 20px',
-    [theme.breakpoints.down(450)]: {
-      padding: '15px 5px 5px 5px',
-
-    },
+    padding: '40px 40px 40px 50px',
     },
 
     btnCompetence: {
@@ -529,11 +503,6 @@ marginRight:0
       height: 50,
       width: 331,
       padding: '0px 7px',
-      [theme.breakpoints.down(330)]: {
-        width:290,
-     
-
-      },
     },
     labelCompetence: {
       color: '#fff',
@@ -547,51 +516,33 @@ marginRight:0
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      [theme.breakpoints.down(450)]: {
-        width:300,
-        marginLeft: 50,
-
-      },
-      [theme.breakpoints.down(330)]: {
-        marginLeft: 10,
-
-      },
     },
     competenceFlex:{
       display:'flex',
-      [theme.breakpoints.down(450)]: {
-        flexDirection:'column'
-      },
     },
     carte:{
       display: 'flex',
     padding: '50px 0px',
     justifyContent: 'center',
     },
-    carouselContainer:{
+    proContainer:{
       
     },
-    carouselDetails:{
+    proDetails:{
       display:'block',
     },
-    imgCard:{
-      [theme.breakpoints.down(450)]: {
+    gridPro:{
+        padding:30,
+        paddingBottom:75,
+        [theme.breakpoints.down(380)]: {
+          padding:5,
+          paddingBottom:75,
+        },
+    },
+    expEng:{
+        paddingBottom:70,
         justifyContent:'center',
-        display: 'flex',
-      },
-    },
-    cardDetail:{
-      [theme.breakpoints.down(380)]: {
-        padding:'0px 0px '
-      },
-    },
-    accordionCarte:{
-      width:'100%',
-      margin: '0px !important',
-      boxShadow: 'none !important',
-    },
-  
-   
+    }
    
 
   }),
