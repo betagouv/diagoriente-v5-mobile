@@ -133,7 +133,9 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
   const onNavigate = () => {
     history.push('/profile/info');
   };
-  
+  const onNav = () => {
+    history.push('/profile/card');
+  };
   const renderTopJobs = useMemo(() => {
     if (topJobs.length) {
       return topJobs.map((j) => (
@@ -281,7 +283,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
       </div>
       </div>
       <div className={classes.carte}> 
-       <Button className={classes.btnCompetence}>
+       <Button className={classes.btnCompetence} onClick={onNav}>
        <div className={classes.labelCompetence} > Voir ma carte de compétences </div>
         </Button>
        </div>
