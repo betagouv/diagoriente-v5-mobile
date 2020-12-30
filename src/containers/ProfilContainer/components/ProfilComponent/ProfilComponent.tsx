@@ -1,4 +1,4 @@
-import React, { useContext, useEffect,useState, useMemo } from 'react';
+import React, { useContext, useEffect,useState, useMemo, useRef} from 'react';
 import { Link } from 'react-router-dom';
 import Title from 'components/common/TitleImage/TitleImage';
 import { useJobs } from 'requests/jobs';
@@ -16,7 +16,7 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Grid from '@material-ui/core/Grid';
 import classNames from 'utils/classNames';
-
+import FooterInfo from 'containers/ProfilContainer/components/FooterInfo/FooterInfo'
 import UserContext from 'contexts/UserContext';
 import parcoursContext from 'contexts/ParcourContext';
 
@@ -42,6 +42,13 @@ import SecteurContext from 'contexts/SecteurContext';
 import useStyles from './styles';
 
 const ProfilComponent = ({  history }: RouteComponentProps)  => {
+  const SelectTitles =[
+    'mon profile',
+    'mes expériences',
+    'mes démarches',
+  ]
+  const rowRef = useRef([] as (HTMLDivElement | null)[]);
+
   const classes = useStyles();
   const { user } = useContext(UserContext);
   const { parcours } = useContext(parcoursContext);
@@ -65,10 +72,34 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
   const handleChangeCompetence = () => {
     setExpandedCompetence(!expandedCompetence);
   };
+  const [expandedPerso, setExpandedPerso] = React.useState<boolean>(true);
+  const [expandedPro, setExpandedPro] = React.useState<boolean>(true);
+  const [expandedEngagement, setExpandedEngagement] = React.useState<boolean>(true);
 
+  const handleChangePerso = () => {
+    setExpandedPerso(!expandedPerso);
+  };
+  const handleChangePro = () => {
+    setExpandedPro(!expandedPro);
+  };
+  const handleChangeEngagement = () => {
+    setExpandedEngagement(!expandedEngagement);
+  };
+  const [expandedTop, setExpandedTop] = React.useState<boolean>(true);
+  const [expandedFav, setExpandedFav] = React.useState<boolean>(true);
+  const [expandedEnregistre, setExpandedEnregistre] = React.useState<boolean>(true);
+
+  const handleChangeTop = () => {
+    setExpandedTop(!expandedTop);
+  };
+  const handleChangeFav = () => {
+    setExpandedFav(!expandedFav);
+  };
+  const handleChangeEnregistre = () => {
+    setExpandedEnregistre(!expandedEnregistre);
+  };
   const [value, setValue] = React.useState(0);
-
-
+  
 
   useDidMount(() => {
     callJobs();
@@ -98,25 +129,12 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
   // const { type, redirect } = decodeUri(location.search);
 
   const favoriteJobs = stateJobs.data?.myJobs.filter((job) => job.favorite && job.favorite.interested) || [];
-  const cardUrl=()=>{ 
-  history.push('/profile/card');
 
-  }
-  const profileUrl = ()=>{
-    history.push('/profile');
-
-  }
-  const expUrl = ()=>{
-
-    history.push('/profile/experiencepro');
-
-  }
-  const demarcheUrl = ()=>{
-    history.push('/profile/demarche');
-
-  }
   const onNavigate = () => {
     history.push('/profile/info');
+  };
+  const onNav = () => {
+    history.push('/profile/card');
   };
   const renderTopJobs = useMemo(() => {
     if (topJobs.length) {
@@ -132,19 +150,16 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
     // eslint-disable-next-line
   }, [stateJobs.loading, stateJobs.data]);
 
-
-  //     title: 'MES CENTRES D’INTÉRÊT',
-  //     background: '#420FAB',
-  //     color: '#fff',
-  //     path: '/profile/interest',
+  
   
   return (
-    <div className={classes.profilContainer}>
+    <div>
+    <div className={classes.profilContainer} id="monProfile" ref={(ref) => (rowRef.current[0] = ref)}>
         <Title
           title="MON PROFILE"
           color="#ffffff"
           size={32}
-          className={classes.title} 
+          className={classes.titlePro} 
         />
       <div className={classes.rootContainer}>
       <Accordion
@@ -268,8 +283,8 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
       </div>
       </div>
       <div className={classes.carte}> 
-       <Button className={classes.btnCompetence}>
-       <div className={classes.labelCompetence} onClick={cardUrl}> Voir ma carte de compétences </div>
+       <Button className={classes.btnCompetence} onClick={onNav}>
+       <div className={classes.labelCompetence} > Voir ma carte de compétences </div>
         </Button>
        </div>
           </div>
@@ -278,15 +293,295 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
         
       
       </Accordion>
-      <div className={classes.navigation}> 
-      <div className={classes.profil} > <span className={classes.profilLabel} onClick={profileUrl} > Mon Profil </span></div>
-      <div className={classes.experience}> <span className={classes.experienceLabel} onClick={expUrl}  > Mes expériences </span></div>
-      <div className={classes.demarches}> <span className={classes.demarcheLabel} onClick={demarcheUrl}  > Mes démarches </span></div>
 
-    </div>
       </div>
         
     </div>
+    <div className={classes.experienceContainer} id="mesExpériences" ref={(ref) => (rowRef.current[1] = ref)}>
+    <Title
+      title="MES EXPÉRIENCES"
+      color="#ffffff"
+      size={32}
+      className={classes.titleExp} 
+    />
+  <div className={classes.accordionContainer}>
+  <Accordion
+    TransitionProps={{ unmountOnExit: true }}
+    expanded={expandedPerso}
+    onChange={handleChangePerso}
+    className={classes.headerAccordion}
+    >
+    <AccordionSummary
+      expandIcon={
+        <div >
+          <ExpandMoreIcon className={classes.iconPerso}/>
+        </div>
+      }
+      aria-controls="panel1bh-content"
+      id="panel1bh-header"
+      className={classes.persoAccordion}
+
+      >
+      <Typography className={classes.persoText} >MES EXPÉRIENCES PERSONNELLES</Typography>
+    </AccordionSummary>
+    <AccordionDetails >
+    <div className={classes.cardGridContainer}>
+   { persoSkills.length ? (
+     <Grid container className={classes.gridPro} spacing={1}>
+      {persoSkills.map((theme) => (
+        <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
+          <div className={classes.themeSelection}>
+            <Circle avatarCircleBackground="transparent" size={100}>
+              {theme.theme.resources && theme.theme.resources.icon && (
+                <img className={classes.themeImage} src={theme.theme.resources.icon} alt="theme" />
+              )}
+            </Circle>
+            <div className={classes.themeTile}>{theme.theme.title.replace(new RegExp('[//,]', 'g'), '\n')}</div>
+          </div>
+        </Grid>
+      ))}
+              <div className={classes.detail}>
+              <Link to="/profile/experience">
+              <span > Voir le détail </span>
+              </Link>
+              </div>
+    </Grid>
+
+  ) : (
+    <Link to="/experience/theme">
+      <Button className={classes.btn}>
+        <span className={classes.textButton}>J’ajoute une expérience personnelle</span>
+      </Button>
+    </Link>
+  )}
+
+          </div>
+    </AccordionDetails>
+  </Accordion>
+
+  <Accordion
+    TransitionProps={{ unmountOnExit: true }}
+    expanded={expandedPro}
+    onChange={handleChangePro}
+    className={classes.accordionContainer}
+    >
+    <AccordionSummary
+      expandIcon={
+           <div>
+          <ExpandMoreIcon className={classes.iconPerso}/>
+        </div>
+      }
+      aria-controls="panel1bh-content"
+      id="panel1bh-header"
+      className={classes.persoAccordion}
+ 
+      >
+      <Typography className={classes.persoText} >MES EXPÉRIENCES PROFESSIONNELLES </Typography>
+    </AccordionSummary>
+    <AccordionDetails className={classes.proDetails}>
+    <div className={classes.cardGridContainer}>
+          
+   { proSkills.length ? (
+   <Grid container className={classes.gridPro} spacing={1}>
+    {proSkills.map((theme) => {
+        const icon = secteurs?.themes.data.find((secteur) => theme.theme.parentId === secteur.id)?.resources?.icon;
+        return (
+          <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
+            <div className={classes.themeSelection}>
+              <Circle avatarCircleBackground="transparent" size={100}>
+                {icon && <img className={classes.themeImage} src={icon} alt="theme" />}
+              </Circle>
+              <div className={classes.themeTile}>{theme.theme.title.replace(new RegExp('[//,]', 'g'), '\n')}</div>
+            </div>
+          </Grid>
+        );
+      })}
+              <div className={classes.detail}>
+              <Link to="/profile/experience?type=professional">
+              <span  > Voir le détail </span>
+              </Link>
+              </div>
+    </Grid>)  : (
+    <Link to="/experience/theme-pro">
+      <Button className={classes.btn}>
+        <span className={classes.textButton}>J’ajoute une expérience professionnelle</span>
+      </Button>
+    </Link>
+  )}
+      </div>
+    </AccordionDetails> 
+  </Accordion>
+
+  <Accordion
+    TransitionProps={{ unmountOnExit: true }}
+    expanded={expandedEngagement}
+    onChange={handleChangeEngagement}
+    className={classes.accordionContainer}
+    >
+    <AccordionSummary
+      expandIcon={
+           <div>
+          <ExpandMoreIcon className={classes.iconPerso}/>
+        </div>
+      }
+      aria-controls="panel1bh-content"
+      id="panel1bh-header"
+      className={classes.persoAccordion}
+ 
+      >
+      <Typography className={classes.persoText} > MES EXPÉRIENCES D’ENGAGEMENT </Typography>
+    </AccordionSummary>
+    <AccordionDetails className={classes.expEng}>
+      <div className={classes.competenceContainer}> 
+      {engagementSkills.length ? (
+   <Grid container spacing={1} className={classes.gridPro} >
+      {engagementSkills.map((theme) => (
+        <Grid item xs={4} sm={4} key={theme.id} className={classes.itemContainer}>
+          <div className={classes.themeSelection}>
+            <Circle avatarCircleBackground="transparent" size={100}>
+              {theme.theme.resources && theme.theme.resources.icon && (
+                <img className={classes.themeImage} src={theme.theme.resources.icon} alt="theme" />
+              )}
+            </Circle>
+            <div className={classes.themeTile}>{theme.theme.title.replace(new RegExp('[//,]', 'g'), '\n')}</div>
+          </div>
+        </Grid>
+        
+      ))}
+ <div className={classes.detail}>
+ <Link to="/profile/experience?type=engagement">
+ <span > Voir le détail </span>
+ </Link>
+  </div>
+    </Grid>
+  ) : (
+    <Link to="/experience/theme?type=engagement">
+      <Button className={classes.btn}>
+        <span className={classes.textButton}>J’ajoute une expérience d&apos;engagement</span>
+      </Button>
+    </Link>
+  )}
+
+      </div>
+    
+    </AccordionDetails>
+    
+  
+  </Accordion>
+
+  </div>
+    
+</div>
+<div className={classes.demarcheContainer} id="mesDémarches" ref={(ref) => (rowRef.current[2] = ref)}>
+        <Title
+          title="MES DÉMARCHES"
+          color="#ffffff"
+          size={32}
+          className={classes.titleDemarche} 
+        />
+      <div className={classes.accordionContainer}>
+      <Accordion
+        TransitionProps={{ unmountOnExit: true }}
+        expanded={expandedTop}
+        onChange={handleChangeTop}
+        className={classes.headerAccordion}
+        >
+        <AccordionSummary
+          expandIcon={
+            <div >
+              <ExpandMoreIcon className={classes.iconTop}/>
+            </div>
+          }
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+          className={classes.topAccordion}
+        
+          >
+          <Typography className={classes.topText} > 
+          <div className={classes.logoStar}> 
+          <div>  <img src={star} alt="" height={30} className={classes.star} /> </div>
+         <div>  MON TOP MÉTIERS  </div> 
+         </div>
+           </Typography>
+        </AccordionSummary>
+        <AccordionDetails className={classes.topJobs} >
+              <div>
+              {renderTopJobs}
+              </div>
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion
+        TransitionProps={{ unmountOnExit: true }}
+        expanded={expandedFav}
+        onChange={handleChangeFav}
+        className={classes.accordionContainer}
+        >
+        <AccordionSummary
+          expandIcon={
+               <div>
+              <ExpandMoreIcon className={classes.iconTop}/>
+            </div>
+          }
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+          className={classes.topAccordion}
+      
+          >
+          <Typography className={classes.topText} >  
+          
+          <div className={classes.logoStar}> 
+          <div>  <img src={littleheart} alt="" height={30} className={classes.star} /> </div>
+         <div> MES MÉTIERS FAVORIS  </div> 
+         </div>         
+        </Typography>
+        </AccordionSummary>
+        <AccordionDetails className={classes.proDetails}>
+        <div>
+              
+        {favoriteJobs.length? favoriteJobs.map((j) => (
+            <div key={j.id} className={classes.favoriContainer}>
+              <img src={littleheart} alt="" height={20} />
+              <div className={classes.job}>{j.title}</div>
+            </div>
+          ))
+        : null }
+          </div>
+        </AccordionDetails> 
+      </Accordion>
+
+      <Accordion
+        TransitionProps={{ unmountOnExit: true }}
+        expanded={expandedEnregistre}
+        onChange={handleChangeEnregistre}
+        className={classes.accordionContainer}
+        >
+        <AccordionSummary
+          expandIcon={
+               <div>
+              <ExpandMoreIcon className={classes.iconTop}/>
+            </div>
+          }
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+          className={classes.topAccordion}
+      
+          >
+          <Typography className={classes.topText} > MES ENTREPRISES ENREGISTREES </Typography>
+        </AccordionSummary>
+        <AccordionDetails >
+          <div className={classes.competenceContainer}> 
+          <div>hello</div>
+          </div>
+        
+        </AccordionDetails>
+      </Accordion>
+<FooterInfo  options={SelectTitles} refs={rowRef} />
+      </div>
+        
+    </div>
+</div>
+
   );
 };
 export default ProfilComponent;
