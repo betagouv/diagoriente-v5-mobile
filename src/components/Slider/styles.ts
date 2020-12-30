@@ -35,6 +35,21 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
   },
+
+  CheckBoxStyle: {
+    'padding-left': '5%',
+  },
+
+  titleContainer1: {
+    fontWeight: 'bold',
+    fontSize: 24,
+    fontFamily: 'ocean',
+    color: '#420FAB',
+    textAlign: 'left',
+    marginBottom: 20,
+    textTransform: 'uppercase',
+    width: '90%',
+  },
   traitLogo: {
     position: 'absolute',
     top: -16,
@@ -60,7 +75,6 @@ export default makeStyles<Theme>((theme) => ({
   avatarContainer: {
     display: 'flex',
     flexWrap: 'wrap',
-    padding: '0px 143px',
     height: '100%',
     justifyContent: 'space-evenly',
   },
@@ -68,10 +82,10 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
   },
   subitem: {
-    minWidth: 170,
-    padding: '10px 3px',
+    minWidth: '100%',
     width: '29%',
     cursor: 'pointer',
+    backgroundColor: 'white',
   },
   subitem1: {
     minWidth: 170,
@@ -80,26 +94,26 @@ export default makeStyles<Theme>((theme) => ({
     cursor: 'pointer',
   },
   selected: {
-    opacity: 1,
     position: 'relative',
-  },
-  deselected: {
-    opacity: 0.5,
+    backgroundColor: 'rgba(223, 212, 255, 0.5)',
   },
   wrapperBtn: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     [theme.breakpoints.down('xs')]: {
-      display: 'none',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      left: '7vh',
+      paddingTop: '57vh',
+      paddingRight: '2vh',
     },
   },
   nextWrap: { right: 4 },
   prevWrap: { left: 3 },
-  containerBtn: {
+  containerBtnLeft: {
     width: 44,
-    height: 44,
-    backgroundColor: theme.palette.secondary.main,
     borderRadius: '50%',
     display: 'flex',
     justifyContent: 'center',
@@ -111,6 +125,29 @@ export default makeStyles<Theme>((theme) => ({
     '&:active': {
       borderStyle: 'hidden',
     },
+    position: 'absolute',
+    left: 15,
+    top: -134,
+    zIndex: 99999,
+  },
+
+  containerBtnRight: {
+    width: 44,
+    borderRadius: '50%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer',
+    outline: 'none',
+    borderStyle: 'hidden',
+    paddingLeft: 5,
+    '&:active': {
+      borderStyle: 'hidden',
+    },
+    position: 'absolute',
+    right: 15,
+    top: -134,
+    zIndex: 9999,
   },
   rotatedArrow: {
     transform: 'rotate(180deg)',
@@ -178,5 +215,8 @@ export default makeStyles<Theme>((theme) => ({
   },
   hideImg: {
     opacity: 0,
+  },
+  titleHeader: {
+    fontSize: '32px !important',
   },
 }));

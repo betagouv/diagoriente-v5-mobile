@@ -14,6 +14,8 @@ export default makeStyles<Theme>((theme) => ({
   },
   content: {
     maxWidth: 1080,
+    position: "absolute",
+    top: "6.5%",
   },
   interestContainerLogo: {
     display: 'flex',
@@ -24,7 +26,11 @@ export default makeStyles<Theme>((theme) => ({
   },
   subTitle: {
     fontSize: 18,
+    "padding-left": "68px",
+    "padding-right": "68px",
+    "padding-top": "71px",
   },
+
   avatarContainer: {
     width: '100%',
     display: 'flex',
@@ -41,12 +47,22 @@ export default makeStyles<Theme>((theme) => ({
   btn: {
     backgroundColor: theme.palette.success.main,
     height: 50,
-    width: 'max-content',
+    width: 168,
     '&:hover': {
       backgroundColor: theme.palette.success.main,
       borderRadius: 10,
     },
   },
+  line1: {
+
+    "font-family": "Andika New Basic",
+"font-style": "normal",
+"font-weight": "normal",
+"font-size": "14px",
+"line-height": "21px",
+"text-align": "center",
+  },
+
   btnLabel: {
     color: '#fff',
     textTransform: 'none',

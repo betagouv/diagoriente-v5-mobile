@@ -34,11 +34,6 @@ const SelectedFamille = ({ handleClick, famille, index, direction, type }: IProp
             onMouseEnter={mouseEnter}
             onMouseLeave={mouseLeave}
           >
-            {direction && (
-              <div onClick={type !== 'ordre' ? () => handleClick(index) : () => {}} className={classes.closeContainer}>
-                <Reset color="#420FAB" size={20} />
-              </div>
-            )}
             <img src={famille.resources[2]} alt="" />
           </div>
         </div>
@@ -48,6 +43,11 @@ const SelectedFamille = ({ handleClick, famille, index, direction, type }: IProp
           <div className={classes.text}>{res}</div>
         </Dotdotdot>
       </div>
+      {type !== 'ordre' && (
+        <div onClick={type !== 'ordre' ? () => handleClick(index) : () => {}} className={classes.closeContainer}>
+          <Reset color="#420FAB" size={20} />
+        </div>
+      )}
     </div>
   );
 };

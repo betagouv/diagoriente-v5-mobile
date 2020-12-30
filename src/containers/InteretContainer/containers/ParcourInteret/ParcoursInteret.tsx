@@ -3,11 +3,10 @@ import { useFamilies } from 'requests/familles';
 import Button from 'components/button/Button';
 import { Families } from 'requests/types';
 import ModalContainer from 'components/common/Modal/ModalContainer';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { useParams, Link, RouteComponentProps } from 'react-router-dom';
 import { groupBy } from 'lodash';
 import PlaceHolder from 'containers/InteretContainer/components/placeholderInterest/Placeholder';
 import Arrow from 'assets/svg/arrow';
-import mainInterest from 'assets/svg/mainInterest.svg';
 
 import interestContext from 'contexts/InterestSelected';
 import parcoursContext from 'contexts/ParcourContext';
@@ -20,10 +19,18 @@ import useStyles from './styles';
 
 const ParcoursInteret = ({ location }: RouteComponentProps) => {
   const classes = useStyles();
+  const param = useParams();
+  const isBrowser = typeof window !== 'undefined';
+  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
+  });
+
   const { setInterest, selectedInterest } = useContext(interestContext);
   // eslint-disable-next-line
   const [openWarning, setWarning] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openConfirm, setOpenConfirm] = useState(false);
   const handelOpen = () => setOpen(true);
   const onHandelClose = () => setOpen(false);
   const onHandelCloseWarning = () => setWarning(false);
@@ -83,7 +90,13 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
     }
   };
   useEffect(() => {
-    const test = selectedInterest?.every((interet) => interet.category === "avec d'autres personnes");
+    const test = selectedInterest?.every(
+      (interet) =>
+        interet.category === "avec d'autres personnes" ||
+        interet.category === 'avec ses mains' ||
+        interet.category === 'avec sa tête',
+    );
+
     if (selectedInterest?.length === 5 && test) setWarning(true);
   }, [selectedInterest]);
 
@@ -106,12 +119,32 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
                 <Spinner />
               </div>
             ) : (
-              <Slider data={formattedData} handleClick={handleClick} isChecked={isChecked} />
+              <Slider
+                data={formattedData}
+                handleClick={handleClick}
+                isChecked={isChecked}
+                defaultIndex={Number((param as any).id)}
+              />
             )}
           </div>
         </div>
+        <div className={classes.ellipse} onClick={() => setOpenConfirm(true)}>
+          <span className={classes.textEllipsis}>{selectedInterest?.length} / 5</span>
+        </div>
+        <div className={classes.btnNext}>
+          {selectedInterests.length > 0 && (
+            <Link to={`/interet/ordre/${location.search}`} className={classes.wrapperBtn}>
+              <Button className={classes.btn}>
+                <div className={classes.contentBtn}>
+                  <div className={classes.btnLabel}>Suivant</div>
+                  <Arrow color="#fff" width="12" height="12" />
+                </div>
+              </Button>
+            </Link>
+          )}
+        </div>
 
-        <div className={classes.footer}>
+        {/*    <div className={classes.footer}>
           <div className={classes.footerContent}>
             <div className={classes.descriptionContainer}>
               <div className={classes.description}>Sélectionne 5 familles </div>
@@ -130,18 +163,9 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
                 ))}
 
             {!loading && renderPlaceholder()}
-            {selectedInterests.length > 0 && (
-              <Link to={`/interet/ordre/${location.search}`} className={classes.wrapperBtn}>
-                <Button className={classes.btn}>
-                  <div className={classes.contentBtn}>
-                    <div className={classes.btnLabel}>Suivant</div>
-                    <Arrow color="#fff" width="12" height="12" />
-                  </div>
-                </Button>
-              </Link>
-            )}
+         
           </div>
-        </div>
+        </div> */}
       </div>
       <ModalContainer open={open} backdropColor="#011A5E" colorIcon="#420FAB">
         <div style={{ height: 240, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 40 }}>
@@ -158,21 +182,47 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
         </div>
       </ModalContainer>
-      <ModalContainer open={openWarning} backdropColor="#011A5E" colorIcon="#420FAB">
-        <div style={{ height: "80%", display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 40 }}>
+      <ModalContainer open={openWarning} backdropColor="#011A5E" colorIcon="#420FAB" size={90}>
+        <div style={{ height: '80%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 40 }}>
           <div className={classes.titleContainerModal}>UNE PETITE MINUTE...</div>
           <div className={classes.textModal}>
             Tu as choisi tes familles d’intérêts seulement dans la 1ère partie, es-tu sûr.e d’avoir exploré toutes les
             familles d’intérêts
-          </div>
-          <div className={classes.imgContainer}>
-            <img src={mainInterest} alt="" className={classes.imgContainerWarning}/>
           </div>
           <div>
             <Button onClick={onHandelCloseWarning} className={classes.btn}>
               <div className={classes.btnLabel}>J'ai compris !</div>
             </Button>
           </div>
+        </div>
+      </ModalContainer>
+      <ModalContainer open={openConfirm} backdropColor="#011A5E" colorIcon="#420FAB" size={100}>
+        <div>
+          <div className={classes.headerModelConfirm}>
+            <span className={classes.textModelConfirm}>MES FAMILLES d'INTERET ({selectedInterest?.length}/5)</span>
+            <Arrow
+              color="white"
+              width="22"
+              height="22"
+              className={classes.arrowStyle}
+              onClick={() => setOpenConfirm(false)}
+            />
+          </div>
+          {loading
+            ? renderAllPlaceholder()
+            : selectedInterests.map((el, i) => (
+                <div className={classes.itemRow}>
+                  <FamileSelected
+                    key={el.id}
+                    handleClick={() => deleteFamille(i)}
+                    famille={el}
+                    index={i}
+                    direction="horizontal"
+                  />
+                </div>
+              ))}
+
+          {!loading && renderPlaceholder()}
         </div>
       </ModalContainer>
     </div>
