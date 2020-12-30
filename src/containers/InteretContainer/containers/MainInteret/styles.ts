@@ -2,9 +2,21 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles<Theme>((theme) => ({
   container: {
-    margin: 50,
+    width: '100%',
+    height: '100vh',
     display: 'flex',
+    'max-height': '600px',
     flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 31,
+    paddingBottom: 20,
+    backgroundColor: '#f3f2f4',
+  },
+  content: {
+    maxWidth: 1080,
+    position: 'absolute',
+    top: '6.5%',
   },
   titleContainer: {
     fontWeight: 'bold',
@@ -18,6 +30,10 @@ export default makeStyles<Theme>((theme) => ({
     fontSize: 18,
     textAlign: 'center',
     marginBottom: 10,
+  },
+  TitlePosition: {
+    'padding-top': '121px',
+    'padding-bottom': '82px',
   },
   title: {
     fontWeight: 'bold',
@@ -34,15 +50,19 @@ export default makeStyles<Theme>((theme) => ({
     marginBottom: 20,
   },
   textFooter: {
-    fontWeight: 'bold',
-    fontSize: 18,
-    textAlign: 'center',
-    lineHeight: '26px',
+    'font-family': 'Andika New Basic',
+    'font-style': 'normal',
+    'font-weight': 'normal',
+    'font-size': '14px',
+    'line-height': '22px',
+    'text-align': 'center',
+    'margin-left': '92px',
+    'margin-right': '92px',
   },
   btnContainer: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: 30,
+    marginTop: 1,
   },
   btn: {
     backgroundColor: theme.palette.primary.main,
@@ -50,5 +70,12 @@ export default makeStyles<Theme>((theme) => ({
     '&:hover': {
       backgroundColor: theme.palette.primary.main,
     },
+  },
+  linksContainer: {
+    position: 'fixed',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'linear-gradient(180deg, #F3F2F4 0%, #F3F2F4 51.56%, rgba(243, 242, 244, 0) 100%), #F3F2F4',
   },
 }));

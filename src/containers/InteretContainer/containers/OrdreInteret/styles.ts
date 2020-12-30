@@ -5,6 +5,7 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
+    flex: 1,
   },
   content: {
     maxWidth: 1080,
@@ -43,7 +44,6 @@ export default makeStyles<Theme>((theme) => ({
   },
 
   wrapper: {
-    backgroundColor: '#E5E5E5',
     width: '100%',
     height: '100%',
     position: 'relative',
@@ -51,7 +51,6 @@ export default makeStyles<Theme>((theme) => ({
     marginBottom: 0,
   },
   subTitle: {
-    fontSize: 18,
     textAlign: 'center',
     marginTop: 50,
   },
@@ -59,10 +58,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     marginTop: 50,
-    flexWrap: 'wrap',
-  },
-  item: {
-    width: 140,
+    padding: 20,
   },
   circle: {
     width: 77,
@@ -74,7 +70,6 @@ export default makeStyles<Theme>((theme) => ({
     opacity: 0.5,
   },
   orderSelected: {
-    marginTop: 20,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'flex-end',
@@ -82,10 +77,6 @@ export default makeStyles<Theme>((theme) => ({
   },
   btnContainer: {
     width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    position: 'absolute',
-    bottom: 0,
   },
   btn: {
     backgroundColor: theme.palette.success.main,
@@ -115,5 +106,67 @@ export default makeStyles<Theme>((theme) => ({
   text: {
     fontSize: 12,
     color: '#FF0060',
+  },
+  rowItem: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: 'auto',
+  },
+  rowParent: {
+    display: 'flex',
+    alignItems: 'center',
+    height: 101,
+    marginBottom: 10,
+  },
+  indexItem: {
+    width: 51,
+    height: 51,
+    borderRadius: '50%',
+    backgroundColor: '#d0bafe',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 25,
+  },
+  index: {
+    fontFamily: 'ocean',
+    fontWeight: 900,
+    fontSize: 42,
+    lineHeight: '42px',
+    color: '#420FAB',
+  },
+  itemList: {
+    background: '#d0bafe',
+    border: '4px solid #a087d5',
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  drag_on_drag: {
+    background: '#A275FF',
+    border: '4px solid #420FAB',
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  wrapperList: {
+    position: 'relative',
+    width: '80%',
+  },
+  wrapperListItem: { zIndex: 1, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 },
+  hiddenList: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 0,
+  },
+  holderItem: {
+    background: '#A275FF',
+    border: '4px solid #420FAB',
+    borderRadius: 10,
+    marginBottom: 10,
+    opacity: 0.1,
+    height: 101,
   },
 }));

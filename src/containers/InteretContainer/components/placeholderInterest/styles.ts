@@ -8,9 +8,9 @@ export default makeStyles<
     display: 'flex',
     flexDirection: (props) => (props.direction === 'horizontal' ? 'row' : 'column'),
     alignItems: 'center',
-    margin: (props) => (props.direction === 'horizontal' ? '5px 36px 5px 0px' : 0),
     width: (props) => (props.direction === 'vertical' ? '100%' : 'auto'),
-    marginTop: (props) => props.marginTop,
+    margin: 7.5,
+    marginLeft: 20,
   },
   circle: {
     width: (props) => props.size || 77,
@@ -21,7 +21,7 @@ export default makeStyles<
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: (props) => (props.footer ? '#A275FF' : '#fff'),
+    backgroundColor: '#A275FF',
     opacity: (props) => (props.footer ? 0.3 : 0.5),
     marginBottom: (props) => (props.direction === 'horizontal' ? 0 : 10),
   },
@@ -34,12 +34,13 @@ export default makeStyles<
   elements: {
     display: 'flex',
     flexDirection: 'column',
+    marginLeft: 30,
   },
   bigElement: {
     width: 54,
     height: 11,
     opacity: 0.2,
-    backgroundColor: (props) => (props.footer ? '#A275FF' : '#fff'),
+    backgroundColor: '#A275FF',
     margin: 2,
   },
   smallElement: {
@@ -47,7 +48,7 @@ export default makeStyles<
     height: 11,
     opacity: 0.2,
     margin: 2,
-    backgroundColor: (props) => (props.footer ? '#A275FF' : '#fff'),
+    backgroundColor: '#A275FF',
   },
   textFamille: {
     fontSize: 12,
@@ -64,4 +65,5 @@ export default makeStyles<
     width: '100%',
     left: 0,
   },
+ 
 }));

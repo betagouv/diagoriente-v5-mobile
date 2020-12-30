@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import RestLogo from 'components/common/Rest/Rest';
 import { Redirect, Link, RouteComponentProps } from 'react-router-dom';
-import Avatar from 'components/common/Avatar/Avatar';
-import InterestLogo from 'assets/svg/interest.svg';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { Families } from 'requests/types';
 import { useUpdateParcour } from 'requests/parcours';
 import classNames from 'utils/classNames';
@@ -10,27 +8,17 @@ import { decodeUri } from 'utils/url';
 import interestContext from 'contexts/InterestSelected';
 import ParcourContext from 'contexts/ParcourContext';
 import NextButton from 'components/nextButton/nextButton';
-import InterestContainer from '../../components/InterestContainer/InterestContainer';
 import FamileSelected from '../../components/SelectedFamille/SelectedFamille';
 import useStyles from './styles';
 
 const OrderInteret = ({ history, location }: RouteComponentProps) => {
   const [updateCall, updateState] = useUpdateParcour();
   const [error, setError] = useState('');
-  const { selectedInterest } = useContext(interestContext);
+  const { selectedInterest, setInterest } = useContext(interestContext);
   const { setParcours } = useContext(ParcourContext);
   const classes = useStyles();
   const [orderedArray, setOrderedArray] = useState([] as Families[]);
 
-  const heights = [226, 216, 206, 196, 186];
-
-  const renderPlaceholder = () => {
-    const array: JSX.Element[] = [];
-    for (let i = orderedArray.length + 1; i <= (selectedInterest?.length || 0); i += 1) {
-      array.push(<InterestContainer index={i} key={i} height={heights[i - 1]} />);
-    }
-    return array;
-  };
   const isChecked = (id?: string): boolean => !!orderedArray.find((elem) => elem.id === id);
 
   const handelClick = (item?: Families) => {
@@ -58,63 +46,92 @@ const OrderInteret = ({ history, location }: RouteComponentProps) => {
     // eslint-disable-next-line
   }, [updateState.data, updateState.error]);
 
-  if (!selectedInterest) return <Redirect to="/interet/parcours" />;
   const onUpdate = () => {
-    const dataToSend = orderedArray.map((el) => el.id) || selectedInterest;
-    if (orderedArray.length === selectedInterest.length) {
-      updateCall({ variables: { families: dataToSend } });
-    } else {
-      setError("Merci de compléter l'ordre du(es) centre(s) d‘intérêt(s) sélectionné(s)");
+    const dataToSend = selectedInterest?.map(el => el.id);
+    if(selectedInterest) {
+    updateCall({ variables: { families: dataToSend } });
+
     }
   };
 
+  const reorder = (list: any, startIndex: any, endIndex: any) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result;
+  };
+  const onDragEnd = (result: any) => {
+    if (!result.destination) {
+      return;
+    }
+    const items: any = reorder(selectedInterest, result.source.index, result.destination.index);
+    setInterest(items);
+  };
+
+  if (!selectedInterest) return <Redirect to="/interet/main" />;
   return (
     <div className={classes.container}>
       <div className={classes.content}>
-        <div className={classes.header}>
-          <div className={classes.titleContainer}>
-            <Avatar size={50} className={classes.logoConatienr} avatarCircleBackground="#DDCCFF">
-              <img src={InterestLogo} alt="interest" />
-            </Avatar>
-            <div className={classes.title}>Mes CENTRES D&lsquo;INTÉRÊT</div>
-          </div>
-          <Link to="/interet">
-            <RestLogo color="#420FAB" label="Annuler" />
-          </Link>
-        </div>
         <div className={classes.wrapper}>
           <div className={classes.subTitle}>
-            <div>Bravo ! Tu as sélectionné tes 5 familles d&lsquo;intérêts.</div>
+            <div>Bravo ! Tu as sélectionné tes familles d&lsquo;intérêts.</div>
             <div>Maintenant classe-les par ordre d’importance pour toi :</div>
           </div>
           <div className={classes.listSelected}>
-            {selectedInterest?.map((ele, index) => (
-              <div className={classNames(classes.item, isChecked(ele.id) && classes.disable)} key={ele.id}>
-                <FamileSelected
-                  famille={ele}
-                  index={index}
-                  handleClick={() => handelClick(ele)}
-                  direction="vertical"
-                  type="ordre"
-                />
+            <div className={classes.rowItem}>
+              {selectedInterest.map((el, index) => (
+                <div className={classes.rowParent}>
+                  <div className={classes.indexItem}>
+                    <span className={classes.index}>{index + 1}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className={classes.wrapperList}>
+              <div className={classes.wrapperListItem}>
+                {selectedInterest && (
+                  <DragDropContext onDragEnd={onDragEnd}>
+                    <Droppable droppableId="droppable">
+                      {(provided, snapshot) => (
+                        <div {...provided.droppableProps} ref={provided.innerRef}>
+                          {selectedInterest.map((ele, index) => (
+                            <Draggable key={ele.id} draggableId={`item-${ele.id}`} index={index}>
+                              {(provided, snapshot) => (
+                                <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                  <div
+                                    className={classNames(
+                                      classes.itemList,
+                                      snapshot.draggingOver && classes.drag_on_drag,
+                                    )}
+                                    key={ele.id}
+                                  >
+                                    <FamileSelected
+                                      famille={ele}
+                                      index={index}
+                                      handleClick={() => handelClick(ele)}
+                                      direction="horizontal"
+                                      type="ordre"
+                                    />
+                                  </div>
+                                </div>
+                              )}
+                            </Draggable>
+                          ))}
+                          {provided.placeholder}
+                        </div>
+                      )}
+                    </Droppable>
+                  </DragDropContext>
+                )}
               </div>
-            ))}
-          </div>
-          <div className={classes.orderSelected}>
-            {orderedArray.map((el, i) => (
-              <InterestContainer
-                index={i + 1}
-                key={el.id}
-                height={heights[i]}
-                full
-                famille={el}
-                handleClick={handelClick}
-              />
-            ))}
-            {renderPlaceholder()}
-          </div>
-          <div className={classes.errorContainer}>
-            <div className={classes.text}>{error}</div>
+
+              <div className={classes.hiddenList}>
+                {selectedInterest.map((el) => (
+                  <div className={classes.holderItem} />
+                ))}
+              </div>
+            </div>
           </div>
           <div className={classes.btnContainer}>
             <NextButton

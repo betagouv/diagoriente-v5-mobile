@@ -15,6 +15,8 @@ interface Props {
   font?: string;
   width?: number;
   className?: string;
+  classNameTitle?: string;
+  backgroudColor?: string;
   btnImage?: string;
   onClick?: () => void;
 }
@@ -33,16 +35,20 @@ const TitleImage = ({
   className,
   btnImage,
   onClick,
+  backgroudColor,
+  classNameTitle,
 }: Props) => {
   const classes = useStyles({
     color,
     size,
     font,
     width,
+    backgroudColor,
   });
   return (
     <div
       className={classNames(
+        className,
         classes.container,
         number || btnImage ? classes.containerPositionWithNumber : classes.containerPosition,
         className,

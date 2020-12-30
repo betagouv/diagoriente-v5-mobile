@@ -60,7 +60,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-    padding: '0px 40px',
+    padding: '0px 0px',
     backgroundColor: '#E5E5E5',
   },
   maxWidth: {
@@ -90,10 +90,8 @@ export default makeStyles<Theme>((theme) => ({
       justifyContent: 'center',
     },
     [theme.breakpoints.down('sm')]: {
-      padding: 30,
-    },
-    [theme.breakpoints.down('sm')]: {
-      padding: 30,
+      'padding-top': '0px',
+      'padding-bottom': '30px',
     },
   },
   footer: {
@@ -175,5 +173,56 @@ export default makeStyles<Theme>((theme) => ({
   imgContainerWarning: {
     width: '100%',
     height: '100%',
+  },
+  btnContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  ellipse: {
+    backgroundColor: '#420FAB',
+    height: '92px',
+    width: '92px',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 10,
+    right: 15,
+  },
+  textEllipsis: {
+    fontSize: 24,
+    fontFamily: 'Ocean',
+    color: 'white',
+  },
+  headerModelConfirm: {
+    backgroundColor: '#420FAB',
+    height: '92px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textModelConfirm: {
+    color: 'white',
+    fontFamily: 'ocean',
+    textTransform: 'uppercase',
+    fontWeight: 900,
+    fontSize: 32,
+    lineHeight: '32px',
+    textAlign: 'center',
+  },
+  itemRow: {
+    height: 104,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  arrowStyle: {
+    transform: 'rotate(90deg)',
+    marginLeft: 20,
+  },
+  btnNext: {
+    position: 'absolute',
+    bottom: 34,
+    right: 120,
   },
 }));
