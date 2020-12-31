@@ -38,8 +38,12 @@ const SelectModal = () => {
   const [step, setStep] = useState<Steps>(Steps.THEMES);
   const [updateCall, updateState] = useUpdateParcour();
   const [open, setOpen] = useState(false);
+  const [openType, setOpenType] = useState(false);
+
   const [accessibility, setAccessibility] = useState('');
   const isChecked = (id: string) => selectedThemes.includes(id);
+  const divType = useRef<HTMLDivElement>(null);
+var x = false;
 
   useEffect(() => {
     accessibilityCall();
@@ -74,6 +78,8 @@ const SelectModal = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updateState.data]);
 
+
+
   switch (step) {
     case Steps.ACCESSIBILITY:
       return (
@@ -90,20 +96,22 @@ const SelectModal = () => {
           </div>
           <div className={classes.accessibility}>
             <ThemeProvider theme={selectTheme}>
-              <Select
-                value={[accessibility]}
-                onClick={() => setOpen(!open)}
-                onSelectText={(e) => {
-                  if (e) setAccessibility(e);
-                }}
-                reference={divSelect}
-                placeholder={
-                  accessibilityState.data?.accessibilities.data.find((a) => a.id === accessibility)?.name ||
-                  'Niveau de diplôme'
-                }
-                options={accessibilityState.data?.accessibilities.data || []}
-                open={open}
-              />
+                          <Select
+              options={accessibilityState.data?.accessibilities.data || []}
+              onSelectText={(e) => {
+                if (e) setAccessibility(e);
+              }}              name="job"
+              value={[accessibility]}
+
+              placeholder={!accessibility? "Niveau de diplôme" : accessibilityState.data?.accessibilities.data[1].name} 
+              className={classes.containerAutoComp}
+              open={openType}
+              modal
+              onClick={() => setOpenType(!openType)}
+              onClose={() => setOpenType(false)}
+              reference={divType}
+              color = {x}
+            />
             </ThemeProvider>
           </div>
           <div className={classes.btnContainerModal}>

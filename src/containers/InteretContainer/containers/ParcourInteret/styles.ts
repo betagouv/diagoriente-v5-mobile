@@ -7,6 +7,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flex: '1 1 0%',
+    position: 'relative',
   },
   content: {
     width: '100%',
@@ -57,11 +58,6 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
     position: 'relative',
     flex: '1 1 0%',
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    padding: '0px 0px',
-    backgroundColor: '#E5E5E5',
   },
   maxWidth: {
     maxWidth: 1080,
@@ -91,7 +87,6 @@ export default makeStyles<Theme>((theme) => ({
     },
     [theme.breakpoints.down('sm')]: {
       'padding-top': '0px',
-      'padding-bottom': '30px',
     },
   },
   footer: {
@@ -187,7 +182,7 @@ export default makeStyles<Theme>((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    bottom: 10,
+    bottom: 32,
     right: 15,
   },
   textEllipsis: {
@@ -223,6 +218,6 @@ export default makeStyles<Theme>((theme) => ({
   btnNext: {
     position: 'absolute',
     bottom: 34,
-    right: 120,
+    right: 140,
   },
 }));
