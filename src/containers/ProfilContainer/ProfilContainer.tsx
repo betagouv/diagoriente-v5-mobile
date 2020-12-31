@@ -6,13 +6,11 @@ import NotFoundPage from 'components/layout/NotFoundPage';
 
 import ExperienceProfil from './components/ExperienceComponent/ExperienceProfil';
 import ProfilComponent from './components/ProfilComponent/ProfilComponent';
-import ExperiencePro from './components/ExperienceProComponent/ExperiencePro';
 import InteretProfil from './components/InteretComponent/InteretComponent';
 import InfoProfil from './components/InfoProfil/InfoProfil';
 import Game from './containers/GameContainer/GameContainer';
 
 import CardContainer from './containers/CardContainer';
-import DemarcheComponent from './components/DemarcheComponent/DemarcheComponent';
 
 const theme = createMuiTheme({
   palette: {
@@ -50,13 +48,11 @@ const Profil = () => (
   <ThemeProvider theme={theme}>
     <Switch>
       <Route protected exact path="/profile" component={ProfilComponent} />
-      <Route protected exact path="/profile/demarche" component={DemarcheComponent} />
       <Route protected exact path="/profile/experience" component={ExperienceProfil} />
       <Route protected exact path="/profile/interest" component={InteretProfil} />
       <Route protected exact path="/profile/info" component={InfoProfil} />
       <Route protected exact path="/profile/game" component={Game} />
       <Route footer protected exact path="/profile/card" component={CardContainer} />
-      <Route protected exact path="/profile/experiencepro" component={ExperiencePro} />
       <Route component={NotFoundPage} />
     </Switch>
   </ThemeProvider>

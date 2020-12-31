@@ -10,10 +10,71 @@ export default makeStyles((theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      paddingBottom:56,
       [theme.breakpoints.down(350)]: {
         overflowX:'hidden'
   
+      },
+    },
+    topJobs:{
+      padding:20,
+      paddingLeft:60,
+      [theme.breakpoints.down(380)]: {
+        paddingLeft:30,
+
+      },
+
+  },
+    logoStar:{
+      display:'flex',
+      alignItems:'center'
+  },
+  star:{
+      paddingRight:20
+  },
+    topText : {
+      fontSize: '26px',
+      lineHeight: '26px',
+      color: '#424242',
+      marginLeft: '70px',
+      fontFamily: 'Ocean',
+      fontWeight: 900,
+      [theme.breakpoints.down(380)]: {
+        marginLeft: 30,
+
+      },
+
+    },
+    topAccordion : {
+      height: '80px',
+          borderRadius: '0px',
+        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
+        backgroundColor: '#FFD382',
+  
+      },
+    iconTop:{
+      width:30,
+      height:30,
+      color:"#424242"
+    },
+    titleDemarche: {
+      fontFamily: 'Ocean',
+      fontWeight: 900,
+      backgroundColor:'#DB8F00',
+      // fontSize: '2.2em',
+      // lineHeight: 1,
+      // paddingBottom: 15,
+    },
+    demarcheContainer: {
+      flex: '1 0 auto',
+      position: 'relative',
+      width: '100%',
+      backgroundColor: '#F3F2F4',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      paddingBottom:56,
+      [theme.breakpoints.down(380)]: {
+        overflowX:'hidden'
       },
     },
     rootContainer:{
@@ -23,7 +84,7 @@ export default makeStyles((theme) =>
     },
     cardGridContainer: {
       padding: '30px 70px 30px 70px',
-      display:'flex',
+      display:'contents',
       alignItems:'center',
       [theme.breakpoints.down(450)]: {
         padding: '10px 10px 30px 10px',
@@ -35,8 +96,15 @@ export default makeStyles((theme) =>
     cardClassName: {
       paddingTop: 40,
     },
-
-    title: {
+    titleExp: {
+      fontFamily: 'Ocean',
+      fontWeight: 900,
+      backgroundColor:'#4D6EC5',
+      // fontSize: '2.2em',
+      // lineHeight: 1,
+      // paddingBottom: 15,
+    },
+    titlePro: {
       fontFamily: 'Ocean',
       fontWeight: 900,
       backgroundColor:'#FF0060',
@@ -436,83 +504,14 @@ marginRight:0
       height:30,
       color:"#D60051"
     },
-    profil:{
-      backgroundColor:'#D60051',
-      width:'33.33%',
-      display:'flex',
-      alignItems:'center',
-      justifyContent:'center',
 
-
-    },
-    profilLabel:{
-      opacity:1 ,
-      color:'#FFFFFF ',
-      fontFamily: 'Ocean',
-      fontWeight: 900,
-      fontSize:24,
-      textAlign:'center',
-      [theme.breakpoints.down(400)]: {
-        width:'min-content'
-      },
-    },
-    experience:{
-      backgroundColor:'#4D6EC5',
-      width:'33.33%',
-      display:'flex',
-      alignItems:'center',
-      justifyContent:'center',
-    },
-    experienceLabel:{
-      opacity:0.5 ,
-      color:'#FFFFFF',
-      fontFamily: 'Ocean',
-      fontWeight: 900,
-      fontSize:24,
-      textAlign:'center',
-      [theme.breakpoints.down(400)]: {
-        width:'min-content'
-      },
-
-    },
-    demarches:{
-      backgroundColor:'#DB8F00 ',
-      width:'33.33%',
-      display:'flex',
-      alignItems:'center',
-      justifyContent:'center',
-    },
-    demarcheLabel:{
-      opacity:0.5,
-      color:'#FFFFFF',
-      fontWeight: 900,
-      fontSize:24,
-      textAlign:'center',
-      fontFamily: 'Ocean',
-      [theme.breakpoints.down(400)]: {
-        width:'min-content'
-      },
-
-    },
-    label:{
-    maxWidth:'100% '
-
-    },
-    navigation:{
-      width:'100%',
-      position:'fixed',
-      bottom:0,
-      height:65,
-      display:'flex',
-
-    },
     modifierProfile:{
       right: '65px',
     position: 'absolute',
     bottom: '20px',
     [theme.breakpoints.down(400)]: {
-      right: '19px',
-      bottom: '9px',
+      right: '8px',
+      bottom: '3px',
     },
     },
     competenceContainer:{
@@ -591,8 +590,69 @@ marginRight:0
       boxShadow: 'none !important',
     },
   
-   
-   
+    experienceContainer: {
+      flex: '1 0 auto',
+      position: 'relative',
+      width: '100%',
+      backgroundColor: '#F3F2F4',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      [theme.breakpoints.down(380)]: {
+        overflowX:'hidden'
+      },
+    },
+    iconPerso:{
+      width:30,
+      height:30,
+      color:"#4D6EC5"
+    },
+    persoAccordion : {
+      
+      height: '80px',
+        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
+          borderRadius: '0px',
+        backgroundColor: '#E1E7F7',
+  
+      },
+      persoText : {
+        fontSize: '26px',
+        lineHeight: '26px',
+        color: '#4D6EC5',
+        marginLeft: '70px',
+        fontFamily: 'Ocean',
+        fontWeight: 900,
+        [theme.breakpoints.down(380)]: {
+          marginLeft:10
+        },
+      },
+      gridPro:{
+        padding:30,
+        paddingBottom:75,
+        [theme.breakpoints.down(380)]: {
+          padding:5,
+          paddingBottom:75,
+        },
+    },
+    detail:{
+      right: '65px',
+    position: 'absolute',
+    bottom: '30px',
+    color:'#4D6EC5',
+    fontWeight:700,
+    size:14,
+    [theme.breakpoints.down(380)]: {
+      right: '35px',
 
+    },
+
+    },
+    expEng:{
+      paddingBottom:70,
+      justifyContent:'center',
+  },
+    proDetails:{
+      display:'block',
+    },
   }),
 );
