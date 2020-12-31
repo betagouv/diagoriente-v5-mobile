@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Switch } from 'react-router-dom';
 import Route from 'components/ui/Route/Route';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core/styles';
 import NotFoundPage from 'components/layout/NotFoundPage';
 import InterestContext from 'contexts/InterestSelected';
 import { Families } from 'requests/types';

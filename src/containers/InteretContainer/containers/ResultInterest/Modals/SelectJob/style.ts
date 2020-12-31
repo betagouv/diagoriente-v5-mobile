@@ -3,6 +3,9 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles<Theme>((theme) => ({
   modalBody: {
     overflow: 'auto',
+    paddingTop: 50,
+    backgroundColor: '#F3F2F4',
+    flex: 1,
   },
   titleModal: {
     fontFamily: 'ocean',
@@ -15,6 +18,7 @@ export default makeStyles<Theme>((theme) => ({
     fontSize: 14,
     textAlign: 'center',
     marginTop: 40,
+    "padding-bottom" : 40,
   },
   subTitle: {
     fontSize: 14,
@@ -23,11 +27,12 @@ export default makeStyles<Theme>((theme) => ({
 
   experienceContainer: {
     width: '100%',
-    display: 'flex',
     marginTop: 34,
+    backgroundColor: '#fff',
+    padding: '30px 0px',
   },
   expContainer: {
-    width: '50%',
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -82,6 +87,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     marginBottom: 30,
+    marginTop: 30,
   },
   link: {
     fontSize: 14,
@@ -94,10 +100,7 @@ export default makeStyles<Theme>((theme) => ({
     marginBottom: 30,
   },
   btn: {
-    backgroundColor: theme.palette.success.main,
-    '&:hover': {
-      backgroundColor: theme.palette.primary.main,
-    },
+    backgroundColor: theme.palette.primary.main,
   },
   btnLabel: {
     color: '#FFF',
@@ -127,5 +130,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     paddingBottom: 150,
+    backgroundColor : "white",
+    "padding-bottom": "25%",
   },
 }));

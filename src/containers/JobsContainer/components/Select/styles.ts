@@ -22,6 +22,33 @@ export default makeStyles<Theme, { fullSelect?: boolean; fullScreenModal?: boole
       height: 46,
       width: 320,
       fontFamily: 'Andika New Basic',
+      border: (props) => `1px solid  ${props.open ? theme.palette.success.main : theme.palette.success.main}`,
+      borderRadius: 5,
+      margin: '6px 0px',
+      background: '#fff',
+      paddingLeft: (props) => (props.fullSelect || props.fullScreenModal ? 36 : 5),
+      outline: 0,
+      position: 'relative',
+      fontWeight: 'bold',
+      color: '#424242',
+      fontSize: 14,
+      '&:focus-within': {
+        borderColor: theme.palette.success.main,
+      },
+      '&::placeholder': {
+        color: (props) => (props.open ? theme.palette.success.main : '#424242'),
+        fontSize: 14,
+        fontWeight: 'bold',
+        marginLeft: 20,
+      },
+      [theme.breakpoints.down(380)]: {
+        width: 290,
+      },
+    },
+    inputContainer1: {
+      height: 46,
+      width: 320,
+      fontFamily: 'Andika New Basic',
       border: (props) => `1px solid  ${props.open ? theme.palette.success.main : '#C9C9C7'}`,
       borderRadius: 5,
       margin: '6px 0px',
@@ -208,19 +235,20 @@ export default makeStyles<Theme, { fullSelect?: boolean; fullScreenModal?: boole
     arrowClose: {
       width: 12,
       height: 19,
+      
     },
 
     modalArrowClose: {
       width: 12,
       height: 19,
-      transform: 'rotate(-90deg)',
+      transform: 'rotate(90deg)',
     },
     closeModelLabel: {
       fontFamily: 'Andika New Basic',
       fontWeight: 'bold',
       fontSize: 18,
       lineHeight: '26px',
-      color: '#DB8F00',
+      color: '#420FAB',
       marginLeft: 20,
     },
   }),
