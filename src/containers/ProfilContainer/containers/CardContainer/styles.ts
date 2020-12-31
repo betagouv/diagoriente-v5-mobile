@@ -57,6 +57,7 @@ createStyles({
   },
   competenceContainer: {
     display: 'flex',
+    flexDirection:'column',
     width: '100%',
     borderBottom: '1px solid #6B6B6A',
     justifyContent: 'space-between',

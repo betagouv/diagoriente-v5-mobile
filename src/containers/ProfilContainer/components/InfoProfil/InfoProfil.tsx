@@ -137,7 +137,7 @@ const InfoProfil = () => {
       <SnackBar variant="error" message={error} open={!!error} />
       <div className={classes.InfoContainer}>
         <div className={classes.titleContainer}>
-          <Arrow />
+          {/* <Arrow /> */}
           <Title title="MES INFOS PERSONNELLES" color="#424242" size={42} className={classes.title} />
           <div className={classes.empty} />
         </div>
@@ -154,6 +154,7 @@ const InfoProfil = () => {
                   error={touched.firstName && errors.firstName}
                   errorText={touched.firstName && errors.firstName}
                   inputBaseClassName={classes.baseClassName}
+                  className={classes.root}
                 />
               ) : (
                 <span className={classes.userInfo}>{user.profile.firstName}</span>
@@ -170,6 +171,7 @@ const InfoProfil = () => {
                   error={touched.lastName && errors.lastName}
                   errorText={touched.lastName ? errors.lastName : ''}
                   inputBaseClassName={classes.baseClassName}
+                  className={classes.root}
                 />
               ) : (
                 <span className={classes.userInfo}>{user.profile.lastName}</span>
@@ -203,6 +205,7 @@ const InfoProfil = () => {
                   value={values.email}
                   name="email"
                   required
+                  className={classes.root}
                   placeholder="email@gmail.com"
                   error={touched.email && errors.email}
                   errorText={touched.email ? errors.email : ''}
@@ -223,6 +226,7 @@ const InfoProfil = () => {
                   showPassword={() => onShowOldPassword()}
                   placeholder="*******"
                   autoComplete="off"
+                  className={classes.root}
                   error={touched.oldPassword && errors.oldPassword}
                   errorText={touched.oldPassword && errors.oldPassword}
                 />
@@ -243,6 +247,7 @@ const InfoProfil = () => {
                     showPassword={() => onShowPassword()}
                     placeholder="*******"
                     autoComplete="off"
+                    className={classes.root}
                     error={touched.password && errors.password}
                   />
                 </div>
@@ -290,6 +295,7 @@ const InfoProfil = () => {
                       value={values.codeGroupe}
                       name="codeGroupe"
                       placeholder="ex: codeGroupe1"
+                      className={classes.root}
                       error={touched.codeGroupe && errors.codeGroupe}
                       errorText={touched.codeGroupe ? errors.codeGroupe : ''}
                     />
