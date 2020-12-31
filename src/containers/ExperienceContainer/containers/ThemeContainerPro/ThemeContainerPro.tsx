@@ -199,10 +199,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
           </div>
   
           </div>
-          {/* <NavigationButton disabled={!selectedTheme}
-           nextLink={selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''}
-           previousLink={'/experience'}
-           />    */}
+      
            </div>
         
   );

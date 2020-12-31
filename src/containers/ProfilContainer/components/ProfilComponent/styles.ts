@@ -10,9 +10,16 @@ export default makeStyles((theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      [theme.breakpoints.down(350)]: {
-        overflowX:'hidden'
+      // [theme.breakpoints.down(350)]: {
+      //   overflowX:'hidden'
   
+      // },
+    },
+    topMetier:{
+      [theme.breakpoints.down(400)]: {
+width:'fit-content',
+wordBreak:'break-all'
+
       },
     },
     topJobs:{
@@ -91,6 +98,9 @@ export default makeStyles((theme) =>
   
       },
       
+    },
+    profilDetail:{
+      padding:'8px 16px 50px '
     },
 
     cardClassName: {
@@ -351,6 +361,10 @@ export default makeStyles((theme) =>
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
       overflow: 'hidden',
+      [theme.breakpoints.down(400)]: {
+        whiteSpace: 'normal',
+
+      },
     },
     favoriContainer: {
       display: 'flex',
@@ -506,12 +520,15 @@ marginRight:0
     },
 
     modifierProfile:{
-      right: '65px',
+      right: '50px',
     position: 'absolute',
     bottom: '20px',
+    fontWeight:'bold',
+    fontSize:14,
+    color:'#6B6B6A',
     [theme.breakpoints.down(400)]: {
-      right: '8px',
-      bottom: '3px',
+      right: '20px',
+      bottom: '10px',
     },
     },
     competenceContainer:{
@@ -644,8 +661,12 @@ marginRight:0
     [theme.breakpoints.down(380)]: {
       right: '35px',
 
-    },
+    }
+ 
 
+    },
+    detailColor:{
+      color:'#4D6EC5'
     },
     expEng:{
       paddingBottom:70,
