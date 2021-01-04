@@ -126,8 +126,8 @@ export default makeStyles<Theme>((theme) => ({
       borderStyle: 'hidden',
     },
     position: 'absolute',
-    left: 15,
-    top: -165,
+    top: "-19.8vh",
+    left: "2vh",
     zIndex: 99999,
   },
   containerBtnRight: {
@@ -144,8 +144,8 @@ export default makeStyles<Theme>((theme) => ({
       borderStyle: 'hidden',
     },
     position: 'absolute',
-    right: 15,
-    top: -165,
+    top: "-19.8vh",
+    right: "2vh",
     zIndex: 9999,
   },
   rotatedArrow: {
