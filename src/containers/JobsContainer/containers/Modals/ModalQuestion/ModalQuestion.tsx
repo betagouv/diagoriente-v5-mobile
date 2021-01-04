@@ -10,10 +10,10 @@ import useStyles from './styles';
 
 interface IProps {
   job: Jobs | undefined;
-  handleClose: () => void;
+  onClose: () => void;
 }
 
-const ModalQuestion = ({ job, handleClose }: IProps) => {
+const ModalQuestion = ({ job, onClose }: IProps) => {
   const classes = useStyles();
   const location = useLocation();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,7 +55,7 @@ const ModalQuestion = ({ job, handleClose }: IProps) => {
         setLast(true);
       }
     }
-  }, [responseState.data, updateResponseState.data, getListResponses, param, refetch, job, handleClose]);
+  }, [responseState.data, updateResponseState.data, getListResponses, param, refetch, job, onClose]);
   return (
     <div className={classes.root}>
       <div className={classes.titleContainer}>
@@ -71,7 +71,7 @@ const ModalQuestion = ({ job, handleClose }: IProps) => {
             <div className={classes.textDescription}>immersion sur le terrain !</div>
           </div>
           <div className={classes.btnContainer}>
-            <Button className={classes.btn} onClick={handleClose}>
+            <Button className={classes.btn} onClick={onClose}>
               <div className={classes.btnLabel}>Je recherche mon immersion</div>
             </Button>
           </div>
@@ -83,7 +83,12 @@ const ModalQuestion = ({ job, handleClose }: IProps) => {
               {`QUESTION ${currentIndex + 1}/${job?.questionJobs.length}`}
             </div>
           ) : (
-            <div className={classes.errorQuestion}>Aucune question </div>
+            <div className={classes.containerBtn}>
+              <div className={classes.errorQuestion}>Aucune question </div>
+              <Button className={classes.btnCLose} onClick={onClose}>
+                Fermer
+              </Button>
+            </div>
           )}
 
           <div className={classes.sliderContainer}>

@@ -31,6 +31,7 @@ export default makeStyles<Theme>((theme) => ({
     fontSize: 14,
     lineHeight: '32px',
     color: theme.palette.success.main,
+    width: '100%',
   },
   description: {
     fontWeight: 'bold',
