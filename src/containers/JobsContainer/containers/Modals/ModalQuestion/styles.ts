@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
     flex: 1,
   },
   titleContainer: {
+    paddingTop: 62,
     display: 'flex',
     justifyContent: 'center',
   },
@@ -58,12 +59,26 @@ export default makeStyles((theme) => ({
     color: theme.palette.success.main,
     marginTop: 15,
   },
+  containerBtn: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   errorQuestion: {
     marginTop: 15,
     textAlign: 'center',
   },
   btn: {
     backgroundColor: theme.palette.primary.main,
+    '&:hover': {
+      backgroundColor: theme.palette.primary.main,
+    },
+  },
+  btnCLose: {
+    marginTop: 15,
+    backgroundColor: theme.palette.primary.main,
+    width: 100,
     '&:hover': {
       backgroundColor: theme.palette.primary.main,
     },

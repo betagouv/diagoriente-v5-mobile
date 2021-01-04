@@ -76,9 +76,8 @@ export default makeStyles((theme) => ({
     fontSize: '20px',
     lineHeight: '31px',
     color: '#fff',
-    width: '492px',
-    paddingTop: 34,
-    paddingLeft: 15,
+    width: '320px',
+    padding: 15,
   },
   btn: {
     backgroundColor: '#FFA600',

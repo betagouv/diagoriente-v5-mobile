@@ -32,11 +32,10 @@ const CardJob = ({
       </div>
       {selected && (
         <div className={classes.btnContainer}>
-          <Link to={`/jobs/job/${id}`}>
+          
             <Button className={classes.btn}>
               <div className={classes.btnLabel}>En savoir plus</div>
             </Button>
-          </Link>
         </div>
       )}
       <div className={classes.footerCard}>

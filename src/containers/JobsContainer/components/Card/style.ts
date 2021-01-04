@@ -21,6 +21,7 @@ export default makeStyles<Theme, { selected: boolean }>((theme) => ({
     fontSize: 18,
     textAlign: 'left',
     height: 90,
+    color:'#424242'
   },
   description: {
     fontSize: 14,
@@ -29,6 +30,7 @@ export default makeStyles<Theme, { selected: boolean }>((theme) => ({
     width: '100%',
     marginBottom: (props) => (props.selected ? 0 : 15),
     textAlign: 'left',
+    color:'#424242'
   },
   accessibility: {
     maxWidth: '170px',
@@ -66,5 +68,8 @@ export default makeStyles<Theme, { selected: boolean }>((theme) => ({
     position: 'absolute',
     bottom: 5,
     right: 10,
+  },
+  styleLink: {
+    textDecoration: 'none',
   },
 }));
