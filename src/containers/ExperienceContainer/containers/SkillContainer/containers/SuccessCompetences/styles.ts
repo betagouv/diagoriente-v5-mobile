@@ -62,6 +62,9 @@ export default makeStyles((theme) => ({
     fontSize: 18,
     padding: '0px 18px',
     maxWidth: 340,
+    [theme.breakpoints.down(340)]: {
+      maxWidth: 320,
+    },
   },
 
   text: {
@@ -293,6 +296,11 @@ export default makeStyles((theme) => ({
     fontWeight: 'bold',
     textDecoration: 'none',
     marginTop: 14,
+  },
+
+  titleThemeContainer: {
+    display: 'flex',
+    justifyContent: 'center',
   },
 
   titleThemeDone: {

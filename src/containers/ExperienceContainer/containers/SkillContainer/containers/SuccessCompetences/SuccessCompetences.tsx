@@ -49,7 +49,7 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
           </p>
         </div>
         {skill?.theme.type === 'professional' ? (
-          <div>
+          <div className={classes.titleThemeContainer}>
             <span className={classes.titleThemeDone}>{theme.title}</span>
             <img src={check} alt="check" className={classes.checked} />
           </div>
