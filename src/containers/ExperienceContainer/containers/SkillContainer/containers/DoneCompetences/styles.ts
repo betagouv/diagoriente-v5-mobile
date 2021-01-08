@@ -43,7 +43,7 @@ export default makeStyles((theme) => ({
   },
 
   text: {
-    fontSize: 18,
+    fontSize: 14,
     color: '#424242',
     width: '100%',
     textAlign: 'center',
@@ -51,7 +51,7 @@ export default makeStyles((theme) => ({
   avatar: {},
 
   btnskillContainer: {
-    paddingTop: 30,
+    marginTop: 100,
     display: 'flex',
     flexDirection: 'column',
   },
@@ -65,14 +65,13 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    marginBottom: 15,
+    marginBottom: 30,
   },
 
   btnSkillCardContainer: {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    marginTop: 40,
   },
 
   btn: {
@@ -103,6 +102,8 @@ export default makeStyles((theme) => ({
     fontSize: 18,
     fontWeight: 'bold',
     width: '100%',
+    minWidth: 290,
+    height: 50,
     color: '#fff',
     '&:hover': {
       backgroundColor: '#FF0060',
@@ -155,7 +156,10 @@ export default makeStyles((theme) => ({
     width: '100%',
     marginTop: 25,
   },
-
+  titleThemeContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
   titleThemeDone: {
     fontSize: '14px',
     fontWeight: 400,
