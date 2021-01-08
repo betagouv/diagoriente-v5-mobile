@@ -28,7 +28,7 @@ export default makeStyles<Theme>((theme) => ({
     fontSize: 18,
     "padding-left": "68px",
     "padding-right": "68px",
-    "padding-top": "71px",
+    "padding-top": "2vh",
   },
 
   avatarContainer: {
@@ -42,7 +42,7 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    marginTop: 40,
+    marginTop: "0vh",
   },
   btn: {
     backgroundColor: theme.palette.success.main,

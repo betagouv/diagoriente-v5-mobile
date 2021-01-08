@@ -53,11 +53,12 @@ export default makeStyles<Theme>((theme) => ({
   subTitle: {
     textAlign: 'center',
     marginTop: 50,
+    "margin-left" : "3vh",
+    "margin-right": "3vh",
   },
   listSelected: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: 50,
     padding: 20,
   },
   circle: {
@@ -117,7 +118,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     alignItems: 'center',
     height: 101,
-    marginBottom: 10,
+    marginBottom: 15,
   },
   indexItem: {
     width: 51,
