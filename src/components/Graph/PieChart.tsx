@@ -8,6 +8,9 @@ import Chart from 'react-apexcharts';
 const options = {
   options: {
     colors: ['#FFD382', '#e8296b', '#3f8dff', '#ffdb1f'],
+    legend: {
+      position: 'bottom',
+    },
   },
   series: [44, 55, 41, 17],
   labels: ['A', 'B', 'C', 'D'],
@@ -28,7 +31,7 @@ const PieChart = () => {
         transform="rotate(-90) translate(-20)"
       />
     </svg> */
-    <Chart options={options.options} series={options.series} type="pie" width="380" />
+    <Chart options={options.options} series={options.series} type="pie" width="320" />
   );
 };
 

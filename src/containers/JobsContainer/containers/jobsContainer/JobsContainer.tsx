@@ -165,7 +165,7 @@ const JobsContainer = ({
 
   return (
     <div className={classes.wrapper}>
-      {clearMessage && (
+      {!clearMessage && (
         <div className={classes.messages}>
           <div className={classes.contentMessage}>
             <div className={classes.text}>
@@ -265,14 +265,16 @@ const JobsContainer = ({
               {renderedJobs?.length === 0
                 ? 'Aucun resultat trouvé !'
                 : renderedJobs?.map((el) => (
-                    <JobCard
-                      key={el.id}
-                      id={el.id}
-                      title={el.title}
-                      description={el.description}
-                      accessibility={el.accessibility}
-                      favoris={el.favorite}
-                    />
+                    <Link to={`/jobs/job/${el.id}`}>
+                      <JobCard
+                        key={el.id}
+                        id={el.id}
+                        title={el.title}
+                        description={el.description}
+                        accessibility={el.accessibility}
+                        favoris={el.favorite}
+                      />
+                    </Link>
                   ))}
             </div>
           )}
