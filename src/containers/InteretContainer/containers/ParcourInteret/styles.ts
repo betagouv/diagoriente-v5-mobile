@@ -202,7 +202,7 @@ export default makeStyles<Theme>((theme) => ({
     fontFamily: 'ocean',
     textTransform: 'uppercase',
     fontWeight: 900,
-    fontSize: 32,
+    fontSize: 28,
     lineHeight: '32px',
     textAlign: 'center',
   },
