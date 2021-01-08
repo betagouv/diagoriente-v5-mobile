@@ -7,7 +7,7 @@ export default makeStyles((theme: Theme) => ({
     // bottom: -25,
     left: '50%',
     minWidth: 175,
-    [theme.breakpoints.down(340)]: {
+    [theme.breakpoints.down(400)]: {
       minWidth: 150,
     },
     transform: 'translate(-50%,0)',
