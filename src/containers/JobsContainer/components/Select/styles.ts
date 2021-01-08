@@ -235,13 +235,12 @@ export default makeStyles<Theme, { fullSelect?: boolean; fullScreenModal?: boole
     arrowClose: {
       width: 12,
       height: 19,
-      
     },
 
     modalArrowClose: {
       width: 12,
       height: 19,
-      transform: 'rotate(90deg)',
+      transform: 'rotate(-90deg)',
     },
     closeModelLabel: {
       fontFamily: 'Andika New Basic',

@@ -121,6 +121,7 @@ const SelectJobs = ({
                   <span className={classes.closeModelLabel}> {placeholder} </span>
                 </div>
                 <OptionList
+                CheckBoxbackgroudColor="#7AE6FF"
                   options={options}
                   onSelectText={onSelectText}
                   selected={value}
@@ -142,7 +143,7 @@ const SelectJobs = ({
               ))}
             </div>
           ) : (
-            <OptionList options={options} onSelectText={onSelectText} selected={value} name={name} />
+            <OptionList options={options}  onSelectText={onSelectText} selected={value} name={name} />
           )}
         </div>
       )}

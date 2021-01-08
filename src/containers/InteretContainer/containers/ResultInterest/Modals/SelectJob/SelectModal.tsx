@@ -103,7 +103,7 @@ var x = false;
               }}              name="job"
               value={[accessibility]}
 
-              placeholder={!accessibility? "Niveau de diplôme" : accessibilityState.data?.accessibilities.data[1].name} 
+              placeholder={"Niveau de diplôme"} 
               className={classes.containerAutoComp}
               open={openType}
               modal

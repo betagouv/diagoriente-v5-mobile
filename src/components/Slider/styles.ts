@@ -127,7 +127,7 @@ export default makeStyles<Theme>((theme) => ({
     },
     position: 'absolute',
     top: "-19.8vh",
-    left: "2vh",
+    left: "0vh",
     zIndex: 99999,
   },
   containerBtnRight: {
@@ -145,7 +145,7 @@ export default makeStyles<Theme>((theme) => ({
     },
     position: 'absolute',
     top: "-19.8vh",
-    right: "2vh",
+    right: "0vh",
     zIndex: 9999,
   },
   rotatedArrow: {

@@ -10,10 +10,13 @@ interface Props {
   onSelectText: (id: string) => void;
   selected: string[] | undefined;
   className?: string;
+  CheckBoxbackgroudColor?: string;
 }
 
-const OptionsList = ({ options, onSelectText, selected, className }: Props) => {
-  const classes = useStyles();
+const OptionsList = ({ options, onSelectText, selected, className, CheckBoxbackgroudColor }: Props)  => {
+  const classes = useStyles({
+    CheckBoxbackgroudColor,
+  });
   const theme = useTheme();
   const formattedData = options?.map((el: any) => ({ label: el && (el.title || el.name), id: el.id })) || [];
   const isInclude = (id: string) => selected && selected.includes(id);
@@ -23,6 +26,7 @@ const OptionsList = ({ options, onSelectText, selected, className }: Props) => {
         <div key={el.label} className={classes.item} onClick={() => onSelectText(el.id)}>
           <div className={classes.mask} />
           <CheckBox
+          className={classes.hello}
             name={el.label}
             checked={isInclude(el.id)}
             onChange={() => {}}
