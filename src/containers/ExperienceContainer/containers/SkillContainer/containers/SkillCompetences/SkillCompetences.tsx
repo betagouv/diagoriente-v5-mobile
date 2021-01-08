@@ -147,7 +147,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
             </div>
           </div>
         </div>
-        <Popup open={open} handleClose={handleClose} iconClassName={classes.iconClassName}>
+        <Popup open={open} handleClose={handleClose}  iconClassName={classes.iconClassName}>
           <div className={classes.popupContainer}>
             <p className={classes.popupDescription}>{text}</p>
             <Button className={classes.incluse} onClick={handleClose}>
