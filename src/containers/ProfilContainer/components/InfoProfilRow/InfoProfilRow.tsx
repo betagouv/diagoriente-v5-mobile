@@ -17,7 +17,7 @@ const InfoProfilRow = ({
 
   return (
     <div className={classNames(classes.infoRowContainer, className)}>
-      <span className={classes.title}>{title}</span>
+      <span className={classNames(classes.title, className)}>{title}</span>
       {children}
     </div>
   );
