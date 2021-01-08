@@ -80,15 +80,15 @@ export default makeStyles((theme) => ({
   messages: {
     backgroundColor: '#fff1f6',
     width: '100%',
-    height: 110,
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
   },
   contentMessage: {
-    maxWidth: 1080,
     width: '100%',
     display: 'flex',
-    alignItems: 'center',
+    flexDirection: 'column',
+    padding: 10,
   },
   clearMessage: {
     display: 'flex',
@@ -97,8 +97,7 @@ export default makeStyles((theme) => ({
   },
   text: {
     fontSize: 18,
-    width: '50%',
-    flex: 1,
+    width: '100%',
   },
   clearText: {
     fontWeight: 'bold',

@@ -8,6 +8,7 @@ import { useJobs } from 'requests/jobs';
 import Spinner from 'components/Spinner/Spinner';
 
 import useStyles from './styles';
+import Button from 'components/button/Button';
 
 interface IProps {
   job: any;
@@ -17,11 +18,13 @@ interface IProps {
 const JobInfo = ({ job, handleClose }: IProps) => {
   const history = useHistory();
   const classes = useStyles();
-  const [loadJobs, { data: JobsList, loading: loadingList }] = useJobs({
-    variables: { secteur: job.secteur[0].id },
-  });
+  const [callJobs, calJobsState] = useJobs();
   useDidMount(() => {
-    loadJobs();
+    if (job.secteur.length !== 0) {
+      callJobs({
+        variables: { secteur: job.secteur[0].id },
+      });
+    }
   });
   const onNavigate = (id: string) => {
     history.push(`/jobs/job/${id}`);
@@ -61,8 +64,8 @@ const JobInfo = ({ job, handleClose }: IProps) => {
           <div className={classes.similaireJob}>
             <div className={classes.TextTitle}>Métiers similaires :</div>
             <div className={classes.metiersContainer}>
-              <div>{loadingList && <Spinner />}</div>
-              {JobsList?.myJobs.slice(0, 6).map((i) => (
+              <div>{calJobsState.loading && <Spinner />}</div>
+              {calJobsState.data?.myJobs?.slice(0, 6).map((i) => (
                 <div key={i.id} className={classes.metierItem} onClick={() => onNavigate(i.id)}>
                   {i.title}
                 </div>
@@ -76,6 +79,11 @@ const JobInfo = ({ job, handleClose }: IProps) => {
             <Chart />
           </div>
         </div>
+      </div>
+      <div className={classes.containerBtn}>
+        <Button onClick={handleClose} className={classes.btnCLose}>
+          Fermer
+        </Button>
       </div>
     </div>
   );

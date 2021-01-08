@@ -28,6 +28,7 @@ interface IProps {
   fullSelect?: boolean;
   loading?: boolean;
   reference?: any;
+  color?: any;
   referenceFullScreen?: any;
   small?: boolean;
   parcourAcc?: { id: string };
@@ -47,6 +48,7 @@ const SelectJobs = ({
   onClick,
   fullSelect,
   reference,
+  color,
   parcourAcc,
   fullScreenModal,
   modal,
@@ -71,7 +73,7 @@ const SelectJobs = ({
             <img src={Menu} alt="menu" />
           </div>
         )}
-        <input onChange={onChange} name={name} placeholder={placeholder} className={classes.inputContainer} disabled />
+        <input onChange={onChange} name={name} placeholder={placeholder} className={color ? classes.inputContainer1: classes.inputContainer} disabled />
         <div className={classes.logoContainer}>
           <Arrow
             color={theme.palette.success.main}
@@ -87,7 +89,6 @@ const SelectJobs = ({
             <Slide direction="right" in={open} mountOnEnter unmountOnExit>
               <div className={classes.secteurContainerFullScreen}>
                 <div className={classes.closeFullModelContainer} onClick={onClose}>
-                  <img src={arrowClose} alt="arrowClose" className={classes.arrowClose} />
                   <span className={classes.closeModelLabel}> {placeholder} </span>
                 </div>
                 {options?.map((el) => (
@@ -112,14 +113,15 @@ const SelectJobs = ({
               <div className={classes.backdrop} onClick={onClose} />
               <div className={classes.modalItemsContainer}>
                 <div className={classes.closeModelContainer} onClick={onClose}>
-                  <img
-                    src={arrowClose}
-                    alt="arrowClose"
-                    className={modal ? classes.modalArrowClose : classes.arrowClose}
-                  />
+                <Arrow
+                      color="#420FAB"
+                      width="12"
+                      height="19"
+                      className={modal ? classes.modalArrowClose : classes.arrowClose}                    />
                   <span className={classes.closeModelLabel}> {placeholder} </span>
                 </div>
                 <OptionList
+                CheckBoxbackgroudColor="#7AE6FF"
                   options={options}
                   onSelectText={onSelectText}
                   selected={value}
@@ -141,7 +143,7 @@ const SelectJobs = ({
               ))}
             </div>
           ) : (
-            <OptionList options={options} onSelectText={onSelectText} selected={value} name={name} />
+            <OptionList options={options}  onSelectText={onSelectText} selected={value} name={name} />
           )}
         </div>
       )}

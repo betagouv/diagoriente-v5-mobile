@@ -1,5 +1,6 @@
 import React from 'react';
 import ModalContainer from 'components/common/Modal/ModalContainer';
+import Dialog from '@material-ui/core/Dialog';
 import Button from 'components/button/Button';
 import { Link } from 'react-router-dom';
 import ModalSelect from './Modals/SelectJob/SelectModal';
@@ -23,10 +24,12 @@ const ResultInterest = () => {
         </div>
         <div className={classes.description}>
           <div className={classes.text}>
-            <b>Tu as sélectionné et classé 5 familles d&lsquo;intérêts.</b>
+            <b>Tu as sélectionné et classé les familles d&lsquo;intérêts.</b>
           </div>
-          <div className={classes.text}>En fonction de tes expériences et de tes centres d&lsquo;intérêt, nous</div>
-          <div className={classes.text}>allons maintenant te proposer des métiers qui peuvent te plaire.</div>
+          <div className={classes.text}>
+            En fonction de tes expériences et de tes centres d&lsquo;intérêt, nous allons maintenant te proposer des
+            métiers qui peuvent te plaire.
+          </div>
         </div>
         <div className={classes.btnContainer}>
           <Button className={classes.btn} onClick={() => handleOpen()}>
@@ -37,9 +40,9 @@ const ResultInterest = () => {
           <div className={classes.info}>Je n&lsquo;ai pas encore ajouté d&lsquo;expériences</div>
         </Link>
       </div>
-      <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#420FAB" size={70}>
+      <Dialog open={open} keepMounted fullScreen style={{ zIndex: 2000 }}>
         <ModalSelect />
-      </ModalContainer>
+      </Dialog>
     </div>
   );
 };

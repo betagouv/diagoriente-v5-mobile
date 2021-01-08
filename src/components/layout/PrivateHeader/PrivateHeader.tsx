@@ -23,9 +23,7 @@ export interface Props {
   showUser: boolean;
 }
 
-const PrivateHeader = ({
- openLogoIcon, closeLogoIcon, openIcon, closeIcon, className, showUser,
-}: Props) => {
+const PrivateHeader = ({ openLogoIcon, closeLogoIcon, openIcon, closeIcon, className, showUser }: Props) => {
   const classes = useStyles();
   const { open, setOpen } = useContext(DrawerContext);
   const { user } = useContext(UserContext);
@@ -47,7 +45,6 @@ const PrivateHeader = ({
         </div>
         {showUser && (
           <div className={classes.flexCenter}>
-            <span className={classes.typography}>{userName}</span>
             <img src={user?.logo ? user?.logo : defaultAvatar} alt="" height={39} />
           </div>
         )}

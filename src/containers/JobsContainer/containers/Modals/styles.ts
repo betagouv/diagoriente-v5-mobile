@@ -27,7 +27,7 @@ export default makeStyles((theme) => ({
     fontWeight: 'bold',
     fontSize: 18,
     lineHeight: '26px',
-    paddingLeft: 45,
+    paddingLeft: 15,
     marginBottom: 6,
   },
   textAccessibility: {
@@ -81,5 +81,19 @@ export default makeStyles((theme) => ({
     margin: '3px 0px',
     color: '#424242',
     cursor: 'pointer',
+  },
+  btnCLose: {
+    marginTop: 15,
+    backgroundColor: theme.palette.primary.main,
+    width: 100,
+    '&:hover': {
+      backgroundColor: theme.palette.primary.main,
+    },
+  },
+  containerBtn: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }));
