@@ -3,7 +3,9 @@ import { useJob } from 'requests/jobs';
 import Title from 'components/common/Title/Title';
 import { useDidMount, useWillUnmount } from 'hooks/useLifeCycle';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import Arrow from 'assets/svg/arrow';
+import Dialog from '@material-ui/core/Dialog';
+import Divider from '@material-ui/core/Divider';
+import Slide from '@material-ui/core/Slide';
 import TestImage from 'assets/svg/test.svg';
 import LogoLocation from 'assets/form/location.png';
 import Spinner from 'components/Spinner/Spinner';
@@ -284,7 +286,7 @@ const JobContainer = ({
           <Graph competencesrequises={data?.job.competences} competenceUser={competences} />
         </div>
       </div>
-      {openInfo && (
+      <Dialog open={openInfo} onClose={handleClose} fullScreen>
         <div className={classes.infoModalWrapper}>
           <div className={classes.bandeau}>
             {loading ? (
@@ -295,10 +297,10 @@ const JobContainer = ({
           </div>
           <ModalContainerInfo job={data?.job} handleClose={handleClose} />
         </div>
-      )}
-      <ModalContainer open={openTest} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#DB8F00" size={70}>
-        <ModalQuestion job={data?.job} handleClose={handleClose} />
-      </ModalContainer>
+      </Dialog>
+      <Dialog open={openTest} onClose={handleClose} fullScreen>
+        <ModalQuestion job={data?.job} onClose={handleClose} />
+      </Dialog>
     </div>
   );
 };
