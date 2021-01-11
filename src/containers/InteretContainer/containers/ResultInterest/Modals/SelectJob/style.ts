@@ -19,6 +19,8 @@ export default makeStyles<Theme>((theme) => ({
     textAlign: 'center',
     marginTop: 40,
     "padding-bottom" : 40,
+    "padding-left": "2vh",
+    "padding-right": "2vh",
   },
   subTitle: {
     fontSize: 14,

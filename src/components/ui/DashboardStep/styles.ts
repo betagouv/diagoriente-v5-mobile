@@ -25,7 +25,7 @@ function getAvatarHeight(props: { state?: 'closed' | 'initial' | 'open' }) {
 export default makeStyles<
   Theme,
   { background?: string; secondBackground?: string; state?: 'closed' | 'initial' | 'open'; isOpen?: boolean }
->(() => ({
+>((theme) => ({
   container: {
     backgroundColor: (props) =>
       props.state === 'initial' || props.state === 'closed' ? props.background : props.secondBackground,
@@ -42,6 +42,10 @@ export default makeStyles<
     width: '100%',
     justifyContent: 'flex-start',
     padding: '25px 0px 25px 5%',
+    [theme.breakpoints.down(330)]: {
+      padding: '25px 0px 25px 0px',
+
+          },
 
     // height: '100%',
   },
@@ -52,6 +56,10 @@ export default makeStyles<
     position: 'relative',
     transition,
     zIndex: 2,
+    [theme.breakpoints.down(330)]: {
+      fontSize: 36,
+
+          },
   },
   avatarContainer: {
     width: (props) => getAvatarSize({ state: props.state }),
@@ -101,5 +109,10 @@ export default makeStyles<
     transform: 'translateY(-50%)',
     zIndex: -1,
     transition,
+    [theme.breakpoints.down(330)]: {
+      width: '52vw',
+
+          },
+    
   },
 }));

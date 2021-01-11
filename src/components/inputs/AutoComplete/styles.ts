@@ -5,11 +5,27 @@ export default makeStyles<Theme, { error: boolean }>((theme) => ({
     display: 'flex',
     alignItems: 'center',
     // justifyContent: 'center',
-    margin: '0px 0px 0px 0px',
-    width: '100%',
+    margin: '15px 0px 0px 0px',
+    // [theme.breakpoints.down(480)]: {
+    //   margin: '0px 0px 0px 40px',
+
+    // },
+    // [theme.breakpoints.down(330)]: {
+    //   margin: '0px 0px 0px 21px',
+
+    // }
     
   },
-
+gridItem:{
+  '& .MuiGrid-grid-xs-12':{
+    flexBasis:'40%'
+  },
+      [theme.breakpoints.down(450)]: {
+        '& .MuiGrid-grid-xs-12':{
+          flexBasis:'60%'
+        },
+    }
+},
   dropDown: {
     padding: '0px !important',
     height: 300,
@@ -90,7 +106,10 @@ export default makeStyles<Theme, { error: boolean }>((theme) => ({
   label: {
     marginRight: 14,
     fontWeight: 'bold',
-    paddingTop:30
+    [theme.breakpoints.down(450)]: {
+          paddingTop:30
+
+  }
   },
   wrapperInput: {
     display: 'flex',

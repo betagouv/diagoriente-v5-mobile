@@ -213,5 +213,15 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'bold',
       textDecoration: 'none',
     },
+    titleDiv:{
+      width:'fit-content',
+      flexwrap: 'wrap',
+      wordBreak: 'break-word',
+      textAlign: 'left',
+      padding: '10px 0px'
+    },
+    child:{
+      flexWrap:'wrap',
+    }
   }),
 );

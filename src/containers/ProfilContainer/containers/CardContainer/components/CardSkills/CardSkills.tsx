@@ -32,7 +32,7 @@ const CardSkills = ({ title, path, emptyButton, emptyMessage, showBtn, skills }:
         <>
           <div className={classes.emptyMessage}>{emptyMessage}</div>
           {!showBtn && (
-            <Link to={path}>
+            <Link to={path} >
               <Button className={classes.emptyButton} variant="contained">
                 {emptyButton}
               </Button>

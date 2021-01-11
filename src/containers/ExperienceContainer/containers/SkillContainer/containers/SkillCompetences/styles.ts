@@ -11,8 +11,11 @@ export default makeStyles((theme: Theme) =>
     container: {
       display: 'flex',
       flexDirection: 'column',
-
+      paddingBottom:70,
       width: '100%',
+    },
+    modal:{
+      width:250
     },
 
     themeContainer: {
