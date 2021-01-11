@@ -11,11 +11,15 @@ export default makeStyles((theme) =>
       paddingTop: 34,
       flex: 1,
     },
-
+    root:{
+      width:'auto'
+     },
     titleContainer: {
-      display: 'flex',
+      display: 'list-item',
       alignItems: 'center',
       paddingBottom: 45,
+      flexDirection:'column',
+      textAlign:'center',
       width: '100%',
       justifyContent: 'space-between',
     },
@@ -26,6 +30,7 @@ export default makeStyles((theme) =>
       fontSize: '2.2em',
       lineHeight: 1,
       paddingTop: 9,
+
     },
 
     empty: {
@@ -47,6 +52,10 @@ export default makeStyles((theme) =>
     userInfo: {
       fontSize: 14,
       flex: '1 1 auto',
+      width:'min-content',
+      [theme.breakpoints.down(330)]: {
+        paddingRight: 10,
+      },
     },
 
     cancelText: {
@@ -61,6 +70,7 @@ export default makeStyles((theme) =>
     location: {
       display: 'flex',
       alignItems: 'center',
+    
     },
 
     locationlogo: {
@@ -82,28 +92,77 @@ export default makeStyles((theme) =>
     infoRowContainer: {
       display: 'flex',
       flexDirection: 'column',
+      [theme.breakpoints.down(400)]: {
+        // marginRight: 36,
+      },
+      // [theme.breakpoints.down(450)]: {
+      //   display: 'inline',
+      // },
+
     },
 
     paddingClassName: {
-      padding: '13px 0px 13px 0px ',
+      padding: '0px 15px 0px -1px ',
     },
 
     passwordRoot: {
-      display: 'flex',
-      width: '100%',
+      display: 'initial',
+      width: '45%',
       paddingBottom: 13,
+      marginLeft:209,
+      [theme.breakpoints.down(450)]: {
+        marginLeft:72,
+
+      },
+      [theme.breakpoints.down(420)]: {
+        width: '60%',
+        marginLeft:90,
+
+      },
+      [theme.breakpoints.down(380)]: {
+        width: '60%',
+        marginLeft:85,
+
+      },
+      [theme.breakpoints.down(330)]: {
+        marginLeft:48,
+
+      },
+  
     },
 
     passwordContainer: {
       display: 'flex',
       flexDirection: 'column',
+      [theme.breakpoints.down(450)]: {
+        marginRight:20,
+
+      }
     },
 
     avatarsContainer: {
-      width: 350,
+      width: 334,
       height: '100%',
       display: 'flex',
       flexWrap: 'wrap',
+      [theme.breakpoints.down(450)]: {
+        paddingLeft:27,
+
+      },
+      [theme.breakpoints.down(380)]: {
+        width: 328,
+        paddingLeft:27,
+
+
+
+      },
+      [theme.breakpoints.down(330)]: {
+        width: 293,
+        paddingLeft:12,
+
+
+
+      }
     },
 
     avatar: {
@@ -122,6 +181,10 @@ export default makeStyles((theme) =>
 
     alignItems: {
       alignItems: 'flex-start',
+      [theme.breakpoints.down(450)]: {
+        alignItems: 'center',
+        display:'flex'
+      },
     },
 
     editIcon: {
@@ -132,4 +195,47 @@ export default makeStyles((theme) =>
       margin: '3px 20px 3px 5px',
       width: 'auto',
     },
+    infoRow:{
+      // display:'inline'
+    },
+    modifierInfo:{
+      display: 'flex',
+      padding: '13px 0px',
+      alignItems: 'center',
+      paddingLeft:11,
+      [theme.breakpoints.down(450)]: {
+        padding: '13px 0px',
+        display: 'grid',
+        gridGap: '15px',
+        gridTemplateRows: '35px',
+        alignItems: 'flex-start',
+        margin: '0px 35px 0px 40px',
+             },
+             [theme.breakpoints.down(380)]: {
+              margin: '0px 0px 0px 30px',
+                   },
+             [theme.breakpoints.down(330)]: {
+              margin: '0px 0px 0px 20px',
+                   },
+
+    
+  },
+  profilRow:{
+    dispaly:'flex',
+  },
+  villeResidence:{
+  
+      [theme.breakpoints.down(480)]: {
+      margin: '0px 0px 0px 40px',
+
+    },
+    [theme.breakpoints.down(380)]: {
+      margin: '0px 0px 0px 36px',
+
+    },
+    [theme.breakpoints.down(330)]: {
+      margin: '0px 0px 0px 21px',
+
+    }
+  }
   }));

@@ -10,12 +10,7 @@ export default makeStyles((theme: Theme) => ({
     height: '100%',
     paddingBottom: 80,
     paddingTop: 60,
-    // [theme.breakpoints.down(392)]: {
-    //   width:'max-content',
-    //   },
-    // [theme.breakpoints.down(470)]: {
-    // width:'max-content',
-    // },
+
   },
   registerContainer: {
     maxWidth: 757,
@@ -62,13 +57,15 @@ export default makeStyles((theme: Theme) => ({
     alignItems:'center',
     flexDirection: 'column',
     [theme.breakpoints.down(500)]: {
-      // paddingLeft: 50,
       alignItems:'center',
+    },
+    [theme.breakpoints.down(420)]: {
+      paddingLeft: 60,
     },
     [theme.breakpoints.down(350)]: {
       paddingLeft: 20,
-      // alignItems:'flex-start',
     },
+  
   },
   avatarsWrapper: {
     margin: '9px 0px',
