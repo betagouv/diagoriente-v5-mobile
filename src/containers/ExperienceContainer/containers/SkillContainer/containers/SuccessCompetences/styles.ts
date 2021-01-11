@@ -3,14 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   root: {
     width: '100%',
-    height: '100vh',
     display: 'flex',
     justifyContent: 'center',
     backgroundColor: '#F3F2F4',
   },
 
   content: {
-    maxWidth: 1080,
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -62,6 +60,9 @@ export default makeStyles((theme) => ({
     fontSize: 18,
     padding: '0px 18px',
     maxWidth: 340,
+    [theme.breakpoints.down(340)]: {
+      maxWidth: 320,
+    },
   },
 
   text: {
@@ -295,8 +296,13 @@ export default makeStyles((theme) => ({
     marginTop: 14,
   },
 
+  titleThemeContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+
   titleThemeDone: {
-    fontSize: 20,
+    fontSize: 14,
   },
 
   checked: {
