@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
   modalContainer: {
     width: '100%',
     height: '100%',
@@ -25,6 +25,12 @@ export default makeStyles(() => ({
     height: 340,
     width: 480,
     padding: 50,
+    [theme.breakpoints.down(415)]: {
+      width: 350,
+    },
+    [theme.breakpoints.down(370)]: {
+      width: 270,
+    },
   },
 
   header: {

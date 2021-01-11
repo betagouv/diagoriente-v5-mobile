@@ -24,7 +24,6 @@ const HomeCompleted = () => {
   const [open, setOpen] = useState(-1);
   const [openModal, setOpenModal] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  console.log('isOpen', isOpen);
 
   const getState = (index: number) => {
     switch (open) {
@@ -51,7 +50,6 @@ const HomeCompleted = () => {
     const res = state.some((e) => e === 'open');
     setIsOpen(res);
   });
-  console.log('isOpen', isOpen);
   const renderContentItem = useCallback(
     (
       title: string,
