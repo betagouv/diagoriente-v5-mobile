@@ -27,6 +27,8 @@ export default makeStyles<Theme>((theme) => ({
     marginTop: 70,
     marginBottom: 70,
     width: '100%',
+    "padding-left": "5vh",
+    "padding-right": "5vh",
   },
   text: {
     fontSize: 16,

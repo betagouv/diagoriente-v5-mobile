@@ -80,6 +80,7 @@ export default makeStyles(() => ({
     },
     '& input': {
       width: 'calc(100% - 50px)',
+      textOverflow:'ellipsis',
     },
   },
 
@@ -107,6 +108,7 @@ export default makeStyles(() => ({
     },
     '& input': {
       width: 'calc(100% - 115px)',
+      textOverflow:'ellipsis'
     },
   },
 
@@ -183,6 +185,7 @@ export default makeStyles(() => ({
 
   ItemMenuContent: {
     padding: '15px 30px',
+    whiteSpace:'normal'
   },
 
   pointsTitleContainer: {

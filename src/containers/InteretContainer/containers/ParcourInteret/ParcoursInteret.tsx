@@ -196,8 +196,10 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
           {selectedInterests.map((el, i) => (
             <>
+            <div>
               <div className={classes.itemRow} key={el.id}>
                 <FamileSelected handleClick={() => deleteFamille(i)} famille={el} index={i} direction="horizontal" />
+              </div>
               </div>
               <Divider />
             </>

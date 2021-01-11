@@ -20,7 +20,7 @@ interface Props {
 
 const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
   const classes = useStyles();
-  const closeTitle = 'Thèmes :';
+  const closeTitle = 'Thèmes ';
   const [defaultTheme, setDefaultTheme] = useState('');
   const [theme, setTheme] = React.useState(defaultTheme);
   const [open, setOpen] = React.useState(false);
@@ -66,7 +66,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
         value={theme ? theme : defaultTheme}
         variant="outlined"
         className={
-          !theme || theme === '' || theme === 'Thèmes :' ? classes.selectContainer : classes.selectedThemeContainer
+          !theme || theme === '' || theme === 'Thèmes : ' ? classes.selectContainer : classes.selectedThemeContainer
         }
         InputProps={{
           endAdornment: (
@@ -76,7 +76,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
           ),
 
           startAdornment: {
-            ...(theme !== 'Thèmes :' && theme && theme !== '' ? (
+            ...(theme !== 'Thèmes ;' && theme && theme !== '' ? (
               <Avatar
                 size={29}
                 className={classes.avatarCircleSelected}

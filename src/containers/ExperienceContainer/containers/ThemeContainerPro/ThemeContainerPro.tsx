@@ -159,9 +159,9 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                           <div>
                           { openedTheme?.id===theme.id ? (
                           <Slide direction="up" in={!(selectedTheme?.id===theme.id)} mountOnEnter unmountOnExit >  
-                             <Child key={index} >
+                             <Child key={index} className={classes.child}>
                           {tooltip.map((el) => (
-                            <div key={el.id}>{`-${el.title}`}</div>
+                            <div key={el.id} className={classes.titleDiv}>{`-${el.title}`}</div>
                           ))} 
                         </Child>
                          </Slide>
@@ -199,10 +199,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
           </div>
   
           </div>
-          {/* <NavigationButton disabled={!selectedTheme}
-           nextLink={selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''}
-           previousLink={'/experience'}
-           />    */}
+      
            </div>
         
   );

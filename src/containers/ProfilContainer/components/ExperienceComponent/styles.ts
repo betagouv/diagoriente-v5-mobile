@@ -12,9 +12,10 @@ export default makeStyles((theme) =>
       alignItems: 'center',
       paddingTop: 34,
       flex: 1,
+      paddingBottom:110,
       padding: SKILL_CONTAINER_PADDING,
       [theme.breakpoints.down(330)]: {
-    padding:'0px 0px'
+    padding:'0px 0px 110px 0px'
       },
     },
 
@@ -35,6 +36,9 @@ export default makeStyles((theme) =>
         padding : '10px 10px 10px 10px',
 
       },
+      [theme.breakpoints.down(350)]: {
+width:'97%'
+      },
     },
 
     cardClassName: {
@@ -42,11 +46,11 @@ export default makeStyles((theme) =>
     },
 
     titleContainer: {
-      display: 'flex',
+      display: 'contents',
       alignItems: 'center',
       paddingBottom: 45,
       paddingLeft:115,
-      width: '100%',
+      // width: '100%',
       justifyContent: 'space-between',
       [theme.breakpoints.down(500)]: {
         paddingLeft:35,
@@ -54,6 +58,7 @@ export default makeStyles((theme) =>
       },
       [theme.breakpoints.down(350)]: {
         paddingLeft:15,
+        display:'contents'
 
       },
     
@@ -166,12 +171,12 @@ export default makeStyles((theme) =>
     link: {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
-      background: 'rgba(77, 110, 197, 0.1)',
+      // background: 'rgba(77, 110, 197, 0.1)',
       margin: 16,
       borderRadius: 10,
       flex: 1,
-      maxWidth: 'calc(33.333333% - 32px)',
+      justifyContent:'center'
+      // maxWidth: 'calc(33.333333% - 32px)',
       /*  [theme.breakpoints.down(1265)]: {
         maxWidth: '100%',
         background: 'transparent',
