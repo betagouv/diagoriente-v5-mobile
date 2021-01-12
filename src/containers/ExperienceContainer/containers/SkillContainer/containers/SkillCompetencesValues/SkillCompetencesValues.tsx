@@ -4,7 +4,7 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { CompetenceValues, Competence, Theme } from 'requests/types';
 import Title from 'components/common/TitleImage/TitleImage';
 import RestLogo from 'components/common/Rest/Rest';
-import Button from 'components/nextButton/nextButton';
+import NextButton from 'components/nextButton/nextButton';
 import CancelButton from 'components/cancelButton/CancelButton';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import PreviousButton from 'components/previousButton/previousButton';
@@ -57,6 +57,10 @@ const SkillCompetencesValues = ({
     setCompetencesValues(nextCompetenceValues);
   };
 
+  const handleNextClick = () => {
+    if (competencesValues.length === competences.length) addSkill();
+  };
+
   useEffect(() => {
     if (competencesValues.length) {
       setFixRef(1);
@@ -80,7 +84,13 @@ const SkillCompetencesValues = ({
     <div className={classes.root}>
       <div className={classes.container}>
         <Title
-          title={theme && theme.type === 'professional' ? 'mes expériences pro' : 'mes expériences personnelles'}
+          title={
+            theme && theme.type === 'engagement'
+              ? 'mes expériences d’engagement'
+              : theme && theme.type === 'professional'
+              ? 'mes expériences pro'
+              : 'mes expériences personnelles'
+          }
           color="#223A7A"
           size={width > 380 ? 32 : 25}
           image={blueline}
@@ -145,11 +155,11 @@ const SkillCompetencesValues = ({
           </Link>
         </div>
         <div>
-          <Button
+          <NextButton
             fetching={addSkillState}
-            disabled={!(competencesValues.length === competences.length)}
-            onClick={addSkill}
-          />{' '}
+            disabled={competencesValues.length !== competences.length}
+            onClick={handleNextClick}
+          />
         </div>
       </div>
     </div>

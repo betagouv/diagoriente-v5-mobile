@@ -14,6 +14,7 @@ export default makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     padding: '30px 30px 80px 30px',
+    height: '100vh',
   },
 
   header: {
