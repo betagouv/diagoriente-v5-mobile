@@ -112,7 +112,7 @@ const PrivateDrawer = () => {
         <div
           style={{
             position: 'absolute',
-            bottom: 65,
+            top: 300,
             left: 0,
             zIndex: 9999,
             display: 'flex',
