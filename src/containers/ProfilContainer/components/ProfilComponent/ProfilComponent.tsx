@@ -141,7 +141,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
       return topJobs.map((j) => (
         <div key={j?.id} className={classes.favoriContainer}>
           <img src={littlestar} alt="" height={20} />
-          <div className={classes.job}>{j?.title}</div>
+          <div className={classes.job}>{j?.title} </div>
         </div>
       ));
     }
@@ -154,7 +154,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
   
   return (
     <div>
-    <div className={classes.profilContainer} id="monProfile" ref={(ref) => (rowRef.current[0] = ref)}>
+    <div className={classes.profilContainer} ref={(ref) => (rowRef.current[0] = ref)}>
         <Title
           title="MON PROFILE"
           color="#ffffff"
@@ -181,7 +181,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
           >
           <Typography   className={classes.headingText} >MES INFOS PERSONNELLES</Typography>
         </AccordionSummary>
-        <AccordionDetails >
+        <AccordionDetails className={classes.profilDetail}>
         <div className={classes.cardGridContainer}>
 
             <div >
@@ -297,7 +297,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
       </div>
         
     </div>
-    <div className={classes.experienceContainer} id="mesExpériences" ref={(ref) => (rowRef.current[1] = ref)}>
+    <div className={classes.experienceContainer}  ref={(ref) => (rowRef.current[1] = ref)}>
     <Title
       title="MES EXPÉRIENCES"
       color="#ffffff"
@@ -342,7 +342,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
       ))}
               <div className={classes.detail}>
               <Link to="/profile/experience">
-              <span > Voir le détail </span>
+              <span className={classes.detailColor} > Voir le détail </span>
               </Link>
               </div>
     </Grid>
@@ -398,7 +398,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
       })}
               <div className={classes.detail}>
               <Link to="/profile/experience?type=professional">
-              <span  > Voir le détail </span>
+              <span className={classes.detailColor} > Voir le détail </span>
               </Link>
               </div>
     </Grid>)  : (
@@ -432,11 +432,11 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
       <Typography className={classes.persoText} > MES EXPÉRIENCES D’ENGAGEMENT </Typography>
     </AccordionSummary>
     <AccordionDetails className={classes.expEng}>
-      <div className={classes.competenceContainer}> 
+      <div className={classes.cardGridContainer}> 
       {engagementSkills.length ? (
    <Grid container spacing={1} className={classes.gridPro} >
       {engagementSkills.map((theme) => (
-        <Grid item xs={4} sm={4} key={theme.id} className={classes.itemContainer}>
+        <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
           <div className={classes.themeSelection}>
             <Circle avatarCircleBackground="transparent" size={100}>
               {theme.theme.resources && theme.theme.resources.icon && (
@@ -450,7 +450,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
       ))}
  <div className={classes.detail}>
  <Link to="/profile/experience?type=engagement">
- <span > Voir le détail </span>
+ <span className={classes.detailColor} > Voir le détail </span>
  </Link>
   </div>
     </Grid>
@@ -472,7 +472,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
   </div>
     
 </div>
-<div className={classes.demarcheContainer} id="mesDémarches" ref={(ref) => (rowRef.current[2] = ref)}>
+<div className={classes.demarcheContainer} ref={(ref) => (rowRef.current[2] = ref)}>
         <Title
           title="MES DÉMARCHES"
           color="#ffffff"
@@ -505,7 +505,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
            </Typography>
         </AccordionSummary>
         <AccordionDetails className={classes.topJobs} >
-              <div>
+              <div className={classes.topMetier}>
               {renderTopJobs}
               </div>
         </AccordionDetails>

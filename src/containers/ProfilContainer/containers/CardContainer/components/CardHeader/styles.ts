@@ -9,6 +9,7 @@ createStyles({
     paddingTop: 35,
     [theme.breakpoints.down(330)]: {
       padding:'35px 15px 0px 15px',
+      display :'inline'
 
     },
   },
@@ -17,7 +18,8 @@ createStyles({
     flexDirection: 'column',
     whiteSpace: 'pre-wrap',
     [theme.breakpoints.down(330)]: {
-marginRight:10
+marginRight:10,
+marginBottom:5,
     },
   },
   userName: {
@@ -31,6 +33,9 @@ marginRight:10
   },
   appLogo: {
     marginRight: 30,
+    [theme.breakpoints.down(440)]: {
+      marginRight:5
+          },
   },
 })
 );

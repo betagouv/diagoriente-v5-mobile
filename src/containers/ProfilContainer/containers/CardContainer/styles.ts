@@ -13,8 +13,12 @@ createStyles({
       padding:40,
 
     },
-    [theme.breakpoints.down(400)]: {
-      padding:10,
+    [theme.breakpoints.down(450)]: {
+      padding:20,
+
+    },
+    [theme.breakpoints.down(380)]: {
+      padding:5,
 
     },
     [theme.breakpoints.down(330)]: {
@@ -57,6 +61,7 @@ createStyles({
   },
   competenceContainer: {
     display: 'flex',
+    flexDirection:'column',
     width: '100%',
     borderBottom: '1px solid #6B6B6A',
     justifyContent: 'space-between',
