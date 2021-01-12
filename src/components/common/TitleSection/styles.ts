@@ -16,5 +16,7 @@ export default makeStyles<Theme, { width?: number }>(() => ({
     textAlign: 'center',
     marginTop: 30,
     width: (props) => props.width || "48vh",
+    "padding-left": "7vh",
+    "padding-right": "7vh",
   },
 }));
