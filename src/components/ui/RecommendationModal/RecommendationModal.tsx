@@ -18,6 +18,7 @@ import { useAddSkillComment } from 'requests/skillComment';
 import classNames from 'utils/classNames';
 import UserContext from 'contexts/UserContext';
 import msg from 'assets/svg/msg.svg';
+import Arrow from 'assets/svg/arrow';
 import useStyles from './styles';
 
 interface Props {
@@ -259,8 +260,8 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
           <div className={classes.descriptionModal}>
             Le message pour
             {/* eslint-disable-next-line */}
-            <b>{` ${NameFormator(state.values.firstName)} ${NameFormator(state.values.lastName)}`}</b> (
-            {`${state.values.email}`})
+            <b>{` ${NameFormator(state.values.firstName)} ${NameFormator(state.values.lastName)}`}</b>
+            <br />({`${state.values.email}`})
           </div>
           <form className={classes.experienceContainer}>
             <TextField
@@ -322,11 +323,11 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
             <img src={skill.theme.resources?.icon} alt="" />
           </Avatar>
 
-          <img src={msg} height={90} className={classes.iconBackground} alt=" " />
-
           <div className={classes.descriptionModalContainer}>
             Le message a bien été envoyé ! Une fois rédigée, sa recommandation apparaîtra dans ta carte de compétences.
           </div>
+
+          <img src={msg} height={90} className={classes.iconBackground} alt=" " />
 
           <div className={classes.btnContainerModal}>
             <div
@@ -335,8 +336,10 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
                 if (onSuccess) onSuccess();
               }}
             >
-              <Button className={classes.btn} onClick={() => {}}>
-                <div className={classes.btnLabel}>OK !</div>
+              <Button className={classes.btn} childrenClassName={classes.labelContainer} onClick={() => {}}>
+                <div className={classes.btnLabel}>
+                  OK !<Arrow color="#223A7A" width="8" height="13" className={classes.arrow} />
+                </div>
               </Button>
             </div>
           </div>

@@ -17,6 +17,7 @@ profil:{
     fontFamily: 'Ocean',
     fontWeight: 900,
     fontSize:24,
+    textTransform:'uppercase',
     textAlign:'center',
     [theme.breakpoints.down(400)]: {
       width:'min-content'
@@ -32,6 +33,7 @@ profil:{
   experienceLabel:{
     opacity:0.5 ,
     color:'#FFFFFF',
+    textTransform:'uppercase',
     fontFamily: 'Ocean',
     fontWeight: 900,
     fontSize:24,
@@ -53,6 +55,7 @@ profil:{
     color:'#FFFFFF',
     fontWeight: 900,
     fontSize:24,
+    textTransform:'uppercase',
     textAlign:'center',
     fontFamily: 'Ocean',
     [theme.breakpoints.down(400)]: {
@@ -78,6 +81,7 @@ profil:{
     fontFamily: 'Ocean',
     fontWeight: 900,
     fontSize:24,
+    textTransform:'uppercase',
     textAlign:'center',
     [theme.breakpoints.down(400)]: {
       width:'min-content'

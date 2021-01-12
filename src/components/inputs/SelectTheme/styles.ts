@@ -86,6 +86,7 @@ export default makeStyles((theme: Theme) => ({
     border: '1px solid #D1D5DE',
     boxSizing: 'border-box',
     borderRadius: '5px 0px 0px 5px',
+    textOverflow:'ellipsis',
     '& div': {
       display: 'flex',
       height: 45,
@@ -105,6 +106,7 @@ export default makeStyles((theme: Theme) => ({
     '& input': {
       color: '#00B2DB',
       width: '75% !important',
+      textOverflow:'ellipsis'
     },
   },
 
@@ -145,7 +147,7 @@ export default makeStyles((theme: Theme) => ({
     flexDirection: 'row',
     borderRadius: '0px !important',
     paddingBottom: '0px !important',
-    paddingLeft: 62,
+    paddingLeft: 25,
     cursor: 'pointer',
     '&:hover': {
       background: 'rgba(122, 230, 255, 0.2)',

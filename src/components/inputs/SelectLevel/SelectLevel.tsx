@@ -130,7 +130,7 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
                   <div className={classes.echelon}>{e}</div>
                 </div>
                 <div className={classes.levelTitle}>
-                  <p>"{levelsTab[index].title}"</p>
+                  <span> "{levelsTab[index].title}" </span>
                 </div>
               </div>
               <Divider />
