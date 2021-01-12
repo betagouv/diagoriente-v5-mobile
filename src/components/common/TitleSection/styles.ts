@@ -12,7 +12,7 @@ export default makeStyles<Theme, { width?: number }>(() => ({
     height: 'auto',
   },
   text: {
-    fontSize: 18,
+    fontSize: "1.45vh",
     textAlign: 'center',
     marginTop: 30,
     width: (props) => props.width || 619,

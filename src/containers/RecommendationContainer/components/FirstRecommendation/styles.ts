@@ -12,16 +12,21 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
   },
 
+
+
+
   cardContainer: {
     display: 'flex',
     flexDirection: 'column',
-    width: '80%',
+    width: '37vh',
     maxWidth: '660px',
     border: '1px solid #C9C9C7',
     borderRadius: 10,
     height: 'auto',
     marginTop: 29,
   },
+
+
 
   headerCard: {
     display: 'flex',
@@ -30,12 +35,13 @@ export default makeStyles((theme) => ({
     borderRadius: '10px 10px 0px 0px',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: PADDING_CARD,
+    padding: '7x 0px',
   },
 
   header: {
     display: 'flex',
     flexDirection: 'column',
+    "margin-left": "5vh",
   },
 
   themeHeader: {
@@ -63,7 +69,10 @@ export default makeStyles((theme) => ({
     fontWeight: 'bold',
     marginTop: 17,
     marginBottom: 11,
+    "margin-left": "5vh",
   },
+
+
 
   bodyCard: {
     display: 'flex',
@@ -82,7 +91,7 @@ export default makeStyles((theme) => ({
     background: '#FFFF',
     borderRadius: 5,
     resize: 'none',
-    width: '80%',
+    width: '37vh',
     maxWidth: '660px',
   },
 
@@ -109,6 +118,9 @@ export default makeStyles((theme) => ({
     fontWeight: 'bold',
     lineHeight: '20px',
   },
+
+
+  
   disabled: {
     pointerEvents: 'none',
   },

@@ -32,6 +32,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
       <Carousel
         dragging={false}
         slideIndex={currentIndex}
+        afterSlide={(index) => setCurrentIndex(index)}
         renderCenterLeftControls={({ previousSlide }) => (
           <div className={classNames(currentIndex === 0 && classes.hide, classes.wrapperBtn, classes.prevWrap)}>
             <div
@@ -111,3 +112,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
 };
 
 export default Slider;
+
+
+
+
