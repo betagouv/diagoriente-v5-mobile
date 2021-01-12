@@ -77,7 +77,7 @@ export default makeStyles((theme) => ({
   bodyCard: {
     display: 'flex',
     flexDirection: 'column',
-    padding: PADDING_CARD,
+    padding: '15px 0px',
   },
 
   recommendation: {
@@ -93,6 +93,7 @@ export default makeStyles((theme) => ({
     resize: 'none',
     width: '37vh',
     maxWidth: '660px',
+    "padding-bottom": "2vh",
   },
 
   defaultValue: {
