@@ -120,10 +120,14 @@ export default makeStyles<Theme>((theme) => ({
   },
   results: {
     flex: 1,
-    padding: '0px 20px',
+    padding: '10px 20px',
   },
   loadingContainer: {
     paddingBottom: 300,
+  },
+  noResults: {
+    fontSize: 14,
+    padding: '20px 0px',
   },
   resultTitle: {
     color: theme.palette.success.main,
