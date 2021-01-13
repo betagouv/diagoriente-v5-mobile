@@ -393,7 +393,7 @@ const ImmersionContainer = ({
             )}
             {immersionState.data ? (
               <>
-                <div>
+                <div className={immersionState.data?.immersions.companies.length === 0 ? classes.noResults : ''}>
                   {immersionState.data?.immersions.companies.length === 0 &&
                     'Augmente ta zone de recherche pour plus de résultats'}
                 </div>
