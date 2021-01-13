@@ -6,7 +6,7 @@ import darkbluearrow from 'assets/svg/darkbluearrow.svg';
 
 export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
   root: {
-    border: '1px solid #C9C9C7',
+    borderTop: '1px solid #C9C9C7',
     boxSizing: 'border-box',
     marginTop: 35,
   },
@@ -76,7 +76,7 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    direction: 'rtl',
     margin: 0,
     paddingRight: 30,
     width: '60%',
@@ -88,13 +88,16 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
     marginTop: 30,
+    padding: '0px 15px',
+    [theme.breakpoints.up(415)]: {
+      padding: '0px 45px',
+    },
   },
 
   competencesValues: {
     display: 'flex',
     width: '100%',
-    paddingBottom: 10,
-    paddingLeft: 30,
+    padding: '10px 0px 10px 30px',
     borderBottom: '0.5px solid #C9C9C7',
     '&:last-child': {
       paddingBottom: 36,
