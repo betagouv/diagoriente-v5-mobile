@@ -93,7 +93,7 @@ const JobsContainer = ({
   useOnclickOutside(divAcc, () => setOpenAcc(false));
 
   const setMessage = async () => {
-    setClearMessage(false);
+    setClearMessage(true);
     await localForage.setItem('messages', false);
   };
 
@@ -169,11 +169,10 @@ const JobsContainer = ({
         <div className={classes.messages}>
           <div className={classes.contentMessage}>
             <div className={classes.text}>
-              <div>Pour voir une sélection personnalisée de métiers qui pourraient te plaire,</div>
               <div>
-                commence à remplir ton profil en ajoutant tes{' '}
+                Pour voir une sélection personnalisée de métiers qui pourraient te plaire, commence à remplir ton profil
+                en ajoutant tes{' '}
                 <Link to="/experience">
-                  {' '}
                   <span className={classes.clearTextBold}>expériences</span>
                 </Link>{' '}
                 et tes{' '}
