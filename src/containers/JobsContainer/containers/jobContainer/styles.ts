@@ -195,7 +195,7 @@ export default makeStyles<Theme>((theme) => ({
     left: 0,
   },
   titleInterest: {
-    width: '50%',
+    width: 'min-content',
     overflow: 'hidden',
     whiteSpace: 'pre-wrap',
     paddingLeft: 30,
