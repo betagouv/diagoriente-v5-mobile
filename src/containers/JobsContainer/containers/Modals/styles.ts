@@ -27,8 +27,11 @@ export default makeStyles((theme) => ({
     fontWeight: 'bold',
     fontSize: 18,
     lineHeight: '26px',
-    paddingLeft: 15,
+    paddingLeft: 45,
     marginBottom: 6,
+    [theme.breakpoints.down(415)]: {
+      paddingLeft: 15,
+    },
   },
   textAccessibility: {
     color: theme.palette.success.main,
@@ -36,18 +39,24 @@ export default makeStyles((theme) => ({
     fontSize: 18,
     lineHeight: '26px',
     paddingLeft: 45,
+    [theme.breakpoints.down(415)]: {
+      paddingLeft: 15,
+    },
   },
   offreContainer: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     paddingLeft: 45,
+    paddingRight: 15,
     marginTop: 15,
+    [theme.breakpoints.down(415)]: {
+      paddingLeft: 15,
+    },
   },
   offreConatinerItems: {
     background: '#F3F2F4',
     borderRadius: 10,
-    width: '90%',
     maxWidth: 322,
     padding: '11px 19px',
     marginBottom: 15,
@@ -62,16 +71,15 @@ export default makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
   },
-  similaireJob: {
-    width: '45%',
-  },
-  graph: {
-    width: '45%',
-  },
+  similaireJob: {},
+  graph: {},
   metiersContainer: {
     display: 'flex',
     flexDirection: 'column',
     paddingLeft: 45,
+    [theme.breakpoints.down(415)]: {
+      paddingLeft: 15,
+    },
   },
   metierItem: {
     backgroundColor: theme.palette.secondary.main,
