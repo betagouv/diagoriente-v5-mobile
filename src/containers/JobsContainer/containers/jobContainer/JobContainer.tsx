@@ -63,9 +63,11 @@ const JobContainer = ({
   const { data: loadFamille } = useFamilies();
 
   useDidMount(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     loadJob();
     loadFav();
   });
+
   useEffect(() => {
     if (selectedLocation !== '') {
       locationCall(selectedLocation);
