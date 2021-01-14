@@ -99,6 +99,16 @@ export default makeStyles((theme: Theme) =>
       padding: 10,
       fontSize: 18,
       color: '#424242',
+    },
+    infoDisplyed: {
+      width: '100%',
+      margin: 0,
+      border: '1px solid #4D6EC5',
+      borderRadius: 5,
+      padding: 10,
+      fontSize: 18,
+      color: '#424242',
+      backgroundColor: ' rgba(77, 110, 197, 0.2)',
       '&:hover': {
         backgroundColor: ' rgba(77, 110, 197, 0.2)',
       },
