@@ -65,6 +65,7 @@ export default makeStyles((theme) => ({
     },
   },
   btnLabel: {
+    
     color: '#fff',
     textTransform: 'none',
     fontWeight: 'bold',
@@ -82,6 +83,8 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginTop: 14,
+    color:"#00B2DB"
+
   },
   conditionText: {
     fontSize: 14,
@@ -142,7 +145,8 @@ export default makeStyles((theme) => ({
      gridGap:0,
      alignItems:'flex-start',
      },
-  }
+  },
+
 
 
 }));
