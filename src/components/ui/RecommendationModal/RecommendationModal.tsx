@@ -159,7 +159,7 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               onChange={actions.handleChange}
               errorText={state.touched.firstName && state.errors.firstName}
               className={classes.marginInput}
-              placeholder="ex : Marie"
+              placeholder="ex : Dupont"
               inputClassName={classes.fontInput}
               required
             />
@@ -171,7 +171,7 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               onChange={actions.handleChange}
               errorText={state.touched.lastName && state.errors.lastName}
               className={classes.marginInput}
-              placeholder="ex : Dupont"
+              placeholder="ex : Marie"
               inputClassName={classes.fontInput}
               required
             />
