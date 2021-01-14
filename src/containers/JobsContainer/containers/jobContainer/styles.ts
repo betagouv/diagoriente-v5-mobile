@@ -39,7 +39,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     alignItems: 'center',
     cursor: 'pointer',
-    marginBottom: 40,
+    marginBottom: 25,
   },
   arrow: {
     transform: 'rotate(180deg)',

@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { useDidMount } from 'hooks/useLifeCycle';
 import { useJobs } from 'requests/jobs';
 import Spinner from 'components/Spinner/Spinner';
-
+import Arrow from 'assets/svg/arrow';
 import useStyles from './styles';
 import Button from 'components/button/Button';
 
@@ -32,6 +32,10 @@ const JobInfo = ({ job, handleClose }: IProps) => {
   };
   return (
     <div className={classes.contentModal}>
+      <div className={classes.back} onClick={handleClose}>
+        <Arrow color="#DB8F00" height="15" width="9.5" className={classes.arrow} />
+        <div className={classes.textBack}>Retour à Mon Top métiers</div>
+      </div>
       <div className={classes.infoContainer}>
         <div className={classes.TextTitle}>Niveau d’accès :</div>
         <div className={classes.textAccessibility}>{job.accessibility}</div>
@@ -80,11 +84,11 @@ const JobInfo = ({ job, handleClose }: IProps) => {
           </div>
         </div>
       </div>
-      <div className={classes.containerBtn}>
+      {/* <div className={classes.containerBtn}>
         <Button onClick={handleClose} className={classes.btnCLose}>
           Fermer
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };
