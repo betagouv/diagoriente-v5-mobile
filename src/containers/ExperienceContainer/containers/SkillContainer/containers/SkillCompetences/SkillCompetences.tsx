@@ -75,7 +75,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
   const onNavigate = () => {
-    if (competences.length && competences.length < 4)
+    if (competences.length && competences.length <= 4)
       history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
     setOpen(false);
   };
@@ -83,7 +83,17 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     <div className={classes.root}>
       <div className={classes.container}>
         <Title
+<<<<<<< HEAD
           title={theme && theme.type === 'engagement' ? 'mes expériences d’engagement' : 'mes expériences pro'}
+=======
+          title={
+            theme && theme.type === 'engagement'
+              ? 'mes expériences d’engagement'
+              : theme && theme.type === 'professional'
+              ? 'mes expériences pro'
+              : 'mes expériences personnelles'
+          }
+>>>>>>> develop
           color="#223A7A"
           size={width > 380 ? 32 : 25}
           image={blueline}
@@ -147,7 +157,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
             </div>
           </div>
         </div>
-        <Popup open={open} handleClose={handleClose}  iconClassName={classes.iconClassName}>
+        <Popup open={open} handleClose={handleClose} iconClassName={classes.iconClassName}>
           <div className={classes.popupContainer}>
             <p className={classes.popupDescription}>{text}</p>
             <Button className={classes.incluse} onClick={handleClose}>
