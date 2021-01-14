@@ -448,7 +448,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
         </Grid>
         
       ))}
- <div className={classes.detail}>
+ <div className={classes.detailEng}>
  <Link to="/profile/experience?type=engagement">
  <span className={classes.detailColor} > Voir le détail </span>
  </Link>
