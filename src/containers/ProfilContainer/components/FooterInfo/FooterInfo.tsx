@@ -15,7 +15,7 @@ const FooterInfo = ( {refs, options }: Props) => {
 
     if (currentRef)
       window.scrollTo({
-        top: currentRef.offsetTop  ,
+        top: currentRef.offsetTop - 200  ,
         left: 0,
         behavior: "smooth",
       });
@@ -29,7 +29,7 @@ const FooterInfo = ( {refs, options }: Props) => {
       for (let i = refs.current.length - 1; i > -1; i--) {
         const currentRef = refs.current[i];
         if (currentRef) {
-          if (window.pageYOffset > currentRef.offsetTop ) {
+          if (window.pageYOffset >= currentRef.offsetTop - 200 ) {
             setCurrentIndex(i);
             break;
           }
