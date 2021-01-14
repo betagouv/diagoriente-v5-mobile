@@ -35,20 +35,7 @@ export default makeStyles((theme: Theme) => ({
     lineHeight: 1.8,
   },
   formContainer: {
-    // [theme.breakpoints.up('lg')]: {
-    //   paddingRight: 100,
-    // },
-    // [theme.breakpoints.down('md')]: {
-    //   paddingRight: 100,
-    //   paddingLeft: 0,
-    // },
-    // [theme.breakpoints.down('sm')]: {
-    //   paddingLeft: 80,
-    // },
-    // [theme.breakpoints.down('xs')]: {
-    //   paddingLeft: 20,
-    //   width: '95%',
-    // },
+
     width:'min-content',
   },
   form: {

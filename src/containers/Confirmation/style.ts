@@ -9,11 +9,12 @@ export default makeStyles((theme) => ({
     height: 'calc(100vh - 113px)',
     paddingBottom: 40,
     alignItems: 'center',
+
   },
   title: {
     fontFamily: 'ocean',
     fontWeight: 900,
-    fontSize: 42,
+    fontSize: 42,     
     textAlign: 'center',
     color: theme.palette.info.main,
     marginBottom: 40,
@@ -28,6 +29,9 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
   },
   container: {
     margin: 'auto',
@@ -39,6 +43,9 @@ export default makeStyles((theme) => ({
       paddingLeft: 20,
       width: '95%',
     },
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
   },
   btnContainer: {
     width: '100%',
@@ -49,7 +56,7 @@ export default makeStyles((theme) => ({
   btn: {
     backgroundColor: theme.palette.secondary.main,
     height: 50,
-    width: 'max-content',
+    width: '48vh',
     padding: '0px 25px',
     '&:hover': {
       backgroundColor: '#223A7A',
@@ -60,7 +67,7 @@ export default makeStyles((theme) => ({
     color: '#fff',
     textTransform: 'none',
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 14,
     textAlign: 'center',
   },
   emptyDiv: {
