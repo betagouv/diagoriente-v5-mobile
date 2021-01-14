@@ -16,7 +16,6 @@ const FooterInfo = ( {refs, options }: Props) => {
     if (currentRef)
       window.scrollTo({
         top: currentRef.offsetTop - 200  ,
-        left: 0,
         behavior: "smooth",
       });
     if (currentIndex !== index) {
@@ -29,7 +28,7 @@ const FooterInfo = ( {refs, options }: Props) => {
       for (let i = refs.current.length - 1; i > -1; i--) {
         const currentRef = refs.current[i];
         if (currentRef) {
-          if (window.pageYOffset >= currentRef.offsetTop - 200 ) {
+          if (window.pageYOffset >= currentRef.offsetTop - 200) {
             setCurrentIndex(i);
             break;
           }
@@ -48,11 +47,11 @@ const FooterInfo = ( {refs, options }: Props) => {
             <div
             className={classNames( title === "mon profil" && classes.profil,
              title==="mes expériences"&& classes.experience, title === "mes démarches" && classes.demarches )}
-              onClick={() => {
-                scrollClick(index);
-              }}
+             
             >
-             <span className={classNames(classes.profilLabel,  currentIndex==index && classes.infoActive)}> {title} </span>   
+             <span  onClick={() => {
+                scrollClick(index);
+              }}  className={classNames(classes.profilLabel,  currentIndex==index && classes.infoActive)}> {title} </span>   
                 </div>
         ))
             }

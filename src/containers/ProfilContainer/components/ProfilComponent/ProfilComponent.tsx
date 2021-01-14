@@ -340,7 +340,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
           </div>
         </Grid>
       ))}
-              <div className={classes.detail}>
+              <div  className={classes.detail}>
               <Link to="/profile/experience">
               <span className={classes.detailColor} > Voir le détail </span>
               </Link>
@@ -396,7 +396,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
           </Grid>
         );
       })}
-              <div className={classes.detail}>
+              <div className={classes.detailPro}>
               <Link to="/profile/experience?type=professional">
               <span className={classes.detailColor} > Voir le détail </span>
               </Link>
@@ -455,7 +455,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
   </div>
     </Grid>
   ) : (
-    <Link to="/experience/theme?type=engagement">
+    <Link to="/experience/theme?type=engagement" className={classes.linkEng}>
       <Button className={classes.btn}>
         <span className={classes.textButton}>J’ajoute une expérience d&apos;engagement</span>
       </Button>
