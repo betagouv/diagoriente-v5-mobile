@@ -11,11 +11,11 @@ export default makeStyles((theme: Theme) =>
     container: {
       display: 'flex',
       flexDirection: 'column',
-      paddingBottom:70,
+      paddingBottom: 70,
       width: '100%',
     },
-    modal:{
-      width:250
+    modal: {
+      width: 250,
     },
 
     themeContainer: {
@@ -32,7 +32,7 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
       flexWrap: 'wrap',
       /*  padding: SKILL_CONTAINER_PADDING, */
-      padding: '30px 30px 80px 30px',
+      padding: '30px 30px 280px 30px',
       justifyContent: 'center',
       /*  [theme.breakpoints.down('xs')]: {
         justifyContent: 'center',
