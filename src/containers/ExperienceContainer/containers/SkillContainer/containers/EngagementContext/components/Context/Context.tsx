@@ -19,13 +19,13 @@ const Context = ({
 }: Props) => {
   const classes = useStyles();
   return (
-    <Grid item lg={3} className={classNames(classes.root, className)}>
+    <Grid item xs={4} className={classNames(classes.root, className)}>
       {icon ? (
         <Avatar size={80}>
           <img src={icon} alt="" height={60} width={60} />
         </Avatar>
       ) : (
-        <Circle size={60} />
+        <Circle size={80} />
       )}
       <span className={classNames(classes.title, checked && classes.titleChecked)}>{title}</span>
       <CheckBox color="#00CFFF" className={classes.checkbox} checked={checked} onChange={handleChange} />
