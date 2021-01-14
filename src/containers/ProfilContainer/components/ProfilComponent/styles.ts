@@ -23,10 +23,10 @@ wordBreak:'break-all'
       },
     },
     topJobs:{
-      padding:20,
+      padding:'20px 0px',
       paddingLeft:60,
-      [theme.breakpoints.down(380)]: {
-        paddingLeft:30,
+      [theme.breakpoints.down(420)]: {
+        paddingLeft:10,
 
       },
 
@@ -184,7 +184,7 @@ wordBreak:'break-all'
     },
 
     emptyDiv: {
-      height: 45,
+      // height: 100,
     },
 
     root: {

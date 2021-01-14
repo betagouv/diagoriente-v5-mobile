@@ -43,7 +43,7 @@ import useStyles from './styles';
 
 const ProfilComponent = ({  history }: RouteComponentProps)  => {
   const SelectTitles =[
-    'mon profile',
+    'mon profil',
     'mes expériences',
     'mes démarches',
   ]
@@ -156,7 +156,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
     <div>
     <div className={classes.profilContainer} ref={(ref) => (rowRef.current[0] = ref)}>
         <Title
-          title="MON PROFILE"
+          title="MON PROFIL"
           color="#ffffff"
           size={32}
           className={classes.titlePro} 
@@ -174,8 +174,8 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
               <ExpandMoreIcon />
             </div>
           }
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+          // aria-controls="panel1bh-content"
+          // id="panel1bh-header"
           className={classes.infoAccordion}
      
           >
@@ -197,7 +197,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
                </div>
   <span>{user?.email}</span>
   <div className={classes.modifierProfile}>
-  <span onClick={onNavigate} > Modifier </span>
+  <p onClick={onNavigate} > Modifier </p>
       </div>
   </div>
  
@@ -571,7 +571,6 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
         </AccordionSummary>
         <AccordionDetails >
           <div className={classes.competenceContainer}> 
-          <div>hello</div>
           </div>
         
         </AccordionDetails>
