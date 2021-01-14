@@ -28,6 +28,6 @@ export default makeStyles((theme: Theme) => ({
     color: '#fff',
   },
   snackContainer: {
-    marginTop: 30,
+    marginTop: 45,
   },
 }));

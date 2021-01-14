@@ -1,12 +1,10 @@
-import React from 'react';
+import React , { useState , useEffect} from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useContext } from 'requests/context';
 import Grid from '@material-ui/core/Grid';
-
-import TitleImage from 'components/common/TitleImage/TitleImage';
-import Title from 'components/common/Title/Title';
+import Title from 'components/common/TitleImage/TitleImage';
 import NextButton from 'components/nextButton/nextButton';
-import CancelButton from 'components/cancelButton/CancelButton';
+import PreviousButton from 'components/previousButton/previousButton';
 
 import RestLogo from 'components/common/Rest/Rest';
 
@@ -19,6 +17,7 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   setContext: (e: string) => void;
   contextCheck: string;
 }
+
 const EngagementContext = ({
  history, setContext, contextCheck, match, location,
 }: Props) => {
@@ -28,22 +27,39 @@ const EngagementContext = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
     setContext(e.target.checked ? id : '');
   };
+  const onNavigate = () => {
+     {  contextCheck && history.push(`/experience/skill/${match.params.themeId}/date${location.search}`)} ;
+  };
+
+  const isBrowser = typeof window !== 'undefined';
+  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
+  });
   return (
     <div className={classes.root}>
       <div className={classes.container}>
         <div className={classes.header}>
-          <Title title="MES EXPÉRIENCES D’ENGAGEMENT" color="#223A7A" size={26} />
-          <RestLogo
+        <Title
+          title= "MES EXPÉRIENCES D’ENGAGEMENT"
+          color="#223A7A"
+          size={width > 380 ? 32 : 25}
+          image={blueline}
+          number={5}
+        />
+          {/* <Title title="MES EXPÉRIENCES D’ENGAGEMENT" color="#223A7A" size={26} /> */}
+          {/* <RestLogo
             onClick={() => {
               const path = '/experience';
               history.replace(path);
             }}
             color="#4D6EC5"
             label="Annuler"
-          />
+          /> */}
         </div>
         <div className={classes.themeContainer}>
-          <TitleImage title="5." image={blueline} color="#223A7A" width={180} />
+          {/* <TitleImage title="5." image={blueline} color="#223A7A" width={180} /> */}
           <p className={classes.title}>
             Dans quel cadre s’est déroulée cette expérience
             <br />
@@ -62,18 +78,23 @@ const EngagementContext = ({
               />
             ))}
           </Grid>
-          <Link to={`/experience/skill/${match.params.themeId}/date${location.search}`} className={classes.hideLine}>
-            <NextButton />
-          </Link>
+     
+          <div className={classes.previousNext}>
+            <Link
+              //   to="/experience"
+              to={`/experience/skill/${match.params.themeId}/competencesValues${location.search}`}
+              className={classes.hideLine}
+            >
+              <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
+            </Link>
+
+            <div onClick={onNavigate} className={classes.hideLine}>
+              <NextButton  />
+            </div>
+          </div>
         </div>
 
-        <Link
-          to={`/experience/skill/${match.params.themeId}/competencesValues${location.search}`}
-          className={classes.btnpreced}
-        >
-          <CancelButton />
-          Précedent
-        </Link>
+
       </div>
     </div>
   );

@@ -83,7 +83,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     <div className={classes.root}>
       <div className={classes.container}>
         <Title
-          title={theme && theme.type === 'engagement' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
+          title={theme && theme.type === 'engagement' ? 'mes expériences d’engagement' : 'mes expériences pro'}
           color="#223A7A"
           size={width > 380 ? 32 : 25}
           image={blueline}

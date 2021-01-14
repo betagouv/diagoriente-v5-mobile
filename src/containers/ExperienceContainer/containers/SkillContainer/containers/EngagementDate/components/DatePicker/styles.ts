@@ -30,9 +30,15 @@ export default makeStyles((theme: Theme) =>
     month: {
       width: '128px !important',
       textTransform: 'capitalize',
+      [theme.breakpoints.down(340)]: {
+        width: '105px !important',
+      },
     },
     year: {
       width: '93px !important',
+      [theme.breakpoints.down(340)]: {
+        width: '80px !important',
+      },
     },
 
     disabledClassName: {
