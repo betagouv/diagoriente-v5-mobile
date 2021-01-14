@@ -120,7 +120,11 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
                 <Grid key={comp.id} item xs={12} md={6}>
                   <Button
                     childrenClassName={classes.margin}
-                    className={classNames(classes.competences, selected && classes.selectedCompetence)}
+                    className={classNames(
+                      classes.competences,
+                      showInfo && currentInfoId === comp.id && classes.infoDisplyed,
+                      selected && classes.selectedCompetence,
+                    )}
                     onClick={() => {
                       setShowInfo(false);
                       !selected
