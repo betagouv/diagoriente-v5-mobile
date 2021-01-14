@@ -87,6 +87,5 @@ profil:{
       width:'min-content'
     },
   },
-  hi:{}
 }),
 )

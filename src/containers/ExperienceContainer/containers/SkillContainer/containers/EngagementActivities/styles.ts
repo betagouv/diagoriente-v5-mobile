@@ -23,7 +23,7 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       paddingTop: 34,
       /*  paddingBottom: 250, */
-      height: '100vh',
+      // height: '100vh',
     },
 
     circleContainer: {
@@ -235,6 +235,7 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
       display: 'flex',
       justifyContent: 'flex-end',
+      paddingBottom:50
     },
     previousNext: {
       display: 'flex',

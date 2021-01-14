@@ -13,7 +13,7 @@ export default makeStyles((theme: Theme) => ({
   },
   closeThemeModal: {
     height: 82,
-    paddingLeft: 70,
+    paddingLeft: 30,
   },
   closeModelContainer: {
     minHeight: 26,
@@ -132,6 +132,13 @@ export default makeStyles((theme: Theme) => ({
     margin: '0 15px',
     color: '#424242',
     fontSize: 14,
+    width:'fit-content',
+    wordBreak:'break-word',
+    [theme.breakpoints.down(380)]: {
+      width:'80%',
+
+    },
+    
   },
 
   textSelected: {

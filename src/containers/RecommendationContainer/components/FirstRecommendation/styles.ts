@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const PADDING_CARD = '15px 60px';
 export default makeStyles((theme) => ({
   container: {
-    padding: '50px 150px',
+    padding: '50px 0px',
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
@@ -77,7 +77,7 @@ export default makeStyles((theme) => ({
   bodyCard: {
     display: 'flex',
     flexDirection: 'column',
-    padding: PADDING_CARD,
+    padding: '15px 0px',
   },
 
   recommendation: {
@@ -93,6 +93,7 @@ export default makeStyles((theme) => ({
     resize: 'none',
     width: '37vh',
     maxWidth: '660px',
+    "padding-bottom": "2vh",
   },
 
   defaultValue: {
