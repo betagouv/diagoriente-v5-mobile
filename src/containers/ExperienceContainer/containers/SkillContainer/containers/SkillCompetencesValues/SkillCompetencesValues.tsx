@@ -117,7 +117,7 @@ const SkillCompetencesValues = ({
               </div>
               <div className={classes.dataOptions}>
                 {activities.slice(0, 4).map((activity) => (
-                  <div key={activity}>{activity}</div>
+                  <div  key={activity}>{activity}</div>
                 ))}
               </div>
             </div>

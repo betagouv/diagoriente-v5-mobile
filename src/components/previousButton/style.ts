@@ -45,7 +45,14 @@ export default makeStyles((theme:Theme) => ({
         position: 'absolute',
         left: 19,
         transform: 'rotate(180deg)',
-        marginBottom: 4
+        marginBottom: 4,
+        '@media not all and (min-resolution:.001dpcm)': {
+          position: "relative",
+          bottom: "0.3vh",
+          left: 19,
+          transform: 'rotate(180deg)',
+          marginBottom: 4
+        }
     
       },
     

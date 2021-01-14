@@ -122,7 +122,7 @@ const Experience = () => {
           </Avatar>
         </div>
 
-        <div className={classes.boxInfo}>
+{/*         <div className={classes.boxInfo}>
           <div className={classes.boxInfoImgSubBox}>
             <div className={classes.boxInfoImg}>
               <img src={Picto} alt="" />
@@ -151,7 +151,7 @@ const Experience = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={90}>
