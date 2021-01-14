@@ -135,17 +135,17 @@ const Experience = () => {
             </div>
           </div>
           <div className={classes.gameLinksContainer}>
-            <div>
+            <div className={classes.PaddingBetwwen}>
               <Link to="/experience/gameCard">
                 <p className={classes.linkBoxInfo}>Rectec</p>
               </Link>
             </div>
-            <div>
+            <div className={classes.PaddingBetwwen}>
               <Link to="/experience/game">
                 <p className={classes.linkBoxInfo}>Rectec Engagement</p>
               </Link>
             </div>
-            <div>
+            <div className={classes.PaddingBetwwen}>
               <Link to="/game">
                 <p className={classes.linkBoxInfo}>Burger speed</p>
               </Link>

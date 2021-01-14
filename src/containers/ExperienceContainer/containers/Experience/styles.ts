@@ -11,6 +11,9 @@ export default makeStyles((theme: Theme) =>
       background: '#F3F2F4',
       height: '100vh',
       paddingBottom: '100px',
+      '&::-webkit-scrollbar': {
+        display: 'none',
+      }
     },
     boxInfo: {
       width: '100%',
@@ -20,9 +23,9 @@ export default makeStyles((theme: Theme) =>
       boxShadow: '0px 0px 5px -3px rgba(0, 0, 0, 0.75)',
       display: 'flex',
       flexDirection: 'column',
-      padding: '2px 35px',
+      padding: '2px 7px',
       [theme.breakpoints.down(350)]: {
-        padding: '2px 15px',
+        padding: '2px 7px',
       },
     },
 
@@ -143,7 +146,7 @@ export default makeStyles((theme: Theme) =>
 
     titleAlignLeft: {
       textAlign: 'left',
-      marginLeft: 10,
+      marginLeft: -4,
     },
 
     titleAlignRight: {
@@ -176,6 +179,9 @@ export default makeStyles((theme: Theme) =>
         width: 210,
         height: '95%',
       },
+    },
+    PaddingBetwwen: {
+      "padding-right": "1.6vh"
     },
   }),
 );
