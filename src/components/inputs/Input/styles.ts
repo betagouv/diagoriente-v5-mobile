@@ -106,7 +106,6 @@ export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) =
   input: {
     flex: '1 1 0%',
     fontSize: 14,
-    padding: 0,
 
     color: (props) => (props.error ? theme.palette.error.main : '#424242'),
     '&::placeholder': {
@@ -123,11 +122,9 @@ export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) =
       color: '#424242',
       transition: 'background-color 5000s ease-in-out 0s',
     },
-    '@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)':
-    { 
-      flex: '1 1 0%',
-      fontSize: 14,
-    }
+
+    
+
 
   },
   labelContainer: {
