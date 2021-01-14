@@ -23,6 +23,25 @@ export default makeStyles((theme) => ({
     paddingTop: 25,
     paddingBottom: 32,
   },
+  back: {
+    display: 'flex',
+    alignItems: 'center',
+    cursor: 'pointer',
+    marginBottom: 15,
+    marginTop: 13,
+    paddingLeft: 45,
+    [theme.breakpoints.down(415)]: {
+      paddingLeft: 15,
+    },
+  },
+  arrow: {
+    transform: 'rotate(180deg)',
+  },
+  textBack: {
+    color: '#6B6B6A',
+    fontWeight: 'bold',
+    marginLeft: 13,
+  },
   TextTitle: {
     fontWeight: 'bold',
     fontSize: 18,
