@@ -29,5 +29,6 @@ export default makeStyles((theme: Theme) => ({
   },
   snackContainer: {
     marginTop: 45,
+    zIndex: 999,
   },
 }));

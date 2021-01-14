@@ -23,6 +23,7 @@ import ImmersionForm from '../../components/Immersion/ImmersionForm';
 import ModalContainerInfo from '../Modals/JobInfo';
 import ModalQuestion from '../Modals/ModalQuestion/ModalQuestion';
 import Graph from '../../components/GraphCompetence/GraphCompetence';
+import Arrow from 'assets/svg/arrow';
 import useStyles from './styles';
 
 interface IProps extends RouteComponentProps<{ id: string }> {
@@ -200,6 +201,12 @@ const JobContainer = ({
       <div className={classes.contentInfo}>
         <div className={classes.JobInfo}>
           <div className={classes.jobDescription}>
+            <Link to="/jobs">
+              <div className={classes.back}>
+                <Arrow color="#DB8F00" height="15" width="9.5" className={classes.arrow} />
+                <div className={classes.textBack}>Retour à Mon Top métiers</div>
+              </div>
+            </Link>
             <div>{data?.job.description}</div>
             <div className={classes.footerDescription}>
               <div className={classes.textTest} onClick={() => setInfo(true)}>
