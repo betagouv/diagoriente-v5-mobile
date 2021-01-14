@@ -47,11 +47,12 @@ export default makeStyles({
   content: {
     display: 'flex',
     flexDirection: 'column',
-    width: '110%',
+    width: '100%',
+    height:'100vh',
     flex: '1 1 0%',
     justifyContent: 'stretch',
 /*     marginTop: 20
- */    "margin-top": "12vh",
+ */    "margin-top": "5vh",
     
   },
   contentChild: {

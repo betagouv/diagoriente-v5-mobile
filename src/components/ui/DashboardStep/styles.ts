@@ -109,6 +109,10 @@ export default makeStyles<
     transform: 'translateY(-50%)',
     zIndex: -1,
     transition,
+    [theme.breakpoints.down(370)]: {
+      width: '53vw',
+
+          },
     [theme.breakpoints.down(330)]: {
       width: '52vw',
 

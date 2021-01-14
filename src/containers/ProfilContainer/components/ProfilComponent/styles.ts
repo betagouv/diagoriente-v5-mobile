@@ -23,10 +23,10 @@ wordBreak:'break-all'
       },
     },
     topJobs:{
-      padding:20,
+      padding:'20px 0px',
       paddingLeft:60,
-      [theme.breakpoints.down(380)]: {
-        paddingLeft:30,
+      [theme.breakpoints.down(420)]: {
+        paddingLeft:10,
 
       },
 
@@ -100,7 +100,7 @@ wordBreak:'break-all'
       
     },
     profilDetail:{
-      padding:'8px 16px 50px '
+      padding:'5px 30px 5px '
     },
 
     cardClassName: {
@@ -175,7 +175,7 @@ wordBreak:'break-all'
       width: '100%',
       overflow: 'hidden',
       textAlign: 'center',
-      whiteSpace: 'pre-wrap',
+      whiteSpace: 'normal',
     },
 
     alignThemeTitle: {
@@ -184,7 +184,7 @@ wordBreak:'break-all'
     },
 
     emptyDiv: {
-      height: 45,
+      // height: 100,
     },
 
     root: {
@@ -520,15 +520,23 @@ marginRight:0
     },
 
     modifierProfile:{
-      right: '50px',
-    position: 'absolute',
-    bottom: '20px',
+
     fontWeight:'bold',
     fontSize:14,
     color:'#6B6B6A',
-    [theme.breakpoints.down(400)]: {
-      right: '20px',
-      bottom: '10px',
+    paddingLeft:' 314px',
+
+    [theme.breakpoints.down(420)]: {
+      paddingLeft:' 225px',
+
+    },
+    [theme.breakpoints.down(380)]: {
+      paddingLeft:' 180px',
+
+    },
+    [theme.breakpoints.down(330)]: {
+      paddingLeft:' 135px',
+
     },
     },
     competenceContainer:{
@@ -644,36 +652,97 @@ marginRight:0
         },
       },
       gridPro:{
-        padding:30,
-        paddingBottom:75,
-        [theme.breakpoints.down(380)]: {
-          padding:5,
-          paddingBottom:75,
-        },
+     
+        // [theme.breakpoints.down(380)]: {
+        //   padding:5,
+        //   paddingBottom:75,
+        // },
     },
-    detail:{
-      right: '65px',
-    position: 'absolute',
-    bottom: '30px',
+    detailEng:{ 
+      color:'#4D6EC5',
+    fontWeight:700,
+    size:14,
+    marginTop:191,
+    marginLeft:220,
+    [theme.breakpoints.down(420)]: {
+      marginTop:11,
+      marginLeft:295,
+    },
+    [theme.breakpoints.down(380)]: {
+      marginTop:11,
+      marginLeft:260,
+    },
+    [theme.breakpoints.down(330)]: {
+      marginTop:11,
+      marginLeft:210,
+    },
+    },
+    detailPro:{
     color:'#4D6EC5',
     fontWeight:700,
     size:14,
+    marginLeft:413,
+    [theme.breakpoints.down(420)]: {
+      marginTop:11,
+      marginLeft:295,
+    },
     [theme.breakpoints.down(380)]: {
-      right: '35px',
-
-    }
- 
+      marginTop:11,
+      marginLeft:260,
+    },
+    [theme.breakpoints.down(330)]: {
+      marginTop:11,
+      marginLeft:210,
+    },
 
     },
+    detail:{
+      color:'#4D6EC5',
+      fontWeight:700,
+      size:14,
+      marginTop:128,
+      marginLeft:250,
+      [theme.breakpoints.down(420)]: {
+        marginTop:11,
+        marginLeft:295,
+      },
+      [theme.breakpoints.down(380)]: {
+        marginTop:11,
+        marginLeft:260,
+      },
+      [theme.breakpoints.down(330)]: {
+        marginTop:11,
+        marginLeft:210,
+      },
+  
+      },
+      linkEng:{
+  marginLeft:90,
+  [theme.breakpoints.down(420)]: {
+    marginLeft:30,
+  },
+  [theme.breakpoints.down(380)]: {
+    marginLeft:12,
+  },
+  [theme.breakpoints.down(370)]: {
+    marginLeft:6,
+  },
+
+
+
+      },
     detailColor:{
       color:'#4D6EC5'
     },
     expEng:{
-      paddingBottom:70,
-      justifyContent:'center',
+      '& .MuiAccordionDetails-root-268': {
+        display:'flex',
+        flexDirection:'column'
+      }
   },
     proDetails:{
       display:'block',
     },
+ 
   }),
 );

@@ -7,6 +7,9 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
+      [theme.breakpoints.down(420)]: {
+        justifyContent: 'space-between',
+      }, 
     },
 
     checkbox: {
@@ -18,6 +21,9 @@ export default makeStyles((theme: Theme) =>
       marginTop: 30,
       WebkitTextStroke: '#424242',
       WebkitTextStrokeWidth: '0.2px',
+      [theme.breakpoints.down(420)]: {
+        width:'min-content'
+      }, 
     },
 
     titleChecked: {

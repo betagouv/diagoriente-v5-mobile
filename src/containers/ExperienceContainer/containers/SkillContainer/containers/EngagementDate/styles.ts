@@ -11,11 +11,8 @@ export default makeStyles((theme: Theme) =>
     container: {
       display: 'flex',
       flexDirection: 'column',
-      padding: '50px 120px',
       width: '100%',
-      [theme.breakpoints.down('sm')]: {
-        padding: '40px',
-      },
+  
     },
 
     themeContainer: {
@@ -66,7 +63,7 @@ export default makeStyles((theme: Theme) =>
     },
 
     header: {
-      height: 50,
+      height: '100%',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -166,7 +163,8 @@ export default makeStyles((theme: Theme) =>
     date: {
       display: 'flex',
       alignItems: 'center',
-      marginTop: 15,
+      justifyContent:'center',
+      marginTop: 40,
     },
 
     text: {
@@ -187,5 +185,40 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
       color: theme.palette.error.main,
       marginLeft: 32,
+    },
+    previousNext: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '8px 8px ',
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      backgroundColor: 'white',
+      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+      zIndex: 1,
+    },
+    classNameTitle: {
+      color: '#4D6EC5',
+      fontSize: 18,
+      lineHeight: '26px',
+    },
+    inputContainer:{
+      display: 'grid',
+      gridTemplateAreas: '"label input"',
+      gridTemplateColumns: '172px 229px',
+      gridGap: '15px',
+      gridTemplateRows: '45px',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: '0px 0px 0px 0px',
+      width: '100%',
+      [theme.breakpoints.down(470)]: {
+        display:'flex',
+        flexDirection:'column',
+        gridGap:0,
+        alignItems:'center',
+        marginTop:20
+        },
     },
   }));

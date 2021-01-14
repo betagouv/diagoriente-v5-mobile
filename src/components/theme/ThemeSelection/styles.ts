@@ -124,7 +124,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       alignItems: 'center',
       padding: '30px 15px',
       [theme.breakpoints.down(370)]: {
-        padding: '25px 15px',
+        padding: '15px 15px',
 
         },
     },

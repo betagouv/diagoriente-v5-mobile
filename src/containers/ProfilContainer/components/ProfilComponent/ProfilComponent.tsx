@@ -43,7 +43,7 @@ import useStyles from './styles';
 
 const ProfilComponent = ({  history }: RouteComponentProps)  => {
   const SelectTitles =[
-    'mon profile',
+    'mon profil',
     'mes expériences',
     'mes démarches',
   ]
@@ -156,7 +156,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
     <div>
     <div className={classes.profilContainer} ref={(ref) => (rowRef.current[0] = ref)}>
         <Title
-          title="MON PROFILE"
+          title="MON PROFIL"
           color="#ffffff"
           size={32}
           className={classes.titlePro} 
@@ -174,8 +174,8 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
               <ExpandMoreIcon />
             </div>
           }
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+          // aria-controls="panel1bh-content"
+          // id="panel1bh-header"
           className={classes.infoAccordion}
      
           >
@@ -197,7 +197,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
                </div>
   <span>{user?.email}</span>
   <div className={classes.modifierProfile}>
-  <span onClick={onNavigate} > Modifier </span>
+  <p onClick={onNavigate} > Modifier </p>
       </div>
   </div>
  
@@ -340,7 +340,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
           </div>
         </Grid>
       ))}
-              <div className={classes.detail}>
+              <div  className={classes.detail}>
               <Link to="/profile/experience">
               <span className={classes.detailColor} > Voir le détail </span>
               </Link>
@@ -396,7 +396,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
           </Grid>
         );
       })}
-              <div className={classes.detail}>
+              <div className={classes.detailPro}>
               <Link to="/profile/experience?type=professional">
               <span className={classes.detailColor} > Voir le détail </span>
               </Link>
@@ -448,14 +448,14 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
         </Grid>
         
       ))}
- <div className={classes.detail}>
+ <div className={classes.detailEng}>
  <Link to="/profile/experience?type=engagement">
  <span className={classes.detailColor} > Voir le détail </span>
  </Link>
   </div>
     </Grid>
   ) : (
-    <Link to="/experience/theme?type=engagement">
+    <Link to="/experience/theme?type=engagement" className={classes.linkEng}>
       <Button className={classes.btn}>
         <span className={classes.textButton}>J’ajoute une expérience d&apos;engagement</span>
       </Button>
@@ -571,7 +571,6 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
         </AccordionSummary>
         <AccordionDetails >
           <div className={classes.competenceContainer}> 
-          <div>hello</div>
           </div>
         
         </AccordionDetails>
