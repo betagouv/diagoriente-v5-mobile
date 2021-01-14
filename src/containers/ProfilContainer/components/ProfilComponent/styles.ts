@@ -175,7 +175,7 @@ wordBreak:'break-all'
       width: '100%',
       overflow: 'hidden',
       textAlign: 'center',
-      whiteSpace: 'pre-wrap',
+      whiteSpace: 'normal',
     },
 
     alignThemeTitle: {
@@ -677,12 +677,11 @@ marginRight:0
       marginLeft:210,
     },
     },
-    detail:{
+    detailPro:{
     color:'#4D6EC5',
     fontWeight:700,
     size:14,
-    marginTop:191,
-    marginLeft:50,
+    marginLeft:413,
     [theme.breakpoints.down(420)]: {
       marginTop:11,
       marginLeft:295,
@@ -697,15 +696,53 @@ marginRight:0
     },
 
     },
+    detail:{
+      color:'#4D6EC5',
+      fontWeight:700,
+      size:14,
+      marginTop:128,
+      marginLeft:250,
+      [theme.breakpoints.down(420)]: {
+        marginTop:11,
+        marginLeft:295,
+      },
+      [theme.breakpoints.down(380)]: {
+        marginTop:11,
+        marginLeft:260,
+      },
+      [theme.breakpoints.down(330)]: {
+        marginTop:11,
+        marginLeft:210,
+      },
+  
+      },
+      linkEng:{
+  marginLeft:90,
+  [theme.breakpoints.down(420)]: {
+    marginLeft:30,
+  },
+  [theme.breakpoints.down(380)]: {
+    marginLeft:12,
+  },
+  [theme.breakpoints.down(370)]: {
+    marginLeft:6,
+  },
+
+
+
+      },
     detailColor:{
       color:'#4D6EC5'
     },
     expEng:{
-      // paddingBottom:70,
-      // justifyContent:'center',
+      '& .MuiAccordionDetails-root-268': {
+        display:'flex',
+        flexDirection:'column'
+      }
   },
     proDetails:{
       display:'block',
     },
+ 
   }),
 );
