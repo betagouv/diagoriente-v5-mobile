@@ -5,6 +5,9 @@ import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 
 export default makeStyles((theme: Theme) =>
   createStyles({
+
+
+    
     root: {
       display: 'flex',
       flexDirection: 'column',
@@ -32,6 +35,7 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
       width: 255,
       marginBottom: 50,
+
     },
 
     echelonWrapper: {
@@ -120,6 +124,11 @@ export default makeStyles((theme: Theme) =>
 
     arrow: {
       paddingTop: 6,
+
+      '@media not all and (min-resolution:.001dpcm)': {
+        position: "relative",
+        bottom: "0.7vh",
+      }
     },
 
     pointContainer: {
@@ -223,14 +232,26 @@ export default makeStyles((theme: Theme) =>
       background: '#ffff',
       border: '1px dashed #C9C9C7',
       borderRadius: 5,
-      padding: '70px 20px 20px 30px',
+      padding: '9vh 20px 20px 30px',
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       [theme.breakpoints.down(340)]: {
-        padding: '70px 20px 20px 20px',
+        padding: '9vh 20px 20px 20px',
+
       },
+      '@media not all and (min-resolution:.001dpcm)': {
+        padding: '25vh 20px 20px 20px',
+        background: '#ffff',
+        border: '1px dashed #C9C9C7',
+        borderRadius: 5,
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+
+      }
     },
     avatarStyle: {
       position: 'relative',
@@ -258,6 +279,19 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
       fontWeight: 'bold',
       flex: '1 1 0',
+
+      '@media not all and (min-resolution:.001dpcm)': {
+        flex: '1 1 0',
+        color: '#00B2DB',
+        display: 'flex',
+        fontSize: 10,
+        fontWeight: 'bold',
+        flexDirection: 'column',
+        position: "relative",
+        bottom: "12vh",
+      }
+
+
     },
     titleClassName: {
       margin: 0,
@@ -279,5 +313,12 @@ export default makeStyles((theme: Theme) =>
       fontSize: 18,
       lineHeight: '26px',
     },
+
+    text: {
+
+      '@media not all and (min-resolution:.001dpcm)': {
+
+      }
+    }
   }),
 );
