@@ -5,6 +5,12 @@ export default makeStyles<Theme, { left?: number; top?: number; width?: number |
     root: {
       position: 'relative',
       marginRight: 20,
+      [theme.breakpoints.down(470)]: {
+        marginRight: 10,
+      },
+      [theme.breakpoints.down(370)]: {
+        marginRight: 5,
+      },
     },
     selectContainer: {
       position: 'relative',

@@ -20,11 +20,14 @@ const CheckBox = forwardRef(
     return (
       <label className={classNames(classes.container, className)}>
         <input type="checkbox" checked={checked} onChange={onChange} name={name} ref={ref} />
-        {checked ? (
+        <div className={classes.checkmark} />
+        {checked && <img src={img || Icon} alt="checked" className={classNameLogo || classes.icon} />}
+
+        {/* {checked ? (
           <img src={img || Icon} alt="checked" className={classNameLogo || classes.icon} />
         ) : (
-          <div className={classes.checkmark} />
-        )}
+          <div className={classes.checkmark}  />
+        )} */}
       </label>
     );
   },

@@ -22,7 +22,7 @@ export default makeStyles<Theme, { size: number; avatarCircleBackground?: string
   },
 
   title: {
-    textAlign: 'center',
+    textAlign: 'left',
     overflow: 'hidden',
     whiteSpace: 'pre-wrap',
   },

@@ -24,7 +24,8 @@ export default makeStyles(() => ({
   },
   closeModelContainer: {
     minHeight: 26,
-    display: 'flex',
+    display: 'inline',
+    whiteSpace:'normal',
     alignItems: 'center',
   },
   arrowClose: {
