@@ -202,6 +202,7 @@ export default makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     marginBottom: 15,
+
   },
 
   formContainer: {
@@ -301,6 +302,14 @@ export default makeStyles((theme) => ({
     color: '#6B6B6A',
     lineHeight: '21px',
     height: 265,
+
+    '@media not all and (min-resolution:.001dpcm)': {
+      fontSize: 14,
+      color: '#6B6B6A',
+      lineHeight: '21px',
+      height: 300,
+    }
+    
   },
 
   multiline: { padding: '35px 40px 30px 30px' },
