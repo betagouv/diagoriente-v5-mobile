@@ -327,7 +327,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
     <AccordionDetails >
     <div className={classes.cardGridContainer}>
    { persoSkills.length ? (
-     <Grid container className={classes.gridPro} spacing={1}>
+     <Grid container  spacing={1}>
       {persoSkills.map((theme) => (
         <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
           <div className={classes.themeSelection}>
@@ -382,7 +382,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
     <div className={classes.cardGridContainer}>
           
    { proSkills.length ? (
-   <Grid container className={classes.gridPro} spacing={1}>
+   <Grid container  spacing={1}>
     {proSkills.map((theme) => {
         const icon = secteurs?.themes.data.find((secteur) => theme.theme.parentId === secteur.id)?.resources?.icon;
         return (
@@ -431,10 +431,10 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
       >
       <Typography className={classes.persoText} > MES EXPÉRIENCES D’ENGAGEMENT </Typography>
     </AccordionSummary>
-    <AccordionDetails className={classes.expEng}>
+    <AccordionDetails >
       <div className={classes.cardGridContainer}> 
       {engagementSkills.length ? (
-   <Grid container spacing={1} className={classes.gridPro} >
+   <Grid container spacing={1}  >
       {engagementSkills.map((theme) => (
         <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
           <div className={classes.themeSelection}>
