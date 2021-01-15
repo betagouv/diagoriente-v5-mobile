@@ -12,7 +12,8 @@ interface Props {
   ArrowColor?: string;
   fetching?: boolean;
   children?: React.ReactChild;
-  arrowClassName?: string;
+  arrowWidth?: string;
+  arrowHeight?: string;
   disabled?: boolean;
 }
 
@@ -22,7 +23,8 @@ const NextButton = ({
   ArrowColor,
   fetching,
   children,
-  arrowClassName,
+  arrowWidth,
+  arrowHeight,
   disabled,
   ...props
 }: IProps & Props) => {
@@ -40,9 +42,9 @@ const NextButton = ({
         </div>
         <Arrow
           color={ArrowColor || disabled ? '#4D6EC5' : '#223A7A'}
-          width="12"
-          height="19"
-          className={classNames(arrowClassName, classes.arrow)}
+          width={arrowWidth ? arrowWidth : '12'}
+          height={arrowHeight ? arrowHeight : '19'}
+          className={classes.arrow}
         />
         {fetching && (
           <div className={classes.loaderContainer}>
