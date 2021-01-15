@@ -104,20 +104,25 @@ export default makeStyles((theme) => ({
   },
   textIdea: {
     paddingLeft: 10,
-    maxWidth: 'fit-content',
+    maxWidth: '90%',
   },
   ideaText: {
     fontSize: 12,
   },
   checkboxContainer: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     width: '100%',
     paddingTop: 25,
     paddingBottom: 20,
   },
   checkboxText: {
     paddingLeft: 10,
+    maxWidth: '90%',
+  },
+
+  checkbox: {
+    marginTop: 3,
   },
 
   btn: {
