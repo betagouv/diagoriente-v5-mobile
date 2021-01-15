@@ -33,7 +33,7 @@ export default makeStyles<
     flexDirection: 'column',
     cursor: 'pointer',
     transition,
-    flex: (props) => (props.state === 'open' ? '3 3 0%' : '1 1 0%'),
+    height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '120px'),
   },
   wrapperTitleImage: {
     display: 'flex',
@@ -44,10 +44,7 @@ export default makeStyles<
     padding: '25px 0px 25px 5%',
     [theme.breakpoints.down(330)]: {
       padding: '25px 0px 25px 0px',
-
-          },
-
-    // height: '100%',
+    },
   },
   title: {
     color: '#FFFFFF',
@@ -58,8 +55,7 @@ export default makeStyles<
     zIndex: 2,
     [theme.breakpoints.down(330)]: {
       fontSize: 36,
-
-          },
+    },
   },
   avatarContainer: {
     width: (props) => getAvatarSize({ state: props.state }),
@@ -93,9 +89,10 @@ export default makeStyles<
     transition: 'all 0.2ms linear',
     transitionDelay: (props) => (props.state !== 'open' ? '0ms' : '225ms'),
     transform: (props) => `scale(${props.state === 'open' ? 1 : 0})`,
-    height: (props) => (props.state === 'open' ? '400px' : 0),
+    height: (props) => (props.state === 'open' ? 'auto' : 0),
     cursor: 'default',
     justifyContent: 'center',
+    padding: '20px 0px',
   },
   image: {
     width: '100%',
@@ -111,12 +108,9 @@ export default makeStyles<
     transition,
     [theme.breakpoints.down(370)]: {
       width: '53vw',
-
-          },
+    },
     [theme.breakpoints.down(330)]: {
       width: '52vw',
-
-          },
-    
+    },
   },
 }));
