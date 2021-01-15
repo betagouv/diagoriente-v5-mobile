@@ -10,7 +10,6 @@ export default makeStyles((theme) => ({
     fontFamily: 'Andika New Basic',
     display: 'flex',
     alignItems: 'center',
-    width: '100%',
     justifyContent: 'flex-start',
     [theme.breakpoints.down(330)]: {
       margin:'0px 0px'
