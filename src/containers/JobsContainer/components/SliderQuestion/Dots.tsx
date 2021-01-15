@@ -24,6 +24,7 @@ const PagingDots = ({ slideCount, slidesToScroll, goToSlide, currentSlide }: any
       width: 15,
       height: 15,
       margin: '0px 5px',
+      marginBottom: 10,
       borderRadius: '50%',
       outline: 0,
     };
