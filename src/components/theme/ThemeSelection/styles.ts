@@ -17,7 +17,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
 
     container: {
       display: 'flex',
-      height: '58px',
+      height: '66px',
       alignItems: 'center',
       width: '100%',
       justifyContent: 'space-between',
