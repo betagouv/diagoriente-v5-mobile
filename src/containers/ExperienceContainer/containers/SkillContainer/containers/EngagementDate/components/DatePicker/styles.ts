@@ -11,6 +11,10 @@ export default makeStyles((theme: Theme) =>
       borderRadius: '5px',
       fontWeight: 'normal',
       color: '#5A6170',
+      ' & .MuiPaper-root-278 MuiMenu-paper-206 makeStyles-menu-173 makeStyles-menu-219 MuiPopover-paper-209 MuiPaper-elevation8-289 MuiPaper-rounded-279': {
+        minWidth:'87px !important'
+      },
+   
       '& fieldset': {
         borderColor: '#D1D5DE',
         background: 'transparent',
@@ -33,11 +37,15 @@ export default makeStyles((theme: Theme) =>
       [theme.breakpoints.down(340)]: {
         width: '105px !important',
       },
+    
     },
     year: {
       width: '93px !important',
       [theme.breakpoints.down(340)]: {
         width: '80px !important',
+      },
+      '& .MuiPaper-rounded-279': {
+        minWidth:'60px !important'
       },
     },
 
@@ -50,5 +58,9 @@ export default makeStyles((theme: Theme) =>
       paddingTop: '5px !important',
       paddingLeft: '0px !important',
       paddingBottom: '10px !important',
+      '& .MuiPaper-rounded-279': {
+        minWidth:'60px !important'
+      },
+      
     },
   }));

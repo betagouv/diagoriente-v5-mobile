@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useCompetences } from 'requests/competences';
@@ -15,6 +15,7 @@ import Spinner from 'components/SpinnerXp/Spinner';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
 import Popup from 'components/common/Popup/Popup';
 import blueline from 'assets/svg/blueline.svg';
+import useOnclickOutside from 'hooks/useOnclickOutside';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
 import useStyles from './styles';
@@ -28,6 +29,8 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
 
 const ExperienceCompetence = ({ match, competences, setCompetences, theme, history, isCreate, location }: Props) => {
   const classes = useStyles();
+  const refSlide = useRef(null);
+
   const { data, loading } = useCompetences({ variables: theme?.type === 'engagement' ? { type: 'engagement' } : {} });
   const [open, setOpen] = React.useState(false);
   const [text, setText] = React.useState('');
@@ -67,7 +70,9 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
       setOpen(true);
     }
   };
-
+/* useOnclickOutside(refSlide, () => {
+    if (showInfo) setShowInfo(false);
+  }); */
   const isBrowser = typeof window !== 'undefined';
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
 

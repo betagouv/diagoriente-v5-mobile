@@ -31,15 +31,9 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       width: '100%',
       flexWrap: 'wrap',
-      /*  padding: SKILL_CONTAINER_PADDING, */
-      padding: '30px 30px 280px 30px',
+      padding: '10px 10px 90px 10px',
       justifyContent: 'center',
-      /*  [theme.breakpoints.down('xs')]: {
-        justifyContent: 'center',
-      },
-      [theme.breakpoints.down('md')]: {
-        padding: 50,
-      }, */
+ 
     },
 
     circle: {

@@ -56,9 +56,7 @@ wordBreak:'break-all'
           borderRadius: '0px',
         boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
         backgroundColor: '#FFD382',
-        // [theme.breakpoints.down(350)]: {
-        //   padding:'inherit !important'
-        // },
+    
   
   
       },
@@ -666,8 +664,12 @@ marginRight:0
     fontWeight:700,
     size:14,
     display:'flex',
+    paddingTop:150,
     justifyContent:'flex-end',
-    flex:'auto'
+    flex:'auto',
+    alignItems:'flex-end',
+    flexDirection:'column'
+    
 
     },
     detailPro:{
@@ -675,8 +677,11 @@ marginRight:0
     fontWeight:700,
     size:14,
     display:'flex',
+    paddingTop:35,
     justifyContent:'flex-end',
-    flex:'auto'
+    flex:'auto',
+    alignItems:'flex-end',
+    flexDirection:'column'
  
 
     },
@@ -685,8 +690,11 @@ marginRight:0
       fontWeight:700,
       size:14,
       display:'flex',
+      paddingTop:50,
       justifyContent:'flex-end',
-      flex:'auto'
+      flex:'auto',
+      alignItems:'flex-end',
+      flexDirection:'column'
   
   
       },
