@@ -24,6 +24,7 @@ export default makeStyles<Theme, { color?: string; checked?: boolean; border?: s
         width: '5px',
         height: '10px',
         transform: 'rotate(45deg)',
+
       },
     },
   },
@@ -48,6 +49,8 @@ export default makeStyles<Theme, { color?: string; checked?: boolean; border?: s
     top: 6,
     left: 2,
     width: 15,
+    color:"#00B2DB",
     height: 10,
+    
   },
 }));

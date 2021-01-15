@@ -18,12 +18,12 @@ import classNames from 'utils/classNames';
 import useStyles from './styles';
 
 const HomeCompleted = () => {
-  const classes = useStyles();
   const history = useHistory();
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState(-1);
   const [openModal, setOpenModal] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const classes = useStyles({ isOpen });
 
   const getState = (index: number) => {
     switch (open) {

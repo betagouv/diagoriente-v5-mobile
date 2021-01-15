@@ -1,12 +1,12 @@
-import React, { useMemo } from 'react';
+import React, { useMemo , useEffect,useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import Input from 'components/inputs/Input/Input';
 import TitleImage from 'components/common/TitleImage/TitleImage';
-import Title from 'components/common/Title/Title';
+import Title from 'components/common/TitleImage/TitleImage';
 import NextButton from 'components/nextButton/nextButton';
-import CancelButton from 'components/cancelButton/CancelButton';
-import RestLogo from 'components/common/Rest/Rest';
+
 import moment from 'moment';
+import PreviousButton from 'components/previousButton/previousButton';
 
 import blueline from 'assets/svg/blueline.svg';
 import DatePicker from './components/DatePicker/DatePicker';
@@ -53,23 +53,25 @@ const EngagementDate = ({
   const isBeginDateValid = startDateEngagement.month() === Number(moment(startDate).format('MM')) - 1;
   const isEndDateValid = endDateEngagement.month() === Number(moment(endDate).format('MM')) - 1;
   const errorText = 'La date est invalide';
+  const isBrowser = typeof window !== 'undefined';
+  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
 
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
+  });
   return (
     <div className={classes.root}>
       <div className={classes.container}>
         <div className={classes.header}>
-          <Title title="MES EXPÉRIENCES D’ENGAGEMENT" color="#223A7A" size={26} />
-          <RestLogo
-            onClick={() => {
-              const path = '/experience';
-              history.replace(path);
-            }}
-            color="#4D6EC5"
-            label="Annuler"
-          />
+        <Title
+          title= "MES EXPÉRIENCES D’ENGAGEMENT"
+          color="#223A7A"
+          size={width > 380 ? 32 : 25}
+          image={blueline}
+          number={6}
+        />
         </div>
         <div className={classes.themeContainer}>
-          <TitleImage title="6." image={blueline} color="#223A7A" width={180} />
           <p className={classes.title}>
             Pour finir, à quelles dates s’est déroulée cette
             <br />
@@ -77,7 +79,7 @@ const EngagementDate = ({
             <br />
           </p>
           <div className={classes.dateContainer}>
-            <div className={classes.date}>
+            <div className={classes.inputContainer}>
               <span className={classes.text}>Nom de l’organisation</span>
               <Input
                 name="organization"
@@ -97,7 +99,7 @@ const EngagementDate = ({
                 year={startDate.slice(0, 4)}
               />
             </div>
-            <div className={classes.errorText}>{!isBeginDateValid ? errorText : ''}</div>
+            {/* <div className={classes.errorText}>{!isBeginDateValid ? errorText : ''}</div> */}
             <div className={classes.date}>
               <span className={classes.text}>Au</span>
               <DatePicker
@@ -109,13 +111,24 @@ const EngagementDate = ({
             </div>
             <div className={classes.errorText}>{!isEndDateValid ? errorText : ''}</div>
           </div>
-          <NextButton fetching={addSkillState} onClick={addSkill} disabled={!isBeginDateValid || !isEndDateValid} />
+         
         </div>
+  
+          <div className={classes.previousNext}>
+            <Link
+              to={`/experience/skill/${match.params.themeId}/context${location.search}`} 
+              className={classes.hideLine}
+            >
+              <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
+            </Link>
 
-        <Link to={`/experience/skill/${match.params.themeId}/context${location.search}`} className={classes.btnpreced}>
-          <CancelButton />
-          Précedent
-        </Link>
+            <div  className={classes.hideLine}>
+              <NextButton fetching={addSkillState} onClick={addSkill} disabled={!isBeginDateValid || !isEndDateValid}  />
+            </div>
+          </div>
+
+
+   
       </div>
     </div>
   );

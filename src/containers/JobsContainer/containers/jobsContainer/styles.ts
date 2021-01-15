@@ -88,16 +88,18 @@ export default makeStyles((theme) => ({
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    padding: 10,
+    padding: 16,
   },
   clearMessage: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
+    marginTop: 15,
   },
   text: {
-    fontSize: 18,
+    fontSize: 14,
     width: '100%',
+    textAlign: 'justify',
   },
   clearText: {
     fontWeight: 'bold',
@@ -109,7 +111,7 @@ export default makeStyles((theme) => ({
   },
   clearTextBold: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 14,
     color: '#D60051',
     textDecorationLine: 'underline',
   },
