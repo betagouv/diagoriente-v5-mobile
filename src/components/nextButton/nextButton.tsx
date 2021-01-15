@@ -22,6 +22,7 @@ const NextButton = ({
   ArrowColor,
   fetching,
   children,
+  arrowClassName,
   disabled,
   ...props
 }: IProps & Props) => {
@@ -41,7 +42,7 @@ const NextButton = ({
           color={ArrowColor || disabled ? '#4D6EC5' : '#223A7A'}
           width="12"
           height="19"
-          className={classes.arrow}
+          className={classNames(arrowClassName, classes.arrow)}
         />
         {fetching && (
           <div className={classes.loaderContainer}>

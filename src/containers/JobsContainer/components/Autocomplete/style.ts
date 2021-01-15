@@ -18,6 +18,7 @@ export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme: T
     fontWeight: 'bold',
     fontSize: 14,
     color: '#424242',
+    textOverflow: 'ellipsis',
   },
   containerAutoComp: {
     '& .MuiOutlinedInput-adornedStart': {
