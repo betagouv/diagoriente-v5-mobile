@@ -34,7 +34,6 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const [openedTheme, setOpenedTheme] = useState<Theme | null>(null);
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
   const [valueSearch, setValueSearch] = useState('');
-console.log('openedTheme',openedTheme)
   const { redirect } = decodeUri(location.search);
   const { data } = useThemes({
     variables: { type: 'professional', search: valueSearch },
@@ -54,7 +53,7 @@ console.log('openedTheme',openedTheme)
   }, [data]);
   const { open, setOpen } = useContext(SelectionContext);
 
-  const showAvatar = (theme: Theme) => {
+  const showAvatar = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, theme: Theme) => {
     if (openedTheme?.id === theme.id) {
       setSelectedTheme(theme);
       setOpenedTheme(null);
@@ -86,9 +85,6 @@ console.log('openedTheme',openedTheme)
   const onNavigate = () => {
     if (selectedTheme) history.push(`/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}`);
   };
-  useOnclickOutside(refSlide, () => {
-    if (openedTheme) setOpenedTheme(null);
-  });
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -142,8 +138,8 @@ console.log('openedTheme',openedTheme)
                                 classes.itemData,
                                 selectedTheme?.id === theme.id && classes.selected,
                               )}
-                              onClick={() => {
-                                showAvatar(theme);
+                              onClick={(e) => {
+                                showAvatar(e, theme);
                               }}
                             >
                               {title}
@@ -152,7 +148,13 @@ console.log('openedTheme',openedTheme)
 
                           <div>
                             {openedTheme?.id === theme.id ? (
-                              <Slide direction="up" in={!(selectedTheme?.id === theme.id)} mountOnEnter unmountOnExit ref={refSlide}>
+                              <Slide
+                                direction="up"
+                                in={!(selectedTheme?.id === theme.id)}
+                                mountOnEnter
+                                unmountOnExit
+                                
+                              >
                                 <Child key={index} className={classes.child}>
                                   {tooltip.map((el) => (
                                     <div key={el.id} className={classes.titleDiv}>{`-${el.title}`}</div>
