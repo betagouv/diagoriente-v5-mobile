@@ -365,6 +365,7 @@ wordBreak:'break-all'
       overflow: 'hidden',
       [theme.breakpoints.down(400)]: {
         whiteSpace: 'normal',
+        wordBreak:'break-word',
 
       },
     },
