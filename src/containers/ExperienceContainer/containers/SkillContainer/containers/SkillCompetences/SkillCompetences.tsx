@@ -70,9 +70,9 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
       setOpen(true);
     }
   };
-useOnclickOutside(refSlide, () => {
+/* useOnclickOutside(refSlide, () => {
     if (showInfo) setShowInfo(false);
-  });
+  }); */
   const isBrowser = typeof window !== 'undefined';
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
 
@@ -141,7 +141,7 @@ useOnclickOutside(refSlide, () => {
                   >
                     {comp.title}
                   </Button>
-                  <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit ref={refSlide}>
+                  <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
                     <Child key={index}>{currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}</Child>
                   </Slide>
                 </Grid>
