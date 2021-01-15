@@ -6,6 +6,7 @@ import { useDidMount } from 'hooks/useLifeCycle';
 import Button from 'components/button/Button';
 import classNames from 'utils/classNames';
 import Slider from '../../../components/SliderQuestion/Slider';
+import arrowClose from 'assets/svg/orangeArrow.svg';
 import useStyles from './styles';
 
 interface IProps {
@@ -58,50 +59,56 @@ const ModalQuestion = ({ job, onClose }: IProps) => {
   }, [responseState.data, updateResponseState.data, getListResponses, param, refetch, job, onClose]);
   return (
     <div className={classes.root}>
-      <div className={classes.titleContainer}>
-        <div className={classes.title}>{job?.title}</div>
+      <div className={classes.closeFullModelContainer} onClick={onClose}>
+        <img src={arrowClose} alt="arrowClose" />
+        <span className={classes.closeModelLabel}> Retour </span>
       </div>
-      <div className={classes.description}>CE METIER EST-IL FAIT POUR TOI ?</div>
-      {last ? (
-        <div className={classes.lastContainer}>
-          <div className={classNames(classes.questionContainer, last && classes.titleQuestion)}>TERMINé !</div>
-          <div className={classes.descriptionContainer}>
-            <div className={classes.textDescription}>Ces questions t'ont donné un aperçu de la réalité</div>
-            <div className={classes.textDescription}>du métier. Néanmoins Il n'y a rien de tel qu'une</div>
-            <div className={classes.textDescription}>immersion sur le terrain !</div>
-          </div>
-          <div className={classes.btnContainer}>
-            <Button className={classes.btn} onClick={onClose}>
-              <div className={classes.btnLabel}>Je recherche mon immersion</div>
-            </Button>
-          </div>
+      <div className={classes.questionWrapper}>
+        <div className={classes.titleContainer}>
+          <div className={classes.title}>{job?.title}</div>
         </div>
-      ) : (
-        <>
-          {job && job?.questionJobs.length > 0 ? (
-            <div className={classes.questionContainer}>
-              {`QUESTION ${currentIndex + 1}/${job?.questionJobs.length}`}
+        <div className={classes.description}>CE METIER EST-IL FAIT POUR TOI ?</div>
+        {last ? (
+          <div className={classes.lastContainer}>
+            <div className={classNames(classes.questionContainer, last && classes.titleQuestion)}>TERMINé !</div>
+            <div className={classes.descriptionContainer}>
+              <div className={classes.textDescription}>Ces questions t'ont donné un aperçu de la réalité</div>
+              <div className={classes.textDescription}>du métier. Néanmoins Il n'y a rien de tel qu'une</div>
+              <div className={classes.textDescription}>immersion sur le terrain !</div>
             </div>
-          ) : (
-            <div className={classes.containerBtn}>
-              <div className={classes.errorQuestion}>Aucune question </div>
-              <Button className={classes.btnCLose} onClick={onClose}>
-                Fermer
+            <div className={classes.btnContainer}>
+              <Button className={classes.btn} onClick={onClose}>
+                <div className={classes.btnLabel}>Je recherche mon immersion</div>
               </Button>
             </div>
-          )}
-
-          <div className={classes.sliderContainer}>
-            <Slider
-              questions={job?.questionJobs}
-              setCurrentIndex={setCurrentIndex}
-              onClick={onUpdate}
-              ref={slideRef}
-              list={data?.responseJobs.data}
-            />
           </div>
-        </>
-      )}
+        ) : (
+          <>
+            {job && job?.questionJobs.length > 0 ? (
+              <div className={classes.questionContainer}>
+                {`QUESTION ${currentIndex + 1}/${job?.questionJobs.length}`}
+              </div>
+            ) : (
+              <div className={classes.containerBtn}>
+                <div className={classes.errorQuestion}>Aucune question </div>
+                <Button className={classes.btnCLose} onClick={onClose}>
+                  Fermer
+                </Button>
+              </div>
+            )}
+
+            <div className={classes.sliderContainer}>
+              <Slider
+                questions={job?.questionJobs}
+                setCurrentIndex={setCurrentIndex}
+                onClick={onUpdate}
+                ref={slideRef}
+                list={data?.responseJobs.data}
+              />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
