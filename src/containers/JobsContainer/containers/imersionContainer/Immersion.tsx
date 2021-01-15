@@ -395,7 +395,7 @@ const ImmersionContainer = ({
               <>
                 <div className={immersionState.data?.immersions.companies.length === 0 ? classes.noResults : ''}>
                   {immersionState.data?.immersions.companies.length === 0 &&
-                    'Augmente ta zone de recherche pour plus de résultats'}
+                    'Augmente ta zone de recherche pour plus de résultats!'}
                 </div>
                 {immersionState.data?.immersions.companies?.map((e: Company) => (
                   <CardImmersion
