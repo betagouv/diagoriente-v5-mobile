@@ -56,6 +56,10 @@ wordBreak:'break-all'
           borderRadius: '0px',
         boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
         backgroundColor: '#FFD382',
+        // [theme.breakpoints.down(350)]: {
+        //   padding:'inherit !important'
+        // },
+  
   
       },
     iconTop:{
@@ -500,6 +504,7 @@ marginRight:0
       boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
       height: '80px',
       borderRadius: '0px',
+      
 
     },
     TextCompetence:{
@@ -638,6 +643,10 @@ marginRight:0
         boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
           borderRadius: '0px',
         backgroundColor: '#E1E7F7',
+          [theme.breakpoints.down(330)]: {
+            padding:'0 !important'
+          },
+        
   
       },
       persoText : {
@@ -651,69 +660,34 @@ marginRight:0
           marginLeft:10
         },
       },
-      gridPro:{
-     
-        // [theme.breakpoints.down(380)]: {
-        //   padding:5,
-        //   paddingBottom:75,
-        // },
-    },
+ 
     detailEng:{ 
       color:'#4D6EC5',
     fontWeight:700,
     size:14,
-    marginTop:191,
-    marginLeft:220,
-    [theme.breakpoints.down(420)]: {
-      marginTop:11,
-      marginLeft:295,
-    },
-    [theme.breakpoints.down(380)]: {
-      marginTop:11,
-      marginLeft:260,
-    },
-    [theme.breakpoints.down(330)]: {
-      marginTop:11,
-      marginLeft:210,
-    },
+    display:'flex',
+    justifyContent:'flex-end',
+    flex:'auto'
+
     },
     detailPro:{
     color:'#4D6EC5',
     fontWeight:700,
     size:14,
-    marginLeft:413,
-    [theme.breakpoints.down(420)]: {
-      marginTop:11,
-      marginLeft:295,
-    },
-    [theme.breakpoints.down(380)]: {
-      marginTop:11,
-      marginLeft:260,
-    },
-    [theme.breakpoints.down(330)]: {
-      marginTop:11,
-      marginLeft:210,
-    },
+    display:'flex',
+    justifyContent:'flex-end',
+    flex:'auto'
+ 
 
     },
     detail:{
       color:'#4D6EC5',
       fontWeight:700,
       size:14,
-      marginTop:128,
-      marginLeft:250,
-      [theme.breakpoints.down(420)]: {
-        marginTop:11,
-        marginLeft:295,
-      },
-      [theme.breakpoints.down(380)]: {
-        marginTop:11,
-        marginLeft:260,
-      },
-      [theme.breakpoints.down(330)]: {
-        marginTop:11,
-        marginLeft:210,
-      },
+      display:'flex',
+      justifyContent:'flex-end',
+      flex:'auto'
+  
   
       },
       linkEng:{
@@ -734,12 +708,7 @@ marginRight:0
     detailColor:{
       color:'#4D6EC5'
     },
-    expEng:{
-      '& .MuiAccordionDetails-root-268': {
-        display:'flex',
-        flexDirection:'column'
-      }
-  },
+  
     proDetails:{
       display:'block',
     },
@@ -755,8 +724,14 @@ marginRight:0
         paddingLeft:70
       },
 
+AccordionSummary:{
+  '& .MuiAccordionSummary-root-676':{
+    [theme.breakpoints.down(330)]: {
+      padding:'0 important'
+    },
+  },
+}
+    },
 
-    }
-    
   }),
 );
