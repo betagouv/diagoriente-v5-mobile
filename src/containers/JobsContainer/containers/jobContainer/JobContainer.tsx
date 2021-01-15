@@ -135,13 +135,13 @@ const JobContainer = ({
   const { user } = useContext(userContext);
   const { parcours } = useContext(parcoursContext);
   const competences = parcours?.globalCompetences;
-  const d: any = [];
+  const matchedInterest: any = [];
   useOnclickOutside(divRef, () => {});
 
   parcours?.families.forEach((item) => {
     data?.job.interests.forEach((el) => {
       if (el._id.nom === item.nom) {
-        d.push(item);
+        matchedInterest.push(item);
       }
     });
   });
@@ -276,11 +276,13 @@ const JobContainer = ({
               <div className={classes.infoTextContainer}>
                 <div className={classes.communInfoText}>
                   <span className={classes.infoInterestPurpleText}>
-                    {`${d.length} intérêts sur ${data?.job.interests.length}`}
+                    {`${matchedInterest.length} intérêts sur ${data?.job.interests.length}`}
                   </span>{' '}
                   en commun avec les tiens.
                 </div>
-                <div> Ce métier semble plutôt bien te correspondre ! </div>
+                <div> {matchedInterest.length <= 2
+                  ? 'Ce métier ne semble pas correspondre à tes interêts'
+                  : 'Ce métier semble plutôt bien te correspondre !'} </div>
               </div>
             </div>
           </div>
