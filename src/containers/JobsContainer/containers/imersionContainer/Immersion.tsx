@@ -445,11 +445,12 @@ const ImmersionContainer = ({
         handleClose={handleClose}
         backdropColor="#011A5E"
         colorIcon="#DB8F00"
+        ZIndex={99999}
       >
         {!openContact ? (
           <ModalConseil handleClose={handleClose} />
         ) : (
-          <ModalContact setOpen={setOpen} openContact={openContact} />
+          <ModalContact setOpen={setOpen} openContact={openContact} handleClose={handleClose} />
         )}
       </ModalContainer>
       <ModalContainer open={open} handleClose={handleCloseContact} backdropColor="#011A5E" colorIcon="#DB8F00">

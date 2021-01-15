@@ -307,9 +307,9 @@ const JobContainer = ({
           <ModalContainerInfo job={data?.job} handleClose={handleClose} />
         </div>
       </Dialog>
-      <Dialog open={openTest} onClose={handleClose} fullScreen>
-        <ModalQuestion job={data?.job} onClose={handleClose} />
-      </Dialog>
+      {/* <Dialog open={openTest} onClose={handleClose} fullScreen> */}
+      {openTest && <ModalQuestion job={data?.job} onClose={handleClose} />}
+      {/* </Dialog> */}
     </div>
   );
 };
