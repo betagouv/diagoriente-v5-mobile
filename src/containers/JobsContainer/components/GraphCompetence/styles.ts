@@ -107,6 +107,7 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     display: 'flex',
     width: '100%',
     paddingBottom: 10,
+    paddingTop: 10,
     paddingLeft: 30,
     borderBottom: '0.5px solid #C9C9C7',
     '&:last-child': {
