@@ -30,7 +30,7 @@ const DashboardStep = ({
 
   return (
     <div {...other} className={classes.container}>
-      <div style={{ height: '100%' }}>
+      <div style={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}>
         <div className={classes.wrapperTitleImage}>
           <div className={classes.avatarContainer}>
             <div className={classes.avatar}>{image && <img className={classes.image} alt="" src={image} />}</div>
