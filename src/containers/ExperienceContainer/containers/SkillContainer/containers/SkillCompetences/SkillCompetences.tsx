@@ -140,7 +140,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
                     {comp.title}
                   </Button>
                   <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
-                    <Child key={index}> { currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip  }  </Child>
+                    <Child key={index}> {  currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip =='' ? 'Clique deux fois sur la compétence pour la sélectionner' : currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip }  </Child>
                   </Slide>
                 </Grid>
               );
