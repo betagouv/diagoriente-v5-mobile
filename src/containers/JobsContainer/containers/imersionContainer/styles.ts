@@ -120,10 +120,14 @@ export default makeStyles<Theme>((theme) => ({
   },
   results: {
     flex: 1,
-    padding: '0px 20px',
+    padding: '10px 20px',
   },
   loadingContainer: {
     paddingBottom: 300,
+  },
+  noResults: {
+    fontSize: 14,
+    padding: '20px 0px',
   },
   resultTitle: {
     color: theme.palette.success.main,
@@ -230,7 +234,6 @@ export default makeStyles<Theme>((theme) => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    flexWrap: 'wrap',
     overflow: 'auto',
     zIndex: 99999,
   },
@@ -277,5 +280,18 @@ export default makeStyles<Theme>((theme) => ({
       color: theme.palette.primary.main,
     },
     padding: '3px 0px',
+  },
+  conseilContainer: {
+    background: '#FFFFFF',
+    boxSizing: 'border-box',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    overflow: 'auto',
+    zIndex: 99999,
   },
 }));

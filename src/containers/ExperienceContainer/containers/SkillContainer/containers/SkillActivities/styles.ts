@@ -89,9 +89,6 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
       maxWidth: '100%',
       width: 'fit-content',
-      '&:hover': {
-        backgroundColor: 'rgba(122, 230, 255, 0.2)',
-      },
     },
 
     selected: {

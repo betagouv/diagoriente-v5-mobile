@@ -23,10 +23,10 @@ wordBreak:'break-all'
       },
     },
     topJobs:{
-      padding:20,
+      padding:'20px 0px',
       paddingLeft:60,
-      [theme.breakpoints.down(380)]: {
-        paddingLeft:30,
+      [theme.breakpoints.down(420)]: {
+        paddingLeft:10,
 
       },
 
@@ -56,6 +56,8 @@ wordBreak:'break-all'
           borderRadius: '0px',
         boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
         backgroundColor: '#FFD382',
+    
+  
   
       },
     iconTop:{
@@ -100,7 +102,7 @@ wordBreak:'break-all'
       
     },
     profilDetail:{
-      padding:'8px 16px 50px '
+      padding:'5px 30px 5px '
     },
 
     cardClassName: {
@@ -175,7 +177,7 @@ wordBreak:'break-all'
       width: '100%',
       overflow: 'hidden',
       textAlign: 'center',
-      whiteSpace: 'pre-wrap',
+      whiteSpace: 'normal',
     },
 
     alignThemeTitle: {
@@ -184,7 +186,7 @@ wordBreak:'break-all'
     },
 
     emptyDiv: {
-      height: 45,
+      // height: 100,
     },
 
     root: {
@@ -500,6 +502,7 @@ marginRight:0
       boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
       height: '80px',
       borderRadius: '0px',
+      
 
     },
     TextCompetence:{
@@ -520,15 +523,23 @@ marginRight:0
     },
 
     modifierProfile:{
-      right: '50px',
-    position: 'absolute',
-    bottom: '20px',
+
     fontWeight:'bold',
     fontSize:14,
     color:'#6B6B6A',
-    [theme.breakpoints.down(400)]: {
-      right: '20px',
-      bottom: '10px',
+    paddingLeft:' 314px',
+
+    [theme.breakpoints.down(420)]: {
+      paddingLeft:' 225px',
+
+    },
+    [theme.breakpoints.down(380)]: {
+      paddingLeft:' 180px',
+
+    },
+    [theme.breakpoints.down(330)]: {
+      paddingLeft:' 135px',
+
     },
     },
     competenceContainer:{
@@ -630,6 +641,10 @@ marginRight:0
         boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
           borderRadius: '0px',
         backgroundColor: '#E1E7F7',
+          [theme.breakpoints.down(330)]: {
+            padding:'0 !important'
+          },
+        
   
       },
       persoText : {
@@ -643,37 +658,88 @@ marginRight:0
           marginLeft:10
         },
       },
-      gridPro:{
-        padding:30,
-        paddingBottom:75,
-        [theme.breakpoints.down(380)]: {
-          padding:5,
-          paddingBottom:75,
-        },
+ 
+    detailEng:{ 
+      color:'#4D6EC5',
+    fontWeight:700,
+    size:14,
+    display:'flex',
+    paddingTop:150,
+    justifyContent:'flex-end',
+    flex:'auto',
+    alignItems:'flex-end',
+    flexDirection:'column'
+    
+
     },
-    detail:{
-      right: '65px',
-    position: 'absolute',
-    bottom: '30px',
+    detailPro:{
     color:'#4D6EC5',
     fontWeight:700,
     size:14,
-    [theme.breakpoints.down(380)]: {
-      right: '35px',
-
-    }
+    display:'flex',
+    paddingTop:35,
+    justifyContent:'flex-end',
+    flex:'auto',
+    alignItems:'flex-end',
+    flexDirection:'column'
  
 
     },
+    detail:{
+      color:'#4D6EC5',
+      fontWeight:700,
+      size:14,
+      display:'flex',
+      paddingTop:50,
+      justifyContent:'flex-end',
+      flex:'auto',
+      alignItems:'flex-end',
+      flexDirection:'column'
+  
+  
+      },
+      linkEng:{
+  marginLeft:90,
+  [theme.breakpoints.down(420)]: {
+    marginLeft:30,
+  },
+  [theme.breakpoints.down(380)]: {
+    marginLeft:12,
+  },
+  [theme.breakpoints.down(370)]: {
+    marginLeft:6,
+  },
+
+
+
+      },
     detailColor:{
       color:'#4D6EC5'
     },
-    expEng:{
-      paddingBottom:70,
-      justifyContent:'center',
-  },
+  
     proDetails:{
       display:'block',
     },
+    metier:{
+      paddingLeft:130,
+      [theme.breakpoints.down(400)]: {
+        paddingLeft:106
+      },
+      [theme.breakpoints.down(380)]: {
+        paddingLeft:90
+      },
+      [theme.breakpoints.down(330)]: {
+        paddingLeft:70
+      },
+
+AccordionSummary:{
+  '& .MuiAccordionSummary-root-676':{
+    [theme.breakpoints.down(330)]: {
+      padding:'0 important'
+    },
+  },
+}
+    },
+
   }),
 );

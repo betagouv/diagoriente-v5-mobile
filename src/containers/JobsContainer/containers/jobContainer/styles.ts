@@ -39,7 +39,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     alignItems: 'center',
     cursor: 'pointer',
-    marginBottom: 40,
+    marginBottom: 25,
   },
   arrow: {
     transform: 'rotate(180deg)',
@@ -195,7 +195,7 @@ export default makeStyles<Theme>((theme) => ({
     left: 0,
   },
   titleInterest: {
-    width: '50%',
+    width: 'min-content',
     overflow: 'hidden',
     whiteSpace: 'pre-wrap',
     paddingLeft: 30,

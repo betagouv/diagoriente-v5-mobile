@@ -73,11 +73,12 @@ export default makeStyles((theme) => ({
   },
   textMsg: {
     fontWeight: 'bold',
-    fontSize: '20px',
+    fontSize: '18px',
     lineHeight: '31px',
     color: '#fff',
     width: '320px',
     padding: 15,
+    textAlign: 'justify',
   },
   btn: {
     backgroundColor: '#FFA600',
