@@ -234,7 +234,6 @@ export default makeStyles<Theme>((theme) => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    flexWrap: 'wrap',
     overflow: 'auto',
     zIndex: 99999,
   },
