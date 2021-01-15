@@ -34,7 +34,7 @@ const JobInfo = ({ job, handleClose }: IProps) => {
     <div className={classes.contentModal}>
       <div className={classes.back} onClick={handleClose}>
         <Arrow color="#DB8F00" height="15" width="9.5" className={classes.arrow} />
-        <div className={classes.textBack}>Retour à Mon Top métiers</div>
+        <div className={classes.textBack}>Retour à la page précédente</div>
       </div>
       <div className={classes.infoContainer}>
         <div className={classes.TextTitle}>Niveau d’accès :</div>
