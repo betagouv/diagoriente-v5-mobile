@@ -39,13 +39,21 @@ export default makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     marginTop: 50,
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: 20,
-      width: '95%',
-    },
+
     '&::-webkit-scrollbar': {
       display: 'none',
     },
+    '@media not all and (min-resolution:.001dpcm)': {
+      margin: 'auto',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      marginTop: 50,
+
+      '&::-webkit-scrollbar': {
+        display: 'none',
+      },
+    }
   },
   btnContainer: {
     width: '100%',

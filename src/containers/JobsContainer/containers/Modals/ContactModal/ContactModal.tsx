@@ -122,6 +122,7 @@ const ContactModal = ({ setOpen, openContact, handleClose }: Props) => {
             name="acceptCondition"
             border="#DB8F00"
             img={check}
+            className={classes.checkbox}
           />
           <span className={classes.checkboxText} onClick={() => checkBoxRef.current?.click()}>
             <b className={classes.textBold}>Joindre ma carte de compétences</b>
