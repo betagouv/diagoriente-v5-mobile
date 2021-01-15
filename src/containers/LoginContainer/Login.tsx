@@ -1,5 +1,7 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, {  useContext, useEffect, useRef, useState  } from 'react';
 import Input from 'components/inputs/Input/Input';
+import { useDidMount } from 'hooks/useLifeCycle';
+
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import Button from 'components/button/Button';
 import Grid from '@material-ui/core/Grid';
@@ -35,7 +37,9 @@ const Login = ({ location }: RouteComponentProps) => {
   const checkBoxRef = useRef(null);
 
   const { user } = useContext(UserContext);
-
+  useDidMount(() => {
+    window.scrollTo({ top: 0, left: 0});
+  });
   useEffect(() => {
     if (loginState.error?.graphQLErrors.length !== 0) {
       if (
