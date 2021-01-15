@@ -15,6 +15,10 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     padding: '30px 30px 80px 30px',
     height: '100vh',
+    [theme.breakpoints.down(330)]: {
+      height: 'auto',
+
+    },
   },
 
   header: {
