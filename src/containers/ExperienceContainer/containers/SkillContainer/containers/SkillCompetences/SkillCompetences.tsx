@@ -65,14 +65,12 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     setOpen(false);
   };
   const onclickBtn = () => {
-    if (competences.length === 0) {
+    if (competences.length ===0)  {
       setText('Tu as déjà choisi 4 compétences');
       setOpen(true);
     }
   };
-/* useOnclickOutside(refSlide, () => {
-    if (showInfo) setShowInfo(false);
-  }); */
+
   const isBrowser = typeof window !== 'undefined';
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
 
@@ -142,7 +140,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
                     {comp.title}
                   </Button>
                   <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
-                    <Child key={index}>{currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}</Child>
+                    <Child key={index}> { currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip  }  </Child>
                   </Slide>
                 </Grid>
               );
