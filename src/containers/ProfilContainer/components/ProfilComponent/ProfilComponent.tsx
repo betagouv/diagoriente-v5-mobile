@@ -146,7 +146,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
       ));
     }
     if (stateJobs.loading) return <Spinner />;
-    return <div>Aucun metier à afficher</div>;
+    return <div className={classes.metier}>Aucun metier à afficher</div>;
     // eslint-disable-next-line
   }, [stateJobs.loading, stateJobs.data]);
 
@@ -348,7 +348,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
     </Grid>
 
   ) : (
-    <Link to="/experience/theme">
+    <Link to="/experience/theme" className={classes.linkEng}>
       <Button className={classes.btn}>
         <span className={classes.textButton}>J’ajoute une expérience personnelle</span>
       </Button>
@@ -402,7 +402,7 @@ const ProfilComponent = ({  history }: RouteComponentProps)  => {
               </Link>
               </div>
     </Grid>)  : (
-    <Link to="/experience/theme-pro">
+    <Link to="/experience/theme-pro" className={classes.linkEng}>
       <Button className={classes.btn}>
         <span className={classes.textButton}>J’ajoute une expérience professionnelle</span>
       </Button>

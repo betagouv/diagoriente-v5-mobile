@@ -743,6 +743,20 @@ marginRight:0
     proDetails:{
       display:'block',
     },
- 
+    metier:{
+      paddingLeft:130,
+      [theme.breakpoints.down(400)]: {
+        paddingLeft:106
+      },
+      [theme.breakpoints.down(380)]: {
+        paddingLeft:90
+      },
+      [theme.breakpoints.down(330)]: {
+        paddingLeft:70
+      },
+
+
+    }
+    
   }),
 );
