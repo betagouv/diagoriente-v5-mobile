@@ -264,91 +264,114 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             </AccordionDetails>
           </Accordion>
         </div>
-      }
-      aria-controls="panel1bh-content"
-      id="panel1bh-header"
-      className={classes.persoAccordion}
-
-      >
-      <Typography className={classes.persoText} >MES EXPÉRIENCES PERSONNELLES</Typography>
-    </AccordionSummary>
-    <AccordionDetails >
-    <div className={classes.cardGridContainer}>
-   { persoSkills.length ? (
-     <Grid container  spacing={1}>
-      {persoSkills.map((theme) => (
-        <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
-          <div className={classes.themeSelection}>
-            <Circle avatarCircleBackground="transparent" size={100}>
-              {theme.theme.resources && theme.theme.resources.icon && (
-                <img className={classes.themeImage} src={theme.theme.resources.icon} alt="theme" />
-              )}
-            </Circle>
-            <div className={classes.themeTile}>{theme.theme.title.replace(new RegExp('[//,]', 'g'), '\n')}</div>
-          </div>
-        </Grid>
-      ))}
-              <div  className={classes.detail}>
-              <Link to="/profile/experience">
-              <span className={classes.detailColor} > Voir le détail </span>
-              </Link>
+      </div>
+      <div className={classes.experienceContainer} ref={(ref) => (rowRef.current[1] = ref)}>
+        <Title title="MES EXPÉRIENCES" color="#ffffff" size={32} className={classes.titleExp} />
+        <div className={classes.accordionContainer}>
+          <Accordion
+            TransitionProps={{ unmountOnExit: true }}
+            expanded={expandedPerso}
+            onChange={handleChangePerso}
+            className={classes.headerAccordion}
+          >
+            <AccordionSummary
+              expandIcon={
+                <div>
+                  <ExpandMoreIcon className={classes.iconPerso} />
+                </div>
+              }
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+              className={classes.persoAccordion}
+            >
+              <Typography className={classes.persoText}>MES EXPÉRIENCES PERSONNELLES</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <div className={classes.cardGridContainer}>
+                {persoSkills.length ? (
+                  <Grid container spacing={1}>
+                    {persoSkills.map((theme) => (
+                      <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
+                        <div className={classes.themeSelection}>
+                          <Circle avatarCircleBackground="transparent" size={100}>
+                            {theme.theme.resources && theme.theme.resources.icon && (
+                              <img className={classes.themeImage} src={theme.theme.resources.icon} alt="theme" />
+                            )}
+                          </Circle>
+                          <div className={classes.themeTile}>
+                            {theme.theme.title.replace(new RegExp('[//,]', 'g'), '\n')}
+                          </div>
+                        </div>
+                      </Grid>
+                    ))}
+                    <div className={classes.detail}>
+                      <Link to="/profile/experience">
+                        <span className={classes.detailColor}> Voir le détail </span>
+                      </Link>
+                    </div>
+                  </Grid>
+                ) : (
+                  <Link to="/experience/theme" className={classes.linkEng}>
+                    <Button className={classes.btn}>
+                      <span className={classes.textButton}>J’ajoute une expérience personnelle</span>
+                    </Button>
+                  </Link>
+                )}
               </div>
             </AccordionDetails>
           </Accordion>
 
-  ) : (
-    <Link to="/experience/theme" className={classes.linkEng}>
-      <Button className={classes.btn}>
-        <span className={classes.textButton}>J’ajoute une expérience personnelle</span>
-      </Button>
-    </Link>
-  )}
-
-          </div>
-    </AccordionDetails>
-  </Accordion>
-
-  <Accordion
-    TransitionProps={{ unmountOnExit: true }}
-    expanded={expandedPro}
-    onChange={handleChangePro}
-    className={classes.accordionContainer}
-    >
-    <AccordionSummary
-      expandIcon={
-           <div>
-          <ExpandMoreIcon className={classes.iconPerso}/>
-        </div>
-      }
-      aria-controls="panel1bh-content"
-      id="panel1bh-header"
-      className={classes.persoAccordion}
- 
-      >
-      <Typography className={classes.persoText} >MES EXPÉRIENCES PROFESSIONNELLES </Typography>
-    </AccordionSummary>
-    <AccordionDetails className={classes.proDetails}>
-    <div className={classes.cardGridContainer}>
-          
-   { proSkills.length ? (
-   <Grid container  spacing={1}>
-    {proSkills.map((theme) => {
-        const icon = secteurs?.themes.data.find((secteur) => theme.theme.parentId === secteur.id)?.resources?.icon;
-        return (
-          <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
-            <div className={classes.themeSelection}>
-              <Circle avatarCircleBackground="transparent" size={100}>
-                {icon && <img className={classes.themeImage} src={icon} alt="theme" />}
-              </Circle>
-              <div className={classes.themeTile}>{theme.theme.title.replace(new RegExp('[//,]', 'g'), '\n')}</div>
-            </div>
-          </Grid>
-        );
-      })}
-              <div className={classes.detailPro}>
-              <Link to="/profile/experience?type=professional">
-              <span className={classes.detailColor} > Voir le détail </span>
-              </Link>
+          <Accordion
+            TransitionProps={{ unmountOnExit: true }}
+            expanded={expandedPro}
+            onChange={handleChangePro}
+            className={classes.accordionContainer}
+          >
+            <AccordionSummary
+              expandIcon={
+                <div>
+                  <ExpandMoreIcon className={classes.iconPerso} />
+                </div>
+              }
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+              className={classes.persoAccordion}
+            >
+              <Typography className={classes.persoText}>MES EXPÉRIENCES PROFESSIONNELLES </Typography>
+            </AccordionSummary>
+            <AccordionDetails className={classes.proDetails}>
+              <div className={classes.cardGridContainer}>
+                {proSkills.length ? (
+                  <Grid container spacing={1}>
+                    {proSkills.map((theme) => {
+                      const icon = secteurs?.themes.data.find((secteur) => theme.theme.parentId === secteur.id)
+                        ?.resources?.icon;
+                      return (
+                        <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
+                          <div className={classes.themeSelection}>
+                            <Circle avatarCircleBackground="transparent" size={100}>
+                              {icon && <img className={classes.themeImage} src={icon} alt="theme" />}
+                            </Circle>
+                            <div className={classes.themeTile}>
+                              {theme.theme.title.replace(new RegExp('[//,]', 'g'), '\n')}
+                            </div>
+                          </div>
+                        </Grid>
+                      );
+                    })}
+                    <div className={classes.detailPro}>
+                      <Link to="/profile/experience?type=professional">
+                        <span className={classes.detailColor}> Voir le détail </span>
+                      </Link>
+                    </div>
+                  </Grid>
+                ) : (
+                  <Link to="/experience/theme-pro" className={classes.linkEng}>
+                    <Button className={classes.btn}>
+                      <span className={classes.textButton}>J’ajoute une expérience professionnelle</span>
+                    </Button>
+                  </Link>
+                )}
               </div>
             </AccordionDetails>
           </Accordion>
@@ -371,10 +394,10 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             >
               <Typography className={classes.persoText}> MES EXPÉRIENCES D’ENGAGEMENT </Typography>
             </AccordionSummary>
-            <AccordionDetails className={classes.expEng}>
+            <AccordionDetails>
               <div className={classes.cardGridContainer}>
                 {engagementSkills.length ? (
-                  <Grid container spacing={1} className={classes.gridPro}>
+                  <Grid container spacing={1}>
                     {engagementSkills.map((theme) => (
                       <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
                         <div className={classes.themeSelection}>
@@ -406,45 +429,6 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             </AccordionDetails>
           </Accordion>
         </div>
-      }
-      aria-controls="panel1bh-content"
-      id="panel1bh-header"
-      className={classes.persoAccordion}
- 
-      >
-      <Typography className={classes.persoText} > MES EXPÉRIENCES D’ENGAGEMENT </Typography>
-    </AccordionSummary>
-    <AccordionDetails >
-      <div className={classes.cardGridContainer}> 
-      {engagementSkills.length ? (
-   <Grid container spacing={1}  >
-      {engagementSkills.map((theme) => (
-        <Grid item xs={4} key={theme.id} className={classes.itemContainer}>
-          <div className={classes.themeSelection}>
-            <Circle avatarCircleBackground="transparent" size={100}>
-              {theme.theme.resources && theme.theme.resources.icon && (
-                <img className={classes.themeImage} src={theme.theme.resources.icon} alt="theme" />
-              )}
-            </Circle>
-            <div className={classes.themeTile}>{theme.theme.title.replace(new RegExp('[//,]', 'g'), '\n')}</div>
-          </div>
-        </Grid>
-        
-      ))}
- <div className={classes.detailEng}>
- <Link to="/profile/experience?type=engagement">
- <span className={classes.detailColor} > Voir le détail </span>
- </Link>
-  </div>
-    </Grid>
-  ) : (
-    <Link to="/experience/theme?type=engagement" className={classes.linkEng}>
-      <Button className={classes.btn}>
-        <span className={classes.textButton}>J’ajoute une expérience d&apos;engagement</span>
-      </Button>
-    </Link>
-  )}
-
       </div>
       <div className={classes.demarcheContainer} ref={(ref) => (rowRef.current[2] = ref)}>
         <Title title="MES DÉMARCHES" color="#ffffff" size={32} className={classes.titleDemarche} />
@@ -498,8 +482,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             >
               <Typography className={classes.topText}>
                 <div className={classes.logoStar}>
-                  <img src={littleheart2} alt="" height={27} className={classes.star} />{' '}
-                  <div style={{marginTop:5}}> MES MÉTIERS FAVORIS </div>
+                  <div>
+                    {' '}
+                    <img src={littleheart2} alt="" height={30} className={classes.star} />{' '}
+                  </div>
+                  <div> MES MÉTIERS FAVORIS </div>
                 </div>
               </Typography>
             </AccordionSummary>
