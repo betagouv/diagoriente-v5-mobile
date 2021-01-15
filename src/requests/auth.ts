@@ -38,6 +38,7 @@ export const registerMutation = gql`
         codeGroupe
         location
         logo
+        isCampus
       }
       token {
         tokenType
@@ -75,6 +76,7 @@ export const loginMutation = gql`
         location
         codeGroupe
         role
+        isCampus
         profile {
           firstName
           lastName
@@ -128,6 +130,7 @@ export const refreshMutation = gql`
         logo
         location
         role
+        isCampus
         profile {
           firstName
           lastName
@@ -184,6 +187,7 @@ export const resetMutation = gql`
         logo
         location
         role
+        isCampus
         profile {
           firstName
           lastName
