@@ -130,7 +130,8 @@ const ContactModal = ({ setOpen, openContact, handleClose }: Props) => {
           </span>
         </div>
         <Button
-          arrowClassName={classes.arrow}
+          arrowWidth="8"
+          arrowHeight="13"
           classNameTitle={classes.btnLabel}
           className={classes.btn}
           onClick={handleSend}
