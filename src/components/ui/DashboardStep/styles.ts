@@ -25,7 +25,7 @@ function getAvatarHeight(props: { state?: 'closed' | 'initial' | 'open' }) {
 export default makeStyles<
   Theme,
   { background?: string; secondBackground?: string; state?: 'closed' | 'initial' | 'open'; isOpen?: boolean }
->(() => ({
+>((theme) => ({
   container: {
     backgroundColor: (props) =>
       props.state === 'initial' || props.state === 'closed' ? props.background : props.secondBackground,
@@ -33,7 +33,7 @@ export default makeStyles<
     flexDirection: 'column',
     cursor: 'pointer',
     transition,
-    flex: (props) => (props.state === 'open' ? '3 3 0%' : '1 1 0%'),
+    height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '120px'),
   },
   wrapperTitleImage: {
     display: 'flex',
@@ -42,8 +42,9 @@ export default makeStyles<
     width: '100%',
     justifyContent: 'flex-start',
     padding: '25px 0px 25px 5%',
-
-    // height: '100%',
+    [theme.breakpoints.down(330)]: {
+      padding: '25px 0px 25px 0px',
+    },
   },
   title: {
     color: '#FFFFFF',
@@ -52,6 +53,9 @@ export default makeStyles<
     position: 'relative',
     transition,
     zIndex: 2,
+    [theme.breakpoints.down(330)]: {
+      fontSize: 36,
+    },
   },
   avatarContainer: {
     width: (props) => getAvatarSize({ state: props.state }),
@@ -85,9 +89,10 @@ export default makeStyles<
     transition: 'all 0.2ms linear',
     transitionDelay: (props) => (props.state !== 'open' ? '0ms' : '225ms'),
     transform: (props) => `scale(${props.state === 'open' ? 1 : 0})`,
-    height: (props) => (props.state === 'open' ? '400px' : 0),
+    height: (props) => (props.state === 'open' ? 'auto' : 0),
     cursor: 'default',
     justifyContent: 'center',
+    padding: '20px 0px',
   },
   image: {
     width: '100%',
@@ -101,5 +106,11 @@ export default makeStyles<
     transform: 'translateY(-50%)',
     zIndex: -1,
     transition,
+    [theme.breakpoints.down(370)]: {
+      width: '53vw',
+    },
+    [theme.breakpoints.down(330)]: {
+      width: '52vw',
+    },
   },
 }));

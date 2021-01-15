@@ -13,7 +13,7 @@ export default makeStyles((theme: Theme) => ({
   },
   closeThemeModal: {
     height: 82,
-    paddingLeft: 70,
+    paddingLeft: 30,
   },
   closeModelContainer: {
     minHeight: 26,
@@ -86,6 +86,7 @@ export default makeStyles((theme: Theme) => ({
     border: '1px solid #D1D5DE',
     boxSizing: 'border-box',
     borderRadius: '5px 0px 0px 5px',
+    textOverflow:'ellipsis',
     '& div': {
       display: 'flex',
       height: 45,
@@ -105,6 +106,7 @@ export default makeStyles((theme: Theme) => ({
     '& input': {
       color: '#00B2DB',
       width: '75% !important',
+      textOverflow:'ellipsis'
     },
   },
 
@@ -130,6 +132,13 @@ export default makeStyles((theme: Theme) => ({
     margin: '0 15px',
     color: '#424242',
     fontSize: 14,
+    width:'fit-content',
+    wordBreak:'break-word',
+    [theme.breakpoints.down(380)]: {
+      width:'80%',
+
+    },
+    
   },
 
   textSelected: {
@@ -145,7 +154,7 @@ export default makeStyles((theme: Theme) => ({
     flexDirection: 'row',
     borderRadius: '0px !important',
     paddingBottom: '0px !important',
-    paddingLeft: 62,
+    paddingLeft: 25,
     cursor: 'pointer',
     '&:hover': {
       background: 'rgba(122, 230, 255, 0.2)',

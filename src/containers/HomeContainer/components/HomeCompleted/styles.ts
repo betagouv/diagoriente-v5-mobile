@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles({
+export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
   container: {
     display: 'flex',
     flex: '1 1 0%',
@@ -12,7 +12,6 @@ export default makeStyles({
     flexDirection: 'column',
     marginTop: 20,
     width: '90%',
-    maxHeight: '100px',
   },
   profileHeader: {
     color: '#223A7A',
@@ -48,9 +47,10 @@ export default makeStyles({
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
+    //height:'100vh',
     flex: '1 1 0%',
     justifyContent: 'stretch',
-    marginTop: 20
+    marginTop: (props) => (props.isOpen ? 10 : 30),
   },
   contentChild: {
     color: '#fff',
@@ -86,15 +86,17 @@ export default makeStyles({
     backgroundColor: '#fff',
     height: 49,
     width: '90%',
-    fontSize: '32px',
+    fontSize: '30px',
     fontFamily: 'Ocean',
     fontWeight: 900,
     paddingTop: 11,
+    lineHeight: '32px',
     color: '#424242',
     '&:hover': {
       backgroundColor: '#fff',
       opacity: 0.7,
     },
+    boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)'
   },
   itemDescription: {
     textAlign: 'center',
@@ -117,4 +119,4 @@ export default makeStyles({
     alignItems: 'center',
     height: '200px',
   },
-});
+}));

@@ -93,7 +93,7 @@ const JobsContainer = ({
   useOnclickOutside(divAcc, () => setOpenAcc(false));
 
   const setMessage = async () => {
-    setClearMessage(false);
+    setClearMessage(true);
     await localForage.setItem('messages', false);
   };
 
@@ -165,15 +165,14 @@ const JobsContainer = ({
 
   return (
     <div className={classes.wrapper}>
-      {clearMessage && (
+      {!clearMessage && (
         <div className={classes.messages}>
           <div className={classes.contentMessage}>
             <div className={classes.text}>
-              <div>Pour voir une sélection personnalisée de métiers qui pourraient te plaire,</div>
               <div>
-                commence à remplir ton profil en ajoutant tes{' '}
+                Pour voir une sélection personnalisée de métiers qui pourraient te plaire, commence à remplir ton profil
+                en ajoutant tes{' '}
                 <Link to="/experience">
-                  {' '}
                   <span className={classes.clearTextBold}>expériences</span>
                 </Link>{' '}
                 et tes{' '}
@@ -226,6 +225,7 @@ const JobsContainer = ({
               onClick={() => setOpenDomain(!openDomain)}
               onClose={() => setOpenDomain(false)}
               referenceFullScreen={divDomaine}
+              arrowColor="#DB8F00"
             />
             <Select
               options={listTypeData}
@@ -239,6 +239,7 @@ const JobsContainer = ({
               onClick={() => setOpenType(!openType)}
               onClose={() => setOpenType(false)}
               reference={divType}
+              arrowColor="#DB8F00"
             />
             <Select
               options={listAccData}
@@ -253,6 +254,7 @@ const JobsContainer = ({
               onClose={() => setOpenAcc(false)}
               reference={divAcc}
               parcourAcc={parcours?.accessibility}
+              arrowColor="#DB8F00"
             />
           </div>
           {loading ? (
@@ -265,14 +267,16 @@ const JobsContainer = ({
               {renderedJobs?.length === 0
                 ? 'Aucun resultat trouvé !'
                 : renderedJobs?.map((el) => (
-                    <JobCard
-                      key={el.id}
-                      id={el.id}
-                      title={el.title}
-                      description={el.description}
-                      accessibility={el.accessibility}
-                      favoris={el.favorite}
-                    />
+                    <Link to={`/jobs/job/${el.id}`}>
+                      <JobCard
+                        key={el.id}
+                        id={el.id}
+                        title={el.title}
+                        description={el.description}
+                        accessibility={el.accessibility}
+                        favoris={el.favorite}
+                      />
+                    </Link>
                   ))}
             </div>
           )}

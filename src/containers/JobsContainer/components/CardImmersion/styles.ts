@@ -13,9 +13,8 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     padding: 25,
-    width: 340,
-    [theme.breakpoints.down(380)]: {
-      width: 'calc(100% - 40px)',
+    [theme.breakpoints.up(380)]: {
+      width: 340,
     },
   },
   height2: {
@@ -29,8 +28,10 @@ export default makeStyles<Theme>((theme) => ({
   titleCard: {
     fontWeight: 'bold',
     fontSize: 14,
-    lineHeight: '32px',
+    lineHeight: '22px',
     color: theme.palette.success.main,
+    width: '80%',
+    paddingTop: 5,
   },
   description: {
     fontWeight: 'bold',
@@ -64,7 +65,6 @@ export default makeStyles<Theme>((theme) => ({
     color: theme.palette.success.main,
     fontWeight: 14,
     display: 'flex',
-    alignItems: 'center',
   },
   heartLogo: {
     paddingLeft: 4,

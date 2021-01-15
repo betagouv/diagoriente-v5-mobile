@@ -17,7 +17,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
 
     container: {
       display: 'flex',
-      height: '58px',
+      height: '66px',
       alignItems: 'center',
       width: '100%',
       justifyContent: 'space-between',
@@ -41,7 +41,17 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     childrenSelection: {
       background: '#FFFFFF',
       overflow: 'auto',
-      maxHeight: 'calc(100vh - 120px)',
+      maxHeight: 'calc(29vh - 70px)',
+      // [theme.breakpoints.down(412)]: {
+      //   maxHeight: 'calc(28vh - 70px)',
+
+  
+      //   },
+      [theme.breakpoints.down(330)]: {
+        maxHeight: 'calc(35vh - 70px)',
+
+  
+        },
     },
 
     header: {
@@ -68,7 +78,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     },
 
     activityContainer: {
-      padding: '0px 15px 30px 15px',
+      padding: '0px 10px 30px 15px',
     },
 
     activitySelected: {
@@ -82,7 +92,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       '&:disabled': {
         border: 'none',
         color: '#00B2DB',
-        padding: 0,
+        // padding: 0,
         fontWeight: 'bold',
       },
     },
@@ -112,7 +122,11 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     themeSelection: {
       display: 'flex',
       alignItems: 'center',
-      padding: '30px 15px',
+      padding: '10px 15px',
+      [theme.breakpoints.down(370)]: {
+        padding: '15px 15px',
+
+        },
     },
 
     themeTile: {
@@ -144,6 +158,8 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       listStyle: 'inside',
       fontSize: 16,
       margin: 0,
+      width:'fit-content',
+      wordBreak:'break-word'
     },
     boldText: {
       fontWeight: 'bold',

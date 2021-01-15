@@ -75,7 +75,7 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
         <Title
           title={type === 'engagement' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
           color="#223A7A"
-          size={width > 380 ? 32 : 25}
+          size={width > 380 ? 32 : 22}
           image={blueline}
           number={1}
         />

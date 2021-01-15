@@ -3,12 +3,10 @@ import Carousel from 'nuka-carousel';
 import { Families } from 'requests/types';
 import Arrow from 'assets/svg/arrow';
 import classNames from 'utils/classNames';
-import Img3 from 'assets/svg/tete-01.svg';
-import Img2 from 'assets/svg/mains-01.svg';
-import Img1 from 'assets/svg/personnes-01.svg';
-import Avatar from 'components/common/Avatar/Avatar';
+import checked from 'assets/form/checkboxchecked.svg';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import TitleImage from 'components/common/TitleImage/TitleImage';
+import Divider from '@material-ui/core/Divider';
 
 import useStyles from './styles';
 
@@ -29,16 +27,12 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
 
   return (
     <>
-      <TitleImage
-        title={data[currentIndex].title}
-        color="#FFFFFF"
-        backgroudColor="#A275FF"
-        classNameTitle={classes.titleHeader}
-      />
+      <TitleImage title={data[currentIndex].title} color="#FFFFFF" backgroudColor="#A275FF" size={32} />
 
       <Carousel
         dragging={false}
         slideIndex={currentIndex}
+        afterSlide={(index) => setCurrentIndex(index)}
         renderCenterLeftControls={({ previousSlide }) => (
           <div className={classNames(currentIndex === 0 && classes.hide, classes.wrapperBtn, classes.prevWrap)}>
             <div
@@ -95,11 +89,17 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
                   >
                     <div className={classNames(selected ? classes.selected : classes.imageContainer)}>
                       <div className={classes.CheckBoxStyle}>
-                        <CheckBox />
+                        <CheckBox
+                          checked={selected}
+                          img={checked}
+                          className={classes.checkBox}
+                          classNameLogo={classes.checkBoxImg}
+                        />
                         <div className={classes.titleContainer1}>{res}</div>
                       </div>
                       <img src={e.resources[0]} alt="" className={classes.deselected} />
                     </div>
+                    <Divider style={{ backgroundColor: '#C9C9C7' }}  />
                   </div>
                 );
               })}
@@ -112,3 +112,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
 };
 
 export default Slider;
+
+
+
+

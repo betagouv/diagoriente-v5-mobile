@@ -19,7 +19,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   title: {
     fontFamily: 'ocean',
-    fontSize: 62,
+    fontSize: 32,
     fontWeight: 900,
     color: theme.palette.secondary.main,
   },
@@ -27,9 +27,12 @@ export default makeStyles<Theme>((theme) => ({
     marginTop: 70,
     marginBottom: 70,
     width: '100%',
+    "padding-left": "5vh",
+    "padding-right": "5vh",
   },
   text: {
-    fontSize: 18,
+    fontSize: 16,
+    LineHeight: '26px',
     width: '100%',
     textAlign: 'center',
   },

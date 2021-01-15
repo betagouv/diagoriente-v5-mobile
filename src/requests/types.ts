@@ -12,6 +12,7 @@ export interface User {
   location: string;
   codeGroupe: string;
   role: UserRole;
+  isCampus:boolean
 }
 
 export interface Question {

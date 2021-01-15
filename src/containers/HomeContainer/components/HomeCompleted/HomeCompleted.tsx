@@ -18,13 +18,12 @@ import classNames from 'utils/classNames';
 import useStyles from './styles';
 
 const HomeCompleted = () => {
-  const classes = useStyles();
   const history = useHistory();
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState(-1);
   const [openModal, setOpenModal] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  console.log('isOpen', isOpen);
+  const classes = useStyles({ isOpen });
 
   const getState = (index: number) => {
     switch (open) {
@@ -51,7 +50,6 @@ const HomeCompleted = () => {
     const res = state.some((e) => e === 'open');
     setIsOpen(res);
   });
-  console.log('isOpen', isOpen);
   const renderContentItem = useCallback(
     (
       title: string,
@@ -144,6 +142,14 @@ const HomeCompleted = () => {
     <>
       <div className={classes.container}>
         <div className={classes.headerWrapper}>
+          {user?.isCampus && (
+            <div style={{ backgroundColor: '' }}>
+              <p>
+                Pour accéder à la version Campus2023 vous devez poursuivre votre navigation sur ordinateur à l’adresse :
+                app.diagoriente.beta.gouv.fr{' '}
+              </p>
+            </div>
+          )}
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Avatar className={classes.logo} src={user?.logo ? user?.logo : defaultAvatar} />
             <div className={classes.profileHeader}>MON PROFIL</div>

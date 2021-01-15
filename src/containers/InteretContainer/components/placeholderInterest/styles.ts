@@ -9,7 +9,7 @@ export default makeStyles<
     flexDirection: (props) => (props.direction === 'horizontal' ? 'row' : 'column'),
     alignItems: 'center',
     width: (props) => (props.direction === 'vertical' ? '100%' : 'auto'),
-    margin: 7.5,
+    margin: 21,
     marginLeft: 20,
   },
   circle: {

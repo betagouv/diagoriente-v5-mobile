@@ -24,7 +24,7 @@ export default makeStyles<Theme>((theme) => ({
     fontFamily: 'ocean',
     color: theme.palette.secondary.main,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: "9vh",
   },
   description: {
     fontSize: 18,
@@ -32,8 +32,7 @@ export default makeStyles<Theme>((theme) => ({
     marginBottom: 10,
   },
   TitlePosition: {
-    'padding-top': '121px',
-    'padding-bottom': '82px',
+    'padding-top': '3vh',
   },
   title: {
     fontWeight: 'bold',
@@ -56,8 +55,8 @@ export default makeStyles<Theme>((theme) => ({
     'font-size': '14px',
     'line-height': '22px',
     'text-align': 'center',
-    'margin-left': '92px',
-    'margin-right': '92px',
+    'margin-left': '53px',
+    'margin-right': '53px',
   },
   btnContainer: {
     display: 'flex',

@@ -19,7 +19,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   item: {
     width: '100%',
-    height: 'calc(100vh - 139px)',
+    height: 'calc(100vh - 126px)',
     outline: 'none',
     display: 'flex',
     flexDirection: 'column',
@@ -35,18 +35,17 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
   },
-
   CheckBoxStyle: {
-    'padding-left': '5%',
+    paddingLeft: '5%',
+    display: 'flex',
+    padding: '20px 0px',
   },
-
   titleContainer1: {
     fontWeight: 'bold',
     fontSize: 24,
     fontFamily: 'ocean',
     color: '#420FAB',
     textAlign: 'left',
-    marginBottom: 20,
     textTransform: 'uppercase',
     width: '90%',
   },
@@ -86,6 +85,7 @@ export default makeStyles<Theme>((theme) => ({
     width: '29%',
     cursor: 'pointer',
     backgroundColor: 'white',
+
   },
   subitem1: {
     minWidth: 170,
@@ -126,11 +126,10 @@ export default makeStyles<Theme>((theme) => ({
       borderStyle: 'hidden',
     },
     position: 'absolute',
-    left: 15,
-    top: -134,
+    top: "-19.8vh",
+    left: "0vh",
     zIndex: 99999,
   },
-
   containerBtnRight: {
     width: 44,
     borderRadius: '50%',
@@ -145,8 +144,8 @@ export default makeStyles<Theme>((theme) => ({
       borderStyle: 'hidden',
     },
     position: 'absolute',
-    right: 15,
-    top: -134,
+    top: "-19.8vh",
+    right: "0vh",
     zIndex: 9999,
   },
   rotatedArrow: {
@@ -216,7 +215,11 @@ export default makeStyles<Theme>((theme) => ({
   hideImg: {
     opacity: 0,
   },
-  titleHeader: {
-    fontSize: '32px !important',
+  checkBox: {
+    marginRight: 10,
+  },
+  checkBoxImg: {
+    width: 20,
+    height: 20,
   },
 }));

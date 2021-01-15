@@ -9,18 +9,20 @@ import usePdf from 'hooks/usePdf';
 
 import idea from 'assets/svg/picto_ampoule_full.svg';
 import check from 'assets/svg/checkOrange.svg';
+import arrowClose from 'assets/svg/orangeArrow.svg';
 
 import useStyles from './styles';
 
 // eslint-disable-next-line
 const defaultMessage =
   // eslint-disable-next-line
-  'Madame, Monsieur, Vous êtes référencé dans notre base entreprises Diagoriente, une plateforme numérique publique d’orientation qui aide les jeunes de 16 à 25 ans à identifier leurs compétences et réaliser des immersions professionnelles. Un.e jeune a repéré votre entreprise et vous sollicite pour une demande de PMSMP (Période de Mise en Situation en Milieu Professionnel). Êtes-vous intéressé pour prendre contact avec lui/elle ?';
+  'Madame, Monsieur,\n Vous êtes référencé dans notre base entreprises Diagoriente, une plateforme numérique publique d’orientation qui aide les jeunes de 16 à 25 ans à identifier leurs compétences et réaliser des immersions professionnelles. Un.e jeune a repéré votre entreprise et vous sollicite pour une demande de PMSMP (Période de Mise en Situation en Milieu Professionnel). Êtes-vous intéressé pour prendre contact avec lui/elle ?';
 interface Props {
   setOpen: (open: boolean) => void;
   openContact: Company;
+  handleClose: () => void;
 }
-const ContactModal = ({ setOpen, openContact }: Props) => {
+const ContactModal = ({ setOpen, openContact, handleClose }: Props) => {
   const [message, setMessage] = useState('');
   const [checked, setChecked] = useState(true);
   const [contactCall, contactState] = useCreateContact();
@@ -69,6 +71,10 @@ const ContactModal = ({ setOpen, openContact }: Props) => {
 
   return (
     <div className={classes.root}>
+      <div className={classes.closeFullModelContainer} onClick={handleClose}>
+        <img src={arrowClose} alt="arrowClose" />
+        <span className={classes.closeModelLabel}> Retour </span>
+      </div>
       <div className={classes.maxWidth}>
         <div className={classes.titleContainer}>CONTACTER {openContact.name}</div>
         <div>
@@ -116,13 +122,20 @@ const ContactModal = ({ setOpen, openContact }: Props) => {
             name="acceptCondition"
             border="#DB8F00"
             img={check}
+            className={classes.checkbox}
           />
           <span className={classes.checkboxText} onClick={() => checkBoxRef.current?.click()}>
             <b className={classes.textBold}>Joindre ma carte de compétences</b>
             <br /> Cela aidera l’entreprise à mieux te connaître
           </span>
         </div>
-        <Button ArrowColor="#011A5E" classNameTitle={classes.btnLabel} className={classes.btn} onClick={handleSend}>
+        <Button
+          arrowWidth="8"
+          arrowHeight="13"
+          classNameTitle={classes.btnLabel}
+          className={classes.btn}
+          onClick={handleSend}
+        >
           J’envoie
         </Button>
         {element}

@@ -71,14 +71,14 @@ const FirstDashboard = () => {
               link={dataToShow.link}
               logo={dataToShow.logo}
               colorText={dataToShow.colorText}
-              played={parcours?.played}
+              played={true}
               openModal={openModal}
             />
             <div className={classes.types} />
           </div>
         </div>
       </div>
-      {!parcours?.played && (
+      {parcours?.played && (
         <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={70}>
           <GameContainer onHandelClose={handleClose} />
         </ModalContainer>

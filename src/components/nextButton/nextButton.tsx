@@ -12,21 +12,40 @@ interface Props {
   ArrowColor?: string;
   fetching?: boolean;
   children?: React.ReactChild;
-  arrowClassName?: string;
+  arrowWidth?: string;
+  arrowHeight?: string;
+  disabled?: boolean;
 }
 
-const NextButton = ({ className, classNameTitle, ArrowColor, fetching, children, ...props }: IProps & Props) => {
+const NextButton = ({
+  className,
+  classNameTitle,
+  ArrowColor,
+  fetching,
+  children,
+  arrowWidth,
+  arrowHeight,
+  disabled,
+  ...props
+}: IProps & Props) => {
   const classes = useStyles();
   return (
     <Button
       type="submit"
       childrenClassName={classes.margin}
-      className={classNames(classes.btnperso, className)}
+      className={classNames(disabled && classes.btnPersoDisabled, classes.btnperso, className)}
       {...props}
     >
       <div className={classes.contentBtn}>
-        <div className={classNames(classes.btnLabel, classNameTitle)}>{children || 'Suivant'}</div>
-        <Arrow color={ArrowColor || '#223A7A'} width="12" height="19" className={classes.arrow} />
+        <div className={classNames(disabled && classes.btnLabelDisabled, classes.btnLabel, classNameTitle)}>
+          {children || 'Suivant'}
+        </div>
+        <Arrow
+          color={ArrowColor || disabled ? '#4D6EC5' : '#223A7A'}
+          width={arrowWidth ? arrowWidth : '12'}
+          height={arrowHeight ? arrowHeight : '19'}
+          className={classes.arrow}
+        />
         {fetching && (
           <div className={classes.loaderContainer}>
             <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />

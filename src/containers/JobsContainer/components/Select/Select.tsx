@@ -28,11 +28,13 @@ interface IProps {
   fullSelect?: boolean;
   loading?: boolean;
   reference?: any;
+  color?: any;
   referenceFullScreen?: any;
   small?: boolean;
   parcourAcc?: { id: string };
   fullScreenModal?: boolean;
   modal?: boolean;
+  arrowColor?: string;
 }
 
 const SelectJobs = ({
@@ -47,11 +49,13 @@ const SelectJobs = ({
   onClick,
   fullSelect,
   reference,
+  color,
   parcourAcc,
   fullScreenModal,
   modal,
+  arrowColor,
 }: IProps) => {
-  const classes = useStyles({ fullSelect, fullScreenModal, open });
+  const classes = useStyles({ fullSelect, fullScreenModal, open, arrowColor });
   const isInclude = (id: string) => value && value.includes(id);
   const theme = useTheme();
   const [openModal, setOpenModal] = React.useState(open);
@@ -71,7 +75,13 @@ const SelectJobs = ({
             <img src={Menu} alt="menu" />
           </div>
         )}
-        <input onChange={onChange} name={name} placeholder={placeholder} className={classes.inputContainer} disabled />
+        <input
+          onChange={onChange}
+          name={name}
+          placeholder={placeholder}
+          className={color ? classes.inputContainer1 : classes.inputContainer}
+          disabled
+        />
         <div className={classes.logoContainer}>
           <Arrow
             color={theme.palette.success.main}
@@ -87,7 +97,12 @@ const SelectJobs = ({
             <Slide direction="right" in={open} mountOnEnter unmountOnExit>
               <div className={classes.secteurContainerFullScreen}>
                 <div className={classes.closeFullModelContainer} onClick={onClose}>
-                  <img src={arrowClose} alt="arrowClose" className={classes.arrowClose} />
+                  <Arrow
+                    color={arrowColor ? arrowColor : '#420FAB'}
+                    width="12"
+                    height="19"
+                    className={classes.arrowClose}
+                  />
                   <span className={classes.closeModelLabel}> {placeholder} </span>
                 </div>
                 {options?.map((el) => (
@@ -112,14 +127,16 @@ const SelectJobs = ({
               <div className={classes.backdrop} onClick={onClose} />
               <div className={classes.modalItemsContainer}>
                 <div className={classes.closeModelContainer} onClick={onClose}>
-                  <img
-                    src={arrowClose}
-                    alt="arrowClose"
+                  <Arrow
+                    color={arrowColor ? arrowColor : '#420FAB'}
+                    width="12"
+                    height="19"
                     className={modal ? classes.modalArrowClose : classes.arrowClose}
                   />
                   <span className={classes.closeModelLabel}> {placeholder} </span>
                 </div>
                 <OptionList
+                  CheckBoxbackgroudColor="#7AE6FF"
                   options={options}
                   onSelectText={onSelectText}
                   selected={value}

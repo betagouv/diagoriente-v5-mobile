@@ -4,6 +4,10 @@ import Button from 'components/button/Button';
 import { Families } from 'requests/types';
 import ModalContainer from 'components/common/Modal/ModalContainer';
 import { useParams, Link, RouteComponentProps } from 'react-router-dom';
+import { TransitionProps } from '@material-ui/core/transitions';
+import Divider from '@material-ui/core/Divider';
+import Slide from '@material-ui/core/Slide';
+import Dialog from '@material-ui/core/Dialog';
 import { groupBy } from 'lodash';
 import PlaceHolder from 'containers/InteretContainer/components/placeholderInterest/Placeholder';
 import Arrow from 'assets/svg/arrow';
@@ -55,17 +59,18 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
 
   const renderPlaceholder = () => {
     const array: JSX.Element[] = [];
-    for (let i = selectedInterests.length + 1; i <= 5; i += 1) {
-      array.push(<PlaceHolder index={i} key={i} direction="horizontal" />);
+    if (selectedInterest) {
+      for (let i = selectedInterests.length + 1; i <= 5; i += 1) {
+        if (i <= 4) {
+          array.push(<PlaceHolder index={i} key={i} direction="horizontal" />);
+          array.push(<Divider style={{ backgroundColor: '#C9C9C7' }} />);
+        } else {
+          array.push(<PlaceHolder index={i} key={i} direction="horizontal" />);
+        }
+      }
+
+      return array;
     }
-    return array;
-  };
-  const renderAllPlaceholder = () => {
-    const array: JSX.Element[] = [];
-    for (let i = 1; i <= 5; i += 1) {
-      array.push(<PlaceHolder direction="horizontal" index={i} key={i} />);
-    }
-    return array;
   };
 
   const isChecked = (id?: string): boolean => !!selectedInterests.find((elem) => elem.id === id);
@@ -89,6 +94,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
       }
     }
   };
+
   useEffect(() => {
     const test = selectedInterest?.every(
       (interet) =>
@@ -109,6 +115,15 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
 
     setSelectedInterest(copySelected);
   };
+  const handelClose = () => setOpenConfirm(false);
+
+  const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & { children?: React.ReactElement },
+    ref: React.Ref<unknown>,
+  ) {
+    console.log('props', props);
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
   return (
     <div className={classes.container}>
       <div className={classes.content}>
@@ -143,29 +158,6 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
             </Link>
           )}
         </div>
-
-        {/*    <div className={classes.footer}>
-          <div className={classes.footerContent}>
-            <div className={classes.descriptionContainer}>
-              <div className={classes.description}>Sélectionne 5 familles </div>
-              <div className={classes.description}>d’intérêt en tout :</div>
-            </div>
-            {loading
-              ? renderAllPlaceholder()
-              : selectedInterests.map((el, i) => (
-                  <FamileSelected
-                    key={el.id}
-                    handleClick={() => deleteFamille(i)}
-                    famille={el}
-                    index={i}
-                    direction="horizontal"
-                  />
-                ))}
-
-            {!loading && renderPlaceholder()}
-         
-          </div>
-        </div> */}
       </div>
       <ModalContainer open={open} backdropColor="#011A5E" colorIcon="#420FAB">
         <div style={{ height: 240, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 40 }}>
@@ -196,35 +188,26 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
         </div>
       </ModalContainer>
-      <ModalContainer open={openConfirm} backdropColor="#011A5E" colorIcon="#420FAB" size={100}>
+      <Dialog open={openConfirm} /* TransitionComponent={Transition} */ keepMounted fullScreen style={{ zIndex: 2000 }}>
         <div>
           <div className={classes.headerModelConfirm}>
             <span className={classes.textModelConfirm}>MES FAMILLES d'INTERET ({selectedInterest?.length}/5)</span>
-            <Arrow
-              color="white"
-              width="22"
-              height="22"
-              className={classes.arrowStyle}
-              onClick={() => setOpenConfirm(false)}
-            />
+            <Arrow color="white" width="22" height="22" className={classes.arrowStyle} onClick={handelClose} />
           </div>
-          {loading
-            ? renderAllPlaceholder()
-            : selectedInterests.map((el, i) => (
-                <div className={classes.itemRow}>
-                  <FamileSelected
-                    key={el.id}
-                    handleClick={() => deleteFamille(i)}
-                    famille={el}
-                    index={i}
-                    direction="horizontal"
-                  />
-                </div>
-              ))}
+          {selectedInterests.map((el, i) => (
+            <>
+            <div>
+              <div className={classes.itemRow} key={el.id}>
+                <FamileSelected handleClick={() => deleteFamille(i)} famille={el} index={i} direction="horizontal" />
+              </div>
+              </div>
+              <Divider />
+            </>
+          ))}
 
           {!loading && renderPlaceholder()}
         </div>
-      </ModalContainer>
+      </Dialog>
     </div>
   );
 };

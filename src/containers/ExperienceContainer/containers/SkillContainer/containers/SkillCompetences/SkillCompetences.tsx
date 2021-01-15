@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useCompetences } from 'requests/competences';
@@ -15,6 +15,7 @@ import Spinner from 'components/SpinnerXp/Spinner';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
 import Popup from 'components/common/Popup/Popup';
 import blueline from 'assets/svg/blueline.svg';
+import useOnclickOutside from 'hooks/useOnclickOutside';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
 import useStyles from './styles';
@@ -28,6 +29,8 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
 
 const ExperienceCompetence = ({ match, competences, setCompetences, theme, history, isCreate, location }: Props) => {
   const classes = useStyles();
+  const refSlide = useRef(null);
+
   const { data, loading } = useCompetences({ variables: theme?.type === 'engagement' ? { type: 'engagement' } : {} });
   const [open, setOpen] = React.useState(false);
   const [text, setText] = React.useState('');
@@ -62,7 +65,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     setOpen(false);
   };
   const onclickBtn = () => {
-    if (competences.length === 0) {
+    if (competences.length ===0)  {
       setText('Tu as déjà choisi 4 compétences');
       setOpen(true);
     }
@@ -75,7 +78,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
   const onNavigate = () => {
-    if (competences.length && competences.length < 4)
+    if (competences.length && competences.length <= 4)
       history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
     setOpen(false);
   };
@@ -83,7 +86,13 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     <div className={classes.root}>
       <div className={classes.container}>
         <Title
-          title={theme && theme.type === 'engagement' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
+          title={
+            theme && theme.type === 'engagement'
+              ? 'mes expériences d’engagement'
+              : theme && theme.type === 'professional'
+              ? 'mes expériences pro'
+              : 'mes expériences personnelles'
+          }
           color="#223A7A"
           size={width > 380 ? 32 : 25}
           image={blueline}
@@ -114,7 +123,11 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
                 <Grid key={comp.id} item xs={12} md={6}>
                   <Button
                     childrenClassName={classes.margin}
-                    className={classNames(classes.competences, selected && classes.selectedCompetence)}
+                    className={classNames(
+                      classes.competences,
+                      showInfo && currentInfoId === comp.id && classes.infoDisplyed,
+                      selected && classes.selectedCompetence,
+                    )}
                     onClick={() => {
                       setShowInfo(false);
                       !selected
@@ -127,7 +140,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
                     {comp.title}
                   </Button>
                   <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
-                    <Child key={index}>{currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}</Child>
+                    <Child key={index}> {  currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip =='' ? 'Clique deux fois sur la compétence pour la sélectionner' : currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip }  </Child>
                   </Slide>
                 </Grid>
               );

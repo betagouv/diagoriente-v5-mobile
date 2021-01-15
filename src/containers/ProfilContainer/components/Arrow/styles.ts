@@ -6,6 +6,7 @@ export default makeStyles(() =>
       display: 'flex',
       alignItems: 'center',
       width: 160,
+      marginBottom:20
     },
     txt: {
       color: '#6B6B6A',

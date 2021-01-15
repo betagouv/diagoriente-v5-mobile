@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   root: {
-    width: '60% !important',
+    width: '95% !important',
     outline: 0,
   },
   content: {
@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    width: 344,
+    // width: 344,
     height: 148,
   },
   btnContainer: {
@@ -28,7 +28,7 @@ export default makeStyles((theme) => ({
   btnTrue: {
     backgroundColor: '#4d6dc6',
     padding: '5px 30px',
-    width: 169,
+    width: 100,
     height: 50,
     '&:hover': {
       backgroundColor: '#4d6dc6',
@@ -38,7 +38,7 @@ export default makeStyles((theme) => ({
   btnFalse: {
     backgroundColor: '#d60050',
     padding: '5px 30px',
-    width: 169,
+    width: 100,
     height: 50,
     '&:hover': {
       backgroundColor: '#d60050',

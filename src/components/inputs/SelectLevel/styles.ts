@@ -24,7 +24,8 @@ export default makeStyles(() => ({
   },
   closeModelContainer: {
     minHeight: 26,
-    display: 'flex',
+    display: 'inline',
+    whiteSpace:'normal',
     alignItems: 'center',
   },
   arrowClose: {
@@ -80,6 +81,7 @@ export default makeStyles(() => ({
     },
     '& input': {
       width: 'calc(100% - 50px)',
+      textOverflow:'ellipsis',
     },
   },
 
@@ -107,6 +109,7 @@ export default makeStyles(() => ({
     },
     '& input': {
       width: 'calc(100% - 115px)',
+      textOverflow:'ellipsis'
     },
   },
 
@@ -183,6 +186,7 @@ export default makeStyles(() => ({
 
   ItemMenuContent: {
     padding: '15px 30px',
+    whiteSpace:'normal'
   },
 
   pointsTitleContainer: {

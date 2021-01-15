@@ -1,13 +1,13 @@
-import { makeStyles , Theme} from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles((theme: Theme) => ({
   btnperso: {
     // position: 'absolute',
-    backgroundColor: '#7AE6FF',
+    backgroundColor: '#00CFFF',
     // bottom: -25,
     left: '50%',
     minWidth: 175,
-    [theme.breakpoints.down(340)]: {
+    [theme.breakpoints.down(400)]: {
       minWidth: 150,
     },
     transform: 'translate(-50%,0)',
@@ -16,10 +16,9 @@ export default makeStyles((theme: Theme) => ({
     '&:hover': {
       backgroundColor: '#00B2DB ',
     },
-    '&:disabled': {
-      backgroundColor: '#7AE6FF',
-    },
-
+  },
+  btnPersoDisabled: {
+    backgroundColor: '#7AE6FF',
   },
 
   contentBtn: {
@@ -29,7 +28,6 @@ export default makeStyles((theme: Theme) => ({
   },
 
   btnLabel: {
-
     color: '#223A7A',
     textTransform: 'none',
     fontWeight: 'bold',
@@ -40,12 +38,13 @@ export default makeStyles((theme: Theme) => ({
     paddingBottom: 4,
     flex: 1,
   },
+  btnLabelDisabled: {
+    color: '#4D6EC5 !important',
+  },
 
   arrow: {
     position: 'absolute',
     right: 19,
-
-
   },
 
   margin: {
@@ -58,6 +57,5 @@ export default makeStyles((theme: Theme) => ({
   },
   colorPrimaryLoader: {
     color: '#fff',
-
   },
 }));

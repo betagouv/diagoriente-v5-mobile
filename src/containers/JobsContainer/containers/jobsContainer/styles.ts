@@ -80,25 +80,26 @@ export default makeStyles((theme) => ({
   messages: {
     backgroundColor: '#fff1f6',
     width: '100%',
-    height: 110,
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
   },
   contentMessage: {
-    maxWidth: 1080,
     width: '100%',
     display: 'flex',
-    alignItems: 'center',
+    flexDirection: 'column',
+    padding: 16,
   },
   clearMessage: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
+    marginTop: 15,
   },
   text: {
-    fontSize: 18,
-    width: '50%',
-    flex: 1,
+    fontSize: 14,
+    width: '100%',
+    textAlign: 'justify',
   },
   clearText: {
     fontWeight: 'bold',
@@ -110,7 +111,7 @@ export default makeStyles((theme) => ({
   },
   clearTextBold: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 14,
     color: '#D60051',
     textDecorationLine: 'underline',
   },

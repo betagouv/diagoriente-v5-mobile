@@ -112,15 +112,12 @@ const PrivateDrawer = () => {
         <div
           style={{
             position: 'absolute',
-            top: 65,
-            left: 200,
+            top: 300,
+            left: 0,
             zIndex: 9999,
             display: 'flex',
           }}
         >
-          <div>
-            <img alt="" src={Img} />
-          </div>
           <div>
             <div className={classes.textMsg}>
               Pour compléter ton profil et retrouver à tout moment toutes tes informations, rends toi dans ton tableau

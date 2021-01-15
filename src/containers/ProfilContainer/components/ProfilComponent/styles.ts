@@ -10,10 +10,80 @@ export default makeStyles((theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      paddingBottom:56,
-      [theme.breakpoints.down(350)]: {
-        overflowX:'hidden'
+      // [theme.breakpoints.down(350)]: {
+      //   overflowX:'hidden'
   
+      // },
+    },
+    topMetier:{
+      [theme.breakpoints.down(400)]: {
+width:'fit-content',
+wordBreak:'break-all'
+
+      },
+    },
+    topJobs:{
+      padding:'20px 0px',
+      paddingLeft:60,
+      [theme.breakpoints.down(420)]: {
+        paddingLeft:10,
+
+      },
+
+  },
+    logoStar:{
+      display:'flex',
+      alignItems:'center'
+  },
+  star:{
+      paddingRight:20
+  },
+    topText : {
+      fontSize: '26px',
+      lineHeight: '26px',
+      color: '#424242',
+      marginLeft: '70px',
+      fontFamily: 'Ocean',
+      fontWeight: 900,
+      [theme.breakpoints.down(380)]: {
+        marginLeft: 30,
+
+      },
+
+    },
+    topAccordion : {
+      height: '80px',
+          borderRadius: '0px',
+        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
+        backgroundColor: '#FFD382',
+    
+  
+  
+      },
+    iconTop:{
+      width:30,
+      height:30,
+      color:"#424242"
+    },
+    titleDemarche: {
+      fontFamily: 'Ocean',
+      fontWeight: 900,
+      backgroundColor:'#DB8F00',
+      // fontSize: '2.2em',
+      // lineHeight: 1,
+      // paddingBottom: 15,
+    },
+    demarcheContainer: {
+      flex: '1 0 auto',
+      position: 'relative',
+      width: '100%',
+      backgroundColor: '#F3F2F4',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      paddingBottom:56,
+      [theme.breakpoints.down(380)]: {
+        overflowX:'hidden'
       },
     },
     rootContainer:{
@@ -23,7 +93,7 @@ export default makeStyles((theme) =>
     },
     cardGridContainer: {
       padding: '30px 70px 30px 70px',
-      display:'flex',
+      display:'contents',
       alignItems:'center',
       [theme.breakpoints.down(450)]: {
         padding: '10px 10px 30px 10px',
@@ -31,12 +101,22 @@ export default makeStyles((theme) =>
       },
       
     },
+    profilDetail:{
+      padding:'5px 30px 5px '
+    },
 
     cardClassName: {
       paddingTop: 40,
     },
-
-    title: {
+    titleExp: {
+      fontFamily: 'Ocean',
+      fontWeight: 900,
+      backgroundColor:'#4D6EC5',
+      // fontSize: '2.2em',
+      // lineHeight: 1,
+      // paddingBottom: 15,
+    },
+    titlePro: {
       fontFamily: 'Ocean',
       fontWeight: 900,
       backgroundColor:'#FF0060',
@@ -97,7 +177,7 @@ export default makeStyles((theme) =>
       width: '100%',
       overflow: 'hidden',
       textAlign: 'center',
-      whiteSpace: 'pre-wrap',
+      whiteSpace: 'normal',
     },
 
     alignThemeTitle: {
@@ -106,7 +186,7 @@ export default makeStyles((theme) =>
     },
 
     emptyDiv: {
-      height: 45,
+      // height: 100,
     },
 
     root: {
@@ -283,6 +363,11 @@ export default makeStyles((theme) =>
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
       overflow: 'hidden',
+      [theme.breakpoints.down(400)]: {
+        whiteSpace: 'normal',
+        wordBreak:'break-word',
+
+      },
     },
     favoriContainer: {
       display: 'flex',
@@ -418,6 +503,7 @@ marginRight:0
       boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
       height: '80px',
       borderRadius: '0px',
+      
 
     },
     TextCompetence:{
@@ -436,83 +522,25 @@ marginRight:0
       height:30,
       color:"#D60051"
     },
-    profil:{
-      backgroundColor:'#D60051',
-      width:'33.33%',
-      display:'flex',
-      alignItems:'center',
-      justifyContent:'center',
 
-
-    },
-    profilLabel:{
-      opacity:1 ,
-      color:'#FFFFFF ',
-      fontFamily: 'Ocean',
-      fontWeight: 900,
-      fontSize:24,
-      textAlign:'center',
-      [theme.breakpoints.down(400)]: {
-        width:'min-content'
-      },
-    },
-    experience:{
-      backgroundColor:'#4D6EC5',
-      width:'33.33%',
-      display:'flex',
-      alignItems:'center',
-      justifyContent:'center',
-    },
-    experienceLabel:{
-      opacity:0.5 ,
-      color:'#FFFFFF',
-      fontFamily: 'Ocean',
-      fontWeight: 900,
-      fontSize:24,
-      textAlign:'center',
-      [theme.breakpoints.down(400)]: {
-        width:'min-content'
-      },
-
-    },
-    demarches:{
-      backgroundColor:'#DB8F00 ',
-      width:'33.33%',
-      display:'flex',
-      alignItems:'center',
-      justifyContent:'center',
-    },
-    demarcheLabel:{
-      opacity:0.5,
-      color:'#FFFFFF',
-      fontWeight: 900,
-      fontSize:24,
-      textAlign:'center',
-      fontFamily: 'Ocean',
-      [theme.breakpoints.down(400)]: {
-        width:'min-content'
-      },
-
-    },
-    label:{
-    maxWidth:'100% '
-
-    },
-    navigation:{
-      width:'100%',
-      position:'fixed',
-      bottom:0,
-      height:65,
-      display:'flex',
-
-    },
     modifierProfile:{
-      right: '65px',
-    position: 'absolute',
-    bottom: '20px',
-    [theme.breakpoints.down(400)]: {
-      right: '19px',
-      bottom: '9px',
+
+    fontWeight:'bold',
+    fontSize:14,
+    color:'#6B6B6A',
+    paddingLeft:' 314px',
+
+    [theme.breakpoints.down(420)]: {
+      paddingLeft:' 225px',
+
+    },
+    [theme.breakpoints.down(380)]: {
+      paddingLeft:' 180px',
+
+    },
+    [theme.breakpoints.down(330)]: {
+      paddingLeft:' 135px',
+
     },
     },
     competenceContainer:{
@@ -591,8 +619,128 @@ marginRight:0
       boxShadow: 'none !important',
     },
   
-   
-   
+    experienceContainer: {
+      flex: '1 0 auto',
+      position: 'relative',
+      width: '100%',
+      backgroundColor: '#F3F2F4',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      [theme.breakpoints.down(380)]: {
+        overflowX:'hidden'
+      },
+    },
+    iconPerso:{
+      width:30,
+      height:30,
+      color:"#4D6EC5"
+    },
+    persoAccordion : {
+      
+      height: '80px',
+        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
+          borderRadius: '0px',
+        backgroundColor: '#E1E7F7',
+          [theme.breakpoints.down(330)]: {
+            padding:'0 !important'
+          },
+        
+  
+      },
+      persoText : {
+        fontSize: '26px',
+        lineHeight: '26px',
+        color: '#4D6EC5',
+        marginLeft: '70px',
+        fontFamily: 'Ocean',
+        fontWeight: 900,
+        [theme.breakpoints.down(380)]: {
+          marginLeft:10
+        },
+      },
+ 
+    detailEng:{ 
+      color:'#4D6EC5',
+    fontWeight:700,
+    size:14,
+    display:'flex',
+    paddingTop:150,
+    justifyContent:'flex-end',
+    flex:'auto',
+    alignItems:'flex-end',
+    flexDirection:'column'
+    
+
+    },
+    detailPro:{
+    color:'#4D6EC5',
+    fontWeight:700,
+    size:14,
+    display:'flex',
+    paddingTop:35,
+    justifyContent:'flex-end',
+    flex:'auto',
+    alignItems:'flex-end',
+    flexDirection:'column'
+ 
+
+    },
+    detail:{
+      color:'#4D6EC5',
+      fontWeight:700,
+      size:14,
+      display:'flex',
+      paddingTop:50,
+      justifyContent:'flex-end',
+      flex:'auto',
+      alignItems:'flex-end',
+      flexDirection:'column'
+  
+  
+      },
+      linkEng:{
+  marginLeft:90,
+  [theme.breakpoints.down(420)]: {
+    marginLeft:30,
+  },
+  [theme.breakpoints.down(380)]: {
+    marginLeft:12,
+  },
+  [theme.breakpoints.down(370)]: {
+    marginLeft:6,
+  },
+
+
+
+      },
+    detailColor:{
+      color:'#4D6EC5'
+    },
+  
+    proDetails:{
+      display:'block',
+    },
+    metier:{
+      paddingLeft:130,
+      [theme.breakpoints.down(400)]: {
+        paddingLeft:106
+      },
+      [theme.breakpoints.down(380)]: {
+        paddingLeft:90
+      },
+      [theme.breakpoints.down(330)]: {
+        paddingLeft:70
+      },
+
+AccordionSummary:{
+  '& .MuiAccordionSummary-root-676':{
+    [theme.breakpoints.down(330)]: {
+      padding:'0 important'
+    },
+  },
+}
+    },
 
   }),
 );

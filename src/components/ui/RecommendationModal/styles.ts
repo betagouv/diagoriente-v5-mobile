@@ -1,3 +1,4 @@
+import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
@@ -89,14 +90,20 @@ export default makeStyles((theme) => ({
     fontSize: 18,
     fontWeight: 'bold',
     cursor: 'pointer',
+    width: 156,
     '&:hover': {
       backgroundColor: '#00B2DB',
     },
   },
+  labelContainer: {
+    padding: '3px 0px 3px 45px',
+  },
 
   btnLabel: {
     color: theme.palette.info.main,
+    display: 'flex',
   },
+  arrow: { marginLeft: 25, marginRight: 19 },
 
   previousNext: {
     display: 'flex',
@@ -122,7 +129,7 @@ export default makeStyles((theme) => ({
 
   titleContainer: {
     width: '100%',
-    height: 160,
+    height: 168,
     backgroundColor: '#FFFFFF',
     display: 'flex',
     alignItems: 'center',
@@ -130,12 +137,12 @@ export default makeStyles((theme) => ({
   },
   modalContainer: {
     display: 'flex',
-    paddingBottom: '74px',
+    paddingBottom: '100px',
     flexDirection: 'column',
     alignItems: 'center',
-    height: '100%',
     flex: 1,
     backgroundColor: '#F3F2F4',
+    height: '100%',
   },
 
   titleModal: {
@@ -157,11 +164,10 @@ export default makeStyles((theme) => ({
   },
 
   descriptionModalContainer: {
-    fontSize: 18,
+    fontSize: 14,
     textAlign: 'center',
     color: '#424242',
     marginTop: 20,
-    marginBottom: 50,
     width: '85%',
   },
 
@@ -212,8 +218,8 @@ export default makeStyles((theme) => ({
   },
 
   iconBackground: {
-    background: '#ffff',
     marginTop: 30,
+    marginBottom: 70,
   },
 
   message: {
@@ -296,6 +302,13 @@ export default makeStyles((theme) => ({
     color: '#6B6B6A',
     lineHeight: '21px',
     height: 265,
+
+    '@media not all and (min-resolution:.001dpcm)': {
+      fontSize: 14,
+      color: '#6B6B6A',
+      lineHeight: '21px',
+      height: 300,
+    },
   },
 
   multiline: { padding: '35px 40px 30px 30px' },

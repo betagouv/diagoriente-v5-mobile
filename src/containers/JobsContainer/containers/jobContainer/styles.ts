@@ -39,7 +39,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     alignItems: 'center',
     cursor: 'pointer',
-    marginBottom: 40,
+    marginBottom: 25,
   },
   arrow: {
     transform: 'rotate(180deg)',
@@ -85,7 +85,7 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    padding: '49px 45px 13px 45px',
+    padding: '25px 20px 13px 20px',
   },
   titleDescription: {
     fontWeight: 'bold',
@@ -195,7 +195,7 @@ export default makeStyles<Theme>((theme) => ({
     left: 0,
   },
   titleInterest: {
-    width: '50%',
+    width: 'min-content',
     overflow: 'hidden',
     whiteSpace: 'pre-wrap',
     paddingLeft: 30,
@@ -233,10 +233,7 @@ export default makeStyles<Theme>((theme) => ({
   infoModalWrapper: {
     width: '100%',
     height: '100%',
-    zIndex: 3,
-    position: 'fixed',
-    left: 0,
-    top: 45,
+    marginTop: 45,
     backgroundColor: '#ffff',
     display: 'flex',
     flexDirection: 'column',

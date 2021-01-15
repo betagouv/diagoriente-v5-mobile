@@ -3,7 +3,9 @@ import { useJob } from 'requests/jobs';
 import Title from 'components/common/Title/Title';
 import { useDidMount, useWillUnmount } from 'hooks/useLifeCycle';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import Arrow from 'assets/svg/arrow';
+import Dialog from '@material-ui/core/Dialog';
+import Divider from '@material-ui/core/Divider';
+import Slide from '@material-ui/core/Slide';
 import TestImage from 'assets/svg/test.svg';
 import LogoLocation from 'assets/form/location.png';
 import Spinner from 'components/Spinner/Spinner';
@@ -21,6 +23,7 @@ import ImmersionForm from '../../components/Immersion/ImmersionForm';
 import ModalContainerInfo from '../Modals/JobInfo';
 import ModalQuestion from '../Modals/ModalQuestion/ModalQuestion';
 import Graph from '../../components/GraphCompetence/GraphCompetence';
+import Arrow from 'assets/svg/arrow';
 import useStyles from './styles';
 
 interface IProps extends RouteComponentProps<{ id: string }> {
@@ -60,9 +63,11 @@ const JobContainer = ({
   const { data: loadFamille } = useFamilies();
 
   useDidMount(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     loadJob();
     loadFav();
   });
+
   useEffect(() => {
     if (selectedLocation !== '') {
       locationCall(selectedLocation);
@@ -130,13 +135,13 @@ const JobContainer = ({
   const { user } = useContext(userContext);
   const { parcours } = useContext(parcoursContext);
   const competences = parcours?.globalCompetences;
-  const d: any = [];
+  const matchedInterest: any = [];
   useOnclickOutside(divRef, () => {});
 
   parcours?.families.forEach((item) => {
     data?.job.interests.forEach((el) => {
       if (el._id.nom === item.nom) {
-        d.push(item);
+        matchedInterest.push(item);
       }
     });
   });
@@ -198,6 +203,12 @@ const JobContainer = ({
       <div className={classes.contentInfo}>
         <div className={classes.JobInfo}>
           <div className={classes.jobDescription}>
+            <Link to="/jobs">
+              <div className={classes.back}>
+                <Arrow color="#DB8F00" height="15" width="9.5" className={classes.arrow} />
+                <div className={classes.textBack}>Retour à Mon Top métiers</div>
+              </div>
+            </Link>
             <div>{data?.job.description}</div>
             <div className={classes.footerDescription}>
               <div className={classes.textTest} onClick={() => setInfo(true)}>
@@ -265,11 +276,13 @@ const JobContainer = ({
               <div className={classes.infoTextContainer}>
                 <div className={classes.communInfoText}>
                   <span className={classes.infoInterestPurpleText}>
-                    {`${d.length} intérêts sur ${data?.job.interests.length}`}
+                    {`${matchedInterest.length} intérêts sur ${data?.job.interests.length}`}
                   </span>{' '}
                   en commun avec les tiens.
                 </div>
-                <div> Ce métier semble plutôt bien te correspondre ! </div>
+                <div> {matchedInterest.length <= 2
+                  ? 'Ce métier ne semble pas correspondre à tes interêts'
+                  : 'Ce métier semble plutôt bien te correspondre !'} </div>
               </div>
             </div>
           </div>
@@ -284,7 +297,7 @@ const JobContainer = ({
           <Graph competencesrequises={data?.job.competences} competenceUser={competences} />
         </div>
       </div>
-      {openInfo && (
+      <Dialog open={openInfo} onClose={handleClose} fullScreen>
         <div className={classes.infoModalWrapper}>
           <div className={classes.bandeau}>
             {loading ? (
@@ -295,10 +308,10 @@ const JobContainer = ({
           </div>
           <ModalContainerInfo job={data?.job} handleClose={handleClose} />
         </div>
-      )}
-      <ModalContainer open={openTest} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#DB8F00" size={70}>
-        <ModalQuestion job={data?.job} handleClose={handleClose} />
-      </ModalContainer>
+      </Dialog>
+      {/* <Dialog open={openTest} onClose={handleClose} fullScreen> */}
+      {openTest && <ModalQuestion job={data?.job} onClose={handleClose} />}
+      {/* </Dialog> */}
     </div>
   );
 };

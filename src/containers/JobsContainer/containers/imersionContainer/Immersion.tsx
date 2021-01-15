@@ -393,9 +393,9 @@ const ImmersionContainer = ({
             )}
             {immersionState.data ? (
               <>
-                <div>
+                <div className={immersionState.data?.immersions.companies.length === 0 ? classes.noResults : ''}>
                   {immersionState.data?.immersions.companies.length === 0 &&
-                    'Augmente ta zone de recherche pour plus de résultats'}
+                    'Augmente ta zone de recherche pour plus de résultats!'}
                 </div>
                 {immersionState.data?.immersions.companies?.map((e: Company) => (
                   <CardImmersion
@@ -445,11 +445,12 @@ const ImmersionContainer = ({
         handleClose={handleClose}
         backdropColor="#011A5E"
         colorIcon="#DB8F00"
+        ZIndex={99999}
       >
         {!openContact ? (
           <ModalConseil handleClose={handleClose} />
         ) : (
-          <ModalContact setOpen={setOpen} openContact={openContact} />
+          <ModalContact setOpen={setOpen} openContact={openContact} handleClose={handleClose} />
         )}
       </ModalContainer>
       <ModalContainer open={open} handleClose={handleCloseContact} backdropColor="#011A5E" colorIcon="#DB8F00">

@@ -122,7 +122,7 @@ const Experience = () => {
           </Avatar>
         </div>
 
-        <div className={classes.boxInfo}>
+{/*         <div className={classes.boxInfo}>
           <div className={classes.boxInfoImgSubBox}>
             <div className={classes.boxInfoImg}>
               <img src={Picto} alt="" />
@@ -135,31 +135,31 @@ const Experience = () => {
             </div>
           </div>
           <div className={classes.gameLinksContainer}>
-            <div>
+            <div className={classes.PaddingBetwwen}>
               <Link to="/experience/gameCard">
                 <p className={classes.linkBoxInfo}>Rectec</p>
               </Link>
             </div>
-            <div>
+            <div className={classes.PaddingBetwwen}>
               <Link to="/experience/game">
                 <p className={classes.linkBoxInfo}>Rectec Engagement</p>
               </Link>
             </div>
-            <div>
+            <div className={classes.PaddingBetwwen}>
               <Link to="/game">
                 <p className={classes.linkBoxInfo}>Burger speed</p>
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
-      <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={90}>
+{/*       <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={90}>
         <GameContainer onHandelClose={handleClose} />
       </ModalContainer>
       <ModalContainer open={openEng} handleClose={handleEngClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={90}>
         <Game />
-      </ModalContainer>
+      </ModalContainer> */}
     </div>
   );
 };
