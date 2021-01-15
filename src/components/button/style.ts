@@ -11,7 +11,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     width: '100%',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     [theme.breakpoints.down(330)]: {
       margin:'0px 0px'
     },

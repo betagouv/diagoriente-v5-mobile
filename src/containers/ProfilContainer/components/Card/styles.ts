@@ -74,6 +74,7 @@ export default makeStyles((theme) =>
 
     footerCardContainer: {
       display: 'flex',
+      alignItems:'flex-end',
       background: 'rgba(77, 110, 197, 0.2)',
       borderRadius: '0px 0px 10px 10px',
       padding: '5px 20px',
@@ -123,4 +124,7 @@ export default makeStyles((theme) =>
       flex: 0,
       margin: 0,
     },
+    iconWidth:{
+      width:'56px'
+    }
   }));
