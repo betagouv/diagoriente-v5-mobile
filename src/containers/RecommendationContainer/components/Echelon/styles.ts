@@ -1,8 +1,9 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles((theme) => ({
+export default makeStyles<Theme, { mobile?: boolean }>((theme) => ({
   echelonContainer: {
     display: 'flex',
+    flexDirection: (props) => (props.mobile ? 'column' : 'row'),
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: '12px 0px',
@@ -13,6 +14,8 @@ export default makeStyles((theme) => ({
     flex: 1,
     marginRight: 10,
     maxWidth: 248,
+    marginBottom: (props) => (props.mobile ? '20px' : '0px')
+
   },
   title: {
     color: '#00B2DB',
@@ -21,5 +24,6 @@ export default makeStyles((theme) => ({
   },
   niveau: {
     fontSize: 10,
+
   },
 }));

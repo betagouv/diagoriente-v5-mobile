@@ -18,7 +18,7 @@ export default makeStyles((theme) => ({
   cardContainer: {
     display: 'flex',
     flexDirection: 'column',
-    width: '37vh',
+    width: '90%',
     maxWidth: '660px',
     border: '1px solid #C9C9C7',
     borderRadius: 10,
@@ -71,7 +71,9 @@ export default makeStyles((theme) => ({
     marginBottom: 11,
     "margin-left": "5vh",
   },
-
+  titleSection:{
+    
+  },
 
 
   bodyCard: {
@@ -91,7 +93,7 @@ export default makeStyles((theme) => ({
     background: '#FFFF',
     borderRadius: 5,
     resize: 'none',
-    width: '37vh',
+    width: '50vh',
     maxWidth: '660px',
     "padding-bottom": "2vh",
   },
