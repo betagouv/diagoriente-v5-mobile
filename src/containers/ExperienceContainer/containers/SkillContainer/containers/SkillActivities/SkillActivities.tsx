@@ -80,22 +80,14 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
               .map((act) => {
                 const selected = activities.find((e) => e.id === act.id);
                 return (
-                  <Tooltip
-                    open={!act.description ? false : undefined}
-                    key={act.id}
-                    title={<Child>{act.description}</Child>}
-                    arrow
-                    placement="right"
+                  <Button
+                    variant="outlined"
+                    className={classNames(classes.activity, selected && classes.selectedActivity)}
+                    onClick={() => (!selected ? addActivity(act) : deleteActivity(act.id))}
+                    childrenClassName={classes.childrenClassName}
                   >
-                    <Button
-                      variant="outlined"
-                      className={classNames(classes.activity, selected && classes.selectedActivity)}
-                      onClick={() => (!selected ? addActivity(act) : deleteActivity(act.id))}
-                      childrenClassName={classes.childrenClassName}
-                    >
-                      {act.title}
-                    </Button>
-                  </Tooltip>
+                    {act.title}
+                  </Button>
                 );
               })}
           </div>
