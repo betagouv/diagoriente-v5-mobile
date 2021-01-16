@@ -91,7 +91,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
                       <div className={classes.CheckBoxStyle}>
                         <CheckBox
                           checked={selected}
-                          img={checked}
+                          img={selected && checked}
                           className={classes.checkBox}
                           classNameLogo={classes.checkBoxImg}
                         />
