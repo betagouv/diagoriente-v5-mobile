@@ -148,14 +148,12 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
 
                           <div>
                             {openedTheme?.id === theme.id ? (
-                              <Slide
-                                direction="up"
-                                in={!(selectedTheme?.id === theme.id)}
-                                mountOnEnter
-                                unmountOnExit
-                                
-                              >
+                              <Slide direction="up" in={!(selectedTheme?.id === theme.id)} mountOnEnter unmountOnExit>
                                 <Child key={index} className={classes.child}>
+                                  <p style={{ width: '100%', color:'rgb(34, 58, 122)' }}>
+                                    <b>Appuie deux fois sur le theme pour la sélectionner</b>
+                                  </p>
+
                                   {tooltip.map((el) => (
                                     <div key={el.id} className={classes.titleDiv}>{`-${el.title}`}</div>
                                   ))}
