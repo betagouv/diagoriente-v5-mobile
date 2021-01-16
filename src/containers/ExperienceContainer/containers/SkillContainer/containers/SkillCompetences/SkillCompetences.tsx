@@ -65,7 +65,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     setOpen(false);
   };
   const onclickBtn = () => {
-    if (competences.length ===0)  {
+    if (competences.length === 0) {
       setText('Tu as déjà choisi 4 compétences');
       setOpen(true);
     }
@@ -140,7 +140,14 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
                     {comp.title}
                   </Button>
                   <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
-                    <Child key={index}> {  currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip =='' ? 'Clique deux fois sur la compétence pour la sélectionner' : currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip }  </Child>
+                    <Child key={index}>
+                      <p style={{ width: '100%', color: 'rgb(34, 58, 122)' }}>
+                        <b>Appuie deux fois sur la compétences pour la sélectionner</b>
+                      </p>{' '}
+                      {currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip == ''
+                        ? 'Clique deux fois sur la compétence pour la sélectionner'
+                        : currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}{' '}
+                    </Child>
                   </Slide>
                 </Grid>
               );
