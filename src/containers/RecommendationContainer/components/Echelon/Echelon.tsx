@@ -2,8 +2,8 @@ import React from 'react';
 import EchelonComptence from 'components/common/CompetenceEchelon/CompetenceEchelon';
 import useStyles from './styles';
 
-const CompetenceEchelon = ({ value, title, niveau }: any) => {
-  const classes = useStyles();
+const CompetenceEchelon = ({ value, title, niveau, mobile }: any) => {
+  const classes = useStyles({ mobile });
   return (
     <div className={classes.echelonContainer}>
       <div className={classes.echelonRoot}>
