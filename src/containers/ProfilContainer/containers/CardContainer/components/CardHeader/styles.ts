@@ -26,6 +26,9 @@ marginBottom:5,
     fontWeight: 'bold',
     textTransform: 'capitalize',
     fontSize: 14,
+    [theme.breakpoints.down(330)]: {
+      width:'min-content'
+          },
   },
   appInfo: {
     display: 'flex',
