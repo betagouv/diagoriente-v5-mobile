@@ -15,11 +15,10 @@ interface Props {
   days: any;
   months: any;
   years: any;
+  autoWidthMenu?: boolean;
 }
 moment.locale('fr');
-const DatePicker = ({
- handleChange, day, month, year, days, months, years,
-}: Props) => {
+const DatePicker = ({ handleChange, day, month, year, days, months, years, autoWidthMenu }: Props) => {
   const classes = useStyles();
 
   return (
@@ -32,6 +31,7 @@ const DatePicker = ({
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
+        autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
       />
       <Select
         onChange={(e) => handleChange(`${year}-${e.target.value}-${day}`)}
@@ -41,6 +41,7 @@ const DatePicker = ({
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
+        autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
       />
       <Select
         value={year}
@@ -50,6 +51,7 @@ const DatePicker = ({
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
+        autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
       />
     </div>
   );
