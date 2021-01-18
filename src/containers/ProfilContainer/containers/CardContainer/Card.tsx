@@ -13,6 +13,8 @@ import CardHeader from './components/CardHeader/CardHeader';
 import CardIcons from './components/CardIcons/CardIcons';
 import CardCompetence from './components/CardCompetence/CardCompetence';
 import CardSkills from './components/CardSkills/CardSkills';
+import { useDidMount } from 'hooks/useLifeCycle';
+
 
 import useStyles from './styles';
 
@@ -34,6 +36,9 @@ const CardContainer = () => {
     if (i === 'game') openModal();
     createPdf();
   };
+  useDidMount(() => {
+    window.scrollTo({ top: 0, left: 0 });
+  });
   const icons = (
     <CardIcons
       onDownload={onClickIcon}
