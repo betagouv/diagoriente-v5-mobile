@@ -31,8 +31,6 @@ const DatePicker = ({ handleChange, day, month, year, days, months, years, autoW
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
-        autoWidth={true}
-
         autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
       />
       <Select
@@ -43,8 +41,6 @@ const DatePicker = ({ handleChange, day, month, year, days, months, years, autoW
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
-        autoWidth={autoWidthMenu ? autoWidthMenu : false}
-
         autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
       />
       <Select
