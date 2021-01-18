@@ -1,4 +1,4 @@
-import React, { useMemo , useEffect,useState } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import Input from 'components/inputs/Input/Input';
 import TitleImage from 'components/common/TitleImage/TitleImage';
@@ -63,13 +63,13 @@ const EngagementDate = ({
     <div className={classes.root}>
       <div className={classes.container}>
         <div className={classes.header}>
-        <Title
-          title= "MES EXPÉRIENCES D’ENGAGEMENT"
-          color="#223A7A"
-          size={width > 380 ? 32 : 25}
-          image={blueline}
-          number={6}
-        />
+          <Title
+            title="MES EXPÉRIENCES D’ENGAGEMENT"
+            color="#223A7A"
+            size={width > 380 ? 32 : 25}
+            image={blueline}
+            number={6}
+          />
         </div>
         <div className={classes.themeContainer}>
           <p className={classes.title}>
@@ -93,6 +93,7 @@ const EngagementDate = ({
             <div className={classes.date}>
               <span className={classes.text}>Du</span>
               <DatePicker
+                autoWidthMenu={true}
                 handleChange={(e) => handleChange(e, 'Begin')}
                 day={startDate.slice(8)}
                 month={startDate.slice(5, 7)}
@@ -103,6 +104,7 @@ const EngagementDate = ({
             <div className={classes.date}>
               <span className={classes.text}>Au</span>
               <DatePicker
+                autoWidthMenu={true}
                 handleChange={(e) => handleChange(e, 'End')}
                 day={endDate.slice(8)}
                 month={endDate.slice(5, 7)}
@@ -111,24 +113,17 @@ const EngagementDate = ({
             </div>
             <div className={classes.errorText}>{!isEndDateValid ? errorText : ''}</div>
           </div>
-         
         </div>
-  
-          <div className={classes.previousNext}>
-            <Link
-              to={`/experience/skill/${match.params.themeId}/context${location.search}`} 
-              className={classes.hideLine}
-            >
-              <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
-            </Link>
 
-            <div  className={classes.hideLine}>
-              <NextButton fetching={addSkillState} onClick={addSkill} disabled={!isBeginDateValid || !isEndDateValid}  />
-            </div>
+        <div className={classes.previousNext}>
+          <Link to={`/experience/skill/${match.params.themeId}/context${location.search}`} className={classes.hideLine}>
+            <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
+          </Link>
+
+          <div className={classes.hideLine}>
+            <NextButton fetching={addSkillState} onClick={addSkill} disabled={!isBeginDateValid || !isEndDateValid} />
           </div>
-
-
-   
+        </div>
       </div>
     </div>
   );
