@@ -8,8 +8,8 @@ createStyles({
     justifyContent: 'space-between',
     paddingTop: 35,
     [theme.breakpoints.down(330)]: {
-      padding:'35px 15px 0px 15px',
-      display :'inline'
+      padding:'35px 15px 0px 10px',
+      display :'flex'
 
     },
   },
@@ -29,6 +29,8 @@ marginBottom:5,
   },
   appInfo: {
     display: 'flex',
+    // flexDirection:'row',
+    // justifyContent:'',
     alignItems: 'center',
   },
   appLogo: {
