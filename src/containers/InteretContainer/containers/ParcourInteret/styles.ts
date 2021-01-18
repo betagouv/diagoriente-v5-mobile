@@ -131,6 +131,7 @@ export default makeStyles<Theme>((theme) => ({
     '-ms-overflow-style': 'none',
   },
   btn: {
+    marginTop: 30,
     backgroundColor: theme.palette.primary.main,
     '&:hover': {
       backgroundColor: theme.palette.primary.main,

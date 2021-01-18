@@ -142,6 +142,14 @@ const HomeCompleted = () => {
     <>
       <div className={classes.container}>
         <div className={classes.headerWrapper}>
+          {user?.isCampus && (
+            <div style={{ backgroundColor: '' }}>
+              <p>
+                Pour accéder à la version Campus2023 vous devez poursuivre votre navigation sur ordinateur à l’adresse :
+                app.diagoriente.beta.gouv.fr{' '}
+              </p>
+            </div>
+          )}
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Avatar className={classes.logo} src={user?.logo ? user?.logo : defaultAvatar} />
             <div className={classes.profileHeader}>MON PROFIL</div>

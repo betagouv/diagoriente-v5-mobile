@@ -12,7 +12,6 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     flexDirection: 'column',
     marginTop: 20,
     width: '90%',
-    maxHeight: '100px',
   },
   profileHeader: {
     color: '#223A7A',

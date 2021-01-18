@@ -13,6 +13,7 @@ interface IProps extends ModalProps {
   size?: number;
   title?: string;
   ZIndex?: number;
+  height?: number;
 }
 
 const ModalContainer = ({
@@ -22,12 +23,13 @@ const ModalContainer = ({
   colorIcon,
   children,
   size,
+  height,
   onReset,
   title,
   ZIndex,
   ...rest
 }: IProps) => {
-  const classes = useStyles({ backdropColor, size });
+  const classes = useStyles({ backdropColor, size, height });
   return (
     <Modal
       style={{ zIndex: ZIndex ? ZIndex : 200 }}

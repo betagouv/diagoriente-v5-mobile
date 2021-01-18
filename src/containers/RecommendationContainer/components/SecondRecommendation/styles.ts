@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const PADDING_CARD = '15px 60px';
 export default makeStyles((theme) => ({
   container: {
-    padding: '50px 150px',
+    padding: '50px 20px',
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
@@ -144,6 +144,8 @@ export default makeStyles((theme) => ({
 
   buttonContainer: {
     display: 'flex',
+    width: '100%',
+    justifyContent: 'center',
   },
 
   buttonRadio: {
