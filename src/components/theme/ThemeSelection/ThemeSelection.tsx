@@ -16,7 +16,7 @@ interface Props {
   activities: string[];
 }
 
-const PrivateHeader = ({ theme, activities }: Props) => {
+const PrivateHeader = ({ theme, activities  }: Props) => {
   const classes = useStyles({ theme });
   const location = useLocation();
   const isTheme = Boolean(matchPath(location.pathname, { path: '/experience/theme', exact: true }));
