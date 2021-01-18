@@ -30,8 +30,8 @@ interface Props extends Omit<SelectProps, 'variant'> {
   styleSelectClassName?: string;
   disabledClassName?: string;
   value?: string | number;
-  index?: number;
   autoWidthMenu?: boolean;
+  index?: number;
   renderOption: (option: { label: string | number; value: string | number }, openSelect: boolean) => JSX.Element;
 }
 
