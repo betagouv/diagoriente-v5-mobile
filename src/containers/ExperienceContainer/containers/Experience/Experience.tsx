@@ -108,9 +108,9 @@ const Experience = () => {
           <Avatar
             title="Ajouter une"
             link={
-              <div onClick={onClickEng} className={classes.hideLine}>
-                <div className={classes.linkLabel}>expérience d’engagement</div>
-              </div>
+              <Link to="/experience/theme?type=engagement">
+                <div className={classes.linkLabel}>expérience d’engagement </div>
+              </Link>
             }
             avatarCircleBackground="transparent"
             size={200}
@@ -122,7 +122,7 @@ const Experience = () => {
           </Avatar>
         </div>
 
-{/*         <div className={classes.boxInfo}>
+        {/*         <div className={classes.boxInfo}>
           <div className={classes.boxInfoImgSubBox}>
             <div className={classes.boxInfoImg}>
               <img src={Picto} alt="" />
@@ -154,7 +154,7 @@ const Experience = () => {
         </div> */}
       </div>
 
-{/*       <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={90}>
+      {/*       <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={90}>
         <GameContainer onHandelClose={handleClose} />
       </ModalContainer>
       <ModalContainer open={openEng} handleClose={handleEngClose} backdropColor="#011A5E" colorIcon="#4D6EC5" size={90}>

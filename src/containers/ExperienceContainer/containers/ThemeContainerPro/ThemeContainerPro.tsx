@@ -21,6 +21,7 @@ import PreviousButton from 'components/previousButton/previousButton';
 import { decodeUri, encodeUri } from 'utils/url';
 import { Theme } from 'requests/types';
 import classNames from 'utils/classNames';
+
 import useStyles from './styles';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Portal from '@material-ui/core/Portal';
@@ -34,11 +35,13 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const [openedTheme, setOpenedTheme] = useState<Theme | null>(null);
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
   const [valueSearch, setValueSearch] = useState('');
+
   const { redirect } = decodeUri(location.search);
   const { data } = useThemes({
     variables: { type: 'professional', search: valueSearch },
   });
   const { parcours } = useContext(parcoursContext);
+  const [checked, setChecked] = React.useState(false);
 
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -57,7 +60,14 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     if (openedTheme?.id === theme.id) {
       setSelectedTheme(theme);
       setOpenedTheme(null);
+
     }
+    else {
+      setOpen(false)
+    }
+  };
+  const toggle = () => {
+    setOpen(open);
   };
   useEffect(() => {
     if (selectedTheme) {
@@ -65,6 +75,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     }
   }, [selectedTheme]);
 
+  
   useEffect(() => {
     const handleResize = () => setHeight(window.innerHeight);
     window.addEventListener('resize', handleResize);
@@ -147,10 +158,18 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                           </Grid>
 
                           <div>
-                            {openedTheme?.id === theme.id ? (
-                              <Slide direction="up" in={!(selectedTheme?.id === theme.id)} mountOnEnter unmountOnExit>
+                            {openedTheme?.id === theme.id ?   ( 
+                              
+                              <Slide
+                                direction="up"
+                                in={!(selectedTheme?.id === theme.id)}
+                                mountOnEnter
+                                unmountOnExit 
+                                
+                                
+                              >
                                 <Child key={index} className={classes.child}>
-                                  <p style={{ width: '100%', color:'rgb(34, 58, 122)' }}>
+                                  <p style={{ width: '100%', color:'#FF0060' }}>
                                     <b>Appuie deux fois sur le theme pour la sélectionner</b>
                                   </p>
 
@@ -158,7 +177,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                                     <div key={el.id} className={classes.titleDiv}>{`-${el.title}`}</div>
                                   ))}
                                 </Child>
-                              </Slide>
+                              </Slide> 
                             ) : null}
                           </div>
                         </div>

@@ -203,6 +203,13 @@ export default makeStyles((theme: Theme) =>
       fontSize: 18,
       lineHeight: '26px',
     },
+    dateStyle:{
+      minWidth:'80px !important',
+      left:'150px !important',
+      '& .makeStyles-menu-1139 ': {
+        minWidth:'60px !important'
+      },
+    },
     inputContainer:{
       display: 'grid',
       gridTemplateAreas: '"label input"',
