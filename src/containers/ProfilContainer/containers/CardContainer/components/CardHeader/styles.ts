@@ -20,6 +20,8 @@ createStyles({
     [theme.breakpoints.down(330)]: {
 marginRight:10,
 marginBottom:5,
+width:'min-content'
+
     },
   },
   userName: {

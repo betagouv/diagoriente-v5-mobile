@@ -20,9 +20,13 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: '#F3F2F4',
       display: 'flex',
       flexDirection: 'column',
+      height:'77vh',
       paddingTop: 34,
       paddingBottom: 150,
       alignItems: 'center',
+      [theme.breakpoints.down(370)]: {
+        height:'90vh',
+      },
     },
 
     circleContainer: {
