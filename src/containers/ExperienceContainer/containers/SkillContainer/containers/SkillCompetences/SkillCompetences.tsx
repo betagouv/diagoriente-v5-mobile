@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef , useContext} from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useCompetences } from 'requests/competences';
@@ -19,6 +19,7 @@ import useOnclickOutside from 'hooks/useOnclickOutside';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
 import useStyles from './styles';
+import SelectionContext from 'contexts/SelectionContext';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
   competences: Competence[];
@@ -30,9 +31,11 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
 const ExperienceCompetence = ({ match, competences, setCompetences, theme, history, isCreate, location }: Props) => {
   const classes = useStyles();
   const refSlide = useRef(null);
+  const { open, setOpen } = useContext(SelectionContext);
 
   const { data, loading } = useCompetences({ variables: theme?.type === 'engagement' ? { type: 'engagement' } : {} });
-  const [open, setOpen] = React.useState(false);
+  const [opened, setOpened] = React.useState(false);
+  // const [openedTheme, setOpenedTheme] = useState<Theme | null>(null);
   const [text, setText] = React.useState('');
   const [showInfo, setShowInfo] = useState(false);
   const [currentInfoId, setCurrentInfoId] = useState('');
@@ -45,7 +48,8 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
       index && setCurrentInfoIndex(index);
     }
     setCurrentInfoId(id);
-    setShowInfo(true);
+    setShowInfo(true); 
+    setOpen(false)
   };
 
   const addCompetence = (competence: Competence) => {
@@ -54,7 +58,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
       setCompetences([...competences, competence]);
     } else if (competences.length === 4) {
       setText('Tu as déjà choisi 4 compétences');
-      setOpen(true);
+      setOpened(true);
     }
   };
 
@@ -62,12 +66,12 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     setCompetences(competences.filter((comp) => comp.id !== id));
   };
   const handleClose = () => {
-    setOpen(false);
+    setOpened(false);
   };
   const onclickBtn = () => {
     if (competences.length ===0)  {
       setText('Tu as déjà choisi 4 compétences');
-      setOpen(true);
+      setOpened(true);
     }
   };
 
@@ -80,7 +84,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
   const onNavigate = () => {
     if (competences.length && competences.length <= 4)
       history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
-    setOpen(false);
+    setOpened(false);
   };
   return (
     <div className={classes.root}>
@@ -134,13 +138,16 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
                         ? !showInfo || (showInfo && currentInfoId !== comp.id)
                           ? handleShowInfo(comp.id)
                           : addCompetence(comp as any)
+                          
                         : deleteCompetence(comp.id);
                     }}
                   >
                     {comp.title}
                   </Button>
                   <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
-                    <Child key={index}> {  currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip =='' ? 'Clique deux fois sur la compétence pour la sélectionner' : currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip }  </Child>
+                    <Child key={index}> {  currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip }
+
+                            </Child>
                   </Slide>
                 </Grid>
               );
@@ -160,7 +167,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
             </div>
           </div>
         </div>
-        <Popup open={open} handleClose={handleClose} iconClassName={classes.iconClassName}>
+        <Popup open={opened} handleClose={handleClose} iconClassName={classes.iconClassName}>
           <div className={classes.popupContainer}>
             <p className={classes.popupDescription}>{text}</p>
             <Button className={classes.incluse} onClick={handleClose}>
