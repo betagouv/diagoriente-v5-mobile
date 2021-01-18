@@ -1,4 +1,4 @@
-import React, {  useContext, useEffect, useRef, useState  } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import Input from 'components/inputs/Input/Input';
 import { useDidMount } from 'hooks/useLifeCycle';
 
@@ -14,7 +14,6 @@ import { useLogin } from 'requests/auth';
 import { useVerification } from 'requests/verificationBot';
 
 import useAuth from 'hooks/useAuth';
-import Recaptcha from 'components/Recaptcha/recaptch';
 import useStyles from './styles';
 
 const Login = ({ location }: RouteComponentProps) => {
@@ -38,7 +37,7 @@ const Login = ({ location }: RouteComponentProps) => {
 
   const { user } = useContext(UserContext);
   useDidMount(() => {
-    window.scrollTo({ top: 0, left: 0});
+    window.scrollTo({ top: 0, left: 0 });
   });
   useEffect(() => {
     if (loginState.error?.graphQLErrors.length !== 0) {
@@ -61,26 +60,11 @@ const Login = ({ location }: RouteComponentProps) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginState.error]);
-  useEffect(() => {
-    if (errorCount === 3) {
-      setOpenVerif(true);
-    }
-  }, [errorCount]);
-  useEffect(() => {
-    if (verificationState.data) {
-      setErrorCount(0);
-      setOpenVerif(false);
-    }
-  }, [verificationState.data]);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (actions.validateForm()) {
-      if (verificationState.data && verificationState.data.verificationBot.success) {
-        loginCall({ variables: state.values });
-      } else {
-        loginCall({ variables: state.values });
-      }
+      loginCall({ variables: state.values });
     } else {
       actions.setAllTouched(true);
     }
@@ -129,63 +113,62 @@ const Login = ({ location }: RouteComponentProps) => {
             errorText={state.touched.password && state.errors.password}
           />
           <div className={classes.groupBtnTextContainer}>
-          <div className={classes.groupTextContainer}>
-            <Grid container spacing={0}>
-              <Grid item >
-                <div className={classes.emptyDiv} />
+            <div className={classes.groupTextContainer}>
+              <Grid container spacing={0}>
+                <Grid item>
+                  <div className={classes.emptyDiv} />
+                </Grid>
+                <Grid item>
+                  <Link to="/forgotPassword">
+                    <div className={classes.forgotText}>Mot de passe oublié ?</div>
+                  </Link>
+                </Grid>
               </Grid>
-              <Grid item >
-                <Link to="/forgotPassword">
-                  <div className={classes.forgotText}>Mot de passe oublié ?</div>
-                </Link>
-              </Grid>
-            </Grid>
-          </div>
-          {openVerif && <Recaptcha verification={verificationCall} />}
-          <div className={classes.groupTextContainer}>
-            <Grid container spacing={0}>
-              <Grid item >
-                <div className={classes.emptyDiv} />
-              </Grid>
-              <Grid item >
-                <div className={classes.containerCheckbox}>
-                  <CheckBox
-                    onChange={actions.handleChange}
-                    checked={state.values.stayConnected}
-                    name="stayConnected"
-                    color="#00B2DB"
-                  />
-                  <div className={classes.conditionText} onClick={onClickCondition}>
-                    Garder ma session active
+            </div>
+            <div className={classes.groupTextContainer}>
+              <Grid container spacing={0}>
+                <Grid item>
+                  <div className={classes.emptyDiv} />
+                </Grid>
+                <Grid item>
+                  <div className={classes.containerCheckbox}>
+                    <CheckBox
+                      onChange={actions.handleChange}
+                      checked={state.values.stayConnected}
+                      name="stayConnected"
+                      color="#00B2DB"
+                    />
+                    <div className={classes.conditionText} onClick={onClickCondition}>
+                      Garder ma session active
+                    </div>
                   </div>
-                </div>
+                </Grid>
               </Grid>
-            </Grid>
-          </div>
-          <div className={classes.btnContainer}>
-            <Grid container spacing={0}>
-              <Grid item >
-                <div className={classes.emptyDiv} />
+            </div>
+            <div className={classes.btnContainer}>
+              <Grid container spacing={0}>
+                <Grid item>
+                  <div className={classes.emptyDiv} />
+                </Grid>
+                <Grid item>
+                  <Button className={classes.btn} type="submit" fetching={loginState.loading}>
+                    <div className={classes.btnLabel}>Je me connecte</div>
+                  </Button>
+                </Grid>
               </Grid>
-              <Grid item >
-                <Button className={classes.btn} type="submit" fetching={loginState.loading}>
-                  <div className={classes.btnLabel}>Je me connecte</div>
-                </Button>
+            </div>
+            <div className={classes.btnContainer}>
+              <Grid container spacing={0}>
+                <Grid item>
+                  <div className={classes.emptyDiv} />
+                </Grid>
+                <Grid item>
+                  <Link to="/register">
+                    <div className={classes.registerLabel}>Je n’ai pas encore de compte</div>
+                  </Link>
+                </Grid>
               </Grid>
-            </Grid>
-          </div>
-          <div className={classes.btnContainer}>
-            <Grid container spacing={0}>
-              <Grid item >
-                <div className={classes.emptyDiv} />
-              </Grid>
-              <Grid item >
-                <Link to="/register">
-                  <div className={classes.registerLabel}>Je n’ai pas encore de compte</div>
-                </Link>
-              </Grid>
-            </Grid>
-          </div>
+            </div>
           </div>
         </form>
       </div>

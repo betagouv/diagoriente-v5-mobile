@@ -110,7 +110,7 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
       lineHeight: '21px',
       fontWeight: 'bold',
-      width: 100,
+      width: 120,
     },
     title: {
       fontFamily: 'Andika New Basic',
@@ -139,7 +139,7 @@ export default makeStyles((theme: Theme) =>
 
     marginTitle: {
       alignSelf: 'center',
-      width: 100,
+      // width: 100,
       color: '#424242',
       fontSize: 14,
     },

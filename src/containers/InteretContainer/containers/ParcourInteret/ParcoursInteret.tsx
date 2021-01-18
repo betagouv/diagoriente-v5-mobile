@@ -159,7 +159,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           )}
         </div>
       </div>
-      <ModalContainer open={open} backdropColor="#011A5E" colorIcon="#420FAB">
+      <ModalContainer open={open} backdropColor="#011A5E" colorIcon="#420FAB" height={70} size={90}>
         <div style={{ height: 240, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 40 }}>
           <div>
             <img src={logo} alt="att" width={35} height={35} />
@@ -174,8 +174,8 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
         </div>
       </ModalContainer>
-      <ModalContainer open={openWarning} backdropColor="#011A5E" colorIcon="#420FAB" size={90}>
-        <div style={{ height: '80%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 40 }}>
+      <ModalContainer open={openWarning} backdropColor="#011A5E" colorIcon="#420FAB" size={90} height={70}>
+        <div style={{ height: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 40 }}>
           <div className={classes.titleContainerModal}>UNE PETITE MINUTE...</div>
           <div className={classes.textModal}>
             Tu as choisi tes familles d’intérêts seulement dans la 1ère partie, es-tu sûr.e d’avoir exploré toutes les

@@ -177,6 +177,7 @@ export default makeStyles((theme) => ({
 
   marginInput: {
     margin: '6px 0px 0px 0px',
+    width:'100%'
   },
 
   fontInput: {
@@ -206,7 +207,7 @@ export default makeStyles((theme) => ({
   },
 
   formContainer: {
-    width: '85%',
+    // width: '85%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

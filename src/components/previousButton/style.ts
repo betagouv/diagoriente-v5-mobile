@@ -2,9 +2,6 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles((theme:Theme) => ({
     btnperso: {
-        // position: 'absolute',
-        // backgroundColor: '#00CFFF',
-        // bottom: -25,
         backgroundColor: '#F3F2F4',
         left: '50%',
         minWidth: 175,
@@ -14,12 +11,6 @@ export default makeStyles((theme:Theme) => ({
         transform: 'translate(-50%,0)',
         height: 50,
         borderRadius: 10,
-        // '&:hover': {
-        //   backgroundColor: '#00B2DB ',
-        // },
-        // '&:disabled': {
-        //   backgroundColor: '#7AE6FF',
-        // },
       },
     
       contentBtn: {
@@ -46,9 +37,10 @@ export default makeStyles((theme:Theme) => ({
         left: 19,
         transform: 'rotate(180deg)',
         marginBottom: 4,
+        bottom: 13,
         '@media not all and (min-resolution:.001dpcm)': {
-          position: "relative",
-          bottom: "0.3vh",
+          position: "absolute",
+          bottom: 13,
           left: 19,
           transform: 'rotate(180deg)',
           marginBottom: 4
