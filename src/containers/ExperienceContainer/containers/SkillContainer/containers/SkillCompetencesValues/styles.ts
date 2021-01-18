@@ -232,13 +232,13 @@ export default makeStyles((theme: Theme) =>
       background: '#ffff',
       border: '1px dashed #C9C9C7',
       borderRadius: 5,
-      padding: '9vh 20px 20px 30px',
+      padding: '12vh 20px 20px 30px',
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       [theme.breakpoints.down(340)]: {
-        padding: '9vh 20px 20px 20px',
+        padding: '15vh 20px 20px 20px',
 
       },
       '@media not all and (min-resolution:.001dpcm)': {
