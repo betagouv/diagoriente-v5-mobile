@@ -309,7 +309,7 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
         </div>
       </ModalContainer>
       <ModalContainer open={thirdOpen} handleClose={handleThirdClose} backdropColor="#011A5E" colorIcon="#4D6EC5">
-        <div className={classes.modalContainer}>
+        <div className={classes.modalContainerOK}>
           <div className={classes.titleContainer}>
             <div className={classes.titleModal}>DEMANDE DE RECOMMANDATION</div>
           </div>
