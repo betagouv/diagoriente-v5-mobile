@@ -324,6 +324,7 @@ const Register = () => {
                       name="acceptCondition"
                       color="#00B2DB"
                       background="#fff"
+                      border="#00B2DB"
                     />
                     <div className={classes.conditionText} onClick={onClickCondition}>
                       J&lsquo;accepte les{' '}

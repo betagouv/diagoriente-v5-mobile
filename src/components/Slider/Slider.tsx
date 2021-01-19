@@ -95,6 +95,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
                           className={classes.checkBox}
                           classNameLogo={classes.checkBoxImg}
                           color={'#420FAB'}
+                          border="#420FAB"
                         />
                         <div className={classes.titleContainer1}>{res}</div>
                       </div>

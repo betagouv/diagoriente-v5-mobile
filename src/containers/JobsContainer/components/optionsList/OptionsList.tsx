@@ -11,10 +11,20 @@ interface Props {
   selected: string[] | undefined;
   className?: string;
   CheckBoxbackgroudColor?: string;
-  img?: string;
+  color?: string;
+  background?: string;
+  border?: string;
 }
 
-const OptionsList = ({ options, onSelectText, selected, className, img, CheckBoxbackgroudColor }: Props) => {
+const OptionsList = ({
+  options,
+  onSelectText,
+  selected,
+  className,
+  CheckBoxbackgroudColor,
+  background,
+  border,
+}: Props) => {
   const classes = useStyles({
     CheckBoxbackgroudColor,
   });
@@ -32,8 +42,8 @@ const OptionsList = ({ options, onSelectText, selected, className, img, CheckBox
             checked={isInclude(el.id)}
             onChange={() => {}}
             color="#fff"
-            background="#FFD382"
-            border='#DB8F00'
+            background={background}
+            border={border}
           />
           <div className={isInclude(el.id) ? classes.selectedItemText : classes.itemText}>{el.label}</div>
         </div>
