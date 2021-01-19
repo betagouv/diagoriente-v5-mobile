@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   root: {
     width: '100%',
-    height: '100vh',
+    height: '100%',
     display: 'flex',
     justifyContent: 'center',
     paddingBottom: 20,
@@ -11,12 +11,13 @@ export default makeStyles((theme) => ({
   },
 
   content: {
-    maxWidth: 1080,
     width: '100%',
+    height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '60px 30px 75px 30px',
+    padding: '10px 30px 30px 30px',
+    minHeight: 600,
   },
 
   header: {
