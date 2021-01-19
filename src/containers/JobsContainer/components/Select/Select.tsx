@@ -35,6 +35,7 @@ interface IProps {
   fullScreenModal?: boolean;
   modal?: boolean;
   arrowColor?: string;
+  img?: string;
 }
 
 const SelectJobs = ({
@@ -53,6 +54,7 @@ const SelectJobs = ({
   parcourAcc,
   fullScreenModal,
   modal,
+  img,
   arrowColor,
 }: IProps) => {
   const classes = useStyles({ fullSelect, fullScreenModal, open, arrowColor });
@@ -136,12 +138,12 @@ const SelectJobs = ({
                   <span className={classes.closeModelLabel}> {placeholder} </span>
                 </div>
                 <OptionList
-                  CheckBoxbackgroudColor="#7AE6FF"
                   options={options}
                   onSelectText={onSelectText}
                   selected={value}
                   name={name}
                   className={classes.optionList}
+                  img={img}
                 />
               </div>
             </div>
