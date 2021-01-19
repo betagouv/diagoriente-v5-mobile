@@ -5,6 +5,8 @@ import Input from 'components/inputs/Input/Input';
 import AutoComplete from 'components/inputs/AutoComplete/AutoComplete';
 import Button from 'components/button/Button';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
+import checked from 'assets/form/checkBoxBlue.svg';
+
 import Spinner from 'components/Spinner/Spinner';
 import { useForm } from 'hooks/useInputs';
 import { useRegister, useAvatars } from 'requests/auth';
@@ -322,6 +324,7 @@ const Register = () => {
                       onChange={actions.handleChange}
                       checked={values.acceptCondition}
                       name="acceptCondition"
+                      img={checked}
                       color="#011A5E"
                     />
                     <div className={classes.conditionText} onClick={onClickCondition}>

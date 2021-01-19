@@ -11,6 +11,7 @@ import Button from 'components/button/Button';
 import classNames from 'utils/classNames';
 import { useAccessibility } from 'requests/accessibility';
 import useStyles from './style';
+import checked from 'assets/form/checkboxchecked.svg'
 
 enum Steps {
   THEMES,
@@ -29,7 +30,7 @@ const selectTheme = createMuiTheme({
 });
 
 const SelectModal = () => {
-  const divSelect = useRef(null)
+  const divSelect = useRef(null);
   const history = useHistory();
   const classes = useStyles();
   const [selectedThemes, setSelectedThemes] = useState<string[]>([]);
@@ -43,7 +44,7 @@ const SelectModal = () => {
   const [accessibility, setAccessibility] = useState('');
   const isChecked = (id: string) => selectedThemes.includes(id);
   const divType = useRef<HTMLDivElement>(null);
-var x = false;
+  var x = false;
 
   useEffect(() => {
     accessibilityCall();
@@ -78,8 +79,6 @@ var x = false;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updateState.data]);
 
-
-
   switch (step) {
     case Steps.ACCESSIBILITY:
       return (
@@ -96,22 +95,23 @@ var x = false;
           </div>
           <div className={classes.accessibility}>
             <ThemeProvider theme={selectTheme}>
-                          <Select
-              options={accessibilityState.data?.accessibilities.data || []}
-              onSelectText={(e) => {
-                if (e) setAccessibility(e);
-              }}              name="job"
-              value={[accessibility]}
-
-              placeholder={"Niveau de diplôme"} 
-              className={classes.containerAutoComp}
-              open={openType}
-              modal
-              onClick={() => setOpenType(!openType)}
-              onClose={() => setOpenType(false)}
-              reference={divType}
-              color = {x}
-            />
+              <Select
+                options={accessibilityState.data?.accessibilities.data || []}
+                onSelectText={(e) => {
+                  if (e) setAccessibility(e);
+                }}
+                name="job"
+                value={[accessibility]}
+                placeholder={'Niveau de diplôme'}
+                className={classes.containerAutoComp}
+                open={openType}
+                modal
+                onClick={() => setOpenType(!openType)}
+                onClose={() => setOpenType(false)}
+                reference={divType}
+                color={x}
+                img={checked}
+              />
             </ThemeProvider>
           </div>
           <div className={classes.btnContainerModal}>

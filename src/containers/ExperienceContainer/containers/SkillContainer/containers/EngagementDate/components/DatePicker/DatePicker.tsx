@@ -51,7 +51,7 @@ const DatePicker = ({ handleChange, day, month, year, days, months, years, autoW
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
-        autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
+        autoWidth={autoWidthMenu ? autoWidthMenu : false}
       />
     </div>
   );

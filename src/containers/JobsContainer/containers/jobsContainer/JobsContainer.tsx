@@ -15,6 +15,7 @@ import JobCard from '../../components/Card/CardJob';
 import Select from '../../components/Select/Select';
 import SelectData from '../../components/SelectData/SelectData';
 import useStyles from './styles';
+import checked from 'assets/form/checkBoxYellow.svg';
 
 interface IProps {
   jobs?: Jobs[];
@@ -240,6 +241,7 @@ const JobsContainer = ({
               onClose={() => setOpenType(false)}
               reference={divType}
               arrowColor="#DB8F00"
+              img={checked}
             />
             <Select
               options={listAccData}
@@ -255,6 +257,7 @@ const JobsContainer = ({
               reference={divAcc}
               parcourAcc={parcours?.accessibility}
               arrowColor="#DB8F00"
+              img={checked}
             />
           </div>
           {loading ? (
