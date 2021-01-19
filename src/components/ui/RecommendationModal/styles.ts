@@ -142,6 +142,8 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     flex: 1,
     backgroundColor: '#F3F2F4',
+    height: '100%',
+    minHeight: 700,
   },
 
   titleModal: {
