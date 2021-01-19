@@ -4,7 +4,6 @@ import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import classNames from 'utils/classNames';
 import Grid from '@material-ui/core/Grid';
-import Img from 'assets/form/checkBoxBlue.svg';
 
 import useStyles from './styles';
 
@@ -27,7 +26,7 @@ const Context = ({ className, checked, handleChange, title, icon }: Props) => {
         <Circle size={80} />
       )}
       <span className={classNames(classes.title, checked && classes.titleChecked)}>{title}</span>
-      <CheckBox color="#00CFFF" img={Img} className={classes.checkbox} checked={checked} onChange={handleChange} />
+      <CheckBox color="#fff" background="#00CFFF" border="#00B2DB" className={classes.checkbox} checked={checked} onChange={handleChange} />
     </Grid>
   );
 };

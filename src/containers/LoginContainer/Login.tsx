@@ -12,7 +12,6 @@ import { validateEmail } from 'utils/validation';
 import { useForm } from 'hooks/useInputs';
 import { useLogin } from 'requests/auth';
 import { useVerification } from 'requests/verificationBot';
-import checked from 'assets/form/checkBoxBlue.svg';
 
 import useAuth from 'hooks/useAuth';
 import useStyles from './styles';
@@ -138,7 +137,7 @@ const Login = ({ location }: RouteComponentProps) => {
                       checked={state.values.stayConnected}
                       name="stayConnected"
                       color="#00B2DB"
-                      img={checked}
+                      background="#fff"
                     />
                     <div className={classes.conditionText} onClick={onClickCondition}>
                       Garder ma session active

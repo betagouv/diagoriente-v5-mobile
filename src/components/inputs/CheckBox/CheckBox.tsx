@@ -1,5 +1,6 @@
 import React, { forwardRef, Ref } from 'react';
 import Icon from 'assets/form/checkbox1.svg';
+import Check from 'assets/form/check';
 import classNames from 'utils/classNames';
 import useStyles from './styles';
 
@@ -10,17 +11,24 @@ interface Props {
   className?: string;
   classNameLogo?: string;
   name?: string;
-  color?: string;
+  color: string;
   border?: string;
   img?: string;
+  background?: string;
+  width?: number;
+  heigth?: number;
 }
 const CheckBox = forwardRef(
-  ({ checked, onChange, name, color, border, img, className, classNameLogo }: Props, ref: Ref<HTMLInputElement>) => {
+  (
+    { checked, onChange, name, color, border, img, className, classNameLogo, background }: Props,
+    ref: Ref<HTMLInputElement>,
+  ) => {
     const classes = useStyles({ color, checked, border });
     return (
       <label className={classNames(classes.container, className)}>
         <input type="checkbox" checked={checked} onChange={onChange} name={name} ref={ref} />
-        {checked ? <img src={img} className={classes.icon} /> : <div className={classes.checkmark} />}
+        {checked ? <Check color={color} background={background} border={border} /> : <div className={classes.checkmark} />}
+        
       </label>
     );
   },
