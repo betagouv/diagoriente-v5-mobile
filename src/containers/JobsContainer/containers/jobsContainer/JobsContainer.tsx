@@ -226,6 +226,7 @@ const JobsContainer = ({
               onClose={() => setOpenDomain(false)}
               referenceFullScreen={divDomaine}
               arrowColor="#DB8F00"
+              from='job'
             />
             <Select
               options={listTypeData}
@@ -240,6 +241,7 @@ const JobsContainer = ({
               onClose={() => setOpenType(false)}
               reference={divType}
               arrowColor="#DB8F00"
+              from="job"
             />
             <Select
               options={listAccData}
@@ -255,6 +257,7 @@ const JobsContainer = ({
               reference={divAcc}
               parcourAcc={parcours?.accessibility}
               arrowColor="#DB8F00"
+              from="job"
             />
           </div>
           {loading ? (

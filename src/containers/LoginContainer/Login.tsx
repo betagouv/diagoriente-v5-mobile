@@ -138,6 +138,7 @@ const Login = ({ location }: RouteComponentProps) => {
                       name="stayConnected"
                       color="#00B2DB"
                       background="#fff"
+                      border="#00B2DB"
                     />
                     <div className={classes.conditionText} onClick={onClickCondition}>
                       Garder ma session active
