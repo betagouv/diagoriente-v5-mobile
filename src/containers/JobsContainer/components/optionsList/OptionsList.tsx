@@ -31,9 +31,9 @@ const OptionsList = ({ options, onSelectText, selected, className, img, CheckBox
             name={el.label}
             checked={isInclude(el.id)}
             onChange={() => {}}
-            color={theme.palette.secondary.main}
-            border="#DB8F00"
-            img={img}
+            color="#fff"
+            background="#FFD382"
+            border='#DB8F00'
           />
           <div className={isInclude(el.id) ? classes.selectedItemText : classes.itemText}>{el.label}</div>
         </div>

@@ -5,7 +5,6 @@ import Input from 'components/inputs/Input/Input';
 import AutoComplete from 'components/inputs/AutoComplete/AutoComplete';
 import Button from 'components/button/Button';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
-import checked from 'assets/form/checkBoxBlue.svg';
 
 import Spinner from 'components/Spinner/Spinner';
 import { useForm } from 'hooks/useInputs';
@@ -63,7 +62,7 @@ const Register = () => {
   });
   const { values, errors, touched } = state;
   const [locationCall, { data, loading }] = useLocation({ variables: { search } });
-  const isBrowser = typeof window !== "undefined";
+  const isBrowser = typeof window !== 'undefined';
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
   const { loading: loadingAvatar, data: avatarData } = useAvatars();
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -169,7 +168,7 @@ const Register = () => {
             />
             <div className={classes.avatarsWrapper}>
               <div className={classes.avatarContainer}>
-                <div >
+                <div>
                   <div className={classes.labelContainer}>
                     <div className={classes.label}>
                       Ton image de profil
@@ -178,11 +177,11 @@ const Register = () => {
                     <div className={classes.subLabel}>Choisis un avatar</div>
                   </div>
                 </div>
-                <div className={classes.subAvatar} >
+                <div className={classes.subAvatar}>
                   <div className={classes.avatarsContainer}>
                     {loadingAvatar && <Spinner />}
                     {avatarData?.avatars.data.map((el) => (
-                      <div key={el.id}  onClick={() => onAvatarClick(el.url)}>
+                      <div key={el.id} onClick={() => onAvatarClick(el.url)}>
                         <img
                           src={el.url}
                           alt=""
@@ -228,14 +227,14 @@ const Register = () => {
               errorText={touched.password ? errors.password : ''}
             />
             <div>
-              <Grid  spacing={0}>
-                <Grid item >
+              <Grid spacing={0}>
+                <Grid item>
                   <div className={classes.emptyDiv} />
                 </Grid>
-                <Grid item >
+                <Grid item>
                   <div className={classes.passeItem}>
                     <div className={classes.optionItem}>
-                      Ton mot de passe doit comporter 6 <br/> caractères minimum, dont au moins :
+                      Ton mot de passe doit comporter 6 <br /> caractères minimum, dont au moins :
                     </div>
                     <div className={classes.option}>
                       <div className={classes.optionWrapper}>
@@ -294,7 +293,6 @@ const Register = () => {
               onChange={actions.handleChange}
               value={values.codeGroupe}
               className={classes.inputContainer}
-
               name="codeGroupe"
               placeholder="ex: codeGroupe1"
               error={touched.codeGroupe && (errors.codeGroupe !== '' || errorFormObject.key === 'codeGroupe')}
@@ -302,35 +300,34 @@ const Register = () => {
               errorForm={errorFormObject.key === 'codeGroupe' ? errorFormObject.value : ''}
             />
             <div className={classes.groupTextContainer}>
-              <Grid  spacing={0}>
-                <Grid item >
+              <Grid spacing={0}>
+                <Grid item>
                   <div className={classes.emptyDiv} />
                 </Grid>
-                <Grid item >
+                <Grid item>
                   <div className={classes.groupText}>
-                    Si tu es dans un groupe, renseigne ici <br/> le code qui t&lsquo;a été remis.
+                    Si tu es dans un groupe, renseigne ici <br /> le code qui t&lsquo;a été remis.
                   </div>
                 </Grid>
               </Grid>
             </div>
             <div className={classes.groupTextContainer}>
               <Grid spacing={0} xs={4} sm={6}>
-                <Grid item >
+                <Grid item>
                   <div className={classes.emptyDiv} />
                 </Grid>
-                <Grid item spacing={0}  xs={4} >
+                <Grid item spacing={0} xs={4}>
                   <div className={classes.containerCheckbox}>
                     <CheckBox
                       onChange={actions.handleChange}
                       checked={values.acceptCondition}
                       name="acceptCondition"
-                      img={checked}
-                      color="#011A5E"
+                      color="#00B2DB"
+                      background="#fff"
                     />
                     <div className={classes.conditionText} onClick={onClickCondition}>
                       J&lsquo;accepte les{' '}
-              
-                      <span className={classes.conditionColorText}>conditions d&lsquo;utilisation</span>  de Diagoriente
+                      <span className={classes.conditionColorText}>conditions d&lsquo;utilisation</span> de Diagoriente
                       <span className={classes.start}>*</span>
                     </div>
                   </div>
@@ -346,10 +343,10 @@ const Register = () => {
             </div>
             <div className={classNames(classes.btnContainer, classes.paddingBtn)}>
               <Grid container spacing={0}>
-                <Grid item >
+                <Grid item>
                   <div className={classes.emptyDiv} />
                 </Grid>
-                <Grid item >
+                <Grid item>
                   <Button
                     className={classes.btn}
                     type="submit"

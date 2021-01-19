@@ -110,7 +110,6 @@ const SelectModal = () => {
                 onClose={() => setOpenType(false)}
                 reference={divType}
                 color={x}
-                img={checked}
               />
             </ThemeProvider>
           </div>
