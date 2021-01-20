@@ -128,6 +128,7 @@ export default makeStyles<Theme>((theme) => ({
   noResults: {
     fontSize: 14,
     padding: '20px 0px',
+    textAlign: 'center',
   },
   resultTitle: {
     color: theme.palette.success.main,

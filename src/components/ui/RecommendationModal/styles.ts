@@ -142,7 +142,16 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     flex: 1,
     backgroundColor: '#F3F2F4',
+  },
+  modalContainerOK: {
+    display: 'flex',
+    paddingBottom: '100px',
+    flexDirection: 'column',
+    alignItems: 'center',
+    flex: 1,
+    backgroundColor: '#F3F2F4',
     height: '100%',
+    minHeight: 600,
   },
 
   titleModal: {
@@ -177,7 +186,7 @@ export default makeStyles((theme) => ({
 
   marginInput: {
     margin: '6px 0px 0px 0px',
-    width:'100%'
+    width: '100%',
   },
 
   fontInput: {
@@ -220,7 +229,7 @@ export default makeStyles((theme) => ({
 
   iconBackground: {
     marginTop: 30,
-    marginBottom: 70,
+    marginBottom: 40,
   },
 
   message: {
