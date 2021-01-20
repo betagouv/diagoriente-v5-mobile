@@ -67,6 +67,9 @@ export default makeStyles<Theme>((theme) => ({
     margin: 10,
     padding: 10,
     cursor: 'pointer',
+    [theme.breakpoints.down(415)]: {
+      maxWidth: '-webkit-fill-available',
+    },
   },
   themeContainerPro: {
     border: '1px solid #00B2DB',
