@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles<Theme>((theme) => ({
   modalBody: {
     overflow: 'auto',
-    paddingTop: 50,
+    paddingTop: 72,
     backgroundColor: '#F3F2F4',
     flex: 1,
   },
@@ -18,9 +18,9 @@ export default makeStyles<Theme>((theme) => ({
     fontSize: 14,
     textAlign: 'center',
     marginTop: 40,
-    "padding-bottom" : 40,
-    "padding-left": "2vh",
-    "padding-right": "2vh",
+    'padding-bottom': 40,
+    'padding-left': '2vh',
+    'padding-right': '2vh',
   },
   subTitle: {
     fontSize: 14,
@@ -132,7 +132,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     paddingBottom: 150,
-    backgroundColor : "white",
-    "padding-bottom": "25%",
+    backgroundColor: 'white',
+    'padding-bottom': '25%',
   },
 }));
