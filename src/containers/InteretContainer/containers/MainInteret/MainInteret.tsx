@@ -29,7 +29,7 @@ const MainInteret = () => {
         <div className={classes.linksContainer}>
         <Link
             to={{
-              pathname: `/interet/parcours/${0}`,
+              pathname: `/interet/parcours/${2}`,
             }}
           >
             <div className={classes.btnContainer}>
@@ -58,7 +58,7 @@ const MainInteret = () => {
 
           <Link
             to={{
-              pathname: `/interet/parcours/${2}`,
+              pathname: `/interet/parcours/${0}`,
             }}
           >
             <div className={classes.btnContainer}>

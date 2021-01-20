@@ -94,12 +94,14 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
                           img={selected && checked}
                           className={classes.checkBox}
                           classNameLogo={classes.checkBoxImg}
+                          color={'#420FAB'}
+                          border="#420FAB"
                         />
                         <div className={classes.titleContainer1}>{res}</div>
                       </div>
                       <img src={e.resources[0]} alt="" className={classes.deselected} />
                     </div>
-                    <Divider style={{ backgroundColor: '#C9C9C7' }}  />
+                    <Divider style={{ backgroundColor: '#C9C9C7' }} />
                   </div>
                 );
               })}
@@ -112,7 +114,3 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
 };
 
 export default Slider;
-
-
-
-
