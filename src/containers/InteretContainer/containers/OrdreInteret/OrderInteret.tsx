@@ -139,7 +139,7 @@ const OrderInteret = ({ history, location }: RouteComponentProps) => {
               onClick={onUpdate}
               className={classes.btn}
               classNameTitle={classes.btnLabel}
-              ArrowColor="#fff"
+              ArrowColor="#ffffff"
             />
           </div>
         </div>
