@@ -208,7 +208,7 @@ export default makeStyles<Theme>((theme) => ({
     textAlign: 'center',
   },
   itemRow: {
-    height: 104,
+    height: 124,
     display: 'flex',
     alignItems: 'center',
   },
