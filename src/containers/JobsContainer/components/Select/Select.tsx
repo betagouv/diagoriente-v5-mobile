@@ -36,6 +36,9 @@ interface IProps {
   modal?: boolean;
   arrowColor?: string;
   img?: string;
+  border?: string;
+  background?: string;
+  from: string;
 }
 
 const SelectJobs = ({
@@ -50,11 +53,12 @@ const SelectJobs = ({
   onClick,
   fullSelect,
   reference,
-  color,
+  from,
   parcourAcc,
   fullScreenModal,
   modal,
-  img,
+  border,
+  background,
   arrowColor,
 }: IProps) => {
   const classes = useStyles({ fullSelect, fullScreenModal, open, arrowColor });
@@ -69,6 +73,7 @@ const SelectJobs = ({
   const handleClose = () => {
     setOpenModal(false);
   };
+  console.log('from', from);
   return (
     <div className={classes.content} ref={reference}>
       <div className={classes.inputWrapper} onClick={onClick}>
@@ -81,7 +86,7 @@ const SelectJobs = ({
           onChange={onChange}
           name={name}
           placeholder={placeholder}
-          className={color ? classes.inputContainer1 : classes.inputContainer}
+          className={from ? classes.inputContainer1 : classes.inputContainer}
           disabled
         />
         <div className={classes.logoContainer}>
@@ -135,7 +140,7 @@ const SelectJobs = ({
                     height="19"
                     className={modal ? classes.modalArrowClose : classes.arrowClose}
                   />
-                  <span className={classes.closeModelLabel}> {placeholder} </span>
+                  <span className={classes.closeModelLabel}> {placeholder} dede </span>
                 </div>
                 <OptionList
                   options={options}
@@ -143,7 +148,8 @@ const SelectJobs = ({
                   selected={value}
                   name={name}
                   className={classes.optionList}
-                  img={img}
+                  border={from === 'job' ? '##FFA600' : '#00B2DB'}
+                  background={from === 'job' ? '#FFD382' : '#7AE6FF'}
                 />
               </div>
             </div>
@@ -160,7 +166,14 @@ const SelectJobs = ({
               ))}
             </div>
           ) : (
-            <OptionList options={options} onSelectText={onSelectText} selected={value} name={name} />
+            <OptionList
+              options={options}
+              onSelectText={onSelectText}
+              selected={value}
+              name={name}
+              border={border}
+              background={background}
+            />
           )}
         </div>
       )}

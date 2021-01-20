@@ -11,7 +11,7 @@ import Button from 'components/button/Button';
 import classNames from 'utils/classNames';
 import { useAccessibility } from 'requests/accessibility';
 import useStyles from './style';
-import checked from 'assets/form/checkboxchecked.svg'
+import checked from 'assets/form/checkboxchecked.svg';
 
 enum Steps {
   THEMES,
@@ -110,7 +110,7 @@ const SelectModal = () => {
                 onClose={() => setOpenType(false)}
                 reference={divType}
                 color={x}
-                img={checked}
+                from='interest'
               />
             </ThemeProvider>
           </div>
