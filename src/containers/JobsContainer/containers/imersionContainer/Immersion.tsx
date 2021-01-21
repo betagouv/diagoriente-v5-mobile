@@ -428,7 +428,7 @@ const ImmersionContainer = ({
                     {page <= items.length - 2 && (
                       <div className={classNames(classes.itemPage)}>
                         {page !== items.length - 2 && <span>... </span>}
-                        <span onClick={() => getData(items.length - 1)}>{items.length}</span>
+                        <span onClick={() => getData(items.length)}>{items.length}</span>
                       </div>
                     )}
                   </div>

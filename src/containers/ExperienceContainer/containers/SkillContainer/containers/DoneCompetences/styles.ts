@@ -16,7 +16,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '10px 30px 30px 30px',
+    padding: '40px 30px 30px 30px',
     minHeight: 600,
   },
 
