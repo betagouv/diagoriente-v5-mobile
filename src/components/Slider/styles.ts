@@ -39,6 +39,7 @@ export default makeStyles<Theme>((theme) => ({
     paddingLeft: '5%',
     display: 'flex',
     padding: '20px 0px',
+    pointerEvents: 'none',
   },
   titleContainer1: {
     fontWeight: 'bold',
@@ -85,7 +86,6 @@ export default makeStyles<Theme>((theme) => ({
     width: '29%',
     cursor: 'pointer',
     backgroundColor: 'white',
-
   },
   subitem1: {
     minWidth: 170,
@@ -126,8 +126,8 @@ export default makeStyles<Theme>((theme) => ({
       borderStyle: 'hidden',
     },
     position: 'absolute',
-    top: "-19.5vh",
-    left: "0vh",
+    top: '-19.5vh',
+    left: '0vh',
     zIndex: 99999,
   },
   containerBtnRight: {
@@ -144,8 +144,8 @@ export default makeStyles<Theme>((theme) => ({
       borderStyle: 'hidden',
     },
     position: 'absolute',
-    top: "-19.5vh",
-    right: "0vh",
+    top: '-19.5vh',
+    right: '0vh',
     zIndex: 9999,
   },
   rotatedArrow: {
