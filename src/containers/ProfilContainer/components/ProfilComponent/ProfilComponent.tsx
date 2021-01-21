@@ -146,6 +146,21 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
     // eslint-disable-next-line
   }, [stateJobs.loading, stateJobs.data]);
 
+
+  const renderFavJobs = useMemo(() => {
+    if (favoriteJobs.length) {
+      return favoriteJobs.map((j) => (
+        <div key={j?.id} className={classes.favoriContainer}>
+          <img src={littlestar} alt="" height={20} />
+          <div className={classes.job}>{j?.title} </div>
+        </div>
+      ));
+    }
+    if (stateJobs.loading) return <Spinner />;
+    return <div className={classes.metier}></div>;
+    // eslint-disable-next-line
+  }, [stateJobs.loading, stateJobs.data]);
+
   return (
     <div>
       <div className={classes.profilContainer} ref={(ref) => (rowRef.current[0] = ref)}>
@@ -492,14 +507,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             </AccordionSummary>
             <AccordionDetails className={classes.proDetails}>
               <div>
-                {favoriteJobs.length
-                  ? favoriteJobs.map((j) => (
-                      <div key={j.id} className={classes.favoriContainer}>
-                        <img src={littleheart} alt="" height={20} />
-                        <div className={classes.job}>{j.title}</div>
-                      </div>
-                    ))
-                  : null}
+              {renderFavJobs}              
               </div>
             </AccordionDetails>
           </Accordion>
