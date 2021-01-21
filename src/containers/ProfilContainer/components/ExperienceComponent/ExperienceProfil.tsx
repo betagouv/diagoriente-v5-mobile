@@ -182,7 +182,7 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
         </div>
       </Popup>
         <div className={classes.btnEx}> 
-                 <Link to={getUrl()} className={classNames(!showAddCard ? classes.btnLink : classes.link)}>
+                 <Link to={getUrl()} className={ classes.link}>
                       <Button className={classes.btn}>
                         <span className={classes.textButton}>J’ajoute une expérience {getSubTitle()}</span>
                       </Button>
