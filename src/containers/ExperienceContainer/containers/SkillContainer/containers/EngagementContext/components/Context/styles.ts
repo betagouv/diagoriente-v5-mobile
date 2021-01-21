@@ -7,6 +7,7 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
+      flexWrap:'wrap',
       [theme.breakpoints.down(420)]: {
         justifyContent: 'space-between',
       }, 
