@@ -24,7 +24,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    marginTop: 10,
+    marginTop: 40,
   },
   imgContainer: {
     width: 'fit-content !important',

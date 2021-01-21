@@ -140,7 +140,7 @@ const SelectJobs = ({
                     height="19"
                     className={modal ? classes.modalArrowClose : classes.arrowClose}
                   />
-                  <span className={classes.closeModelLabel}> {placeholder} dede </span>
+                  <span className={classes.closeModelLabel}> {placeholder}</span>
                 </div>
                 <OptionList
                   options={options}
