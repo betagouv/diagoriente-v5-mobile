@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef , useContext} from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useCompetences } from 'requests/competences';
@@ -48,8 +48,8 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
       index && setCurrentInfoIndex(index);
     }
     setCurrentInfoId(id);
-    setShowInfo(true); 
-    setOpen(false)
+    setShowInfo(true);
+    setOpen(false);
   };
 
   const addCompetence = (competence: Competence) => {
@@ -138,19 +138,17 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
                         ? !showInfo || (showInfo && currentInfoId !== comp.id)
                           ? handleShowInfo(comp.id)
                           : addCompetence(comp as any)
-                          
                         : deleteCompetence(comp.id);
                     }}
                   >
                     {comp.title}
                   </Button>
                   <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
-                  <Child key={index} style ={{padding: '10px'}}>
+                    <Child key={index} style={{ padding: '10px' }}>
                       <p style={{ width: '100%', color: '#FF0060' }}>
-                        <b>Appuie deux fois sur la compétences pour la sélectionner</b>
+                        <b>Appuie deux fois sur la compétence pour la sélectionner</b>
                       </p>{' '}
-                  
-                        {currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}{' '}
+                      {currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}{' '}
                     </Child>
                   </Slide>
                 </Grid>

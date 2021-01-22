@@ -60,10 +60,8 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     if (openedTheme?.id === theme.id) {
       setSelectedTheme(theme);
       setOpenedTheme(null);
-
-    }
-    else {
-      setOpen(false)
+    } else {
+      setOpen(false);
     }
   };
   const toggle = () => {
@@ -75,7 +73,6 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     }
   }, [selectedTheme]);
 
-  
   useEffect(() => {
     const handleResize = () => setHeight(window.innerHeight);
     window.addEventListener('resize', handleResize);
@@ -158,26 +155,18 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                           </Grid>
 
                           <div>
-                            {openedTheme?.id === theme.id ?   ( 
-                              
-                              <Slide
-                                direction="up"
-                                in={!(selectedTheme?.id === theme.id)}
-                                mountOnEnter
-                                unmountOnExit 
-                                
-                                
-                              >
+                            {openedTheme?.id === theme.id ? (
+                              <Slide direction="up" in={!(selectedTheme?.id === theme.id)} mountOnEnter unmountOnExit>
                                 <Child key={index} className={classes.child} style={{ padding: 15 }}>
-                                  <p style={{ width: '100%', color:'#FF0060' }}>
-                                    <b>Appuie deux fois sur le theme pour la sélectionner</b>
+                                  <p style={{ width: '100%', color: '#FF0060' }}>
+                                    <b>Appuie deux fois sur le theme pour le sélectionner</b>
                                   </p>
 
                                   {tooltip.map((el) => (
                                     <div key={el.id} className={classes.titleDiv}>{`-${el.title}`}</div>
                                   ))}
                                 </Child>
-                              </Slide> 
+                              </Slide>
                             ) : null}
                           </div>
                         </div>
