@@ -40,7 +40,7 @@ const SelectedFamille = ({ handleClick, famille, index, direction, type }: IProp
       </div>
       <div className={classes.elements}>
         <Dotdotdot clamp={5}>
-          <div className={classes.text}>{res}</div>
+          <div className={classes.text} >{res}</div>
         </Dotdotdot>
       </div>
       {type !== 'ordre' && (
