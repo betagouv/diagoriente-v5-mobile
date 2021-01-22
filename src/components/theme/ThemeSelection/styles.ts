@@ -82,7 +82,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     },
 
     activitySelected: {
-      marginTop: 15,
+      marginTop: '0px',
       width: '100%',
       textAlign: 'left',
       fontSize: 14,
@@ -122,9 +122,11 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     themeSelection: {
       display: 'flex',
       alignItems: 'center',
-      padding: '10px 15px',
-      [theme.breakpoints.down(370)]: {
-        padding: '15px 15px',
+      height:90,
+      padding: '0px 15px',
+      [theme.breakpoints.down(380)]: {
+        padding: '0px 15px',
+        height:78,
 
         },
     },

@@ -105,10 +105,14 @@ export default makeStyles<Theme>((theme) => ({
     marginBottom: 30,
   },
   btn: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: '#7533FF !important',
   },
   btnLabel: {
     color: '#FFF',
+    '& .MuiButton-root-96:hover' :{
+      backgroundColor: '#7533FF',
+
+    } 
   },
   aide: {
     width: 51,
