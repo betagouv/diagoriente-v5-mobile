@@ -122,10 +122,11 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     themeSelection: {
       display: 'flex',
       alignItems: 'center',
-      height:70,
+      height:90,
       padding: '0px 15px',
-      [theme.breakpoints.down(370)]: {
+      [theme.breakpoints.down(380)]: {
         padding: '0px 15px',
+        height:78,
 
         },
     },

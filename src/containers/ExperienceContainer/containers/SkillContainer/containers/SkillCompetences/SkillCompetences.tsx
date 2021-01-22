@@ -147,7 +147,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
                   <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
                   <Child key={index} style ={{padding: '10px'}}>
                       <p style={{ width: '100%', color: '#FF0060' }}>
-                        <b>Appuie deux fois sur la compétences pour la sélectionner</b>
+                        <b>Appuie deux fois sur la compétence pour la sélectionner</b>
                       </p>{' '}
                   
                         {currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}{' '}
