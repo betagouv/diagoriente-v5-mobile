@@ -91,6 +91,15 @@ export default makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: '#00B2DB',
     },
+    '@media not all and (min-resolution:.001dpcm)': {
+      backgroundColor: theme.palette.secondary.main,
+      fontSize: 14,
+      fontWeight: 'bold',
+      cursor: 'pointer',
+      '&:hover': {
+        backgroundColor: '#00B2DB',
+      },
+    }
   },
 
   btnLabel: {

@@ -25,5 +25,18 @@ export default makeStyles<Theme, { color: string; size?: number; font?: string; 
     [theme.breakpoints.down('xs')]: {
       fontSize: (props) => (props.size ? props.size : 50),
     },
+
+    '@media not all and (min-resolution:.001dpcm)': {
+      fontWeight: 900,
+      fontSize: (props) => "4vh",
+      fontFamily: (props) => (props.font ? props.font : 'Ocean'),
+      textTransform: 'uppercase',
+      color: (props) => (props.color ? props.color : theme.palette.primary.main),
+      margin: 0,
+
+}
+    
   },
 }));
+
+
