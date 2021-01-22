@@ -171,7 +171,7 @@ export default makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent:'center',
       marginTop: 40,
-      [theme.breakpoints.down(370)]: {
+      [theme.breakpoints.down(420)]: {
         marginTop:10
         },
     },
@@ -186,7 +186,7 @@ export default makeStyles((theme: Theme) =>
 
     dateContainer: {
       marginTop: 35,
-      [theme.breakpoints.down(370)]: {
+      [theme.breakpoints.down(420)]: {
         marginTop:5
         },
     },

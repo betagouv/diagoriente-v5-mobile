@@ -107,7 +107,6 @@ export default makeStyles<Theme>((theme) => ({
       alignItems: 'center',
       left: '7vh',
       paddingTop: '57vh',
-      paddingRight: '2vh',
     },
   },
   nextWrap: { right: 4 },
