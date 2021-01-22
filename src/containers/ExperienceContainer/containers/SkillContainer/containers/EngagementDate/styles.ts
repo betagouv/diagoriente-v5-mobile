@@ -25,8 +25,10 @@ export default makeStyles((theme: Theme) =>
       paddingBottom: 150,
       alignItems: 'center',
       [theme.breakpoints.down(370)]: {
-        height:'90vh',
+        paddingTop: 10,
+        height:'95vh',
       },
+  
     },
 
     circleContainer: {
@@ -169,7 +171,11 @@ export default makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent:'center',
       marginTop: 40,
+      [theme.breakpoints.down(370)]: {
+        marginTop:10
+        },
     },
+    
 
     text: {
       marginRight: 10,
@@ -180,6 +186,9 @@ export default makeStyles((theme: Theme) =>
 
     dateContainer: {
       marginTop: 35,
+      [theme.breakpoints.down(370)]: {
+        marginTop:5
+        },
     },
 
     errorText: {
@@ -231,5 +240,9 @@ export default makeStyles((theme: Theme) =>
         alignItems:'center',
         marginTop:20
         },
+        [theme.breakpoints.down(370)]: {
+          marginTop:10
+          },
+     
     },
   }));
