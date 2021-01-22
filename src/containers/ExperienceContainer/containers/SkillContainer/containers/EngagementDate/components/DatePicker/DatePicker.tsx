@@ -31,6 +31,7 @@ const DatePicker = ({ handleChange, day, month, year, days, months, years, autoW
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
+        autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
       />
       <Select
         onChange={(e) => handleChange(`${year}-${e.target.value}-${day}`)}
@@ -40,6 +41,7 @@ const DatePicker = ({ handleChange, day, month, year, days, months, years, autoW
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
+        autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
       />
       <Select
         value={year}
@@ -49,7 +51,7 @@ const DatePicker = ({ handleChange, day, month, year, days, months, years, autoW
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
-        autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
+        autoWidth={autoWidthMenu ? autoWidthMenu : false}
       />
     </div>
   );

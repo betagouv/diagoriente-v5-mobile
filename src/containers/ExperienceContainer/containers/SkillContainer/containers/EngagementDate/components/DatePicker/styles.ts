@@ -38,12 +38,8 @@ export default makeStyles((theme: Theme) =>
     },
     year: {
       width: '93px !important',
-      [theme.breakpoints.down(340)]: {
-        width: '80px !important',
-      },
-      '& .makeStyles-menu-1139 ': {
-        minWidth:'60px !important'
-      },
+  
+
     },
 
     disabledClassName: {
@@ -55,9 +51,7 @@ export default makeStyles((theme: Theme) =>
       paddingTop: '5px !important',
       paddingLeft: '0px !important',
       paddingBottom: '10px !important',
-      '& .makeStyles-menu-1139 ': {
-        minWidth:'60px !important'
-      },
+ 
       
     },
   }));

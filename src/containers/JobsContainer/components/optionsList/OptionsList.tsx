@@ -11,9 +11,20 @@ interface Props {
   selected: string[] | undefined;
   className?: string;
   CheckBoxbackgroudColor?: string;
+  color?: string;
+  background?: string;
+  border?: string;
 }
 
-const OptionsList = ({ options, onSelectText, selected, className, CheckBoxbackgroudColor }: Props)  => {
+const OptionsList = ({
+  options,
+  onSelectText,
+  selected,
+  className,
+  CheckBoxbackgroudColor,
+  background,
+  border,
+}: Props) => {
   const classes = useStyles({
     CheckBoxbackgroudColor,
   });
@@ -26,12 +37,13 @@ const OptionsList = ({ options, onSelectText, selected, className, CheckBoxbackg
         <div key={el.label} className={classes.item} onClick={() => onSelectText(el.id)}>
           <div className={classes.mask} />
           <CheckBox
-          className={classes.hello}
+            className={classes.hello}
             name={el.label}
             checked={isInclude(el.id)}
             onChange={() => {}}
-            color={theme.palette.secondary.main}
-            border="#DB8F00"
+            color="#fff"
+            background={background}
+            border={border}
           />
           <div className={isInclude(el.id) ? classes.selectedItemText : classes.itemText}>{el.label}</div>
         </div>

@@ -11,6 +11,7 @@ import Dialog from '@material-ui/core/Dialog';
 import { groupBy } from 'lodash';
 import PlaceHolder from 'containers/InteretContainer/components/placeholderInterest/Placeholder';
 import Arrow from 'assets/svg/arrow';
+import classNames from 'common/utils/classNames';
 
 import interestContext from 'contexts/InterestSelected';
 import parcoursContext from 'contexts/ParcourContext';
@@ -98,9 +99,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   useEffect(() => {
     const test = selectedInterest?.every(
       (interet) =>
-        interet.category === "avec d'autres personnes" ||
-        interet.category === 'avec ses mains' ||
-        interet.category === 'avec sa tête',
+        interet.category === "avec d'autres personnes" 
     );
 
     if (selectedInterest?.length === 5 && test) setWarning(true);
@@ -146,8 +145,10 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
         <div className={classes.ellipse} onClick={() => setOpenConfirm(true)}>
           <span className={classes.textEllipsis}>{selectedInterest?.length} / 5</span>
         </div>
-        <div className={classes.btnNext}>
-          {selectedInterests.length > 0 && (
+        {selectedInterests.length > 0 && (
+
+        <div className={classes.btnNext} 
+        >
             <Link to={`/interet/ordre/${location.search}`} className={classes.wrapperBtn}>
               <Button className={classes.btn}>
                 <div className={classes.contentBtn}>
@@ -156,8 +157,9 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
                 </div>
               </Button>
             </Link>
-          )}
         </div>
+                  )}
+
       </div>
       <ModalContainer open={open} backdropColor="#011A5E" colorIcon="#420FAB" height={70} size={90}>
         <div style={{ height: 240, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 40 }}>

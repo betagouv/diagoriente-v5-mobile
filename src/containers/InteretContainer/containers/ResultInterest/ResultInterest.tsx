@@ -40,7 +40,7 @@ const ResultInterest = () => {
           <div className={classes.info}>Je n&lsquo;ai pas encore ajouté d&lsquo;expériences</div>
         </Link>
       </div>
-      <Dialog open={open} keepMounted fullScreen style={{ zIndex: 2000 }}>
+      <Dialog open={open} keepMounted fullScreen style={{ zIndex: 300 }}>
         <ModalSelect />
       </Dialog>
     </div>

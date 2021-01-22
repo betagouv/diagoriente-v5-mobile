@@ -27,21 +27,20 @@ const MainInteret = () => {
         </div>
 
         <div className={classes.linksContainer}>
-          <Link
+        <Link
             to={{
               pathname: `/interet/parcours/${0}`,
             }}
           >
             <div className={classes.btnContainer}>
               <TitleImage
-                title="TRAVAILLER AVEC SA TÊTE"
+                title="TRAVAILLER AVEC D’AUTRES PERSONNES"
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
               />
             </div>
           </Link>
-
           <Link
             to={{
               pathname: `/interet/parcours/${1}`,
@@ -64,13 +63,16 @@ const MainInteret = () => {
           >
             <div className={classes.btnContainer}>
               <TitleImage
-                title="TRAVAILLER AVEC D’AUTRES PERSONNES"
+                title="TRAVAILLER AVEC SA TÊTE"
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
               />
             </div>
           </Link>
+
+       
+       
         </div>
       </div>
     </div>
