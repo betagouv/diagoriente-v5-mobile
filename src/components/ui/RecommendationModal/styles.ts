@@ -44,10 +44,18 @@ export default makeStyles((theme) => ({
   },
 
   titleClassName: {
-    whiteSpace: 'nowrap',
     fontSize: 14,
     fontWeight: 700,
     marginTop: 50,
+
+    '@media not all and (min-resolution:.001dpcm)': {
+      fontSize: 14,
+      marginTop: 50,
+      fontWeight: 700,
+      "margin-left": "9vh",
+    }
+
+
   },
 
   classNameTitle: {

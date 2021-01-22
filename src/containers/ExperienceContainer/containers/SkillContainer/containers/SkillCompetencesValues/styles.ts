@@ -312,6 +312,11 @@ export default makeStyles((theme: Theme) =>
       color: '#4D6EC5',
       fontSize: 18,
       lineHeight: '26px',
+      '@media not all and (min-resolution:.001dpcm)': {
+        color: '#4D6EC5',
+        fontSize: 14,
+        lineHeight: '26px',
+      }
     },
 
     text: {

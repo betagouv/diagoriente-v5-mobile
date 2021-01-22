@@ -11,6 +11,20 @@ export default makeStyles((theme:Theme) => ({
         transform: 'translate(-50%,0)',
         height: 50,
         borderRadius: 10,
+
+        '@media not all and (min-resolution:.001dpcm)': {
+          backgroundColor: '#F3F2F4',
+          left: '50%',
+          minWidth: 175,
+          [theme.breakpoints.down(400)]: {
+            minWidth: "24vh",
+          },
+          transform: 'translate(-50%,0)',
+          height: 50,
+          borderRadius: 10,
+        }
+
+        
       },
     
       contentBtn: {
@@ -24,7 +38,7 @@ export default makeStyles((theme:Theme) => ({
         color: '#223A7A',
         textTransform: 'none',
         fontWeight: 'bold',
-        fontSize: 18,
+        fontSize: 14,
         textAlign: 'center',
         marginLeft: 10,
         lineHeight: '26px',
