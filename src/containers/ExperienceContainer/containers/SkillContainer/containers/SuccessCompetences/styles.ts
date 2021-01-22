@@ -13,11 +13,10 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '30px 30px 80px 30px',
+    padding: '0px 30px 30px 30px',
     height: '100vh',
     [theme.breakpoints.down(330)]: {
       height: 'auto',
-
     },
   },
 
@@ -25,7 +24,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    marginTop: 30,
+    marginTop: 40,
   },
   imgContainer: {
     width: 'fit-content !important',

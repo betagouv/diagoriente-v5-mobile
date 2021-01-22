@@ -31,6 +31,7 @@ export default makeStyles<Theme, { direction: 'vertical' | 'horizontal'; hover: 
   },
   text: {
     fontWeight: 'bold',
+    width:'min-content',
     lineHeight: '15px',
     "margin-right": "4vh",
   },

@@ -168,7 +168,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                                 
                                 
                               >
-                                <Child key={index} className={classes.child}>
+                                <Child key={index} className={classes.child} style={{ padding: 15 }}>
                                   <p style={{ width: '100%', color:'#FF0060' }}>
                                     <b>Appuie deux fois sur le theme pour la sélectionner</b>
                                   </p>

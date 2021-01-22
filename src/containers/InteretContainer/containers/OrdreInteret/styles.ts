@@ -118,7 +118,7 @@ export default makeStyles<Theme>((theme) => ({
   rowParent: {
     display: 'flex',
     alignItems: 'center',
-    height: 101,
+    height: 100,
     marginBottom: 15,
   },
   indexItem: {

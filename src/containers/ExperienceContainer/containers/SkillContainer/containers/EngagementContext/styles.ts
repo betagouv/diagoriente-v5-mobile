@@ -161,6 +161,7 @@ export default makeStyles((theme: Theme) =>
     contextContainer: {
       display: 'flex',
       width: '100%',
+      flexWrap:'wrap',
       justifyContent: 'center',
       paddingTop: 30,
     },
