@@ -11,7 +11,6 @@ import { decodeUri } from 'utils/url';
 import { validateEmail } from 'utils/validation';
 import { useForm } from 'hooks/useInputs';
 import { useLogin } from 'requests/auth';
-import { useVerification } from 'requests/verificationBot';
 
 import useAuth from 'hooks/useAuth';
 import useStyles from './styles';
@@ -19,7 +18,6 @@ import useStyles from './styles';
 const Login = ({ location }: RouteComponentProps) => {
   const classes = useStyles();
   const [showPasswordState, setShowPassword] = useState(false);
-  const [verificationCall, verificationState] = useVerification();
 
   const [state, actions] = useForm({
     initialValues: { email: '', password: '', stayConnected: false },
