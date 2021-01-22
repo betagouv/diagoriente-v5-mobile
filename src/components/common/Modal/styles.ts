@@ -7,6 +7,7 @@ export default makeStyles<Theme, { backdropColor: string; size?: number,height?:
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   backdrop: {
     backgroundColor: (props) => `${props.backdropColor} !important`,
@@ -21,6 +22,14 @@ export default makeStyles<Theme, { backdropColor: string; size?: number,height?:
     width: (props) => `${props.size ? props.size : 100}%`,
     height: (props) => `${props.height ? props.height : 100}%`,
     maxHeight: '100%',
+
+    '@media not all and (min-resolution:.001dpcm)': {
+      overflow: 'auto',
+      height: '100vh',
+      flex: 1, 
+    }
+
+    
   },
   header: {
     display: 'flex',

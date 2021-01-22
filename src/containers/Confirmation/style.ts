@@ -76,7 +76,12 @@ export default makeStyles((theme) => ({
     textTransform: 'none',
     fontWeight: 'bold',
     fontSize: 14,
-    textAlign: 'center',
+    '@media not all and (min-resolution:.001dpcm)': {
+      color: '#fff',
+      textTransform: 'none',
+      fontWeight: 'bold',
+      fontSize: 12,
+    }
   },
   emptyDiv: {
     width: 260,

@@ -1,6 +1,9 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles<Theme>((theme) => ({
+
+
+
   container: {
     width: '100%',
     height: `100%`,
@@ -8,12 +11,14 @@ export default makeStyles<Theme>((theme) => ({
     justifyContent: 'center',
     flex: '1 1 0%',
     position: 'relative',
+    
   },
   content: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    
   },
   header: {
     display: 'flex',
