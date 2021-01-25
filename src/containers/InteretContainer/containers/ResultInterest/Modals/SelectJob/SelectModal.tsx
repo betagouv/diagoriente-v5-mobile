@@ -67,6 +67,15 @@ const SelectModal = () => {
     }
   };
 
+   const getAccebilityName=(id:string | undefined)=>{
+if (id) {
+ const niveau = accessibilityState.data?.accessibilities.data.find((o)=>{
+return o.id===id
+  }) ;
+  return niveau?.name
+}
+  return ("Niveau de diplôme")
+   }
   const onValide = () => {
     updateCall({ variables: { skillsAlgo: selectedThemes, accessibility } });
   };
@@ -78,7 +87,8 @@ const SelectModal = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updateState.data]);
-
+console.log(accessibility,'acc')
+console.log(accessibilityState,'state')
   switch (step) {
     case Steps.ACCESSIBILITY:
       return (
@@ -102,7 +112,7 @@ const SelectModal = () => {
                 }}
                 name="job"
                 value={[accessibility]}
-                placeholder={'Niveau de diplôme'}
+                placeholder={getAccebilityName(accessibility) }
                 className={classes.containerAutoComp}
                 open={openType}
                 modal

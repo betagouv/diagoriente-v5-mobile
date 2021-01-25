@@ -76,7 +76,7 @@ width:'97%'
       lineHeight: 1,
       paddingTop: 9,
       [theme.breakpoints.down(330)]: {
-        paddingTop:50,
+        paddingTop:20,
 
       },
   
@@ -158,15 +158,6 @@ width:'97%'
       padding:'0px 0px'
     },
 
-    // btnLink: {
-    //   display: 'flex',
-    //   alignItems: 'center',
-    //   justifyContent: 'center',
-    //   width: '100%',
-    //   margin:10,
-    //   maxWidth: '100%',
-    //   background: 'transparent',
-    // },
 
     link: {
       display: 'flex',

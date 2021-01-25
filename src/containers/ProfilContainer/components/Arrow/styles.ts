@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() =>
+export default makeStyles((theme) =>
   createStyles({
     arrowContainer: {
       display: 'flex',
@@ -16,4 +16,11 @@ export default makeStyles(() =>
       position: 'relative',
       bottom: 1,
     },
+    linkContainer:{
+      width:'100%',
+      [theme.breakpoints.down(330)]: {
+        marginTop: 30,
+        marginLeft:20
+      },
+    }
   }));
