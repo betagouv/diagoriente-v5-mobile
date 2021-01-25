@@ -119,7 +119,7 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
   return (
     <div className={classes.profilContainer}>
       <div className={classes.titleContainer}>
-        {/* <Arrow /> */}
+        <Arrow />
         <Title title={getTitle()} color="#4D6EC5" size={42} className={classes.title} />
         <div className={classes.empty} />
       </div>

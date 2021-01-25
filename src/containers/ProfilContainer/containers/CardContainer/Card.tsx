@@ -66,7 +66,7 @@ const CardContainer = () => {
   return (
     <div className={classes.container}>
       <div className={classes.header}>
-        {/* <Arrow /> */}
+        <Arrow className={classes.arrowStyle} />
         <div className={classes.headerTitle}>
           <img className={classes.headerImage} src={carte} alt="" />
           <span className={classes.title}>CARTE DE COMPÉTENCES</span>

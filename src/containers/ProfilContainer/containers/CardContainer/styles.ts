@@ -122,6 +122,15 @@ createStyles({
     marginTop: 12,
     marginBottom: 12,
   },
+arrowStyle:{
+  position:'absolute',
+  left:0,
+  [theme.breakpoints.down(440)]: {
+    position:'unset',
+      marginTop: 30,
+      // marginLeft:20
+  },
 
+}
 }),
 )
