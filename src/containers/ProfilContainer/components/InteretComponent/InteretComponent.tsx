@@ -16,7 +16,7 @@ const InteretComponent = () => {
   return (
     <div className={classes.InteretContainer}>
       <div className={classes.titleContainer}>
-        <Arrow />
+        {/* <Arrow /> */}
         <Title title="MES CENTRES D’INTÉRÊT" color="#420FAB" size={42} className={classes.title} />
         <div className={classes.empty} />
       </div>
