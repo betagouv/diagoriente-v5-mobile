@@ -132,9 +132,10 @@ const InfoProfil = () => {
     }
     // eslint-disable-next-line
   }, [updateUserState.data]);
+  console.log('error', error);
   return (
     <>
-      <SnackBar variant="error" message={error} open={!!error} />
+      <SnackBar variant="error" message={error} open={!!error} handleClose={() => setError('')} />
       <div className={classes.InfoContainer}>
         <div className={classes.titleContainer}>
           <Arrow />
@@ -143,7 +144,7 @@ const InfoProfil = () => {
         </div>
         {user && (
           <div className={classes.infoRowContainer}>
-            <InfoProfilRow title="Ton prénom" className={classNames(classes.infoRow , open && classes.modifierInfo )}>
+            <InfoProfilRow title="Ton prénom" className={classNames(classes.infoRow, open && classes.modifierInfo)}>
               {open ? (
                 <Input
                   name="firstName"
@@ -160,7 +161,10 @@ const InfoProfil = () => {
                 <span className={classes.userInfo}>{user.profile.firstName}</span>
               )}
             </InfoProfilRow>
-            <InfoProfilRow title="Ton nom de famille" className={classNames(classes.infoRow , open && classes.modifierInfo)}>
+            <InfoProfilRow
+              title="Ton nom de famille"
+              className={classNames(classes.infoRow, open && classes.modifierInfo)}
+            >
               {open ? (
                 <Input
                   onChange={actions.handleChange}
@@ -177,7 +181,10 @@ const InfoProfil = () => {
                 <span className={classes.userInfo}>{user.profile.lastName}</span>
               )}
             </InfoProfilRow>
-            <InfoProfilRow title="Ton image de profil" className={classNames(classes.alignItems , open && classes.modifierInfo)}>
+            <InfoProfilRow
+              title="Ton image de profil"
+              className={classNames(classes.alignItems, open && classes.modifierInfo)}
+            >
               {open ? (
                 <div className={classes.avatarsContainer}>
                   {loadingAvatar && <Spinner />}
@@ -198,7 +205,7 @@ const InfoProfil = () => {
               )}
             </InfoProfilRow>
 
-            <InfoProfilRow title="Ton email"  className={classNames(classes.infoRow , open && classes.modifierInfo)}>
+            <InfoProfilRow title="Ton email" className={classNames(classes.infoRow, open && classes.modifierInfo)}>
               {open ? (
                 <Input
                   onChange={actions.handleChange}
@@ -216,7 +223,10 @@ const InfoProfil = () => {
               )}
             </InfoProfilRow>
             {open && (
-              <InfoProfilRow title="Ancien mot de passe"  className={classNames(classes.infoRow , open && classes.modifierInfo)}>
+              <InfoProfilRow
+                title="Ancien mot de passe"
+                className={classNames(classes.infoRow, open && classes.modifierInfo)}
+              >
                 <Input
                   onChange={actions.handleChange}
                   value={values.oldPassword}
@@ -234,7 +244,7 @@ const InfoProfil = () => {
             )}
             <InfoProfilRow
               title={open ? 'Nouveau mot de passe' : 'Ton mot de passe'}
-              className={classNames( open ? classes.modifierInfo : classes.paddingClassName )}
+              className={classNames(open ? classes.modifierInfo : classes.paddingClassName)}
             >
               {open ? (
                 <div className={classes.passwordContainer}>
@@ -261,7 +271,10 @@ const InfoProfil = () => {
                 <PasswordValidation password={values.password} />
               </div>
             )}
-            <InfoProfilRow title="Ta ville de résidence"  className={classNames(classes.infoRow , open && classes.modifierInfo)}>
+            <InfoProfilRow
+              title="Ta ville de résidence"
+              className={classNames(classes.infoRow, open && classes.modifierInfo)}
+            >
               {open ? (
                 <AutoComplete
                   onChange={(e) => {
@@ -286,19 +299,17 @@ const InfoProfil = () => {
               )}
             </InfoProfilRow>
             <>
-              <InfoProfilRow title=" Code groupe" className={classNames(classes.infoRow , open && classes.modifierInfo )}>
+              <InfoProfilRow title=" Code groupe" className={classNames(classes.infoRow, open && classes.modifierInfo)}>
                 {open ? (
-                
-                    <Input
-                      onChange={actions.handleChange}
-                      value={values.codeGroupe}
-                      name="codeGroupe"
-                      placeholder="ex: codeGroupe1"
-                      className={classes.root}
-                      error={touched.codeGroupe && errors.codeGroupe}
-                      errorText={touched.codeGroupe ? errors.codeGroupe : ''}
-                    />
-                
+                  <Input
+                    onChange={actions.handleChange}
+                    value={values.codeGroupe}
+                    name="codeGroupe"
+                    placeholder="ex: codeGroupe1"
+                    className={classes.root}
+                    error={touched.codeGroupe && errors.codeGroupe}
+                    errorText={touched.codeGroupe ? errors.codeGroupe : ''}
+                  />
                 ) : (
                   <span className={classes.userInfo}>{user.codeGroupe}</span>
                 )}

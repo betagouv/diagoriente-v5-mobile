@@ -73,7 +73,6 @@ const SelectJobs = ({
   const handleClose = () => {
     setOpenModal(false);
   };
-  console.log('from', from);
   return (
     <div className={classes.content} ref={reference}>
       <div className={classes.inputWrapper} onClick={onClick}>

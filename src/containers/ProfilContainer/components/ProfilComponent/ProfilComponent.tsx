@@ -151,7 +151,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
     if (favoriteJobs.length) {
       return favoriteJobs.map((j) => (
         <div key={j?.id} className={classes.favoriContainer}>
-          <img src={littlestar} alt="" height={20} />
+          <img src={littleheart } alt="" height={20} />
           <div className={classes.job}>{j?.title} </div>
         </div>
       ));

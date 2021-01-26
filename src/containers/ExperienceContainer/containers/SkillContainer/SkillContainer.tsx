@@ -57,6 +57,15 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
   const [addSkillCall, addSkillState] = useAddSkill();
   const [updateSkillCall, updateSkillState] = useUpdateSkill();
 
+  const [openSnackBar, setOpenSnackBar] = useState(false);
+  useEffect(() => {
+    setOpenSnackBar(!!addSkillState.error);
+  }, [addSkillState]);
+
+  const handleCloseSB = () => {
+    if (!!addSkillState.error) setOpenSnackBar(false);
+  };
+
   const showSelection = matchPath(location.pathname, [`${match.path}/activities`, `${match.path}/competences`]);
 
   useEffect(() => {
@@ -302,7 +311,8 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
       <SnackBar
         variant="error"
         message={addSkillState.error ? addSkillState.error.graphQLErrors[0].message : ''}
-        open={!!addSkillState.error}
+        open={openSnackBar}
+        handleClose={handleCloseSB}
       />
 
       <Switch>

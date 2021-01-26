@@ -11,8 +11,8 @@ import Dialog from '@material-ui/core/Dialog';
 import { groupBy } from 'lodash';
 import PlaceHolder from 'containers/InteretContainer/components/placeholderInterest/Placeholder';
 import Arrow from 'assets/svg/arrow';
-import classNames from 'common/utils/classNames';
-
+/* import classNames from 'common/utils/classNames';
+ */
 import interestContext from 'contexts/InterestSelected';
 import parcoursContext from 'contexts/ParcourContext';
 import Slider from 'components/Slider/Slider';
