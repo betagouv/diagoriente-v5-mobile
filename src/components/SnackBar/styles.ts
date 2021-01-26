@@ -22,10 +22,16 @@ export default makeStyles((theme: Theme) => ({
     opacity: 0.9,
     marginRight: theme.spacing(1),
   },
+  root: {
+    maxWidth: '95vw',
+  },
   message: {
     display: 'flex',
     alignItems: 'center',
     color: '#fff',
+    [theme.breakpoints.down(370)]: {
+      maxWidth: '90%',
+    },
   },
   snackContainer: {
     marginTop: 45,
