@@ -132,11 +132,11 @@ const InfoProfil = () => {
     }
     // eslint-disable-next-line
   }, [updateUserState.data]);
-  console.log('error', error);
+
   return (
     <>
-      <SnackBar variant="error" message={error} open={!!error} handleClose={() => setError('')} />
       <div className={classes.InfoContainer}>
+        <SnackBar variant="error" message={error} open={!!error} handleClose={() => setError('')} />
         <div className={classes.titleContainer}>
           <Arrow />
           <Title title="MES INFOS PERSONNELLES" color="#424242" size={42} className={classes.title} />

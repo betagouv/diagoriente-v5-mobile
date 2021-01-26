@@ -31,26 +31,26 @@ export interface Props {
 function MySnackbarContentWrapper(props: Props) {
   const classes = useStyles();
 
-  const {
- className, message, onClose, variant, ...other
-} = props;
+  const { className, message, onClose, variant, ...other } = props;
   const Icon = variantIcon[variant];
   return (
-    <SnackbarContent
-      className={classNames(classes[variant], className)}
-      message={(
-        <span className={classes.message}>
-          <Icon className={classNames(classes.icon, classes.iconVariant)} />
-          {message ? message[0].toUpperCase() + message.slice(1) : ''}
-        </span>
-      )}
-      action={[
-        <IconButton key="close" aria-label="close" color="inherit" onClick={onClose}>
-          <CloseIcon className={classes.icon} />
-        </IconButton>,
-      ]}
-      {...other}
-    />
+    <div className={classes.root}>
+      <SnackbarContent
+        className={classNames(classes[variant], className)}
+        message={
+          <span className={classes.message}>
+            <Icon className={classNames(classes.icon, classes.iconVariant)} />
+            {message ? message[0].toUpperCase() + message.slice(1) : ''}
+          </span>
+        }
+        action={[
+          <IconButton key="close" aria-label="close" color="inherit" onClick={onClose}>
+            <CloseIcon className={classes.icon} />
+          </IconButton>,
+        ]}
+        {...other}
+      />
+    </div>
   );
 }
 
@@ -61,9 +61,7 @@ interface PrimaryProps {
   message: string;
 }
 export default function CustomizedSnackbars(props: PrimaryProps) {
-  const {
- variant, open, handleClose, message,
-} = props;
+  const { variant, open, handleClose, message } = props;
   const classes = useStyles();
 
   return (
