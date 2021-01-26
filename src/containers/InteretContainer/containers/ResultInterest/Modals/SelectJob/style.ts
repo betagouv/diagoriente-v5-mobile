@@ -142,4 +142,7 @@ export default makeStyles<Theme>((theme) => ({
     backgroundColor: 'white',
     'padding-bottom': '25%',
   },
+  colorArrow:{
+    color:'#A275FF ! important'
+  }
 }));
