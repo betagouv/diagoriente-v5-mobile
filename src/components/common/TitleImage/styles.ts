@@ -34,7 +34,7 @@ export default makeStyles<
     paddingRight: 5,
   },
   image: {
-    width: (props) => props.width || 68,
+    width: (props) => props.width || "11vh",
     height: 'auto',
   },
   btnImage: {

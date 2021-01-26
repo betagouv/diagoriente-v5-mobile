@@ -5,6 +5,12 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    '@media not all and (min-resolution:.001dpcm)': {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      overflow: 'hidden',
+    }
   },
   content: {
     width: '100%',

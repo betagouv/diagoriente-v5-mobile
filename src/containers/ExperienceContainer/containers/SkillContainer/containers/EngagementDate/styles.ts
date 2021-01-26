@@ -171,7 +171,7 @@ export default makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent:'center',
       marginTop: 40,
-      [theme.breakpoints.down(370)]: {
+      [theme.breakpoints.down(420)]: {
         marginTop:10
         },
     },
@@ -182,13 +182,23 @@ export default makeStyles((theme: Theme) =>
       color: '#5A6170',
       fontWeight: 'bold',
       fontSize: 16,
+      '@media not all and (min-resolution:.001dpcm)': {
+        marginRight: 10,
+        color: '#5A6170',
+        fontWeight: 'bold',
+        fontSize: 14,
+      }
     },
 
     dateContainer: {
       marginTop: 35,
-      [theme.breakpoints.down(370)]: {
+      [theme.breakpoints.down(420)]: {
         marginTop:5
         },
+        '@media not all and (min-resolution:.001dpcm)': {
+          marginTop: 35,
+          marginRight: "-2vh"
+        }
     },
 
     errorText: {
@@ -210,11 +220,28 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: 'white',
       boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
       zIndex: 1,
+      '@media not all and (min-resolution:.001dpcm)': {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '8px 13px ',
+        position: 'fixed',
+        bottom: 0,
+        width: '100%',
+        backgroundColor: 'white',
+        boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+        zIndex: 1,
+      }
     },
     classNameTitle: {
       color: '#4D6EC5',
       fontSize: 18,
       lineHeight: '26px',
+      '@media not all and (min-resolution:.001dpcm)': {
+        color: '#4D6EC5',
+        fontSize: 14,
+        lineHeight: '26px',
+      }
     },
     dateStyle:{
       minWidth:'80px !important',

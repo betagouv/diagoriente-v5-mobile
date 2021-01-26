@@ -169,6 +169,6 @@ export default makeStyles<Theme>((theme) => ({
     borderRadius: 10,
     marginBottom: 10,
     opacity: 0.1,
-    height: 101,
+    height: 106,
   },
 }));

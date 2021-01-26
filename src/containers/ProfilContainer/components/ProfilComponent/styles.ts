@@ -665,7 +665,7 @@ marginRight:0
     fontWeight:700,
     size:14,
     display:'flex',
-    paddingTop:150,
+    paddingTop:20,
     justifyContent:'flex-end',
     flex:'auto',
     alignItems:'flex-end',
