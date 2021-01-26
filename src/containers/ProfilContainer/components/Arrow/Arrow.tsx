@@ -10,6 +10,7 @@ interface Props {
   className?: string;
   arrowIcon?:string
   url:string,
+  color?:string
    onClick?: () => void;
 
 
@@ -18,6 +19,7 @@ const Arrow = ({
   className,
   arrowIcon,
   url, 
+  color,
   onClick
 }: Props)  => {
   const classes = useStyles();
@@ -26,7 +28,7 @@ const Arrow = ({
      {/* <Link className={classes.arrowContainer} to="/profile"> */}
      <Link className={classes.arrowContainer} to={url} >
       {/* <img src={redarrow} alt="" height={15} /> */}
-      <img src={arrowIcon} alt="" height={15} />
+      <img src={arrowIcon} color ={color} alt="" height={15} />
       <span className={classes.txt}>Retour </span>
     </Link>
     </div>
