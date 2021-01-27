@@ -126,7 +126,6 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     width: '35%',
-    cursor: 'pointer',
     alignItems: 'center',
   },
   titleLogo: {

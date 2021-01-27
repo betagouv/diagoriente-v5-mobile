@@ -17,7 +17,6 @@ export default makeStyles<Theme,{ CheckBoxbackgroudColor?: string;}>(() => ({
     display: 'flex',
     alignItems: 'center',
     paddingLeft: 25,
-    cursor: 'pointer',
     position: 'relative',
   },
   itemText: {
