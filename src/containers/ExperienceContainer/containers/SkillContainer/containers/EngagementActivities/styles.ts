@@ -183,7 +183,7 @@ export default makeStyles((theme: Theme) =>
       right: 0,
       cursor: 'pointer',
       [theme.breakpoints.down(420)]: {
-        right: -20,
+        right: -15,
       },
     },
 

@@ -193,9 +193,15 @@ export default makeStyles((theme: Theme) =>
     },
     questionRow: {
       display: 'flex',
-      width: '100%',
+      width: '88%',
       position: 'relative',
       flexWrap: 'wrap',
+      [theme.breakpoints.down(420)]: {
+        width: '80%',
+      },
+      [theme.breakpoints.down(330)]: {
+        width: '77%',
+      },
     },
     rowActivityWidth: {
       width: 800,
