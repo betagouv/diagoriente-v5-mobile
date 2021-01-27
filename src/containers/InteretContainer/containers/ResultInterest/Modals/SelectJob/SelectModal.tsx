@@ -12,9 +12,9 @@ import classNames from 'utils/classNames';
 import { useAccessibility } from 'requests/accessibility';
 import useStyles from './style';
 import checked from 'assets/form/checkboxchecked.svg';
-import Arrow from 'containers/ProfilContainer/components/Arrow/Arrow';
-import redarrow from 'assets/svg/redarrow.svg';
-
+// import Arrow from 'containers/ProfilContainer/components/Arrow/Arrow';
+// import redarrow from 'assets/svg/redarrow.svg';
+import Arrow from 'assets/svg/arrow';
 enum Steps {
   THEMES,
   ACCESSIBILITY,
@@ -94,7 +94,12 @@ return o.id===id
     case Steps.ACCESSIBILITY:
       return (
         <div className={classes.modalBody}>
-                <Arrow url= "/interet/result" arrowIcon={redarrow } onClick={() => setStep(Steps.THEMES)} className={classes.colorArrow}/>
+          <div className ={classes.arrowClass} onClick={() => setStep(Steps.THEMES) } > 
+          <Arrow color="#420FAB" height="15" width="9.5" className={classes.rotadArrow} />
+          <span style={{paddingLeft:20}}> Retour </span>
+            
+             </div>
+        
           <div className={classes.titleModal}>
             Encore une petite chose !
             <br />

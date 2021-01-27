@@ -4,7 +4,6 @@ export default makeStyles<Theme, { checked: boolean }>((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
-    cursor: 'pointer',
     margin: '10px 0px',
   },
   circleContainer: {
