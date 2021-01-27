@@ -67,7 +67,6 @@ export default makeStyles<Theme>((theme) => ({
     alignItems: 'center',
     margin: 10,
     padding: 10,
-    cursor: 'pointer',
     [theme.breakpoints.down(415)]: {
       maxWidth: '-webkit-fill-available',
     },
