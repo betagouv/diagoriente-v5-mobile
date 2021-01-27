@@ -145,13 +145,12 @@ export default makeStyles<Theme>((theme) => ({
   },
   rotadArrow:{
     transform: 'rotate(180deg)',
-    position:'absolute',
-    left:0,
     paddingRight:5
 
   },
   arrowClass:{
-  paddingBottom:20
+  paddingBottom:20,
+  display:'flex'
   }
 
 }));
