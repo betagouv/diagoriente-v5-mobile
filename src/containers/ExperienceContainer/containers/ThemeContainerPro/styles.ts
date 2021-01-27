@@ -70,7 +70,6 @@ export default makeStyles((theme: Theme) =>
       borderRadius: 30,
       width: 'max-content',
       padding: 10,
-      cursor: 'pointer',
       color: '#424242',
       textTransform: 'capitalize',
       '&:hover': {

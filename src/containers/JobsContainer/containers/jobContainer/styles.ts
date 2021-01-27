@@ -38,7 +38,6 @@ export default makeStyles<Theme>((theme) => ({
   back: {
     display: 'flex',
     alignItems: 'center',
-    cursor: 'pointer',
     marginBottom: 25,
   },
   arrow: {
@@ -112,7 +111,6 @@ export default makeStyles<Theme>((theme) => ({
     textDecorationLine: 'underline',
     fontWeight: 'bold',
     fontSize: 14,
-    cursor: 'pointer',
     marginRight: 40,
   },
   immersion: {
