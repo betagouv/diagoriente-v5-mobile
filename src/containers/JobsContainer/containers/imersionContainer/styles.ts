@@ -243,6 +243,19 @@ export default makeStyles<Theme>((theme) => ({
     flexDirection: 'column',
     overflow: 'auto',
     zIndex: 99999,
+    '@media not all and (min-resolution:.001dpcm)': {
+      background: '#FFFFFF',
+      boxSizing: 'border-box',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      zIndex: 99999,
+      overflow: 'hidden',
+    }
   },
   closeFullModelContainer: {
     width: '100%',
