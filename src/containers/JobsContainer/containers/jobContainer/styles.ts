@@ -39,6 +39,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginBottom: 25,
+    cursor:'none'
   },
   arrow: {
     transform: 'rotate(180deg)',
@@ -66,7 +67,6 @@ export default makeStyles<Theme>((theme) => ({
   favoris: {
     display: 'flex',
     alignItems: 'flex-end',
-    cursor: 'pointer',
     marginBottom: 35,
   },
   textFavoris: {
