@@ -148,7 +148,6 @@ export default makeStyles<
   itemSecteur: {
     margin: 2,
     width: 284,
-    cursor: 'pointer',
     '&:hover': {
       color: theme.palette.primary.main,
     },

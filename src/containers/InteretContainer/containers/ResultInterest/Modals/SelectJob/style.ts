@@ -1,4 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import { FullscreenExit } from '@material-ui/icons';
 
 export default makeStyles<Theme>((theme) => ({
   modalBody: {
@@ -66,7 +67,6 @@ export default makeStyles<Theme>((theme) => ({
     alignItems: 'center',
     margin: 10,
     padding: 10,
-    cursor: 'pointer',
     [theme.breakpoints.down(415)]: {
       maxWidth: '-webkit-fill-available',
     },
@@ -142,4 +142,14 @@ export default makeStyles<Theme>((theme) => ({
     backgroundColor: 'white',
     'padding-bottom': '25%',
   },
+  rotadArrow:{
+    transform: 'rotate(180deg)',
+    paddingRight:5
+
+  },
+  arrowClass:{
+  paddingBottom:20,
+  display:'flex'
+  }
+
 }));

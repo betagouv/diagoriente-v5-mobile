@@ -40,8 +40,8 @@ export default makeStyles<Theme>((theme) => ({
   back: {
     display: 'flex',
     alignItems: 'center',
-    cursor: 'pointer',
     marginBottom: 25,
+    cursor:'none'
   },
   arrow: {
     transform: 'rotate(180deg)',
@@ -69,7 +69,6 @@ export default makeStyles<Theme>((theme) => ({
   favoris: {
     display: 'flex',
     alignItems: 'flex-end',
-    cursor: 'pointer',
     marginBottom: 35,
   },
   textFavoris: {
@@ -114,7 +113,6 @@ export default makeStyles<Theme>((theme) => ({
     textDecorationLine: 'underline',
     fontWeight: 'bold',
     fontSize: 14,
-    cursor: 'pointer',
     marginRight: 40,
   },
   immersion: {
