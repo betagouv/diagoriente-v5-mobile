@@ -10,6 +10,14 @@ export default makeStyles((theme) =>
       alignItems: 'center',
       paddingTop: 34,
       flex: 1,
+      '@media not all and (min-resolution:.001dpcm)': {
+        display: 'flex',
+        padding: "24px 22px 28vh 10px",
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingTop: 34,
+        flex: 1,
+      }
     },
     root:{
       width:'auto'

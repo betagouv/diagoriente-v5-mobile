@@ -50,6 +50,19 @@ wordBreak:'break-all'
 
       },
 
+      '@media not all and (min-resolution:.001dpcm)': {
+        fontSize: '22px',
+        lineHeight: '26px',
+        color: '#424242',
+        marginLeft: '70px',
+        fontFamily: 'Ocean',
+        fontWeight: 900,
+        [theme.breakpoints.down(380)]: {
+          marginLeft: 10,
+  
+        },
+      }
+
     },
     topAccordion : {
       height: '80px',
@@ -539,7 +552,7 @@ marginRight:0
 
     },
     [theme.breakpoints.down(330)]: {
-      paddingLeft:' 135px',
+      paddingLeft:'22vh',
 
     },
     },
@@ -569,6 +582,13 @@ marginRight:0
       fontWeight: 'bold',
       fontSize: 18,
       textAlign: 'center',
+      '@media not all and (min-resolution:.001dpcm)': {
+        color: '#fff',
+        textTransform: 'none',
+        fontWeight: 'bold',
+        fontSize: 14,
+        textAlign: 'center',
+      }
     },
     cardCompetence : {
       marginLeft: '15px',
@@ -658,6 +678,17 @@ marginRight:0
         [theme.breakpoints.down(380)]: {
           marginLeft:10
         },
+        '@media not all and (min-resolution:.001dpcm)': {
+          fontSize: '22px',
+          lineHeight: '26px',
+          color: '#4D6EC5',
+          marginLeft: '70px',
+          fontFamily: 'Ocean',
+          fontWeight: 900,
+          [theme.breakpoints.down(380)]: {
+            marginLeft:10
+          },
+        }
       },
  
     detailEng:{ 

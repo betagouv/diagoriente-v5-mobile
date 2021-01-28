@@ -31,6 +31,19 @@ export default makeStyles((theme) =>
       [theme.breakpoints.down(500)]: {
         paddingLeft: 0, 
       },
+      '@media not all and (min-resolution:.001dpcm)': {
+        display: 'flex',
+        color: '#424242',
+        fontWeight: 'bold',
+        fontSize: 14,
+        maxHeight: 65,
+        alignItems: 'center',
+        paddingBottom: 9,
+        paddingLeft: 25,
+        [theme.breakpoints.down(500)]: {
+          paddingLeft: 0, 
+        },
+      }
       
     },
 
@@ -115,6 +128,13 @@ export default makeStyles((theme) =>
       position: 'absolute',
       top: 12,
       right: 12,
+      '@media not all and (min-resolution:.001dpcm)': {
+        position: 'absolute',
+        top: 1,
+        right: 1,
+        height: "6vh",
+        width: "6vh",
+      }
     },
 
     themeTitle: {
