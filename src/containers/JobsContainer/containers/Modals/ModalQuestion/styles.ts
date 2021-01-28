@@ -11,6 +11,17 @@ export default makeStyles((theme) => ({
     height: '100%',
     overflow: 'auto',
     zIndex: 99999,
+    '@media not all and (min-resolution:.001dpcm)': {
+      background: '#FFFFFF',
+      boxSizing: 'border-box',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden',
+      zIndex: 99999,
+    },
   },
   closeFullModelContainer: {
     width: '100%',
@@ -49,6 +60,12 @@ export default makeStyles((theme) => ({
     maxWidth: '100%',
     padding: '0px 15px',
     textAlign: 'center',
+    '@media not all and (min-resolution:.001dpcm)': {
+      fontWeight: 900,
+      fontSize: '3.5vh',
+      fontFamily: 'ocean',
+      textTransform: 'uppercase',
+    },
   },
   titleQuestion: {
     paddingTop: 30,

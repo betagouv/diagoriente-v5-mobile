@@ -23,7 +23,6 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       justifyContent: 'space-between',
       paddingLeft: 42,
       paddingRight: 21,
-      cursor: 'pointer',
     },
 
     menuIconClosed: {

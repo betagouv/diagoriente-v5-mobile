@@ -178,7 +178,7 @@ export default makeStyles((theme: Theme) =>
     },
 
     rootClassName: {
-      marginTop: 20,
+      marginTop: 15,
     },
 
     styleSelect: {

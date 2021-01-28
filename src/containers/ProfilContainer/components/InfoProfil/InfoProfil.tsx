@@ -20,6 +20,7 @@ import SnackBar from 'components/SnackBar/SnackBar';
 import defaultAvatar from 'assets/svg/defaultAvatar.svg';
 import InfoProfilRow from '../InfoProfilRow/InfoProfilRow';
 import Arrow from '../Arrow/Arrow';
+import redarrow from 'assets/svg/redarrow.svg';
 
 import useStyles from './styles';
 
@@ -138,7 +139,8 @@ const InfoProfil = () => {
       <div className={classes.InfoContainer}>
         <SnackBar variant="error" message={error} open={!!error} handleClose={() => setError('')} />
         <div className={classes.titleContainer}>
-          <Arrow />
+        <Arrow url= "/profile" arrowIcon={redarrow }/>
+          {/* <Arrow /> */}
           <Title title="MES INFOS PERSONNELLES" color="#424242" size={42} className={classes.title} />
           <div className={classes.empty} />
         </div>

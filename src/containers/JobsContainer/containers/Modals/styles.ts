@@ -26,7 +26,6 @@ export default makeStyles((theme) => ({
   back: {
     display: 'flex',
     alignItems: 'center',
-    cursor: 'pointer',
     marginBottom: 15,
     marginTop: 13,
     paddingLeft: 45,

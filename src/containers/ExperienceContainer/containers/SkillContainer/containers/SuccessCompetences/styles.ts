@@ -316,6 +316,9 @@ export default makeStyles((theme) => ({
 
   titleThemeDone: {
     fontSize: 14,
+    '@media not all and (min-resolution:.001dpcm)': {
+      fontSize: 11,
+    }
   },
 
   checked: {

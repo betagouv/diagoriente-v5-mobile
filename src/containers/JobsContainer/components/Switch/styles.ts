@@ -11,7 +11,6 @@ export default makeStyles<Theme, { checked: boolean }>(() => ({
     padding: 3,
     position: 'relative',
     opacity: (props) => (props.checked ? 1 : 0.5),
-    cursor: 'pointer',
   },
   switchContent: {
     width: 23,
