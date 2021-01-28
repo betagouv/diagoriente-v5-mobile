@@ -41,16 +41,16 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       background: '#FFFFFF',
       overflow: 'auto',
       maxHeight: 'calc(29vh - 70px)',
-      // [theme.breakpoints.down(412)]: {
-      //   maxHeight: 'calc(28vh - 70px)',
-
-  
-      //   },
       [theme.breakpoints.down(330)]: {
         maxHeight: 'calc(35vh - 70px)',
 
   
         },
+        [theme.breakpoints.up(560)]: {
+          maxHeight: 'calc(35vh - 10px)',
+  
+    
+          },
     },
 
     header: {

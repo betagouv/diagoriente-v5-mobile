@@ -13,6 +13,10 @@ export default makeStyles((theme) => ({
   content: {
     width: '100%',
     height: '100vh',
+    [theme.breakpoints.up(560)]: {
+      height: 'auto',
+
+    },
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

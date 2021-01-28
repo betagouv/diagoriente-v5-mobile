@@ -18,6 +18,10 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down(330)]: {
       height: 'auto',
     },
+    [theme.breakpoints.up(560)]: {
+      height: 'auto',
+
+    },
   },
 
   header: {

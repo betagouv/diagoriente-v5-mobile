@@ -23,6 +23,9 @@ export default makeStyles((theme: Theme) =>
       alignItems: 'center',
       paddingTop: 34,
       minHeight: '76vh',
+      [theme.breakpoints.up(560)]: {
+        height:'130vh'
+      },
     },
 
     themeTitle: {
