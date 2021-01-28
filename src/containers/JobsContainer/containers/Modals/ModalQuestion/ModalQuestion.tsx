@@ -57,6 +57,8 @@ const ModalQuestion = ({ job, onClose }: IProps) => {
       }
     }
   }, [responseState.data, updateResponseState.data, getListResponses, param, refetch, job, onClose]);
+  console.log('questions', job?.questionJobs);
+  console.log('responses', data?.responseJobs.data);
   return (
     <div className={classes.root}>
       <div className={classes.closeFullModelContainer} onClick={onClose}>

@@ -23,6 +23,8 @@ export default makeStyles<Theme>((theme) => ({
   jobTitle: {
     maxWidth: 'calc(100% - 40px)',
     textAlign: 'center',
+    maxHeight: '100%',
+    overflow: 'auto',
   },
   contentInfo: {
     width: '100%',
