@@ -279,6 +279,9 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
       fontWeight: 'bold',
       flex: '1 1 0',
+      [theme.breakpoints.up(560)]: {
+        paddingTop:30
+      },
 
       '@media not all and (min-resolution:.001dpcm)': {
         flex: '1 1 0',
