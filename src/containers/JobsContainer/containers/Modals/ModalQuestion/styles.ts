@@ -37,7 +37,7 @@ export default makeStyles((theme) => ({
     /* flex: 1, */
   },
   titleContainer: {
-    paddingTop: 62,
+    paddingTop: 25,
     display: 'flex',
     justifyContent: 'center',
   },
@@ -46,6 +46,9 @@ export default makeStyles((theme) => ({
     fontSize: 26,
     fontFamily: 'ocean',
     textTransform: 'uppercase',
+    maxWidth: '100%',
+    padding: '0px 15px',
+    textAlign: 'center',
   },
   titleQuestion: {
     paddingTop: 30,
