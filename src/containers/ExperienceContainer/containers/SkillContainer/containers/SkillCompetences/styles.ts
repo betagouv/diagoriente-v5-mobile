@@ -31,9 +31,8 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       width: '100%',
       flexWrap: 'wrap',
-      padding: '10px 10px 90px 10px',
+      padding: '10px 25px 90px 25px',
       justifyContent: 'center',
- 
     },
 
     circle: {
@@ -212,7 +211,7 @@ export default makeStyles((theme: Theme) =>
         backgroundColor: 'white',
         boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
         zIndex: 1,
-      }
+      },
     },
     classNameTitle: {
       color: '#4D6EC5',
@@ -222,7 +221,7 @@ export default makeStyles((theme: Theme) =>
         color: '#4D6EC5',
         fontSize: 14,
         lineHeight: '26px',
-      }
+      },
     },
   }),
 );
