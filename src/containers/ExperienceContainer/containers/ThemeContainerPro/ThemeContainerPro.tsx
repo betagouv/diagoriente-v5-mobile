@@ -1,15 +1,11 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
-import TitleImage from 'components/common/TitleImage/TitleImage';
 import Title from 'components/common/TitleImage/TitleImage';
 import Input from 'components/inputs/Input/Input';
-import Tooltip from '@material-ui/core/Tooltip';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
-import NavigationButton from 'components/NavigationButton/NavigationButton';
 import SelectionContext from 'contexts/SelectionContext';
 import useOnclickOutside from 'hooks/useOnclickOutside';
 import { useThemes } from 'requests/themes';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import RestLogo from 'components/common/Rest/Rest';
 import Grid from '@material-ui/core/Grid';
 import Selection from 'components/theme/ThemeSelection/ThemeSelection';
 import parcoursContext from 'contexts/ParcourContext';
@@ -42,11 +38,25 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   });
   const { parcours } = useContext(parcoursContext);
   const [checked, setChecked] = React.useState(false);
+  const [currentBtn, setCurrentBtn] = useState(-1);
+  const divInfo = useRef<HTMLDivElement>(null);
+
+  useOnclickOutside(divInfo, (e: Event) => {
+    if (
+      currentBtn >= 0 &&
+      document.getElementsByClassName('ignore-onclickoutside')[currentBtn].contains(e.target as any)
+    ) {
+      return;
+    } else if (openedTheme && divInfo) {
+      setOpenedTheme(null);
+    }
+  });
 
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setValueSearch(value);
   };
+
   useEffect(() => {
     if (data) {
       const id = localStorage.getItem('theme');
@@ -138,11 +148,13 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                             key={theme.id}
                             item
                             onClick={() => {
+                              setCurrentBtn(index);
                               handleClick(theme);
                             }}
                           >
                             <div
                               className={classNames(
+                                'ignore-onclickoutside',
                                 classes.itemData,
                                 selectedTheme?.id === theme.id && classes.selected,
                               )}
@@ -156,8 +168,13 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
 
                           <div>
                             {openedTheme?.id === theme.id ? (
-                              <Slide direction="up" in={!(selectedTheme?.id === theme.id)} mountOnEnter unmountOnExit>
-                                <Child key={index} className={classes.child} style={{ padding: 15 }}>
+                              <Slide
+                                direction="up"
+                                in={openedTheme && !(selectedTheme?.id === theme.id)}
+                                mountOnEnter
+                                unmountOnExit
+                              >
+                                <Child key={index} className={classes.child} style={{ padding: 15 }} ref={divInfo}>
                                   <p style={{ width: '100%', color: '#FF0060' }}>
                                     <b>Appuie deux fois sur le theme pour le sélectionner</b>
                                   </p>
