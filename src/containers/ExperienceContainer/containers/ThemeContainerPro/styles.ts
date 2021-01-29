@@ -39,8 +39,10 @@ export default makeStyles((theme: Theme) =>
 
     gridContainer: {
       padding: SKILL_CONTAINER_PADDING,
-
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.up(560)]: {
+        padding: '15px 15px 60px 15px',
+      },
+      [theme.breakpoints.down(559)]: {
         padding: '40px 15px',
       },
     },
@@ -207,7 +209,7 @@ export default makeStyles((theme: Theme) =>
         backgroundColor: 'white',
         boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
         zIndex: 1,
-      }
+      },
     },
     classNameTitle: {
       color: '#4D6EC5',
@@ -217,7 +219,7 @@ export default makeStyles((theme: Theme) =>
         color: '#4D6EC5',
         fontSize: 14,
         lineHeight: '26px',
-      }
+      },
     },
 
     btnpreced: {
@@ -229,15 +231,15 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'bold',
       textDecoration: 'none',
     },
-    titleDiv:{
-      width:'fit-content',
+    titleDiv: {
+      width: 'fit-content',
       flexwrap: 'wrap',
       wordBreak: 'break-word',
       textAlign: 'left',
-      padding: '10px 0px'
+      padding: '10px 0px',
     },
-    child:{
-      flexWrap:'wrap',
-    }
+    child: {
+      flexWrap: 'wrap',
+    },
   }),
 );
