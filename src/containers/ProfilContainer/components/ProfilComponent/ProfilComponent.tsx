@@ -50,7 +50,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
   const { user } = useContext(UserContext);
   const { parcours } = useContext(parcoursContext);
   const { data: secteurs } = useContext(SecteurContext);
-  const [callJobs, stateJobs] = useJobs({fetchPolicy:'network-only'});
+  const [callJobs, stateJobs] = useJobs({ fetchPolicy: 'network-only' });
 
   const isBrowser = typeof window !== 'undefined';
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
@@ -466,7 +466,6 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
               <Typography className={classes.topText}>
                 <div className={classes.logoStar}>
                   <div>
-                    {' '}
                     <img src={star} alt="" height={30} className={classes.star} />{' '}
                   </div>
                   <div> MON TOP MÉTIERS </div>
@@ -496,9 +495,8 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             >
               <Typography className={classes.topText}>
                 <div className={classes.logoStar}>
-                  <div>
-                    {' '}
-                    <img src={littleheart2} alt="" height={30} className={classes.star} />{' '}
+                  <div className={classes.containerHeart}>
+                    <img src={littleheart2} alt="" height={20} className={classes.starHeart} />{' '}
                   </div>
                   <div> MES MÉTIERS FAVORIS </div>
                 </div>

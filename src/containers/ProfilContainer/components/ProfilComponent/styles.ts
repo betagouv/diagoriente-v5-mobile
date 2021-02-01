@@ -12,33 +12,46 @@ export default makeStyles((theme) =>
       alignItems: 'center',
       // [theme.breakpoints.down(350)]: {
       //   overflowX:'hidden'
-  
+
       // },
     },
-    topMetier:{
+    topMetier: {
       [theme.breakpoints.down(400)]: {
-width:'fit-content',
-wordBreak:'break-all'
-
+        width: 'fit-content',
+        wordBreak: 'break-all',
       },
     },
-    topJobs:{
-      padding:'20px 0px',
-      paddingLeft:60,
+    topJobs: {
+      padding: '20px 0px',
+      paddingLeft: 60,
       [theme.breakpoints.down(420)]: {
-        paddingLeft:10,
-
+        paddingLeft: 10,
       },
+    },
+    logoStar: {
+      display: 'flex',
+      alignItems: 'center',
 
-  },
-    logoStar:{
-      display:'flex',
-      alignItems:'center'
-  },
-  star:{
-      paddingRight:20
-  },
-    topText : {
+    },
+    star: {
+      paddingRight: 20,
+    },
+    starHeart: {
+      width: 20,
+      height: 17,
+    },
+    containerHeart: {
+      backgroundColor: '#FFE1A8',
+      marginRight: 20,
+      width: 40,
+      height: 40,
+      borderRadius: 50,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
+    topText: {
       fontSize: '26px',
       lineHeight: '26px',
       color: '#424242',
@@ -47,7 +60,6 @@ wordBreak:'break-all'
       fontWeight: 900,
       [theme.breakpoints.down(380)]: {
         marginLeft: 30,
-
       },
 
       '@media not all and (min-resolution:.001dpcm)': {
@@ -59,29 +71,24 @@ wordBreak:'break-all'
         fontWeight: 900,
         [theme.breakpoints.down(380)]: {
           marginLeft: 10,
-  
         },
-      }
-
-    },
-    topAccordion : {
-      height: '80px',
-          borderRadius: '0px',
-        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
-        backgroundColor: '#FFD382',
-    
-  
-  
       },
-    iconTop:{
-      width:30,
-      height:30,
-      color:"#424242"
+    },
+    topAccordion: {
+      height: '80px',
+      borderRadius: '0px',
+      boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
+      backgroundColor: '#FFD382',
+    },
+    iconTop: {
+      width: 30,
+      height: 30,
+      color: '#424242',
     },
     titleDemarche: {
       fontFamily: 'Ocean',
       fontWeight: 900,
-      backgroundColor:'#DB8F00',
+      backgroundColor: '#DB8F00',
       // fontSize: '2.2em',
       // lineHeight: 1,
       // paddingBottom: 15,
@@ -94,28 +101,26 @@ wordBreak:'break-all'
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      paddingBottom:56,
+      paddingBottom: 56,
       [theme.breakpoints.down(380)]: {
-        overflowX:'hidden'
+        overflowX: 'hidden',
       },
     },
-    rootContainer:{
+    rootContainer: {
       width: '100%',
       margin: '0px !important',
       boxShadow: 'none !important',
     },
     cardGridContainer: {
       padding: '30px 70px 30px 70px',
-      display:'contents',
-      alignItems:'center',
+      display: 'contents',
+      alignItems: 'center',
       [theme.breakpoints.down(450)]: {
         padding: '10px 10px 30px 10px',
-  
       },
-      
     },
-    profilDetail:{
-      padding:'5px 30px 5px '
+    profilDetail: {
+      padding: '5px 30px 5px ',
     },
 
     cardClassName: {
@@ -124,7 +129,7 @@ wordBreak:'break-all'
     titleExp: {
       fontFamily: 'Ocean',
       fontWeight: 900,
-      backgroundColor:'#4D6EC5',
+      backgroundColor: '#4D6EC5',
       // fontSize: '2.2em',
       // lineHeight: 1,
       // paddingBottom: 15,
@@ -132,7 +137,7 @@ wordBreak:'break-all'
     titlePro: {
       fontFamily: 'Ocean',
       fontWeight: 900,
-      backgroundColor:'#FF0060',
+      backgroundColor: '#FF0060',
       // fontSize: '2.2em',
       // lineHeight: 1,
       // paddingBottom: 15,
@@ -288,7 +293,7 @@ wordBreak:'break-all'
       display: 'flex',
       flexDirection: 'column',
       marginTop: 15,
-      marginLeft:15,
+      marginLeft: 15,
       justifyContent: 'center',
     },
 
@@ -378,8 +383,7 @@ wordBreak:'break-all'
       overflow: 'hidden',
       [theme.breakpoints.down(400)]: {
         whiteSpace: 'normal',
-        wordBreak:'break-word',
-
+        wordBreak: 'break-word',
       },
     },
     favoriContainer: {
@@ -396,9 +400,7 @@ wordBreak:'break-all'
       },
       [theme.breakpoints.down(450)]: {
         padding: '15px 0px',
-  
       },
-
     },
     themeImage: {
       maxHeight: '100%',
@@ -438,29 +440,27 @@ wordBreak:'break-all'
       maxWidth: 'calc(33.333333% - 32px)',
     },
     avis: { position: 'fixed', bottom: 0, right: 30 },
-    
+
     headerAccordion: {
       margin: '0px !important',
       boxShadow: 'none !important',
     },
-    accordionContainer:{
-      width:'100%',
+    accordionContainer: {
+      width: '100%',
       margin: '0px !important',
       boxShadow: 'none !important',
     },
     activeHeader: {
       backgroundColor: '#e1e7f7 !important',
     },
-   
-      
-    infoAccordion : {
-        height: '80px',
-        borderRadius: '0px',
+
+    infoAccordion: {
+      height: '80px',
+      borderRadius: '0px',
       boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
       backgroundColor: 'rgba(243, 242, 244, 0.3)',
-
     },
-    headingText : {
+    headingText: {
       fontSize: '26px',
       lineHeight: '26px',
       color: '#424242',
@@ -468,112 +468,101 @@ wordBreak:'break-all'
       fontFamily: 'Ocean',
       fontWeight: 900,
       [theme.breakpoints.down(330)]: {
-marginLeft:30 
+        marginLeft: 30,
       },
     },
-    iconInfo:{
-      width:30,
-      height:30,
-      color:"#424242",
+    iconInfo: {
+      width: 30,
+      height: 30,
+      color: '#424242',
       borderRadius: '50%',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      marginRight:'0px !important'
+      marginRight: '0px !important',
     },
-    MuiExpansionPanelDetailsRoot:{
+    MuiExpansionPanelDetailsRoot: {
       padding: '0px',
     },
-    MuiIconButtonEdgeEnd255:{
-marginRight:0
+    MuiIconButtonEdgeEnd255: {
+      marginRight: 0,
     },
-    headerInteret:{
+    headerInteret: {
       backgroundColor: 'rgba(162, 117, 255, 0.3)',
       boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
       height: '80px',
       borderRadius: '0px',
-
     },
-    TextInteret:{
+    TextInteret: {
       fontSize: '26px',
       lineHeight: '26px',
       marginLeft: '70px',
       fontFamily: 'Ocean',
       fontWeight: 900,
-      color:'#420FAB',
+      color: '#420FAB',
       [theme.breakpoints.down(330)]: {
-        marginLeft:30 
-              },
-      
+        marginLeft: 30,
+      },
     },
-    iconInteret:{
-      width:30,
-      height:30,
-      color:"#420FAB"
+    iconInteret: {
+      width: 30,
+      height: 30,
+      color: '#420FAB',
     },
-    headerCompetence:{
+    headerCompetence: {
       backgroundColor: 'rgba(255, 110, 164, 0.3)',
       boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
       height: '80px',
       borderRadius: '0px',
-      
-
     },
-    TextCompetence:{
+    TextCompetence: {
       fontSize: '26px',
       lineHeight: '26px',
       marginLeft: '70px',
       fontFamily: 'Ocean',
       fontWeight: 900,
-      color:'#D60051',
+      color: '#D60051',
       [theme.breakpoints.down(330)]: {
-        marginLeft:30 
-              },
+        marginLeft: 30,
+      },
     },
-    iconCompetence:{
-      width:30,
-      height:30,
-      color:"#D60051"
+    iconCompetence: {
+      width: 30,
+      height: 30,
+      color: '#D60051',
     },
 
-    modifierProfile:{
+    modifierProfile: {
+      fontWeight: 'bold',
+      fontSize: 14,
+      color: '#6B6B6A',
+      paddingLeft: ' 314px',
 
-    fontWeight:'bold',
-    fontSize:14,
-    color:'#6B6B6A',
-    paddingLeft:' 314px',
-
-    [theme.breakpoints.down(420)]: {
-      paddingLeft:' 225px',
-
+      [theme.breakpoints.down(420)]: {
+        paddingLeft: ' 225px',
+      },
+      [theme.breakpoints.down(380)]: {
+        paddingLeft: ' 180px',
+      },
+      [theme.breakpoints.down(330)]: {
+        paddingLeft: '22vh',
+      },
     },
-    [theme.breakpoints.down(380)]: {
-      paddingLeft:' 180px',
-
-    },
-    [theme.breakpoints.down(330)]: {
-      paddingLeft:'22vh',
-
-    },
-    },
-    competenceContainer:{
-    flexDirection: 'row',
-    padding: '20px 20px 20px 20px',
-    [theme.breakpoints.down(450)]: {
-      padding: '15px 5px 5px 5px',
-
-    },
+    competenceContainer: {
+      flexDirection: 'row',
+      padding: '20px 20px 20px 20px',
+      [theme.breakpoints.down(450)]: {
+        padding: '15px 5px 5px 5px',
+      },
     },
 
     btnCompetence: {
-      backgroundColor: '#D60051' ,
+      backgroundColor: '#D60051',
       height: 50,
       width: 331,
       padding: '0px 7px',
       [theme.breakpoints.down(330)]: {
-        width:290,
-     
-
+        width: 290,
       },
     },
     labelCompetence: {
@@ -588,57 +577,53 @@ marginRight:0
         fontWeight: 'bold',
         fontSize: 14,
         textAlign: 'center',
-      }
+      },
     },
-    cardCompetence : {
+    cardCompetence: {
       marginLeft: '15px',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       [theme.breakpoints.down(450)]: {
-        width:300,
+        width: 300,
         marginLeft: 50,
-
       },
       [theme.breakpoints.down(330)]: {
         marginLeft: 10,
-
       },
     },
-    competenceFlex:{
-      display:'flex',
-      [theme.breakpoints.down(450)]: {
-        flexDirection:'column'
-      },
-    },
-    carte:{
+    competenceFlex: {
       display: 'flex',
-    padding: '50px 0px',
-    justifyContent: 'center',
-    },
-    carouselContainer:{
-      
-    },
-    carouselDetails:{
-      display:'block',
-    },
-    imgCard:{
       [theme.breakpoints.down(450)]: {
-        justifyContent:'center',
+        flexDirection: 'column',
+      },
+    },
+    carte: {
+      display: 'flex',
+      padding: '50px 0px',
+      justifyContent: 'center',
+    },
+    carouselContainer: {},
+    carouselDetails: {
+      display: 'block',
+    },
+    imgCard: {
+      [theme.breakpoints.down(450)]: {
+        justifyContent: 'center',
         display: 'flex',
       },
     },
-    cardDetail:{
+    cardDetail: {
       [theme.breakpoints.down(380)]: {
-        padding:'0px 0px '
+        padding: '0px 0px ',
       },
     },
-    accordionCarte:{
-      width:'100%',
+    accordionCarte: {
+      width: '100%',
       margin: '0px !important',
       boxShadow: 'none !important',
     },
-  
+
     experienceContainer: {
       flex: '1 0 auto',
       position: 'relative',
@@ -648,130 +633,117 @@ marginRight:0
       flexDirection: 'column',
       alignItems: 'center',
       [theme.breakpoints.down(380)]: {
-        overflowX:'hidden'
+        overflowX: 'hidden',
       },
     },
-    iconPerso:{
-      width:30,
-      height:30,
-      color:"#4D6EC5"
+    iconPerso: {
+      width: 30,
+      height: 30,
+      color: '#4D6EC5',
     },
-    persoAccordion : {
-      
+    persoAccordion: {
       height: '80px',
-        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
-          borderRadius: '0px',
-        backgroundColor: '#E1E7F7',
-          [theme.breakpoints.down(330)]: {
-            padding:'0 !important'
-          },
-        
-  
+      boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.15)',
+      borderRadius: '0px',
+      backgroundColor: '#E1E7F7',
+      [theme.breakpoints.down(330)]: {
+        padding: '0 !important',
       },
-      persoText : {
-        fontSize: '26px',
+    },
+    persoText: {
+      fontSize: '26px',
+      lineHeight: '26px',
+      color: '#4D6EC5',
+      marginLeft: '70px',
+      fontFamily: 'Ocean',
+      fontWeight: 900,
+      [theme.breakpoints.down(380)]: {
+        marginLeft: 10,
+      },
+      '@media not all and (min-resolution:.001dpcm)': {
+        fontSize: '22px',
         lineHeight: '26px',
         color: '#4D6EC5',
         marginLeft: '70px',
         fontFamily: 'Ocean',
         fontWeight: 900,
         [theme.breakpoints.down(380)]: {
-          marginLeft:10
+          marginLeft: 10,
         },
-        '@media not all and (min-resolution:.001dpcm)': {
-          fontSize: '22px',
-          lineHeight: '26px',
-          color: '#4D6EC5',
-          marginLeft: '70px',
-          fontFamily: 'Ocean',
-          fontWeight: 900,
-          [theme.breakpoints.down(380)]: {
-            marginLeft:10
-          },
-        }
       },
- 
-    detailEng:{ 
-      color:'#4D6EC5',
-    fontWeight:700,
-    size:14,
-    display:'flex',
-    paddingTop:20,
-    justifyContent:'flex-end',
-    flex:'auto',
-    alignItems:'flex-end',
-    flexDirection:'column'
-    
-
     },
-    detailPro:{
-    color:'#4D6EC5',
-    fontWeight:700,
-    size:14,
-    display:'flex',
-    paddingTop:35,
-    justifyContent:'flex-end',
-    flex:'auto',
-    alignItems:'flex-end',
-    flexDirection:'column'
- 
 
+    detailEng: {
+      color: '#4D6EC5',
+      fontWeight: 700,
+      size: 14,
+      display: 'flex',
+      paddingTop: 20,
+      justifyContent: 'flex-end',
+      flex: 'auto',
+      alignItems: 'flex-end',
+      flexDirection: 'column',
     },
-    detail:{
-      color:'#4D6EC5',
-      fontWeight:700,
-      size:14,
-      display:'flex',
-      paddingTop:50,
-      justifyContent:'flex-end',
-      flex:'auto',
-      alignItems:'flex-end',
-      flexDirection:'column'
-  
-  
-      },
-      linkEng:{
-  marginLeft:90,
-  [theme.breakpoints.down(420)]: {
-    marginLeft:30,
-  },
-  [theme.breakpoints.down(380)]: {
-    marginLeft:12,
-  },
-  [theme.breakpoints.down(370)]: {
-    marginLeft:6,
-  },
-
-
-
-      },
-    detailColor:{
-      color:'#4D6EC5'
+    detailPro: {
+      color: '#4D6EC5',
+      fontWeight: 700,
+      size: 14,
+      display: 'flex',
+      paddingTop: 35,
+      justifyContent: 'flex-end',
+      flex: 'auto',
+      alignItems: 'flex-end',
+      flexDirection: 'column',
     },
-  
-    proDetails:{
-      display:'block',
+    detail: {
+      color: '#4D6EC5',
+      fontWeight: 700,
+      size: 14,
+      display: 'flex',
+      paddingTop: 50,
+      justifyContent: 'flex-end',
+      flex: 'auto',
+      alignItems: 'flex-end',
+      flexDirection: 'column',
     },
-    metier:{
-      paddingLeft:130,
-      [theme.breakpoints.down(400)]: {
-        paddingLeft:106
+    linkEng: {
+      marginLeft: 90,
+      [theme.breakpoints.down(420)]: {
+        marginLeft: 30,
       },
       [theme.breakpoints.down(380)]: {
-        paddingLeft:90
+        marginLeft: 12,
+      },
+      [theme.breakpoints.down(370)]: {
+        marginLeft: 6,
+      },
+    },
+    detailColor: {
+      color: '#4D6EC5',
+    },
+
+    proDetails: {
+      display: 'block',
+    },
+    metier: {
+      paddingLeft: 130,
+      [theme.breakpoints.down(400)]: {
+        paddingLeft: 106,
+      },
+      [theme.breakpoints.down(380)]: {
+        paddingLeft: 90,
       },
       [theme.breakpoints.down(330)]: {
-        paddingLeft:70
+        paddingLeft: 70,
       },
 
-AccordionSummary:{
-  '& .MuiAccordionSummary-root-676':{
-    [theme.breakpoints.down(330)]: {
-      padding:'0 important'
+      AccordionSummary: {
+        '& .MuiAccordionSummary-root-676': {
+          [theme.breakpoints.down(330)]: {
+            padding: '0 important',
+          },
+        },
+      },
     },
-  },
-}
-    },
-
   }),
 );
