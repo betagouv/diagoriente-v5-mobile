@@ -4,18 +4,15 @@ export default makeStyles<Theme>((theme) => ({
   container: {
     width: '100%',
     height: '100vh',
-    display: 'flex',
     'max-height': '600px',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 31,
     paddingBottom: 20,
     backgroundColor: '#f3f2f4',
   },
   content: {
     maxWidth: 1080,
-    position: 'absolute',
     top: '6.5%',
   },
   titleContainer: {

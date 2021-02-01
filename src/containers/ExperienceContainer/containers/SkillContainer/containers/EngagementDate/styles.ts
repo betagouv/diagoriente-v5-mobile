@@ -183,11 +183,13 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'bold',
       fontSize: 16,
       '@media not all and (min-resolution:.001dpcm)': {
-        marginRight: 10,
+        '@supports (-webkit-appearance:none) and (display:flow-root)':{        marginRight: 10,
         color: '#5A6170',
         fontWeight: 'bold',
         fontSize: 14,
       }
+      }
+
     },
 
     dateContainer: {
@@ -196,8 +198,9 @@ export default makeStyles((theme: Theme) =>
         marginTop:5
         },
         '@media not all and (min-resolution:.001dpcm)': {
-          marginTop: 35,
+          '@supports (-webkit-appearance:none) and (display:flow-root)':{          marginTop: 35,
           marginRight: "-2vh"
+        }
         }
     },
 
@@ -237,10 +240,12 @@ export default makeStyles((theme: Theme) =>
       color: '#4D6EC5',
       fontSize: 18,
       lineHeight: '26px',
-      '@media not all and (min-resolution:.001dpcm)': {
-        color: '#4D6EC5',
+'@media not all and (min-resolution:.001dpcm)': {
+    '@supports (-webkit-appearance:none) and (display:flow-root)':{
+              color: '#4D6EC5',
         fontSize: 14,
         lineHeight: '26px',
+      }
       }
     },
     dateStyle:{
