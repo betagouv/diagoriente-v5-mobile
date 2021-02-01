@@ -109,15 +109,7 @@ const PrivateDrawer = () => {
         </List>
       </Drawer>
       {!parcours?.completed && isJobs && open && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 300,
-            left: 0,
-            zIndex: 9999,
-            display: 'flex',
-          }}
-        >
+        <div className={classes.msgContainer}>
           <div>
             <div className={classes.textMsg}>
               Pour compléter ton profil et retrouver à tout moment toutes tes informations, rends toi dans ton tableau
