@@ -141,6 +141,12 @@ export default makeStyles<Theme>((theme) => ({
     paddingBottom: 150,
     backgroundColor: 'white',
     'padding-bottom': '25%',
+    [theme.breakpoints.up(560)]: {
+      paddingTop: 30,
+      paddingBottom: 30,
+
+    },
+    
   },
   rotadArrow:{
     transform: 'rotate(180deg)',
