@@ -36,6 +36,8 @@ import location from 'assets/svg/localisation.svg';
 import heart from 'assets/svg/heart.svg';
 import littleheart from 'assets/svg/littleheart.svg';
 import littleheart2 from 'assets/svg/littleHeart2.svg';
+import fullHeart from 'assets/svg/fullHeart.svg';
+
 import { RouteComponentProps } from 'react-router-dom';
 import { decodeUri, encodeUri } from 'utils/url';
 
@@ -496,7 +498,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
               <Typography className={classes.topText}>
                 <div className={classes.logoStar}>
                   <div className={classes.containerHeart}>
-                    <img src={littleheart2} alt="" height={20} className={classes.starHeart} />{' '}
+                    <img src={fullHeart} alt="" height={20} className={classes.starHeart} />{' '}
                   </div>
                   <div> MES MÉTIERS FAVORIS </div>
                 </div>
