@@ -128,6 +128,13 @@ export default makeStyles<Theme>((theme) => ({
     top: '-19.8vh',
     left: '0vh',
     zIndex: 99999,
+
+    [theme.breakpoints.up(560)]: {
+      top: '-17.6vh',
+    },
+    [theme.breakpoints.up(620)]: {
+      top: '-46.6vh',
+    },
   },
   containerBtnRight: {
     width: 44,
@@ -146,6 +153,14 @@ export default makeStyles<Theme>((theme) => ({
     top: '-19.8vh',
     right: '0vh',
     zIndex: 9999,
+
+    [theme.breakpoints.up(560)]: {
+      top: '-17.6vh',
+    },
+    [theme.breakpoints.up(620)]: {
+      top: '-46.6vh',
+    },
+
   },
   rotatedArrow: {
     transform: 'rotate(180deg)',
