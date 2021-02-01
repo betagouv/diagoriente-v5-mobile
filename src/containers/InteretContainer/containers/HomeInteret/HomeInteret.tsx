@@ -23,7 +23,7 @@ const HomeInteret = () => {
   return (
     <div className={classes.container}>
       <div className={classes.content}>
-      <TitleImage title="MES CENTRES D’INTÉRÊT" color="#420FAB" size={width > 380 ? 32 : 25} />
+      <TitleImage title="MES CENTRES D’INTÉRÊT" color="#420FAB" size={width > 380 ? 32 : 25} className={classes.paddingTop}/>
 
         <div className={classes.subTitleContainer}>
           <div className={classes.subTitle}>

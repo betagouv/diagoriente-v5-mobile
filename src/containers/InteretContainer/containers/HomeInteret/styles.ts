@@ -11,11 +11,21 @@ export default makeStyles<Theme>((theme) => ({
     paddingTop: 31,
     paddingBottom: 20,
     backgroundColor: '#f3f2f4',
+    [theme.breakpoints.up(560)]: {
+      height: '145vh',
+    },
+    [theme.breakpoints.up(700)]: {
+      height: '120vh',
+    },
+
   },
   content: {
     maxWidth: 1080,
     position: "absolute",
     top: "6.5%",
+    [theme.breakpoints.up(560)]: {
+      width:'100%'
+    },
   },
   interestContainerLogo: {
     display: 'flex',
@@ -30,7 +40,16 @@ export default makeStyles<Theme>((theme) => ({
     "padding-right": "68px",
     "padding-top": "2vh",
   },
-
+paddingTop:{
+  [theme.breakpoints.up(560)]: {
+    paddingTop:10,
+  },
+  [theme.breakpoints.up(700)]: {
+    paddingTop:30,
+  
+  
+  },
+},
   avatarContainer: {
     width: '100%',
     display: 'flex',

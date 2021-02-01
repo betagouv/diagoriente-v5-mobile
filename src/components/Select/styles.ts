@@ -21,6 +21,7 @@ export default makeStyles<Theme, { left?: number; top?: number; width?: number |
       overflow: 'hidden',
       borderRadius: 30,
       fontWeight: 'bold',
+      height:50,
       border: '1px solid #D1D5DE',
 
       '& fieldset': {
