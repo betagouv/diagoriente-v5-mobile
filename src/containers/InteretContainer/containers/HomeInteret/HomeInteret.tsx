@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect } from 'react';
 import Trait from 'assets/images/trait_violet.png';
 import TitleImage from 'components/common/TitleImage/TitleImage';
 import InterestLogo from 'assets/svg/interetHome.svg';
@@ -6,10 +6,7 @@ import GifIntro from 'assets/gif/intro_interets.gif';
 import Button from 'components/button/Button';
 import { Link } from 'react-router-dom';
 
-
 import useStyles from './styles';
-
-
 
 const HomeInteret = () => {
   const classes = useStyles();
@@ -19,16 +16,15 @@ const HomeInteret = () => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
 
-
   return (
     <div className={classes.container}>
       <div className={classes.content}>
-      <TitleImage title="MES CENTRES D’INTÉRÊT" color="#420FAB" size={width > 380 ? 32 : 25} className={classes.paddingTop}/>
+        <TitleImage title="MES CENTRES D’INTÉRÊT" color="#420FAB" size={width > 380 ? 32 : 25} />
 
         <div className={classes.subTitleContainer}>
           <div className={classes.subTitle}>
             <div className={classes.line1}>Nous allons te présenter différents centres d&lsquo;intérêts.</div>
-            <br/>
+            <br />
             <div className={classes.line1}>
               <b>À toi de choisir ceux qui te plairaient le plus</b>
               {'  '}
