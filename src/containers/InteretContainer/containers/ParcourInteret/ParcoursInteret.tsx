@@ -203,7 +203,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
                 <FamileSelected handleClick={() => deleteFamille(i)} famille={el} index={i} direction="horizontal" />
               </div>
               </div>
-              <Divider />
+              <Divider style={{ margin: '-1' }}  />
             </>
           ))}
 
