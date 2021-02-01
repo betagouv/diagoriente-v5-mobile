@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
     padding: 20,
     borderRadius: '0px 0px 10px 0px',
-    [theme.breakpoints.down('xs')]: { width: '80%' },
+    [theme.breakpoints.down(550)]: { width: '80%' },
   },
 
   root: {
@@ -71,6 +71,21 @@ export default makeStyles((theme) => ({
   toolbar: {
     height: 39,
   },
+  msgContainer: {
+    position: 'absolute',
+    top: 300,
+    left: 0,
+    zIndex: 9999,
+    display: 'flex',
+    [theme.breakpoints.up(600)]: {
+      top: 40,
+      left: 315,
+    },
+    [theme.breakpoints.up(550)]: {
+      top: 40,
+      left: 290,
+    },
+  },
   textMsg: {
     fontWeight: 'bold',
     fontSize: '18px',
@@ -79,6 +94,18 @@ export default makeStyles((theme) => ({
     width: '320px',
     padding: 15,
     textAlign: 'justify',
+    [theme.breakpoints.up(550)]: {
+      width: '275px',
+    },
+    [theme.breakpoints.up(600)]: {
+      width: 'calc(57% - 330px)',
+    },
+    [theme.breakpoints.up(700)]: {
+      width: 'calc(57% - 240px)',
+    },
+    [theme.breakpoints.up(800)]: {
+      width: 'calc(57% - 170px)',
+    },
   },
   btn: {
     backgroundColor: '#FFA600',
