@@ -50,7 +50,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
   const { user } = useContext(UserContext);
   const { parcours } = useContext(parcoursContext);
   const { data: secteurs } = useContext(SecteurContext);
-  const [callJobs, stateJobs] = useJobs();
+  const [callJobs, stateJobs] = useJobs({fetchPolicy:'network-only'});
 
   const isBrowser = typeof window !== 'undefined';
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
@@ -146,12 +146,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
     // eslint-disable-next-line
   }, [stateJobs.loading, stateJobs.data]);
 
-
   const renderFavJobs = useMemo(() => {
     if (favoriteJobs.length) {
       return favoriteJobs.map((j) => (
         <div key={j?.id} className={classes.favoriContainer}>
-          <img src={littleheart } alt="" height={20} />
+          <img src={littleheart} alt="" height={20} />
           <div className={classes.job}>{j?.title} </div>
         </div>
       ));
@@ -506,9 +505,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
               </Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.proDetails}>
-              <div>
-              {renderFavJobs}              
-              </div>
+              <div>{renderFavJobs}</div>
             </AccordionDetails>
           </Accordion>
 
