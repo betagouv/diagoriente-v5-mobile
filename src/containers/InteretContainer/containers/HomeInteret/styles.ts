@@ -7,15 +7,21 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 31,
     paddingBottom: 20,
     backgroundColor: '#f3f2f4',
+    [theme.breakpoints.up(560)]: {
+      height: '145vh',
+    },
+    [theme.breakpoints.up(700)]: {
+      height: '120vh',
+    },
   },
   content: {
     maxWidth: 1080,
-    position: "absolute",
-    top: "6.5%",
+    width: '100%',
+    [theme.breakpoints.up(560)]: {
+      width: '100%',
+    },
   },
   interestContainerLogo: {
     display: 'flex',
@@ -26,11 +32,10 @@ export default makeStyles<Theme>((theme) => ({
   },
   subTitle: {
     fontSize: 18,
-    "padding-left": "68px",
-    "padding-right": "68px",
-    "padding-top": "2vh",
+    'padding-left': '68px',
+    'padding-right': '68px',
+    'padding-top': '2vh',
   },
-
   avatarContainer: {
     width: '100%',
     display: 'flex',
@@ -42,7 +47,7 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    marginTop: "0vh",
+    marginTop: '0vh',
   },
   btn: {
     backgroundColor: theme.palette.success.main,
@@ -54,13 +59,12 @@ export default makeStyles<Theme>((theme) => ({
     },
   },
   line1: {
-
-    "font-family": "Andika New Basic",
-"font-style": "normal",
-"font-weight": "normal",
-"font-size": "14px",
-"line-height": "21px",
-"text-align": "center",
+    'font-family': 'Andika New Basic',
+    'font-style': 'normal',
+    'font-weight': 'normal',
+    'font-size': '14px',
+    'line-height': '21px',
+    'text-align': 'center',
   },
 
   btnLabel: {

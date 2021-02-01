@@ -10,7 +10,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   bandeau: {
     width: '100%',
-    height: 80,
+    minHeight: 80,
     backgroundImage: `url(${Bandeau})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
@@ -19,6 +19,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingTop:5
   },
   jobTitle: {
     maxWidth: 'calc(100% - 40px)',

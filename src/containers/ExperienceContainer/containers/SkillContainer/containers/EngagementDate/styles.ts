@@ -28,6 +28,9 @@ export default makeStyles((theme: Theme) =>
         paddingTop: 10,
         height:'95vh',
       },
+      [theme.breakpoints.up(560)]: {
+        height:'180vh',
+      },
   
     },
 

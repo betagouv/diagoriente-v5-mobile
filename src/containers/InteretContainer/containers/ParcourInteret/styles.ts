@@ -225,5 +225,9 @@ export default makeStyles<Theme>((theme) => ({
     position: 'absolute',
     bottom: 34,
     right: 140,
+    [theme.breakpoints.up(560)]: {
+      right: 'auto',
+    },
   },
+
 }));

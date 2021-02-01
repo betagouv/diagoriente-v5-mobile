@@ -14,6 +14,11 @@ const MainInteret = () => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
 
+  const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
+  useEffect(() => {
+    window.addEventListener('resize', () => setHeight(window.innerHeight));
+  });
+
   return (
     <div className={classes.container}>
       <div className={classes.content}>
@@ -27,7 +32,7 @@ const MainInteret = () => {
         </div>
 
         <div className={classes.linksContainer}>
-        <Link
+          <Link
             to={{
               pathname: `/interet/parcours/${0}`,
             }}
@@ -38,6 +43,7 @@ const MainInteret = () => {
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
+                className={height < 350 ? classes.interetTiltle : ''}
               />
             </div>
           </Link>
@@ -52,6 +58,7 @@ const MainInteret = () => {
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
+                className={height < 350 ? classes.interetTiltle : ''}
               />
             </div>
           </Link>
@@ -67,12 +74,10 @@ const MainInteret = () => {
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
+                className={height < 350 ? classes.interetTiltle : ''}
               />
             </div>
           </Link>
-
-       
-       
         </div>
       </div>
     </div>

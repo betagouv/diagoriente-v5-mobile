@@ -4,16 +4,17 @@ export default makeStyles<Theme>((theme) => ({
   container: {
     width: '100%',
     height: '100vh',
-    'max-height': '600px',
+    display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
     paddingBottom: 20,
     backgroundColor: '#f3f2f4',
   },
   content: {
-    maxWidth: 1080,
-    top: '6.5%',
+    width: '100%',
+    [theme.breakpoints.up(560)]: {
+      paddingBottom: '260px',
+    },
   },
   titleContainer: {
     fontWeight: 'bold',
@@ -21,7 +22,7 @@ export default makeStyles<Theme>((theme) => ({
     fontFamily: 'ocean',
     color: theme.palette.secondary.main,
     textAlign: 'center',
-    marginBottom: "9vh",
+    marginBottom: '9vh',
   },
   description: {
     fontSize: 18,
@@ -59,6 +60,9 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     marginTop: 1,
+  },
+  interetTiltle: {
+    height: 65,
   },
   btn: {
     backgroundColor: theme.palette.primary.main,

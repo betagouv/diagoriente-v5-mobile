@@ -10,12 +10,18 @@ export default makeStyles<Theme>((theme) => ({
   content: {
     maxWidth: 1080,
     width: '100%',
+    [theme.breakpoints.up(560)]: {
+      marginBottom: 50,
+    },
   },
   header: {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
     marginTop: 60,
+    [theme.breakpoints.up(560)]: {
+      marginTop: 40,
+    },
   },
   title: {
     fontFamily: 'ocean',
@@ -27,8 +33,12 @@ export default makeStyles<Theme>((theme) => ({
     marginTop: 70,
     marginBottom: 70,
     width: '100%',
-    "padding-left": "5vh",
-    "padding-right": "5vh",
+    'padding-left': '5vh',
+    'padding-right': '5vh',
+    [theme.breakpoints.up(560)]: {
+      marginTop: 40,
+      marginBottom: 40,
+    },
   },
   text: {
     fontSize: 16,
