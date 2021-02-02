@@ -51,6 +51,21 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
   
     
           },
+          '@media not all and (min-resolution:.001dpcm)': {
+            background: '#FFFFFF',
+            overflow: 'hidden',
+            maxHeight: 'calc(29vh - 70px)',
+            [theme.breakpoints.down(330)]: {
+              maxHeight: 'calc(35vh - 70px)',
+      
+        
+              },
+              [theme.breakpoints.up(560)]: {
+                maxHeight: 'calc(35vh - 10px)',
+        
+          
+                },
+          }
     },
 
     header: {
