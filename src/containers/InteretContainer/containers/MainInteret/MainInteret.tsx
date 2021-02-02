@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import mainInterest from 'assets/svg/mainInterest.svg';
 import TitleImage from 'components/common/TitleImage/TitleImage';
 import Button from 'components/button/Button';
-import classNames from 'common/utils/classNames';
+import classNames from 'utils/classNames';
 import useStyle from './styles';
 
 const MainInteret = () => {
