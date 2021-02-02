@@ -11,10 +11,8 @@ export default makeStyles<Theme>((theme) => ({
     backgroundColor: '#f3f2f4',
   },
   content: {
+    maxWidth: 1080,
     width: '100%',
-    [theme.breakpoints.up(560)]: {
-      paddingBottom: '260px',
-    },
   },
   titleContainer: {
     fontWeight: 'bold',
@@ -62,7 +60,12 @@ export default makeStyles<Theme>((theme) => ({
     marginTop: 1,
   },
   interetTiltle: {
-    height: 65,
+    width: '33.33vw',
+    textAlign: 'center',
+  },
+  titleBorders: {
+    borderLeft: '1px solid #FFFFFF',
+    borderRight: '1px solid #FFFFFF',
   },
   btn: {
     backgroundColor: theme.palette.primary.main,
@@ -77,5 +80,8 @@ export default makeStyles<Theme>((theme) => ({
     left: 0,
     right: 0,
     backgroundColor: 'linear-gradient(180deg, #F3F2F4 0%, #F3F2F4 51.56%, rgba(243, 242, 244, 0) 100%), #F3F2F4',
+    [theme.breakpoints.up(560)]: {
+      display: 'flex',
+    },
   },
 }));

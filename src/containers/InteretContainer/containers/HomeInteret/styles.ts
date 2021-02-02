@@ -10,18 +10,15 @@ export default makeStyles<Theme>((theme) => ({
     paddingBottom: 20,
     backgroundColor: '#f3f2f4',
     [theme.breakpoints.up(560)]: {
-      height: '145vh',
+      height: '155vh',
     },
     [theme.breakpoints.up(700)]: {
-      height: '120vh',
+      height: '125vh',
     },
   },
   content: {
     maxWidth: 1080,
     width: '100%',
-    [theme.breakpoints.up(560)]: {
-      width: '100%',
-    },
   },
   interestContainerLogo: {
     display: 'flex',
