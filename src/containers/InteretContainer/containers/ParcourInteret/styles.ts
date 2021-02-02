@@ -1,6 +1,9 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles<Theme>((theme) => ({
+
+
+
   container: {
     width: '100%',
     height: `100%`,
@@ -8,12 +11,14 @@ export default makeStyles<Theme>((theme) => ({
     justifyContent: 'center',
     flex: '1 1 0%',
     position: 'relative',
+    
   },
   content: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    
   },
   header: {
     display: 'flex',
@@ -208,7 +213,7 @@ export default makeStyles<Theme>((theme) => ({
     textAlign: 'center',
   },
   itemRow: {
-    height: 104,
+    height: "18vh",
     display: 'flex',
     alignItems: 'center',
   },
@@ -220,5 +225,9 @@ export default makeStyles<Theme>((theme) => ({
     position: 'absolute',
     bottom: 34,
     right: 140,
+    [theme.breakpoints.up(560)]: {
+      right: 'auto',
+    },
   },
+
 }));

@@ -21,16 +21,21 @@ export default makeStyles<Theme, { left?: number; top?: number; width?: number |
       overflow: 'hidden',
       borderRadius: 30,
       fontWeight: 'bold',
+      height:50,
       border: '1px solid #D1D5DE',
 
       '& fieldset': {
         display: 'none',
       },
-      [theme.breakpoints.down(475)]: {
-        width: '235px !important',
-      },
       [theme.breakpoints.down(420)]: {
+        width: '200px !important',
         fontSize: 13,
+
+      },
+      [theme.breakpoints.down(330)]: {
+        width: '170px !important',
+        fontSize: 13,
+
       },
     },
 

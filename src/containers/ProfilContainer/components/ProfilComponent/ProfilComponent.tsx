@@ -36,6 +36,8 @@ import location from 'assets/svg/localisation.svg';
 import heart from 'assets/svg/heart.svg';
 import littleheart from 'assets/svg/littleheart.svg';
 import littleheart2 from 'assets/svg/littleHeart2.svg';
+import fullHeart from 'assets/svg/fullHeart.svg';
+
 import { RouteComponentProps } from 'react-router-dom';
 import { decodeUri, encodeUri } from 'utils/url';
 
@@ -50,7 +52,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
   const { user } = useContext(UserContext);
   const { parcours } = useContext(parcoursContext);
   const { data: secteurs } = useContext(SecteurContext);
-  const [callJobs, stateJobs] = useJobs();
+  const [callJobs, stateJobs] = useJobs({ fetchPolicy: 'network-only' });
 
   const isBrowser = typeof window !== 'undefined';
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
@@ -143,6 +145,20 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
     }
     if (stateJobs.loading) return <Spinner />;
     return <div className={classes.metier}>Aucun metier à afficher</div>;
+    // eslint-disable-next-line
+  }, [stateJobs.loading, stateJobs.data]);
+
+  const renderFavJobs = useMemo(() => {
+    if (favoriteJobs.length) {
+      return favoriteJobs.map((j) => (
+        <div key={j?.id} className={classes.favoriContainer}>
+          <img src={littleheart} alt="" height={20} />
+          <div className={classes.job}>{j?.title} </div>
+        </div>
+      ));
+    }
+    if (stateJobs.loading) return <Spinner />;
+    return <div className={classes.metier}></div>;
     // eslint-disable-next-line
   }, [stateJobs.loading, stateJobs.data]);
 
@@ -452,7 +468,6 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
               <Typography className={classes.topText}>
                 <div className={classes.logoStar}>
                   <div>
-                    {' '}
                     <img src={star} alt="" height={30} className={classes.star} />{' '}
                   </div>
                   <div> MON TOP MÉTIERS </div>
@@ -482,25 +497,15 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             >
               <Typography className={classes.topText}>
                 <div className={classes.logoStar}>
-                  <div>
-                    {' '}
-                    <img src={littleheart2} alt="" height={30} className={classes.star} />{' '}
+                  <div className={classes.containerHeart}>
+                    <img src={fullHeart} alt="" height={20} className={classes.starHeart} />{' '}
                   </div>
                   <div> MES MÉTIERS FAVORIS </div>
                 </div>
               </Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.proDetails}>
-              <div>
-                {favoriteJobs.length
-                  ? favoriteJobs.map((j) => (
-                      <div key={j.id} className={classes.favoriContainer}>
-                        <img src={littleheart} alt="" height={20} />
-                        <div className={classes.job}>{j.title}</div>
-                      </div>
-                    ))
-                  : null}
-              </div>
+              <div>{renderFavJobs}</div>
             </AccordionDetails>
           </Accordion>
 

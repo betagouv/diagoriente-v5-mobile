@@ -188,14 +188,18 @@ export default makeStyles((theme: Theme) =>
       fontSize: 28,
       cursor: 'pointer',
       [theme.breakpoints.down(420)]: {
-        right: 8,
+        right: "1vh",
       },
     },
     questionRow: {
       display: 'flex',
-      width: '100%',
+      width: '90%',
       position: 'relative',
       flexWrap: 'wrap',
+      [theme.breakpoints.down(420)]: {
+        width: '85%',
+      },
+    
     },
     rowActivityWidth: {
       width: 800,

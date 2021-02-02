@@ -5,18 +5,14 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
     height: '100vh',
     display: 'flex',
-    'max-height': '600px',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 31,
     paddingBottom: 20,
     backgroundColor: '#f3f2f4',
   },
   content: {
     maxWidth: 1080,
-    position: 'absolute',
-    top: '6.5%',
+    width: '100%',
   },
   titleContainer: {
     fontWeight: 'bold',
@@ -24,7 +20,7 @@ export default makeStyles<Theme>((theme) => ({
     fontFamily: 'ocean',
     color: theme.palette.secondary.main,
     textAlign: 'center',
-    marginBottom: "9vh",
+    marginBottom: '9vh',
   },
   description: {
     fontSize: 18,
@@ -63,6 +59,14 @@ export default makeStyles<Theme>((theme) => ({
     justifyContent: 'center',
     marginTop: 1,
   },
+  interetTiltle: {
+    width: '33.33vw',
+    textAlign: 'center',
+  },
+  titleBorders: {
+    borderLeft: '1px solid #FFFFFF',
+    borderRight: '1px solid #FFFFFF',
+  },
   btn: {
     backgroundColor: theme.palette.primary.main,
     color: '#fff',
@@ -76,5 +80,8 @@ export default makeStyles<Theme>((theme) => ({
     left: 0,
     right: 0,
     backgroundColor: 'linear-gradient(180deg, #F3F2F4 0%, #F3F2F4 51.56%, rgba(243, 242, 244, 0) 100%), #F3F2F4',
+    [theme.breakpoints.up(560)]: {
+      display: 'flex',
+    },
   },
 }));

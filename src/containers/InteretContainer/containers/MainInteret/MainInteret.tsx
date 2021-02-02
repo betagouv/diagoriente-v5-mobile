@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import mainInterest from 'assets/svg/mainInterest.svg';
 import TitleImage from 'components/common/TitleImage/TitleImage';
 import Button from 'components/button/Button';
+import classNames from 'common/utils/classNames';
 import useStyle from './styles';
 
 const MainInteret = () => {
@@ -12,6 +13,11 @@ const MainInteret = () => {
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
+  });
+
+  const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
+  useEffect(() => {
+    window.addEventListener('resize', () => setHeight(window.innerHeight));
   });
 
   return (
@@ -29,19 +35,19 @@ const MainInteret = () => {
         <div className={classes.linksContainer}>
           <Link
             to={{
-              pathname: `/interet/parcours/${2}`,
+              pathname: `/interet/parcours/${0}`,
             }}
           >
             <div className={classes.btnContainer}>
               <TitleImage
-                title="TRAVAILLER AVEC SA TÊTE"
+                title="TRAVAILLER AVEC D’AUTRES PERSONNES"
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
+                className={width > 560 ? classes.interetTiltle : ''}
               />
             </div>
           </Link>
-
           <Link
             to={{
               pathname: `/interet/parcours/${1}`,
@@ -53,21 +59,23 @@ const MainInteret = () => {
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
+                className={width > 560 ? classNames(classes.interetTiltle, classes.titleBorders) : ''}
               />
             </div>
           </Link>
 
           <Link
             to={{
-              pathname: `/interet/parcours/${0}`,
+              pathname: `/interet/parcours/${2}`,
             }}
           >
             <div className={classes.btnContainer}>
               <TitleImage
-                title="TRAVAILLER AVEC D’AUTRES PERSONNES"
+                title="TRAVAILLER AVEC SA TÊTE"
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
+                className={width > 560 ? classes.interetTiltle : ''}
               />
             </div>
           </Link>

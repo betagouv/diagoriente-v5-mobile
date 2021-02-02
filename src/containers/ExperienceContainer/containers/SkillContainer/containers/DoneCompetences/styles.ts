@@ -13,11 +13,22 @@ export default makeStyles((theme) => ({
   content: {
     width: '100%',
     height: '100vh',
+    [theme.breakpoints.up(560)]: {
+      height: 'auto',
+
+    },
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '10px 30px 30px 30px',
-    minHeight: 600,
+padding: '60px 30px 75px 30px',
+'@media not all and (min-resolution:.001dpcm)': {
+  maxWidth: 1080,
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  padding: '25px 30px 75px 30px',
+}
   },
 
   header: {
@@ -41,6 +52,16 @@ export default makeStyles((theme) => ({
     fontSize: 14,
     fontWeight: 700,
     padding: '0px 15px',
+    '@media not all and (min-resolution:.001dpcm)': {
+      marginTop: 0,
+      marginBottom: 20,
+      width: '100%',
+      alignItems: 'center',
+      fontSize: 14,
+      fontWeight: 700,
+      padding: '0px 15px',
+    }
+    
   },
 
   text: {
@@ -55,6 +76,11 @@ export default makeStyles((theme) => ({
     marginTop: 100,
     display: 'flex',
     flexDirection: 'column',
+        '@media not all and (min-resolution:.001dpcm)': {
+          marginTop: "9vh",
+          display: 'flex',
+          flexDirection: 'column',
+    }
   },
 
   btnskillFirstUser: {
@@ -83,6 +109,15 @@ export default makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: '#00B2DB',
     },
+    '@media not all and (min-resolution:.001dpcm)': {
+      backgroundColor: theme.palette.secondary.main,
+      fontSize: 14,
+      fontWeight: 700,
+      width: '100%',
+      '&:hover': {
+        backgroundColor: '#00B2DB',
+      },
+    }
   },
 
   btnFirstUse: {
@@ -109,6 +144,18 @@ export default makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: '#FF0060',
     },
+    '@media not all and (min-resolution:.001dpcm)': {
+      backgroundColor: '#D60051',
+      fontSize: 14,
+      fontWeight: 'bold',
+      width: '100%',
+      minWidth: 290,
+      height: 50,
+      color: '#fff',
+      '&:hover': {
+        backgroundColor: '#FF0060',
+      },
+    }
   },
 
   btnLabel: {

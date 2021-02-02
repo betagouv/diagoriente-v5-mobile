@@ -10,7 +10,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   bandeau: {
     width: '100%',
-    height: 80,
+    minHeight: 80,
     backgroundImage: `url(${Bandeau})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
@@ -19,10 +19,13 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingTop:5
   },
   jobTitle: {
     maxWidth: 'calc(100% - 40px)',
     textAlign: 'center',
+    maxHeight: '100%',
+    overflow: 'auto',
   },
   contentInfo: {
     width: '100%',
@@ -38,8 +41,8 @@ export default makeStyles<Theme>((theme) => ({
   back: {
     display: 'flex',
     alignItems: 'center',
-    cursor: 'pointer',
     marginBottom: 25,
+    cursor:'none'
   },
   arrow: {
     transform: 'rotate(180deg)',
@@ -67,7 +70,6 @@ export default makeStyles<Theme>((theme) => ({
   favoris: {
     display: 'flex',
     alignItems: 'flex-end',
-    cursor: 'pointer',
     marginBottom: 35,
   },
   textFavoris: {
@@ -112,7 +114,6 @@ export default makeStyles<Theme>((theme) => ({
     textDecorationLine: 'underline',
     fontWeight: 'bold',
     fontSize: 14,
-    cursor: 'pointer',
     marginRight: 40,
   },
   immersion: {

@@ -11,7 +11,8 @@ import Dialog from '@material-ui/core/Dialog';
 import { groupBy } from 'lodash';
 import PlaceHolder from 'containers/InteretContainer/components/placeholderInterest/Placeholder';
 import Arrow from 'assets/svg/arrow';
-
+/* import classNames from 'common/utils/classNames';
+ */
 import interestContext from 'contexts/InterestSelected';
 import parcoursContext from 'contexts/ParcourContext';
 import Slider from 'components/Slider/Slider';
@@ -28,6 +29,11 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
+  });
+
+  const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
+  useEffect(() => {
+    window.addEventListener('resize', () => setHeight(window.innerHeight));
   });
 
   const { setInterest, selectedInterest } = useContext(interestContext);
@@ -96,12 +102,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   };
 
   useEffect(() => {
-    const test = selectedInterest?.every(
-      (interet) =>
-        interet.category === "avec d'autres personnes" ||
-        interet.category === 'avec ses mains' ||
-        interet.category === 'avec sa tête',
-    );
+    const test = selectedInterest?.every((interet) => interet.category === "avec d'autres personnes");
 
     if (selectedInterest?.length === 5 && test) setWarning(true);
   }, [selectedInterest]);
@@ -146,8 +147,8 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
         <div className={classes.ellipse} onClick={() => setOpenConfirm(true)}>
           <span className={classes.textEllipsis}>{selectedInterest?.length} / 5</span>
         </div>
-        <div className={classes.btnNext}>
-          {selectedInterests.length > 0 && (
+        {selectedInterests.length > 0 && (
+          <div className={classes.btnNext}>
             <Link to={`/interet/ordre/${location.search}`} className={classes.wrapperBtn}>
               <Button className={classes.btn}>
                 <div className={classes.contentBtn}>
@@ -156,11 +157,19 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
                 </div>
               </Button>
             </Link>
-          )}
-        </div>
+          </div>
+        )}
       </div>
       <ModalContainer open={open} backdropColor="#011A5E" colorIcon="#420FAB" height={70} size={90}>
-        <div style={{ height: 240, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 40 }}>
+        <div
+          style={{
+            height: 240,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: 40,
+          }}
+        >
           <div>
             <img src={logo} alt="att" width={35} height={35} />
           </div>
@@ -175,9 +184,17 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
         </div>
       </ModalContainer>
       <ModalContainer open={openWarning} backdropColor="#011A5E" colorIcon="#420FAB" size={90} height={70}>
-        <div style={{ height: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 40 }}>
+        <div
+          style={{
+            height: 'auto',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: height < 350 ? 10 : height < 420 ? 20 : 40,
+          }}
+        >
           <div className={classes.titleContainerModal}>UNE PETITE MINUTE...</div>
-          <div className={classes.textModal}>
+          <div className={classes.textModal} style={height < 400 ? { padding: '0px' } : {}}>
             Tu as choisi tes familles d’intérêts seulement dans la 1ère partie, es-tu sûr.e d’avoir exploré toutes les
             familles d’intérêts
           </div>
@@ -196,12 +213,12 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
           {selectedInterests.map((el, i) => (
             <>
-            <div>
-              <div className={classes.itemRow} key={el.id}>
-                <FamileSelected handleClick={() => deleteFamille(i)} famille={el} index={i} direction="horizontal" />
+              <div>
+                <div className={classes.itemRow} key={el.id}>
+                  <FamileSelected handleClick={() => deleteFamille(i)} famille={el} index={i} direction="horizontal" />
+                </div>
               </div>
-              </div>
-              <Divider />
+              <Divider style={{ margin: '-1' }}  />
             </>
           ))}
 

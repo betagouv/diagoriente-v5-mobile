@@ -96,7 +96,25 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
       backgroundColor: '#fff',
       opacity: 0.7,
     },
-    boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)'
+    boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)',
+
+    '@media not all and (min-resolution:.001dpcm)': {
+      backgroundColor: '#fff',
+      height: 49,
+      width: '90%',
+      fontSize: '22px',
+      fontFamily: 'Ocean',
+      fontWeight: 900,
+      paddingTop: 11,
+      lineHeight: '32px',
+      color: '#424242',
+      '&:hover': {
+        backgroundColor: '#fff',
+        opacity: 0.7,
+      },
+      boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)'
+    }
+
   },
   itemDescription: {
     textAlign: 'center',

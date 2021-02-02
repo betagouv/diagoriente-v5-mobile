@@ -51,6 +51,7 @@ width:'97%'
       paddingBottom: 45,
       paddingLeft:115,
       // width: '100%',
+      fontSize: 14,
       justifyContent: 'space-between',
       [theme.breakpoints.down(500)]: {
         paddingLeft:35,
@@ -61,7 +62,7 @@ width:'97%'
         display:'contents'
 
       },
-    
+
     },
     spinner: {
       flex: '1 1 0',
@@ -76,9 +77,21 @@ width:'97%'
       lineHeight: 1,
       paddingTop: 9,
       [theme.breakpoints.down(330)]: {
-        paddingTop:50,
+        paddingTop:20,
 
       },
+      '@media not all and (min-resolution:.001dpcm)': {
+        fontFamily: 'Ocean',
+        fontWeight: 900,
+        fontSize: '1.7em',
+        lineHeight: 1,
+        paddingTop: 9,
+        [theme.breakpoints.down(330)]: {
+          paddingTop:20,
+  
+        },
+      }
+
   
     },
 
@@ -138,6 +151,13 @@ width:'97%'
         textAlign:'justify',
         padding: '15px 15px'
       },
+      '@media not all and (min-resolution:.001dpcm)': {
+        fontSize: 14,
+        [theme.breakpoints.down(500)]: {
+          textAlign:'justify',
+          padding: '15px 15px'
+        },
+      }
     },
  
     btn: {
@@ -158,29 +178,15 @@ width:'97%'
       padding:'0px 0px'
     },
 
-    btnLink: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-      margin: 7,
-      maxWidth: '100%',
-      background: 'transparent',
-    },
 
     link: {
       display: 'flex',
       alignItems: 'center',
-      // background: 'rgba(77, 110, 197, 0.1)',
-      margin: 16,
       borderRadius: 10,
+       margin:10,
       flex: 1,
       justifyContent:'center'
-      // maxWidth: 'calc(33.333333% - 32px)',
-      /*  [theme.breakpoints.down(1265)]: {
-        maxWidth: '100%',
-        background: 'transparent',
-      }, */
+  
     },
 
     popupContainer: {
@@ -223,6 +229,10 @@ width:'97%'
     width:'100%',
     position:'fixed',
     bottom:0,
-    zIndex:1
+    zIndex:1,
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'center',
+    justifyContent:'center',
     }
   }));

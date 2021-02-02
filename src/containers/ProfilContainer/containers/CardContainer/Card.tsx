@@ -14,6 +14,7 @@ import CardIcons from './components/CardIcons/CardIcons';
 import CardCompetence from './components/CardCompetence/CardCompetence';
 import CardSkills from './components/CardSkills/CardSkills';
 import { useDidMount } from 'hooks/useLifeCycle';
+import redarrow from 'assets/svg/redarrow.svg';
 
 
 import useStyles from './styles';
@@ -66,7 +67,7 @@ const CardContainer = () => {
   return (
     <div className={classes.container}>
       <div className={classes.header}>
-        {/* <Arrow /> */}
+        <Arrow className={classes.arrowStyle} url= "/profile" arrowIcon={redarrow }/>
         <div className={classes.headerTitle}>
           <img className={classes.headerImage} src={carte} alt="" />
           <span className={classes.title}>CARTE DE COMPÉTENCES</span>

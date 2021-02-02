@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useRef , useContext} from 'react';
-import Tooltip from '@material-ui/core/Tooltip';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useCompetences } from 'requests/competences';
 import { Competence, Theme } from 'requests/types';
@@ -7,10 +6,8 @@ import Title from 'components/common/TitleImage/TitleImage';
 import Grid from '@material-ui/core/Grid';
 import Slide from '@material-ui/core/Slide';
 import PreviousButton from 'components/previousButton/previousButton';
-import NavigationButton from 'components/NavigationButton/NavigationButton';
 import NextButton from 'components/nextButton/nextButton';
 import Button from 'components/button/Button';
-import CancelButton from 'components/cancelButton/CancelButton';
 import Spinner from 'components/SpinnerXp/Spinner';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
 import Popup from 'components/common/Popup/Popup';
@@ -35,21 +32,34 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
 
   const { data, loading } = useCompetences({ variables: theme?.type === 'engagement' ? { type: 'engagement' } : {} });
   const [opened, setOpened] = React.useState(false);
-  // const [openedTheme, setOpenedTheme] = useState<Theme | null>(null);
   const [text, setText] = React.useState('');
   const [showInfo, setShowInfo] = useState(false);
   const [currentInfoId, setCurrentInfoId] = useState('');
   const [currentInfoIndex, setCurrentInfoIndex] = useState(-1);
+  const [currentBtn, setCurrentBtn] = useState(-1);
   const { redirect } = decodeUri(location.search);
+  const divInfo = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useOnclickOutside(divInfo, (e: Event) => {
+    if (
+      currentBtn >= 0 &&
+      document.getElementsByClassName('ignore-onclickoutside')[currentBtn].contains(e.target as any)
+    ) {
+      return;
+    } else if (showInfo && divInfo) {
+      setShowInfo(false);
+    }
+  });
 
   const handleShowInfo = (id: string) => {
     const index = theme?.tooltips.findIndex((e) => e.competenceId === id);
     {
-      index && setCurrentInfoIndex(index);
+      index !== undefined && setCurrentInfoIndex(index);
     }
     setCurrentInfoId(id);
-    setShowInfo(true); 
-    setOpen(false)
+    setShowInfo(true);
+    setOpen(false);
   };
 
   const addCompetence = (competence: Competence) => {
@@ -86,6 +96,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
       history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
     setOpened(false);
   };
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -123,34 +134,36 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
             {data?.competences.data.map((comp, index) => {
               const selected = competences.find((e) => e.id === comp.id);
               const tooltip = theme?.tooltips.find((e) => e.competenceId === comp.id);
+
               return (
                 <Grid key={comp.id} item xs={12} md={6}>
                   <Button
                     childrenClassName={classes.margin}
                     className={classNames(
+                      'ignore-onclickoutside',
                       classes.competences,
                       showInfo && currentInfoId === comp.id && classes.infoDisplyed,
                       selected && classes.selectedCompetence,
                     )}
                     onClick={() => {
+                      setCurrentBtn(index);
                       setShowInfo(false);
                       !selected
                         ? !showInfo || (showInfo && currentInfoId !== comp.id)
                           ? handleShowInfo(comp.id)
                           : addCompetence(comp as any)
-                          
                         : deleteCompetence(comp.id);
                     }}
+                    ref={buttonRef}
                   >
                     {comp.title}
                   </Button>
                   <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
-                  <Child key={index}>
+                    <Child key={index} style={{ padding: '10px' }} ref={divInfo}>
                       <p style={{ width: '100%', color: '#FF0060' }}>
-                        <b>Appuie deux fois sur la compétences pour la sélectionner</b>
+                        <b>Appuie deux fois sur la compétence pour la sélectionner</b>
                       </p>{' '}
-                  
-                        {currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}{' '}
+                      {currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}{' '}
                     </Child>
                   </Slide>
                 </Grid>

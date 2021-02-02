@@ -57,6 +57,8 @@ const ModalQuestion = ({ job, onClose }: IProps) => {
       }
     }
   }, [responseState.data, updateResponseState.data, getListResponses, param, refetch, job, onClose]);
+  console.log('questions', job?.questionJobs);
+  console.log('responses', data?.responseJobs.data);
   return (
     <div className={classes.root}>
       <div className={classes.closeFullModelContainer} onClick={onClose}>
@@ -70,7 +72,12 @@ const ModalQuestion = ({ job, onClose }: IProps) => {
         <div className={classes.description}>CE METIER EST-IL FAIT POUR TOI ?</div>
         {last ? (
           <div className={classes.lastContainer}>
-            <div className={classNames(classes.questionContainer, last && classes.titleQuestion)}>TERMINé !</div>
+            <div
+              className={classNames(classes.questionContainer, last && classes.titleQuestion)}
+              style={{ textTransform: 'uppercase' }}
+            >
+              terminé !
+            </div>
             <div className={classes.descriptionContainer}>
               <div className={classes.textDescription}>Ces questions t'ont donné un aperçu de la réalité</div>
               <div className={classes.textDescription}>du métier. Néanmoins Il n'y a rien de tel qu'une</div>

@@ -31,6 +31,9 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down(370)]: {
       width: 270,
     },
+    [theme.breakpoints.up(560)]: {
+      height: 300,
+    },
   },
 
   header: {

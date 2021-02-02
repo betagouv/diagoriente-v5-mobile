@@ -32,9 +32,13 @@ export default makeStyles<
   imageContainer: {
     height: 'auto',
     paddingRight: 5,
+    [theme.breakpoints.up(560)]: {
+      paddingRight: 15,
+
+    },
   },
   image: {
-    width: (props) => props.width || 68,
+    width: (props) => props.width || "11vh",
     height: 'auto',
   },
   btnImage: {

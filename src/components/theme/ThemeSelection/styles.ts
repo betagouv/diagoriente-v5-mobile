@@ -23,7 +23,6 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       justifyContent: 'space-between',
       paddingLeft: 42,
       paddingRight: 21,
-      cursor: 'pointer',
     },
 
     menuIconClosed: {
@@ -42,16 +41,31 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       background: '#FFFFFF',
       overflow: 'auto',
       maxHeight: 'calc(29vh - 70px)',
-      // [theme.breakpoints.down(412)]: {
-      //   maxHeight: 'calc(28vh - 70px)',
-
-  
-      //   },
       [theme.breakpoints.down(330)]: {
         maxHeight: 'calc(35vh - 70px)',
 
   
         },
+        [theme.breakpoints.up(560)]: {
+          maxHeight: 'calc(35vh - 10px)',
+  
+    
+          },
+          '@media not all and (min-resolution:.001dpcm)': {
+            background: '#FFFFFF',
+            overflow: 'hidden',
+            maxHeight: 'calc(29vh - 70px)',
+            [theme.breakpoints.down(330)]: {
+              maxHeight: 'calc(35vh - 70px)',
+      
+        
+              },
+              [theme.breakpoints.up(560)]: {
+                maxHeight: 'calc(35vh - 10px)',
+        
+          
+                },
+          }
     },
 
     header: {
@@ -82,7 +96,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     },
 
     activitySelected: {
-      marginTop: 15,
+      marginTop: '0px',
       width: '100%',
       textAlign: 'left',
       fontSize: 14,
@@ -122,9 +136,11 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
     themeSelection: {
       display: 'flex',
       alignItems: 'center',
-      padding: '10px 15px',
-      [theme.breakpoints.down(370)]: {
-        padding: '15px 15px',
+      height:90,
+      padding: '0px 15px',
+      [theme.breakpoints.down(380)]: {
+        padding: '0px 15px',
+        height:78,
 
         },
     },

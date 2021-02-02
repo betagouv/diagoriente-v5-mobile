@@ -182,8 +182,14 @@ export default makeStyles((theme: Theme) =>
       bottom: 7,
       right: 0,
       cursor: 'pointer',
+      [theme.breakpoints.down(500)]: {
+        right: -25,
+      },
       [theme.breakpoints.down(420)]: {
         right: -20,
+      },
+      [theme.breakpoints.down(380)]:{
+        right: -15,
       },
     },
 
@@ -248,11 +254,28 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: 'white',
       boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
       zIndex: 1,
+      '@media not all and (min-resolution:.001dpcm)': {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '8px 13px ',
+        position: 'fixed',
+        bottom: 0,
+        width: '100%',
+        backgroundColor: 'white',
+        boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+        zIndex: 1,
+      }
     },
     classNameTitle: {
       color: '#4D6EC5',
       fontSize: 18,
       lineHeight: '26px',
+      '@media not all and (min-resolution:.001dpcm)': {
+        color: '#4D6EC5',
+        fontSize: 14,
+        lineHeight: '26px',
+      }
     },
   }),
 );

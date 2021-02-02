@@ -12,7 +12,9 @@ import classNames from 'utils/classNames';
 import { useAccessibility } from 'requests/accessibility';
 import useStyles from './style';
 import checked from 'assets/form/checkboxchecked.svg';
-
+// import Arrow from 'containers/ProfilContainer/components/Arrow/Arrow';
+// import redarrow from 'assets/svg/redarrow.svg';
+import Arrow from 'assets/svg/arrow';
 enum Steps {
   THEMES,
   ACCESSIBILITY,
@@ -67,6 +69,15 @@ const SelectModal = () => {
     }
   };
 
+   const getAccebilityName=(id:string | undefined)=>{
+if (id) {
+ const niveau = accessibilityState.data?.accessibilities.data.find((o)=>{
+return o.id===id
+  }) ;
+  return niveau?.name
+}
+  return ("Niveau de diplôme")
+   }
   const onValide = () => {
     updateCall({ variables: { skillsAlgo: selectedThemes, accessibility } });
   };
@@ -83,6 +94,12 @@ const SelectModal = () => {
     case Steps.ACCESSIBILITY:
       return (
         <div className={classes.modalBody}>
+          <div className ={classes.arrowClass} onClick={() => setStep(Steps.THEMES) } > 
+          <Arrow color="#420FAB" height="15" width="9.5" className={classes.rotadArrow} />
+          <span style={{paddingLeft:20}}> Retour </span>
+            
+             </div>
+        
           <div className={classes.titleModal}>
             Encore une petite chose !
             <br />
@@ -102,7 +119,7 @@ const SelectModal = () => {
                 }}
                 name="job"
                 value={[accessibility]}
-                placeholder={'Niveau de diplôme'}
+                placeholder={getAccebilityName(accessibility) }
                 className={classes.containerAutoComp}
                 open={openType}
                 modal

@@ -1,9 +1,10 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import { FullscreenExit } from '@material-ui/icons';
 
 export default makeStyles<Theme>((theme) => ({
   modalBody: {
     overflow: 'auto',
-    paddingTop: 50,
+    paddingTop: 72,
     backgroundColor: '#F3F2F4',
     flex: 1,
   },
@@ -18,9 +19,9 @@ export default makeStyles<Theme>((theme) => ({
     fontSize: 14,
     textAlign: 'center',
     marginTop: 40,
-    "padding-bottom" : 40,
-    "padding-left": "2vh",
-    "padding-right": "2vh",
+    'padding-bottom': 40,
+    'padding-left': '2vh',
+    'padding-right': '2vh',
   },
   subTitle: {
     fontSize: 14,
@@ -66,7 +67,9 @@ export default makeStyles<Theme>((theme) => ({
     alignItems: 'center',
     margin: 10,
     padding: 10,
-    cursor: 'pointer',
+    [theme.breakpoints.down(415)]: {
+      maxWidth: '-webkit-fill-available',
+    },
   },
   themeContainerPro: {
     border: '1px solid #00B2DB',
@@ -102,10 +105,14 @@ export default makeStyles<Theme>((theme) => ({
     marginBottom: 30,
   },
   btn: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: '#7533FF !important',
   },
   btnLabel: {
     color: '#FFF',
+    '& .MuiButton-root-96:hover' :{
+      backgroundColor: '#7533FF',
+
+    } 
   },
   aide: {
     width: 51,
@@ -132,7 +139,23 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     paddingBottom: 150,
-    backgroundColor : "white",
-    "padding-bottom": "25%",
+    backgroundColor: 'white',
+    'padding-bottom': '25%',
+    [theme.breakpoints.up(560)]: {
+      paddingTop: 30,
+      paddingBottom: 30,
+
+    },
+    
   },
+  rotadArrow:{
+    transform: 'rotate(180deg)',
+    paddingRight:5
+
+  },
+  arrowClass:{
+  paddingBottom:20,
+  display:'flex'
+  }
+
 }));

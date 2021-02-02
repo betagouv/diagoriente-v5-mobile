@@ -18,13 +18,17 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down(330)]: {
       height: 'auto',
     },
+    [theme.breakpoints.up(560)]: {
+      height: 'auto',
+
+    },
   },
 
   header: {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    marginTop: 10,
+    marginTop: 40,
   },
   imgContainer: {
     width: 'fit-content !important',
@@ -91,6 +95,15 @@ export default makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: '#00B2DB',
     },
+    '@media not all and (min-resolution:.001dpcm)': {
+      backgroundColor: theme.palette.secondary.main,
+      fontSize: 14,
+      fontWeight: 'bold',
+      cursor: 'pointer',
+      '&:hover': {
+        backgroundColor: '#00B2DB',
+      },
+    }
   },
 
   btnLabel: {
@@ -307,6 +320,9 @@ export default makeStyles((theme) => ({
 
   titleThemeDone: {
     fontSize: 14,
+    '@media not all and (min-resolution:.001dpcm)': {
+      fontSize: 11,
+    }
   },
 
   checked: {

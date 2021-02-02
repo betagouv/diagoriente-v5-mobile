@@ -39,8 +39,10 @@ export default makeStyles((theme: Theme) =>
 
     gridContainer: {
       padding: SKILL_CONTAINER_PADDING,
-
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.up(560)]: {
+        padding: '15px 15px 60px 15px',
+      },
+      [theme.breakpoints.down(559)]: {
         padding: '40px 15px',
       },
     },
@@ -70,7 +72,6 @@ export default makeStyles((theme: Theme) =>
       borderRadius: 30,
       width: 'max-content',
       padding: 10,
-      cursor: 'pointer',
       color: '#424242',
       textTransform: 'capitalize',
       '&:hover': {
@@ -197,11 +198,28 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: 'white',
       boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
       zIndex: 1,
+      '@media not all and (min-resolution:.001dpcm)': {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '8px 13px ',
+        position: 'fixed',
+        bottom: 0,
+        width: '100%',
+        backgroundColor: 'white',
+        boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
+        zIndex: 1,
+      },
     },
     classNameTitle: {
       color: '#4D6EC5',
       fontSize: 18,
       lineHeight: '26px',
+      '@media not all and (min-resolution:.001dpcm)': {
+        color: '#4D6EC5',
+        fontSize: 14,
+        lineHeight: '26px',
+      },
     },
 
     btnpreced: {
@@ -213,15 +231,15 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'bold',
       textDecoration: 'none',
     },
-    titleDiv:{
-      width:'fit-content',
+    titleDiv: {
+      width: 'fit-content',
       flexwrap: 'wrap',
       wordBreak: 'break-word',
       textAlign: 'left',
-      padding: '10px 0px'
+      padding: '10px 0px',
     },
-    child:{
-      flexWrap:'wrap',
-    }
+    child: {
+      flexWrap: 'wrap',
+    },
   }),
 );

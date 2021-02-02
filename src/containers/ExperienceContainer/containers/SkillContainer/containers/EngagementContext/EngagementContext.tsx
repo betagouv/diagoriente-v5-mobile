@@ -48,18 +48,8 @@ const EngagementContext = ({
           image={blueline}
           number={5}
         />
-          {/* <Title title="MES EXPÉRIENCES D’ENGAGEMENT" color="#223A7A" size={26} /> */}
-          {/* <RestLogo
-            onClick={() => {
-              const path = '/experience';
-              history.replace(path);
-            }}
-            color="#4D6EC5"
-            label="Annuler"
-          /> */}
         </div>
         <div className={classes.themeContainer}>
-          {/* <TitleImage title="5." image={blueline} color="#223A7A" width={180} /> */}
           <p className={classes.title}>
             Dans quel cadre s’est déroulée cette expérience
             <br />
@@ -89,7 +79,7 @@ const EngagementContext = ({
             </Link>
 
             <div onClick={onNavigate} className={classes.hideLine}>
-              <NextButton  />
+              <NextButton  disabled ={!contextCheck}  />
             </div>
           </div>
         </div>
