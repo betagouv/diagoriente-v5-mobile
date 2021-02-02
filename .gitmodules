@@ -1,4 +1,5 @@
 [submodule "src/common"]
 	path = src/common
-	url = git@gitlab.com:maydon/diagoriente5-sub-module.git
+	url = git@git.diagoriente.beta.gouv.fr:2224/root/diagoriente5-sub-module.git
 	branch = develop
+ 
