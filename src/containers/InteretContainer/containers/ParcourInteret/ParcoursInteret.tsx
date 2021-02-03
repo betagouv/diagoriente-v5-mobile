@@ -1,4 +1,6 @@
-import React, { useState, useContext, useMemo, useEffect } from 'react';
+import React, {
+ useState, useContext, useMemo, useEffect,
+} from 'react';
 import { useFamilies } from 'requests/familles';
 import Button from 'components/button/Button';
 import { Families } from 'requests/types';
@@ -11,7 +13,7 @@ import Dialog from '@material-ui/core/Dialog';
 import { groupBy } from 'lodash';
 import PlaceHolder from 'containers/InteretContainer/components/placeholderInterest/Placeholder';
 import Arrow from 'assets/svg/arrow';
-/* import classNames from 'common/utils/classNames';
+/* import classNames from 'utils/classNames';
  */
 import interestContext from 'contexts/InterestSelected';
 import parcoursContext from 'contexts/ParcourContext';
@@ -118,10 +120,10 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   };
   const handelClose = () => setOpenConfirm(false);
 
-  const Transition = React.forwardRef(function Transition(
+  const Transition = React.forwardRef((
     props: TransitionProps & { children?: React.ReactElement },
     ref: React.Ref<unknown>,
-  ) {
+  ) => {
     console.log('props', props);
     return <Slide direction="up" ref={ref} {...props} />;
   });
@@ -145,7 +147,11 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
         </div>
         <div className={classes.ellipse} onClick={() => setOpenConfirm(true)}>
-          <span className={classes.textEllipsis}>{selectedInterest?.length} / 5</span>
+          <span className={classes.textEllipsis}>
+            {selectedInterest?.length}
+            {' '}
+            / 5
+          </span>
         </div>
         {selectedInterests.length > 0 && (
           <div className={classes.btnNext}>
@@ -205,10 +211,14 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
         </div>
       </ModalContainer>
-      <Dialog open={openConfirm} /* TransitionComponent={Transition} */ keepMounted fullScreen style={{ zIndex: 2000 }}>
+      <Dialog open={openConfirm} keepMounted fullScreen style={{ zIndex: 2000 }}>
         <div>
           <div className={classes.headerModelConfirm}>
-            <span className={classes.textModelConfirm}>MES FAMILLES d'INTERET ({selectedInterest?.length}/5)</span>
+            <span className={classes.textModelConfirm}>
+              MES FAMILLES d'INTERET (
+              {selectedInterest?.length}
+              /5)
+            </span>
             <Arrow color="white" width="22" height="22" className={classes.arrowStyle} onClick={handelClose} />
           </div>
           {selectedInterests.map((el, i) => (
@@ -218,7 +228,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
                   <FamileSelected handleClick={() => deleteFamille(i)} famille={el} index={i} direction="horizontal" />
                 </div>
               </div>
-              <Divider style={{ margin: '-1' }}  />
+              <Divider style={{ margin: '-1' }} />
             </>
           ))}
 
