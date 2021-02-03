@@ -109,7 +109,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
               : 'mes expériences personnelles'
           }
           color="#223A7A"
-          size={width > 380 ? 32 : 25}
+          size={width > 380 ? 32 : 32}
           image={blueline}
           number={3}
         />

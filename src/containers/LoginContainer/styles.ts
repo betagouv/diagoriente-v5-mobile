@@ -128,6 +128,19 @@ export default makeStyles((theme) => ({
       paddingLeft:0,
 
       },
+      '@media not all and (min-resolution:.001dpcm)': {
+        justifyContent: 'center',
+        width:'max-content',
+        paddingLeft:99,
+        [theme.breakpoints.down(450)]: {
+          display:'flex',
+          flexDirection:'column',
+          paddingRight:69,
+          justifyContent:'flex-end',
+          paddingLeft:0,
+    
+          },
+          },
   },
   inputContainer:{
     display: 'grid',
@@ -145,6 +158,23 @@ export default makeStyles((theme) => ({
      gridGap:0,
      alignItems:'flex-start',
      },
+     '@media not all and (min-resolution:.001dpcm)': {
+      display: 'grid',
+      gridTemplateAreas: '"label input"',
+      gridTemplateColumns: '138px 269px',
+      gridGap: '25px',
+      gridTemplateRows: '41px',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: '0px 0px 0px 0px',
+      width: '100%',
+     [theme.breakpoints.down(450)]: {
+       display:'flex',
+       flexDirection:'column',
+       gridGap:0,
+       alignItems:'flex-start',
+       },
+        },
   },
 
 

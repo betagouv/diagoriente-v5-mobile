@@ -242,7 +242,7 @@ export default makeStyles((theme: Theme) => ({
     display: 'grid',
     gridTemplateAreas: '"label input"',
     gridTemplateColumns: '140px 229px',
-    gridGap: '15px',
+    gridGap: '25px',
     gridTemplateRows: '45px',
     alignItems: 'center',
     justifyContent: 'center',

@@ -5,7 +5,7 @@ export default makeStyles<Theme, { error: boolean }>((theme) => ({
     display: 'flex',
     alignItems: 'center',
     // justifyContent: 'center',
-    margin: '15px 0px 0px 0px',
+    margin: '15px px 0px 0px',
     // [theme.breakpoints.down(480)]: {
     //   margin: '0px 0px 0px 40px',
 
@@ -14,6 +14,12 @@ export default makeStyles<Theme, { error: boolean }>((theme) => ({
     //   margin: '0px 0px 0px 21px',
 
     // }
+    '@media not all and (min-resolution:.001dpcm)': {
+      display: 'flex',
+      alignItems: 'center',
+      // justifyContent: 'center',
+      margin: '15px -18px 0px 0px',
+        }
     
   },
 gridItem:{

@@ -48,7 +48,7 @@ const Experience = () => {
 
   return (
     <div className={classes.container}>
-      <Title title="mes expériences" size={32} color="#223A7A" />
+      <Title title="mes expériences" size={42} color="#223A7A" />
       <p className={classes.title}>
         Nous apprenons de toutes nos expériences.
         <br />

@@ -139,6 +139,21 @@ export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) =
       alignItems: 'flex-start',
       height: 'auto',
     },
+    '@media not all and (min-resolution:.001dpcm)': {
+      gridArea: 'label',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-end',
+      height: '100%',
+      justifyContent: 'center',
+      [theme.breakpoints.down(480)]: {
+        gridArea: '"label"',
+        alignItems: 'flex-start',
+        height: 'auto',
+      },
+      width: "-webkit-max-content"
+
+        },
   },
   label: {
     fontWeight: 'bold',
