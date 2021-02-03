@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect, RouteComponentProps } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField/TextField';
 import { useDidMount } from 'hooks/useLifeCycle';
 import TitleSection from 'components/common/TitleSection/TitleSection';
 import RadioButton from 'components/radioButton/RadioButton';
@@ -29,11 +30,18 @@ const SecondRecommendation = ({ skill, comment, location }: Props) => {
   const [search, setSearch] = useState('');
   const [locationCall, { data }] = useLocation({ variables: { search } });
   const [value, setValue] = useState('');
+  const [institution, setInstitution] = useState('');
   const [updateCall, updateState] = useUpdateSkillComment();
 
   const title = (
     <span>
-      Recommanderiez-vous le travail de {skill.user.firstName} {skill.user.lastName} à des recruteurs
+      Recommanderiez-vous le travail de
+      {' '}
+      {skill.user.firstName}
+      {' '}
+      {skill.user.lastName}
+      {' '}
+      à des recruteurs
       <br />
       (votre réponse restera confidentielle) ?
     </span>
@@ -43,7 +51,9 @@ const SecondRecommendation = ({ skill, comment, location }: Props) => {
       locationCall();
     }
   }, [search, locationCall]);
-
+  const institutionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInstitution(e.target.value);
+  };
   const onSubmit = () => {
     updateCall({
       variables: {
@@ -51,6 +61,7 @@ const SecondRecommendation = ({ skill, comment, location }: Props) => {
         id: skill.comment.id,
         status: value === 'Oui' ? 'accepted' : 'refused',
         location: selectedLocation,
+        institution,
       },
     });
   };
@@ -77,6 +88,20 @@ const SecondRecommendation = ({ skill, comment, location }: Props) => {
           />
         </div>
       </div>
+      <span className={classes.recommendation}>Nom de structure </span>
+      <TextField
+        name="institution"
+        value={institution}
+        placeholder="saisie votre nom de l'institution"
+        onChange={institutionChange}
+        InputProps={{
+          classes: {
+            input: classes.defaultValue,
+          },
+        }}
+        className={classes.textArea}
+        variant="outlined"
+      />
       <div className={classes.location}>
         <span className={classes.recommendation}>Pour finir, dans quelle commune se situe votre établissement ? </span>
         <AutoComplete

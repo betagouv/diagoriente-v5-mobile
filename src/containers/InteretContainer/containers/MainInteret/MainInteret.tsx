@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import mainInterest from 'assets/svg/mainInterest.svg';
 import TitleImage from 'components/common/TitleImage/TitleImage';
 import Button from 'components/button/Button';
+import classNames from 'utils/classNames';
 import useStyle from './styles';
 
 const MainInteret = () => {
@@ -43,7 +44,7 @@ const MainInteret = () => {
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
-                className={height < 350 ? classes.interetTiltle : ''}
+                className={width > 560 ? classes.interetTiltle : ''}
               />
             </div>
           </Link>
@@ -58,7 +59,7 @@ const MainInteret = () => {
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
-                className={height < 350 ? classes.interetTiltle : ''}
+                className={width > 560 ? classNames(classes.interetTiltle, classes.titleBorders) : ''}
               />
             </div>
           </Link>
@@ -74,7 +75,7 @@ const MainInteret = () => {
                 color="#FFFFFF"
                 backgroudColor="#A275FF"
                 size={width > 380 ? 32 : 25}
-                className={height < 350 ? classes.interetTiltle : ''}
+                className={width > 560 ? classes.interetTiltle : ''}
               />
             </div>
           </Link>
