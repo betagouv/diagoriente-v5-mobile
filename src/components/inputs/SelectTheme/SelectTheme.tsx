@@ -5,7 +5,7 @@ import arrow from 'assets/images/Arrow.png';
 import classNames from 'utils/classNames';
 import useStyles from './styles';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
-import arrowClose from 'assets/svg/arrowClose.svg';
+import pictoClose from 'assets/svg/pictoClose.svg';
 import Dialog from '@material-ui/core/Dialog';
 import Divider from '@material-ui/core/Divider';
 import Slide from '@material-ui/core/Slide';
@@ -20,7 +20,7 @@ interface Props {
 
 const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
   const classes = useStyles();
-  const closeTitle = 'Thèmes ';
+  const closeTitle = 'Choisis un thème ';
   const [defaultTheme, setDefaultTheme] = useState('');
   const [theme, setTheme] = React.useState(defaultTheme);
   const [open, setOpen] = React.useState(false);
@@ -63,7 +63,8 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
     <>
       <TextField
         label=""
-        value={theme ? theme : defaultTheme}
+        value="Thèmes"
+        /* value={theme ? theme : defaultTheme} */
         variant="outlined"
         className={
           !theme || theme === '' || theme === 'Thèmes : ' ? classes.selectContainer : classes.selectedThemeContainer
@@ -76,7 +77,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
           ),
 
           startAdornment: {
-            ...(theme !== 'Thèmes ;' && theme && theme !== '' ? (
+            ...(theme !== 'Thèmes' && theme && theme !== '' ? (
               <Avatar
                 size={29}
                 className={classes.avatarCircleSelected}
@@ -111,8 +112,8 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
         >
           <div className={classes.itemContainer}>
             <div className={classes.closeModelContainer}>
-              <img src={arrowClose} alt="arrowClose" className={classes.arrowClose} />
               <span className={classes.closeModelLabel}> {closeTitle} </span>
+              <img src={pictoClose} alt="close" />
             </div>
           </div>
         </MenuItem>

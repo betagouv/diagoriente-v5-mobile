@@ -19,17 +19,14 @@ export default makeStyles((theme: Theme) => ({
     minHeight: 26,
     display: 'flex',
     alignItems: 'flex-end',
+    justifyContent: 'space-between',
   },
-  arrowClose: {
-    width: 12,
-    height: 19,
-  },
+
   closeModelLabel: {
-    fontWeight: 'bold',
-    fontSize: 18,
-    lineHeight: '26px',
+    fontWeight: 700,
+    fontSize: 16,
+    lineHeight: '24px',
     color: '#00B2DB',
-    marginLeft: 20,
   },
   arrowContainer: {
     background: '#FFFFFF',
