@@ -3,15 +3,15 @@ import { size } from 'lodash';
 
 export default makeStyles<
   Theme,
-  { color: string; size?: number; font?: string; width?: number; backgroudColor?: string;}
+  { color: string; size?: number; font?: string; width?: number; backgroudColor?: string }
 >((theme: Theme) => ({
   container: {
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
     width: '100%',
-    height: 80,
-    backgroundColor: (props) => props.backgroudColor || '#FFFFFF',
+    height: 60,
+    backgroundColor: (props) => props.backgroudColor || '#223A7A',
   },
   containerPosition: {
     justifyContent: 'center',
@@ -34,11 +34,10 @@ export default makeStyles<
     paddingRight: 5,
     [theme.breakpoints.up(560)]: {
       paddingRight: 15,
-
     },
   },
   image: {
-    width: (props) => props.width || "11vh",
+    width: (props) => props.width || '11vh',
     height: 'auto',
   },
   btnImage: {
