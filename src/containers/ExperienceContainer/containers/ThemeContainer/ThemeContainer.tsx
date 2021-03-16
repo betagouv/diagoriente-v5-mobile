@@ -74,21 +74,19 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
       <div className={classes.container}>
         <Title
           title={type === 'engagement' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
-          color="#223A7A"
+          color="#FFFFFF"
           size={width > 380 ? 32 : 22}
-          image={blueline}
-          number={1}
         />
 
         <div className={classes.themeContainer}>
-          {themeFiltered.length === 0 && !loading ? (
-            <div className={classes.errorMessage}>
-              Il n&apos;y a plus de thèmes disponible, vous les avez deja tous choisis !{' '}
-            </div>
-          ) : (
-            <p className={classes.themeTitle}>Choisis un thème :</p>
-          )}
           <div className={classes.selectThemeContainer}>
+            {themeFiltered.length === 0 && !loading ? (
+              <div className={classes.errorMessage}>
+                Il n&apos;y a plus de thèmes disponible, vous les avez deja tous choisis !{' '}
+              </div>
+            ) : (
+              <p className={classes.themeTitle}>Choisis un thème :</p>
+            )}
             <SelectTheme avatarsTab={themeFiltered} selectedTheme={selectedTheme} showAvatar={showAvatar} />
           </div>
           {loading && (

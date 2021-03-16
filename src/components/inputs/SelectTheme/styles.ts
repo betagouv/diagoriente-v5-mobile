@@ -32,8 +32,9 @@ export default makeStyles((theme: Theme) => ({
     marginLeft: 20,
   },
   arrowContainer: {
-    background: '#00CFFF',
+    background: '#FFFFFF',
     border: '1px solid #D1D5DE',
+    borderLeft: 'none',
     boxSizing: 'border-box',
     borderRadius: '0px 5px 5px 0px',
     width: 42,
@@ -61,7 +62,6 @@ export default makeStyles((theme: Theme) => ({
       display: 'flex',
       height: 45,
       alignItems: 'center',
-      fontWeight: 'bold',
       fontSize: 14,
       lineHeight: '20px',
       bottom: 1,
@@ -86,7 +86,7 @@ export default makeStyles((theme: Theme) => ({
     border: '1px solid #D1D5DE',
     boxSizing: 'border-box',
     borderRadius: '5px 0px 0px 5px',
-    textOverflow:'ellipsis',
+    textOverflow: 'ellipsis',
     '& div': {
       display: 'flex',
       height: 45,
@@ -106,7 +106,7 @@ export default makeStyles((theme: Theme) => ({
     '& input': {
       color: '#00B2DB',
       width: '75% !important',
-      textOverflow:'ellipsis'
+      textOverflow: 'ellipsis',
     },
   },
 
@@ -132,13 +132,11 @@ export default makeStyles((theme: Theme) => ({
     margin: '0 15px',
     color: '#424242',
     fontSize: 14,
-    width:'fit-content',
-    wordBreak:'break-word',
+    width: 'fit-content',
+    wordBreak: 'break-word',
     [theme.breakpoints.down(380)]: {
-      width:'80%',
-
+      width: '80%',
     },
-    
   },
 
   textSelected: {

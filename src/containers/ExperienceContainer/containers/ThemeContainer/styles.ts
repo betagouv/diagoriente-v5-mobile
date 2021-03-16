@@ -24,15 +24,16 @@ export default makeStyles((theme: Theme) =>
       paddingTop: 34,
       minHeight: '76vh',
       [theme.breakpoints.up(560)]: {
-        height:'130vh'
+        height: '130vh',
       },
     },
 
     themeTitle: {
-      color: '#424242',
-      fontSize: 14,
-      fontWeight: 400,
-      marginBottom: 60,
+      color: '#223A7A',
+      fontSize: 16,
+      lineHeight: '24px',
+      fontWeight: 'bold',
+      marginBottom: 18,
     },
 
     selectThemeContainer: {},
@@ -210,7 +211,7 @@ export default makeStyles((theme: Theme) =>
         backgroundColor: 'white',
         boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
         zIndex: 1,
-      }
+      },
     },
     classNameTitle: {
       color: '#4D6EC5',
@@ -221,7 +222,7 @@ export default makeStyles((theme: Theme) =>
         color: '#4D6EC5',
         fontSize: 14,
         lineHeight: '26px',
-      }
+      },
     },
   }),
 );
