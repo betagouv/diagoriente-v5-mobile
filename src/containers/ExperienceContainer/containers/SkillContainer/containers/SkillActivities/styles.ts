@@ -20,7 +20,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      paddingTop: 34,
+      padding: '35px 40px 40px 40px',
       height: '100%',
     },
 
@@ -74,7 +74,15 @@ export default makeStyles((theme: Theme) =>
     },
 
     title: {
-      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 16,
+      lineHeight: '24px',
+      color: '#223A7A',
+      width: '100%',
+    },
+
+    subtitle: {
+      width: '100%',
     },
 
     activityContainer: {
@@ -82,13 +90,14 @@ export default makeStyles((theme: Theme) =>
     },
 
     activity: {
-      borderRadius: 30,
+      borderRadius: 5,
       border: '1px solid #00CFFF',
       padding: 5,
       margin: 8,
       fontSize: 14,
       maxWidth: '100%',
-      width: 'fit-content',
+      width: '100%',
+      height: '50px',
     },
 
     selected: {
@@ -99,6 +108,7 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: '#7AE6FF',
       border: 'transparent',
       color: '#424242',
+      fontWeight: 700,
       fontSize: 14,
       '&:hover': {
         backgroundColor: '#7AE6FF',
@@ -135,9 +145,8 @@ export default makeStyles((theme: Theme) =>
 
     childrenClassName: {
       display: 'flex',
-      justifyContent: 'center',
       width: '100%',
-      margin: '0px 10px',
+      padding: '0px 20px',
     },
 
     previousNext: {
@@ -162,7 +171,7 @@ export default makeStyles((theme: Theme) =>
         backgroundColor: 'white',
         boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
         zIndex: 1,
-      }
+      },
     },
     classNameTitle: {
       color: '#4D6EC5',
@@ -172,7 +181,7 @@ export default makeStyles((theme: Theme) =>
         color: '#4D6EC5',
         fontSize: 14,
         lineHeight: '26px',
-      }
+      },
     },
   }),
 );

@@ -5,14 +5,12 @@ import { Theme } from 'requests/types';
 import { Tooltip } from '@material-ui/core';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
-import Title from 'components/common/TitleImage/TitleImage';
 import NextButton from 'components/nextButton/nextButton';
 import Button from 'components/button/Button';
 import PreviousButton from 'components/previousButton/previousButton';
 import CancelButton from 'components/cancelButton/CancelButton';
 import Spinner from 'components/SpinnerXp/Spinner';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
-import blueline from 'assets/svg/blueline.svg';
 import { Unpacked } from 'utils/types';
 import useStyles from './styles';
 
@@ -53,20 +51,9 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Title
-          title={theme.type === 'professional' ? 'mes expériences pro' : 'mes expériences personnelles'}
-          color="#223A7A"
-          size={width > 380 ? 32 : 25}
-          image={blueline}
-          number={2}
-        />
         <div className={classes.themeContainer}>
-          <p className={classes.title}>
-            Peux-tu nous en dire un peu plus sur
-            <br />
-            <strong>les activités </strong>
-            que tu pratiques ?
-          </p>
+          <span className={classes.title}>Peux-tu nous en dire un peu plus sur les activités que tu pratiques ?</span>
+          <span className={classes.subtitle}>(plusieurs choix possibles)</span>
           <div className={classes.circleContainer}>
             {loading && (
               <div className={classes.loadingContainer}>
