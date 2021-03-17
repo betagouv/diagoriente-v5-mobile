@@ -4,8 +4,8 @@ export default makeStyles((theme) => ({
   root: {
     width: '100%',
     display: 'flex',
-    justifyContent: 'center',
-    backgroundColor: '#F3F2F4',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 
   content: {
@@ -13,14 +13,14 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '0px 30px 30px 30px',
+    padding: '80px 40px 30px 40px',
     height: '100vh',
+    backgroundColor: '#F3F2F4',
     [theme.breakpoints.down(330)]: {
       height: 'auto',
     },
     [theme.breakpoints.up(560)]: {
       height: 'auto',
-
     },
   },
 
@@ -28,11 +28,12 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    marginTop: 40,
+    margin: '40px 0px 75px 0px',
   },
   imgContainer: {
     width: 'fit-content !important',
-    marginTop: 10,
+    position: 'absolute',
+    top: 150,
   },
   title: {
     fontFamily: 'ocean',
@@ -47,27 +48,21 @@ export default makeStyles((theme) => ({
   },
 
   classNameTitle: {
-    fontSize: 14,
-    color: ' #424242',
-    paddingTop: 10,
+    fontSize: 16,
+    fontWeight: 'bold',
+    lineHeight: '24px',
+    color: '#223A7A',
   },
   description: {
-    marginTop: 20,
-    marginBottom: 20,
-    width: 285,
+    marginBottom: 30,
     alignItems: 'center',
     fontSize: 14,
-    fontWeight: 700,
   },
 
   textDescription: {
-    marginTop: 20,
     marginBottom: 30,
-    width: 500,
     alignItems: 'center',
     fontSize: 18,
-    padding: '0px 18px',
-    maxWidth: 340,
     [theme.breakpoints.down(340)]: {
       maxWidth: 320,
     },
@@ -77,14 +72,13 @@ export default makeStyles((theme) => ({
     fontSize: 14,
     color: '#424242',
     width: '100%',
-    textAlign: 'center',
+    textAlign: 'left',
   },
 
   btnContainer: {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    marginBottom: 30,
   },
 
   btn: {
@@ -103,7 +97,7 @@ export default makeStyles((theme) => ({
       '&:hover': {
         backgroundColor: '#00B2DB',
       },
-    }
+    },
   },
 
   btnLabel: {
@@ -112,7 +106,7 @@ export default makeStyles((theme) => ({
 
   info: {
     textAlign: 'center',
-    textDecoration: 'underline',
+    textDecoration: 'underline!important' as 'underline',
     fontSize: 14,
     cursor: 'pointer',
     color: '#424242',
@@ -322,7 +316,7 @@ export default makeStyles((theme) => ({
     fontSize: 14,
     '@media not all and (min-resolution:.001dpcm)': {
       fontSize: 11,
-    }
+    },
   },
 
   checked: {

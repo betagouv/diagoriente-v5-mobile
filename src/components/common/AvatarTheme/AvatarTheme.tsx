@@ -45,10 +45,10 @@ const AvatarTheme = forwardRef(
       >
         <div className={classNames(classes.squareContainer, squareContainerClassName)}>{children}</div>
         {title && (
-          <p className={classNames(classes.title, titleClassName)}>
+          <span className={classNames(classes.title, titleClassName)}>
             {title}
             {checked && <img src={check} alt="check" className={classes.checked} />}
-          </p>
+          </span>
         )}
       </div>
     );

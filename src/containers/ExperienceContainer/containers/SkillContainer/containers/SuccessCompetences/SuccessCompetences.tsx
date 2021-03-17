@@ -39,15 +39,10 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
 
   return (
     <div className={classes.root}>
+      <div className={classes.header}>
+        <div className={classes.title}>BRAVO !</div>
+      </div>
       <div className={classes.content}>
-        <div className={classes.header}>
-          <div className={classes.title}>BRAVO !</div>
-        </div>
-        <div className={classes.description}>
-          <p className={classes.text}>
-            Tu as ajouté une expérience {typeXp} à ton parcours, et tu as identifié de nouvelles compétences.
-          </p>
-        </div>
         {skill?.theme.type === 'professional' ? (
           <div className={classes.titleThemeContainer}>
             <span className={classes.titleThemeDone}>{theme.title}</span>
@@ -56,19 +51,16 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
         ) : (
           <Avatar
             title={theme.title}
-            size={170}
+            size={100}
             titleClassName={classes.classNameTitle}
-            checked
             className={classes.imgContainer}
           >
             <img src={theme.resources?.icon} alt="" />
           </Avatar>
         )}
-
-        <div className={classes.textDescription}>
+        <div className={classes.description}>
           <p className={classes.text}>
-            Tu peux maintenant demander une recommandation pour cette expérience, elle donnera confiance à tes futurs
-            recruteurs.
+            Tu as ajouté une expérience {typeXp} à ton parcours, et tu as identifié de nouvelles compétences.
           </p>
         </div>
         <div className={classes.btnContainer}>
@@ -76,6 +68,13 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
             <div className={classes.btnLabel}>Je demande une recommandation</div>
           </Button>
         </div>
+        <div className={classes.textDescription}>
+          <p className={classes.text}>
+            Tu peux maintenant demander une recommandation pour cette expérience, elle donnera confiance à tes futurs
+            recruteurs.
+          </p>
+        </div>
+
         <Link to={`/experience/skill/${theme.id}/done`} className={classes.info}>
           Passer cette étape
         </Link>
