@@ -175,6 +175,7 @@ export default makeStyles(() => ({
   ItemMenuContent: {
     padding: '15px 40px',
     whiteSpace: 'normal',
+    display: 'flex',
   },
 
   pointsTitleContainer: {
@@ -244,6 +245,7 @@ export default makeStyles(() => ({
     lineHeight: '15px',
     color: '#424242',
     maxWidth: 'calc(100% - 100px)',
+    marginLeft: 10,
   },
 
   dialogPaper: {
