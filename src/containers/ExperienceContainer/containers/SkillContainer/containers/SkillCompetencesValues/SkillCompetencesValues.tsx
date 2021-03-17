@@ -1,18 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Tooltip } from '@material-ui/core';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { CompetenceValues, Competence, Theme } from 'requests/types';
-import Title from 'components/common/TitleImage/TitleImage';
-import RestLogo from 'components/common/Rest/Rest';
 import NextButton from 'components/nextButton/nextButton';
-import CancelButton from 'components/cancelButton/CancelButton';
-import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import PreviousButton from 'components/previousButton/previousButton';
 import Select from 'components/inputs/SelectLevel/SelectLevel';
-import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
-import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
-import blueline from 'assets/svg/blueline.svg';
 import useStyles from './styles';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
@@ -83,27 +75,13 @@ const SkillCompetencesValues = ({
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Title
-          title={
-            theme && theme.type === 'engagement'
-              ? 'mes expériences d’engagement'
-              : theme && theme.type === 'professional'
-              ? 'mes expériences pro'
-              : 'mes expériences personnelles'
-          }
-          color="#223A7A"
-          size={width > 380 ? 32 : 25}
-          image={blueline}
-          number={4}
-        />
-
         <div className={classes.themeContainer}>
           <div className={classes.echelonWrapper}>
             <p className={classes.title}>
               En rapport avec les <b> compétences que tu as choisies</b>, comment te sens-tu ?
             </p>
 
-            <div className={classes.echelonBackground}>
+            {/*    <div className={classes.echelonBackground}>
               <div className={classes.avatarContainer}>
                 <Avatar
                   title={theme?.title}
@@ -117,10 +95,10 @@ const SkillCompetencesValues = ({
               </div>
               <div className={classes.dataOptions}>
                 {activities.slice(0, 4).map((activity) => (
-                  <div  key={activity}>{activity}</div>
+                  <div key={activity}>{activity}</div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             <div className={classes.echelonContainer}>
               <div className={classes.competencesContainer}>

@@ -100,8 +100,8 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
         >
           <div className={classes.itemContainer}>
             <div className={classes.closeModelContainer}>
-              <img src={arrowClose} alt="arrowClose" className={classes.arrowClose} />
               <span className={classes.closeModelLabel}> {competenceTitle} </span>
+              <img src={arrowClose} alt="arrowClose" className={classes.arrowClose} />
             </div>
           </div>
         </MenuItem>
@@ -117,6 +117,7 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
             <div className={classes.itemContainer}>
               <div className={classes.ItemMenuContent}>
                 <div className={classes.pointsTitleContainer}>
+                  <div className={classes.echelon}>{e}</div>
                   <div className={classes.tooltipPointContainer}>
                     {[...Array(echelonValue[index])].map((p, point) => (
                       // eslint-disable-next-line
@@ -127,7 +128,6 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
                       <div key={point} className={classes.tooltip} />
                     ))}
                   </div>
-                  <div className={classes.echelon}>{e}</div>
                 </div>
                 <div className={classes.levelTitle}>
                   <span> "{levelsTab[index].title}" </span>

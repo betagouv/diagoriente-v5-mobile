@@ -5,9 +5,6 @@ import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 
 export default makeStyles((theme: Theme) =>
   createStyles({
-
-
-    
     root: {
       display: 'flex',
       flexDirection: 'column',
@@ -25,17 +22,16 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      minHeight: 'calc(100vh - 150px)',
-      paddingTop: 34,
+      minHeight: '100vh',
+      padding: '20px 40px 40px 40px',
     },
 
     title: {
-      textAlign: 'center',
-      color: '#424242',
-      fontSize: 14,
-      width: 255,
-      marginBottom: 50,
-
+      fontWeight: 'bold',
+      fontSize: 16,
+      lineHeight: '24px',
+      color: '#223A7A',
+      width: '100%',
     },
 
     echelonWrapper: {
@@ -43,7 +39,6 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '0px 30px',
     },
 
     echelonContainer: {
@@ -51,8 +46,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'stretch',
-      /* padding: SKILL_CONTAINER_PADDING, */
-      padding: '30px 0px 80px 0px',
+      marginTop: 55,
     },
 
     empty: {
@@ -126,9 +120,9 @@ export default makeStyles((theme: Theme) =>
       paddingTop: 6,
 
       '@media not all and (min-resolution:.001dpcm)': {
-        position: "relative",
-        bottom: "0.7vh",
-      }
+        position: 'relative',
+        bottom: '0.7vh',
+      },
     },
 
     pointContainer: {
@@ -239,7 +233,6 @@ export default makeStyles((theme: Theme) =>
       justifyContent: 'center',
       [theme.breakpoints.down(340)]: {
         padding: '15vh 20px 20px 20px',
-
       },
       '@media not all and (min-resolution:.001dpcm)': {
         padding: '25vh 2vh 20vh 4vh',
@@ -250,8 +243,7 @@ export default makeStyles((theme: Theme) =>
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-
-      }
+      },
     },
     avatarStyle: {
       position: 'relative',
@@ -280,7 +272,7 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'bold',
       flex: '1 1 0',
       [theme.breakpoints.up(560)]: {
-        paddingTop:30
+        paddingTop: 30,
       },
 
       '@media not all and (min-resolution:.001dpcm)': {
@@ -290,11 +282,9 @@ export default makeStyles((theme: Theme) =>
         fontSize: 10,
         fontWeight: 'bold',
         flexDirection: 'column',
-        position: "relative",
-        bottom: "12vh",
-      }
-
-
+        position: 'relative',
+        bottom: '12vh',
+      },
     },
     titleClassName: {
       margin: 0,
@@ -321,7 +311,7 @@ export default makeStyles((theme: Theme) =>
         backgroundColor: 'white',
         boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
         zIndex: 1,
-      }
+      },
     },
     classNameTitle: {
       color: '#4D6EC5',
@@ -331,14 +321,11 @@ export default makeStyles((theme: Theme) =>
         color: '#4D6EC5',
         fontSize: 14,
         lineHeight: '26px',
-      }
+      },
     },
 
     text: {
-
-      '@media not all and (min-resolution:.001dpcm)': {
-
-      }
-    }
+      '@media not all and (min-resolution:.001dpcm)': {},
+    },
   }),
 );

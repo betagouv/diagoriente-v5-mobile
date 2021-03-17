@@ -24,9 +24,23 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      paddingTop: 34,
+    },
+    titleContainer: {
+      padding: '35px 40px 40px 40px',
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    title: {
+      fontWeight: 'bold',
+      fontSize: 16,
+      lineHeight: '24px',
+      color: '#223A7A',
+      width: '100%',
     },
 
+    subtitle: {
+      width: '100%',
+    },
     circleContainer: {
       display: 'flex',
       width: '100%',
@@ -76,12 +90,6 @@ export default makeStyles((theme: Theme) =>
       position: 'relative',
       maxHeight: '100%',
       maxWidth: '100%',
-    },
-
-    title: {
-      color: '#424242',
-      textAlign: 'center',
-      fontSize: 14,
     },
 
     competences: {

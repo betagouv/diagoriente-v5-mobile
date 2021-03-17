@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef, useContext } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useCompetences } from 'requests/competences';
 import { Competence, Theme } from 'requests/types';
-import Title from 'components/common/TitleImage/TitleImage';
 import Grid from '@material-ui/core/Grid';
 import Slide from '@material-ui/core/Slide';
 import PreviousButton from 'components/previousButton/previousButton';
@@ -11,7 +10,6 @@ import Button from 'components/button/Button';
 import Spinner from 'components/SpinnerXp/Spinner';
 import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
 import Popup from 'components/common/Popup/Popup';
-import blueline from 'assets/svg/blueline.svg';
 import useOnclickOutside from 'hooks/useOnclickOutside';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
@@ -100,29 +98,13 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Title
-          title={
-            theme && theme.type === 'engagement'
-              ? 'mes expériences d’engagement'
-              : theme && theme.type === 'professional'
-              ? 'mes expériences pro'
-              : 'mes expériences personnelles'
-          }
-          color="#223A7A"
-          size={width > 380 ? 32 : 32}
-          image={blueline}
-          number={3}
-        />
-
         <div className={classes.themeContainer}>
-          <p className={classes.title}>
-            En rapport avec ces activités, quelles sont
-            <br />
-            <strong>les compétences </strong>
-            que tu mets en oeuvre ?
-            <br />
-            <small>(4 choix maximum) </small>
-          </p>
+          <div className={classes.titleContainer}>
+            <span className={classes.title}>
+              En rapport avec ces activités, quelles sont les compétences que tu mets en oeuvre ?
+            </span>
+            <span className={classes.subtitle}>(4 choix maximum)</span>
+          </div>
           <Grid className={classes.circleContainer} container spacing={3}>
             {loading && (
               <div className={classes.loadingContainer}>

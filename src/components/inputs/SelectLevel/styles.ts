@@ -11,7 +11,7 @@ export default makeStyles(() => ({
   paper: {
     margin: '0px !important',
     position: 'absolute!important' as 'absolute',
-    borderRadius: '10px 10px 0px 0px',
+    borderRadius: '0px 0px 0px 0px',
   },
 
   select: {
@@ -19,29 +19,32 @@ export default makeStyles(() => ({
     width: '100%',
   },
   closeThemeModal: {
-    height: 82,
-    paddingLeft: 30,
+    height: 'fit-content',
+    padding: '20px 40px',
   },
   closeModelContainer: {
     minHeight: 26,
-    display: 'inline',
-    whiteSpace:'normal',
+    display: 'flex',
+    whiteSpace: 'normal',
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
   arrowClose: {
     width: 19,
     height: 12,
+    marginLeft: 20,
   },
   closeModelLabel: {
     fontWeight: 'bold',
     fontSize: 18,
     lineHeight: '26px',
     color: '#00B2DB',
-    marginLeft: 20,
+    maxWidth: 'calc(100% - 39px)',
   },
   arrowContainer: {
-    background: '#00CFFF',
+    background: '#FFFFFF',
     border: '1px solid #D1D5DE',
+    borderLeft: 'none',
     boxSizing: 'border-box',
     borderRadius: '0px 5px 5px 0px',
     width: 42,
@@ -69,7 +72,6 @@ export default makeStyles(() => ({
       display: 'flex',
       height: 45,
       alignItems: 'center',
-      fontWeight: 'bold',
       fontSize: 14,
       lineHeight: '20px',
       paddingRight: '0px !important',
@@ -81,7 +83,7 @@ export default makeStyles(() => ({
     },
     '& input': {
       width: 'calc(100% - 50px)',
-      textOverflow:'ellipsis',
+      textOverflow: 'ellipsis',
     },
   },
 
@@ -97,7 +99,6 @@ export default makeStyles(() => ({
       display: 'flex',
       height: 45,
       alignItems: 'center',
-      fontWeight: 'bold',
       fontSize: 14,
       lineHeight: '20px',
       paddingRight: '0px !important',
@@ -109,7 +110,7 @@ export default makeStyles(() => ({
     },
     '& input': {
       width: 'calc(100% - 115px)',
-      textOverflow:'ellipsis'
+      textOverflow: 'ellipsis',
     },
   },
 
@@ -145,19 +146,6 @@ export default makeStyles(() => ({
     fontSize: 14,
     color: '#00B2DB',
   },
-  /*  avatarCircle: {
-    width: '100%',
-    minWidth: '100%',
-    height: '51px !important',
-    flexDirection: 'row',
-    borderRadius: '0px !important',
-    paddingBottom: '0px !important',
-    paddingLeft: 62,
-    cursor: 'pointer',
-    '&:hover': {
-      background: 'rgba(122, 230, 255, 0.2)',
-    },
-  }, */
   squareContainerClassName: {
     width: '30px !important',
     height: '30px !important',
@@ -178,19 +166,21 @@ export default makeStyles(() => ({
   },
 
   echelon: {
-    fontWeight: 'bold',
+    fontWeight: 700,
     fontSize: 14,
     lineHeight: '20px',
     color: '#424242',
   },
 
   ItemMenuContent: {
-    padding: '15px 30px',
-    whiteSpace:'normal'
+    padding: '15px 40px',
+    whiteSpace: 'normal',
   },
 
   pointsTitleContainer: {
     display: 'flex',
+    flexDirection: 'column',
+    minWidth: 90,
   },
 
   tooltipPointContainer: {
@@ -199,6 +189,7 @@ export default makeStyles(() => ({
     marginBottom: 13,
     alignItems: 'center',
     justifyContent: 'center',
+    width: 'fit-content',
   },
 
   selectedTooltipPointContainer: {
@@ -252,6 +243,7 @@ export default makeStyles(() => ({
     fontSize: 12,
     lineHeight: '15px',
     color: '#424242',
+    maxWidth: 'calc(100% - 100px)',
   },
 
   dialogPaper: {
