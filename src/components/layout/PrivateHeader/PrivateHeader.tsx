@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import logo from 'assets/svg/diagoriente_logo.svg';
+import logo from 'assets/svg/diagorienteLogo.svg';
 import DrawerContext from 'contexts/DrawerContext';
 import UserContext from 'contexts/UserContext';
 import menu from 'assets/images/menu.png';
