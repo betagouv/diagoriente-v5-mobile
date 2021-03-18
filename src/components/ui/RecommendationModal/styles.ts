@@ -39,9 +39,9 @@ export default makeStyles((theme) => ({
       marginTop: 30,
       fontWeight: 700,
       marginBottom: 30,
-      marginLeft:"4vh",
-      marginRight:"4vh",
-    }
+      marginLeft: '4vh',
+      marginRight: '4vh',
+    },
   },
 
   title: {
@@ -60,10 +60,8 @@ export default makeStyles((theme) => ({
       fontSize: 14,
       marginTop: 50,
       fontWeight: 700,
-      "margin-left": "9vh",
-    }
-
-
+      'margin-left': '9vh',
+    },
   },
 
   classNameTitle: {
@@ -143,7 +141,7 @@ export default makeStyles((theme) => ({
       backgroundColor: 'white',
       boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
       zIndex: 1,
-    }
+    },
   },
 
   info: {
@@ -157,10 +155,8 @@ export default makeStyles((theme) => ({
 
   titleContainer: {
     width: '100%',
-    height: 168,
-    backgroundColor: '#FFFFFF',
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     justifyContent: 'center',
   },
   modalContainer: {
@@ -170,6 +166,7 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     flex: 1,
     backgroundColor: '#F3F2F4',
+    padding: '65px 40px 40px 40px',
   },
   modalContainerOK: {
     display: 'flex',
@@ -180,6 +177,7 @@ export default makeStyles((theme) => ({
     backgroundColor: '#F3F2F4',
     height: '100%',
     minHeight: 600,
+    padding: '65px 40px 40px 40px',
   },
 
   titleModal: {
@@ -189,22 +187,24 @@ export default makeStyles((theme) => ({
     color: theme.palette.primary.main,
     textTransform: 'uppercase',
     marginBottom: 10,
+    width: '100%',
+    [theme.breakpoints.down(365)]: {
+      fontSize: 22,
+    },
   },
 
   descriptionModal: {
     fontSize: 14,
     fontWeight: 400,
-    textAlign: 'center',
     color: '#424242',
-    marginTop: 15,
+    marginTop: 40,
     marginBottom: 10,
+    alignSelf: 'self-start',
   },
 
   descriptionModalContainer: {
     fontSize: 14,
-    textAlign: 'center',
     color: '#424242',
-    marginTop: 20,
     width: '85%',
   },
 
@@ -236,7 +236,6 @@ export default makeStyles((theme) => ({
   },
 
   experienceContainer: {
-    width: '85%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -244,7 +243,6 @@ export default makeStyles((theme) => ({
   },
 
   formContainer: {
-    // width: '85%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -264,7 +262,7 @@ export default makeStyles((theme) => ({
     color: '#FF0060',
     fontSize: 14,
     marginTop: 15,
-    textAlign: 'center',
+    alignSelf: 'self-start',
   },
 
   btnpreced: {

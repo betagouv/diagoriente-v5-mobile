@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import ModalContainer from 'components/common/Modal/ModalContainer';
 import Input from 'components/inputs/Input/Input';
 import Popup from 'components/common/Popup/Popup';
-import CancelButton from 'components/cancelButton/CancelButton';
 import NameFormator from 'utils/NameFormator';
 import { Unpacked } from 'utils/types';
-import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import Button from 'components/button/Button';
 import NextButton from 'components/nextButton/nextButton';
 import PreviousButton from 'components/previousButton/previousButton';
@@ -133,23 +131,7 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
     <>
       <ModalContainer open={open} handleClose={handleClose} backdropColor="#011A5E" colorIcon="#4D6EC5">
         <div className={classes.modalContainer}>
-          <div className={classes.titleContainer}>
-            <div className={classes.titleModal}>DEMANDE DE RECOMMANDATION</div>
-          </div>
-          {skill?.theme.type === 'professional' ? (
-            <span className={classes.titleThemeDone}>{skill.theme.title}</span>
-          ) : (
-            <Avatar
-              title={skill.theme.title}
-              size={94}
-              titleClassName={classes.titleClassName}
-              className={classes.imgContainer}
-              squareContainerClassName={classes.squareContainerClassName}
-            >
-              <img src={skill.theme.resources?.icon} alt="" />
-            </Avatar>
-          )}
-
+          <div className={classes.titleModal}>DEMANDE DE RECOMMANDATION</div>
           <span className={classes.descriptionModal}>Je souhaite demander une recommandation à :</span>
           <form className={classes.formContainer}>
             <Input
@@ -198,7 +180,7 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               </span>
             )}
             <Input
-              label="Confirmez votre email"
+              label="Répéter l’email"
               name="confirmEmail"
               placeholder="ex : mail@exemple.com "
               value={state.values.confirmEmail}
@@ -221,12 +203,6 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
             <span className={classes.start}>* </span>
             Champs obligatoires
           </div>
-
-          {/*           <div className={classes.btnContainerModal}>
-            <Button className={classes.btn} onClick={() => handleSecondOpen()}>
-              <div className={classes.btnLabel}>Suivant</div>
-            </Button>
-          </div> */}
           <div className={classes.previousNext}>
             <div>
               <PreviousButton deleteArrow children="Annuler" onClick={() => handleClose()} />
@@ -248,15 +224,6 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
           <div className={classes.titleContainer}>
             <div className={classes.titleModal}>DEMANDE DE RECOMMANDATION</div>
           </div>
-          <Avatar
-            title={skill.theme.title}
-            size={94}
-            titleClassName={classes.titleClassName}
-            className={classes.imgContainer}
-            squareContainerClassName={classes.squareContainerClassName}
-          >
-            <img src={skill.theme.resources?.icon} alt="" />
-          </Avatar>
           <div className={classes.descriptionModal}>
             Le message pour
             {/* eslint-disable-next-line */}
@@ -284,16 +251,6 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               <b> Attention </b>: Tu peux modifier ou compléter ce message avant de l&apos;envoyer !
             </div>
           </form>
-
-          {/*  <div className={classes.btnSuccModal}>
-            <Button className={classes.btn} onClick={handleThirdOpen}>
-              <div className={classes.btnLabel}>Suivant</div>
-            </Button>
-          </div>
-          <div className={classes.precedbutton} onClick={handlePreced}>
-            <CancelButton />
-            <span> Précedent</span>
-          </div> */}
           <div className={classes.previousNext}>
             <div>
               <PreviousButton
@@ -313,21 +270,10 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
           <div className={classes.titleContainer}>
             <div className={classes.titleModal}>DEMANDE DE RECOMMANDATION</div>
           </div>
-          <Avatar
-            title={skill.theme.title}
-            size={94}
-            titleClassName={classes.titleClassName}
-            className={classes.imgContainer}
-            squareContainerClassName={classes.squareContainerClassName}
-          >
-            <img src={skill.theme.resources?.icon} alt="" />
-          </Avatar>
-
+          <img src={msg} height={90} className={classes.iconBackground} alt=" " />
           <div className={classes.descriptionModalContainer}>
             Le message a bien été envoyé ! Une fois rédigée, sa recommandation apparaîtra dans ta carte de compétences.
           </div>
-
-          <img src={msg} height={90} className={classes.iconBackground} alt=" " />
 
           <div className={classes.btnContainerModal}>
             <div
