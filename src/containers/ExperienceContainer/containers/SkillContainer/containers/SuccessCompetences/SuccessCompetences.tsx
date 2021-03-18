@@ -60,7 +60,7 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
         </div>
         <div className={classes.btnContainer}>
           <Button className={classes.btn} onClick={() => handleOpen()}>
-            <div className={classes.btnLabel}>Je demande une recommandation</div>
+            <div className={classes.btnLabel}>Demander une recommandation</div>
           </Button>
         </div>
         <div className={classes.textDescription}>
