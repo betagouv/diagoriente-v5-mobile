@@ -251,17 +251,8 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               <b> Attention </b>: Tu peux modifier ou compléter ce message avant de l&apos;envoyer !
             </div>
           </form>
-          <div className={classes.previousNext}>
-            <div>
-              <PreviousButton
-                onClick={() => {
-                  handlePreced();
-                }}
-              />
-            </div>
-            <div>
-              <NextButton children="J’envoie" onClick={() => handleThirdOpen()} />{' '}
-            </div>
+          <div className={classes.button} onClick={() => handleThirdOpen()}>
+            <div className={classes.buttonLabel}>Envoyer ma demande</div>
           </div>
         </div>
       </ModalContainer>
@@ -274,20 +265,14 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
           <div className={classes.descriptionModalContainer}>
             Le message a bien été envoyé ! Une fois rédigée, sa recommandation apparaîtra dans ta carte de compétences.
           </div>
-
-          <div className={classes.btnContainerModal}>
-            <div
-              onClick={() => {
-                setThirdOpen(false);
-                if (onSuccess) onSuccess();
-              }}
-            >
-              <Button className={classes.btn} childrenClassName={classes.labelContainer} onClick={() => {}}>
-                <div className={classes.btnLabel}>
-                  OK !<Arrow color="#223A7A" width="8" height="13" className={classes.arrow} />
-                </div>
-              </Button>
-            </div>
+          <div
+            className={classes.button}
+            onClick={() => {
+              setThirdOpen(false);
+              if (onSuccess) onSuccess();
+            }}
+          >
+            <div className={classes.buttonLabel}>Continuer</div>
           </div>
         </div>
       </ModalContainer>

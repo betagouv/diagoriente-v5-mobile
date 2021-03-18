@@ -118,6 +118,24 @@ export default makeStyles((theme) => ({
     display: 'flex',
   },
   arrow: { marginLeft: 25, marginRight: 19 },
+  button: {
+    position: 'fixed',
+    bottom: 0,
+    width: '100%',
+    height: 50,
+    backgroundColor: '#00CFFF',
+    boxShadow: '0px -4px 5px rgba(0, 0, 0, 0.1)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonLabel: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    lineHeight: 24,
+    textAlign: 'center',
+    color: '#223A7A',
+  },
 
   previousNext: {
     display: 'flex',
