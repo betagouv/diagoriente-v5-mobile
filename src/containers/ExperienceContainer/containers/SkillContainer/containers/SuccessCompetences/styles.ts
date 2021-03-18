@@ -47,7 +47,7 @@ export default makeStyles((theme) => ({
     fontSize: 14,
   },
 
-  classNameTitle: {
+  avatarTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     lineHeight: '24px',

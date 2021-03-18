@@ -5,36 +5,37 @@ export default makeStyles((theme) => ({
     width: '100%',
     height: '100%',
     display: 'flex',
-    justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
     paddingBottom: 20,
-    backgroundColor: '#F3F2F4',
   },
 
   content: {
     width: '100%',
     height: '100vh',
+    backgroundColor: '#F3F2F4',
     [theme.breakpoints.up(560)]: {
       height: 'auto',
-
     },
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-padding: '60px 30px 75px 30px',
-'@media not all and (min-resolution:.001dpcm)': {
-  maxWidth: 1080,
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  padding: '25px 30px 75px 30px',
-}
+    padding: '60px 30px 75px 30px',
+    '@media not all and (min-resolution:.001dpcm)': {
+      maxWidth: 1080,
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: '25px 30px 75px 30px',
+    },
   },
 
   header: {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
+    margin: '40px 0px 75px 0px',
   },
 
   title: {
@@ -46,7 +47,7 @@ padding: '60px 30px 75px 30px',
 
   description: {
     marginTop: 30,
-    marginBottom: 20,
+    marginBottom: 50,
     width: '100%',
     alignItems: 'center',
     fontSize: 14,
@@ -60,8 +61,7 @@ padding: '60px 30px 75px 30px',
       fontSize: 14,
       fontWeight: 700,
       padding: '0px 15px',
-    }
-    
+    },
   },
 
   text: {
@@ -70,17 +70,20 @@ padding: '60px 30px 75px 30px',
     width: '100%',
     textAlign: 'center',
   },
-  avatar: {},
+  avatar: {
+    width: 'fit-content !important',
+    position: 'absolute',
+    top: 150,
+  },
 
   btnskillContainer: {
-    marginTop: 100,
     display: 'flex',
     flexDirection: 'column',
-        '@media not all and (min-resolution:.001dpcm)': {
-          marginTop: "9vh",
-          display: 'flex',
-          flexDirection: 'column',
-    }
+    '@media not all and (min-resolution:.001dpcm)': {
+      marginTop: '9vh',
+      display: 'flex',
+      flexDirection: 'column',
+    },
   },
 
   btnskillFirstUser: {
@@ -117,7 +120,7 @@ padding: '60px 30px 75px 30px',
       '&:hover': {
         backgroundColor: '#00B2DB',
       },
-    }
+    },
   },
 
   btnFirstUse: {
@@ -155,7 +158,7 @@ padding: '60px 30px 75px 30px',
       '&:hover': {
         backgroundColor: '#FF0060',
       },
-    }
+    },
   },
 
   btnLabel: {
@@ -195,9 +198,11 @@ padding: '60px 30px 75px 30px',
     fontSize: 14,
   },
 
-  size: {
-    fontSize: 14,
-    paddingTop: 10,
+  avatarTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    lineHeight: '24px',
+    color: '#223A7A',
   },
 
   themeDoneContainer: {

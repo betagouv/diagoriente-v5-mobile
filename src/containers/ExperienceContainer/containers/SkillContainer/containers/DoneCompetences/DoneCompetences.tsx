@@ -37,25 +37,26 @@ const ResultCompetences = ({ theme, match }: Props) => {
 
   return (
     <div className={classes.root}>
+      <div className={classes.header}>
+        <div className={classes.title}>BRAVO !</div>
+      </div>
       <div className={classes.content}>
-        <div className={classes.header}>
-          <div className={classes.title}>BRAVO !</div>
-        </div>
-        <div className={classes.description}>
-          <p className={classes.text}>
-            Tu as ajouté une expérience {typeXp} à ton parcours et identifié de nouvelles compétences.
-          </p>
-        </div>
         {skill?.theme.type === 'professional' ? (
           <div className={classes.titleThemeContainer}>
             <span className={classes.titleThemeDone}>{theme.title}</span>
             <img src={check} alt="check" className={classes.checked} />
           </div>
         ) : (
-          <Avatar titleClassName={classes.size} title={theme.title} size={170} className={classes.avatar} checked>
+          <Avatar titleClassName={classes.avatarTitle} title={theme.title} size={170} className={classes.avatar}>
             <img src={theme.resources?.icon} alt="" />
           </Avatar>
         )}
+
+        <div className={classes.description}>
+          <p className={classes.text}>
+            Tu as ajouté une expérience {typeXp} à ton parcours et identifié de nouvelles compétences.
+          </p>
+        </div>
 
         <div className={classes.btnskillContainer}>
           <div className={classes.btnContainer}>
