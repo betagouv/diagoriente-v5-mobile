@@ -4,6 +4,7 @@ import { useCompetences } from 'requests/competences';
 import { Competence, Theme } from 'requests/types';
 import Grid from '@material-ui/core/Grid';
 import Slide from '@material-ui/core/Slide';
+import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import PreviousButton from 'components/previousButton/previousButton';
 import NextButton from 'components/nextButton/nextButton';
 import Button from 'components/button/Button';
@@ -98,6 +99,14 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
   return (
     <div className={classes.root}>
       <div className={classes.container}>
+        <BreadCrumb
+          level={3}
+          routes={[
+            { title: 'Thème', url: `/experience/${theme?.type === 'professional' ? 'theme-pro' : 'theme'}` },
+            { title: 'Activités', url: `/experience/skill/${match.params.themeId}/activities${location.search}` },
+            { title: 'Compétences', url: '' },
+          ]}
+        />
         <div className={classes.themeContainer}>
           <div className={classes.titleContainer}>
             <span className={classes.title}>

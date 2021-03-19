@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useTheme } from 'requests/themes';
 import { Theme } from 'requests/types';
+import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import { Tooltip } from '@material-ui/core';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
@@ -51,6 +52,13 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
   return (
     <div className={classes.root}>
       <div className={classes.container}>
+        <BreadCrumb
+          level={2}
+          routes={[
+            { title: 'Thème', url: `/experience/${theme.type === 'professional' ? 'theme-pro' : 'theme'}` },
+            { title: 'Activités', url: '' },
+          ]}
+        />
         <div className={classes.themeContainer}>
           <span className={classes.title}>Peux-tu nous en dire un peu plus sur les activités que tu pratiques ?</span>
           <span className={classes.subtitle}>(plusieurs choix possibles)</span>

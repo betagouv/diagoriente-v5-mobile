@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, useMemo } from 'react';
 import Title from 'components/common/TitleImage/TitleImage';
 import SelectionContext from 'contexts/SelectionContext';
 import { useThemes } from 'requests/themes';
+import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import Button from 'components/nextButton/nextButton';
 import NavigationButton from 'components/NavigationButton/NavigationButton';
 import { Link, RouteComponentProps } from 'react-router-dom';
@@ -77,7 +78,7 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
           color="#FFFFFF"
           size={width > 380 ? 32 : 22}
         />
-
+        <BreadCrumb level={1} routes={[{ title: 'Thème', url: '' }]} />
         <div className={classes.themeContainer}>
           <div className={classes.selectThemeContainer}>
             {themeFiltered.length === 0 && !loading ? (

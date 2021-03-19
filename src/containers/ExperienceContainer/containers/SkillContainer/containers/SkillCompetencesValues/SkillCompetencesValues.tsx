@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { CompetenceValues, Competence, Theme } from 'requests/types';
+import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import NextButton from 'components/nextButton/nextButton';
 import PreviousButton from 'components/previousButton/previousButton';
 import Select from 'components/inputs/SelectLevel/SelectLevel';
@@ -75,11 +76,17 @@ const SkillCompetencesValues = ({
   return (
     <div className={classes.root}>
       <div className={classes.container}>
+        <BreadCrumb
+          level={3}
+          routes={[
+            { title: 'Thème', url: `/experience/${theme?.type === 'professional' ? 'theme-pro' : 'theme'}` },
+            { title: 'Activités', url: `/experience/skill/${match.params.themeId}/activities${location.search}` },
+            { title: 'Compétences', url: '' },
+          ]}
+        />
         <div className={classes.themeContainer}>
           <div className={classes.echelonWrapper}>
-            <p className={classes.title}>
-              En rapport avec les <b> compétences que tu as choisies</b>, comment te sens-tu ?
-            </p>
+            <p className={classes.title}>En rapport avec les compétences que tu as choisies, comment te sens-tu ?</p>
 
             {/*    <div className={classes.echelonBackground}>
               <div className={classes.avatarContainer}>
