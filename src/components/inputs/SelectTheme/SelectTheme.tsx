@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import arrow from 'assets/images/Arrow.png';
+import itemArrow from 'assets/svg/openArrow.svg';
 import classNames from 'utils/classNames';
 import useStyles from './styles';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
@@ -22,8 +23,10 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
   const classes = useStyles();
   const closeTitle = 'Choisis un thème ';
   const [defaultTheme, setDefaultTheme] = useState('');
-  const [theme, setTheme] = React.useState(defaultTheme);
-  const [open, setOpen] = React.useState(false);
+  const [theme, setTheme] = useState(defaultTheme);
+  const [open, setOpen] = useState(false);
+  const [openedItem, setOpenedItem] = useState(false);
+  const [activities, setActivities] = useState([] as any[]);
 
   useDidMount(() => {
     if (selectedTheme?.id) {
@@ -38,13 +41,25 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
   };
 
   const onAvatarSelect = (option: any) => {
+    setOpenedItem(!openedItem);
     showAvatar(option);
     setTheme(option.title);
-    setOpen(false);
+    /* setOpen(false); */
   };
   const handleDialogClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    if (avatarsTab) {
+      const acts = avatarsTab
+        .filter((act) => act.id === selectedTheme?.id)
+        .map((a) => a.activities)
+        .map((e) => e.slice(0, 4));
+      console.log('s', acts);
+      setActivities(acts[0]);
+    }
+  }, [selectedTheme]);
 
   const Transition = React.forwardRef(function Transition(
     props: TransitionProps & { children?: React.ReactElement },
@@ -58,7 +73,9 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
   ) {
     return <Slide direction="left" ref={ref} {...props} />;
   }); */
-
+  console.log('avatarTab', avatarsTab);
+  console.log('activities', activities);
+  console.log('activityTitle', activities);
   return (
     <>
       <TextField
@@ -121,22 +138,49 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
         {avatarsTab.map((option) => (
           <MenuItem key={option.title} value={selectedTheme} className={classes.item}>
             <div className={classes.itemContainer}>
-              <Avatar
-                title={option.title}
-                size={62}
-                titleClassName={selectedTheme?.id === option.id ? classes.textSelected : classes.themeTitle}
-                className={classes.avatarCircle}
+              <div
+                className={classes.itemAvatar}
+                style={{
+                  backgroundColor: selectedTheme?.id === option.id ? 'rgba(122, 230, 255, 0.2)' : '',
+                  justifyContent: selectedTheme?.id === option.id && openedItem ? 'space-between' : '',
+                }}
                 onClick={() => onAvatarSelect(option)}
-                avatarCircleBackground={selectedTheme?.id === option.id ? 'rgba(122, 230, 255, 0.2)' : ''}
-                squareContainerClassName={classes.squareContainerClassName}
-                theme
               >
-                <img
-                  src={option.resources?.icon}
-                  alt=""
-                  className={classNames(classes.avatarStyle, selectedTheme?.id === option.id && classes.selectedImg)}
-                />
-              </Avatar>
+                <Avatar
+                  title={option.title}
+                  size={62}
+                  titleClassName={selectedTheme?.id === option.id ? classes.textSelected : classes.themeTitle}
+                  className={classes.avatarCircle}
+                  /* onClick={() => onAvatarSelect(option)} */
+                  /*  avatarCircleBackground={selectedTheme?.id === option.id ? 'rgba(122, 230, 255, 0.2)' : ''} */
+                  squareContainerClassName={classes.squareContainerClassName}
+                  theme
+                >
+                  <img
+                    src={option.resources?.icon}
+                    alt=""
+                    className={classNames(classes.avatarStyle, selectedTheme?.id === option.id && classes.selectedImg)}
+                  />
+                </Avatar>
+                {selectedTheme?.id === option.id && openedItem && (
+                  <img src={itemArrow} alt="" className={classes.itemArrow} />
+                )}
+              </div>
+              {selectedTheme?.id === option.id && openedItem && (
+                <>
+                  <Divider />
+                  <div className={classes.activitiesContainer}>
+                    <ul>
+                      {activities?.map((a) => (
+                        <li key={a.id} className={classes.activityTitle}>
+                          {a.title}
+                        </li>
+                      ))}
+                      <span className={classes.activityTitle}>...</span>
+                    </ul>
+                  </div>
+                </>
+              )}
               <Divider />
             </div>
           </MenuItem>
