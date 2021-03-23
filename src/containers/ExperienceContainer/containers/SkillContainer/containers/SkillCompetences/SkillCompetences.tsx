@@ -14,6 +14,7 @@ import Popup from 'components/common/Popup/Popup';
 import useOnclickOutside from 'hooks/useOnclickOutside';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
+import ValidationButton from 'components/valideButton/valideButton';
 import useStyles from './styles';
 import SelectionContext from 'contexts/SelectionContext';
 
@@ -161,7 +162,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
               );
             })}
           </Grid>
-          <div className={classes.previousNext}>
+          {/*      <div className={classes.previousNext}>
             <Link
               //   to="/experience"
               to={`/experience/skill/${match.params.themeId}/activities${location.search}`}
@@ -173,7 +174,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
             <div onClick={onNavigate} className={classes.hideLine}>
               <NextButton disabled={!competences.length || competences.length > 4} />
             </div>
-          </div>
+          </div> */}
         </div>
         <Popup open={opened} handleClose={handleClose} iconClassName={classes.iconClassName}>
           <div className={classes.popupContainer}>
@@ -184,6 +185,9 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
           </div>
         </Popup>
       </div>
+      {competences.length > 0 && competences.length < 4 && (
+        <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => onNavigate()} />
+      )}
     </div>
   );
 };

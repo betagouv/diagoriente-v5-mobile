@@ -6,12 +6,12 @@ export default makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
       flexDirection: 'column',
+      height: '100vh',
     },
 
     container: {
       display: 'flex',
       flexDirection: 'column',
-      paddingBottom: 70,
       width: '100%',
     },
     modal: {
@@ -24,6 +24,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+      height: '100%',
     },
     titleContainer: {
       padding: '35px 40px 40px 40px',
@@ -45,7 +46,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       width: '100%',
       flexWrap: 'wrap',
-      padding: '10px 25px 90px 25px',
+      padding: '10px 25px 30px 25px',
       justifyContent: 'center',
     },
 
