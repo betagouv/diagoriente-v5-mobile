@@ -6,6 +6,7 @@ export default makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
       flexDirection: 'column',
+      height: '100vh',
     },
 
     container: {
@@ -17,6 +18,7 @@ export default makeStyles((theme: Theme) =>
     themeContainer: {
       position: 'relative',
       width: '100%',
+      height: '100%',
       backgroundColor: '#F3F2F4',
       display: 'flex',
       flexDirection: 'column',
@@ -106,18 +108,6 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'normal',
     },
 
-    /*  header: {
-      height: 50,
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      width: '100%',
-    }, */
-
-    hideLine: {
-      textDecoration: 'none',
-    },
-
     loadingContainer: {
       width: '100%',
       height: 'calc(100vh - 166px)',
@@ -187,42 +177,6 @@ export default makeStyles((theme: Theme) =>
     errorMessage: {
       color: theme.palette.error.main,
       paddingBottom: 10,
-    },
-
-    previousNext: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '8px 8px ',
-      position: 'fixed',
-      bottom: 0,
-      width: '100%',
-      backgroundColor: 'white',
-      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
-      zIndex: 1,
-      '@media not all and (min-resolution:.001dpcm)': {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '8px 13px ',
-        position: 'fixed',
-        bottom: 0,
-        width: '100%',
-        backgroundColor: 'white',
-        boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
-        zIndex: 1,
-      },
-    },
-    classNameTitle: {
-      color: '#4D6EC5',
-      fontSize: 18,
-      lineHeight: '26px',
-
-      '@media not all and (min-resolution:.001dpcm)': {
-        color: '#4D6EC5',
-        fontSize: 14,
-        lineHeight: '26px',
-      },
     },
   }),
 );

@@ -4,7 +4,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import arrow from 'assets/images/Arrow.png';
 import itemArrow from 'assets/svg/openArrow.svg';
 import classNames from 'utils/classNames';
-import useStyles from './styles';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import pictoClose from 'assets/svg/pictoClose.svg';
 import Dialog from '@material-ui/core/Dialog';
@@ -12,14 +11,19 @@ import Divider from '@material-ui/core/Divider';
 import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
 import { useDidMount } from 'hooks/useLifeCycle';
+import ValidationButton from 'components/valideButton/valideButton';
+import { encodeUri } from 'utils/url';
+import useStyles from './styles';
 
 interface Props {
   avatarsTab: any[];
   selectedTheme: any;
   showAvatar: (data: any) => void;
+  history?: any;
+  redirect?: any;
 }
 
-const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
+const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect }: Props) => {
   const classes = useStyles();
   const closeTitle = 'Choisis un thème ';
   const [defaultTheme, setDefaultTheme] = useState('');
@@ -41,11 +45,12 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
   };
 
   const onAvatarSelect = (option: any) => {
-    setOpenedItem(!openedItem);
+    if (option.id === selectedTheme?.id) setOpenedItem(!openedItem);
+    else setOpenedItem(true);
     showAvatar(option);
     setTheme(option.title);
-    /* setOpen(false); */
   };
+
   const handleDialogClose = () => {
     setOpen(false);
   };
@@ -56,32 +61,20 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
         .filter((act) => act.id === selectedTheme?.id)
         .map((a) => a.activities)
         .map((e) => e.slice(0, 4));
-      console.log('s', acts);
       setActivities(acts[0]);
     }
   }, [selectedTheme]);
 
-  const Transition = React.forwardRef(function Transition(
-    props: TransitionProps & { children?: React.ReactElement },
-    ref: React.Ref<unknown>,
-  ) {
-    return <Slide direction="right" ref={ref} {...props} />;
-  });
-  /*  const TransitionClose = React.forwardRef(function Transition(
-    props: TransitionProps & { children?: React.ReactElement },
-    ref: React.Ref<unknown>,
-  ) {
-    return <Slide direction="left" ref={ref} {...props} />;
-  }); */
-  console.log('avatarTab', avatarsTab);
-  console.log('activities', activities);
-  console.log('activityTitle', activities);
+  const onValidate = () => {
+    if (selectedTheme) history.push(`/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}`);
+    setOpen(false);
+  };
+
   return (
     <>
       <TextField
         label=""
         value="Thèmes"
-        /* value={theme ? theme : defaultTheme} */
         variant="outlined"
         className={
           !theme || theme === '' || theme === 'Thèmes : ' ? classes.selectContainer : classes.selectedThemeContainer
@@ -114,13 +107,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
         }}
         onClick={onOpenSelect}
       ></TextField>
-      <Dialog
-        fullScreen
-        /* onExiting={() => TransitionClose} */
-        open={open}
-        /* TransitionComponent={Transition} */
-        style={{ zIndex: 99999 }}
-      >
+      <Dialog fullScreen open={open} style={{ zIndex: 99999 }}>
         <MenuItem
           key={closeTitle}
           value={closeTitle}
@@ -143,6 +130,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
                 style={{
                   backgroundColor: selectedTheme?.id === option.id ? 'rgba(122, 230, 255, 0.2)' : '',
                   justifyContent: selectedTheme?.id === option.id && openedItem ? 'space-between' : '',
+                  opacity: selectedTheme?.id !== option.id && openedItem ? 0.5 : 1,
                 }}
                 onClick={() => onAvatarSelect(option)}
               >
@@ -151,8 +139,6 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
                   size={62}
                   titleClassName={selectedTheme?.id === option.id ? classes.textSelected : classes.themeTitle}
                   className={classes.avatarCircle}
-                  /* onClick={() => onAvatarSelect(option)} */
-                  /*  avatarCircleBackground={selectedTheme?.id === option.id ? 'rgba(122, 230, 255, 0.2)' : ''} */
                   squareContainerClassName={classes.squareContainerClassName}
                   theme
                 >
@@ -170,14 +156,13 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
                 <>
                   <Divider />
                   <div className={classes.activitiesContainer}>
-                    <ul>
-                      {activities?.map((a) => (
-                        <li key={a.id} className={classes.activityTitle}>
-                          {a.title}
-                        </li>
-                      ))}
-                      <span className={classes.activityTitle}>...</span>
-                    </ul>
+                    {activities?.map((a) => (
+                      <span key={a.id} className={classes.activityTitle}>
+                        • {a.title}
+                      </span>
+                    ))}
+                    {avatarsTab.filter((act) => act.id === selectedTheme?.id).map((a) => a.activities)[0]?.length >
+                      4 && <span className={classes.activityTitle}>...</span>}
                   </div>
                 </>
               )}
@@ -185,6 +170,10 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar }: Props) => {
             </div>
           </MenuItem>
         ))}
+        {selectedTheme && <div className={classes.emptyDiv} />}
+        {selectedTheme && (
+          <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => onValidate()} />
+        )}
       </Dialog>
     </>
   );

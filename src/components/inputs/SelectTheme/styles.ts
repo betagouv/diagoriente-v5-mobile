@@ -108,15 +108,7 @@ export default makeStyles((theme: Theme) => ({
     },
   },
 
-  /*   selectedTheme: {
-    '& input': {
-      color: '#00B2DB',
-      width: '75%',
-    },
-  },
- */
   item: {
-    /* paddingRight: '12px !important', */
     padding: '0px !important',
     width: '100%',
   },
@@ -149,17 +141,12 @@ export default makeStyles((theme: Theme) => ({
     alignItems: 'center',
   },
   avatarCircle: {
-    width: '100%',
-    /* minWidth: '100%', */
+    width: ' calc(100% - 30px)',
     height: '63px !important',
     flexDirection: 'row',
     borderRadius: '0px !important',
     paddingBottom: '0px !important',
-    /* paddingLeft: 25, */
     cursor: 'pointer',
-    /*  '&:hover': {
-      background: 'rgba(122, 230, 255, 0.2)',
-    }, */
   },
   avatarCircleSelected: {
     width: '45px !important',
@@ -190,15 +177,21 @@ export default makeStyles((theme: Theme) => ({
   activitiesContainer: {
     display: 'flex',
     flexDirection: 'column',
-    padding: '0px 25px 0px 50px',
+    padding: '0px 25px 15px 55px',
   },
   activityTitle: {
     fontSize: 14,
     lineHeight: '21px',
     color: '#424242',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   },
   line: {
     border: '1px solid #C9C9C7',
     width: '100%',
+  },
+  emptyDiv: {
+    width: '100%',
+    height: 50,
   },
 }));
