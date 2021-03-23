@@ -29,7 +29,7 @@ export default makeStyles((theme: Theme) =>
       width: 'auto',
       alignItems: 'center',
       flexDirection: 'column',
-      padding: '30px 0px 192px 0px',
+      padding: '30px 0px 20px 0px',
     },
 
     circle: {
@@ -54,10 +54,6 @@ export default makeStyles((theme: Theme) =>
 
     arrowpreced: {
       marginRight: 13,
-    },
-
-    hideLine: {
-      textDecoration: 'none',
     },
 
     loadingContainer: {
@@ -92,12 +88,14 @@ export default makeStyles((theme: Theme) =>
     activity: {
       borderRadius: 5,
       border: '1px solid #00CFFF',
-      padding: 5,
+      padding: 15,
       margin: 8,
       fontSize: 14,
       maxWidth: '100%',
       width: '100%',
-      height: '50px',
+      height: 'fit-content',
+      display: 'flex',
+      justifyContent: 'left',
     },
 
     selected: {
@@ -145,43 +143,8 @@ export default makeStyles((theme: Theme) =>
 
     childrenClassName: {
       display: 'flex',
-      width: '100%',
-      padding: '0px 20px',
-    },
-
-    previousNext: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '8px 8px ',
-      position: 'fixed',
-      bottom: 0,
-      width: '100%',
-      backgroundColor: 'white',
-      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
-      zIndex: 1,
-      '@media not all and (min-resolution:.001dpcm)': {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '8px 13px ',
-        position: 'fixed',
-        bottom: 0,
-        width: '100%',
-        backgroundColor: 'white',
-        boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
-        zIndex: 1,
-      },
-    },
-    classNameTitle: {
-      color: '#4D6EC5',
-      fontSize: 18,
-      lineHeight: '26px',
-      '@media not all and (min-resolution:.001dpcm)': {
-        color: '#4D6EC5',
-        fontSize: 14,
-        lineHeight: '26px',
-      },
+      margin: 0,
+      textAlign: 'left',
     },
   }),
 );

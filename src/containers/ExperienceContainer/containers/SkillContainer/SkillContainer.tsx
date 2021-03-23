@@ -66,7 +66,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
     if (!!addSkillState.error) setOpenSnackBar(false);
   };
 
-  const showSelection = matchPath(location.pathname, [`${match.path}/activities`, `${match.path}/competences`]);
+  const showSelection = matchPath(location.pathname, [`${match.path}/competences`]);
 
   useEffect(() => {
     if (selectedSkillId) skillCall({ variables: { id: selectedSkillId } });
