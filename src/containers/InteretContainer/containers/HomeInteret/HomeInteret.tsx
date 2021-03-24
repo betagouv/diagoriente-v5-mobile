@@ -38,7 +38,7 @@ const HomeInteret = () => {
         </div>
 
 
-        <ValideButton title="C’est parti !"   linkContainer="/interet/main" />
+        <ValideButton label="C’est parti !"   link="/interet/main" />
       </div>
     </div>
   );
