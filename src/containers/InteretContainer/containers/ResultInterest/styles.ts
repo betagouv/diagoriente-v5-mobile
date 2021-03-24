@@ -3,9 +3,10 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles<Theme>((theme) => ({
   root: {
     width: '100%',
-    height: '100%',
+    height: '90vh',
     display: 'flex',
     justifyContent: 'center',
+    backgroundColor:'#F3F2F4'
   },
   content: {
     maxWidth: 1080,
@@ -18,7 +19,9 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    marginTop: 60,
+    alignItems:'center',
+    backgroundColor:'#ffff',
+    height:100,
     [theme.breakpoints.up(560)]: {
       marginTop: 40,
     },
@@ -27,7 +30,7 @@ export default makeStyles<Theme>((theme) => ({
     fontFamily: 'ocean',
     fontSize: 32,
     fontWeight: 900,
-    color: theme.palette.secondary.main,
+    color: '#420FAB',
   },
   description: {
     marginTop: 70,
@@ -47,10 +50,16 @@ export default makeStyles<Theme>((theme) => ({
     textAlign: 'center',
   },
   btnContainer: {
-    display: 'flex',
-    justifyContent: 'center',
     width: '100%',
-    marginBottom: 30,
+    height:50,
+    border:'none',
+    position: 'absolute',
+    bottom: '0px',
+    backgroundColor:'#7533FF',
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center'
   },
   btn: {
     backgroundColor: theme.palette.success.main,
@@ -70,6 +79,6 @@ export default makeStyles<Theme>((theme) => ({
     fontWeight: 900,
   },
   link: {
-    color: '#424242',
+    color: '#00B2DB',
   },
 }));

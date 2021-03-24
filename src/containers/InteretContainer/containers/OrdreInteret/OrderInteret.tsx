@@ -7,6 +7,9 @@ import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
 import interestContext from 'contexts/InterestSelected';
 import ParcourContext from 'contexts/ParcourContext';
+import ValideButton from 'components/valideButton/valideButton';
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
+
 import NextButton from 'components/nextButton/nextButton';
 import FamileSelected from '../../components/SelectedFamille/SelectedFamille';
 import useStyles from './styles';
@@ -47,10 +50,9 @@ const OrderInteret = ({ history, location }: RouteComponentProps) => {
   }, [updateState.data, updateState.error]);
 
   const onUpdate = () => {
-    const dataToSend = selectedInterest?.map(el => el.id);
-    if(selectedInterest) {
-    updateCall({ variables: { families: dataToSend } });
-
+    const dataToSend = selectedInterest?.map((el) => el.id);
+    if (selectedInterest) {
+      updateCall({ variables: { families: dataToSend } });
     }
   };
 
@@ -75,8 +77,7 @@ const OrderInteret = ({ history, location }: RouteComponentProps) => {
       <div className={classes.content}>
         <div className={classes.wrapper}>
           <div className={classes.subTitle}>
-            <div>Bravo ! Tu as sélectionné tes familles d&lsquo;intérêts.</div>
-            <div>Maintenant classe-les par ordre d’importance pour toi :</div>
+            <div>Maintenant classe les centres d’intérêt par ordre d’importance pour toi :</div>
           </div>
           <div className={classes.listSelected}>
             <div className={classes.rowItem}>
@@ -133,14 +134,16 @@ const OrderInteret = ({ history, location }: RouteComponentProps) => {
               </div>
             </div>
           </div>
-          <div className={classes.btnContainer}>
-            <NextButton
-              fetching={updateState.loading}
-              onClick={onUpdate}
-              className={classes.btn}
-              classNameTitle={classes.btnLabel}
-              ArrowColor="#ffffff"
-            />
+          <div className={classes.btnContainer} onClick={onUpdate}>
+  
+            <div className={classes.suivantContainer} >
+              <div className={classes.btnLabel}>Suivant</div>
+            </div>
+            {updateState.loading && (
+              <div className={classes.loaderContainer}>
+                <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
+              </div>
+            )}
           </div>
         </div>
       </div>

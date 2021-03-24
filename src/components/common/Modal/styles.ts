@@ -51,4 +51,9 @@ export default makeStyles<Theme, { backdropColor: string; size?: number,height?:
     height: '100vh',
     flex: 1,
   },
+  closePop: {
+    right: '13px',
+    top: '165px',
+    position: 'fixed',
+  },
 }));

@@ -4,7 +4,7 @@ import { FullscreenExit } from '@material-ui/icons';
 export default makeStyles<Theme>((theme) => ({
   modalBody: {
     overflow: 'auto',
-    paddingTop: 72,
+    paddingTop: 52,
     backgroundColor: '#F3F2F4',
     flex: 1,
   },
@@ -12,14 +12,24 @@ export default makeStyles<Theme>((theme) => ({
     fontFamily: 'ocean',
     fontSize: 32,
     textAlign: 'center',
-    color: theme.palette.primary.main,
+    color: '#420FAB',
     textTransform: 'uppercase',
+    height:100,
+    backgroundColor:'#fff',
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  CheckBoxStyle: {
+    paddingLeft: '5%',
+    display: 'flex',
+    padding: '20px 0px',
+    pointerEvents: 'none',
   },
   descriptionModal: {
     fontSize: 14,
     textAlign: 'center',
     marginTop: 40,
-    'padding-bottom': 40,
     'padding-left': '2vh',
     'padding-right': '2vh',
   },
@@ -30,25 +40,28 @@ export default makeStyles<Theme>((theme) => ({
 
   experienceContainer: {
     width: '100%',
-    marginTop: 34,
-    backgroundColor: '#fff',
     padding: '30px 0px',
   },
   expContainer: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    paddingTop:'20px',
+    marginBottom:'20px'
   },
   titlePerso: {
-    color: '#00B2DB',
+    color: '#424242',
     fontWeight: 900,
-    fontSize: 18,
+    fontSize: 16,
+    padding:'20px'
   },
   titlePro: {
-    color: '#223A7A',
+    color: '#424242',
     fontWeight: 900,
-    fontSize: 18,
+    fontSize: 16,
+    padding:'20px',
+    marginTop:'50px',
   },
   avatarStyle: {
     position: 'relative',
@@ -57,55 +70,78 @@ export default makeStyles<Theme>((theme) => ({
   },
   themesContainer: {
     display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
+    flexDirection:'column',
+width:'100%',
+
+  },
+  square:{
+    height:'60px !important',
+
   },
   themeContainer: {
-    width: 'content-fit',
+    width: '100%',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
-    margin: 10,
-    padding: 10,
-    [theme.breakpoints.down(415)]: {
-      maxWidth: '-webkit-fill-available',
-    },
+    height:'55px',
+    padding: 30,
+
   },
-  themeContainerPro: {
-    border: '1px solid #00B2DB',
-    borderRadius: 30,
-  },
+circle:{   [theme.breakpoints.down(380)]: {
+  width : '100px' ,    }, [theme.breakpoints.down(330)]: {
+    width : '70px' ,    },},
   themeContainerProSelected: {
-    backgroundColor: '#00CFFF',
+    backgroundColor: '#7AE6FF',
   },
   themeContainerPersoSelected: {
-    backgroundColor: 'rgba(122, 230, 255, 0.5)',
-    borderRadius: 10,
+    backgroundColor: '#7AE6FF',
   },
+  checkBox: {
+    marginRight: 10,
+  },
+  checkBoxImg: {
+    width: 20,
+    height: 20,
+    backgroundColor:'#fff'
+  },
+
 
   themeTitle: {
     textAlign: 'center',
     fontSize: 14,
     marginBottom: 3,
+    [theme.breakpoints.down(380)]: {
+      width : 'fit-content' ,    }
   },
   btnContainerModal: {
     display: 'flex',
     justifyContent: 'center',
-    marginBottom: 30,
-    marginTop: 30,
+    borderRadius:'none !important',
+
+    width:'100%',
+    position:'fixed',
+    bottom:0,
+    height:48
+
   },
   link: {
     fontSize: 14,
     fontWeight: 900,
   },
   btnContainer: {
-    display: 'flex',
-    justifyContent: 'center',
     width: '100%',
-    marginBottom: 30,
+    position:'fixed',
+    bottom:0
   },
   btn: {
     backgroundColor: '#7533FF !important',
+    width:'100%',
+    height:50,
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
+
   },
   btnLabel: {
     color: '#FFF',
@@ -139,7 +175,6 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     paddingBottom: 150,
-    backgroundColor: 'white',
     'padding-bottom': '25%',
     [theme.breakpoints.up(560)]: {
       paddingTop: 30,

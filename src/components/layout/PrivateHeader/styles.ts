@@ -13,7 +13,7 @@ export default makeStyles((theme: Theme) =>
 
     toolbarContainer: {
       display: 'flex',
-      justifyContent: 'space-between',
+      // justifyContent: 'space-between',
       minHeight: 'auto !important',
     },
 
@@ -26,7 +26,9 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
     },
+diagLogoContainer:{
 
+},
     menuIcon: {
       marginRight: 8,
       cursor: 'pointer',

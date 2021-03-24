@@ -5,6 +5,9 @@ import { updateParcours, useUpdateParcour } from 'requests/parcours';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Select from 'containers/JobsContainer/components/Select/Select';
 import { useHistory } from 'react-router-dom';
+import CheckBox from 'components/inputs/CheckBox/CheckBox';
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
+
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 // import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import Button from 'components/button/Button';
@@ -14,6 +17,8 @@ import useStyles from './style';
 import checked from 'assets/form/checkboxchecked.svg';
 // import Arrow from 'containers/ProfilContainer/components/Arrow/Arrow';
 // import redarrow from 'assets/svg/redarrow.svg';
+import Divider from '@material-ui/core/Divider';
+
 import Arrow from 'assets/svg/arrow';
 enum Steps {
   THEMES,
@@ -44,7 +49,7 @@ const SelectModal = () => {
   const [openType, setOpenType] = useState(false);
 
   const [accessibility, setAccessibility] = useState('');
-  const isChecked = (id: string) => selectedThemes.includes(id);
+  const isChecked = (id: string):any => selectedThemes.includes(id);
   const divType = useRef<HTMLDivElement>(null);
   var x = false;
 
@@ -69,15 +74,15 @@ const SelectModal = () => {
     }
   };
 
-   const getAccebilityName=(id:string | undefined)=>{
-if (id) {
- const niveau = accessibilityState.data?.accessibilities.data.find((o)=>{
-return o.id===id
-  }) ;
-  return niveau?.name
-}
-  return ("Niveau de diplôme")
-   }
+  const getAccebilityName = (id: string | undefined) => {
+    if (id) {
+      const niveau = accessibilityState.data?.accessibilities.data.find((o) => {
+        return o.id === id;
+      });
+      return niveau?.name;
+    }
+    return 'Niveau de diplôme';
+  };
   const onValide = () => {
     updateCall({ variables: { skillsAlgo: selectedThemes, accessibility } });
   };
@@ -94,21 +99,15 @@ return o.id===id
     case Steps.ACCESSIBILITY:
       return (
         <div className={classes.modalBody}>
-          <div className ={classes.arrowClass} onClick={() => setStep(Steps.THEMES) } > 
-          <Arrow color="#420FAB" height="15" width="9.5" className={classes.rotadArrow} />
-          <span style={{paddingLeft:20}}> Retour </span>
-            
-             </div>
-        
+    
+
           <div className={classes.titleModal}>
             Encore une petite chose !
-            <br />
-            2/2
+     
           </div>
           <div className={classes.descriptionModal}>
-            Pour nous aider à te proposer les pistes métiers les plus adaptées,
-            <br />
-            indique nous ton niveau de diplôme :
+         
+          Indique-nous ton niveau de diplôme :
           </div>
           <div className={classes.accessibility}>
             <ThemeProvider theme={selectTheme}>
@@ -119,7 +118,7 @@ return o.id===id
                 }}
                 name="job"
                 value={[accessibility]}
-                placeholder={getAccebilityName(accessibility) }
+                placeholder={getAccebilityName(accessibility)}
                 className={classes.containerAutoComp}
                 open={openType}
                 modal
@@ -127,30 +126,29 @@ return o.id===id
                 onClose={() => setOpenType(false)}
                 reference={divType}
                 color={x}
-                from='interest'
+                arrowColor={"#00B2DB"}
+                from="interest"
               />
             </ThemeProvider>
           </div>
-          <div className={classes.btnContainerModal}>
-            <Button disabled={!accessibility} className={classes.btn} onClick={onValide} fetching={updateState.loading}>
-              <div className={classes.btnLabel}>Je valide</div>
-            </Button>
-          </div>
+  {accessibility &&      <div className={classes.btnContainerModal}>
+            <div className={classes.btn}  onClick={onValide} >
+              <div className={classes.btnLabel}>Voir mes pistes métiers</div>
+              {updateState.loading && (
+              <div className={classes.loaderContainer}>
+                <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
+              </div>
+            )}    
+            </div>
+               </div> }
+     
         </div>
       );
     default:
       return (
         <div className={classes.modalBody}>
-          <div className={classes.titleModal}>
-            Encore une petite chose !
-            <br />
-            1/2
-          </div>
-          <div className={classes.descriptionModal}>
-            <div>Pour nous aider à te proposer des pistes métiers,</div>
-            <div>coche les expériences qui comptent le plus pour toi:</div>
-            <div className={classes.subTitle}>(Plusieurs choix possibles)</div>
-          </div>
+          <div className={classes.titleModal}>Encore une petite chose !{/* 1/2 */}</div>
+          <div className={classes.descriptionModal}>Sélectionne les expériences qui comptent le plus pour toi :</div>
 
           <div className={classes.experienceContainer}>
             <div className={classes.expContainer}>
@@ -159,20 +157,38 @@ return o.id===id
                 {parcours?.skills
                   .filter((p) => p.theme?.type === 'personal')
                   .map((pr) => (
-                    <div
-                      key={pr.theme.id}
-                      className={classNames(
-                        classes.themeContainer,
-                        isChecked(pr.theme.id) && classes.themeContainerPersoSelected,
-                      )}
-                      onClick={() => addTheme(pr.theme.id)}
-                    >
-                      <Avatar size={65}>
-                        <img src={pr.theme.resources?.icon} alt="" className={classes.avatarStyle} />
-                      </Avatar>
-                      <div className={classes.themeTitle}>{pr.theme.title.replace(/\//g, '')}</div>
-                    </div>
+                    <>
+                      <Divider variant={'fullWidth'} />
+
+                      <div
+                        key={pr.theme.id}
+                        className={classNames(
+                          classes.themeContainer,
+                          isChecked(pr.theme.id) && classes.themeContainerPersoSelected,
+                        )}
+                        onClick={() => addTheme(pr.theme.id)}
+                      >
+
+                        <div className={classes.CheckBoxStyle}>
+                          <CheckBox
+                            checked={isChecked(pr.theme.id)}
+                            img={ isChecked(pr.theme.id) && checked}
+                            className={classes.checkBox}
+                            classNameLogo={classes.checkBoxImg}
+                            color="#7AE6FF"
+                            border="##00B2DB"
+                            background="#fff"
+
+                          />
+                        </div>
+                        <Avatar size={60} squareContainerClassName={classes.square} className={classes.circle}>
+                          <img src={pr.theme.resources?.icon} alt="" className={classes.avatarStyle} />
+                        </Avatar>
+                        <div className={classes.themeTitle}>{pr.theme.title.replace(/\//g, '')}</div>
+                        </div>
+                    </>
                   ))}
+                <Divider variant={'fullWidth'} />
               </div>
             </div>
             <div className={classes.expContainer}>
@@ -181,6 +197,8 @@ return o.id===id
                 {parcours?.skills
                   .filter((p) => p.theme?.type === 'professional')
                   .map((pr) => (
+                    <>
+                    <Divider variant={'fullWidth'} />
                     <div
                       key={pr.theme.id}
                       onClick={() => addTheme(pr.theme.id)}
@@ -190,18 +208,34 @@ return o.id===id
                         isChecked(pr.theme.id) && classes.themeContainerProSelected,
                       )}
                     >
+                      <div className={classes.CheckBoxStyle}>
+                        <CheckBox
+                          checked={isChecked(pr.theme.id)}
+                          className={classes.checkBox}
+                          classNameLogo={classes.checkBoxImg}
+                          color="#7AE6FF"
+                          border="##00B2DB"
+                          background="#fff"
+                        />
+                      </div>
                       <div className={classes.themeTitle}>{pr.theme.title}</div>
                     </div>
-                  ))}
+                </>  ))}
+                <Divider variant={'fullWidth'} />
+
               </div>
             </div>
           </div>
 
           <div className={classes.btnContainerModal}>
-            <Button className={classes.btn} onClick={() => setStep(Steps.ACCESSIBILITY)} fetching={updateState.loading}>
+            <div className={classes.btn} onClick={() => setStep(Steps.ACCESSIBILITY)} >
               <div className={classes.btnLabel}>{selectedThemes.length > 0 ? 'Suivant' : 'Ignorer'}</div>
-            </Button>
-          </div>
+            </div>
+            {updateState.loading && (
+              <div className={classes.loaderContainer}>
+                <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
+              </div>
+            )}          </div>
         </div>
       );
   }

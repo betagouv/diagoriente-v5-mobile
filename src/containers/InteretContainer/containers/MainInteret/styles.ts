@@ -3,12 +3,17 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles<Theme>((theme) => ({
   container: {
     width: '100%',
-    height: '100vh',
+    height: '93vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     paddingBottom: 20,
     backgroundColor: '#f3f2f4',
+    [theme.breakpoints.down(380)]: {
+      height: '100vh',
+
+
+    },
   },
   content: {
     maxWidth: 1080,
@@ -75,13 +80,43 @@ export default makeStyles<Theme>((theme) => ({
     },
   },
   linksContainer: {
-    position: 'fixed',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: 'linear-gradient(180deg, #F3F2F4 0%, #F3F2F4 51.56%, rgba(243, 242, 244, 0) 100%), #F3F2F4',
-    [theme.breakpoints.up(560)]: {
-      display: 'flex',
+    marginTop: '30px',
+  },
+  saTete: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: '25px',
+    paddingLeft: '100px',
+    [theme.breakpoints.down(420)]: {
+      paddingLeft: '48px',
+    },
+    [theme.breakpoints.down(380)]: {
+      paddingLeft: '20px',
+      padding: '15px',
+
+    },
+    [theme.breakpoints.down(365)]: {
+      paddingLeft: '20px',
+      padding: '10px',
+
     },
   },
+  avatarContainer: {
+    marginRight: '30px',
+  },
+  interetText: {
+    fontFamily: 'Andika New Basic',
+    size: '16px',
+    lineHeight: '23px',
+    color: '#420FAB',
+  },
+  tContainer:{height:'80px'},
+  validContainer:{
+    [theme.breakpoints.down(330)]: {
+      bottom:'auto !important',
+
+    },
+  }
+
 }));

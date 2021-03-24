@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles<Theme>((theme) => ({
   container: {
     width: '100%',
-    height: '100vh',
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -26,6 +26,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   subTitleContainer: {
     textAlign: 'center',
+    height: '75vh',
   },
   subTitle: {
     fontSize: 18,
@@ -41,10 +42,13 @@ export default makeStyles<Theme>((theme) => ({
     marginTop: 30,
   },
   btnContainer: {
-    width: '100%',
+    width: '100vw',
     display: 'flex',
+    height: '50px',
+    position: 'absolute',
+    bottom: '0px',
     justifyContent: 'center',
-    marginTop: '0vh',
+    backgroundColor: '#7533FF',
   },
   btn: {
     backgroundColor: theme.palette.success.main,
@@ -64,11 +68,6 @@ export default makeStyles<Theme>((theme) => ({
     'text-align': 'center',
   },
 
-  btnLabel: {
-    color: '#fff',
-    textTransform: 'none',
-    fontWeight: 'bold',
-    fontSize: 18,
-    textAlign: 'center',
-  },
+  tContainer:{height:'80px'}
+
 }));

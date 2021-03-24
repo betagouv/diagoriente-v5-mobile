@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal, { ModalProps } from '@material-ui/core/Modal';
 import Reset from 'components/common/Rest/Rest';
+import closeButton from 'assets/svg/closeX.svg';
 import useStyles from './styles';
 
 interface IProps extends ModalProps {
@@ -41,8 +42,10 @@ const ModalContainer = ({
       BackdropProps={{ className: classes.backdrop }}
       {...rest}
     >
+
       <div className={classes.modalContainer}>
         <div className={classes.modal}>
+     
           <div className={classes.modalContainerBody}>{children}</div>
         </div>
       </div>
