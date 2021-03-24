@@ -113,7 +113,7 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
             <span className={classes.title}>
               En rapport avec ces activités, quelles sont les compétences que tu mets en oeuvre ?
             </span>
-            <span className={classes.subtitle}>(4 choix maximum)</span>
+            <span>(4 choix maximum)</span>
           </div>
           <Grid className={classes.circleContainer} container spacing={3}>
             {loading && (
