@@ -2,16 +2,11 @@ import React, { useState, useEffect, useContext, useMemo } from 'react';
 import Title from 'components/common/TitleImage/TitleImage';
 import SelectionContext from 'contexts/SelectionContext';
 import { useThemes } from 'requests/themes';
-import Button from 'components/nextButton/nextButton';
-import NavigationButton from 'components/NavigationButton/NavigationButton';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import Selection from 'components/theme/ThemeSelection/ThemeSelection';
+import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
+import { RouteComponentProps } from 'react-router-dom';
 import parcoursContext from 'contexts/ParcourContext';
 import Spinner from 'components/SpinnerXp/Spinner';
 import SelectTheme from 'components/inputs/SelectTheme/SelectTheme';
-import blueline from 'assets/svg/blueline.svg';
-import PreviousButton from 'components/previousButton/previousButton';
-import classNames from 'utils/classNames';
 import { decodeUri, encodeUri } from 'utils/url';
 import { Theme } from 'requests/types';
 import useStyles from './styles';
@@ -65,10 +60,6 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
     }
   }, [selectedTheme]);
 
-  const onNavigate = () => {
-    if (selectedTheme) history.push(`/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}`);
-    setOpen(false);
-  };
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -77,7 +68,7 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
           color="#FFFFFF"
           size={width > 380 ? 32 : 22}
         />
-
+        <BreadCrumb level={1} routes={[{ title: 'Thème', url: '' }]} />
         <div className={classes.themeContainer}>
           <div className={classes.selectThemeContainer}>
             {themeFiltered.length === 0 && !loading ? (
@@ -87,29 +78,20 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
             ) : (
               <p className={classes.themeTitle}>Choisis un thème :</p>
             )}
-            <SelectTheme avatarsTab={themeFiltered} selectedTheme={selectedTheme} showAvatar={showAvatar} />
+            <SelectTheme
+              avatarsTab={themeFiltered}
+              selectedTheme={selectedTheme}
+              showAvatar={showAvatar}
+              history={history}
+              redirect={redirect}
+            />
           </div>
           {loading && (
             <div className={classes.loadingContainer}>
               <Spinner />
             </div>
           )}
-
-          <Selection theme={selectedTheme} activities={[]} />
-
-          <div className={classes.previousNext}>
-            <Link
-              //   to="/experience"
-              to={'/experience'}
-              className={classes.hideLine}
-            >
-              <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
-            </Link>
-
-            <div onClick={onNavigate} className={classes.hideLine}>
-              <Button disabled={!selectedTheme} />
-            </div>
-          </div>
+          {/*  <Selection theme={selectedTheme} activities={[]} /> */}
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import { Unpacked } from 'utils/types';
 import Button from 'components/button/Button';
 import NextButton from 'components/nextButton/nextButton';
 import PreviousButton from 'components/previousButton/previousButton';
+import ValidationButton from 'components/valideButton/valideButton';
 import { UserParcour } from 'requests/types';
 import { TextField } from '@material-ui/core';
 import { useForm } from 'hooks/useInputs';
@@ -203,14 +204,7 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
             <span className={classes.start}>* </span>
             Champs obligatoires
           </div>
-          <div className={classes.previousNext}>
-            <div>
-              <PreviousButton deleteArrow children="Annuler" onClick={() => handleClose()} />
-            </div>
-            <div>
-              <NextButton onClick={() => handleSecondOpen()} />{' '}
-            </div>
-          </div>
+          <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => handleSecondOpen()} />
         </div>
       </ModalContainer>
       <ModalContainer
@@ -251,9 +245,12 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               <b> Attention </b>: Tu peux modifier ou compléter ce message avant de l&apos;envoyer !
             </div>
           </form>
-          <div className={classes.button} onClick={() => handleThirdOpen()}>
-            <div className={classes.buttonLabel}>Envoyer ma demande</div>
-          </div>
+          <ValidationButton
+            label="Envoyer ma demande"
+            bgColor="#00CFFF"
+            color="#223A7A"
+            onClick={() => handleThirdOpen()}
+          />
         </div>
       </ModalContainer>
       <ModalContainer open={thirdOpen} handleClose={handleThirdClose} backdropColor="#011A5E" colorIcon="#4D6EC5">
@@ -265,15 +262,15 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
           <div className={classes.descriptionModalContainer}>
             Le message a bien été envoyé ! Une fois rédigée, sa recommandation apparaîtra dans ta carte de compétences.
           </div>
-          <div
-            className={classes.button}
+          <ValidationButton
+            label="Continuer"
+            bgColor="#00CFFF"
+            color="#223A7A"
             onClick={() => {
               setThirdOpen(false);
               if (onSuccess) onSuccess();
             }}
-          >
-            <div className={classes.buttonLabel}>Continuer</div>
-          </div>
+          />
         </div>
       </ModalContainer>
 

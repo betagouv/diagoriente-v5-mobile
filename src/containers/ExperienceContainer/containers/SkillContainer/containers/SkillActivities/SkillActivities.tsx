@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { useTheme } from 'requests/themes';
 import { Theme } from 'requests/types';
-import { Tooltip } from '@material-ui/core';
+import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
-import NextButton from 'components/nextButton/nextButton';
 import Button from 'components/button/Button';
-import PreviousButton from 'components/previousButton/previousButton';
-import CancelButton from 'components/cancelButton/CancelButton';
 import Spinner from 'components/SpinnerXp/Spinner';
-import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
+import ValidationButton from 'components/valideButton/valideButton';
 import { Unpacked } from 'utils/types';
 import useStyles from './styles';
 
@@ -51,6 +48,13 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
   return (
     <div className={classes.root}>
       <div className={classes.container}>
+        <BreadCrumb
+          level={2}
+          routes={[
+            { title: 'Thème', url: `/experience/${theme.type === 'professional' ? 'theme-pro' : 'theme'}` },
+            { title: 'Activités', url: '' },
+          ]}
+        />
         <div className={classes.themeContainer}>
           <span className={classes.title}>Peux-tu nous en dire un peu plus sur les activités que tu pratiques ?</span>
           <span className={classes.subtitle}>(plusieurs choix possibles)</span>
@@ -80,22 +84,9 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
           </div>
         </div>
       </div>
-      <div className={classes.previousNext}>
-        <div>
-          {/*  {isCreate && ( */}
-          <Link
-            to={`/experience/${theme.type === 'professional' ? 'theme-pro' : 'theme'}${location.search}`}
-            className={classes.btnpreced}
-          >
-            <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
-          </Link>
-          {/*  )} */}
-        </div>
-
-        <div onClick={onNavigate} className={classes.hideLine}>
-          <NextButton disabled={!activities.length} />
-        </div>
-      </div>
+      {activities.length > 0 && (
+        <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => onNavigate()} />
+      )}
     </div>
   );
 };

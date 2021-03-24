@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { CompetenceValues, Competence, Theme } from 'requests/types';
-import NextButton from 'components/nextButton/nextButton';
-import PreviousButton from 'components/previousButton/previousButton';
+import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import Select from 'components/inputs/SelectLevel/SelectLevel';
+import ValidationButton from 'components/valideButton/valideButton';
 import { decodeUri } from 'utils/url';
 import useStyles from './styles';
 
@@ -75,31 +75,17 @@ const SkillCompetencesValues = ({
   return (
     <div className={classes.root}>
       <div className={classes.container}>
+        <BreadCrumb
+          level={3}
+          routes={[
+            { title: 'Thème', url: `/experience/${theme?.type === 'professional' ? 'theme-pro' : 'theme'}` },
+            { title: 'Activités', url: `/experience/skill/${match.params.themeId}/activities${location.search}` },
+            { title: 'Compétences', url: '' },
+          ]}
+        />
         <div className={classes.themeContainer}>
           <div className={classes.echelonWrapper}>
-            <p className={classes.title}>
-              En rapport avec les <b> compétences que tu as choisies</b>, comment te sens-tu ?
-            </p>
-
-            {/*    <div className={classes.echelonBackground}>
-              <div className={classes.avatarContainer}>
-                <Avatar
-                  title={theme?.title}
-                  size={95}
-                  className={classes.themeAvatar}
-                  squareContainerClassName={classes.squareContainerClassName}
-                  titleClassName={classes.titleClassName}
-                >
-                  <img src={theme?.resources?.icon} alt="" className={classes.avatarStyle} height={90} />
-                </Avatar>
-              </div>
-              <div className={classes.dataOptions}>
-                {activities.slice(0, 4).map((activity) => (
-                  <div key={activity}>{activity}</div>
-                ))}
-              </div>
-            </div> */}
-
+            <p className={classes.title}>En rapport avec les compétences que tu as choisies, comment te sens-tu ?</p>
             <div className={classes.echelonContainer}>
               <div className={classes.competencesContainer}>
                 {competences.map((competence, i) => {
@@ -123,23 +109,9 @@ const SkillCompetencesValues = ({
           </div>
         </div>
       </div>
-      <div className={classes.previousNext}>
-        <div>
-          <Link
-            to={`/experience/skill/${match.params.themeId}/competences${location.search}`}
-            className={classes.btnpreced}
-          >
-            <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
-          </Link>
-        </div>
-        <div>
-          <NextButton
-            fetching={addSkillState}
-            disabled={competencesValues.length !== competences.length}
-            onClick={handleNextClick}
-          />
-        </div>
-      </div>
+      {competencesValues.length === competences.length && (
+        <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => handleNextClick()} />
+      )}
     </div>
   );
 };

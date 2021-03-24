@@ -6,12 +6,12 @@ export default makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
       flexDirection: 'column',
+      height: '100vh',
     },
 
     container: {
       display: 'flex',
       flexDirection: 'column',
-      paddingBottom: 70,
       width: '100%',
     },
     modal: {
@@ -24,14 +24,26 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      paddingTop: 34,
+      height: '100%',
+    },
+    titleContainer: {
+      padding: '35px 40px 40px 40px',
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    title: {
+      fontWeight: 'bold',
+      fontSize: 16,
+      lineHeight: '24px',
+      color: '#223A7A',
+      width: '100%',
     },
 
     circleContainer: {
       display: 'flex',
       width: '100%',
       flexWrap: 'wrap',
-      padding: '10px 25px 90px 25px',
+      padding: '10px 25px 30px 25px',
       justifyContent: 'center',
     },
 
@@ -78,11 +90,11 @@ export default makeStyles((theme: Theme) =>
       maxWidth: '100%',
     },
 
-    title: {
-      color: '#424242',
-      textAlign: 'center',
-      fontSize: 14,
-    },
+    // title: {
+    //   color: '#424242',
+    //   textAlign: 'center',
+    //   fontSize: 14,
+    // },
 
     competences: {
       width: '100%',
