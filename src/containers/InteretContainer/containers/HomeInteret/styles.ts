@@ -26,7 +26,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   subTitleContainer: {
     textAlign: 'center',
-    height: '75vh',
+    height: '80vh',
   },
   subTitle: {
     fontSize: 18,

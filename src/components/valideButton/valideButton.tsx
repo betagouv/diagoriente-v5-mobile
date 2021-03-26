@@ -35,7 +35,6 @@ const ValideButton = ({
     bgColor,
     color,
   });
-  console.log('show', show);
   return (
     <Link to={link}>
       {(show === undefined || show) && (

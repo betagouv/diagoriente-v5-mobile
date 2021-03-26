@@ -75,7 +75,7 @@ const HomeCompleted = () => {
         title: 'ME CONNAÎTRE',
         titleBackground: blueLine,
         background: '#4D6EC5',
-        secondBackground: '#3B58A6',
+        secondBackground: '#223A7A',
         image: IlluMeConnaitre,
         initialChildren: (
           <div className={classes.contentChild}>
@@ -109,8 +109,8 @@ const HomeCompleted = () => {
       {
         title: 'ME PROJETER',
         titleBackground: yellowLine,
-        background: '#DB8F00',
-        secondBackground: '#FFA600',
+        background: '#FFA600',
+        secondBackground: '#DB8F00',
         image: IlluMeProtejer,
         initialChildren: (
           <div className={classNames(classes.contentChild, classes.black)}>
@@ -176,11 +176,11 @@ const HomeCompleted = () => {
                 <span>{user?.profile.lastName}</span>
               </div>
             </div>
-            {!isOpen && (
+            {/* {!isOpen && ( */}
               <div style={{ marginLeft: 75 }}>
                 <div className={classes.info}>Mon profil : ma carte de compétences, mes infos...</div>
               </div>
-            )}
+            {/* )} */}
           </Link>
         </div>
         <div className={classes.content}>
