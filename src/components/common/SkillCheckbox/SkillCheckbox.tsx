@@ -40,7 +40,7 @@ const SkillCheckbox = ({
   const [opened, setOpened] = useState(false);
 
   const onClickHeader = (e: Event) => {
-    if (document.getElementsByClassName('ignore-onclickHeader')[0].contains(e.target as any)) return;
+    if (document.getElementsByClassName('ignore-onclickHeader')[index].contains(e.target as any)) return;
     else {
       if (!open) {
         setOpen(true);
@@ -49,7 +49,6 @@ const SkillCheckbox = ({
       else if (open && index === openedIndex) setOpen(false);
     }
   };
-
   const addCompetence = (competence: Competence) => {
     if (competences.length < 4) {
       setCompetences([...competences, competence]);
@@ -77,7 +76,6 @@ const SkillCheckbox = ({
     else setSelected(false);
   }, [competences]);
 
-  console.log('index', index);
   return (
     <div className={classes.skillContainer}>
       <div
