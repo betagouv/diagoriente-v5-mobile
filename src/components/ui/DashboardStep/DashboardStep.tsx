@@ -35,7 +35,7 @@ const DashboardStep = ({
           <div className={classes.avatarContainer}>
             <div className={classes.avatar}>{image && <img className={classes.image} alt="" src={image} />}</div>
           </div>
-          <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
+          <div className={classes.titleBk} style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
             <div className={classes.title}>
               {title}
               {titleBackground && <img src={titleBackground} alt="" className={classes.titleBackground} />}

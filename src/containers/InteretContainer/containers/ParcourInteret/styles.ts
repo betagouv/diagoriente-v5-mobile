@@ -139,6 +139,8 @@ export default makeStyles<Theme>((theme) => ({
   wrapperBtn: {
     alignSelf: 'center',
   },
+
+
   btnLabel: {
     color: '#fff',
     fontSize: '16px',
@@ -151,7 +153,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   titleContainerModal: {
     fontWeight: 'bold',
-    fontSize: 42,
+    fontSize: 32,
     fontFamily: 'ocean',
     color: theme.palette.secondary.main,
     textAlign: 'center',
@@ -262,7 +264,7 @@ export default makeStyles<Theme>((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-    fontFamily: 'Ocean Six',
+    fontFamily: 'Ocean',
     fontSize: '20px',
     fontWeight: 900,
     width: 30,
@@ -282,53 +284,34 @@ export default makeStyles<Theme>((theme) => ({
     height: ' 600px',
     width: '400px',
     position:'relative',
-    [theme.breakpoints.down(420)]: {
-      width: '357px',
-      height: ' 660px',
-    },
-    [theme.breakpoints.down(415)]: {
-      height: ' 608px',
+    [theme.breakpoints.down(426)]: {
+      height: ' 530px',
     },
     [theme.breakpoints.down(380)]: {
-      height: ' 540px',
+      width: '338px',
     },
-    [theme.breakpoints.down(365)]: {
-      height: ' 510px',
-      width: '320px',
-    },
-    [theme.breakpoints.down(321)]: {
-      height: ' 430px',
-      width: '288px',
+    [theme.breakpoints.down(330)]: {
+      width: '295px',
     },
   },
   closePop: {
     right: '58px',
     top: '48px',
     position: 'fixed',
-    [theme.breakpoints.down(420)]: {
-      right: '15px',
-      top: '54px',
-    },
-    [theme.breakpoints.down(412)]: {
-      right: '15px',
-      top: '99px',
+    [theme.breakpoints.down(426)]: {
+      right: '5px',
+      top: '50px',
     },
 
-    [theme.breakpoints.down(380)]: {
-      top: '55px',
-      right: '0px',
-    },
   },
   closePop1: {
     right: '10px',
-    top: '90px',
+    top: '115px',
     position: 'fixed',
-    [theme.breakpoints.down(412)]: {
-      top: '110px',
+    [theme.breakpoints.down(380)]: {
+      right: '4px',
     },
-    [theme.breakpoints.down(365)]: {
-      top: '82px',
-    },
+
   },
   comprisButton: {
     color: '#7533FF',
@@ -347,18 +330,25 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: 121,
-    [theme.breakpoints.down(415)]: {
-      padding: 100, 
-    },
+    padding: 95,
     [theme.breakpoints.down(380)]: {
-      padding: 93, 
-    },
-    [theme.breakpoints.down(365)]: {
-      padding: 83, 
+      padding: 85,
     },
     [theme.breakpoints.down(330)]: {
       padding: 65,
+    },
+  },
+  modalAtt2: {
+    height: '100px important',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: 80,
+    [theme.breakpoints.down(380)]: {
+      padding: 70,
+    },
+    [theme.breakpoints.down(330)]: {
+      padding: 60,
     },
   },
 }));

@@ -186,19 +186,7 @@ console.log(currentIndex,'def')
           </div>
         ))}
       </Carousel>
-      <div className={classes.validerButton}>
-            {currentIndex===2? (
-              <div className={classes.btnNext}>
-                <Link to={`/interet/ordre/${location}`} className={classes.wrapperBtn}>
-                  <Button className={classes.btn}>
-                    <div className={classes.contentBtn}>
-                      <div className={classes.btnLabel}>Valider</div>
-                    </div>
-                  </Button>
-                </Link>
-              </div>
-            ) : ''}
-          </div>
+    
     </>
   );
 };

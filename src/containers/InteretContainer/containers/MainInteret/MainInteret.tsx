@@ -29,7 +29,7 @@ const MainInteret = () => {
         <TitleImage
           title="COMMENT ÇA MARCHE ?"
           color="#420FAB"
-          size={width > 380 ? 32 : 25}
+          size={32 }
           backgroudColor="#fff"
           className={classes.tContainer}
         />

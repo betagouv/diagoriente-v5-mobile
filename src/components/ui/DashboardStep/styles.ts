@@ -38,10 +38,8 @@ export default makeStyles<
     cursor: 'pointer',
     transition,
  
-    height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '250px'),
-    [theme.breakpoints.down(500)]: {
-      height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '130px'),
-    },
+    height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '150px'),
+
   },
   wrapperTitleImage: {
     display: 'flex',
@@ -94,9 +92,9 @@ export default makeStyles<
     transition: 'all 0.2ms linear',
     transitionDelay: (props) => (props.state !== 'open' ? '0ms' : '225ms'),
     transform: (props) => `scale(${props.state === 'open' ? 1 : 0})`,
-    height: (props) => (props.state === 'open' ? '400px' : 0),
+    height: (props) => (props.state === 'open' ? '300px' : 0),
     [theme.breakpoints.down(420)]: {
-      height: (props) => (props.state === 'open' ? '400px' : 0),
+      height: (props) => (props.state === 'open' ? '300px' : 0),
     },
     cursor: 'default',
     justifyContent: 'center',
@@ -109,8 +107,8 @@ export default makeStyles<
   titleBackground: {
     position: 'absolute',
     top: '40%',
-    left: '-13vw',
-    width: '54vw',
+    left: '-9vw',
+    width: '50vw',
     transform: ' rotate(180deg) translateY(50%)',
     zIndex: -1,
     transition,
@@ -122,4 +120,14 @@ export default makeStyles<
 
     },
   },
+  titleBk:{
+    [theme.breakpoints.down(380)]: {
+      marginLeft: '20px',
+
+    },
+    [theme.breakpoints.down(330)]: {
+      marginLeft: '0px',
+
+    },
+  }
 }));
