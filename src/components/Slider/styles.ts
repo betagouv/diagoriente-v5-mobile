@@ -1,4 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import { FullscreenExit, Height } from '@material-ui/icons';
 
 export default makeStyles<Theme>((theme) => ({
   root: {
@@ -19,7 +20,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   item: {
     width: '100%',
-    height: 'calc(100vh - 126px)',
+    height: 'calc(100vh - 150px)',
     outline: 'none',
     display: 'flex',
     flexDirection: 'column',
@@ -42,13 +43,15 @@ export default makeStyles<Theme>((theme) => ({
     pointerEvents: 'none',
   },
   titleContainer1: {
-    fontWeight: 'bold',
-    fontSize: 24,
-    fontFamily: 'ocean',
-    color: '#420FAB',
-    textAlign: 'left',
-    textTransform: 'uppercase',
+    fontWeight: 400,
+    fontSize: 14,
+    fontFamily: 'Andika New Basic',
+    color: '#424242',
+    textAlign: 'center',
+    // textTransform: 'uppercase',
     width: '90%',
+    // lineHeight:20,
+    padding:10,
   },
   traitLogo: {
     position: 'absolute',
@@ -95,20 +98,31 @@ export default makeStyles<Theme>((theme) => ({
   },
   selected: {
     position: 'relative',
-    backgroundColor: 'rgba(223, 212, 255, 0.5)',
+    // backgroundColor: 'rgba(223, 212, 255, 0.5)',
+    backgroundColor:"#A275FF"
   },
-  wrapperBtn: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    [theme.breakpoints.down('xs')]: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      left: '7vh',
-      paddingTop: '57vh',
-    },
+  titleSelected1:{
+    fontWeight: 400,
+    fontSize: 14,
+    fontFamily: 'Andika New Basic',
+    color: '#fff',
+    textAlign: 'center',
+    width: '90%',
+    padding:10,
+    ligneHeight:'20px'
   },
+  // wrapperBtn: {
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   alignItems: 'center',
+  //   [theme.breakpoints.down('xs')]: {
+  //     display: 'flex',
+  //     flexDirection: 'column',
+  //     alignItems: 'center',
+  //     left: '7vh',
+  //     paddingTop: '57vh',
+  //   },
+  // },
   nextWrap: { right: 4 },
   prevWrap: { left: 3 },
   containerBtnLeft: {
@@ -236,4 +250,56 @@ export default makeStyles<Theme>((theme) => ({
     width: 20,
     height: 20,
   },
+  slideTitle:{
+    display:'flex',
+    flexDirection:'row',
+    alignItems:'center',
+    height:55,
+    width:'100%',
+    backgroundColor: '#FFFFFF',
+boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+  },
+  imgHeader:{
+    margin:10,
+    [theme.breakpoints.down(330)]: {
+      margin:3,
+    },
+  },
+  btnNext: {
+    backgroundColor: '#7533FF',
+    height: '50px',
+    right: '0px',
+    bottom: '-49px',
+    width: '150px',
+    position: 'absolute',
+    zIndex:1,
+    textAlign: 'center',
+    [theme.breakpoints.down(330)]: {
+      width: '120px',
+    },
+  },
+  btnLabel: {
+    color: '#fff',
+    fontSize: '16px',
+    fontFamily: 'Andika New Basic',
+    fontWeight: 'bold',
+  },
+  imgHeaderPersonnes:{
+    margin:10,
+
+    marginRight:'50px',
+    [theme.breakpoints.down(380)]: {
+      marginRight:'20px',
+    },
+    [theme.breakpoints.down(330)]: {
+      margin:2,
+    },
+  },
+  btnTitle:{
+    fontFamily:'Andika New Basic',
+    fontWeight:700,
+    fontSize:14,
+    lineHeight:20,
+    color:'#420FAB'
+  }
 }));

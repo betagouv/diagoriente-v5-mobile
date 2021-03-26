@@ -14,7 +14,7 @@ import ParcoursContext from 'contexts/ParcourContext';
 
 import CloseIcon from 'assets/svg/close_drawer.svg';
 import NotFoundPage from 'components/layout/NotFoundPage';
-import logo from 'assets/svg/diagoriente_logo_01_bg_transparent 2.svg';
+import logo from 'assets/svg/logoDiag.svg';
 import open from 'assets/svg/menu_close.svg';
 import JobsContainer from './containers/jobsContainer';
 import JobContainer from './containers/jobContainer';

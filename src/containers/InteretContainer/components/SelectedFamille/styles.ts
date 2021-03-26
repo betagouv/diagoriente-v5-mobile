@@ -31,9 +31,12 @@ export default makeStyles<Theme, { direction: 'vertical' | 'horizontal'; hover: 
   },
   text: {
     fontWeight: 'bold',
-    width:'min-content',
+    // width:'min-content',
     lineHeight: '15px',
-    "margin-right": "4vh",
+    marginLeft: "4vh",
+    [theme.breakpoints.down(330)]: {
+      marginLeft: "0vh",
+    },
   },
 
   elements: {
@@ -52,6 +55,9 @@ export default makeStyles<Theme, { direction: 'vertical' | 'horizontal'; hover: 
     height: 20,
     borderRadius: '50%',
     marginLeft: 50,
+    [theme.breakpoints.down(321)]: {
+      marginLeft: 15,
+    },
   },
 
   imageContainer: {

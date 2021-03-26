@@ -21,6 +21,11 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     lineHeight: 1,
     marginLeft: 15,
     marginTop: 11,
+    display: ' inline-block',
+  },
+  firstSpan: {
+    marginRight: '6px',
+
   },
   logo: {
     marginTop: 4,
@@ -47,7 +52,7 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    //height:'100vh',
+    // height:'100vh',
     flex: '1 1 0%',
     justifyContent: 'stretch',
     marginTop: (props) => (props.isOpen ? 10 : 30),
@@ -67,6 +72,7 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     flexDirection: 'column',
     width: '90%',
     marginTop: 30,
+    // backgroundColor:'#223A7A'
   },
   itemContainer: {
     width: '100%',
@@ -74,8 +80,6 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
     marginTop: 10,
-    /*   height: '100%',
-    justifyContent: 'center', */
   },
   itemLink: {
     width: '100%',
@@ -96,7 +100,7 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
       backgroundColor: '#fff',
       opacity: 0.7,
     },
-    boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
 
     '@media not all and (min-resolution:.001dpcm)': {
       backgroundColor: '#fff',
@@ -112,9 +116,8 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
         backgroundColor: '#fff',
         opacity: 0.7,
       },
-      boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)'
-    }
-
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    },
   },
   itemDescription: {
     textAlign: 'center',
@@ -122,7 +125,7 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     color: '#fff',
   },
   black: {
-    color: '#424242',
+    color: '#ffff',
   },
   blue: {
     color: '#223A7A',

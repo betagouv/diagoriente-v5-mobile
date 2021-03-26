@@ -3,10 +3,10 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 const transition = 'all 225ms ease-out';
 function getAvatarSize(props: { state?: 'closed' | 'initial' | 'open' }) {
   if (props.state === 'closed') {
-    return '83px';
+    return '20px';
   }
   if (props.state === 'open') {
-    return '162px';
+    return '165px';
   }
 
   return '165px';
@@ -16,10 +16,14 @@ function getAvatarHeight(props: { state?: 'closed' | 'initial' | 'open' }) {
     return '75px';
   }
   if (props.state === 'open') {
-    return '156px';
+    // return '156px';
+    return '165px';
+
   }
 
-  return '150px';
+  // return '150px';
+  return '165px';
+
 }
 
 export default makeStyles<
@@ -28,12 +32,12 @@ export default makeStyles<
 >((theme) => ({
   container: {
     backgroundColor: (props) =>
-      props.state === 'initial' || props.state === 'closed' ? props.background : props.secondBackground,
+      (props.state === 'initial' || props.state === 'closed' ? props.background : props.secondBackground) ,
     alignItems: 'center',
     flexDirection: 'column',
     cursor: 'pointer',
     transition,
-    height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '120px'),
+    height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '170'),
   },
   wrapperTitleImage: {
     display: 'flex',
@@ -70,26 +74,20 @@ export default makeStyles<
     right: 0,
     left: 0,
   },
-  /*   initialChildren: {
-    display: 'flex',
-    width: '100%',
-    flexDirection: 'column',
-    alignItems: 'center',
-    transition: 'all 0.2ms linear',
-    transitionDelay: (props) => (props.state === 'initial' ? '225ms' : '0ms'),
-    transform: (props) => `scale(${props.state === 'initial' ? 1 : 0})`,
-    height: (props) => (props.state === 'initial' ? 'auto' : 0),
-  }, */
+
   openChildren: {
     display: 'flex',
     width: '100%',
-    backgroundColor: (props) => props.background,
+    backgroundColor: (props) => props.background ,
     flexDirection: 'column',
     alignItems: 'center',
     transition: 'all 0.2ms linear',
     transitionDelay: (props) => (props.state !== 'open' ? '0ms' : '225ms'),
     transform: (props) => `scale(${props.state === 'open' ? 1 : 0})`,
     height: (props) => (props.state === 'open' ? 'auto' : 0),
+    [theme.breakpoints.down(420)]: {
+      height: (props) => (props.state === 'open' ? 'auto' : 0),
+    },
     cursor: 'default',
     justifyContent: 'center',
     padding: '20px 0px',

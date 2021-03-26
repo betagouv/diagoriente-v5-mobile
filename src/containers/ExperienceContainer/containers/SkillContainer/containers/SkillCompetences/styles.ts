@@ -66,6 +66,12 @@ export default makeStyles((theme: Theme) =>
       maxWidth: '100%',
     },
 
+    // title: {
+    //   color: '#424242',
+    //   textAlign: 'center',
+    //   fontSize: 14,
+    // },
+
     competences: {
       width: '100%',
       margin: 0,

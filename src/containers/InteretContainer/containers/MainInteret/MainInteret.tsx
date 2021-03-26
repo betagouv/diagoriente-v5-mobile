@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import mainInterest from 'assets/svg/mainInterest.svg';
+import mainIcon from 'assets/svg/mainIcon.svg';
+import teteIcon from 'assets/svg/teteIcon.svg';
+import personneIcon from 'assets/svg/personneIcon.svg';
+import ValideButton from 'components/valideButton/valideButton';
+
 import TitleImage from 'components/common/TitleImage/TitleImage';
 import Button from 'components/button/Button';
-import classNames from 'utils/classNames';
 import useStyle from './styles';
 
 const MainInteret = () => {
@@ -23,63 +26,53 @@ const MainInteret = () => {
   return (
     <div className={classes.container}>
       <div className={classes.content}>
-        <TitleImage title="MES CENTRES D’INTÉRÊT" color="#420FAB" size={width > 380 ? 32 : 25} />
+        <TitleImage
+          title="COMMENT ÇA MARCHE ?"
+          color="#420FAB"
+          size={width > 380 ? 32 : 25}
+          backgroudColor="#fff"
+          className={classes.tContainer}
+        />
 
         <div className={classes.TitlePosition}>
-          <div className={classes.titleContainer}>COMMENT ÇA MARCHE ?</div>
-
-          <div className={classes.textFooter}>Les centres d’intérêts sont classés en 3 catégories. </div>
-          <div className={classes.textFooter}>Sélectionne en 3 minimum et 5 maximum parmi les 3 familles.</div>
+          <div className={classes.textFooter}>Les centres d’intérêts sont classés en 3 catégories.</div>
+          <div className={classes.textFooter}>
+            {' '}
+            <b> Choisis-en 3 minimum et 5 maximum : </b>
+          </div>
         </div>
 
         <div className={classes.linksContainer}>
-          <Link
-            to={{
-              pathname: `/interet/parcours/${0}`,
-            }}
-          >
-            <div className={classes.btnContainer}>
-              <TitleImage
-                title="TRAVAILLER AVEC D’AUTRES PERSONNES"
-                color="#FFFFFF"
-                backgroudColor="#A275FF"
-                size={width > 380 ? 32 : 25}
-                className={width > 560 ? classes.interetTiltle : ''}
-              />
+          <div className={classes.saTete}>
+            <div className={classes.avatarContainer}>
+              <img src={teteIcon} alt="" width="90px" height="90px" />
+            </div>{' '}
+            <div> Travailler avec sa tête </div>
+          </div>
+          <div className={classes.saTete}>
+            <div className={classes.avatarContainer}>
+              <img src={mainIcon} alt="" width="90px" height="90px" />
+            </div>{' '}
+            <div> Travailler avec ses mains</div>
+          </div>
+          <div className={classes.saTete}>
+            <div className={classes.avatarContainer}>
+              <img src={personneIcon} alt="" width="90px" height="90px" />
             </div>
-          </Link>
-          <Link
-            to={{
-              pathname: `/interet/parcours/${1}`,
-            }}
-          >
-            <div className={classes.btnContainer}>
-              <TitleImage
-                title="TRAVAILLER AVEC SES MAINS"
-                color="#FFFFFF"
-                backgroudColor="#A275FF"
-                size={width > 380 ? 32 : 25}
-                className={width > 560 ? classNames(classes.interetTiltle, classes.titleBorders) : ''}
-              />
-            </div>
-          </Link>
 
-          <Link
-            to={{
-              pathname: `/interet/parcours/${2}`,
-            }}
-          >
-            <div className={classes.btnContainer}>
-              <TitleImage
-                title="TRAVAILLER AVEC SA TÊTE"
-                color="#FFFFFF"
-                backgroudColor="#A275FF"
-                size={width > 380 ? 32 : 25}
-                className={width > 560 ? classes.interetTiltle : ''}
-              />
-            </div>
-          </Link>
+            {width < 370 ? (
+              <div>Travailler avec <br/> d’autres personnes</div>
+            ) : (
+              <div>Travailler avec d’autres personnes</div>
+            )}
+          </div>
         </div>
+        <ValideButton
+          label="J’ai compris !"
+          link={{
+            pathname: `/interet/parcours/${0}`,
+          }}
+          btnClassName={classes.validContainer}        />
       </div>
     </div>
   );

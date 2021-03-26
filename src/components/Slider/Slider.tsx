@@ -7,6 +7,16 @@ import checked from 'assets/form/checkboxchecked.svg';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import TitleImage from 'components/common/TitleImage/TitleImage';
 import Divider from '@material-ui/core/Divider';
+import teLink from 'assets/svg/teLink.svg';
+import teteLink from 'assets/svg/tLink.svg';
+import { Link , RouteComponentProps } from 'react-router-dom';
+import Button from 'components/button/Button';
+
+import personnesLink from 'assets/svg/personnesLink.svg';
+import perLink from 'assets/svg/perLink.svg';
+
+import mainLink from 'assets/svg/mLink.svg';
+import mLink from 'assets/svg/mainLink.svg';
 
 import useStyles from './styles';
 
@@ -16,26 +26,91 @@ interface IProps {
   isChecked: any;
   defaultIndex: number;
 }
-const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
+const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps , { location }: RouteComponentProps) => {
   const classes = useStyles();
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     if (defaultIndex) setCurrentIndex(defaultIndex);
+  
   }, [defaultIndex]);
   let title1: string;
   title1 = window.location.toString();
-
+console.log(currentIndex,'def')
   return (
     <>
-      <TitleImage title={data[currentIndex].title} color="#FFFFFF" backgroudColor="#A275FF" size={32} />
+   
+      {/* <TitleImage title={data[currentIndex].title} color="#FFFFFF" backgroudColor="#A275FF" size={32} /> */}
+      <div className={classes.slideTitle}>
+        <div className={classes.imgSlide}>
+          {currentIndex == 0 ? (
+            <img
+              src={teteLink}
+              alt=""
+              width="40px"
+              height="40px"
+              className={classes.imgHeader}
+              onClick={() => setCurrentIndex(0)}
+            />
+          ) : (
+            <img
+              src={teLink}
+              alt=""
+              width="40px"
+              height="40px"
+              className={classes.imgHeader}
+              onClick={() => setCurrentIndex(0)}
+            />
+          )}
 
+          {currentIndex == 1 ? (
+            <img
+              src={mLink}
+              alt=""
+              width="40px"
+              height="40px"
+              className={classes.imgHeader}
+              onClick={() => setCurrentIndex(1)}
+            />
+          ) : (
+            <img
+              src={mainLink}
+              alt=""
+              width="40px"
+              height="40px"
+              className={classes.imgHeader}
+              onClick={() => setCurrentIndex(1)}
+            />
+          )}
+
+          {currentIndex == 2 ? (
+            <img
+              src={perLink}
+              alt=""
+              width="40px"
+              height="40px"
+              className={classes.imgHeader}
+              onClick={() => setCurrentIndex(2)}
+            />
+          ) : (
+            <img
+              src={personnesLink}
+              alt=""
+              width="40px"
+              height="40px"
+              className={classes.imgHeaderPersonnes}
+              onClick={() => setCurrentIndex(2)}
+            />
+          )}
+        </div>
+        <div className={classes.btnTitle}>{data[currentIndex].title}</div>
+      </div>
       <Carousel
         dragging={false}
         slideIndex={currentIndex}
         afterSlide={(index) => setCurrentIndex(index)}
         renderCenterLeftControls={({ previousSlide }) => (
           <div className={classNames(currentIndex === 0 && classes.hide, classes.wrapperBtn, classes.prevWrap)}>
-            <div
+            {/* <div
               onClick={() => {
                 if (currentIndex !== 0) {
                   previousSlide();
@@ -45,8 +120,8 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
               className={classNames(classes.containerBtnLeft, classes.rotatedArrow)}
             >
               <Arrow width="12" height="24" color="#fff" className={classes.arrowCon} />
-            </div>
-            <div className={classes.titleContainerArrow}></div>
+            </div> */}
+            <div className={classes.titleContainerArrow} />
           </div>
         )}
         renderCenterRightControls={({ nextSlide }) => (
@@ -57,7 +132,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
               classes.nextWrap,
             )}
           >
-            <div
+            {/* <div
               onClick={() => {
                 if (currentIndex !== data.length - 1) {
                   nextSlide();
@@ -67,8 +142,8 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
               className={classes.containerBtnRight}
             >
               <Arrow width="12" height="24" color="#fff" className={classes.arrowCon} />
-            </div>
-            <div className={classes.titleContainerArrow}></div>
+            </div> */}
+            <div className={classes.titleContainerArrow} />
           </div>
         )}
         renderBottomCenterControls={null}
@@ -89,17 +164,19 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
                   >
                     <div className={classNames(selected ? classes.selected : classes.imageContainer)}>
                       <div className={classes.CheckBoxStyle}>
-                        <CheckBox
+                        {/* <CheckBox
                           checked={selected}
                           img={selected && checked}
                           className={classes.checkBox}
                           classNameLogo={classes.checkBoxImg}
-                          color={'#420FAB'}
+                          color="#420FAB"
                           border="#420FAB"
-                        />
-                        <div className={classes.titleContainer1}>{res}</div>
+                        /> */}
                       </div>
                       <img src={e.resources[0]} alt="" className={classes.deselected} />
+                      <div className={classNames(selected ? classes.titleSelected1 : classes.titleContainer1)}>
+                        {res}
+                      </div>
                     </div>
                     <Divider style={{ backgroundColor: '#C9C9C7' }} />
                   </div>
@@ -109,6 +186,19 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
           </div>
         ))}
       </Carousel>
+      <div className={classes.validerButton}>
+            {currentIndex===2? (
+              <div className={classes.btnNext}>
+                <Link to={`/interet/ordre/${location}`} className={classes.wrapperBtn}>
+                  <Button className={classes.btn}>
+                    <div className={classes.contentBtn}>
+                      <div className={classes.btnLabel}>Valider</div>
+                    </div>
+                  </Button>
+                </Link>
+              </div>
+            ) : ''}
+          </div>
     </>
   );
 };

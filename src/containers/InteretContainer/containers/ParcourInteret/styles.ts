@@ -1,9 +1,7 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import { position } from 'html2canvas/dist/types/css/property-descriptors/position';
 
 export default makeStyles<Theme>((theme) => ({
-
-
-
   container: {
     width: '100%',
     height: `100%`,
@@ -11,14 +9,12 @@ export default makeStyles<Theme>((theme) => ({
     justifyContent: 'center',
     flex: '1 1 0%',
     position: 'relative',
-    
   },
   content: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    
   },
   header: {
     display: 'flex',
@@ -135,13 +131,7 @@ export default makeStyles<Theme>((theme) => ({
     },
     '-ms-overflow-style': 'none',
   },
-  btn: {
-    marginTop: 30,
-    backgroundColor: theme.palette.primary.main,
-    '&:hover': {
-      backgroundColor: theme.palette.primary.main,
-    },
-  },
+  btn: {},
   contentBtn: {
     display: 'flex',
     alignItems: 'center',
@@ -151,7 +141,9 @@ export default makeStyles<Theme>((theme) => ({
   },
   btnLabel: {
     color: '#fff',
-    marginRight: 10,
+    fontSize: '16px',
+    fontFamily: 'Andika New Basic',
+    fontWeight: 'bold',
   },
   textModal: {
     padding: '20px 0px',
@@ -197,37 +189,176 @@ export default makeStyles<Theme>((theme) => ({
     color: 'white',
   },
   headerModelConfirm: {
-    backgroundColor: '#420FAB',
-    height: '92px',
+    backgroundColor: '#fff',
+    height: '65px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
   textModelConfirm: {
-    color: 'white',
-    fontFamily: 'ocean',
-    textTransform: 'uppercase',
+    color: '#420FAB',
+    fontFamily: 'Andika New Basic',
     fontWeight: 900,
-    fontSize: 28,
+    fontSize: 16,
     lineHeight: '32px',
     textAlign: 'center',
   },
   itemRow: {
-    height: "18vh",
+    height: '18vh',
     display: 'flex',
     alignItems: 'center',
+    backgroundColor: 'rgba(223, 212, 255, 0.5)',
   },
   arrowStyle: {
     transform: 'rotate(90deg)',
     marginLeft: 20,
   },
   btnNext: {
+    backgroundColor: '#7533FF',
+    height: '50px',
+    right: '0px',
+    top: '0px',
+    width: '150px',
     position: 'absolute',
-    bottom: 34,
-    right: 140,
-    [theme.breakpoints.up(560)]: {
-      right: 'auto',
+    textAlign: 'center',
+    [theme.breakpoints.down(330)]: {
+      width: '120px',
     },
   },
+  fiveCircle: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    height: '50px',
+    backgroundColor: '#420FAB',
+    position: 'fixed',
+    bottom: '0px',
+    boxShadow: ' 0px -4px 5px rgba(0, 0, 0, 0.1)',
+    justifyContent: 'flexStart',
+    alignItems: 'center',
+  },
+  circle: {
+    borderRadius: '50%',
+    border: '1px solid #fff',
+    margin: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '	rgb(255,255,255,0.5)',
+    fontFamily: 'Ocean Six',
+    fontSize: '20px',
+    fontWeight: 900,
+    width: 30,
+    height: 30,
+    color: '#7533FF',
+  },
+  circleSelected: {
+    borderRadius: '50%',
+    border: '1px solid #fff',
+    margin: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    fontFamily: 'Ocean Six',
+    fontSize: '20px',
+    fontWeight: 900,
+    width: 30,
+    height: 30,
+    color: '#7533FF',
+    [theme.breakpoints.down(380)]: {
+      margin: '7px',
+    },
+    [theme.breakpoints.down(365)]: {
+      margin: '6px',
+    },
+    [theme.breakpoints.down(330)]: {
+      margin: '4px',
+    },
+  },
+  diagPop: {
+    height: ' 600px',
+    width: '400px',
+    position:'relative',
+    [theme.breakpoints.down(420)]: {
+      width: '357px',
+      height: ' 660px',
+    },
+    [theme.breakpoints.down(415)]: {
+      height: ' 608px',
+    },
+    [theme.breakpoints.down(380)]: {
+      height: ' 540px',
+    },
+    [theme.breakpoints.down(365)]: {
+      height: ' 510px',
+      width: '320px',
+    },
+    [theme.breakpoints.down(321)]: {
+      height: ' 430px',
+      width: '288px',
+    },
+  },
+  closePop: {
+    right: '58px',
+    top: '48px',
+    position: 'fixed',
+    [theme.breakpoints.down(420)]: {
+      right: '15px',
+      top: '54px',
+    },
+    [theme.breakpoints.down(412)]: {
+      right: '15px',
+      top: '99px',
+    },
 
+    [theme.breakpoints.down(380)]: {
+      top: '55px',
+      right: '0px',
+    },
+  },
+  closePop1: {
+    right: '10px',
+    top: '90px',
+    position: 'fixed',
+    [theme.breakpoints.down(412)]: {
+      top: '110px',
+    },
+    [theme.breakpoints.down(365)]: {
+      top: '82px',
+    },
+  },
+  comprisButton: {
+    color: '#7533FF',
+    fontSize: '16px',
+    fontFamily: 'Andika New Basic',
+    fontWeight: 'bold',
+  },
+  titreModal: {
+    color: '#7533FF',
+    fontSize: '32px',
+    fontFamily: 'Ocean Six',
+    fontWeight: 900,
+  },
+  modalAtt: {
+    height: '100px important',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: 121,
+    [theme.breakpoints.down(415)]: {
+      padding: 100, 
+    },
+    [theme.breakpoints.down(380)]: {
+      padding: 93, 
+    },
+    [theme.breakpoints.down(365)]: {
+      padding: 83, 
+    },
+    [theme.breakpoints.down(330)]: {
+      padding: 65,
+    },
+  },
 }));
