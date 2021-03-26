@@ -9,7 +9,6 @@ export default makeStyles((theme: Theme) =>
       overflow: 'auto',
       position: 'relative',
       height: '100vh',
-      paddingBottom: '100px',
       '&::-webkit-scrollbar': {
         display: 'none',
       },

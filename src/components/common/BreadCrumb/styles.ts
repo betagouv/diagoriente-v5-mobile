@@ -1,4 +1,3 @@
-import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles((theme: Theme) =>
@@ -23,6 +22,5 @@ export default makeStyles((theme: Theme) =>
       lineHeight: '14px',
       color: '#00B2DB',
     },
-    mySelection: {},
   }),
 );

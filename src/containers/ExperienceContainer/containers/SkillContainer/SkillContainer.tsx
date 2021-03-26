@@ -10,7 +10,6 @@ import { useAddSkill, useUpdateSkill, useLazySkill } from 'requests/skills';
 import ParcourContext from 'contexts/ParcourContext';
 
 import NotFoundPage from 'components/layout/NotFoundPage/NotFoundPage';
-import Selection from 'components/theme/ThemeSelection/ThemeSelection';
 import SnackBar from 'components/SnackBar/SnackBar';
 import Spinner from 'components/SpinnerXp/Spinner';
 
@@ -65,8 +64,6 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
   const handleCloseSB = () => {
     if (!!addSkillState.error) setOpenSnackBar(false);
   };
-
-  const showSelection = matchPath(location.pathname, [`${match.path}/competences`]);
 
   useEffect(() => {
     if (selectedSkillId) skillCall({ variables: { id: selectedSkillId } });
@@ -306,6 +303,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
       ? optionActivities.map((e) => e.map((o) => o.title).join(' '))
       : activities.map((a) => a.title);
   if (data?.theme.type === 'engagement' && activity) activitiesTitles.push(activity);
+
   return (
     <>
       <SnackBar
@@ -349,6 +347,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
               competences={competences}
               setCompetences={setCompetences}
               theme={data.theme}
+              activities={activitiesTitles}
               isCreate={!selectedSkillId}
             />
           )}
@@ -410,7 +409,6 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
         />
         <Route component={NotFoundPage} />
       </Switch>
-      {showSelection && <Selection activities={activitiesTitles} theme={data.theme} />}
     </>
   );
 };

@@ -39,8 +39,6 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
-  console.log('activite', activities.length);
-  console.log('disabled', !activities.length);
 
   const onNavigate = () => {
     if (activities.length) history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
@@ -54,6 +52,7 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
             { title: 'Thème', url: `/experience/${theme.type === 'professional' ? 'theme-pro' : 'theme'}` },
             { title: 'Activités', url: '' },
           ]}
+          theme={theme}
         />
         <div className={classes.themeContainer}>
           <span className={classes.title}>Peux-tu nous en dire un peu plus sur les activités que tu pratiques ?</span>

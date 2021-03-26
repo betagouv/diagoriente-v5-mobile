@@ -82,6 +82,8 @@ const SkillCompetencesValues = ({
             { title: 'Activités', url: `/experience/skill/${match.params.themeId}/activities${location.search}` },
             { title: 'Compétences', url: '' },
           ]}
+          theme={theme}
+          activities={activities}
         />
         <div className={classes.themeContainer}>
           <div className={classes.echelonWrapper}>
