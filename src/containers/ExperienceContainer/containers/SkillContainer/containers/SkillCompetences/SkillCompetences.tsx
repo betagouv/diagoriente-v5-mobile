@@ -5,27 +5,34 @@ import { Competence, Theme } from 'requests/types';
 import Grid from '@material-ui/core/Grid';
 import Slide from '@material-ui/core/Slide';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
-import PreviousButton from 'components/previousButton/previousButton';
-import NextButton from 'components/nextButton/nextButton';
 import Button from 'components/button/Button';
 import Spinner from 'components/SpinnerXp/Spinner';
-import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
 import Popup from 'components/common/Popup/Popup';
+import Skill from 'components/common/SkillCheckbox/SkillCheckbox';
 import useOnclickOutside from 'hooks/useOnclickOutside';
-import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
 import ValidationButton from 'components/valideButton/valideButton';
-import useStyles from './styles';
 import SelectionContext from 'contexts/SelectionContext';
+import useStyles from './styles';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
   competences: Competence[];
   setCompetences: (Competences: Competence[]) => void;
   theme: Theme | null;
   isCreate?: boolean;
+  activities: string[];
 }
 
-const ExperienceCompetence = ({ match, competences, setCompetences, theme, history, isCreate, location }: Props) => {
+const ExperienceCompetence = ({
+  match,
+  competences,
+  setCompetences,
+  theme,
+  history,
+  isCreate,
+  activities,
+  location,
+}: Props) => {
   const classes = useStyles();
   const refSlide = useRef(null);
   const { open, setOpen } = useContext(SelectionContext);
@@ -36,10 +43,13 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
   const [showInfo, setShowInfo] = useState(false);
   const [currentInfoId, setCurrentInfoId] = useState('');
   const [currentInfoIndex, setCurrentInfoIndex] = useState(-1);
+
   const [currentBtn, setCurrentBtn] = useState(-1);
   const { redirect } = decodeUri(location.search);
   const divInfo = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(-1);
+  const [openDescription, setOpenDescription] = useState(false);
 
   useOnclickOutside(divInfo, (e: Event) => {
     if (
@@ -51,6 +61,17 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
       setShowInfo(false);
     }
   });
+
+  const handleShowDescription = (id: string) => {
+    const index = theme?.tooltips.findIndex((e) => e.competenceId === id);
+
+    {
+      index !== undefined && setCurrentDescriptionIndex(index);
+    }
+    setCurrentInfoId(id);
+    setShowInfo(true);
+    setOpen(false);
+  };
 
   const handleShowInfo = (id: string) => {
     const index = theme?.tooltips.findIndex((e) => e.competenceId === id);
@@ -96,7 +117,9 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
       history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
     setOpened(false);
   };
-
+  console.log('comptences', data?.competences.data);
+  console.log('comptencesSelected', competences);
+  console.log('theme?.tooltips', theme?.tooltips);
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -107,6 +130,8 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
             { title: 'Activités', url: `/experience/skill/${match.params.themeId}/activities${location.search}` },
             { title: 'Compétences', url: '' },
           ]}
+          theme={theme}
+          activities={activities}
         />
         <div className={classes.themeContainer}>
           <div className={classes.titleContainer}>
@@ -115,66 +140,29 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
             </span>
             <span className={classes.subtitle}>(4 choix maximum)</span>
           </div>
-          <Grid className={classes.circleContainer} container spacing={3}>
+          <div className={classes.skillsContainer}>
             {loading && (
               <div className={classes.loadingContainer}>
-                {' '}
                 <Spinner />
               </div>
             )}
-
-            {data?.competences.data.map((comp, index) => {
-              const selected = competences.find((e) => e.id === comp.id);
-              const tooltip = theme?.tooltips.find((e) => e.competenceId === comp.id);
-
-              return (
-                <Grid key={comp.id} item xs={12} md={6}>
-                  <Button
-                    childrenClassName={classes.margin}
-                    className={classNames(
-                      'ignore-onclickoutside',
-                      classes.competences,
-                      showInfo && currentInfoId === comp.id && classes.infoDisplyed,
-                      selected && classes.selectedCompetence,
-                    )}
-                    onClick={() => {
-                      setCurrentBtn(index);
-                      setShowInfo(false);
-                      !selected
-                        ? !showInfo || (showInfo && currentInfoId !== comp.id)
-                          ? handleShowInfo(comp.id)
-                          : addCompetence(comp as any)
-                        : deleteCompetence(comp.id);
-                    }}
-                    ref={buttonRef}
-                  >
-                    {comp.title}
-                  </Button>
-                  <Slide direction="up" in={showInfo} mountOnEnter unmountOnExit>
-                    <Child key={index} style={{ padding: '10px' }} ref={divInfo}>
-                      <p style={{ width: '100%', color: '#FF0060' }}>
-                        <b>Appuie deux fois sur la compétence pour la sélectionner</b>
-                      </p>{' '}
-                      {currentInfoIndex >= 0 && theme?.tooltips[currentInfoIndex].tooltip}{' '}
-                    </Child>
-                  </Slide>
-                </Grid>
-              );
-            })}
-          </Grid>
-          {/*      <div className={classes.previousNext}>
-            <Link
-              //   to="/experience"
-              to={`/experience/skill/${match.params.themeId}/activities${location.search}`}
-              className={classes.hideLine}
-            >
-              <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
-            </Link>
-
-            <div onClick={onNavigate} className={classes.hideLine}>
-              <NextButton disabled={!competences.length || competences.length > 4} />
-            </div>
-          </div> */}
+            {data?.competences.data.map((comp, index) => (
+              <Skill
+                label={comp.title}
+                description={theme?.tooltips[index]?.tooltip}
+                competence={comp}
+                competences={competences}
+                setCompetences={setCompetences}
+                index={index}
+                openedIndex={currentDescriptionIndex}
+                setOpenedIndex={setCurrentDescriptionIndex}
+                open={openDescription}
+                setOpen={setOpenDescription}
+                setErrorMsg={setText}
+                setOpenModal={setOpened}
+              />
+            ))}
+          </div>
         </div>
         <Popup open={opened} handleClose={handleClose} iconClassName={classes.iconClassName}>
           <div className={classes.popupContainer}>
@@ -185,7 +173,8 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
           </div>
         </Popup>
       </div>
-      {competences.length > 0 && competences.length < 4 && (
+      {competences.length > 0 && competences.length < 5 && <div className={classes.emptyDiv} />}
+      {competences.length > 0 && competences.length < 5 && (
         <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => onNavigate()} />
       )}
     </div>

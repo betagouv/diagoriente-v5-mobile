@@ -13,6 +13,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
+      height: '100%',
     },
     modal: {
       width: 250,
@@ -24,7 +25,9 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      height: '100%',
+      [theme.breakpoints.up(400)]: {
+        height: '100vh',
+      },
     },
     titleContainer: {
       padding: '35px 40px 40px 40px',
@@ -42,40 +45,10 @@ export default makeStyles((theme: Theme) =>
     subtitle: {
       width: '100%',
     },
-    circleContainer: {
+    skillsContainer: {
       display: 'flex',
+      flexDirection: 'column',
       width: '100%',
-      flexWrap: 'wrap',
-      padding: '10px 25px 30px 25px',
-      justifyContent: 'center',
-    },
-
-    circle: {
-      width: '12.5%',
-      minWidth: 130,
-      marginBottom: 62,
-    },
-
-    marginTitle: {
-      margin: '0 15px',
-    },
-
-    btnpreced: {
-      color: '#6B6B6A',
-      height: 50,
-      marginTop: 33,
-      fontSize: 14,
-      textAlign: 'center',
-      textDecoration: 'underline',
-      fontWeight: 'bold',
-    },
-
-    arrowpreced: {
-      marginRight: 13,
-    },
-
-    hideLine: {
-      textDecoration: 'none',
     },
 
     loadingContainer: {
@@ -198,39 +171,10 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
       backgroundColor: 'white',
     },
-    previousNext: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '8px 8px ',
-      position: 'fixed',
-      bottom: 0,
+
+    emptyDiv: {
       width: '100%',
-      backgroundColor: 'white',
-      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
-      zIndex: 1,
-      '@media not all and (min-resolution:.001dpcm)': {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '8px 13px ',
-        position: 'fixed',
-        bottom: 0,
-        width: '100%',
-        backgroundColor: 'white',
-        boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
-        zIndex: 1,
-      },
-    },
-    classNameTitle: {
-      color: '#4D6EC5',
-      fontSize: 18,
-      lineHeight: '26px',
-      '@media not all and (min-resolution:.001dpcm)': {
-        color: '#4D6EC5',
-        fontSize: 14,
-        lineHeight: '26px',
-      },
+      height: 50,
     },
   }),
 );
