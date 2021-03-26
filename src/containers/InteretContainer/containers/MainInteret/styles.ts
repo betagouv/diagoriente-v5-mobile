@@ -3,17 +3,17 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles<Theme>((theme) => ({
   container: {
     width: '100%',
-    height: '93vh',
+    height: 'auto',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     paddingBottom: 20,
     backgroundColor: '#f3f2f4',
-    [theme.breakpoints.down(380)]: {
-      height: '100vh',
+    // [theme.breakpoints.down(380)]: {
+    //   height: '',
 
 
-    },
+    // },
   },
   content: {
     maxWidth: 1080,
@@ -33,7 +33,7 @@ export default makeStyles<Theme>((theme) => ({
     marginBottom: 10,
   },
   TitlePosition: {
-    'padding-top': '3vh',
+    'padding-top': '5vh',
   },
   title: {
     fontWeight: 'bold',
@@ -55,9 +55,9 @@ export default makeStyles<Theme>((theme) => ({
     'font-weight': 'normal',
     'font-size': '14px',
     'line-height': '22px',
-    'text-align': 'center',
-    'margin-left': '53px',
-    'margin-right': '53px',
+    'text-align': 'start',
+    'margin-left': '20px',
+    'margin-right': '20px',
   },
   btnContainer: {
     display: 'flex',
@@ -86,8 +86,8 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    padding: '25px',
-    paddingLeft: '100px',
+    padding: '15px',
+    paddingLeft: '20px',
     [theme.breakpoints.down(420)]: {
       paddingLeft: '48px',
     },
@@ -112,12 +112,6 @@ export default makeStyles<Theme>((theme) => ({
     color: '#420FAB',
   },
   tContainer:{height:'80px'},
-  validContainer:{
  
-    [theme.breakpoints.down(330)]: {
-      position:'initial',
-
-    },
-  }
 
 }));

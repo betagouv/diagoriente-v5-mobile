@@ -265,25 +265,7 @@ boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       margin:3,
     },
   },
-  btnNext: {
-    backgroundColor: '#7533FF',
-    height: '50px',
-    right: '0px',
-    bottom: '-49px',
-    width: '150px',
-    position: 'absolute',
-    zIndex:1,
-    textAlign: 'center',
-    [theme.breakpoints.down(330)]: {
-      width: '120px',
-    },
-  },
-  btnLabel: {
-    color: '#fff',
-    fontSize: '16px',
-    fontFamily: 'Andika New Basic',
-    fontWeight: 'bold',
-  },
+ 
   imgHeaderPersonnes:{
     margin:10,
 

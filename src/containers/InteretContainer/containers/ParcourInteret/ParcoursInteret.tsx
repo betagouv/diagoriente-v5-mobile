@@ -116,12 +116,10 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
     if (isChecked(familleSelected?.id)) {
       copySelected = selectedInterests.filter((ele) => ele.id !== familleSelected.id);
     }
-  
+
     setSelectedInterest(copySelected);
   };
   const handelClose = () => setOpenConfirm(false);
-
-
 
   return (
     <div className={classes.container}>
@@ -142,7 +140,6 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
             )}
           </div>
         </div>
-    
 
         <div className={classes.fiveCircle}>
           {parcours?.families?.map((el, i) => (
@@ -157,15 +154,32 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
               {i + 1}
             </div>
           ))}
-
+          <div className={classes.validerButton}>
+            {selectedInterest?.length && selectedInterest?.length >= 3 && (
+              <div className={classes.btnNext}>
+                <Link to={`/interet/ordre/${location}`} className={classes.wrapperBtn}>
+                  <Button className={classes.btn}>
+                    <div className={classes.contentBtn}>
+                      <div className={classes.btnLabel}>Valider</div>
+                    </div>
+                  </Button>
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
- 
       </div>
-      <ModalContainer open={open} backdropColor="#011A5E" colorIcon="#420FAB" height={70} size={90} >
-        <div
-        
-          className={classes.modalAtt}
-        >
+      <ModalContainer
+        open={open}
+        backdropColor="#011A5E"
+        colorIcon="#420FAB"
+        height={60}
+        size={90}
+        style={{
+      overflow:'hidden !important'
+        }}
+      >
+        <div className={classes.modalAtt}>
           <div className={classes.closePop1} style={{ zIndex: 1 }}>
             <img src={closeButton} alt="att" width={50} height={50} onClick={onHandelClose} />
           </div>
@@ -180,15 +194,9 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
         </div>
       </ModalContainer>
-      <ModalContainer open={openWarning} backdropColor="#011A5E" colorIcon="#420FAB" size={90} height={70}>
+      <ModalContainer open={openWarning} backdropColor="#011A5E" colorIcon="#420FAB" size={90} height={60}>
         <div
-          style={{
-            height: 'auto',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: height < 350 ? 10 : height < 420 ? 20 : 106,
-          }}
+className={classes.modalAtt2}
         >
           <div className={classes.closePop1} style={{ zIndex: 1 }}>
             <img src={closeButton} alt="att" width={50} height={50} onClick={onHandelCloseWarning} />
@@ -205,9 +213,13 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
         </div>
       </ModalContainer>
-      <Dialog open={openConfirm} keepMounted  style={{
-          overflow:'hidden !important',
-          }} >
+      <Dialog
+        open={openConfirm}
+        keepMounted
+        style={{
+          overflow: 'hidden !important',
+        }}
+      >
         <div className={classes.closePop} style={{ zIndex: 1 }}>
           <img src={closeButton} alt="att" width={35} height={35} onClick={handelClose} />
         </div>
@@ -219,20 +231,27 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
             </span>
             <Arrow color="white" width="22" height="22" className={classes.arrowStyle} />
           </div>
-          <div  style={{
-          overflow:'auto  !important',
-          }}>
-          {selectedInterests.map((el, i) => (
-            <>
-              <div>
-                <div className={classes.itemRow} key={el.id}>
-                  <FamileSelected handleClick={() => deleteFamille(i)} famille={el} index={i} direction="horizontal" />
+          <div
+            style={{
+              overflow: 'auto  !important',
+            }}
+          >
+            {selectedInterests.map((el, i) => (
+              <>
+                <div>
+                  <div className={classes.itemRow} key={el.id}>
+                    <FamileSelected
+                      handleClick={() => deleteFamille(i)}
+                      famille={el}
+                      index={i}
+                      direction="horizontal"
+                    />
+                  </div>
                 </div>
-              </div>
-              <Divider style={{ margin: '-1' }} />
-            </>
-          ))}
- </div>
+                <Divider style={{ margin: '-1' }} />
+              </>
+            ))}
+          </div>
           {!loading && renderPlaceholder()}
         </div>
       </Dialog>

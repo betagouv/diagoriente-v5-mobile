@@ -127,6 +127,7 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     textAlign: 'center',
     fontSize: '12px',
     color: '#fff',
+    margin:'10px 20px'
   },
   black: {
     color: '#ffff',
@@ -135,7 +136,7 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     color: '#223A7A',
   },
   purple: {
-    color: '#420FAB',
+    color: '#223A7A',
   },
   textModal: {
     fontSize: 20,

@@ -26,13 +26,20 @@ export default makeStyles<Theme>((theme) => ({
   },
   subTitleContainer: {
     textAlign: 'center',
-    height: '80vh',
+    height: '450px',
   },
   subTitle: {
     fontSize: 18,
-    'padding-left': '68px',
-    'padding-right': '68px',
-    'padding-top': '2vh',
+    paddingLeft: '68px',
+    paddingRight: '68px',
+    'padding-top': '5vh',
+    [theme.breakpoints.down(330)]: {
+      paddingLeft: '20px',
+      paddingRight: '20px',
+
+
+    },
+    
   },
   avatarContainer: {
     width: '100%',
@@ -65,7 +72,7 @@ export default makeStyles<Theme>((theme) => ({
     'font-weight': 'normal',
     'font-size': '14px',
     'line-height': '21px',
-    'text-align': 'center',
+    'text-align': 'start',
   },
 
   tContainer:{height:'80px'}
