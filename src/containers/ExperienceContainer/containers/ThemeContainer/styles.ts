@@ -38,7 +38,11 @@ export default makeStyles((theme: Theme) =>
       marginBottom: 18,
     },
 
-    selectThemeContainer: {},
+    selectThemeContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '0px 40px',
+    },
 
     gridContainer: {
       padding: SKILL_CONTAINER_PADDING,
