@@ -10,6 +10,8 @@ interface Props {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   classNameLogo?: string;
+  uncheckedStyle?: string;
+  opened?: boolean;
   name?: string;
   color: string;
   border?: string;
@@ -20,15 +22,30 @@ interface Props {
 }
 const CheckBox = forwardRef(
   (
-    { checked, onChange, name, color, border, img, className, classNameLogo, background }: Props,
+    {
+      checked,
+      onChange,
+      name,
+      color,
+      border,
+      img,
+      className,
+      classNameLogo,
+      uncheckedStyle,
+      opened,
+      background,
+    }: Props,
     ref: Ref<HTMLInputElement>,
   ) => {
     const classes = useStyles({ color, checked, border });
     return (
       <label className={classNames(classes.container, className)}>
         <input type="checkbox" checked={checked} onChange={onChange} name={name} ref={ref} />
-        {checked ? <Check color={color} background={background} border={border} /> : <div className={classes.checkmark} />}
-        
+        {checked ? (
+          <Check color={color} background={background} border={border} />
+        ) : (
+          <div className={classNames(classes.checkmark, uncheckedStyle)} />
+        )}
       </label>
     );
   },
