@@ -106,7 +106,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Title title="mes expériences pro" color="#223A7A" size={width > 380 ? 32 : 25} image={blueline} number={1} />
+        <Title title="mes expériences pro" color="#FFFFFF" size={32} />
 
         <div className={classes.themeContainer}>
           <div className={classes.searchContainer}>

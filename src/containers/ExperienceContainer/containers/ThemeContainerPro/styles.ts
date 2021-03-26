@@ -58,8 +58,8 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
     },
     boxSearch: {
-      background: '#B7ECFA',
-      borderRadius: 10,
+      /*  background: '#B7ECFA',
+      borderRadius: 10, */
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
