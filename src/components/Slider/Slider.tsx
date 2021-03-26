@@ -149,7 +149,7 @@ console.log(currentIndex,'def')
         renderBottomCenterControls={null}
         className={classes.root}
       >
-        {data.map((el, i) => (
+        {data.reverse().map((el, i) => (
           <div key={el.title} className={classes.item}>
             <div className={classes.avatarContainer}>
               {el.data.map((e) => {

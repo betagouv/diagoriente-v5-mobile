@@ -5,8 +5,14 @@ import classNames from 'utils/classNames';
 import { useTheme } from '@material-ui/core';
 import OptionList from '../optionsList/OptionsList';
 import Divider from '@material-ui/core/Divider';
+import closeIcon from 'assets/svg/picto close.svg'
 import Slide from '@material-ui/core/Slide';
 import arrowClose from 'assets/svg/orangeArrow.svg';
+import checked from 'assets/form/checkboxchecked.svg';
+import ValidationButton from 'components/valideButton/valideButton';
+
+import CheckBox from 'components/inputs/CheckBox/CheckBox';
+
 import useStyles from './styles';
 
 interface IProps {
@@ -15,7 +21,7 @@ interface IProps {
   onSelectText: (e: string | undefined) => void;
   value?: string[] | undefined;
   name?: string;
-  placeholder?: string;
+  placeholder?: string | undefined;
   error?: boolean;
   errorText?: string;
   options: any[] | undefined;
@@ -73,6 +79,20 @@ const SelectJobs = ({
   const handleClose = () => {
     setOpenModal(false);
   };
+  // const getAccebilityName = (id: string | undefined) => {
+  //   if (id) {
+  //     const niveau = options?.find((el) => {
+  //       return el.id === id;
+  //     });
+  //     return niveau?.title;
+  //   }
+  //   return 'Niveau de diplôme';
+  // };
+  // console.log(value,"value")
+  // console.log(options,"options")
+
+
+
   return (
     <div className={classes.content} ref={reference}>
       <div className={classes.inputWrapper} onClick={onClick}>
@@ -103,29 +123,52 @@ const SelectJobs = ({
             <Slide direction="right" in={open} mountOnEnter unmountOnExit>
               <div className={classes.secteurContainerFullScreen}>
                 <div className={classes.closeFullModelContainer} onClick={onClose}>
-                  <Arrow
+
+                  {/* <Arrow
                     color={arrowColor ? arrowColor : '#420FAB'}
                     width="12"
                     height="19"
                     className={classes.arrowClose}
-                  />
+                  /> */}
                   <span className={classes.closeModelLabel}> {placeholder} </span>
+                  <img src={closeIcon} alt="close" className={classes.close} />
+
                 </div>
                 {options?.map((el) => (
                   <div key={el.title} className={classes.fullScreenItem}>
-                    <div className={classes.itemSecteurWrapper} onClick={() => onSelectText(el.id)}>
+                    <div className={classNames(classes.itemSecteurWrapper , isInclude(el.id) && classes.selected) } onClick={() => onSelectText(el.id)} >
+                    <div className={classes.CheckBoxStyle}>
+                          <CheckBox
+                            checked={isInclude(el.id)}
+                            img={ checked}
+                            className={classes.checkBox}
+                            classNameLogo={classes.checkBoxImg}
+                            color="#DB8F00 "
+                            border="#DB8F00 "
+                            background="#fff"
+
+                          />
+                        </div>
                       <div
                         key={el.title}
-                        className={classNames(classes.itemSecteur, isInclude(el.id) && classes.itemSecteurSelected)}
+                        // className={classNames(classes.itemSecteur, isInclude(el.id) && classes.itemSecteurSelected)}
                       >
-                        <span className={classNames(classes.item, isInclude(el.id) && classes.selected)}>
+                        <span className={classNames(classes.item)}>
                           {el.title}
                         </span>
                       </div>
                     </div>
                     <Divider />
+                    {  isInclude(el.id) && <ValidationButton label="Valider" bgColor="#FFA600" color="#ffff" btnClassName={classes.btn} />
+                }
+                     
                   </div>
+                
+                             
+                              
                 ))}
+ 
+
               </div>
             </Slide>
           ) : modal ? (

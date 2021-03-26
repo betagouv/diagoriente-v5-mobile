@@ -140,9 +140,9 @@ export default makeStyles<
     display: 'flex',
     alignItems: 'center',
     paddingLeft: 20,
-    '&:hover': {
-      backgroundColor: 'rgba(255,211,130,0.2)',
-    },
+    // '&:hover': {
+    //   backgroundColor: 'rgba(255,211,130,0.2)',
+    // },
   },
 
   itemSecteur: {
@@ -163,20 +163,21 @@ export default makeStyles<
     fontFamily: 'Andika New Basic',
     fontSize: 14,
     lineHeight: '26px',
-    '&:hover': {
-      color: '#DB8F00',
-    },
+    // '&:hover': {
+    //   color: '#DB8F00',
+    // },
   },
   selected: {
     fontWeight: 'bold',
-    background: theme.palette.secondary.main,
-    borderRadius: 12,
-    padding: '3px 10px',
-    '&:hover': {
-      color: '#424242',
-    },
+    backgroundColor: '#FFD382 !important',
+    // padding: '3px 10px',
+    // '&:hover': {
+    //   color: '#424242',
+    // },
   },
-
+btn:{
+  zIndex:1
+},
   modalWrapper: {
     width: '100%',
     height: '100%',
@@ -237,7 +238,7 @@ export default makeStyles<
     height: 80,
     display: 'flex',
     alignItems: 'center',
-    paddingLeft: 30,
+    justifyContent:'space-between',
     borderBottom: '0.5px solid #C9C9C7',
   },
 
@@ -265,4 +266,13 @@ export default makeStyles<
     color: (props) => props.arrowColor || '#420FAB',
     marginLeft: 20,
   },
+  CheckBoxStyle: {
+    paddingLeft: '5%',
+    display: 'flex',
+    padding: '20px 0px',
+    pointerEvents: 'none',
+  },
+  close:{
+    padding:'20px',
+  }
 }));

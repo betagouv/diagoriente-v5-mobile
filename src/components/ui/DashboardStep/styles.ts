@@ -3,21 +3,21 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 const transition = 'all 225ms ease-out';
 function getAvatarSize(props: { state?: 'closed' | 'initial' | 'open' }) {
   if (props.state === 'closed') {
-    return '20px';
+    return '100px';
   }
   if (props.state === 'open') {
-    return '165px';
+    return '100px';
   }
 
   return '165px';
 }
 function getAvatarHeight(props: { state?: 'closed' | 'initial' | 'open' }) {
   if (props.state === 'closed') {
-    return '75px';
+    return '100px';
   }
   if (props.state === 'open') {
     // return '156px';
-    return '165px';
+    return '100px';
 
   }
 
@@ -32,12 +32,16 @@ export default makeStyles<
 >((theme) => ({
   container: {
     backgroundColor: (props) =>
-      (props.state === 'initial' || props.state === 'closed' ? props.background : props.secondBackground) ,
+      (props.state === 'initial' ? props.background : props.state === 'closed' ? props.background : props.background) ,
     alignItems: 'center',
     flexDirection: 'column',
     cursor: 'pointer',
     transition,
-    height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '170'),
+ 
+    height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '250px'),
+    [theme.breakpoints.down(500)]: {
+      height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '130px'),
+    },
   },
   wrapperTitleImage: {
     display: 'flex',
@@ -56,9 +60,15 @@ export default makeStyles<
     fontFamily: 'Ocean',
     position: 'relative',
     transition,
+    marginLeft:38,
     zIndex: 2,
+    [theme.breakpoints.down(380)]: {
+      marginLeft:0,
+
+    },
     [theme.breakpoints.down(330)]: {
       fontSize: 36,
+
     },
   },
   avatarContainer: {
@@ -78,15 +88,15 @@ export default makeStyles<
   openChildren: {
     display: 'flex',
     width: '100%',
-    backgroundColor: (props) => props.background ,
-    flexDirection: 'column',
+    backgroundColor: (props) =>
+    (props.state === 'initial' ? props.secondBackground : props.state === 'closed' ? props.secondBackground: props.secondBackground) ,    flexDirection: 'column',
     alignItems: 'center',
     transition: 'all 0.2ms linear',
     transitionDelay: (props) => (props.state !== 'open' ? '0ms' : '225ms'),
     transform: (props) => `scale(${props.state === 'open' ? 1 : 0})`,
-    height: (props) => (props.state === 'open' ? 'auto' : 0),
+    height: (props) => (props.state === 'open' ? '400px' : 0),
     [theme.breakpoints.down(420)]: {
-      height: (props) => (props.state === 'open' ? 'auto' : 0),
+      height: (props) => (props.state === 'open' ? '400px' : 0),
     },
     cursor: 'default',
     justifyContent: 'center',
@@ -99,16 +109,17 @@ export default makeStyles<
   titleBackground: {
     position: 'absolute',
     top: '40%',
-    left: '-4vw',
+    left: '-13vw',
     width: '54vw',
-    transform: 'translateY(-50%)',
+    transform: ' rotate(180deg) translateY(50%)',
     zIndex: -1,
     transition,
     [theme.breakpoints.down(370)]: {
-      width: '53vw',
+      width: '62vw',
     },
     [theme.breakpoints.down(330)]: {
-      width: '52vw',
+      left: '-15vw',
+
     },
   },
 }));

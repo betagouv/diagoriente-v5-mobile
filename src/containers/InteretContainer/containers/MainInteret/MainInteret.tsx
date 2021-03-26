@@ -72,8 +72,9 @@ const MainInteret = () => {
           link={{
             pathname: `/interet/parcours/${0}`,
           }}
-          btnClassName={classes.validContainer}        />
+          btnClassName={classes.validContainer} />
       </div>
+     
     </div>
   );
 };

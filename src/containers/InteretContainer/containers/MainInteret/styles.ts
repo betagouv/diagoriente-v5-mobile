@@ -113,8 +113,9 @@ export default makeStyles<Theme>((theme) => ({
   },
   tContainer:{height:'80px'},
   validContainer:{
+ 
     [theme.breakpoints.down(330)]: {
-      bottom:'auto !important',
+      position:'initial',
 
     },
   }

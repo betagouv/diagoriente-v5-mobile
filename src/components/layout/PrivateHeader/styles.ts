@@ -13,13 +13,21 @@ export default makeStyles((theme: Theme) =>
 
     toolbarContainer: {
       display: 'flex',
-      // justifyContent: 'space-between',
+      justifyContent: 'center',
       minHeight: 'auto !important',
+      flexDirection:'row',
     },
-
+centerContainer:{
+  display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+},
     flexCenter: {
-      display: 'flex',
       alignItems: 'center',
+      display: "flex",
+    position: "absolute",
+    left: "20px",
     },
 
     logoContainer: {
