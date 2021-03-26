@@ -21,7 +21,7 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       padding: '35px 40px 40px 40px',
-      height: '100%',
+      height: '100vh',
     },
 
     circleContainer: {
