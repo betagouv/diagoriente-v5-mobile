@@ -124,7 +124,7 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     },
   },
   itemDescription: {
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: '12px',
     color: '#fff',
     margin:'10px 20px'

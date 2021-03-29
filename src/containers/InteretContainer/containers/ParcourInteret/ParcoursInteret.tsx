@@ -57,6 +57,10 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
     setInterest(selectedInterests);
   }, [setInterest, selectedInterests]);
 
+  useEffect(() => {
+    setInterest(selectedInterests);
+  }, [setInterest, selectedInterests]);
+
   const { data, loading } = useFamilies();
   const formattedData: { title: string; data: Families[] }[] = useMemo(
     () =>
@@ -66,16 +70,33 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
       })),
     [data],
   );
+  const renderAllPlaceholder = () => {
+    const array: JSX.Element[] = [];
+    for (let i = 1; i <=5; i += 1) {
+      array.push(   <div
+        className={classNames(
+          selectedInterest?.length && i <= selectedInterest?.length && classes.circleSelected,
+          classes.circle,
+        )}
+        onClick={() => setOpenConfirm(true)}
+        // key={el.id}
+      >
+        {i}
+      </div>);
+    }
+    return array;
+  };
 
   const renderPlaceholder = () => {
     const array: JSX.Element[] = [];
+    
     if (selectedInterest) {
       for (let i = selectedInterests.length + 1; i <= 5; i += 1) {
         if (i <= 4) {
-          array.push(<PlaceHolder index={i} key={i} direction="horizontal" />);
+          array.push(<PlaceHolder  index={i} key={i} direction="horizontal" />);
           array.push(<Divider style={{ backgroundColor: '#C9C9C7' }} />);
         } else {
-          array.push(<PlaceHolder index={i} key={i} direction="horizontal" />);
+          array.push(<PlaceHolder  index={i} key={i} direction="horizontal" />);
         }
       }
 
@@ -121,10 +142,15 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   };
   const handelClose = () => setOpenConfirm(false);
 
+
+console.log(renderAllPlaceholder,'all')
+console.log(renderPlaceholder,'p')
+
   return (
     <div className={classes.container}>
       <div className={classes.content}>
         <div className={classes.wrapper}>
+            
           <div className={classes.circleContainer}>
             {loading ? (
               <div className={classes.loadingContainer}>
@@ -142,7 +168,9 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
         </div>
 
         <div className={classes.fiveCircle}>
-          {parcours?.families?.map((el, i) => (
+        {!loading && renderAllPlaceholder()}
+
+          {/* {parcours?.families.map((el, i) => (
             <div
               className={classNames(
                 selectedInterest?.length && i < selectedInterest?.length && classes.circleSelected,
@@ -153,7 +181,13 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
             >
               {i + 1}
             </div>
-          ))}
+          ))} */}
+            {/* <div className={classNames(classes.root, className)}>
+      {data?.families? (
+        <div className={classNames(classes.circle, circleClassName)}>
+          <div className={classes.number}>{index || null}</div>
+        </div>
+      ) : ""} */}
           <div className={classes.validerButton}>
             {selectedInterest?.length && selectedInterest?.length >= 3 && (
               <div className={classes.btnNext}>

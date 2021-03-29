@@ -28,9 +28,16 @@ export default makeStyles<Theme>((theme) => ({
   },
   descriptionModal: {
     fontSize: 14,
+    textAlign: 'start',
+    marginTop: 40,
+    'padding-left': '4vh',
+    'padding-right': '2vh',
+  },
+  descriptionModal1: {
+    fontSize: 14,
     textAlign: 'center',
     marginTop: 40,
-    'padding-left': '2vh',
+    'padding-left': '4vh',
     'padding-right': '2vh',
   },
   subTitle: {
@@ -92,6 +99,7 @@ circle:{   [theme.breakpoints.down(380)]: {
     width : '70px' ,    },},
   themeContainerProSelected: {
     backgroundColor: '#7AE6FF',
+
   },
   themeContainerPersoSelected: {
     backgroundColor: '#7AE6FF',
@@ -107,11 +115,14 @@ circle:{   [theme.breakpoints.down(380)]: {
 
 
   themeTitle: {
-    textAlign: 'center',
+    textAlign: 'inherit',
     fontSize: 14,
     marginBottom: 3,
     [theme.breakpoints.down(380)]: {
       width : 'fit-content' ,    }
+  },
+  themeTitleSelected:{
+    fontWeight:'bold'
   },
   btnContainerModal: {
     display: 'flex',

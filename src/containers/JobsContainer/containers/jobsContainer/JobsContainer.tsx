@@ -116,6 +116,7 @@ const JobsContainer = ({
         array.splice(index, 1);
       } else {
         array.push(label);
+
       }
       setDomaine(array);
     }
@@ -160,8 +161,19 @@ const JobsContainer = ({
       setOpenDataToRender(false);
     }
   };
-
+  const isInclude = (id: string) => domaine && domaine.includes(id);
+console.log(isInclude,'is')
   const renderedJobs = jobs?.slice(0, jobsToShow);
+  // const getAccebilityName = (id: string | undefined) => {
+  //   if (id) {
+  //     const niveau = listSecteurData?.find((o) => {
+  //       return o.id === id;
+  //     });
+  //     return niveau?.title;
+  //   }
+  //   return 'Niveau de diplôme';
+  // };
+  
 
   return (
     <div className={classes.wrapper}>
@@ -198,6 +210,7 @@ const JobsContainer = ({
             font="ocean"
             size={32}
             color="#DB8F00"
+            backgroudColor="#ffff"
             logo={Logo}
             logoHeight="28px"
           />
@@ -215,10 +228,10 @@ const JobsContainer = ({
             />
             <Select
               options={listSecteurData}
-              onSelectText={onSelectDomaine}
+              onSelectText={onSelectDomaine }
               name="domaine"
               value={domaine}
-              placeholder="Domaine d’activité"
+              placeholder={""}
               className={classes.containerAutoComp}
               open={openDomain}
               fullScreenModal

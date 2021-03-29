@@ -79,17 +79,6 @@ const SelectJobs = ({
   const handleClose = () => {
     setOpenModal(false);
   };
-  // const getAccebilityName = (id: string | undefined) => {
-  //   if (id) {
-  //     const niveau = options?.find((el) => {
-  //       return el.id === id;
-  //     });
-  //     return niveau?.title;
-  //   }
-  //   return 'Niveau de diplôme';
-  // };
-  // console.log(value,"value")
-  // console.log(options,"options")
 
 
 
@@ -105,8 +94,8 @@ const SelectJobs = ({
           onChange={onChange}
           name={name}
           placeholder={placeholder}
-          className={from ? classes.inputContainer1 : classes.inputContainer}
           disabled
+          className={classNames(from ? classes.inputContainer1 : classes.inputContainer , isInclude && classes.selectedInput )}
         />
         <div className={classes.logoContainer}>
           <Arrow
@@ -124,12 +113,7 @@ const SelectJobs = ({
               <div className={classes.secteurContainerFullScreen}>
                 <div className={classes.closeFullModelContainer} onClick={onClose}>
 
-                  {/* <Arrow
-                    color={arrowColor ? arrowColor : '#420FAB'}
-                    width="12"
-                    height="19"
-                    className={classes.arrowClose}
-                  /> */}
+            
                   <span className={classes.closeModelLabel}> {placeholder} </span>
                   <img src={closeIcon} alt="close" className={classes.close} />
 
@@ -151,7 +135,6 @@ const SelectJobs = ({
                         </div>
                       <div
                         key={el.title}
-                        // className={classNames(classes.itemSecteur, isInclude(el.id) && classes.itemSecteurSelected)}
                       >
                         <span className={classNames(classes.item)}>
                           {el.title}
@@ -176,13 +159,14 @@ const SelectJobs = ({
               <div className={classes.backdrop} onClick={onClose} />
               <div className={classes.modalItemsContainer}>
                 <div className={classes.closeModelContainer} onClick={onClose}>
+             
+                  <span className={classes.closeModelLabel}> {placeholder}</span>
                   <Arrow
                     color={arrowColor ? arrowColor : '#420FAB'}
                     width="12"
                     height="19"
                     className={modal ? classes.modalArrowClose : classes.arrowClose}
                   />
-                  <span className={classes.closeModelLabel}> {placeholder}</span>
                 </div>
                 <OptionList
                   options={options}

@@ -74,6 +74,15 @@ export default makeStyles<
       width: 290,
     },
   },
+  selectedInput:{
+    border: (props) => `1px solid  ${props.open &&theme.palette.success.main }`,
+    '&::placeholder': {
+      color: theme.palette.success.main,
+      fontSize: 14,
+      fontWeight: 'bold',
+      marginLeft: 20,
+    },
+  },
   logoContainer: {
     position: 'absolute',
     right: 12,
@@ -230,8 +239,8 @@ btn:{
     height: 60,
     display: 'flex',
     alignItems: 'center',
-    paddingLeft: 30,
     borderBottom: '0.5px solid #C9C9C7',
+    justifyContent:'space-around'
   },
   closeFullModelContainer: {
     width: '100%',
