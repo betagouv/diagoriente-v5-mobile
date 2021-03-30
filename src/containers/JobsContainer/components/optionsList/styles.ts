@@ -1,6 +1,6 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles<Theme,{ CheckBoxbackgroudColor?: string;}>(() => ({
+export default makeStyles<Theme, { CheckBoxbackgroudColor?: string }>(() => ({
   root: {
     width: 235,
     background: '#FFFFFF',
@@ -28,6 +28,15 @@ export default makeStyles<Theme,{ CheckBoxbackgroudColor?: string;}>(() => ({
     paddingLeft: 10,
     fontWeight: 'bold',
   },
+  bkText:{
+    height: 52,
+    borderBottom: '0.5px solid #C9C9C7',
+    display: 'flex',
+    alignItems: 'center',
+    paddingLeft: 25,
+    position: 'relative',
+    backgroundColor:'#7AE6FF',
+  },
   mask: {
     position: 'absolute',
     top: 0,
@@ -37,8 +46,6 @@ export default makeStyles<Theme,{ CheckBoxbackgroudColor?: string;}>(() => ({
     zIndex: 1200,
   },
   hello: {
-    "background-color":  (props) => props.CheckBoxbackgroudColor || '#FFFFFF',
-    
-    
+    'background-color': (props) => props.CheckBoxbackgroudColor || '#FFFFFF',
   },
 }));

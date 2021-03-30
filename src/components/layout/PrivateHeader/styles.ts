@@ -13,7 +13,6 @@ export default makeStyles((theme: Theme) =>
 
     toolbarContainer: {
       display: 'flex',
-      justifyContent: 'center',
       minHeight: 'auto !important',
       flexDirection:'row',
     },
@@ -22,6 +21,7 @@ centerContainer:{
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
+    marginLeft:'40px'
 },
     flexCenter: {
       alignItems: 'center',

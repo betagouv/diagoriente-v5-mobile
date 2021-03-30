@@ -8,7 +8,7 @@ export default makeStyles<Theme, { direction: 'vertical' | 'horizontal'; hover: 
     justifyContent: 'left',
     margin: '5px 8px 5px 0px',
     [theme.breakpoints.down('sm')]: {
-      margin: '13px 2vh',
+      margin: '13px 1vh',
     },
     cursor: 'pointer',
   },
@@ -42,7 +42,7 @@ export default makeStyles<Theme, { direction: 'vertical' | 'horizontal'; hover: 
   elements: {
     display: 'flex',
     flexDirection: 'column',
-    width: 150,
+    width: 124,
     marginLeft: 10,
     fontSize: 14,
     color: '#424242',

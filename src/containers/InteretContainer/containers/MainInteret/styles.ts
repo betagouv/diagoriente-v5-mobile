@@ -9,11 +9,11 @@ export default makeStyles<Theme>((theme) => ({
     alignItems: 'center',
     paddingBottom: 20,
     backgroundColor: '#f3f2f4',
-    // [theme.breakpoints.down(380)]: {
-    //   height: '',
+    [theme.breakpoints.down(330)]: {
+      height: '87vh',
 
 
-    // },
+    },
   },
   content: {
     maxWidth: 1080,
@@ -86,19 +86,19 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    padding: '15px',
+    padding: '10px',
     paddingLeft: '20px',
     [theme.breakpoints.down(420)]: {
       paddingLeft: '48px',
     },
     [theme.breakpoints.down(380)]: {
       paddingLeft: '20px',
-      padding: '15px',
+      padding: '10px',
 
     },
     [theme.breakpoints.down(365)]: {
       paddingLeft: '20px',
-      padding: '10px',
+      padding: '5px',
 
     },
   },

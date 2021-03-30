@@ -239,16 +239,22 @@ export default makeStyles<Theme>((theme) => ({
     justifyContent: 'flexStart',
     alignItems: 'center',
   },
+  circleNumber:{
+border:'none',
+  },
+  placeHolderCircle:{
+margin:'7px'
+  },
   circle: {
     borderRadius: '50%',
     border: '1px solid #fff',
-    margin: '10px',
+    margin: '5px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '	rgb(255,255,255,0.5)',
-    fontFamily: 'Ocean Six',
+    fontFamily: 'Ocean ',
     fontSize: '20px',
     fontWeight: 900,
     width: 30,
@@ -258,7 +264,7 @@ export default makeStyles<Theme>((theme) => ({
   circleSelected: {
     borderRadius: '50%',
     border: '1px solid #fff',
-    margin: '10px',
+    margin: '5px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -270,15 +276,10 @@ export default makeStyles<Theme>((theme) => ({
     width: 30,
     height: 30,
     color: '#7533FF',
-    [theme.breakpoints.down(380)]: {
-      margin: '7px',
-    },
-    [theme.breakpoints.down(365)]: {
-      margin: '6px',
-    },
-    [theme.breakpoints.down(330)]: {
-      margin: '4px',
-    },
+    // [theme.breakpoints.down(380)]: {
+    //   margin: '7px',
+    // },
+ 
   },
   diagPop: {
     height: ' 600px',

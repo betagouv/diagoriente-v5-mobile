@@ -35,11 +35,9 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps , { locat
   }, [defaultIndex]);
   let title1: string;
   title1 = window.location.toString();
-console.log(currentIndex,'def')
   return (
     <>
    
-      {/* <TitleImage title={data[currentIndex].title} color="#FFFFFF" backgroudColor="#A275FF" size={32} /> */}
       <div className={classes.slideTitle}>
         <div className={classes.imgSlide}>
           {currentIndex == 0 ? (
@@ -110,17 +108,7 @@ console.log(currentIndex,'def')
         afterSlide={(index) => setCurrentIndex(index)}
         renderCenterLeftControls={({ previousSlide }) => (
           <div className={classNames(currentIndex === 0 && classes.hide, classes.wrapperBtn, classes.prevWrap)}>
-            {/* <div
-              onClick={() => {
-                if (currentIndex !== 0) {
-                  previousSlide();
-                  setCurrentIndex(currentIndex - 1);
-                }
-              }}
-              className={classNames(classes.containerBtnLeft, classes.rotatedArrow)}
-            >
-              <Arrow width="12" height="24" color="#fff" className={classes.arrowCon} />
-            </div> */}
+        
             <div className={classes.titleContainerArrow} />
           </div>
         )}
@@ -132,17 +120,7 @@ console.log(currentIndex,'def')
               classes.nextWrap,
             )}
           >
-            {/* <div
-              onClick={() => {
-                if (currentIndex !== data.length - 1) {
-                  nextSlide();
-                  setCurrentIndex(currentIndex + 1);
-                }
-              }}
-              className={classes.containerBtnRight}
-            >
-              <Arrow width="12" height="24" color="#fff" className={classes.arrowCon} />
-            </div> */}
+
             <div className={classes.titleContainerArrow} />
           </div>
         )}
@@ -164,14 +142,7 @@ console.log(currentIndex,'def')
                   >
                     <div className={classNames(selected ? classes.selected : classes.imageContainer)}>
                       <div className={classes.CheckBoxStyle}>
-                        {/* <CheckBox
-                          checked={selected}
-                          img={selected && checked}
-                          className={classes.checkBox}
-                          classNameLogo={classes.checkBoxImg}
-                          color="#420FAB"
-                          border="#420FAB"
-                        /> */}
+                  
                       </div>
                       <img src={e.resources[0]} alt="" className={classes.deselected} />
                       <div className={classNames(selected ? classes.titleSelected1 : classes.titleContainer1)}>

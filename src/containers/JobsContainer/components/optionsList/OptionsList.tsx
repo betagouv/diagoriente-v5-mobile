@@ -34,9 +34,9 @@ const OptionsList = ({
   return (
     <div className={className ? className : classes.root}>
       {formattedData.map((el) => (
-        <div key={el.label} className={classes.item} onClick={() => onSelectText(el.id)}>
+        <div key={el.label} className={isInclude(el.id) ? classes.bkText : classes.item} onClick={() => onSelectText(el.id)}>
           <div className={classes.mask} />
-          <CheckBox
+          {/* <CheckBox
             className={classes.hello}
             name={el.label}
             checked={isInclude(el.id)}
@@ -44,7 +44,7 @@ const OptionsList = ({
             color="#fff"
             background={background}
             border={border}
-          />
+          /> */}
           <div className={isInclude(el.id) ? classes.selectedItemText : classes.itemText}>{el.label}</div>
         </div>
       ))}

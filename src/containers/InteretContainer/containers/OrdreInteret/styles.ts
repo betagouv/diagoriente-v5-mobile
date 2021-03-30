@@ -60,12 +60,12 @@ export default makeStyles<Theme>((theme) => ({
     display:'flex',
     padding:20,
     flexDirection:'column',
-    justifyContent:'center'
+    justifyContent:'start'
   },
   listSelected: {
     display: 'flex',
     justifyContent: 'center',
-    padding: 20,
+    padding: 40,
     [theme.breakpoints.down(330)]: {
       padding: 15,
     },
@@ -89,7 +89,8 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
     height:50,
     border:'none',
-    position: 'absolute',
+    position: 'fixed',
+    zIndex:1,
     bottom: '0px',
     backgroundColor:'#7533FF',
     display:'flex',

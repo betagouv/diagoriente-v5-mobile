@@ -2,7 +2,14 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles<
   Theme,
-  { direction: 'vertical' | 'horizontal'; size?: number; marginTop?: number; footer?: boolean; full?: boolean }
+  {
+    direction: 'vertical' | 'horizontal';
+    size?: number;
+    marginTop?: number;
+    footer?: boolean;
+    full?: boolean;
+    fontSizeNumber? : number;
+  }
 >((theme) => ({
   root: {
     display: 'flex',
@@ -25,9 +32,23 @@ export default makeStyles<
     opacity: (props) => (props.footer ? 0.3 : 0.5),
     marginBottom: (props) => (props.direction === 'horizontal' ? 0 : 10),
   },
+  circleSelected:{
+    width: (props) => props.size || 77,
+    height: (props) => props.size || 77,
+    borderRadius: '50%',
+    border: `2px dashed ${theme.palette.primary.main}`,
+    boxSizing: 'border-box',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    opacity: (props) => (props.footer ? 0.3 : 0.5),
+    marginBottom: (props) => (props.direction === 'horizontal' ? 0 : 10),
+    backgroundColor: '#ffff',
+
+  },
   number: {
     color: theme.palette.primary.main,
-    fontSize: 40,
+    fontSize: (props) => props.fontSizeNumber || 77,
     fontWeight: 900,
     fontFamily: 'ocean',
   },
@@ -65,5 +86,4 @@ export default makeStyles<
     width: '100%',
     left: 0,
   },
- 
 }));

@@ -7,9 +7,9 @@ import defaultAvatar from 'assets/svg/defaultAvatar.svg';
 import IlluMeConnaitre from 'assets/images/illu_dashboard_se_connaitre.png';
 import IlluMeProtejer from 'assets/images/illu_dashboard_se_projeter.png';
 import IlluMengager from 'assets/images/illu_dashboard_sengager.png';
-import blueLine from 'assets/svg/trait_bleu_tres_fonce.svg';
-import yellowLine from 'assets/svg/trait_jaune_fonce.svg';
-import pinkLine from 'assets/svg/trait_rose.svg';
+import blueLine from 'assets/svg/blue.svg';
+import yellowLine from 'assets/svg/yellow.svg';
+import pinkLine from 'assets/svg/red.svg';
 import ModalContainer from 'components/common/Modal/ModalContainer';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import DashboardStep from 'components/ui/DashboardStep/DashboardStep';
@@ -73,7 +73,7 @@ const HomeCompleted = () => {
     () => [
       {
         title: 'ME CONNAÎTRE',
-        titleBackground: blueLine,
+        bkGround: blueLine,
         background: '#4D6EC5',
         secondBackground: '#223A7A',
         image: IlluMeConnaitre,
@@ -108,7 +108,7 @@ const HomeCompleted = () => {
       },
       {
         title: 'ME PROJETER',
-        titleBackground: yellowLine,
+        bkGround: yellowLine,
         background: '#FFA600',
         secondBackground: '#DB8F00',
         image: IlluMeProtejer,
@@ -132,7 +132,7 @@ const HomeCompleted = () => {
       },
       {
         title: 'M’ENGAGER',
-        titleBackground: pinkLine,
+        bkGround: pinkLine,
         background: '#D60051',
         secondBackground: '#BB0147',
         image: IlluMengager,

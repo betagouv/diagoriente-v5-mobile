@@ -3,32 +3,32 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 const transition = 'all 225ms ease-out';
 function getAvatarSize(props: { state?: 'closed' | 'initial' | 'open' }) {
   if (props.state === 'closed') {
-    return '100px';
+    return '70px';
   }
   if (props.state === 'open') {
-    return '100px';
+    return '70px';
   }
 
-  return '165px';
+  return '150px';
 }
 function getAvatarHeight(props: { state?: 'closed' | 'initial' | 'open' }) {
   if (props.state === 'closed') {
-    return '100px';
+    return '70px';
   }
   if (props.state === 'open') {
     // return '156px';
-    return '100px';
+    return '70px';
 
   }
 
   // return '150px';
-  return '165px';
+  return '150px';
 
 }
 
 export default makeStyles<
   Theme,
-  { background?: string; secondBackground?: string; state?: 'closed' | 'initial' | 'open'; isOpen?: boolean }
+  { background?: string; bkGround?:string, secondBackground?: string; state?: 'closed' | 'initial' | 'open'; isOpen?: boolean }
 >((theme) => ({
   container: {
     backgroundColor: (props) =>
@@ -38,16 +38,16 @@ export default makeStyles<
     cursor: 'pointer',
     transition,
  
-    height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '150px'),
+    height: (props) => (props.state === 'open' ? 'auto' : props.state === 'initial' ? 'auto' : '120px'),
 
   },
   wrapperTitleImage: {
     display: 'flex',
-    height: (props) => (props.state === 'open' ? '179px' : '100%'),
+    height: (props) => (props.state === 'open' ? '160px' : props.state === 'initial' ? 'auto' : '120px'),
     alignItems: 'center',
     width: '100%',
     justifyContent: 'flex-start',
-    padding: '25px 0px 25px 5%',
+    padding: '25px 0px 25px 0%',
     [theme.breakpoints.down(330)]: {
       padding: '25px 0px 25px 0px',
     },
@@ -58,14 +58,24 @@ export default makeStyles<
     fontFamily: 'Ocean',
     position: 'relative',
     transition,
-    marginLeft:38,
     zIndex: 2,
+    backgroundImage: (props) => (`url(${props.bkGround})`),
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+        width: '250px',
+        textAlign:'center',
+
+
     [theme.breakpoints.down(380)]: {
-      marginLeft:0,
+      width: '220px',
+      marginLeft:'-39px',
 
     },
     [theme.breakpoints.down(330)]: {
       fontSize: 36,
+      width: (props) => (props.state === 'open' ? 260 : props.state === 'initial' ? 208: 277),
+
 
     },
   },
@@ -74,6 +84,7 @@ export default makeStyles<
     height: (props) => getAvatarHeight({ state: props.state }),
     position: 'relative',
     transition,
+    marginLeft: (props) => (props.state === 'open' ? 20 : props.state === 'initial' ? 0: 20),
   },
   avatar: {
     position: 'absolute',
@@ -106,19 +117,16 @@ export default makeStyles<
   },
   titleBackground: {
     position: 'absolute',
-    top: '40%',
+    top: '-220%',
     left: '-9vw',
-    width: '50vw',
-    transform: ' rotate(180deg) translateY(50%)',
+    width: '62vw',
     zIndex: -1,
     transition,
-    [theme.breakpoints.down(370)]: {
-      width: '62vw',
-    },
-    [theme.breakpoints.down(330)]: {
-      left: '-15vw',
+ 
+    // [theme.breakpoints.down(330)]: {
+    //   left: '-15vw',
 
-    },
+    // },
   },
   titleBk:{
     [theme.breakpoints.down(380)]: {

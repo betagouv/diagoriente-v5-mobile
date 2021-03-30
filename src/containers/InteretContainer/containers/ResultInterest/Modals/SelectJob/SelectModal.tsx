@@ -49,7 +49,7 @@ const SelectModal = () => {
   const [openType, setOpenType] = useState(false);
 
   const [accessibility, setAccessibility] = useState('');
-  const isChecked = (id: string):any => selectedThemes.includes(id);
+  const isChecked = (id: string): any => selectedThemes.includes(id);
   const divType = useRef<HTMLDivElement>(null);
   var x = false;
 
@@ -99,16 +99,8 @@ const SelectModal = () => {
     case Steps.ACCESSIBILITY:
       return (
         <div className={classes.modalBody}>
-    
-
-          <div className={classes.titleModal}>
-            Encore une petite chose !
-     
-          </div>
-          <div className={classes.descriptionModal}>
-         
-          Indique-nous ton niveau de diplôme :
-          </div>
+          <div className={classes.titleModal}>Encore une petite chose !</div>
+          <div className={classes.descriptionModal1}>Indique-nous ton niveau de diplôme :</div>
           <div className={classes.accessibility}>
             <ThemeProvider theme={selectTheme}>
               <Select
@@ -126,22 +118,23 @@ const SelectModal = () => {
                 onClose={() => setOpenType(false)}
                 reference={divType}
                 color={x}
-                arrowColor={"#00B2DB"}
+                arrowColor={'#00B2DB'}
                 from="interest"
               />
             </ThemeProvider>
           </div>
-  {accessibility &&      <div className={classes.btnContainerModal}>
-            <div className={classes.btn}  onClick={onValide} >
-              <div className={classes.btnLabel}>Voir mes pistes métiers</div>
-              {updateState.loading && (
-              <div className={classes.loaderContainer}>
-                <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
+          {accessibility && (
+            <div className={classes.btnContainerModal}>
+              <div className={classes.btn} onClick={onValide}>
+                <div className={classes.btnLabel}>Voir mes pistes métiers</div>
+                {updateState.loading && (
+                  <div className={classes.loaderContainer}>
+                    <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
+                  </div>
+                )}
               </div>
-            )}    
             </div>
-               </div> }
-     
+          )}
         </div>
       );
     default:
@@ -168,24 +161,29 @@ const SelectModal = () => {
                         )}
                         onClick={() => addTheme(pr.theme.id)}
                       >
-
                         <div className={classes.CheckBoxStyle}>
                           <CheckBox
                             checked={isChecked(pr.theme.id)}
-                            img={ isChecked(pr.theme.id) && checked}
+                            img={isChecked(pr.theme.id) && checked}
                             className={classes.checkBox}
                             classNameLogo={classes.checkBoxImg}
                             color="#7AE6FF"
                             border="##00B2DB"
                             background="#fff"
-
                           />
                         </div>
                         <Avatar size={60} squareContainerClassName={classes.square} className={classes.circle}>
                           <img src={pr.theme.resources?.icon} alt="" className={classes.avatarStyle} />
                         </Avatar>
-                        <div className={classes.themeTitle}>{pr.theme.title.replace(/\//g, '')}</div>
+                        <div
+                          className={classNames(
+                            classes.themeTitle,
+                            isChecked(pr.theme.id) && classes.themeTitleSelected,
+                          )}
+                        >
+                          {pr.theme.title.replace(/\//g, '')}
                         </div>
+                      </div>
                     </>
                   ))}
                 <Divider variant={'fullWidth'} />
@@ -198,44 +196,55 @@ const SelectModal = () => {
                   .filter((p) => p.theme?.type === 'professional')
                   .map((pr) => (
                     <>
-                    <Divider variant={'fullWidth'} />
-                    <div
-                      key={pr.theme.id}
-                      onClick={() => addTheme(pr.theme.id)}
-                      className={classNames(
-                        classes.themeContainer,
-                        classes.themeContainerPro,
-                        isChecked(pr.theme.id) && classes.themeContainerProSelected,
-                      )}
-                    >
-                      <div className={classes.CheckBoxStyle}>
-                        <CheckBox
-                          checked={isChecked(pr.theme.id)}
-                          className={classes.checkBox}
-                          classNameLogo={classes.checkBoxImg}
-                          color="#7AE6FF"
-                          border="##00B2DB"
-                          background="#fff"
-                        />
+                      <Divider variant={'fullWidth'} />
+                      <div
+                        key={pr.theme.id}
+                        onClick={() => addTheme(pr.theme.id)}
+                        className={classNames(
+                          classes.themeContainer,
+                          classes.themeContainerPro,
+                          isChecked(pr.theme.id) && classes.themeContainerProSelected,
+                        )}
+                      >
+                        <div className={classes.CheckBoxStyle}>
+                          <CheckBox
+                            checked={isChecked(pr.theme.id)}
+                            className={classes.checkBox}
+                            classNameLogo={classes.checkBoxImg}
+                            color="#7AE6FF"
+                            border="##00B2DB"
+                            background="#fff"
+                          />
+                        </div>
+                        <div
+                          className={classNames(
+                            classes.themeTitle,
+                            isChecked(pr.theme.id) && classes.themeTitleSelected,
+                          )}
+                        >
+                          {pr.theme.title}
+                        </div>
                       </div>
-                      <div className={classes.themeTitle}>{pr.theme.title}</div>
-                    </div>
-                </>  ))}
+                    </>
+                  ))}
                 <Divider variant={'fullWidth'} />
-
               </div>
             </div>
           </div>
-
-          <div className={classes.btnContainerModal}>
-            <div className={classes.btn} onClick={() => setStep(Steps.ACCESSIBILITY)} >
-              <div className={classes.btnLabel}>{selectedThemes.length > 0 ? 'Suivant' : 'Ignorer'}</div>
-            </div>
-            {updateState.loading && (
-              <div className={classes.loaderContainer}>
-                <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
+          {selectedThemes.length > 0 ? (
+            <div className={classes.btnContainerModal}>
+              <div className={classes.btn} onClick={() => setStep(Steps.ACCESSIBILITY)}>
+                <div className={classes.btnLabel}>{'Valider'}</div>
               </div>
-            )}          </div>
+              {updateState.loading && (
+                <div className={classes.loaderContainer}>
+                  <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
+                </div>
+              )}{' '}
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       );
   }
