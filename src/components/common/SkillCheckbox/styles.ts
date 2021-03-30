@@ -15,7 +15,13 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     borderTop: '1px solid #C9C9C7',
   },
-  checkboxContainer: { display: 'flex', alignItems: 'center', width: 'fit-content', height: '100%' },
+  checkboxContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    width: 'fit-content',
+    height: '100%',
+    maxWidth: 'calc(100% - 30px)',
+  },
   checkbox: {
     /* pointerEvents: 'none', */
   },
@@ -36,10 +42,12 @@ export default makeStyles((theme) => ({
     lineHeight: '24px',
     color: '#424242',
     marginLeft: 20,
+    maxWidth: '100%',
   },
   openedLabel: {
     fontWeight: 700,
     color: '#00B2DB',
+    maxWidth: 'calc(100% - 35px)',
   },
   selectedLabel: {
     fontWeight: 700,
