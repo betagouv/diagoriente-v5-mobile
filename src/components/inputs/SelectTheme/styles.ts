@@ -43,7 +43,7 @@ export default makeStyles((theme: Theme) => ({
   },
   arrow: {
     width: 14,
-    height: 8,
+    height: 9,
   },
   rotatedArrow: {
     transform: 'rotate(180deg)',
@@ -72,7 +72,7 @@ export default makeStyles((theme: Theme) => ({
       width: 230,
     },
     '& input': {
-      width: '85%',
+      width: '86%',
     },
   },
 
@@ -147,13 +147,6 @@ export default makeStyles((theme: Theme) => ({
     borderRadius: '0px !important',
     paddingBottom: '0px !important',
     cursor: 'pointer',
-  },
-  avatarCircleSelected: {
-    width: '45px !important',
-  },
-
-  avatarCircleThemes: {
-    width: '15px !important',
   },
 
   squareContainerClassName: {

@@ -91,7 +91,6 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
               <Spinner />
             </div>
           )}
-          {/*  <Selection theme={selectedTheme} activities={[]} /> */}
         </div>
       </div>
     </div>
