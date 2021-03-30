@@ -21,8 +21,8 @@ const MySelection = ({ theme, activities }: Props) => {
       </div>
       {open && (
         <div className={classes.modalContainer}>
-          <div className={classes.modal} onClick={() => setOpen(false)}>
-            <img src={Close} alt="" className={classes.closeImg} />
+          <div className={classes.modal}>
+            <img src={Close} alt="" className={classes.closeImg} onClick={() => setOpen(false)} />
             <div className={classes.modalTitle}> Ma sélection</div>
             <div className={classes.selectionContainer}>
               <div className={classes.label}>Mon thème</div>
@@ -39,11 +39,7 @@ const MySelection = ({ theme, activities }: Props) => {
                 ) : (
                   undefined
                 )}
-                {theme?.type === 'professional' ? (
-                  <li className={classes.dot}>{theme?.title}</li>
-                ) : (
-                  <p className={classes.text}>{theme?.title}</p>
-                )}
+                <p className={classes.text}>{theme?.title}</p>
               </div>
             </div>
             {activities && (
