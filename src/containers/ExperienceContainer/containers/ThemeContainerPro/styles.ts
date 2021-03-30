@@ -29,7 +29,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      flex: 1,
+      height: '100vh',
     },
 
     themeTitle: {
@@ -37,75 +37,90 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
     },
 
-    gridContainer: {
-      padding: SKILL_CONTAINER_PADDING,
-      [theme.breakpoints.up(560)]: {
-        padding: '15px 15px 60px 15px',
-      },
-      [theme.breakpoints.down(559)]: {
-        padding: '40px 15px',
-      },
-    },
-
-    circleContainer: {
-      display: 'flex',
-      width: '100%',
-      alignItems: 'center',
-      flexDirection: 'column',
-      paddingBottom: 100,
-    },
     searchContainer: {
       width: '100%',
     },
     boxSearch: {
-      /*  background: '#B7ECFA',
-      borderRadius: 10, */
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '40px 0px 30px 0px ',
-      margin: '28px 29px 20px 28px',
-    },
-    itemData: {
-      margin: 5,
-      border: '1px solid #00CFFF',
-      borderRadius: 30,
-      width: 'max-content',
-      padding: 10,
-      color: '#424242',
-      textTransform: 'capitalize',
-      '&:hover': {
-        backgroundColor: 'rgba(122, 230, 255, 0.2)',
-      },
-      [theme.breakpoints.down(450)]: {
-        width: 'auto',
+      padding: '60px 40px 0px 40px ',
+      [theme.breakpoints.down(320)]: {
+        padding: '60px 20px 0px 20px ',
       },
     },
-    selected: {
-      backgroundColor: '#7AE6FF',
-      '&:hover': {
-        backgroundColor: '#7AE6FF',
-      },
-    },
+
     boxSearchTitle: {
       fontWeight: 'bold',
       fontSize: 14,
-      width: 256,
+      width: '100%',
       lineHeight: ' 20px',
       textAlign: 'center',
+      color: '#223A7A',
     },
     searchProp: {
       color: '#00CFFF',
     },
     inputSearchContainer: {
-      marginTop: 17,
+      marginTop: 15,
+      width: '100%',
     },
+    wrapperInput: { width: '100%', justifyContent: 'center' },
+    inputBase: { width: 290, margin: '0px' },
+    input: { fontWeight: 700 },
+    resultsContainer: {
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      boxShadow: '0px -4px 5px 0px rgb(50 50 50 / 25%)',
+      position: 'absolute',
+    },
+    titleWrapper: {
+      width: '100%',
+      height: 35,
+      display: 'flex',
+      alignItems: 'center',
+      backgroundColor: 'rgba(201, 201, 199, 0.5)',
+      paddingLeft: 40,
+    },
+    resultWrapper: {
+      backgroundColor: '#FFFFFF',
+      borderBottom: '1px solid #C9C9C7',
+    },
+    selectedResult: {
+      backgroundColor: 'rgba(122, 230, 255, 0.5)',
+      borderBottom: 'none',
+    },
+    resultTitle: {
+      fontWeight: 'bold',
+      fontSize: 14,
+      lineHeight: '20px',
+      color: '#424242',
+    },
+
     title: {
       fontWeight: 900,
       fontSize: 42,
       fontFamily: 'Ocean',
       color: '#223A7A',
       marginTop: 50,
+    },
+
+    ativityContainer: {
+      width: '100%',
+      height: 'fit-content',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      backgroundColor: '#FFFFFF',
+      borderBottom: '1px solid #C9C9C7',
+      padding: '10px 40px 5px 60px',
+    },
+    activity: {
+      fontSize: 12,
+      lineHeight: '15px',
+      color: '#424242',
+      marginBottom: 10,
     },
 
     marginTitle: {
@@ -179,67 +194,6 @@ export default makeStyles((theme: Theme) =>
       '&:not(.nohover):hover': {
         opacity: 1,
       },
-    },
-    btn: {
-      // backgroundColor: theme.palette.background.default,
-      // '&:hover': {
-      //   backgroundColor: theme.palette.background.default,
-      // },
-    },
-
-    previousNext: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '8px 8px ',
-      position: 'fixed',
-      bottom: 0,
-      width: '100%',
-      backgroundColor: 'white',
-      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
-      zIndex: 1,
-      '@media not all and (min-resolution:.001dpcm)': {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '8px 13px ',
-        position: 'fixed',
-        bottom: 0,
-        width: '100%',
-        backgroundColor: 'white',
-        boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
-        zIndex: 1,
-      },
-    },
-    classNameTitle: {
-      color: '#4D6EC5',
-      fontSize: 18,
-      lineHeight: '26px',
-      '@media not all and (min-resolution:.001dpcm)': {
-        color: '#4D6EC5',
-        fontSize: 14,
-        lineHeight: '26px',
-      },
-    },
-
-    btnpreced: {
-      color: '#6B6B6A',
-      height: 50,
-      marginTop: 33,
-      fontSize: 14,
-      textAlign: 'center',
-      fontWeight: 'bold',
-      textDecoration: 'none',
-    },
-    titleDiv: {
-      width: 'fit-content',
-      flexwrap: 'wrap',
-      wordBreak: 'break-word',
-      textAlign: 'left',
-      padding: '10px 0px',
-    },
-    child: {
-      flexWrap: 'wrap',
     },
   }),
 );

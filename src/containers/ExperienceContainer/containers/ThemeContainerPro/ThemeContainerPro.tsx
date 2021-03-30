@@ -1,34 +1,23 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import Title from 'components/common/TitleImage/TitleImage';
 import Input from 'components/inputs/Input/Input';
-import Child from 'components/ui/ForwardRefChild/ForwardRefChild';
-import SelectionContext from 'contexts/SelectionContext';
-import useOnclickOutside from 'hooks/useOnclickOutside';
 import { useThemes } from 'requests/themes';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
-import Selection from 'components/theme/ThemeSelection/ThemeSelection';
+import { RouteComponentProps } from 'react-router-dom';
 import parcoursContext from 'contexts/ParcourContext';
-import NextButton from 'components/nextButton/nextButton';
-import blueline from 'assets/svg/blueline.svg';
 import LoupeGray from 'assets/svg/loupe.svg';
 import LoupeBlue from 'assets/svg/loupeBlue.svg';
-import PreviousButton from 'components/previousButton/previousButton';
 import { decodeUri, encodeUri } from 'utils/url';
 import { Theme } from 'requests/types';
 import classNames from 'utils/classNames';
-
+import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
+import ValidationButton from 'components/valideButton/valideButton';
 import useStyles from './styles';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Portal from '@material-ui/core/Portal';
-import { Slide } from '@material-ui/core';
+
 const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const classes = useStyles();
 
   const isBrowser = typeof window !== 'undefined';
   const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
-  const refSlide = useRef(null);
-  const [openedTheme, setOpenedTheme] = useState<Theme | null>(null);
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
   const [valueSearch, setValueSearch] = useState('');
 
@@ -37,46 +26,14 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     variables: { type: 'professional', search: valueSearch },
   });
   const { parcours } = useContext(parcoursContext);
-  const [checked, setChecked] = React.useState(false);
-  const [currentBtn, setCurrentBtn] = useState(-1);
-  const divInfo = useRef<HTMLDivElement>(null);
-
-  useOnclickOutside(divInfo, (e: Event) => {
-    if (
-      currentBtn >= 0 &&
-      document.getElementsByClassName('ignore-onclickoutside')[currentBtn].contains(e.target as any)
-    ) {
-      return;
-    } else if (openedTheme && divInfo) {
-      setOpenedTheme(null);
-    }
-  });
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState(-1);
 
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setValueSearch(value);
   };
 
-  useEffect(() => {
-    if (data) {
-      const id = localStorage.getItem('theme');
-      const selected = data.themes.data.find((theme) => theme.id === id);
-      if (selected) setSelectedTheme(selected);
-    }
-  }, [data]);
-  const { open, setOpen } = useContext(SelectionContext);
-
-  const showAvatar = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, theme: Theme) => {
-    if (openedTheme?.id === theme.id) {
-      setSelectedTheme(theme);
-      setOpenedTheme(null);
-    } else {
-      setOpen(false);
-    }
-  };
-  const toggle = () => {
-    setOpen(open);
-  };
   useEffect(() => {
     if (selectedTheme) {
       localStorage.setItem('theme', selectedTheme?.id);
@@ -92,118 +49,109 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     };
   });
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
+
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
 
-  const handleClick = (theme: any) => {
-    setOpenedTheme(theme);
-  };
-
   const onNavigate = () => {
     if (selectedTheme) history.push(`/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}`);
   };
+  const onClickTheme = (theme: Theme, index: number) => {
+    if (!isOpen && currentTheme !== index) {
+      setIsOpen(true);
+      setCurrentTheme(index);
+    } else if (isOpen && currentTheme !== index) {
+      setCurrentTheme(index);
+    } else if (isOpen && currentTheme === index) {
+      setSelectedTheme(theme);
+      setIsOpen(false);
+      setCurrentTheme(-1);
+      if (selectedTheme) setValueSearch(selectedTheme?.title);
+    }
+    console.log('Index', index);
+  };
+
+  useEffect(() => {
+    if (selectedTheme) setValueSearch(selectedTheme?.title);
+  }, [selectedTheme?.title]);
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
         <Title title="mes expériences pro" color="#FFFFFF" size={32} />
-
+        <BreadCrumb level={1} routes={[{ title: 'Thème', url: '' }]} />
         <div className={classes.themeContainer}>
           <div className={classes.searchContainer}>
             <div className={classes.boxSearch}>
-              <div className={classes.boxSearchTitle}>Tape les premières lettres de ton expérience pro</div>
+              <div className={classes.boxSearchTitle}>Décris ton expérience professionnelle</div>
               <div className={classes.inputSearchContainer}>
                 <Input
-                  icon={valueSearch ? LoupeBlue : LoupeGray}
+                  icon={valueSearch && valueSearch !== selectedTheme?.title ? LoupeBlue : LoupeGray}
                   value={valueSearch}
                   onChange={onChangeValue}
-                  placeholder="Ex : vendeur"
+                  placeholder="Ex : j’ai vendu des fleurs"
+                  wrapperInputClassName={classes.wrapperInput}
+                  inputClassName={classes.input}
+                  inputBaseClassName={classes.inputBase}
                   withOutIcons
                 />
               </div>
             </div>
-            <div className={classes.gridContainer}>
-              <Grid className={classes.circleContainer} container spacing={2} xs>
-                {valueSearch &&
-                  data?.themes.data
-                    .filter((theme) => !parcours?.skills.find((id) => theme.id === id.theme?.id))
-                    .map((theme, index) => {
-                      const tooltip = theme.activities;
-                      const t = theme.title.replace(new RegExp('[//,]', 'g'), '\n');
-                      const x = t.split(new RegExp(valueSearch, 'i'));
-                      const title = [];
-                      for (let i = 0; i < x.length; i += 1) {
-                        title.push(x[i]);
-                        if (i !== x.length - 1) {
-                          title.push(
-                            <span key={i} style={{ color: '#00CFFF' }}>
-                              {valueSearch}
-                            </span>,
-                          );
-                        }
+            {valueSearch && valueSearch !== selectedTheme?.title && (
+              <div className={classes.resultsContainer}>
+                <div className={classes.titleWrapper}>
+                  <span className={classes.resultTitle}>Métiers</span>
+                </div>
+                {data?.themes.data
+                  .filter((theme) => !parcours?.skills.find((id) => theme.id === id.theme?.id))
+                  .map((theme, index) => {
+                    const tooltip = theme.activities;
+                    const t = theme.title.replace(new RegExp('[//,]', 'g'), '\n');
+                    const x = t.split(new RegExp(valueSearch, 'i'));
+                    const title = [];
+                    for (let i = 0; i < x.length; i += 1) {
+                      title.push(x[i]);
+                      if (i !== x.length - 1) {
+                        title.push(
+                          <span key={i} style={{ color: '#424242', fontWeight: 'normal' }}>
+                            {valueSearch}
+                          </span>,
+                        );
                       }
-                      return (
-                        <div key={theme.id}>
-                          <Grid
-                            key={theme.id}
-                            item
-                            onClick={() => {
-                              setCurrentBtn(index);
-                              handleClick(theme);
-                            }}
-                          >
-                            <div
-                              className={classNames(
-                                'ignore-onclickoutside',
-                                classes.itemData,
-                                selectedTheme?.id === theme.id && classes.selected,
-                              )}
-                              onClick={(e) => {
-                                showAvatar(e, theme);
-                              }}
-                            >
-                              {title}
-                            </div>
-                          </Grid>
-
-                          <div>
-                            {openedTheme?.id === theme.id ? (
-                              <Slide
-                                direction="up"
-                                in={openedTheme && !(selectedTheme?.id === theme.id)}
-                                mountOnEnter
-                                unmountOnExit
-                              >
-                                <Child key={index} className={classes.child} style={{ padding: 15 }} ref={divInfo}>
-                                  <p style={{ width: '100%', color: '#FF0060' }}>
-                                    <b>Appuie deux fois sur le theme pour le sélectionner</b>
-                                  </p>
-
-                                  {tooltip.map((el) => (
-                                    <div key={el.id} className={classes.titleDiv}>{`-${el.title}`}</div>
-                                  ))}
-                                </Child>
-                              </Slide>
-                            ) : null}
-                          </div>
+                    }
+                    return (
+                      <>
+                        <div
+                          className={classNames(
+                            classes.titleWrapper,
+                            isOpen && currentTheme === index ? classes.selectedResult : classes.resultWrapper,
+                          )}
+                          onClick={() => onClickTheme(theme, index)}
+                        >
+                          <span className={classes.resultTitle}>{title}</span>
                         </div>
-                      );
-                    })}
-              </Grid>
-            </div>
+                        {isOpen && currentTheme === index && (
+                          <div className={classes.ativityContainer}>
+                            {theme?.activities.map((a) => (
+                              <span className={classes.activity}>• {a.title}</span>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    );
+                  })}
+
+                <div className={classes.titleWrapper}>
+                  <span className={classes.resultTitle}>Tags</span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      </div>
-      <Selection theme={selectedTheme} activities={[]} />
-      <div className={classes.previousNext}>
-        <div>
-          <Link to={'/experience'} className={classes.btnpreced}>
-            <PreviousButton classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
-          </Link>
-        </div>
-        <div onClick={onNavigate}>
-          <NextButton disabled={!selectedTheme} />
-        </div>
+        {selectedTheme && valueSearch === selectedTheme?.title && (
+          <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => onNavigate()} />
+        )}
       </div>
     </div>
   );
