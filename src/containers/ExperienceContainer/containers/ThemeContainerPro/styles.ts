@@ -45,7 +45,7 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       padding: '60px 40px 0px 40px ',
-      [theme.breakpoints.down(320)]: {
+      [theme.breakpoints.down(340)]: {
         padding: '60px 20px 0px 20px ',
       },
     },
@@ -77,11 +77,15 @@ export default makeStyles((theme: Theme) =>
     },
     titleWrapper: {
       width: '100%',
-      height: 35,
+      minHeight: 36,
+      height: 'fit-content',
       display: 'flex',
       alignItems: 'center',
       backgroundColor: 'rgba(201, 201, 199, 0.5)',
-      paddingLeft: 40,
+      padding: '0px 40px',
+      [theme.breakpoints.down(340)]: {
+        padding: '0px 20px',
+      },
     },
     resultWrapper: {
       backgroundColor: '#FFFFFF',
@@ -96,6 +100,8 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
       lineHeight: '20px',
       color: '#424242',
+      padding: '8px 0px',
+      maxWidth: '100%',
     },
 
     title: {
@@ -115,6 +121,9 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: '#FFFFFF',
       borderBottom: '1px solid #C9C9C7',
       padding: '10px 40px 5px 60px',
+      [theme.breakpoints.down(340)]: {
+        padding: '10px 20px 5px 40px',
+      },
     },
     activity: {
       fontSize: 12,
