@@ -70,6 +70,7 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
       lineHeight: '21px',
       color: '#6B6B6A',
+      maxWidth: '100%',
     },
     themeAvatar: {
       paddingBottom: 2,

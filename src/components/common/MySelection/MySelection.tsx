@@ -39,7 +39,13 @@ const MySelection = ({ theme, activities }: Props) => {
                 ) : (
                   undefined
                 )}
-                <p className={classes.text}>{theme?.title}</p>
+                {theme?.type === 'professional' ? (
+                  <p className={classes.text}>{theme?.title}</p>
+                ) : (
+                  <p className={classes.text} style={{ maxWidth: 'calc(100% - 60px)' }}>
+                    {theme?.title}
+                  </p>
+                )}
               </div>
             </div>
             {activities && (
