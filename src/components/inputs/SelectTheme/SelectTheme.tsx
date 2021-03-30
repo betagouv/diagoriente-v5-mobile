@@ -119,7 +119,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect 
                   title={option.title}
                   size={62}
                   titleClassName={selectedTheme?.id === option.id ? classes.textSelected : classes.themeTitle}
-                  className={classes.avatarCircle}
+                  className={classNames(classes.avatarCircle, openedItem && classes.widthOpened)}
                   squareContainerClassName={classes.squareContainerClassName}
                   theme
                 >

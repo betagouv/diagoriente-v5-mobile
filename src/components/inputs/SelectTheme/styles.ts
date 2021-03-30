@@ -122,11 +122,8 @@ export default makeStyles((theme: Theme) => ({
     margin: '0 15px',
     color: '#424242',
     fontSize: 14,
-    width: 'fit-content',
     wordBreak: 'break-word',
-    [theme.breakpoints.down(380)]: {
-      width: '80%',
-    },
+    width: 'calc(100% - 50px)',
   },
 
   textSelected: {
@@ -134,20 +131,22 @@ export default makeStyles((theme: Theme) => ({
     fontWeight: 'bold',
     fontSize: 14,
     color: '#00B2DB',
+    width: 'calc(100% - 50px)',
   },
   itemAvatar: {
     display: 'flex',
-    padding: '0px 25px',
+    padding: '7px 25px',
     alignItems: 'center',
+    minHeight: 64,
   },
   avatarCircle: {
-    width: ' calc(100% - 30px)',
-    height: '63px !important',
+    width: ' 100%',
     flexDirection: 'row',
     borderRadius: '0px !important',
     paddingBottom: '0px !important',
     cursor: 'pointer',
   },
+  widthOpened: { width: ' calc(100% - 30px)' },
 
   squareContainerClassName: {
     width: '50px !important',
