@@ -75,6 +75,7 @@ export default makeStyles((theme: Theme) =>
     themeAvatar: {
       paddingBottom: 2,
       alignItems: 'flex-start',
+      justifyContent: 'center',
     },
     circleClassName: {
       padding: 0,
