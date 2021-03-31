@@ -131,13 +131,16 @@ export default makeStyles((theme: Theme) => ({
     fontWeight: 'bold',
     fontSize: 14,
     color: '#00B2DB',
-    width: 'calc(100% - 50px)',
+    width: 'calc(100% - 60px)',
   },
   itemAvatar: {
     display: 'flex',
     padding: '7px 25px',
     alignItems: 'center',
     minHeight: 64,
+    [theme.breakpoints.down(340)]: {
+      padding: '7px 20px',
+    },
   },
   avatarCircle: {
     width: ' 100%',
