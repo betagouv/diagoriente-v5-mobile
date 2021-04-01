@@ -25,9 +25,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      [theme.breakpoints.up(400)]: {
-        height: '100vh',
-      },
+      flexGrow: 1,
     },
     titleContainer: {
       padding: '35px 40px 40px 40px',
