@@ -60,7 +60,6 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
           <div className={classes.circleContainer}>
             {loading && (
               <div className={classes.loadingContainer}>
-                {' '}
                 <Spinner />
               </div>
             )}

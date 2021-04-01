@@ -1,3 +1,4 @@
+import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 
@@ -21,9 +22,10 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: '#F3F2F4',
       display: 'flex',
       flexDirection: 'column',
-      paddingTop: 34,
-      /*  paddingBottom: 250, */
-      // height: '100vh',
+      padding: '35px 40px 40px 40px',
+      [theme.breakpoints.down(340)]: {
+        padding: '35px 20px 40px 20px',
+      },
     },
 
     circleContainer: {
@@ -88,7 +90,11 @@ export default makeStyles((theme: Theme) =>
     },
 
     title: {
-      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 16,
+      lineHeight: '24px',
+      color: '#223A7A',
+      width: '100%',
     },
 
     activityContainer: {
@@ -132,7 +138,7 @@ export default makeStyles((theme: Theme) =>
       margin: 0,
     },
 
-    selectRoot: {
+    /*   selectRoot: {
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
@@ -142,7 +148,7 @@ export default makeStyles((theme: Theme) =>
       [theme.breakpoints.down(380)]: {
         padding: '15px 25px',
       },
-    },
+    }, */
 
     selectGrid: {
       display: 'flex',
@@ -188,9 +194,22 @@ export default makeStyles((theme: Theme) =>
       [theme.breakpoints.down(420)]: {
         right: -20,
       },
-      [theme.breakpoints.down(380)]:{
+      [theme.breakpoints.down(380)]: {
         right: -15,
       },
+    },
+
+    orDivider: {
+      width: '100%',
+      flexDirection: 'row',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      margin: '45px 0px',
+    },
+    halfDivider: {
+      width: 'calc(50% - 25px)',
+      borderTop: '1px solid #C9C9C7',
     },
 
     questionRow: {
@@ -198,10 +217,7 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
       position: 'relative',
     },
-    rowActivityWidth: {
-      maxWidth: WIDTH,
-      width: '100%',
-    },
+
     rowActivity: {
       display: 'flex',
       position: 'relative',
@@ -227,6 +243,7 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
       maxWidth: WIDTH,
       border: '1px solid #00CFFF',
+      marginTop: 25,
     },
 
     defaultValue: {
@@ -235,13 +252,10 @@ export default makeStyles((theme: Theme) =>
     },
 
     activityCaracter: {
-      margin: 2,
-      color: theme.palette.error.main,
-      maxWidth: WIDTH,
+      color: '#FF0060',
       width: '100%',
       display: 'flex',
       justifyContent: 'flex-end',
-      paddingBottom:50
     },
     previousNext: {
       display: 'flex',
@@ -265,7 +279,7 @@ export default makeStyles((theme: Theme) =>
         backgroundColor: 'white',
         boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
         zIndex: 1,
-      }
+      },
     },
     classNameTitle: {
       color: '#4D6EC5',
@@ -275,7 +289,7 @@ export default makeStyles((theme: Theme) =>
         color: '#4D6EC5',
         fontSize: 14,
         lineHeight: '26px',
-      }
+      },
     },
   }),
 );
