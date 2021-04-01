@@ -15,7 +15,7 @@ export default makeStyles((theme: Theme) =>
       height: '100%',
       zIndex: 999,
       backgroundColor: 'rgba(34, 58, 122, 0.5)',
-      position: 'absolute',
+      position: 'fixed',
       top: 0,
       left: 0,
       padding: '85px 25px',
