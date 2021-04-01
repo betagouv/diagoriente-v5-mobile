@@ -9,8 +9,8 @@ export default makeStyles((theme) => ({
   },
   header: {
     width: '100%',
-    height: 50,
-    padding: '0px 20px',
+    height: 'fit-content',
+    padding: '13px 20px',
     display: 'flex',
     alignItems: 'center',
     borderTop: '1px solid #C9C9C7',
