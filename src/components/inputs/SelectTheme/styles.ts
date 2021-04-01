@@ -123,7 +123,7 @@ export default makeStyles((theme: Theme) => ({
     color: '#424242',
     fontSize: 14,
     wordBreak: 'break-word',
-    width: 'calc(100% - 50px)',
+    width: 'calc(100% - 65px)',
   },
 
   textSelected: {
