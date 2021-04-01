@@ -35,7 +35,7 @@ const QuestionList = ({ setOptionActivities, optionActivities, index, handleVali
       });
       setQuestions(question);
     }
-
+    console.log('questions', data);
     // eslint-disable-next-line
   }, [data?.questions.data]);
 
@@ -69,7 +69,8 @@ const QuestionList = ({ setOptionActivities, optionActivities, index, handleVali
   };
 
   return (
-    <div className={classes.questionRow}>
+    <>
+      {/* <div className={classes.questionRow}> */}
       {questions.map((question, i) => (
         <div key={question.id} className={classNames(classes.rowActivity)}>
           <div className={classes.selectContainer}>
@@ -92,7 +93,8 @@ const QuestionList = ({ setOptionActivities, optionActivities, index, handleVali
       {(optionActivities.length > 1 || questions.length > 1) && (
         <Remove className={classes.deleteIcon} onClick={deleteActivity} />
       )}
-    </div>
+      {/* </div> */}
+    </>
   );
 };
 export default QuestionList;
