@@ -10,7 +10,7 @@ export default makeStyles((theme: Theme) =>
 
     container: {
       display: 'flex',
-      height:'80px',
+      height: '80px',
       flexDirection: 'column',
       // padding: '50px 120px',
       width: '100%',
@@ -23,13 +23,15 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: '#F3F2F4',
       display: 'flex',
       flexDirection: 'column',
-      paddingTop: 60,
-      height:'100vh',
+      padding: '20px 40px 40px 40px',
+      height: '100vh',
       [theme.breakpoints.up(560)]: {
-        height:'140vh',
-
+        height: '140vh',
       },
       alignItems: 'center',
+      [theme.breakpoints.down(340)]: {
+        padding: '20px 20px 40px 20px',
+      },
     },
 
     circleContainer: {
@@ -69,14 +71,6 @@ export default makeStyles((theme: Theme) =>
       marginRight: 13,
     },
 
-    header: {
-      height: 50,
-      display: 'flex',
-      justifyContent: 'space-between',
-      // alignItems: 'center',
-      width: '100%',
-    },
-
     hideLine: {
       textDecoration: 'none',
     },
@@ -94,7 +88,11 @@ export default makeStyles((theme: Theme) =>
     },
 
     title: {
-      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 16,
+      lineHeight: '24px',
+      color: '#223A7A',
+      width: '100%',
     },
 
     activityContainer: {
@@ -164,7 +162,7 @@ export default makeStyles((theme: Theme) =>
     contextContainer: {
       display: 'flex',
       width: '100%',
-      flexWrap:'wrap',
+      flexWrap: 'wrap',
       justifyContent: 'center',
       paddingTop: 30,
     },
@@ -190,7 +188,7 @@ export default makeStyles((theme: Theme) =>
         backgroundColor: 'white',
         boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
         zIndex: 1,
-      }
+      },
     },
     classNameTitle: {
       color: '#4D6EC5',
@@ -200,6 +198,7 @@ export default makeStyles((theme: Theme) =>
         color: '#4D6EC5',
         fontSize: 14,
         lineHeight: '26px',
-      }
+      },
     },
-  }));
+  }),
+);
