@@ -70,24 +70,24 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
       })),
     [data],
   );
-  // const renderAllPlaceholder = () => {
-  //   const array: JSX.Element[] = [];
-  //   for (let i = 1; i <= 5; i += 1) {
-  //     array.push(
-  //       <div
-  //         key={i}
-  //         className={classNames(
-  //           selectedInterest?.length && i <= selectedInterest?.length && classes.circleSelected,
-  //           classes.circle,
-  //         )}
-  //         onClick={() => setOpenConfirm(true)}
-  //       >
-  //         {i}
-  //       </div>,
-  //     );
-  //   }
-  //   return array;
-  // };
+  const renderAllPlaceholder = () => {
+    const array: JSX.Element[] = [];
+    for (let i = 1; i <= 5; i += 1) {
+      array.push(
+        <div
+          key={i}
+          className={classNames(
+            selectedInterest?.length && i <= selectedInterest?.length && classes.circleSelected,
+            classes.circle,
+          )}
+          onClick={() => setOpenConfirm(true)}
+        >
+          {i}
+        </div>,
+      );
+    }
+    return array;
+  };
 
   const renderPlaceholder = () => {
     const array: JSX.Element[] = [];
@@ -165,7 +165,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
         </div>
 
         <div className={classes.fiveCircle}>
-          {/* {renderAllPlaceholder()} */}
+          {renderAllPlaceholder()}
 
           <div className={classes.validerButton}>
             {selectedInterest && selectedInterest?.length >= 3 && (
