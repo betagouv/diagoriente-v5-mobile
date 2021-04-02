@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles<
   Theme,
-  { fullSelect?: boolean; fullScreenModal?: boolean; open?: boolean; arrowColor?: string }
+  { fullSelect?: boolean; fullScreenModal?: boolean; open?: boolean; arrowColor?: string ; borderColor?:string , placeHolderColor?:string}
 >((theme: Theme) => ({
   content: {
     position: 'relative',
@@ -20,42 +20,16 @@ export default makeStyles<
     bottom: 0,
     zIndex: 1200,
   },
-  inputContainer: {
-    height: 46,
-    width: 320,
-    fontFamily: 'Andika New Basic',
-    border: (props) => `1px solid  ${props.open ? theme.palette.success.main : theme.palette.success.main}`,
-    borderRadius: 5,
-    margin: '6px 0px',
-    background: '#fff',
-    paddingLeft: (props) => (props.fullSelect || props.fullScreenModal ? 36 : 5),
-    outline: 0,
-    position: 'relative',
-    fontWeight: 'bold',
-    color: '#424242',
-    fontSize: 14,
-    '&:focus-within': {
-      borderColor: theme.palette.success.main,
-    },
-    '&::placeholder': {
-      color: (props) => (props.open ? theme.palette.success.main : '#424242'),
-      fontSize: 14,
-      fontWeight: 'bold',
-      marginLeft: 20,
-    },
-    [theme.breakpoints.down(380)]: {
-      width: 290,
-    },
-  },
+
   inputContainer1: {
     height: 46,
     width: 320,
     fontFamily: 'Andika New Basic',
-    border: (props) => `1px solid  ${props.open ? theme.palette.success.main : '#C9C9C7'}`,
+    border: (props) => `1px solid ${props.open ? theme.palette.success.main : '#424242' ? props.borderColor  : props.borderColor  }`,
     borderRadius: 5,
     margin: '6px 0px',
     background: '#fff',
-    paddingLeft: (props) => (props.fullSelect || props.fullScreenModal ? 36 : 5),
+    paddingLeft: (props) => (props.fullSelect || props.fullScreenModal ? 36 : 20),
     outline: 0,
     position: 'relative',
     fontWeight: 'bold',
@@ -65,7 +39,7 @@ export default makeStyles<
       borderColor: theme.palette.success.main,
     },
     '&::placeholder': {
-      color: (props) => (props.open ? theme.palette.success.main : '#424242'),
+      color: (props) => (props.open ? theme.palette.success.main : '#424242 !important'),
       fontSize: 14,
       fontWeight: 'bold',
       marginLeft: 20,
@@ -76,11 +50,28 @@ export default makeStyles<
   },
   selectedInput:{
     border: (props) => `1px solid  ${props.open &&theme.palette.success.main }`,
+    height: 46,
+    width: 320,
+    fontFamily: 'Andika New Basic',
+    borderRadius: 5,
+    margin: '6px 0px',
+    background: '#fff',
+    paddingLeft: (props) => (props.fullSelect || props.fullScreenModal ? 36 : 20),
+    outline: 0,
+    position: 'relative',
+    fontWeight: 'bold',
+    color: '#424242',
+    fontSize: 14,
+
     '&::placeholder': {
-      color: theme.palette.success.main,
+      color: (props) => props.placeHolderColor || 'rgb(0, 178, 219) !important',
+
       fontSize: 14,
       fontWeight: 'bold',
       marginLeft: 20,
+    },
+    [theme.breakpoints.down(380)]: {
+      width: 290,
     },
   },
   logoContainer: {

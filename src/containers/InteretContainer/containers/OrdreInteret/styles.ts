@@ -68,6 +68,7 @@ export default makeStyles<Theme>((theme) => ({
     padding: 40,
     [theme.breakpoints.down(330)]: {
       padding: 15,
+      marginBottom:12
     },
   },
   circle: {

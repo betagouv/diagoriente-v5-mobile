@@ -26,6 +26,7 @@ export default makeStyles((theme) => ({
     height: 286,
     padding: '35px 45px',
   },
+
   subTitle: {
     textAlign: 'center',
     fontSize: 14,
@@ -138,6 +139,116 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  headerRecherche: {
+    width: '100%',
+    height: '50px',
+    position: 'fixed',
+    top: 0,
+    zIndex:9999,
+    backgroundColor: 'rgba(255,211,130, 1)',
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center'
+  },
+  titreHeader: {
+    fontFamily: 'Andika New Basic',
+    fontWeight: 700,
+    color:'#424242',
+    fontSize: ' 14px',
+    padding:20,
+    lineHeight: '20px',
+  },
+  iconHeader: {
+    padding:'20px'
+  },
+  filtersContainer1: {
+    backgroundColor: 'rgba(255,211,130, 0.5)',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 330,
+  },
+  secteurContainerFullScreen: {
+    background: 'rgba(255,211,130, 1)',
+    border: '1px solid #C9C9C7',
+    boxSizing: 'border-box',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.15)',
+    borderRadius: 5,
+    position: 'absolute',
+    top: 49,
+    width: '100%',
+    height: 350,
+    display: 'flex',
+    flexWrap: 'wrap',
+    padding: '140px 25px',
+    overflow: 'auto',
+    zIndex: 5,
+    // width: '100%',
+    // height: '100%',
+    backgroundColor: 'rgba(1,26,94,0.5)',
+  },
+  modalWrapper: {
+    width: '100%',
+    height: '100%',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    zIndex: 99999,
+  },
+  modalItemsContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    background: '#FFFFFF',
+    border: '1px solid #C9C9C7',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.15)',
+    position: 'fixed',
+    top: 49,
+    width: '100%',
+    // '@media not all and (min-resolution:.001dpcm)': {
+    //   display: 'flex',
+    //   flexDirection: 'column',
+    //   background: '#FFFFFF',
+    //   border: '1px solid #C9C9C7',
+    //   boxSizing: 'border-box',
+    //   boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.15)',
+    //   position: 'fixed',
+    //   bottom: 51,
+    //   width: '100%',
+    //     }
+  },
+
+  backdrop: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(1,26,94,0.5)',
+  },
+  closeFullModelContainer: {
+    width: '100%',
+    height: 60,
+    display: 'flex',
+    alignItems: 'center',
+    borderBottom: '0.5px solid #C9C9C7',
+    justifyContent:'space-around',
+    
+  },
+  borderInput:{
+    border: '1px solid #C9C9C7 !important',
+
+  },
+  rechercheButton: {
+    backgroundColor: theme.palette.primary.main,
+    alignSelf: 'center',
+    width:'280px',
+    height:'50px',
+    margin:20,
+    '&:hover': {
+      backgroundColor: '#DB8F00',
+    },
+  
+  },
+
   itemFooter: { width: '100%' },
   centerItem: { display: 'flex', justifyContent: 'center' },
   rightItem: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 20 },

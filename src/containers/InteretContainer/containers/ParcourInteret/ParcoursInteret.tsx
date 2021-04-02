@@ -72,7 +72,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   );
   const renderAllPlaceholder = () => {
     const array: JSX.Element[] = [];
-    for (let i = 1; i <=5; i += 1) {
+    for (var i = 1; i <=5; i += 1) {
       array.push(   <div
         className={classNames(
           selectedInterest?.length && i <= selectedInterest?.length && classes.circleSelected,
@@ -143,8 +143,6 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   const handelClose = () => setOpenConfirm(false);
 
 
-console.log(renderAllPlaceholder,'all')
-console.log(renderPlaceholder,'p')
 
   return (
     <div className={classes.container}>
@@ -168,28 +166,11 @@ console.log(renderPlaceholder,'p')
         </div>
 
         <div className={classes.fiveCircle}>
-        {!loading && renderAllPlaceholder()}
+        {renderAllPlaceholder()}
 
-          {/* {parcours?.families.map((el, i) => (
-            <div
-              className={classNames(
-                selectedInterest?.length && i < selectedInterest?.length && classes.circleSelected,
-                classes.circle,
-              )}
-              onClick={() => setOpenConfirm(true)}
-              key={el.id}
-            >
-              {i + 1}
-            </div>
-          ))} */}
-            {/* <div className={classNames(classes.root, className)}>
-      {data?.families? (
-        <div className={classNames(classes.circle, circleClassName)}>
-          <div className={classes.number}>{index || null}</div>
-        </div>
-      ) : ""} */}
+      
           <div className={classes.validerButton}>
-            {selectedInterest?.length && selectedInterest?.length >= 3 && (
+            {selectedInterest && selectedInterest?.length >= 3 && (
               <div className={classes.btnNext}>
                 <Link to={`/interet/ordre/${location}`} className={classes.wrapperBtn}>
                   <Button className={classes.btn}>

@@ -247,7 +247,7 @@ margin:'7px'
   },
   circle: {
     borderRadius: '50%',
-    border: '1px solid #fff',
+    // border: '1px solid #fff',
     margin: '5px',
     display: 'flex',
     flexDirection: 'column',
@@ -261,6 +261,7 @@ margin:'7px'
     height: 30,
     color: '#7533FF',
   },
+ 
   circleSelected: {
     borderRadius: '50%',
     border: '1px solid #fff',

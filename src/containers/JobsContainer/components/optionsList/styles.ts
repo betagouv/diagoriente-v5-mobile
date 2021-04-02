@@ -1,6 +1,6 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles<Theme, { CheckBoxbackgroudColor?: string }>(() => ({
+export default makeStyles<Theme, { CheckBoxbackgroudColor?: string , bkColor?:string }>(() => ({
   root: {
     width: 235,
     background: '#FFFFFF',
@@ -35,7 +35,8 @@ export default makeStyles<Theme, { CheckBoxbackgroudColor?: string }>(() => ({
     alignItems: 'center',
     paddingLeft: 25,
     position: 'relative',
-    backgroundColor:'#7AE6FF',
+    backgroundColor: (props) => props.bkColor || '#7AE6FF'
+
   },
   mask: {
     position: 'absolute',

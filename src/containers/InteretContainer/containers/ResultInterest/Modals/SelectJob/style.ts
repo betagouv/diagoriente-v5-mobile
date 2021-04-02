@@ -40,6 +40,7 @@ export default makeStyles<Theme>((theme) => ({
     'padding-left': '4vh',
     'padding-right': '2vh',
   },
+
   subTitle: {
     fontSize: 14,
     marginTop: 15,
@@ -91,18 +92,25 @@ width:'100%',
     flexDirection: 'row',
     alignItems: 'center',
     height:'55px',
-    padding: 30,
-
+    padding: 20,
+    [theme.breakpoints.down(330)]: {
+      padding: 0,
+  
+    }
   },
 circle:{   [theme.breakpoints.down(380)]: {
-  width : '100px' ,    }, [theme.breakpoints.down(330)]: {
-    width : '70px' ,    },},
+  width : '100px' ,    }, 
+  [theme.breakpoints.down(330)]: {
+    width : '70px' ,    
+
+  },},
   themeContainerProSelected: {
     backgroundColor: '#7AE6FF',
 
   },
   themeContainerPersoSelected: {
     backgroundColor: '#7AE6FF',
+
   },
   checkBox: {
     marginRight: 10,
@@ -187,7 +195,12 @@ circle:{   [theme.breakpoints.down(380)]: {
     justifyContent: 'center',
     paddingBottom: 150,
     'padding-bottom': '25%',
-    [theme.breakpoints.up(560)]: {
+    [theme.breakpoints.up(700)]: {
+      paddingTop: 30,
+      paddingBottom: 70,
+
+    },
+    [theme.breakpoints.down(560)]: {
       paddingTop: 30,
       paddingBottom: 30,
 
@@ -202,6 +215,7 @@ circle:{   [theme.breakpoints.down(380)]: {
   arrowClass:{
   paddingBottom:20,
   display:'flex'
-  }
+  },
+
 
 }));

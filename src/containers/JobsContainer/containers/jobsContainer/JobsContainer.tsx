@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 import useOnclickOutside from 'hooks/useOnclickOutside';
 import ParcoursContext from 'contexts/ParcourContext';
 import { Jobs } from 'requests/types';
+import { useAccessibility } from 'requests/accessibility';
+import pictoFilter from 'assets/svg/picto filtres.svg';
+import Slide from '@material-ui/core/Slide';
+import arrow from 'assets/svg/Vector (12).svg';
 import Reset from 'components/common/Rest/Rest';
 import Spinner from 'components/Spinner/Spinner';
 import Button from 'components/button/Button';
@@ -58,17 +62,36 @@ const JobsContainer = ({
   const [openType, setOpenType] = useState(false);
   const [openDomain, setOpenDomain] = useState(false);
   const [openAcc, setOpenAcc] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
+  const [showResult, setShowReseult] = useState(false);
+
   const [filteredArray, setFiltredArray] = useState<Jobs[] | undefined>([]);
   const [openDataToRender, setOpenDataToRender] = useState(false);
   const [dataToRender, setDataToRender] = useState(12);
+  const [accessibilityCall, accessibilityState] = useAccessibility();
 
   const divDomaine = useRef<HTMLDivElement>(null);
   const divType = useRef<HTMLDivElement>(null);
   const divAcc = useRef<HTMLDivElement>(null);
   const divData = useRef<HTMLDivElement>(null);
+  const rowRef = useRef<HTMLDivElement>(null);
+
   const scrollRef = useRef(0);
+  const [openModal, setOpenModal] = React.useState(false);
 
   const [clearMessage, setClearMessage] = useState<null | boolean>(null);
+
+  useEffect(() => {
+    const scrollCallBack: any = window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        return setShowHeader(true);
+      }
+      return setShowHeader(false);
+    });
+    return () => {
+      window.removeEventListener('scroll', scrollCallBack);
+    };
+  }, []);
 
   useEffect(() => {
     async function c() {
@@ -105,9 +128,9 @@ const JobsContainer = ({
   const onChangeSelect = (e: any) => {
     const v = e.target.value;
     setSearch(v);
+
     setFiltredArray(jobs?.filter((el: any) => el.title.toLowerCase().indexOf(v.toLowerCase()) !== -1));
   };
-
   const onSelectDomaine = (label?: string) => {
     if (label) {
       const array = [...domaine];
@@ -116,7 +139,6 @@ const JobsContainer = ({
         array.splice(index, 1);
       } else {
         array.push(label);
-
       }
       setDomaine(array);
     }
@@ -162,18 +184,8 @@ const JobsContainer = ({
     }
   };
   const isInclude = (id: string) => domaine && domaine.includes(id);
-console.log(isInclude,'is')
   const renderedJobs = jobs?.slice(0, jobsToShow);
-  // const getAccebilityName = (id: string | undefined) => {
-  //   if (id) {
-  //     const niveau = listSecteurData?.find((o) => {
-  //       return o.id === id;
-  //     });
-  //     return niveau?.title;
-  //   }
-  //   return 'Niveau de diplôme';
-  // };
-  
+
 
   return (
     <div className={classes.wrapper}>
@@ -224,22 +236,23 @@ console.log(isInclude,'is')
               name="search"
               placeholder="Rechercher"
               className={classes.containerAutoComp}
-              /* open={open} */
+              //  open
             />
             <Select
               options={listSecteurData}
-              onSelectText={onSelectDomaine }
+              onSelectText={onSelectDomaine}
               name="domaine"
               value={domaine}
-              placeholder={""}
-              className={classes.containerAutoComp}
+              placeholder={''}
+              // className={classes.containerAutoComp}
               open={openDomain}
               fullScreenModal
               onClick={() => setOpenDomain(!openDomain)}
               onClose={() => setOpenDomain(false)}
               referenceFullScreen={divDomaine}
               arrowColor="#DB8F00"
-              from='job'
+              from="job"
+              borderColor={'#C9C9C7'}
             />
             <Select
               options={listTypeData}
@@ -255,12 +268,18 @@ console.log(isInclude,'is')
               reference={divType}
               arrowColor="#DB8F00"
               from="job"
+              borderColor={'#C9C9C7'}
+              check
+              bkColor={"#FFD382"}
+              placeHolderColor={"#DB8F00"}
+
+
             />
             <Select
               options={listAccData}
               onSelectText={onSelectAcc}
               name="accessibility"
-              placeholder="Niveau d’accès"
+              placeholder={'Niveau d’accès'}
               value={accessibility}
               className={classes.containerAutoComp}
               open={openAcc}
@@ -271,30 +290,36 @@ console.log(isInclude,'is')
               parcourAcc={parcours?.accessibility}
               arrowColor="#DB8F00"
               from="job"
+              borderColor={'#C9C9C7'}
+              check
+              bkColor={"#FFD382"}
+              placeHolderColor={"#DB8F00"}
+
+
             />
           </div>
-          {loading ? (
+    {loading ? (
             <div className={classes.spinnerContainer}>
               <Spinner />
             </div>
           ) : (
-            <div className={classes.boxsContainer}>
-              {!parcours?.completed && <Spinner />}
-              {renderedJobs?.length === 0
-                ? 'Aucun resultat trouvé !'
-                : renderedJobs?.map((el) => (
-                    <Link to={`/jobs/job/${el.id}`}>
-                      <JobCard
-                        key={el.id}
-                        id={el.id}
-                        title={el.title}
-                        description={el.description}
-                        accessibility={el.accessibility}
-                        favoris={el.favorite}
-                      />
-                    </Link>
-                  ))}
-            </div>
+         <div className={classes.boxsContainer}>
+            {!parcours?.completed && <Spinner />}
+            {renderedJobs?.length === 0
+              ? 'Aucun resultat trouvé !'
+              : renderedJobs?.map((el) => (
+                  <Link to={`/jobs/job/${el.id}`}>
+                    <JobCard
+                      key={el.id}
+                      id={el.id}
+                      title={el.title}
+                      description={el.description}
+                      accessibility={el.accessibility}
+                      favoris={el.favorite}
+                    />
+                  </Link>
+                ))}
+          </div>
           )}
         </div>
       </div>
@@ -332,6 +357,104 @@ console.log(isInclude,'is')
             </div>
           </div>
         </div>
+      )}
+
+      {showHeader && (
+        <>
+          <div className={classes.headerRecherche}>
+            <div className={classes.titreHeader}> Mon top Métiers </div>
+            <div className={classes.iconHeader} onClick={() => setOpenModal(!openModal)}>
+              <img src={pictoFilter} alt="" />
+            </div>
+          </div>
+          <Slide direction="down" in={openModal} mountOnEnter unmountOnExit timeout={0}>
+            <div className={classes.modalWrapper}>
+              <div className={classes.backdrop} onClick={() => setOpenModal(!openModal)} />
+              <div className={classes.modalItemsContainer}>
+                <div className={classes.filtersContainer1}>
+                  <div className={classes.headerRecherche}>
+                    <div className={classes.titreHeader}> Mon top Métiers </div>
+                    <div className={classes.iconHeader} onClick={() => setOpenModal(!openModal)}>
+                      <img src={arrow} alt="" />
+                    </div>
+                  </div>
+                  <Autocomplete
+              options={filteredArray}
+              onChange={onChangeSelect}
+              onSelectText={onSelect}
+              value={search || ''}
+              name="search"
+              placeholder="Rechercher"
+              className={classes.containerAutoComp}
+              //  open
+            />
+            <Select
+              options={listSecteurData}
+              onSelectText={onSelectDomaine}
+              name="domaine"
+              value={domaine}
+              placeholder={''}
+              // className={classes.containerAutoComp}
+              open={openDomain}
+              fullScreenModal
+              onClick={() => setOpenDomain(!openDomain)}
+              onClose={() => setOpenDomain(false)}
+              referenceFullScreen={divDomaine}
+              arrowColor="#DB8F00"
+              from="job"
+              borderColor={'#C9C9C7'}
+            />
+            <Select
+              options={listTypeData}
+              onSelectText={onSelectType}
+              name="job"
+              value={environments}
+              placeholder="Type de métier"
+              className={classes.containerAutoComp}
+              open={openType}
+              modal
+              onClick={() => setOpenType(!openType)}
+              onClose={() => setOpenType(false)}
+              reference={divType}
+              arrowColor="#DB8F00"
+              from="job"
+              borderColor={'#C9C9C7'}
+              check
+              bkColor={"#FFD382"}
+              placeHolderColor={"#DB8F00"}
+
+
+            />
+            <Select
+              options={listAccData}
+              onSelectText={onSelectAcc}
+              name="accessibility"
+              placeholder={'Niveau d’accès'}
+              value={accessibility}
+              className={classes.containerAutoComp}
+              open={openAcc}
+              modal
+              onClick={() => setOpenAcc(!openAcc)}
+              onClose={() => setOpenAcc(false)}
+              reference={divAcc}
+              parcourAcc={parcours?.accessibility}
+              arrowColor="#DB8F00"
+              from="job"
+              borderColor={'#C9C9C7'}
+              check
+              bkColor={"#FFD382"}
+              placeHolderColor={"#DB8F00"}
+
+
+            />
+                  <Button onClick={() => setOpenModal(!openModal)} className={classes.rechercheButton}>
+                    Rechercher
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </Slide>
+        </>
       )}
     </div>
   );

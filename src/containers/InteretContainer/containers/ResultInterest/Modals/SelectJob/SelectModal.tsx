@@ -111,7 +111,9 @@ const SelectModal = () => {
                 name="job"
                 value={[accessibility]}
                 placeholder={getAccebilityName(accessibility)}
-                className={classes.containerAutoComp}
+                className={classNames(
+                  classes.containerAutoComp,
+                )}
                 open={openType}
                 modal
                 onClick={() => setOpenType(!openType)}
@@ -120,6 +122,8 @@ const SelectModal = () => {
                 color={x}
                 arrowColor={'#00B2DB'}
                 from="interest"
+                borderColor={'#424242'}
+
               />
             </ThemeProvider>
           </div>
