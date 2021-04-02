@@ -172,8 +172,9 @@ const ExperienceCompetence = ({
             </Button>
           </div>
         </Popup>
+        {competences.length > 0 && competences.length < 5 && <div className={classes.emptyDiv} />}
       </div>
-      {competences.length > 0 && competences.length < 5 && <div className={classes.emptyDiv} />}
+
       {competences.length > 0 && competences.length < 5 && (
         <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => onNavigate()} />
       )}
