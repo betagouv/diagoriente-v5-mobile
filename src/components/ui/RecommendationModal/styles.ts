@@ -141,7 +141,10 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     flex: 1,
     backgroundColor: '#F3F2F4',
-    padding: '65px 40px 40px 40px',
+    padding: '65px 36px 40px 36px',
+    [theme.breakpoints.down(340)]: {
+      padding: '65px 20px 40px 20px',
+    },
   },
   modalContainerOK: {
     display: 'flex',
@@ -163,9 +166,6 @@ export default makeStyles((theme) => ({
     textTransform: 'uppercase',
     marginBottom: 10,
     width: '100%',
-    [theme.breakpoints.down(365)]: {
-      fontSize: 22,
-    },
   },
 
   descriptionModal: {
@@ -174,7 +174,7 @@ export default makeStyles((theme) => ({
     color: '#424242',
     marginTop: 40,
     marginBottom: 10,
-    alignSelf: 'self-start',
+    textAlign: 'center',
   },
 
   descriptionModalContainer: {

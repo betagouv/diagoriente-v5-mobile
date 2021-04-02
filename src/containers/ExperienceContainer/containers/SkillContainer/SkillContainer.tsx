@@ -376,7 +376,15 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
         />
 
         <Route
-          render={(props) => <EngagementContext {...props} setContext={setContext} contextCheck={context} />}
+          render={(props) => (
+            <EngagementContext
+              {...props}
+              setContext={setContext}
+              contextCheck={context}
+              theme={data.theme}
+              activities={activitiesTitles}
+            />
+          )}
           path={`${match.path}/context`}
           exact
         />

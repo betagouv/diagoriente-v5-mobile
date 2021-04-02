@@ -172,7 +172,7 @@ export default makeStyles((theme: Theme) =>
 
     emptyDiv: {
       width: '100%',
-      height: 50,
+      height: 49,
     },
   }),
 );

@@ -4,30 +4,40 @@ export default makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
-      flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center',
-      flexWrap:'wrap',
-      [theme.breakpoints.down(420)]: {
-        justifyContent: 'space-between',
-      }, 
+      justifyContent: 'space-between',
+      padding: '20px 40px',
+      [theme.breakpoints.down(340)]: {
+        padding: '20p',
+      },
     },
-
-    checkbox: {
-      marginTop: 30,
+    rootChecked: {
+      backgroundColor: 'rgba(122, 230, 255, 0.2)',
     },
+    checkboxContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      width: 'calc(100% - 80px)',
+    },
+    checkbox: {},
 
     title: {
-      fontSize: 18,
-      marginTop: 30,
-      WebkitTextStroke: '#424242',
-      WebkitTextStrokeWidth: '0.2px',
-      [theme.breakpoints.down(420)]: {
-        width:'min-content'
-      }, 
+      fontSize: 16,
+      lineHeight: '24px',
+      fontWeight: 700,
+      marginLeft: 20,
+      color: '#424242',
+      width: 'fit-content',
+      maxWidth: 'calc(100% - 40px)',
     },
 
-    titleChecked: {
-      fontWeight: 'bold',
+    circle: {
+      width: 'auto',
+      paddingBottom: 0,
     },
-  }));
+    squareContainer: {
+      height: 'auto',
+      width: 'auto',
+    },
+  }),
+);
