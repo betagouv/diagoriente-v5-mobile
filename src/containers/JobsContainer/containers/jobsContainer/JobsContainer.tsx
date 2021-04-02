@@ -243,7 +243,7 @@ const JobsContainer = ({
               onSelectText={onSelectDomaine}
               name="domaine"
               value={domaine}
-              placeholder={''}
+              placeholder={'Domaine d’activité'}
               // className={classes.containerAutoComp}
               open={openDomain}
               fullScreenModal
@@ -253,6 +253,8 @@ const JobsContainer = ({
               arrowColor="#DB8F00"
               from="job"
               borderColor={'#C9C9C7'}
+              bkColor={"#FFD382"}
+              placeHolderColor={"#DB8F00"}
             />
             <Select
               options={listTypeData}

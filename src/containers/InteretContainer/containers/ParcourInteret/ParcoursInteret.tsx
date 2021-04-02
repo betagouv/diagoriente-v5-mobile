@@ -72,14 +72,14 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   );
   const renderAllPlaceholder = () => {
     const array: JSX.Element[] = [];
-    for (var i = 1; i <=5; i += 1) {
+    for (let i = 1; i <=5; i += 1) {
       array.push(   <div
+        key={i}
         className={classNames(
           selectedInterest?.length && i <= selectedInterest?.length && classes.circleSelected,
           classes.circle,
         )}
         onClick={() => setOpenConfirm(true)}
-        // key={el.id}
       >
         {i}
       </div>);
@@ -235,10 +235,11 @@ className={classes.modalAtt2}
           overflow: 'hidden !important',
         }}
       >
+     
+        <div className={classes.diagPop}>
         <div className={classes.closePop} style={{ zIndex: 1 }}>
           <img src={closeButton} alt="att" width={35} height={35} onClick={handelClose} />
         </div>
-        <div className={classes.diagPop}>
           <div className={classes.headerModelConfirm}>
             <span className={classes.textModelConfirm}>
               Ma sélection ({selectedInterest?.length}
