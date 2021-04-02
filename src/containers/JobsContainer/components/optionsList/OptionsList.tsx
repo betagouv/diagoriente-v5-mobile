@@ -14,6 +14,9 @@ interface Props {
   color?: string;
   background?: string;
   border?: string;
+  check?:boolean;
+  bkColor?:string;
+  checkColor?:string
 }
 
 const OptionsList = ({
@@ -24,9 +27,13 @@ const OptionsList = ({
   CheckBoxbackgroudColor,
   background,
   border,
+  check,
+  bkColor,
+  checkColor,
 }: Props) => {
   const classes = useStyles({
     CheckBoxbackgroudColor,
+    bkColor,
   });
   const theme = useTheme();
   const formattedData = options?.map((el: any) => ({ label: el && (el.title || el.name), id: el.id })) || [];
@@ -36,17 +43,20 @@ const OptionsList = ({
       {formattedData.map((el) => (
         <div key={el.label} className={isInclude(el.id) ? classes.bkText : classes.item} onClick={() => onSelectText(el.id)}>
           <div className={classes.mask} />
-          {/* <CheckBox
+       {check && ( 
+          <CheckBox
             className={classes.hello}
             name={el.label}
             checked={isInclude(el.id)}
             onChange={() => {}}
-            color="#fff"
+            // color="#fff"
+            // background="#fff"
+            color={checkColor || '#fff'}
             background={background}
             border={border}
-          /> */}
+          />)} 
           <div className={isInclude(el.id) ? classes.selectedItemText : classes.itemText}>{el.label}</div>
-        </div>
+        </div> 
       ))}
     </div>
   );

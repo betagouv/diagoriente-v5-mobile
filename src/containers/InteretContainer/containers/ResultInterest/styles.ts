@@ -6,7 +6,11 @@ export default makeStyles<Theme>((theme) => ({
     height: '90vh',
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor:'#F3F2F4'
+    backgroundColor:'#F3F2F4',
+    [theme.breakpoints.up(500)]: {
+      height: '100vh',
+
+    },
   },
   content: {
     maxWidth: 1080,
@@ -22,8 +26,8 @@ export default makeStyles<Theme>((theme) => ({
     alignItems:'center',
     backgroundColor:'#ffff',
     height:100,
-    [theme.breakpoints.up(560)]: {
-      marginTop: 40,
+    [theme.breakpoints.up(500)]: {
+      marginTop: 0,
     },
   },
   title: {
@@ -38,9 +42,10 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
     'padding-left': '5vh',
     'padding-right': '5vh',
-    [theme.breakpoints.up(560)]: {
-      marginTop: 40,
-      marginBottom: 40,
+    [theme.breakpoints.up(500)]: {
+      marginBottom: 13,
+      marginTop: 35,
+
     },
   },
   text: {
@@ -59,7 +64,11 @@ export default makeStyles<Theme>((theme) => ({
     display:'flex',
     flexDirection:'row',
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    [theme.breakpoints.up(500)]: {
+      bottom: '-49px',
+
+    },
   },
   btn: {
     backgroundColor: theme.palette.success.main,

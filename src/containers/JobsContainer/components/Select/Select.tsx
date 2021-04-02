@@ -45,8 +45,12 @@ interface IProps {
   border?: string;
   background?: string;
   from: string;
+  inputBorder?: string;
+  borderColor?:string;
+  check?:boolean;
+  bkColor?:string;
+  placeHolderColor?:string
 }
-
 const SelectJobs = ({
   onChange,
   value,
@@ -54,8 +58,10 @@ const SelectJobs = ({
   placeholder,
   options,
   open,
+  check,
   onClose,
   onSelectText,
+  bkColor,
   onClick,
   fullSelect,
   reference,
@@ -66,8 +72,12 @@ const SelectJobs = ({
   border,
   background,
   arrowColor,
+  borderColor,
+  inputBorder,
+  placeHolderColor,
 }: IProps) => {
-  const classes = useStyles({ fullSelect, fullScreenModal, open, arrowColor });
+  const classes = useStyles({ fullSelect, fullScreenModal, open, arrowColor , borderColor , placeHolderColor
+  });
   const isInclude = (id: string) => value && value.includes(id);
   const theme = useTheme();
   const [openModal, setOpenModal] = React.useState(open);
@@ -95,7 +105,7 @@ const SelectJobs = ({
           name={name}
           placeholder={placeholder}
           disabled
-          className={classNames(from ? classes.inputContainer1 : classes.inputContainer , isInclude && classes.selectedInput )}
+          className={classNames(from && classes.inputContainer1 , classes.inputBorder , isInclude && classes.selectedInput )}
         />
         <div className={classes.logoContainer}>
           <Arrow
@@ -127,9 +137,10 @@ const SelectJobs = ({
                             img={ checked}
                             className={classes.checkBox}
                             classNameLogo={classes.checkBoxImg}
-                            color="#DB8F00 "
                             border="#DB8F00 "
                             background="#fff"
+                            color="#DB8F00 "
+
 
                           />
                         </div>
@@ -174,8 +185,11 @@ const SelectJobs = ({
                   selected={value}
                   name={name}
                   className={classes.optionList}
-                  border={from === 'job' ? '##FFA600' : '#00B2DB'}
-                  background={from === 'job' ? '#FFD382' : '#7AE6FF'}
+                  border={from === 'job' ? '#FFA600' : '#00B2DB'}
+                  background={from === 'job' ? '#ffff' : '#7AE6FF'}
+                  check={check}
+                  bkColor={bkColor}
+                  checkColor={"#DB8F00 "}
                 />
               </div>
             </div>
@@ -199,6 +213,7 @@ const SelectJobs = ({
               name={name}
               border={border}
               background={background}
+
             />
           )}
         </div>
