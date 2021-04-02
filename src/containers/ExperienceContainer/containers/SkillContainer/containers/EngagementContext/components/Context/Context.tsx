@@ -3,8 +3,6 @@ import Circle from 'components/common/Avatar/Avatar';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import classNames from 'utils/classNames';
-import Grid from '@material-ui/core/Grid';
-
 import useStyles from './styles';
 
 interface Props {
@@ -17,17 +15,26 @@ interface Props {
 const Context = ({ className, checked, handleChange, title, icon }: Props) => {
   const classes = useStyles();
   return (
-    <Grid item xs={4} className={classNames(classes.root, className)}>
+    <div className={classNames(classes.root, checked && classes.rootChecked, className)}>
+      <div className={classes.checkboxContainer}>
+        <CheckBox
+          color="#fff"
+          background="#00CFFF"
+          border="#00B2DB"
+          className={classes.checkbox}
+          checked={checked}
+          onChange={handleChange}
+        />
+        <span className={classes.title}>{title}</span>
+      </div>
       {icon ? (
-        <Avatar size={80}>
+        <Avatar size={80} className={classes.circle} squareContainerClassName={classes.squareContainer}>
           <img src={icon} alt="" height={60} width={60} />
         </Avatar>
       ) : (
-        <Circle size={80} />
+        <Circle size={60} />
       )}
-      <span className={classNames(classes.title, checked && classes.titleChecked)}>{title}</span>
-      <CheckBox color="#fff" background="#00CFFF" border="#00B2DB" className={classes.checkbox} checked={checked} onChange={handleChange} />
-    </Grid>
+    </div>
   );
 };
 
