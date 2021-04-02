@@ -7,6 +7,7 @@ import arrowClose from 'assets/svg/arrowDown.svg';
 import Dialog from '@material-ui/core/Dialog';
 import Divider from '@material-ui/core/Divider';
 import Slide from '@material-ui/core/Slide';
+import classNames from 'common/utils/classNames';
 import { TransitionProps } from '@material-ui/core/transitions';
 
 import { echelon, echelonValue } from 'utils/generic';
@@ -73,7 +74,7 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
                 </div>
               )}
 
-              <div className={classes.arrowContainer}>
+              <div className={classNames(classes.arrowContainer, indexSelectedLevel >= 0 && classes.selectedBorder)}>
                 <img src={arrow} alt="arrow" className={classes.arrow} />
               </div>
             </>

@@ -152,6 +152,7 @@ export default makeStyles((theme: Theme) =>
     selectContainer: {
       display: 'flex',
       alignItems: 'center',
+      width: '100%',
     },
 
     formControl: {
@@ -188,7 +189,7 @@ export default makeStyles((theme: Theme) =>
       fontSize: 28,
       cursor: 'pointer',
       [theme.breakpoints.down(420)]: {
-        right: "1vh",
+        right: '1vh',
       },
     },
     questionRow: {
@@ -199,7 +200,6 @@ export default makeStyles((theme: Theme) =>
       [theme.breakpoints.down(420)]: {
         width: '85%',
       },
-    
     },
     rowActivityWidth: {
       width: 800,

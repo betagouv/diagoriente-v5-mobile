@@ -53,6 +53,8 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect 
 
   const handleDialogClose = () => {
     setOpen(false);
+    /*  showAvatar('');
+    setOpenedItem(false); */
   };
 
   useEffect(() => {
@@ -76,34 +78,13 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect 
         label=""
         value="Thèmes"
         variant="outlined"
-        className={
-          !theme || theme === '' || theme === 'Thèmes : ' ? classes.selectContainer : classes.selectedThemeContainer
-        }
+        className={classes.selectContainer}
         InputProps={{
           endAdornment: (
             <div className={classes.arrowContainer}>
               <img src={arrow} alt="arrow" className={classes.arrow} />
             </div>
           ),
-
-          startAdornment: {
-            ...(theme !== 'Thèmes' && theme && theme !== '' ? (
-              <Avatar
-                size={29}
-                className={classes.avatarCircleSelected}
-                squareContainerClassName={classes.squareContainerClassName}
-                theme
-              >
-                <img
-                  src={selectedTheme?.resources?.icon}
-                  alt=""
-                  className={classNames(classes.avatarStyle, classes.selectedImg)}
-                />
-              </Avatar>
-            ) : (
-              <Avatar size={0} className={classes.avatarCircleThemes} />
-            )),
-          },
         }}
         onClick={onOpenSelect}
       ></TextField>
@@ -138,7 +119,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect 
                   title={option.title}
                   size={62}
                   titleClassName={selectedTheme?.id === option.id ? classes.textSelected : classes.themeTitle}
-                  className={classes.avatarCircle}
+                  className={classNames(classes.avatarCircle, openedItem && classes.widthOpened)}
                   squareContainerClassName={classes.squareContainerClassName}
                   theme
                 >

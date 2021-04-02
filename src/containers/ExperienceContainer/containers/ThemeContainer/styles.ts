@@ -106,6 +106,7 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'bold',
       fontSize: 14,
       color: '#424242',
+      maxWidth: 'max-width: calc(100% - 50px)',
     },
 
     text: {

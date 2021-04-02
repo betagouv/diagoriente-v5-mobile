@@ -1,17 +1,18 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 
 export default makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
       flexDirection: 'column',
+      height: '100vh',
     },
 
     container: {
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
+      height: '100%',
     },
 
     themeContainer: {
@@ -21,7 +22,7 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       padding: '35px 40px 40px 40px',
-      height: '100vh',
+      flexGrow: 1,
     },
 
     circleContainer: {

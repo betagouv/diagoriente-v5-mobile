@@ -43,7 +43,7 @@ export default makeStyles((theme: Theme) => ({
   },
   arrow: {
     width: 14,
-    height: 8,
+    height: 9,
   },
   rotatedArrow: {
     transform: 'rotate(180deg)',
@@ -72,7 +72,7 @@ export default makeStyles((theme: Theme) => ({
       width: 230,
     },
     '& input': {
-      width: '85%',
+      width: '86%',
     },
   },
 
@@ -122,11 +122,8 @@ export default makeStyles((theme: Theme) => ({
     margin: '0 15px',
     color: '#424242',
     fontSize: 14,
-    width: 'fit-content',
     wordBreak: 'break-word',
-    [theme.breakpoints.down(380)]: {
-      width: '80%',
-    },
+    width: 'calc(100% - 65px)',
   },
 
   textSelected: {
@@ -134,27 +131,25 @@ export default makeStyles((theme: Theme) => ({
     fontWeight: 'bold',
     fontSize: 14,
     color: '#00B2DB',
+    width: 'calc(100% - 60px)',
   },
   itemAvatar: {
     display: 'flex',
-    padding: '0px 25px',
+    padding: '7px 25px',
     alignItems: 'center',
+    minHeight: 64,
+    [theme.breakpoints.down(340)]: {
+      padding: '7px 20px',
+    },
   },
   avatarCircle: {
-    width: ' calc(100% - 30px)',
-    height: '63px !important',
+    width: ' 100%',
     flexDirection: 'row',
     borderRadius: '0px !important',
     paddingBottom: '0px !important',
     cursor: 'pointer',
   },
-  avatarCircleSelected: {
-    width: '45px !important',
-  },
-
-  avatarCircleThemes: {
-    width: '15px !important',
-  },
+  widthOpened: { width: ' calc(100% - 30px)' },
 
   squareContainerClassName: {
     width: '50px !important',

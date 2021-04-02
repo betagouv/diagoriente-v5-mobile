@@ -25,9 +25,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      [theme.breakpoints.up(400)]: {
-        height: '100vh',
-      },
+      flexGrow: 1,
     },
     titleContainer: {
       padding: '35px 40px 40px 40px',
@@ -65,12 +63,6 @@ export default makeStyles((theme: Theme) =>
       maxHeight: '100%',
       maxWidth: '100%',
     },
-
-    // title: {
-    //   color: '#424242',
-    //   textAlign: 'center',
-    //   fontSize: 14,
-    // },
 
     competences: {
       width: '100%',

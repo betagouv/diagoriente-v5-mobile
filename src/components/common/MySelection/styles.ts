@@ -15,7 +15,7 @@ export default makeStyles((theme: Theme) =>
       height: '100%',
       zIndex: 999,
       backgroundColor: 'rgba(34, 58, 122, 0.5)',
-      position: 'absolute',
+      position: 'fixed',
       top: 0,
       left: 0,
       padding: '85px 25px',
@@ -70,10 +70,12 @@ export default makeStyles((theme: Theme) =>
       fontSize: 14,
       lineHeight: '21px',
       color: '#6B6B6A',
+      maxWidth: '100%',
     },
     themeAvatar: {
       paddingBottom: 2,
       alignItems: 'flex-start',
+      justifyContent: 'center',
     },
     circleClassName: {
       padding: 0,

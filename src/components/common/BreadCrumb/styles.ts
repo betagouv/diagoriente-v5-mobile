@@ -10,6 +10,9 @@ export default makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'space-between',
       padding: '0px 40px',
+      [theme.breakpoints.down(340)]: {
+        padding: '0px 20px',
+      },
     },
     routesContainer: {},
     route: {

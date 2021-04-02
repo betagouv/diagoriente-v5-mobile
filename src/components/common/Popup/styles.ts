@@ -25,7 +25,7 @@ export default makeStyles((theme) => ({
     height: 340,
     width: 480,
     padding: 50,
-    [theme.breakpoints.down(415)]: {
+    [theme.breakpoints.down(430)]: {
       width: 350,
     },
     [theme.breakpoints.down(370)]: {

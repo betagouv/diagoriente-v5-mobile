@@ -53,6 +53,10 @@ export default makeStyles(() => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  selectedBorder: {
+    border: '1px solid #00CFFF',
+    borderLeft: 'none',
+  },
   arrow: {
     width: 14,
     height: 8,
@@ -92,7 +96,7 @@ export default makeStyles(() => ({
     height: 45,
     display: 'flex',
     background: '#FFFFFF',
-    border: '1px solid #D1D5DE',
+    border: '1px solid #00CFFF',
     boxSizing: 'border-box',
     borderRadius: '5px 0px 0px 5px',
     '& div': {

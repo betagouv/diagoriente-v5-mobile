@@ -16,6 +16,7 @@ interface IProps extends Omit<OutlinedTextFieldProps, 'variant'> {
   errorForm?: string;
   showPassword?: () => void;
   className?: string;
+  wrapperInputClassName?: string;
   inputClassName?: string;
   inputBaseClassName?: string;
   withOutIcons?: boolean;
@@ -36,6 +37,7 @@ const Input = ({
   className,
   withOutIcons,
   icon,
+  wrapperInputClassName,
   inputClassName,
   inputBaseClassName,
   isfull,
@@ -60,7 +62,7 @@ const Input = ({
         </div>
       )}
 
-      <div className={label ? classes.wrapperInputGrid : classes.wrapperInput}>
+      <div className={label ? classes.wrapperInputGrid : classNames(wrapperInputClassName, classes.wrapperInput)}>
         <TextField
           value={value}
           className={classes.inputRoot}
