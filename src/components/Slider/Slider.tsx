@@ -127,7 +127,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps , { locat
         renderBottomCenterControls={null}
         className={classes.root}
       >
-        {data.reverse().map((el, i) => (
+        {data.map((el, i) => (
           <div key={el.title} className={classes.item}>
             <div className={classes.avatarContainer}>
               {el.data.map((e) => {
