@@ -70,33 +70,35 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
       })),
     [data],
   );
-  const renderAllPlaceholder = () => {
-    const array: JSX.Element[] = [];
-    for (let i = 1; i <=5; i += 1) {
-      array.push(   <div
-        key={i}
-        className={classNames(
-          selectedInterest?.length && i <= selectedInterest?.length && classes.circleSelected,
-          classes.circle,
-        )}
-        onClick={() => setOpenConfirm(true)}
-      >
-        {i}
-      </div>);
-    }
-    return array;
-  };
+  // const renderAllPlaceholder = () => {
+  //   const array: JSX.Element[] = [];
+  //   for (let i = 1; i <= 5; i += 1) {
+  //     array.push(
+  //       <div
+  //         key={i}
+  //         className={classNames(
+  //           selectedInterest?.length && i <= selectedInterest?.length && classes.circleSelected,
+  //           classes.circle,
+  //         )}
+  //         onClick={() => setOpenConfirm(true)}
+  //       >
+  //         {i}
+  //       </div>,
+  //     );
+  //   }
+  //   return array;
+  // };
 
   const renderPlaceholder = () => {
     const array: JSX.Element[] = [];
-    
+
     if (selectedInterest) {
       for (let i = selectedInterests.length + 1; i <= 5; i += 1) {
         if (i <= 4) {
-          array.push(<PlaceHolder  index={i} key={i} direction="horizontal" />);
+          array.push(<PlaceHolder index={i} key={i} direction="horizontal" />);
           array.push(<Divider style={{ backgroundColor: '#C9C9C7' }} />);
         } else {
-          array.push(<PlaceHolder  index={i} key={i} direction="horizontal" />);
+          array.push(<PlaceHolder index={i} key={i} direction="horizontal" />);
         }
       }
 
@@ -142,13 +144,10 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   };
   const handelClose = () => setOpenConfirm(false);
 
-
-
   return (
     <div className={classes.container}>
       <div className={classes.content}>
         <div className={classes.wrapper}>
-            
           <div className={classes.circleContainer}>
             {loading ? (
               <div className={classes.loadingContainer}>
@@ -166,9 +165,8 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
         </div>
 
         <div className={classes.fiveCircle}>
-        {renderAllPlaceholder()}
+          {/* {renderAllPlaceholder()} */}
 
-      
           <div className={classes.validerButton}>
             {selectedInterest && selectedInterest?.length >= 3 && (
               <div className={classes.btnNext}>
@@ -191,7 +189,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
         height={60}
         size={90}
         style={{
-      overflow:'hidden !important'
+          overflow: 'hidden !important',
         }}
       >
         <div className={classes.modalAtt}>
@@ -210,9 +208,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
         </div>
       </ModalContainer>
       <ModalContainer open={openWarning} backdropColor="#011A5E" colorIcon="#420FAB" size={90} height={60}>
-        <div
-className={classes.modalAtt2}
-        >
+        <div className={classes.modalAtt2}>
           <div className={classes.closePop1} style={{ zIndex: 1 }}>
             <img src={closeButton} alt="att" width={50} height={50} onClick={onHandelCloseWarning} />
           </div>
@@ -235,11 +231,10 @@ className={classes.modalAtt2}
           overflow: 'hidden !important',
         }}
       >
-     
         <div className={classes.diagPop}>
-        <div className={classes.closePop} style={{ zIndex: 1 }}>
-          <img src={closeButton} alt="att" width={35} height={35} onClick={handelClose} />
-        </div>
+          <div className={classes.closePop} style={{ zIndex: 1 }}>
+            <img src={closeButton} alt="att" width={35} height={35} onClick={handelClose} />
+          </div>
           <div className={classes.headerModelConfirm}>
             <span className={classes.textModelConfirm}>
               Ma sélection ({selectedInterest?.length}
