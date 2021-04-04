@@ -127,10 +127,10 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps , { locat
         renderBottomCenterControls={null}
         className={classes.root}
       >
-        {data.map((el, i) => (
+        {data.reverse().map((el, i) => (
           <div key={el.title} className={classes.item}>
             <div className={classes.avatarContainer}>
-              {el.data.map((e) => {
+              {el.data.reverse().map((e) => {
                 const selected = isChecked(e.id);
                 const { nom } = e;
                 const res = nom.replace(/\//g, '');
