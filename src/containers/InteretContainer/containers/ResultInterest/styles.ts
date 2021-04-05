@@ -8,7 +8,15 @@ export default makeStyles<Theme>((theme) => ({
     justifyContent: 'center',
     backgroundColor:'#F3F2F4',
     [theme.breakpoints.up(500)]: {
-      height: '100vh',
+      height: '87vh',
+
+    },
+    [theme.breakpoints.up(570)]: {
+      height: '99vh',
+
+    },
+    [theme.breakpoints.up(666)]: {
+      bottom: '-60vh',
 
     },
   },
@@ -43,7 +51,7 @@ export default makeStyles<Theme>((theme) => ({
     'padding-left': '5vh',
     'padding-right': '5vh',
     [theme.breakpoints.up(500)]: {
-      marginBottom: 13,
+      marginBottom: 17,
       marginTop: 35,
 
     },
@@ -66,9 +74,17 @@ export default makeStyles<Theme>((theme) => ({
     justifyContent:'center',
     alignItems:'center',
     [theme.breakpoints.up(500)]: {
-      bottom: '-49px',
+      bottom: '0px',
 
     },
+    [theme.breakpoints.up(567)]: {
+      bottom: '-43px',
+
+    },
+    // [theme.breakpoints.up(666)]: {
+    //   bottom: '-43px',
+
+    // },
   },
   btn: {
     backgroundColor: theme.palette.success.main,

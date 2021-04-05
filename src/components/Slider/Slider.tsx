@@ -130,7 +130,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps , { locat
         {data.reverse().map((el, i) => (
           <div key={el.title} className={classes.item}>
             <div className={classes.avatarContainer}>
-              {el.data.reverse().map((e) => {
+              {el.data.map((e) => {
                 const selected = isChecked(e.id);
                 const { nom } = e;
                 const res = nom.replace(/\//g, '');
@@ -141,9 +141,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps , { locat
                     className={e.resources.length === 1 ? classes.subitem1 : classes.subitem}
                   >
                     <div className={classNames(selected ? classes.selected : classes.imageContainer)}>
-                      <div className={classes.CheckBoxStyle}>
-                  
-                      </div>
+                 
                       <img src={e.resources[0]} alt="" className={classes.deselected} />
                       <div className={classNames(selected ? classes.titleSelected1 : classes.titleContainer1)}>
                         {res}

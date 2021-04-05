@@ -39,8 +39,7 @@ const Placeholder = ({
   });
   const nom = famille?.nom;
   const res = nom && nom.replace(/\//g, '');
-  console.log(nom,'nom')
-  console.log(res,'res')
+
 
   return (
     <div className={classNames(classes.root, className)}>

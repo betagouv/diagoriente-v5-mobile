@@ -119,7 +119,28 @@ const JobsContainer = ({
     setClearMessage(true);
     await localForage.setItem('messages', false);
   };
-
+  // useEffect(() => {
+  //   const select = document.getElementById("myHeader");
+  //   const sticky = select?.offsetTop;
+  //   const scrollCallBack: any = window.addEventListener("scroll", () => {
+  //     if (sticky && select) {
+  //       if (window.pageYOffset > sticky) {
+  //         select?.classList.add(classes.sticky);
+  //         if (!isSelectFixed) {
+  //           setSelectFixed(true);
+  //         }
+  //       } else {
+  //         select.classList.remove(classes.sticky);
+  //         if (isSelectFixed) {
+  //           setSelectFixed(false);
+  //         }
+  //       }
+  //     }
+  //   });
+  //   return () => {
+  //     window.removeEventListener("scroll", scrollCallBack);
+  //   };
+  // }, []);
   const onSelect = (label?: string) => {
     setSearch(label);
     // setOpen(false);
@@ -232,6 +253,7 @@ const JobsContainer = ({
               options={filteredArray}
               onChange={onChangeSelect}
               onSelectText={onSelect}
+              // onKeyPress={}
               value={search || ''}
               name="search"
               placeholder="Rechercher"
