@@ -133,7 +133,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect 
                   <img src={itemArrow} alt="" className={classes.itemArrow} />
                 )}
               </div>
-              {selectedTheme?.id === option.id && openedItem && (
+              {selectedTheme?.id === option.id && openedItem && activities.length !== 0 && (
                 <>
                   <Divider />
                   <div className={classes.activitiesContainer}>
