@@ -5,6 +5,7 @@ import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import Recommendation from 'components/ui/RecommendationModal/RecommendationModal';
 import Button from 'components/button/Button';
 import ParcourContext from 'contexts/ParcourContext';
+import classNames from 'common/utils/classNames';
 import check from 'assets/svg/check.svg';
 import useStyles from './styles';
 
@@ -36,17 +37,17 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
     default:
       typeXp = 'personnelle';
   }
-
+  console.log('avatar', theme.resources?.icon);
   return (
     <div className={classes.root}>
       <div className={classes.header}>
         <div className={classes.title}>BRAVO !</div>
       </div>
-      <div className={classes.content}>
+      <div className={classNames(classes.content, skill?.theme.type === 'professional' && classes.paddingPro)}>
         {skill?.theme.type === 'professional' ? (
           <div className={classes.titleThemeContainer}>
             <span className={classes.titleThemeDone}>{theme.title}</span>
-            <img src={check} alt="check" className={classes.checked} />
+            {/* <img src={check} alt="check" className={classes.checked} /> */}
           </div>
         ) : (
           <Avatar title={theme.title} size={100} titleClassName={classes.avatarTitle} className={classes.imgContainer}>
@@ -55,7 +56,7 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
         )}
         <div className={classes.description}>
           <p className={classes.text}>
-            Tu as ajouté une expérience {typeXp} à ton parcours, et tu as identifié de nouvelles compétences.
+            Tu as ajouté une expérience {typeXp} à ton parcours et identifié de nouvelles compétences.
           </p>
         </div>
         <div className={classes.btnContainer}>

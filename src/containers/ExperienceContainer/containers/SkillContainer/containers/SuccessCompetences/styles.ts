@@ -13,14 +13,21 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '80px 40px 30px 40px',
+    padding: '110px 40px 30px 40px',
     height: '100vh',
     backgroundColor: '#F3F2F4',
     [theme.breakpoints.down(330)]: {
       height: 'auto',
+      padding: '110px 20px 30px 20px',
     },
     [theme.breakpoints.up(560)]: {
       height: 'auto',
+    },
+  },
+  paddingPro: {
+    padding: '50px 40px 30px 40px',
+    [theme.breakpoints.down(340)]: {
+      padding: '50px 20px 30px 20px',
     },
   },
 
@@ -52,6 +59,11 @@ export default makeStyles((theme) => ({
     fontWeight: 'bold',
     lineHeight: '24px',
     color: '#223A7A',
+    textAlign: 'center',
+    padding: '0px 40px',
+    [theme.breakpoints.down(340)]: {
+      padding: '0px 20px',
+    },
   },
   description: {
     marginBottom: 30,
@@ -313,10 +325,16 @@ export default makeStyles((theme) => ({
   },
 
   titleThemeDone: {
-    fontSize: 14,
+    fontSize: 16,
+    fontWeight: 'bold',
+    lineHeight: '24px',
+    color: '#223A7A',
+    textAlign: 'center',
+    width: '100%',
+    /* fontSize: 14,
     '@media not all and (min-resolution:.001dpcm)': {
       fontSize: 11,
-    },
+    }, */
   },
 
   checked: {
