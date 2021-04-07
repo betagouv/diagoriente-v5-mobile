@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Competence } from 'requests/types';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
-import itemArrow from 'assets/svg/openArrow.svg';
+import itemArrow from 'assets/svg/darkArrow.svg';
 import classNames from 'utils/classNames';
 
 import useStyles from './styles';
@@ -75,12 +75,12 @@ const SkillCheckbox = ({
     if (!!competences?.find((e) => e.id === competence.id)) setSelected(true);
     else setSelected(false);
   }, [competences]);
-  console.log('des', description);
+
   return (
     <div className={classes.skillContainer}>
       <div
         className={classNames(classes.header, opened && !selected && classes.openedBG, selected && classes.selectedBG)}
-        style={{ justifyContent: opened && !selected ? 'space-between' : '' }}
+        style={{ justifyContent: opened ? 'space-between' : '' }}
         onClick={(e) => onClickHeader(e as any)}
       >
         <div className={classes.checkboxContainer}>
@@ -101,12 +101,13 @@ const SkillCheckbox = ({
               classes.label,
               opened && !selected && classes.openedLabel,
               selected && classes.selectedLabel,
+              opened && classes.openedWidth,
             )}
           >
             {label}
           </span>
         </div>
-        {opened && !selected && <img src={itemArrow} alt="" className={classes.itemArrow} />}
+        {opened && <img src={itemArrow} alt="" className={classes.itemArrow} />}
       </div>
       {opened && description && (
         <div className={classes.descriptionContainer}>
