@@ -75,7 +75,7 @@ const SkillCheckbox = ({
     if (!!competences?.find((e) => e.id === competence.id)) setSelected(true);
     else setSelected(false);
   }, [competences]);
-
+  console.log('des', description);
   return (
     <div className={classes.skillContainer}>
       <div
@@ -108,7 +108,7 @@ const SkillCheckbox = ({
         </div>
         {opened && !selected && <img src={itemArrow} alt="" className={classes.itemArrow} />}
       </div>
-      {opened && (
+      {opened && description && (
         <div className={classes.descriptionContainer}>
           <p className={classes.description}>{description}</p>
         </div>
