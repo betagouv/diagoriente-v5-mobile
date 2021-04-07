@@ -93,9 +93,11 @@ width:'100%',
     alignItems: 'center',
     height:'55px',
     padding: 20,
+
     [theme.breakpoints.down(330)]: {
       padding: 0,
-  
+      width: '80%',
+
     }
   },
 circle:{   [theme.breakpoints.down(380)]: {

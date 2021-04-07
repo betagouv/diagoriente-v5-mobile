@@ -88,7 +88,7 @@ export default makeStyles<Theme>((theme) => ({
     minWidth: '100%',
     width: '29%',
     cursor: 'pointer',
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(243,242,244,1)',
   },
   subitem1: {
     minWidth: 170,
@@ -99,7 +99,8 @@ export default makeStyles<Theme>((theme) => ({
   selected: {
     position: 'relative',
     // backgroundColor: 'rgba(223, 212, 255, 0.5)',
-    backgroundColor:"#A275FF"
+    backgroundColor:"#A275FF",
+    padding:'10px'
   },
   titleSelected1:{
     fontWeight: 400,
@@ -236,6 +237,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   imageContainer: {
     position: 'relative',
+    padding:'10px'
   },
   show: {
     opacity: 1,

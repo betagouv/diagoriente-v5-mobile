@@ -57,9 +57,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
     setInterest(selectedInterests);
   }, [setInterest, selectedInterests]);
 
-  useEffect(() => {
-    setInterest(selectedInterests);
-  }, [setInterest, selectedInterests]);
+
 
   const { data, loading } = useFamilies();
   const formattedData: { title: string; data: Families[] }[] = useMemo(
@@ -72,31 +70,33 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   );
   const renderAllPlaceholder = () => {
     const array: JSX.Element[] = [];
-    for (var i = 1; i <=5; i += 1) {
-      array.push(   <div
-        className={classNames(
-          selectedInterest?.length && i <= selectedInterest?.length && classes.circleSelected,
-          classes.circle,
-        )}
-        onClick={() => setOpenConfirm(true)}
-        // key={el.id}
-      >
-        {i}
-      </div>);
+    for (let i = 1; i <= 5; i += 1) {
+      array.push(
+        <div
+        key={ i }       
+           className={classNames(
+            selectedInterest?.length && i <= selectedInterest?.length && classes.circleSelected,
+            classes.circle,
+          )}
+          onClick={() => setOpenConfirm(true)}
+        >
+          {i}
+        </div>,
+      );
     }
     return array;
   };
 
   const renderPlaceholder = () => {
     const array: JSX.Element[] = [];
-    
+
     if (selectedInterest) {
       for (let i = selectedInterests.length + 1; i <= 5; i += 1) {
         if (i <= 4) {
-          array.push(<PlaceHolder  index={i} key={i} direction="horizontal" />);
+          array.push(<PlaceHolder index={i} key={i} direction="horizontal" />);
           array.push(<Divider style={{ backgroundColor: '#C9C9C7' }} />);
         } else {
-          array.push(<PlaceHolder  index={i} key={i} direction="horizontal" />);
+          array.push(<PlaceHolder index={i} key={i} direction="horizontal" />);
         }
       }
 
@@ -142,13 +142,10 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   };
   const handelClose = () => setOpenConfirm(false);
 
-
-
   return (
     <div className={classes.container}>
       <div className={classes.content}>
         <div className={classes.wrapper}>
-            
           <div className={classes.circleContainer}>
             {loading ? (
               <div className={classes.loadingContainer}>
@@ -159,6 +156,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
                 data={formattedData}
                 handleClick={handleClick}
                 isChecked={isChecked}
+
                 defaultIndex={Number((param as any).id)}
               />
             )}
@@ -166,9 +164,8 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
         </div>
 
         <div className={classes.fiveCircle}>
-        {renderAllPlaceholder()}
+          {renderAllPlaceholder()}
 
-      
           <div className={classes.validerButton}>
             {selectedInterest && selectedInterest?.length >= 3 && (
               <div className={classes.btnNext}>
@@ -184,20 +181,9 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
         </div>
       </div>
-      <ModalContainer
-        open={open}
-        backdropColor="#011A5E"
-        colorIcon="#420FAB"
-        height={60}
-        size={90}
-        style={{
-      overflow:'hidden !important'
-        }}
-      >
-        <div className={classes.modalAtt}>
-          <div className={classes.closePop1} style={{ zIndex: 1 }}>
-            <img src={closeButton} alt="att" width={50} height={50} onClick={onHandelClose} />
-          </div>
+      {open &&   <div className={classes.modalContainer}>
+          <div className={classes.modal}>
+          <img src={closeButton} alt="att" width={50} className={classes.closeImg} height={50} onClick={onHandelClose} />
           <div className={classes.titleContainerModal}>ATTENTION !</div>
           <div className={classes.textModal}>
             Tu as déjà choisi 5 familles d’intérêts, tu dois en supprimer si tu souhaites en ajouter de nouvelles.
@@ -207,38 +193,34 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
               <div className={classes.comprisButton}>J'ai compris !</div>
             </Button>
           </div>
-        </div>
-      </ModalContainer>
-      <ModalContainer open={openWarning} backdropColor="#011A5E" colorIcon="#420FAB" size={90} height={60}>
-        <div
-className={classes.modalAtt2}
-        >
-          <div className={classes.closePop1} style={{ zIndex: 1 }}>
-            <img src={closeButton} alt="att" width={50} height={50} onClick={onHandelCloseWarning} />
           </div>
+        </div> }
+    
+ 
+            {openWarning &&  
+             <div className={classes.modalContainer}>
+          <div className={classes.modal}>
+          <img src={closeButton} alt="att" width={50}  className={classes.closeImg} height={50} onClick={onHandelCloseWarning} />
           <div className={classes.titleContainerModal}>UNE PETITE MINUTE...</div>
           <div className={classes.textModal} style={height < 400 ? { padding: '0px' } : {}}>
             Tu as choisi tes familles d’intérêts seulement dans la 1ère partie, es-tu sûr.e d’avoir exploré toutes les
             familles d’intérêts
           </div>
-          <div>
-            <Button onClick={onHandelCloseWarning} className={classes.btn}>
+          <div className={classes.btn}  >
+            <Button onClick={onHandelCloseWarning} >
               <div className={classes.comprisButton}>J'ai compris !</div>
             </Button>
           </div>
-        </div>
-      </ModalContainer>
-      <Dialog
-        open={openConfirm}
-        keepMounted
-        style={{
-          overflow: 'hidden !important',
-        }}
-      >
-        <div className={classes.closePop} style={{ zIndex: 1 }}>
-          <img src={closeButton} alt="att" width={35} height={35} onClick={handelClose} />
-        </div>
-        <div className={classes.diagPop}>
+          </div>
+        </div> }
+
+                  {openConfirm &&  
+             <div className={classes.modalContainer1}>
+                           <img src={closeButton} alt="att" width={35} height={35} className={classes.closeImg1}  onClick={handelClose} />
+
+          <div className={classes.modal1}>
+          <div >
+   
           <div className={classes.headerModelConfirm}>
             <span className={classes.textModelConfirm}>
               Ma sélection ({selectedInterest?.length}
@@ -269,7 +251,9 @@ className={classes.modalAtt2}
           </div>
           {!loading && renderPlaceholder()}
         </div>
-      </Dialog>
+          </div>
+        </div> }
+
     </div>
   );
 };

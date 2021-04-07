@@ -131,7 +131,9 @@ export default makeStyles<Theme>((theme) => ({
     },
     '-ms-overflow-style': 'none',
   },
-  btn: {},
+  btn: {
+    textAlign:'center'
+  },
   contentBtn: {
     display: 'flex',
     alignItems: 'center',
@@ -140,7 +142,75 @@ export default makeStyles<Theme>((theme) => ({
     alignSelf: 'center',
   },
 
-
+  modalContainer: {
+    width: '100%',
+    height: '100%',
+    zIndex: 999,
+    backgroundColor: 'rgba(34, 58, 122, 0.5)',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    padding: '85px 25px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems:'center',
+  },
+  modal: {
+    position: 'relative',
+    backgroundColor: '#FFFFFF',
+    width: 'fit-content',
+    height: 'fit-content',
+    padding: 70,
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    borderRadius: 5,
+    minWidth: 330,
+    [theme.breakpoints.down(380)]: {
+      minWidth: '100%',
+    },
+  },
+  modalContainer1: {
+    width: '100%',
+    height: '100%',
+    zIndex: 999,
+    backgroundColor: 'rgba(34, 58, 122, 0.5)',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    padding: '55px 40px 60px 22px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems:'center',
+  },
+  modal1: {
+    position: 'relative',
+    backgroundColor: '#FFFFFF',
+    width: 'fit-content',
+    height: '100%',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    borderRadius: 5,
+    minWidth: 330,
+    overflow:'auto',
+    [theme.breakpoints.down(380)]: {
+      minWidth: '100%',
+    },
+  },
+  closeImg: {
+    position: 'absolute',
+    top: -19,
+    right: -14,
+  },
+  closeImg1: {
+    position: 'absolute',
+    top: 48,
+    right: 103,
+    zIndex:1,
+    [theme.breakpoints.down(415)]: {
+      right: 37,
+    },
+    [theme.breakpoints.down(380)]: {
+      right: 30,
+    },
+  },
   btnLabel: {
     color: '#fff',
     fontSize: '16px',
