@@ -5,6 +5,7 @@ import Avatar from 'components/common/Avatar/Avatar';
 import IlluExpPerso from 'assets/images/illu_xp_perso.png';
 import IlluExpPro from 'assets/images/illu_xp_pro.png';
 import illExpEng from 'assets/images/illu_xp_engagement.png';
+import illExpSport from 'assets/images/illu_xp_sport.png';
 import { Link, useHistory } from 'react-router-dom';
 import useStyles from './styles';
 
@@ -86,7 +87,7 @@ const Experience = () => {
             <img src={illExpEng} alt="ill" className={classes.illus} onClick={onClickEng} />
           </Avatar>
         </Link>
-        <Link to="/experience/theme?type=engagement" className={classes.circleContainer}>
+        <Link to="/experience/theme?type=sport" className={classes.circleContainer}>
           <Avatar
             title="Ajouter une experience"
             boldTitle=" sportive"
@@ -96,7 +97,7 @@ const Experience = () => {
             titleClassName={classes.avatarTitle}
             circleClassName={classes.circleStyleEng}
           >
-            <img src={illExpEng} alt="ill" className={classes.illus} onClick={onClickEng} />
+            <img src={illExpSport} alt="ill" className={classes.illus} onClick={onClickEng} />
           </Avatar>
         </Link>
       </div>
