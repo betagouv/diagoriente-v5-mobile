@@ -18,9 +18,9 @@ const Context = ({ className, checked, handleChange, title, icon }: Props) => {
     <div className={classNames(classes.root, checked && classes.rootChecked, className)}>
       <div className={classes.checkboxContainer}>
         <CheckBox
-          color="#fff"
-          background="#00CFFF"
+          color="#00B2DB"
           border="#00B2DB"
+          background="#FFFFFF"
           className={classes.checkbox}
           checked={checked}
           onChange={handleChange}
