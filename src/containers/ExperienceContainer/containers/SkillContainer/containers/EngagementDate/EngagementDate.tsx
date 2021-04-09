@@ -53,12 +53,16 @@ const EngagementDate = ({
   const isBrowser = typeof window !== 'undefined';
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
 
-  const handleOnGoingClick = () => {
+  const handleOnGoingClick = (e: Event) => {
+    e.preventDefault();
     setChecked(!checked);
   };
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
+
+  console.log('startDate', startDate);
+  console.log('endDate', endDate);
   return (
     <div className={classes.root}>
       <BreadCrumb theme={theme} activities={activities} />
@@ -108,7 +112,7 @@ const EngagementDate = ({
           </div>
         </div>
         <div className={classes.errorText}>{!isEndDateValid ? errorText : ''}</div>
-        <div className={classes.onGoingContainer} onClick={handleOnGoingClick}>
+        <div className={classes.onGoingContainer} onClick={(e) => handleOnGoingClick(e as any)}>
           <CheckBox checked={checked} color="#00B2DB" border="#00B2DB" background="#FFFFFF" />
           <span className={classes.onGoingLabel}>Expérience toujours en cours</span>
         </div>

@@ -308,6 +308,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'baseline',
       marginTop: 30,
+      pointerEvents: 'auto',
     },
     onGoingLabel: {
       fontSize: 16,
