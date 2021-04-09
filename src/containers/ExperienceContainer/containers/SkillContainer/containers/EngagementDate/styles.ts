@@ -12,27 +12,31 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
-  
+      backgroundColor: '#F3F2F4',
+      height: '100vh',
+      padding: '20px 40px',
+      [theme.breakpoints.down(340)]: {
+        padding: '20px',
+      },
     },
 
-    themeContainer: {
+    /*  themeContainer: {
       position: 'relative',
       backgroundColor: '#F3F2F4',
       display: 'flex',
       flexDirection: 'column',
-      height:'77vh',
+      height: '77vh',
       paddingTop: 34,
       paddingBottom: 150,
       alignItems: 'center',
       [theme.breakpoints.down(370)]: {
         paddingTop: 10,
-        height:'95vh',
+        height: '95vh',
       },
       [theme.breakpoints.up(560)]: {
-        height:'180vh',
+        height: '180vh',
       },
-  
-    },
+    }, */
 
     circleContainer: {
       display: 'flex',
@@ -96,7 +100,11 @@ export default makeStyles((theme: Theme) =>
     },
 
     title: {
-      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 16,
+      lineHeight: '24px',
+      color: '#223A7A',
+      width: '100%',
     },
 
     activityContainer: {
@@ -171,41 +179,58 @@ export default makeStyles((theme: Theme) =>
 
     date: {
       display: 'flex',
-      alignItems: 'center',
-      justifyContent:'center',
+      flexDirection: 'column',
+      justifyContent: 'center',
       marginTop: 40,
       [theme.breakpoints.down(420)]: {
-        marginTop:10
-        },
+        marginTop: 10,
+      },
     },
-    
-
+    textContainer: {
+      display: 'flex',
+      alignItems: 'baseline',
+      marginBottom: 8,
+      width: '100%',
+    },
     text: {
-      marginRight: 10,
+      marginRight: 5,
       color: '#5A6170',
       fontWeight: 'bold',
       fontSize: 16,
       '@media not all and (min-resolution:.001dpcm)': {
-        '@supports (-webkit-appearance:none) and (display:flow-root)':{        marginRight: 10,
-        color: '#5A6170',
-        fontWeight: 'bold',
-        fontSize: 14,
-      }
-      }
-
+        '@supports (-webkit-appearance:none) and (display:flow-root)': {
+          marginRight: 10,
+          color: '#5A6170',
+          fontWeight: 'bold',
+          fontSize: 14,
+        },
+      },
+    },
+    note: {
+      fontSize: 12,
+      lineHeight: '15px',
+      color: '#00B2DB',
+    },
+    datePickerContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      width: '100%',
+    },
+    example: {
+      fontSize: 12,
+      lineHeight: '15px',
+      color: '#6B6B6A',
     },
 
-    dateContainer: {
+    /*   dateContainer: {
       marginTop: 35,
       [theme.breakpoints.down(420)]: {
-        marginTop:5
-        },
-        '@media not all and (min-resolution:.001dpcm)': {
-          '@supports (-webkit-appearance:none) and (display:flow-root)':{          marginTop: 35,
-          marginRight: "-2vh"
-        }
-        }
-    },
+        marginTop: 5,
+      },
+      '@media not all and (min-resolution:.001dpcm)': {
+        '@supports (-webkit-appearance:none) and (display:flow-root)': { marginTop: 35, marginRight: '-2vh' },
+      },
+    }, */
 
     errorText: {
       display: 'flex',
@@ -237,28 +262,28 @@ export default makeStyles((theme: Theme) =>
         backgroundColor: 'white',
         boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
         zIndex: 1,
-      }
+      },
     },
     classNameTitle: {
       color: '#4D6EC5',
       fontSize: 18,
       lineHeight: '26px',
-'@media not all and (min-resolution:.001dpcm)': {
-    '@supports (-webkit-appearance:none) and (display:flow-root)':{
-              color: '#4D6EC5',
-        fontSize: 14,
-        lineHeight: '26px',
-      }
-      }
-    },
-    dateStyle:{
-      minWidth:'80px !important',
-      left:'150px !important',
-      '& .makeStyles-menu-1139 ': {
-        minWidth:'60px !important'
+      '@media not all and (min-resolution:.001dpcm)': {
+        '@supports (-webkit-appearance:none) and (display:flow-root)': {
+          color: '#4D6EC5',
+          fontSize: 14,
+          lineHeight: '26px',
+        },
       },
     },
-    inputContainer:{
+    dateStyle: {
+      minWidth: '80px !important',
+      left: '150px !important',
+      '& .makeStyles-menu-1139 ': {
+        minWidth: '60px !important',
+      },
+    },
+    inputContainer: {
       display: 'grid',
       gridTemplateAreas: '"label input"',
       gridTemplateColumns: '172px 229px',
@@ -269,15 +294,26 @@ export default makeStyles((theme: Theme) =>
       margin: '0px 0px 0px 0px',
       width: '100%',
       [theme.breakpoints.down(470)]: {
-        display:'flex',
-        flexDirection:'column',
-        gridGap:0,
-        alignItems:'center',
-        marginTop:20
-        },
-        [theme.breakpoints.down(370)]: {
-          marginTop:10
-          },
-     
+        display: 'flex',
+        flexDirection: 'column',
+        gridGap: 0,
+        alignItems: 'center',
+        marginTop: 20,
+      },
+      [theme.breakpoints.down(370)]: {
+        marginTop: 10,
+      },
     },
-  }));
+    onGoingContainer: {
+      display: 'flex',
+      alignItems: 'baseline',
+      marginTop: 30,
+    },
+    onGoingLabel: {
+      fontSize: 16,
+      lineHeight: '24px',
+      color: '#424242',
+      marginLeft: 12,
+    },
+  }),
+);
