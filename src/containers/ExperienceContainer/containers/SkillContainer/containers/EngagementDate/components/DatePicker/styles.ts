@@ -11,7 +11,7 @@ export default makeStyles((theme: Theme) =>
       borderRadius: '5px',
       fontWeight: 'normal',
       color: '#5A6170',
-   
+
       '& fieldset': {
         borderColor: '#D1D5DE',
         background: 'transparent',
@@ -29,17 +29,15 @@ export default makeStyles((theme: Theme) =>
       width: '74px !important',
     },
     month: {
-      width: '128px !important',
+      width: '145px !important',
+      height: 40,
       textTransform: 'capitalize',
       [theme.breakpoints.down(340)]: {
         width: '105px !important',
       },
-    
     },
     year: {
       width: '93px !important',
-  
-
     },
 
     disabledClassName: {
@@ -51,7 +49,6 @@ export default makeStyles((theme: Theme) =>
       paddingTop: '5px !important',
       paddingLeft: '0px !important',
       paddingBottom: '10px !important',
- 
-      
     },
-  }));
+  }),
+);
