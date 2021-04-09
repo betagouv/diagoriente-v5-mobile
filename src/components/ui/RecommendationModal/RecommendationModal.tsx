@@ -6,8 +6,6 @@ import Popup from 'components/common/Popup/Popup';
 import NameFormator from 'utils/NameFormator';
 import { Unpacked } from 'utils/types';
 import Button from 'components/button/Button';
-import NextButton from 'components/nextButton/nextButton';
-import PreviousButton from 'components/previousButton/previousButton';
 import ValidationButton from 'components/valideButton/valideButton';
 import { UserParcour } from 'requests/types';
 import { TextField } from '@material-ui/core';
@@ -17,8 +15,8 @@ import { useAddSkillComment } from 'requests/skillComment';
 import classNames from 'utils/classNames';
 import UserContext from 'contexts/UserContext';
 import msg from 'assets/svg/msg.svg';
-import Arrow from 'assets/svg/arrow';
 import useStyles from './styles';
+import { Email } from '@material-ui/icons';
 
 interface Props {
   skill: Unpacked<UserParcour['skills']>;
@@ -54,6 +52,11 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
         if (value.length < 3) return 'Prénom invalide (3 caractères minimum)';
         return '';
       },
+      confirmEmail: (value) => {
+        if (!value) return 'Champ requis ';
+        if (value && state.values.email && value !== state.values.email) return 'Email invalide';
+        return '';
+      },
     },
     required: ['firstName', 'lastName', 'email', 'comment', 'confirmEmail'],
   });
@@ -73,7 +76,13 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
   }, [secondOpen]);
 
   const handleSecondOpen = () => {
-    if (!state.values.email) {
+    if (
+      !state.values.firstName ||
+      !state.values.lastName ||
+      !state.values.email ||
+      !state.values.confirmEmail ||
+      state.values.email !== state.values.confirmEmail
+    ) {
       actions.setAllTouched(true);
       setSecondOpen(false);
     } else {
@@ -200,10 +209,10 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
               {state.touched.confirmEmail && state.errors.confirmEmail}
             </span>
           </form>
-          <div className={classes.required}>
+          {/*  <div className={classes.required}>
             <span className={classes.start}>* </span>
             Champs obligatoires
-          </div>
+          </div> */}
           <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => handleSecondOpen()} />
         </div>
       </ModalContainer>

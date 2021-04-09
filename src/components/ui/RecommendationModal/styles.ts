@@ -214,7 +214,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    marginBottom: 15,
+    marginBottom: 30,
   },
 
   formContainer: {
