@@ -98,9 +98,9 @@ const SkillCheckbox = ({
           <span
             className={classNames(
               classes.label,
-              opened && !selected && classes.openedLabel,
+              opened && !selected && description && classes.openedLabel,
               selected && classes.selectedLabel,
-              opened && classes.openedWidth,
+              opened && description && classes.openedWidth,
             )}
           >
             {label}
