@@ -23,7 +23,7 @@ const EngagementContext = ({ history, setContext, contextCheck, theme, match, ac
   };
   const onNavigate = () => {
     {
-      contextCheck && history.push(`/experience/skill/${match.params.themeId}/date${location.search}`);
+      contextCheck && history.push(`/experience/skill/${match.params.themeId}/organization${location.search}`);
     }
   };
 
