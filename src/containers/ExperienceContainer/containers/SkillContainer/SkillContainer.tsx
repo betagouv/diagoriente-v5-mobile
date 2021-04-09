@@ -22,6 +22,7 @@ import SuccessCompetences from './containers/SuccessCompetences/SuccessCompetenc
 import DoneCompetences from './containers/DoneCompetences/DoneCompetences';
 import EngagementActivites from './containers/EngagementActivities/EngagementActivities';
 import EngagementContext from './containers/EngagementContext/EngagementContext';
+import EngagementOrganization from './containers/EngagementOrganization/EngagementOrganization';
 import EngagementDate from './containers/EngagementDate/EngagementDate';
 
 import useStyles from './style';
@@ -390,16 +391,31 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
         />
         <Route
           render={(props) => (
+            <EngagementOrganization
+              {...props}
+              setOrganization={setOrganization}
+              organization={organization}
+              addSkill={selectedSkillId ? editSkillEngagement : addSkillEngagement}
+              addSkillState={selectedSkillId ? updateSkillState.loading : addSkillState.loading}
+              theme={data.theme}
+              activities={activitiesTitles}
+            />
+          )}
+          path={`${match.path}/organization`}
+          exact
+        />
+        <Route
+          render={(props) => (
             <EngagementDate
               {...props}
               setStartDate={setStartDate}
               startDate={startDate}
               endDate={endDate}
               setEndDate={setEndDate}
-              setOrganization={setOrganization}
-              organization={organization}
               addSkill={selectedSkillId ? editSkillEngagement : addSkillEngagement}
               addSkillState={selectedSkillId ? updateSkillState.loading : addSkillState.loading}
+              theme={data.theme}
+              activities={activitiesTitles}
             />
           )}
           path={`${match.path}/date`}
