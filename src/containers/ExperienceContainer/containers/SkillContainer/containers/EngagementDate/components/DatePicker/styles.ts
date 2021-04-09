@@ -38,6 +38,7 @@ export default makeStyles((theme: Theme) =>
     },
     year: {
       width: '93px !important',
+      height: 40,
     },
 
     disabledClassName: {

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import Select from 'components/Select/Select';
 import classNames from 'utils/classNames';
 import moment from 'moment';
@@ -21,6 +20,7 @@ moment.locale('fr');
 const DatePicker = ({ handleChange, day, month, year, days, months, years, autoWidthMenu }: Props) => {
   const classes = useStyles();
   console.log('month', month);
+  console.log('months', months);
   return (
     <div className={classes.root}>
       {day && (
