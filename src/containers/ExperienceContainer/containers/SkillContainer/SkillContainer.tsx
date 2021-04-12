@@ -395,8 +395,6 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
               {...props}
               setOrganization={setOrganization}
               organization={organization}
-              addSkill={selectedSkillId ? editSkillEngagement : addSkillEngagement}
-              addSkillState={selectedSkillId ? updateSkillState.loading : addSkillState.loading}
               theme={data.theme}
               activities={activitiesTitles}
             />

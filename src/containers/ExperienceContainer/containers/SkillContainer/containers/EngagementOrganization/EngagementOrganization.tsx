@@ -8,8 +8,6 @@ import useStyles from './styles';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
   setOrganization: (e: string) => void;
-  addSkill: () => void;
-  addSkillState: boolean;
   organization: string;
   theme: Theme | null;
   activities: string[];
@@ -17,8 +15,6 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
 const EngagementOrganisation = ({
   history,
   setOrganization,
-  addSkill,
-  addSkillState,
   match,
   location,
   organization,
