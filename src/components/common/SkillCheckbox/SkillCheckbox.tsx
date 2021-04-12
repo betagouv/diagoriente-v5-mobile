@@ -78,7 +78,11 @@ const SkillCheckbox = ({
   return (
     <div className={classes.skillContainer}>
       <div
-        className={classNames(classes.header, opened && !selected && classes.openedBG, selected && classes.selectedBG)}
+        className={classNames(
+          classes.header,
+          opened && !selected && description && classes.openedBG,
+          selected && classes.selectedBG,
+        )}
         style={{ justifyContent: opened ? 'space-between' : '' }}
         onClick={(e) => onClickHeader(e as any)}
       >
@@ -89,7 +93,9 @@ const SkillCheckbox = ({
           >
             <CheckBox
               checked={selected}
-              uncheckedStyle={!opened && !selected ? classes.checkboxBG : opened ? classes.openedBG : ''}
+              uncheckedStyle={
+                (!opened && !selected) || (opened && !description) ? classes.checkboxBG : opened ? classes.openedBG : ''
+              }
               color="#00B2DB"
               border="#00B2DB"
               background="#FFFFFF"
