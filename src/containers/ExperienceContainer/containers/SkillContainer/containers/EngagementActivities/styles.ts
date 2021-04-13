@@ -8,21 +8,23 @@ export default makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
       flexDirection: 'column',
+      height: '100vh',
     },
 
     container: {
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
-      paddingBottom: 100,
+      height: '100%',
     },
 
-    themeContainer: {
+    greyContainer: {
       position: 'relative',
       backgroundColor: '#F3F2F4',
       display: 'flex',
       flexDirection: 'column',
       padding: '35px 40px 40px 40px',
+      flexGrow: 1,
       [theme.breakpoints.down(340)]: {
         padding: '35px 20px 40px 20px',
       },
@@ -97,6 +99,14 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
     },
 
+    ActivitiesContainer: {
+      display: 'flex',
+      width: '100%',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      flexGrow: 1,
+    },
+
     activityContainer: {
       paddingBottom: 54,
     },
@@ -137,18 +147,6 @@ export default makeStyles((theme: Theme) =>
       paddingTop: 31,
       margin: 0,
     },
-
-    /*   selectRoot: {
-      display: 'flex',
-      flexDirection: 'column',
-      width: '100%',
-      alignItems: 'center',
-      padding: '15px 50px',
-      justifyContent: 'center',
-      [theme.breakpoints.down(380)]: {
-        padding: '15px 25px',
-      },
-    }, */
 
     selectGrid: {
       display: 'flex',
@@ -230,66 +228,20 @@ export default makeStyles((theme: Theme) =>
       marginTop: 45,
       maxWidth: WIDTH,
     },
-    'MuiTextField-root': {
-      '& fieldset': {
-        display: 'none',
-      },
-    },
 
-    textArea: {
-      background: '#FFFF',
-      borderRadius: 5,
-      resize: 'none',
+    extraActivityLink: {
+      display: 'flex',
       width: '100%',
-      maxWidth: WIDTH,
-      border: '1px solid #00CFFF',
-      marginTop: 25,
+      height: 20,
+      marginTop: 50,
+      marginBottom: 70,
     },
-
-    defaultValue: {
+    extraActivityLabel: {
+      color: '#00B2DB',
       fontSize: 14,
-      color: '#6B6B6A',
-    },
-
-    activityCaracter: {
-      color: '#FF0060',
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'flex-end',
-    },
-    previousNext: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '8px 8px ',
-      position: 'fixed',
-      bottom: 0,
-      width: '100%',
-      backgroundColor: 'white',
-      boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
-      zIndex: 1,
-      '@media not all and (min-resolution:.001dpcm)': {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '8px 13px ',
-        position: 'fixed',
-        bottom: 0,
-        width: '100%',
-        backgroundColor: 'white',
-        boxShadow: '0px -4px 4px rgba(0, 0, 0, 0.1)',
-        zIndex: 1,
-      },
-    },
-    classNameTitle: {
-      color: '#4D6EC5',
-      fontSize: 18,
-      lineHeight: '26px',
-      '@media not all and (min-resolution:.001dpcm)': {
-        color: '#4D6EC5',
-        fontSize: 14,
-        lineHeight: '26px',
-      },
+      fontWeight: 'bold',
+      lineHeight: '20px',
+      marginLeft: 10,
     },
   }),
 );
