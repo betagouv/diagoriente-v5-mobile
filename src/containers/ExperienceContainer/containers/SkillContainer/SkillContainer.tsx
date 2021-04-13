@@ -16,6 +16,7 @@ import Spinner from 'components/SpinnerXp/Spinner';
 import { decodeUri } from 'utils/url';
 import { SkillType, Competence } from 'requests/types';
 import SkillActivities from './containers/SkillActivities';
+import ExtraActivity from './containers/ExtraActivity';
 import SkillCompetences from './containers/SkillCompetences';
 import SkillCompetencesValues from './containers/SkillCompetencesValues/SkillCompetencesValues';
 import SuccessCompetences from './containers/SuccessCompetences/SuccessCompetences';
@@ -42,6 +43,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
   }, [parcours, match.params.themeId]);
 
   const [activities, setActivities] = useState([] as SkillType['activities']);
+  const [extraActivity, setExtraActivity] = useState('');
   const [competences, setCompetences] = useState([] as Competence[]);
   const [competencesValues, setCompetencesValues] = useState([] as { id: string; value: number }[]);
 
@@ -138,6 +140,21 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
   }, [activities, match.params.themeId]);
 
   useEffect(() => {
+    const d = localStorage.getItem('extraActivity');
+    if (d) {
+      const activityData = JSON.parse(d);
+      setExtraActivity(activityData.theme === match.params.themeId ? activityData.extraActivity : '');
+    }
+    // eslint-disable-next-line
+  }, [match.params.themeId]);
+
+  useEffect(() => {
+    if (!selectedSkillId) {
+      localStorage.setItem('extraActivity', JSON.stringify({ theme: match.params.themeId, extraActivity }));
+    } // eslint-disable-next-line
+  }, [extraActivity, match.params.themeId]);
+
+  useEffect(() => {
     const d = localStorage.getItem('competences');
     if (d && !selectedSkillId) {
       const competencesData = JSON.parse(d);
@@ -188,6 +205,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
           theme: data.theme.id,
           activities: activities.map((a) => a.id),
           competences: competencesValues.map((competence) => ({ _id: competence.id, value: competence.value })),
+          extraActivity: extraActivity,
         },
       });
     }
@@ -304,6 +322,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
       ? optionActivities.map((e) => e.map((o) => o.title).join(' '))
       : activities.map((a) => a.title);
   if (data?.theme.type === 'engagement' && activity) activitiesTitles.push(activity);
+  if (data?.theme.type !== 'engagement' && extraActivity) activitiesTitles.push(extraActivity);
 
   return (
     <>
@@ -338,6 +357,22 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
             )
           }
           path={`${match.path}/activities`}
+          exact
+        />
+        <Route
+          render={(props) =>
+            data.theme.type === 'engagement' ? (
+              <ExtraActivity {...props} extraActivity={activity} setExtraActivity={setActivity} theme={data.theme} />
+            ) : (
+              <ExtraActivity
+                {...props}
+                extraActivity={extraActivity}
+                setExtraActivity={setExtraActivity}
+                theme={data.theme}
+              />
+            )
+          }
+          path={`${match.path}/extraActivity`}
           exact
         />
         <Route
