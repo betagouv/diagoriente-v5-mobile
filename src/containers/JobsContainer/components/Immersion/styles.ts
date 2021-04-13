@@ -26,7 +26,6 @@ export default makeStyles<Theme>((theme) => ({
     marginBottom: 10,
   },
   btnImersionContainer: {
-    /* position: 'absolute', bottom: -19, left: 86 */
   },
   btnImersion: {
     backgroundColor: theme.palette.primary.main,
@@ -34,6 +33,8 @@ export default makeStyles<Theme>((theme) => ({
       backgroundColor: theme.palette.primary.main,
     },
     marginTop: 20,
+    padding:'7px 60px'
+
   },
   btnLabel: { color: '#011A5E', fontWeight: 'bold' },
 

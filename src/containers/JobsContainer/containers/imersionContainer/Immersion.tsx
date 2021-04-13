@@ -32,6 +32,7 @@ import CheckBox from '../../components/checkBox/ChexBox';
 import Switch from '../../components/Switch/Switch';
 // import SwitchRayon from '../../components/SwitchRayon/SwitchRayon';
 import useStyles from './styles';
+import { ContactsOutlined } from '@material-ui/icons';
 
 interface IProps extends RouteComponentProps<{ id: string }> {
   jobs: Jobs[];
@@ -60,14 +61,16 @@ const ImmersionContainer = ({
   const [update, setUpdate] = useState(false);
 
   const [selectedTaille, setSelectedTaille] = useState('Toutes tailles');
-  const [selectedDistance, setSelectedDistance] = useState('5 km');
+  const [selectedDistance, setSelectedDistance] = useState('30 km');
+  const [selectedTrier, setSelectedTrier] = useState('Toutes tailles');
 
-  const [selectedTri, setSelectedTri] = useState('Toutes tailles');
+  const [selectedTri, setSelectedTri] = useState('Tri optimisé');
 
   const [selectedImmersion, setSelectedImmersion] = useState<string | undefined>('');
   const [selectedImmersionCode, setSelectedImmersionCode] = useState('');
   const [coordinates, setCoordinates] = useState<number[]>([]);
   const [filteredArray, setFiltredArray] = useState<Jobs[] | undefined>([]);
+  const [typeApiImmersion, setTypeApi] = useState('');
 
   const [page, setPage] = useState(1);
   const [items, setItems] = useState<number[]>([]);
@@ -77,12 +80,14 @@ const ImmersionContainer = ({
       tri: '',
       taille: 'all',
       rayon: '',
-      distance: '5',
+      // distance: '5',
       switch: true,
       switchRayon: '',
-    },
-  });
+      distance: '30',
 
+    },
+
+  });
   const [immersionCall, immersionState] = useImmersion();
   const { search } = location;
   const { romeCodes, latitude, longitude, pageSize, distances, selectedLoc } = decodeUri(search);
@@ -161,14 +166,20 @@ const ImmersionContainer = ({
     state.values.taille,
     state.values.tri,
     immersionCall,
-    page,
+    // page,
   ]);
-
+console.log(distances,'dis')
   const getData = (pg: number) => {
     setPage(pg);
   };
 
   const tri = [
+ 
+    {
+      label:'Tri optimisé',
+      value: 'tri optimisé',
+
+    },
     {
       label: 'Distance',
       value: 'distance',
@@ -247,7 +258,7 @@ const ImmersionContainer = ({
     } else {
       setSelectedDistance(el.label);
       actions.setValues({ distance: el.value });
-      setPage(1);
+      // setPage(1);
     }
   };
   const onChangeImmersion = (e: any) => {
@@ -282,6 +293,8 @@ const ImmersionContainer = ({
       longitude: coordinates[0],
       page_size: 6,
       distance: 5,
+      // distance: 30,
+
     };
     immersionCall({ variables: dataTo });
   };
@@ -289,7 +302,7 @@ const ImmersionContainer = ({
   return (
     <div className={classes.root}>
       <div className={classes.content}>
-        <ImageTitle title="TROUVER UNE IMMERSION" color="#DB8F00" size={32} btnImage={filter} onClick={onOpenFilter} />
+        <ImageTitle title="TROUVER UNE IMMERSION"  backgroudColor={'#ffff'} color="#DB8F00" size={32} btnImage={filter} onClick={onOpenFilter} />
 
         <div className={classes.wrapper}>
           <div className={classes.filtersContainer}>
@@ -332,17 +345,19 @@ const ImmersionContainer = ({
                   <span className={classes.closeModelLabel}> Filtrer </span>
                 </div>
                 <div className={classes.filters}>
-                  <div className={classes.switchMask}>
+                  {/* <div className={classes.switchMask}>
                     <Switch
                       checked={state.values.switch}
                       onClick={() => actions.setValues({ switch: !state.values.switch })}
                     />
                     <div className={classes.maskTitle}>Masquer la carte</div>
-                  </div>
+                  </div> */}
                   <div className={classes.TrierContainer}>
                     <div className={classes.filterMainTitle}>Trier</div>
                     {tri.map((el) => (
                       <CheckBox key={el.label} label={el.label} onClick={() => onChangeTri(el)} value={selectedTri} />
+                      // <CheckBox key={el.label} label={el.label} onClick={() => onChangeTri(el)} value={selectedTri} />
+
                     ))}
                   </div>
 
@@ -359,8 +374,7 @@ const ImmersionContainer = ({
                       />
                     ))}
                   </div>
-                  {/*  <div className={classes.filterTitle}>Rayon de recherche</div>
-              <SwitchRayon checked={state.values.switchRayon} onClick={onChangeRayon} /> */}
+      
                   <div className={classes.distanceContainer}>
                     <div className={classes.filterTitle}>Distance</div>
                     {distance.map((el) => (
@@ -372,6 +386,7 @@ const ImmersionContainer = ({
                       />
                     ))}
                   </div>
+                  
                 </div>
               </div>
             )}
@@ -404,6 +419,8 @@ const ImmersionContainer = ({
                     onClickContact={() => openContactState(e)}
                     onClickConseil={() => openConseilState(true)}
                     showMap={state.values.switch}
+                    lng={Number(longitude)}
+                    lat={Number(latitude)}
                   />
                 ))}
                 {immersionState.data?.immersions.companies.length !== 0 && (

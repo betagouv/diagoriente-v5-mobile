@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, {  ChangeEvent, ReactElement } from 'react';
 import Arrow from 'assets/svg/arrow';
 import Menu from 'assets/svg/Group.svg';
 import classNames from 'utils/classNames';
@@ -12,12 +12,12 @@ import checked from 'assets/form/checkboxchecked.svg';
 import ValidationButton from 'components/valideButton/valideButton';
 
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
-
 import useStyles from './styles';
 
 interface IProps {
   label?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onChange?:(e: ChangeEvent<HTMLInputElement>) => void;
+  
   onSelectText: (e: string | undefined) => void;
   value?: string[] | undefined;
   name?: string;
@@ -153,7 +153,7 @@ const SelectJobs = ({
                       </div>
                     </div>
                     <Divider />
-                    {  isInclude(el.id) && <ValidationButton label="Valider" bgColor="#FFA600" color="#ffff" btnClassName={classes.btn} />
+                    {  isInclude(el.id) && <ValidationButton onClick={onClose} label="Valider" bgColor="#FFA600" color="#ffff" btnClassName={classes.btn} />
                 }
                      
                   </div>

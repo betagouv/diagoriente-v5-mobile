@@ -15,11 +15,30 @@ interface IProps {
   onClickContact: () => void;
   onClickConseil: () => void;
   showMap?: boolean;
+  lng: number;
+  lat: number;
 }
 
-const CardImmersion = ({ data, onClickContact, onClickConseil, showMap }: IProps) => {
+const CardImmersion = ({ data, onClickContact, onClickConseil, showMap ,  lng, lat }: IProps) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const toRad = (Value: number) => {
+    return (Value * Math.PI) / 180;
+  };
+  const calcCrow = (Vlat1: number, lon1: number, Vlat2: number, lon2: number) => {
+    const R = 6371; // km
+    const dLat = toRad(Vlat2 - Vlat1);
+    const dLon = toRad(lon2 - lon1);
+    const lat1 = toRad(Vlat1);
+    const lat2 = toRad(Vlat2);
+
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const d = R * c;
+    return d.toFixed(0);
+  };
   return (
     <div className={classNames(classes.root /* , open && classes.height2 */)}>
       <div className={classes.infoImmersion}>
@@ -36,8 +55,13 @@ const CardImmersion = ({ data, onClickContact, onClickConseil, showMap }: IProps
         <div className={classes.icons}>
           <div className={classes.logoItemDescription}>
             <img src={Location} alt="" />
-            <div className={classes.textLogo}>1.9 km de ton lieu de recherche</div>
-          </div>
+            <div className={classes.textLogo}>
+                {/* {
+                  calcCrow(data?.place?.latitude, data?.place?.longitude, lat, lng)} */}
+                { calcCrow(data.lat, data.lon, lat, lng)}
+                {' Km '}
+                de ton lieu de recherche
+              </div>          </div>
           <div className={classes.logoItemDescription}>
             <img src={Car} alt="" />
             <div className={classes.textLogo}>4 min en voiture</div>
