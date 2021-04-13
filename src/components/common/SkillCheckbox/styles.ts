@@ -47,11 +47,11 @@ export default makeStyles((theme) => ({
   openedLabel: {
     fontWeight: 700,
     color: '#00B2DB',
-    maxWidth: 'calc(100% - 35px)',
   },
   selectedLabel: {
     fontWeight: 700,
   },
+  openedWidth: { maxWidth: 'calc(100% - 35px)' },
   itemArrow: {
     width: 19,
     height: 12,

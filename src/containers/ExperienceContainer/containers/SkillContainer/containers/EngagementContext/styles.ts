@@ -20,9 +20,6 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       padding: '20px 0px 70px 0px',
-      [theme.breakpoints.up(560)]: {
-        height: '140vh',
-      },
       alignItems: 'center',
     },
 

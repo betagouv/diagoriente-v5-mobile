@@ -28,7 +28,15 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const { parcours } = useContext(parcoursContext);
   const [isOpen, setIsOpen] = useState(false);
   const [currentTheme, setCurrentTheme] = useState(-1);
-
+  const [jobs, setJobs] = useState([] as Theme[]);
+  const [tags, setTags] = useState([] as Theme[]);
+  const [jobsNtags, setJobsNTags] = useState<Theme[]>();
+  const [breaker, setBreaker] = useState(0);
+  const jobsId = [] as string[];
+  const tagsId = [] as string[];
+  /*  const [jobsId, setJobsId] = useState<string[]>();
+  const [tagsId, setTagsId] = useState<string[]>();
+ */
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setValueSearch(value);
@@ -71,10 +79,69 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     }
     console.log('Index', index);
   };
+  const highlighter = (text: string) => {
+    const rep = text.replace(new RegExp('[//,]', 'g'), '\n');
+    const spl = rep.split(new RegExp(valueSearch, 'i'));
+    const spl1 = rep.split(new RegExp(' ', 'i'));
+    const title = [];
+    for (let i = 0; i < spl.length; i += 1) {
+      title.push(spl[i]);
+      if (i !== spl.length - 1) {
+        title.push(
+          <span key={i} style={{ color: '#424242', fontWeight: 'normal' }}>
+            {valueSearch}
+          </span>,
+        );
+      }
+    }
+
+    /*  console.log('rep', rep.length);
+    console.log('spl', spl);
+    console.log('spl1', spl1); */
+    return title;
+  };
+  useEffect(() => {
+    if (data && valueSearch !== '') {
+      data.themes.data
+        .filter((theme) => !parcours?.skills.find((id) => theme.id === id.theme?.id))
+        .map((theme, index) => {
+          const t = theme.title.replace(new RegExp('[//,]', 'g'), '\n');
+          const x = t.split(new RegExp(valueSearch, 'i'));
+          const title = [];
+          {
+            if (x.length === 1) {
+              tagsId.push(theme.id);
+            } else {
+              jobsId.push(theme.id);
+            }
+          }
+        });
+      if (jobsId.length !== 0) {
+        setJobs(data.themes.data.filter((theme) => jobsId.find((id) => theme.id === id)));
+      } else setJobs([]);
+      if (tagsId.length !== 0) {
+        setTags(data.themes.data.filter((theme) => tagsId.find((id) => theme.id === id)));
+      } else setTags([]);
+      console.log('IDSJob', jobsId);
+      console.log('IDSTag', tagsId);
+    }
+  }, [data]);
+  useEffect(() => {
+    setJobsNTags([...jobs, ...tags]);
+    setBreaker(jobs.length);
+  }, [jobs, tags]);
 
   useEffect(() => {
     if (selectedTheme) setValueSearch(selectedTheme?.title);
   }, [selectedTheme?.title]);
+
+  console.log('data', data);
+  console.log('skills', parcours?.skills);
+  console.log('Jobs', jobs);
+  console.log('Tags', tags);
+
+  console.log('j&t', jobsNtags);
+  console.log('breaker', breaker);
 
   return (
     <div className={classes.root}>
@@ -100,53 +167,79 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
             </div>
             {valueSearch && valueSearch !== selectedTheme?.title && (
               <div className={classes.resultsContainer}>
-                <div className={classes.titleWrapper}>
-                  <span className={classes.resultTitle}>Métiers</span>
-                </div>
-                {data?.themes.data
-                  .filter((theme) => !parcours?.skills.find((id) => theme.id === id.theme?.id))
-                  .map((theme, index) => {
-                    const tooltip = theme.activities;
-                    const t = theme.title.replace(new RegExp('[//,]', 'g'), '\n');
-                    const x = t.split(new RegExp(valueSearch, 'i'));
-                    const title = [];
-                    for (let i = 0; i < x.length; i += 1) {
-                      title.push(x[i]);
-                      if (i !== x.length - 1) {
-                        title.push(
-                          <span key={i} style={{ color: '#424242', fontWeight: 'normal' }}>
-                            {valueSearch}
-                          </span>,
-                        );
-                      }
-                    }
-                    return (
+                {jobsNtags?.length && breaker > 0 ? (
+                  <>
+                    <div className={classes.titleWrapper}>
+                      <span className={classes.resultTitle}>Métiers</span>
+                    </div>
+                    {jobsNtags?.map((job, index) => (
                       <>
-                        <div
-                          className={classNames(
-                            classes.titleWrapper,
-                            isOpen && currentTheme === index ? classes.selectedResult : classes.resultWrapper,
-                          )}
-                          onClick={() => onClickTheme(theme, index)}
-                        >
-                          <span className={classes.resultTitle}>{title}</span>
-                        </div>
-                        {isOpen && currentTheme === index && (
-                          <div className={classes.ativityContainer}>
-                            {theme?.activities.map((a) => (
-                              <span className={classes.activity}>• {a.title}</span>
-                            ))}
-                          </div>
+                        {index < breaker ? (
+                          <>
+                            <div
+                              className={classNames(
+                                classes.titleWrapper,
+                                isOpen && currentTheme === index ? classes.selectedResult : classes.resultWrapper,
+                              )}
+                              onClick={() => onClickTheme(job, index)}
+                            >
+                              <span className={classes.resultTitle}>{highlighter(job.title)}</span>
+                            </div>
+                            {isOpen && currentTheme === index && (
+                              <div className={classes.ativityContainer}>
+                                {job?.activities.map((a) => (
+                                  <span className={classes.activity}>• {a.title}</span>
+                                ))}
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          ''
                         )}
                       </>
-                    );
-                  })}
-
-                <div className={classes.titleWrapper}>
-                  <span className={classes.resultTitle}>Tags</span>
-                </div>
+                    ))}
+                  </>
+                ) : (
+                  ''
+                )}
+                {jobsNtags?.length && jobsNtags?.length > breaker ? (
+                  <>
+                    <div className={classes.titleWrapper}>
+                      <span className={classes.resultTitle}>Tags</span>
+                    </div>
+                    {jobsNtags?.map((job, index) => (
+                      <>
+                        {index >= breaker ? (
+                          <>
+                            <div
+                              className={classNames(
+                                classes.titleWrapper,
+                                isOpen && currentTheme === index ? classes.selectedResult : classes.resultWrapper,
+                              )}
+                              onClick={() => onClickTheme(job, index)}
+                            >
+                              <span className={classes.resultTitle}>{job.title}</span>
+                            </div>
+                            {isOpen && currentTheme === index && (
+                              <div className={classes.ativityContainer}>
+                                {job?.activities.map((a) => (
+                                  <span className={classes.activity}>• {a.title}</span>
+                                ))}
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          ''
+                        )}
+                      </>
+                    ))}
+                  </>
+                ) : (
+                  ''
+                )}
               </div>
             )}
+            {valueSearch && jobsNtags?.length === 0 && <div className={classes.errorMsg}>Aucun résultat trouvé !</div>}
           </div>
         </div>
         {selectedTheme && valueSearch === selectedTheme?.title && (

@@ -21,6 +21,7 @@ export default makeStyles((theme: Theme) =>
       padding: '85px 25px',
       display: 'flex',
       justifyContent: 'center',
+      overflow: 'auto',
     },
     modal: {
       position: 'relative',

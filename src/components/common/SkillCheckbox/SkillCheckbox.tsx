@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Competence } from 'requests/types';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
-import itemArrow from 'assets/svg/openArrow.svg';
+import itemArrow from 'assets/svg/darkArrow.svg';
 import classNames from 'utils/classNames';
 
 import useStyles from './styles';
@@ -75,12 +75,15 @@ const SkillCheckbox = ({
     if (!!competences?.find((e) => e.id === competence.id)) setSelected(true);
     else setSelected(false);
   }, [competences]);
-
   return (
     <div className={classes.skillContainer}>
       <div
-        className={classNames(classes.header, opened && !selected && classes.openedBG, selected && classes.selectedBG)}
-        style={{ justifyContent: opened && !selected ? 'space-between' : '' }}
+        className={classNames(
+          classes.header,
+          opened && !selected && description && classes.openedBG,
+          selected && classes.selectedBG,
+        )}
+        style={{ justifyContent: opened ? 'space-between' : '' }}
         onClick={(e) => onClickHeader(e as any)}
       >
         <div className={classes.checkboxContainer}>
@@ -90,7 +93,9 @@ const SkillCheckbox = ({
           >
             <CheckBox
               checked={selected}
-              uncheckedStyle={!opened && !selected ? classes.checkboxBG : opened ? classes.openedBG : ''}
+              uncheckedStyle={
+                (!opened && !selected) || (opened && !description) ? classes.checkboxBG : opened ? classes.openedBG : ''
+              }
               color="#00B2DB"
               border="#00B2DB"
               background="#FFFFFF"
@@ -99,16 +104,17 @@ const SkillCheckbox = ({
           <span
             className={classNames(
               classes.label,
-              opened && !selected && classes.openedLabel,
+              opened && !selected && description && classes.openedLabel,
               selected && classes.selectedLabel,
+              opened && description && classes.openedWidth,
             )}
           >
             {label}
           </span>
         </div>
-        {opened && !selected && <img src={itemArrow} alt="" className={classes.itemArrow} />}
+        {opened && description && <img src={itemArrow} alt="" className={classes.itemArrow} />}
       </div>
-      {opened && (
+      {opened && description && (
         <div className={classes.descriptionContainer}>
           <p className={classes.description}>{description}</p>
         </div>

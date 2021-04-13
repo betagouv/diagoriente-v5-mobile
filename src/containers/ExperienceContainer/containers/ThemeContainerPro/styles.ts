@@ -204,5 +204,13 @@ export default makeStyles((theme: Theme) =>
         opacity: 1,
       },
     },
+    errorMsg: {
+      color: '#D60051',
+      fontSize: 14,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      lineHeight: '20px',
+      marginTop: 20,
+    },
   }),
 );
