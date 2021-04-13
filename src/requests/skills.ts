@@ -165,6 +165,7 @@ export interface addSkillArguments {
     _id: string;
     value: number;
   }[];
+  extraActivity?: string;
   engagement?: {
     startDate: string;
     endDate: string;
