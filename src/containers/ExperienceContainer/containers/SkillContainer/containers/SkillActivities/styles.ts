@@ -23,14 +23,17 @@ export default makeStyles((theme: Theme) =>
       alignItems: 'center',
       padding: '35px 40px 40px 40px',
       flexGrow: 1,
+      [theme.breakpoints.down(340)]: {
+        padding: '35px 20px 40px 20px',
+      },
     },
 
-    circleContainer: {
+    activitiesContainer: {
       display: 'flex',
       width: '100%',
       alignItems: 'center',
       flexDirection: 'column',
-      padding: '30px 0px 20px 0px',
+      paddingTop: 30,
     },
 
     circle: {
@@ -146,6 +149,20 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       margin: 0,
       textAlign: 'left',
+    },
+    extraActivityLink: {
+      display: 'flex',
+      width: '100%',
+      height: 20,
+      marginTop: 70,
+      marginBottom: 40,
+    },
+    extraActivityLabel: {
+      color: '#00B2DB',
+      fontSize: 14,
+      fontWeight: 'bold',
+      lineHeight: '20px',
+      marginLeft: 10,
     },
   }),
 );

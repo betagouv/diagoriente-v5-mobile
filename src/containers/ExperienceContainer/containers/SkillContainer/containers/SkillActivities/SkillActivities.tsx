@@ -8,6 +8,7 @@ import { decodeUri } from 'utils/url';
 import Button from 'components/button/Button';
 import Spinner from 'components/SpinnerXp/Spinner';
 import ValidationButton from 'components/valideButton/valideButton';
+import plusImg from 'assets/svg/pictoadd.svg';
 import { Unpacked } from 'utils/types';
 import useStyles from './styles';
 
@@ -40,6 +41,10 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
 
+  const addExtraActivity = () => {
+    history.push(`/experience/skill/${match.params.themeId}/extraActivity${location.search}`);
+  };
+
   const onNavigate = () => {
     if (activities.length) history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
   };
@@ -57,7 +62,7 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
         <div className={classes.themeContainer}>
           <span className={classes.title}>Peux-tu nous en dire un peu plus sur les activités que tu pratiques ?</span>
           <span className={classes.subtitle}>(plusieurs choix possibles)</span>
-          <div className={classes.circleContainer}>
+          <div className={classes.activitiesContainer}>
             {loading && (
               <div className={classes.loadingContainer}>
                 <Spinner />
@@ -79,6 +84,10 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
                   </Button>
                 );
               })}
+          </div>
+          <div className={classes.extraActivityLink} onClick={() => addExtraActivity()}>
+            <img src={plusImg} alt="" />
+            <span className={classes.extraActivityLabel}>Ajouter une activité non listée</span>
           </div>
         </div>
       </div>
