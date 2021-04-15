@@ -8,6 +8,12 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       height: '100vh',
     },
+sizeTitle:{
+  '@media not all and (min-resolution:.001dpcm)': {
+    [theme.breakpoints.down(330)]: {
+      fontSize:29
+    },
+},},
 
     container: {
       display: 'flex',
@@ -42,6 +48,12 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       padding: '0px 40px',
+      '@media not all and (min-resolution:.001dpcm)': {
+
+        [theme.breakpoints.down(330)]: {
+          padding: '0px 0px',
+        },
+    },
     },
 
     gridContainer: {

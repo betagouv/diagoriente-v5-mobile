@@ -19,6 +19,7 @@ interface Props {
   backgroudColor?: string;
   btnImage?: string;
   onClick?: () => void;
+  sizecont?:string;
 }
 
 const TitleImage = ({
@@ -37,6 +38,7 @@ const TitleImage = ({
   onClick,
   backgroudColor,
   classNameTitle,
+  sizecont,
 }: Props) => {
   const classes = useStyles({
     color,
@@ -60,7 +62,7 @@ const TitleImage = ({
         color={color}
         size={size}
         font={font}
-        className={number || logo || btnImage ? classes.positionWithNumber : classes.position}
+        className={classNames(number || logo || btnImage ? classes.positionWithNumber : classes.position , sizecont)}
       />
       <div className={classes.imageContainer}>
         {image && <img src={image} alt="trait" className={classes.image} height={height} />}

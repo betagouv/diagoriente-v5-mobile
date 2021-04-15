@@ -67,6 +67,7 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
           title={type === 'engagement' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
           color="#FFFFFF"
           size={32}
+          sizecont={classes.sizeTitle}
         />
         <BreadCrumb level={1} routes={[{ title: 'Thème', url: '' }]} />
         <div className={classes.themeContainer}>
