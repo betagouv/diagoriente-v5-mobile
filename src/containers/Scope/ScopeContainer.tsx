@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { useDidMount } from 'hooks/useLifeCycle';
-import { useLoginScope } from 'requests/scopeLogin';
+import { useLoginScope } from 'common/requests/scopeLogin';
 import userContext from 'contexts/UserContext';
 import Spinner from 'components/SpinnerXp/Spinner';
 import useAuth from 'hooks/useAuth';
@@ -35,7 +35,9 @@ const ScopeContainer = () => {
   return (
     <div>
       <div style={{ textAlign: 'center', fontSize: 24 }}>
-        Veuillez patienter <Spinner />
+        Veuillez patienter
+        {' '}
+        <Spinner />
       </div>
     </div>
   );
