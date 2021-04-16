@@ -9,6 +9,7 @@ import { Jobs } from 'requests/types';
 import { useAccessibility } from 'requests/accessibility';
 import pictoFilter from 'assets/svg/picto filtres.svg';
 import Slide from '@material-ui/core/Slide';
+import classNames from 'utils/classNames';
 import arrow from 'assets/svg/Vector (12).svg';
 import Reset from 'components/common/Rest/Rest';
 import Spinner from 'components/Spinner/Spinner';
@@ -92,7 +93,6 @@ const JobsContainer = ({
       window.removeEventListener('scroll', scrollCallBack);
     };
   }, []);
-
   useEffect(() => {
     async function c() {
       const res = await localForage.getItem('messages');
@@ -221,11 +221,14 @@ const getAccName = (accessibility: string[] | undefined) => {
 return 'Niveau d’accès'
 };
 useEffect(() => {
-getEnvName(accessibility)
+getAccName(accessibility)
 }, [  listAccData, accessibility]);
-console.log(search,'search')
-console.log(!parcours?.completed,'par')
-console.log(renderedJobs,'render')
+const closeSelect=()=>{
+  if(domaine)
+  domaine.splice(0, domaine.length)
+    setOpenDomain(false)
+  
+}
   return (
     <div className={classes.wrapper}>
       {!clearMessage && (
@@ -283,17 +286,19 @@ console.log(renderedJobs,'render')
               name="domaine"
               value={domaine}
               placeholder={getDomaineName(domaine)}
-              // className={classes.containerAutoComp}
+              className={classNames( domaine && classes.selectedDomaineSelect, classes.domaineSelect)}      
               open={openDomain}
               fullScreenModal
               onClick={() => setOpenDomain(!openDomain)}
+              onCloseSelect={closeSelect}
               onClose={() => setOpenDomain(false)}
               referenceFullScreen={divDomaine}
               arrowColor="#DB8F00"
               from="job"
-              borderColor={'#C9C9C7'}
+              borderColor={domaine?.length!==0  ? '#DB8F00  ' :'#C9C9C7 '}
               bkColor={"#FFD382"}
-              placeHolderColor={"#DB8F00"}
+              placeHolderColor={domaine?.length!==0 ?  '#DB8F00' :'#424242'}
+
             />
             <Select
               options={listTypeData}
@@ -309,10 +314,10 @@ console.log(renderedJobs,'render')
               reference={divType}
               arrowColor="#DB8F00"
               from="job"
-              borderColor={'#C9C9C7'}
               check
+              borderColor={environments?.length!==0? '#DB8F00  ' :'#C9C9C7  '}
               bkColor={"#FFD382"}
-              placeHolderColor={"#DB8F00"}
+              placeHolderColor={environments?.length!==0 ?  '#DB8F00' :'#424242'}
 
 
             />
@@ -330,10 +335,10 @@ console.log(renderedJobs,'render')
               reference={divAcc}
               arrowColor="#DB8F00"
               from="job"
-              borderColor={'#C9C9C7'}
               check
+              borderColor={accessibility?.length!==0? '#DB8F00 ' :'#C9C9C7 '}
               bkColor={"#FFD382"}
-              placeHolderColor={"#DB8F00"}
+              placeHolderColor={accessibility?.length!==0 ? '#DB8F00 ' : '#424242'}
 
 
             />

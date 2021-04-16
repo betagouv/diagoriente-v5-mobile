@@ -25,7 +25,9 @@ export default makeStyles<
     height: 46,
     width: 320,
     fontFamily: 'Andika New Basic',
-    border: (props) => `1px solid ${props.open ? theme.palette.success.main : '#424242' ? props.borderColor  : props.borderColor  }`,
+    // border: (props) => `1px solid ${props.open ? theme.palette.success.main : '#424242' ? props.borderColor  : props.borderColor  }`,
+
+    border: (props) => `1px solid ${'#C9C9C7' && props.borderColor} ` ,
     borderRadius: 5,
     margin: '6px 0px',
     background: '#fff',
@@ -39,7 +41,8 @@ export default makeStyles<
       borderColor: theme.palette.success.main,
     },
     '&::placeholder': {
-      color: (props) => (props.open ? theme.palette.success.main : '#424242 !important'),
+      color: (props) => props.placeHolderColor || '#424242 ',
+
       fontSize: 14,
       fontWeight: 'bold',
       marginLeft: 20,
@@ -49,7 +52,8 @@ export default makeStyles<
     },
   },
   selectedInput:{
-    border: (props) => `1px solid  ${props.open &&theme.palette.success.main }`,
+    border: (props) => `1px solid ${'#C9C9C7' && props.borderColor} ` ,
+    textOverflow:'ellipsis',
     height: 46,
     width: 320,
     fontFamily: 'Andika New Basic',
@@ -60,11 +64,10 @@ export default makeStyles<
     outline: 0,
     position: 'relative',
     fontWeight: 'bold',
-    color: '#424242',
     fontSize: 14,
 
     '&::placeholder': {
-      color: (props) => props.placeHolderColor || 'rgb(0, 178, 219) !important',
+      color: (props) => props.placeHolderColor || 'rgb(0, 178, 219) ',
 
       fontSize: 14,
       fontWeight: 'bold',
@@ -142,9 +145,9 @@ export default makeStyles<
     display: 'flex',
     alignItems: 'center',
     paddingLeft: 20,
-    // '&:hover': {
-    //   backgroundColor: 'rgba(255,211,130,0.2)',
-    // },
+    [theme.breakpoints.down(420)]: {
+      paddingLeft: 0,
+    },
   },
 
   itemSecteur: {
@@ -233,7 +236,10 @@ btn:{
     display: 'flex',
     alignItems: 'center',
     borderBottom: '0.5px solid #C9C9C7',
-    justifyContent:'space-around'
+    justifyContent:'center',
+    [theme.breakpoints.down(330)]: {
+      width: 'auto',
+    },
   },
   closeFullModelContainer: {
     width: '100%',
@@ -242,6 +248,14 @@ btn:{
     alignItems: 'center',
     justifyContent:'space-between',
     borderBottom: '0.5px solid #C9C9C7',
+    [theme.breakpoints.down(420)]: {
+      width: 'inherit',
+    },
+    [theme.breakpoints.down(330)]: {
+      marginLeft: 5,
+
+    },
+    
   },
 
   itemContainer: {
@@ -265,8 +279,13 @@ btn:{
     fontWeight: 'bold',
     fontSize: 18,
     lineHeight: '26px',
+    width:330,
     color: (props) => props.arrowColor || '#420FAB',
-    marginLeft: 20,
+    marginLeft: 10,
+    [theme.breakpoints.down(330)]: {
+      width: 'inherit',
+      marginLeft: 5,
+    },
   },
   CheckBoxStyle: {
     paddingLeft: '5%',
@@ -276,5 +295,14 @@ btn:{
   },
   close:{
     padding:'20px',
+    [theme.breakpoints.down(420)]: {
+      padding:'10px',
+    },
+    [theme.breakpoints.down(330)]: {
+      padding:0,
+      position:'absolute',
+      right:'5px',
+      top:'15px'
+    },
   }
 }));

@@ -139,13 +139,14 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   headerRecherche: {
     width: '100%',
     height: '50px',
     position: 'fixed',
     top: 0,
-    zIndex:9999,
-    backgroundColor: 'rgba(255,211,130, 1)',
+    zIndex:99999,
+    backgroundColor: '#FFE9C0',
     display:'flex',
     flexDirection:'row',
     justifyContent:'space-between',
@@ -243,12 +244,18 @@ export default makeStyles((theme) => ({
     width:'280px',
     height:'50px',
     margin:20,
+    fontWeight:900,
     '&:hover': {
       backgroundColor: '#DB8F00',
     },
   
   },
+  selectedDomaineSelect:{
 
+  },
+  domaineSelect:{
+
+  },
   itemFooter: { width: '100%' },
   centerItem: { display: 'flex', justifyContent: 'center' },
   rightItem: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 20 },
