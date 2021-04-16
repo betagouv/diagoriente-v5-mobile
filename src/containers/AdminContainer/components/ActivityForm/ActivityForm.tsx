@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 
 import { ACTIVITY_TYPES_OPTIONS } from 'utils/generic';
 
-import { useForm } from 'hooks/useInputs';
-import { useInterests } from 'requests/interests';
-import { Activity } from 'requests/types';
+import { useForm } from 'common/hooks/useInputs';
+import { useInterests } from 'common/requests/interests';
+import { Activity } from 'common/requests/types';
 
 import AdminTextField from 'components/inputs/AdminTextField/AdminTextField';
 import AdminCheckBox from 'components/inputs/AdminCheckbox/AdminCheckbox';

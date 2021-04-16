@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 import React, { useState, useRef } from 'react';
 import { echelon } from 'utils/generic';
-import { useCompetences } from 'requests/competences';
+import { useCompetences } from 'common/requests/competences';
 import Divider from '@material-ui/core/Divider';
 import Point from 'assets/svg/point.svg';
 import useStyles from './styles';
@@ -101,11 +101,11 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
                   className={classes.competenceTitle}
                   style={{
                     fontWeight:
-                      (select === 'jobCompetence' && compValue === 4) ||
-                      (select === 'parcoursCompetence' &&
-                        isExist(competence.id) &&
-                        !isLess(competence.id) &&
-                        getCompetenceValue(competence.id) === 4)
+                      (select === 'jobCompetence' && compValue === 4)
+                      || (select === 'parcoursCompetence'
+                        && isExist(competence.id)
+                        && !isLess(competence.id)
+                        && getCompetenceValue(competence.id) === 4)
                         ? 700
                         : 400,
                   }}

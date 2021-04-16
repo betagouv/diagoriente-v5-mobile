@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import NotFoundPage from 'components/layout/NotFoundPage';
 
-import SelectionContext from 'contexts/SelectionContext';
+import SelectionContext from 'common/contexts/SelectionContext';
 
 import ExperienceComponent from './containers/Experience/Experience';
 import ThemeContainer from './containers/ThemeContainer';

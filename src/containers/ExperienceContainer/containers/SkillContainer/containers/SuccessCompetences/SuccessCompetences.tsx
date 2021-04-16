@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import Recommendation from 'components/ui/RecommendationModal/RecommendationModal';
 import Button from 'components/button/Button';
-import ParcourContext from 'contexts/ParcourContext';
+import ParcourContext from 'common/contexts/ParcourContext';
 import classNames from 'common/utils/classNames';
 import check from 'assets/svg/check.svg';
 import useStyles from './styles';
@@ -13,7 +13,9 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   theme: Theme;
 }
 
-const ResultCompetences = ({ theme, match, history, location }: Props) => {
+const ResultCompetences = ({
+ theme, match, history, location,
+}: Props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const { parcours } = useContext(ParcourContext);
@@ -56,7 +58,11 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
         )}
         <div className={classes.description}>
           <p className={classes.text}>
-            Tu as ajouté une expérience {typeXp} à ton parcours et identifié de nouvelles compétences.
+            Tu as ajouté une expérience
+            {' '}
+            {typeXp}
+            {' '}
+            à ton parcours et identifié de nouvelles compétences.
           </p>
         </div>
         <div className={classes.btnContainer}>
@@ -79,13 +85,12 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
         <Recommendation
           // eslint-disable-next-line no-confusing-arrow
           onSuccess={() =>
-            isEdit === '?edit' ||
-            isEdit === '?add' ||
-            isEdit === `?/profile/experience?type=${skill?.theme.type}` ||
-            isEdit === '?/profile/experience'
+            isEdit === '?edit'
+            || isEdit === '?add'
+            || isEdit === `?/profile/experience?type=${skill?.theme.type}`
+            || isEdit === '?/profile/experience'
               ? history.push(`/profile/experience?type=${skill?.theme.type}`)
-              : history.push(`/experience/skill/${skill.theme.id}/done`)
-          }
+              : history.push(`/experience/skill/${skill.theme.id}/done`)}
           skill={skill}
           open={open}
           setOpen={setOpen}

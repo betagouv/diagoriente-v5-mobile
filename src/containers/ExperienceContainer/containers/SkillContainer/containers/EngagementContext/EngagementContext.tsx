@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { useContext } from 'requests/context';
-import { Theme } from 'requests/types';
+import { useContext } from 'common/requests/context';
+import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
-import Context from './components/Context/Context';
 import ValidationButton from 'components/valideButton/valideButton';
+import Context from './components/Context/Context';
 import useStyles from './styles';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
@@ -14,7 +14,9 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   activities: string[];
 }
 
-const EngagementContext = ({ history, setContext, contextCheck, theme, match, activities, location }: Props) => {
+const EngagementContext = ({
+ history, setContext, contextCheck, theme, match, activities, location,
+}: Props) => {
   const classes = useStyles();
 
   const { data } = useContext();

@@ -1,14 +1,12 @@
 import React from 'react';
 import timeLogo from 'assets/svg/time.svg';
 import reseauLogo from 'assets/svg/reseau.svg';
-import Chart from 'components/Graph/PieChart';
 import { useHistory } from 'react-router-dom';
-import { useDidMount } from 'hooks/useLifeCycle';
-import { useJobs } from 'requests/jobs';
+import { useDidMount } from 'common/hooks/useLifeCycle';
+import { useJobs } from 'common/requests/jobs';
 import Spinner from 'components/Spinner/Spinner';
 import Arrow from 'assets/svg/arrow';
 import useStyles from './styles';
-import Button from 'components/button/Button';
 
 interface IProps {
   job: any;
@@ -49,7 +47,13 @@ const JobInfo = ({ job, handleClose }: IProps) => {
               <span className={classes.offresTitle}>La semaine dernière</span>
             </div>
             <div>
-              <b>22</b> offres pour <b>550</b> demandeurs d&lsquo;emploi
+              <b>22</b>
+              {' '}
+              offres pour
+              {' '}
+              <b>550</b>
+              {' '}
+              demandeurs d&lsquo;emploi
             </div>
           </div>
           <div className={classes.offreConatinerItems}>
@@ -58,7 +62,13 @@ const JobInfo = ({ job, handleClose }: IProps) => {
               <span className={classes.offresTitle}>Sur les 12 derniers mois, en moyenne :</span>
             </div>
             <div>
-              <b>4</b> offres pour <b>10</b> demandeurs d&lsquo;emploi
+              <b>4</b>
+              {' '}
+              offres pour
+              {' '}
+              <b>10</b>
+              {' '}
+              demandeurs d&lsquo;emploi
             </div>
           </div>
         </div>
@@ -75,12 +85,6 @@ const JobInfo = ({ job, handleClose }: IProps) => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-        <div className={classes.graph}>
-          <div className={classes.TextTitle}>Types de contrat :</div>
-          <div>
-            <Chart />
           </div>
         </div>
       </div>

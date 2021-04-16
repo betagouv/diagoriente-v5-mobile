@@ -2,10 +2,10 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import { Header } from 'components/ui/Table/Table';
-import { Option } from 'requests/types';
+import { Option } from 'common/requests/types';
 import {
  useOptions, useDeleteOption, useAddOption, useOption, useUpdateOption,
-} from 'requests/options';
+} from 'common/requests/options';
 
 import Crud from 'components/ui/Crud/Crud';
 

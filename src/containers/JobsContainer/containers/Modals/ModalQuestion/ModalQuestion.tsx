@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Jobs } from 'requests/types';
+import { Jobs } from 'common/requests/types';
 import { useLocation } from 'react-router-dom';
-import { useResponseJob, useUpdateResponseJob, useGetResponseJob } from 'requests/jobs';
-import { useDidMount } from 'hooks/useLifeCycle';
+import { useResponseJob, useUpdateResponseJob, useGetResponseJob } from 'common/requests/jobs';
+import { useDidMount } from 'common/hooks/useLifeCycle';
 import Button from 'components/button/Button';
 import classNames from 'utils/classNames';
-import Slider from '../../../components/SliderQuestion/Slider';
 import arrowClose from 'assets/svg/orangeArrow.svg';
+import Slider from '../../../components/SliderQuestion/Slider';
 import useStyles from './styles';
 
 interface IProps {

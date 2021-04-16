@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import { useDeleteSkill } from 'requests/skills';
-import { UserParcour } from 'requests/types';
+import { useDeleteSkill } from 'common/requests/skills';
+import { UserParcour } from 'common/requests/types';
 import { Unpacked } from 'utils/types';
 
 import { decodeUri, encodeUri } from 'utils/url';
-import { useWillUnmount } from 'hooks/useLifeCycle';
-import useParcourSkills from 'hooks/useParcourSkills';
-import parcoursContext from 'contexts/ParcourContext';
+import { useWillUnmount } from 'common/hooks/useLifeCycle';
+import useParcourSkills from 'common/hooks/useParcourSkills';
+import parcoursContext from 'common/contexts/ParcourContext';
 import classNames from 'utils/classNames';
 import Grid from '@material-ui/core/Grid';
 import Recommendation from 'components/ui/RecommendationModal/RecommendationModal';
@@ -16,10 +16,10 @@ import NotFoundPage from 'components/layout/NotFoundPage';
 import Title from 'components/common/Title/Title';
 import Button from 'components/button/Button';
 import Spinner from 'components/SpinnerXp/Spinner';
-import SecteurContext from 'contexts/SecteurContext';
+import SecteurContext from 'common/contexts/SecteurContext';
+import redarrow from 'assets/svg/redarrow.svg';
 import Card from '../Card/Card';
 import Arrow from '../Arrow/Arrow';
-import redarrow from 'assets/svg/redarrow.svg';
 
 import useStyles from './styles';
 
@@ -120,13 +120,19 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
   return (
     <div className={classes.profilContainer}>
       <div className={classes.titleContainer}>
-      <Arrow url= "/profile" arrowIcon={redarrow }/>
+        <Arrow url="/profile" arrowIcon={redarrow} />
 
         {/* <Arrow /> */}
         <Title title={getTitle()} color="#4D6EC5" size={42} className={classes.title} />
         <div className={classes.empty} />
       </div>
-      <span className={classes.text}>Liste des expériences {getSubTitle()} que tu as renseignées</span>
+      <span className={classes.text}>
+        Liste des expériences
+        {' '}
+        {getSubTitle()}
+        {' '}
+        que tu as renseignées
+      </span>
       {skillState.loading ? (
         <div className={classes.spinner}>
           <Spinner />
@@ -158,9 +164,9 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
               ))}
 
           </Grid>
-        
-                </div>
-              
+
+        </div>
+
       )}
       {skill && <Recommendation skill={skill} open={open} setOpen={setOpen} />}
 
@@ -184,15 +190,19 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
           </Button>
         </div>
       </Popup>
-        <div className={classes.btnEx}> 
-                 <Link to={getUrl()} className={ classes.link}>
-                      <Button className={classes.btn}>
-                        <span className={classes.textButton}>J’ajoute une expérience {getSubTitle()}</span>
-                      </Button>
-                    </Link>
-        </div>
+      <div className={classes.btnEx}>
+        <Link to={getUrl()} className={classes.link}>
+          <Button className={classes.btn}>
+            <span className={classes.textButton}>
+              J’ajoute une expérience
+              {' '}
+              {getSubTitle()}
+            </span>
+          </Button>
+        </Link>
+      </div>
     </div>
-    
+
   );
 };
 export default ExperienceComponent;

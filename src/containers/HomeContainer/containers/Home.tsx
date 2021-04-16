@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Logo from 'assets/svg/logoHome.svg';
 import { Redirect } from 'react-router-dom';
-import ParcoursContext from 'contexts/ParcourContext';
+import ParcoursContext from 'common/contexts/ParcourContext';
 import logoInterest from 'assets/svg/interest.svg';
 import logoJobs from 'assets/svg/logoJobs.svg';
 import ModalContainer from 'components/common/Modal/ModalContainer';
@@ -71,7 +71,7 @@ const FirstDashboard = () => {
               link={dataToShow.link}
               logo={dataToShow.logo}
               colorText={dataToShow.colorText}
-              played={true}
+              played
               openModal={openModal}
             />
             <div className={classes.types} />

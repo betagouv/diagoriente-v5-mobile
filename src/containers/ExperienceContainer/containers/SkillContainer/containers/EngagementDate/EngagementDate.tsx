@@ -1,12 +1,12 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import Input from 'components/inputs/Input/Input';
 import moment from 'moment';
-import DatePicker from './components/DatePicker/DatePicker';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import ValidationButton from 'components/valideButton/valideButton';
+import DatePicker from './components/DatePicker/DatePicker';
 import useStyles from './styles';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
@@ -103,7 +103,7 @@ const EngagementDate = ({
           </div>
           <div className={classes.datePickerContainer}>
             <DatePicker
-              autoWidthMenu={true}
+              autoWidthMenu
               handleChange={(e) => handleChange(e, 'End')}
               month={endDate.slice(5, 7)}
               year={endDate.slice(0, 4)}

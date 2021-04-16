@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
+import React, {
+ useEffect, useState, useRef, useContext,
+} from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { useCompetences } from 'requests/competences';
-import { Competence, Theme } from 'requests/types';
+import { useCompetences } from 'common/requests/competences';
+import { Competence, Theme } from 'common/requests/types';
 import Grid from '@material-ui/core/Grid';
 import Slide from '@material-ui/core/Slide';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
@@ -9,10 +11,10 @@ import Button from 'components/button/Button';
 import Spinner from 'components/SpinnerXp/Spinner';
 import Popup from 'components/common/Popup/Popup';
 import Skill from 'components/common/SkillCheckbox/SkillCheckbox';
-import useOnclickOutside from 'hooks/useOnclickOutside';
+import useOnclickOutside from 'common/hooks/useOnclickOutside';
 import { decodeUri } from 'utils/url';
 import ValidationButton from 'components/valideButton/valideButton';
-import SelectionContext from 'contexts/SelectionContext';
+import SelectionContext from 'common/contexts/SelectionContext';
 import useStyles from './styles';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
@@ -53,10 +55,10 @@ const ExperienceCompetence = ({
 
   useOnclickOutside(divInfo, (e: Event) => {
     if (
-      currentBtn >= 0 &&
-      document.getElementsByClassName('ignore-onclickoutside')[currentBtn].contains(e.target as any)
+      currentBtn >= 0
+      && document.getElementsByClassName('ignore-onclickoutside')[currentBtn].contains(e.target as any)
     ) {
-      return;
+
     } else if (showInfo && divInfo) {
       setShowInfo(false);
     }
@@ -113,8 +115,7 @@ const ExperienceCompetence = ({
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
   const onNavigate = () => {
-    if (competences.length && competences.length <= 4)
-      history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
+    if (competences.length && competences.length <= 4) { history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`); }
     setOpened(false);
   };
   console.log('comptences', data?.competences.data);

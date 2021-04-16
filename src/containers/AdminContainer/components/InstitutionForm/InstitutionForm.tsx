@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import * as Leaflet from 'leaflet';
-import { useForm } from 'hooks/useInputs';
-import { useAddresses } from 'requests/institution';
-import { Institution } from 'requests/types';
+import { useForm } from 'common/hooks/useInputs';
+import { useAddresses } from 'common/requests/institution';
+import { Institution } from 'common/requests/types';
 
 import AdminTextField from 'components/inputs/AdminTextField/AdminTextField';
 import AutoComplete from 'containers/JobsContainer/components/Autocomplete/AutoCompleteJob';

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import ParcoursContext from 'contexts/ParcourContext';
+import ParcoursContext from 'common/contexts/ParcourContext';
 
 import Button from 'components/button/Button';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import check from 'assets/svg/check.svg';
 
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 
 import useStyles from './styles';
 
@@ -54,7 +54,11 @@ const ResultCompetences = ({ theme, match }: Props) => {
 
         <div className={classes.description}>
           <p className={classes.text}>
-            Tu as ajouté une expérience {typeXp} à ton parcours et identifié de nouvelles compétences.
+            Tu as ajouté une expérience
+            {' '}
+            {typeXp}
+            {' '}
+            à ton parcours et identifié de nouvelles compétences.
           </p>
         </div>
 

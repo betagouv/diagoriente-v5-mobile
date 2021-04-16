@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
-import { useForm } from 'hooks/useInputs';
-import { Question } from 'requests/types';
-import { useQuestions } from 'requests/questions';
+import { useForm } from 'common/hooks/useInputs';
+import { Question } from 'common/requests/types';
+import { useQuestions } from 'common/requests/questions';
 
 import AdminTextField from 'components/inputs/AdminTextField/AdminTextField';
 import Button from '@material-ui/core/Button/Button';

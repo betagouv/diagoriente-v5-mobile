@@ -1,10 +1,10 @@
 import localforage from 'localforage';
 import moment from 'moment';
 import { FetchResult } from 'apollo-boost';
-import { refreshMutation, RefreshArguments, LoginData } from 'requests/auth';
-import { client, setAuthorizationBearer } from 'requests/client';
-import { User, Token, UserParcour } from 'requests/types';
-import { getUserParcourQuery } from 'requests/parcours';
+import { refreshMutation, RefreshArguments, LoginData } from 'common/requests/auth';
+import { client, setAuthorizationBearer } from 'common/requests/client';
+import { User, Token, UserParcour } from 'common/requests/types';
+import { getUserParcourQuery } from 'common/requests/parcours';
 
 export default async function startup(): Promise<{ user: User; parcours: UserParcour | null } | null> {
   try {

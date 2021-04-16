@@ -1,7 +1,7 @@
 import React, {
  useContext, useState, useMemo, useCallback, useEffect,
 } from 'react';
-import UserContext from 'contexts/UserContext';
+import UserContext from 'common/contexts/UserContext';
 import { Link, useHistory } from 'react-router-dom';
 import defaultAvatar from 'assets/svg/defaultAvatar.svg';
 import IlluMeConnaitre from 'assets/images/illu_dashboard_se_connaitre.png';
@@ -177,9 +177,9 @@ const HomeCompleted = () => {
               </div>
             </div>
             {/* {!isOpen && ( */}
-              <div style={{ marginLeft: 75 }}>
-                <div className={classes.info}>Mon profil : ma carte de compétences, mes infos...</div>
-              </div>
+            <div style={{ marginLeft: 75 }}>
+              <div className={classes.info}>Mon profil : ma carte de compétences, mes infos...</div>
+            </div>
             {/* )} */}
           </Link>
         </div>

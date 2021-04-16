@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Title from 'components/common/TitleImage/TitleImage';
 import Input from 'components/inputs/Input/Input';
-import { useThemes } from 'requests/themes';
+import { useThemes } from 'common/requests/themes';
 import { RouteComponentProps } from 'react-router-dom';
-import parcoursContext from 'contexts/ParcourContext';
+import parcoursContext from 'common/contexts/ParcourContext';
 import LoupeGray from 'assets/svg/loupe.svg';
 import LoupeBlue from 'assets/svg/loupeBlue.svg';
 import { decodeUri, encodeUri } from 'utils/url';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import classNames from 'utils/classNames';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import ValidationButton from 'components/valideButton/valideButton';
@@ -188,7 +188,11 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                             {isOpen && currentTheme === index && (
                               <div className={classes.ativityContainer}>
                                 {job?.activities.map((a) => (
-                                  <span className={classes.activity}>• {a.title}</span>
+                                  <span className={classes.activity}>
+                                    •
+                                    {' '}
+                                    {a.title}
+                                  </span>
                                 ))}
                               </div>
                             )}
@@ -223,7 +227,11 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                             {isOpen && currentTheme === index && (
                               <div className={classes.ativityContainer}>
                                 {job?.activities.map((a) => (
-                                  <span className={classes.activity}>• {a.title}</span>
+                                  <span className={classes.activity}>
+                                    •
+                                    {' '}
+                                    {a.title}
+                                  </span>
                                 ))}
                               </div>
                             )}
