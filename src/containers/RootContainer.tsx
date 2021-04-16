@@ -26,6 +26,7 @@ import SecteurContext from 'contexts/SecteurContext';
 import Recommendation from 'containers/RecommendationContainer';
 import Profil from 'containers/ProfilContainer';
 import AdminContainer from 'containers/AdminContainer';
+import ScopeContainer from 'containers/Scope';
 
 const theme = createMuiTheme({
   palette: {
@@ -70,6 +71,7 @@ const RootContainer = () => {
               <BaseRoute exact path="/" component={HomeContainer} />
               <Route footer path="/login" exact component={LoginContainer} />
               <Route footer path="/register" exact component={RegisterContainer} />
+              <Route footer path="/scope" component={ScopeContainer} />
               <Route footer path="/confirmation" exact component={ConfiramtionContainer} />
               <Route footer path="/recommendation" component={Recommendation} />
               <BaseRoute path="/profile" component={Profil} />
