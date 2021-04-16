@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import Input from 'components/inputs/Input/Input';
 import Button from 'components/button/Button';
 import Grid from '@material-ui/core/Grid';
-import UserContext from 'contexts/UserContext';
+import UserContext from 'common/contexts/UserContext';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
 import { validatePassword } from 'utils/validation';
-import { useReset } from 'requests/auth';
-import { useForm } from 'hooks/useInputs';
+import { useReset } from 'common/requests/auth';
+import { useForm } from 'common/hooks/useInputs';
 
-import useAuth from 'hooks/useAuth';
+import useAuth from 'common/hooks/useAuth';
 import { decodeUri } from 'utils/url';
 import useStyles from '../ForgotPassword/styles';
 

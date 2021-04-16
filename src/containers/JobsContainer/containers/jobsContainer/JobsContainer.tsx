@@ -3,10 +3,10 @@ import Logo from 'assets/svg/Frame.svg';
 import Title from 'components/common/TitleImage/TitleImage';
 import localForage from 'localforage';
 import { Link } from 'react-router-dom';
-import useOnclickOutside from 'hooks/useOnclickOutside';
-import ParcoursContext from 'contexts/ParcourContext';
-import { Jobs } from 'requests/types';
-import { useAccessibility } from 'requests/accessibility';
+import useOnclickOutside from 'common/hooks/useOnclickOutside';
+import ParcoursContext from 'common/contexts/ParcourContext';
+import { Jobs } from 'common/requests/types';
+import { useAccessibility } from 'common/requests/accessibility';
 import pictoFilter from 'assets/svg/picto filtres.svg';
 import Slide from '@material-ui/core/Slide';
 import classNames from 'utils/classNames';
@@ -21,7 +21,7 @@ import Autocomplete from '../../components/Autocomplete/AutoCompleteJob';
 import JobCard from '../../components/Card/CardJob';
 import Select from '../../components/Select/Select';
 import SelectData from '../../components/SelectData/SelectData';
-import { useDidMount } from 'hooks/useLifeCycle';
+import { useDidMount } from 'common/hooks/useLifeCycle';
 
 import useStyles from './styles';
 

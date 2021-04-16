@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import { useGetSkill } from 'requests/skills';
+import { useGetSkill } from 'common/requests/skills';
 
 import {
  Switch, Route, RouteComponentProps, Redirect,

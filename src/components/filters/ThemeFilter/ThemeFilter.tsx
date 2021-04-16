@@ -5,7 +5,7 @@ import { THEME_TYPES_OPTIONS } from 'utils/generic';
 import Grid from '@material-ui/core/Grid/Grid';
 
 import AdminSelect from 'components/inputs/AdminSelect/AdminSelect';
-import { useThemes } from 'requests/themes';
+import { useThemes } from 'common/requests/themes';
 
 import useStyles from './styles';
 

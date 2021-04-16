@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 
 import Grid from '@material-ui/core/Grid/Grid';
-import ParcourContext from 'contexts/ParcourContext';
+import ParcourContext from 'common/contexts/ParcourContext';
 import CompetenceEchelon from 'components/common/CompetenceEchelon/CompetenceEchelon';
 import { isEmpty } from 'lodash';
 import useStyles from './styles';

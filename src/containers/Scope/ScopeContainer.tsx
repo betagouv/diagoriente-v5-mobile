@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
-import { useDidMount } from 'hooks/useLifeCycle';
+import { useDidMount } from 'common/hooks/useLifeCycle';
 import { useLoginScope } from 'common/requests/scopeLogin';
-import userContext from 'contexts/UserContext';
+import userContext from 'common/contexts/UserContext';
 import Spinner from 'components/SpinnerXp/Spinner';
-import useAuth from 'hooks/useAuth';
+import useAuth from 'common/hooks/useAuth';
 import localforage from 'localforage';
-import { setAuthorizationBearer } from 'requests/client';
+import { setAuthorizationBearer } from 'common/requests/client';
 
 const ScopeContainer = () => {
   const history = useHistory();

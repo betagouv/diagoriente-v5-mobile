@@ -1,5 +1,5 @@
 import React from 'react';
-import { Families } from 'requests/types';
+import { Families } from 'common/requests/types';
 import Dotdotdot from 'react-dotdotdot';
 import classNames from 'utils/classNames';
 
@@ -39,7 +39,6 @@ const Placeholder = ({
   });
   const nom = famille?.nom;
   const res = nom && nom.replace(/\//g, '');
-
 
   return (
     <div className={classNames(classes.root, className)}>

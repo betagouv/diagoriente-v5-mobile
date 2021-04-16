@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import UserContext from 'contexts/UserContext';
-import DrawerContext from 'contexts/DrawerContext';
+import UserContext from 'common/contexts/UserContext';
+import DrawerContext from 'common/contexts/DrawerContext';
 
 import { encodeUri } from 'utils/url';
 import { Route as BaseRoute, Redirect, RouteProps as BaseRouteProps } from 'react-router-dom';

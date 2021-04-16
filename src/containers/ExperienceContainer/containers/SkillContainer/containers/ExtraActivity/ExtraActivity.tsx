@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { useTheme } from 'requests/themes';
-import { Theme } from 'requests/types';
+import { useTheme } from 'common/requests/themes';
+import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import TextField from '@material-ui/core/TextField/TextField';
 import { decodeUri } from 'utils/url';
@@ -14,7 +14,9 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   theme: Theme;
 }
 
-const ExtraActivity = ({ match, history, extraActivity, setExtraActivity, theme, location }: Props) => {
+const ExtraActivity = ({
+ match, history, extraActivity, setExtraActivity, theme, location,
+}: Props) => {
   const classes = useStyles();
 
   const activityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,7 +55,11 @@ const ExtraActivity = ({ match, history, extraActivity, setExtraActivity, theme,
             className={classes.textArea}
             variant="outlined"
           />
-          <p className={classes.activityCaracter}>{140 - extraActivity.length} caractères restants</p>
+          <p className={classes.activityCaracter}>
+            {140 - extraActivity.length}
+            {' '}
+            caractères restants
+          </p>
         </div>
       </div>
       {extraActivity.length > 0 && (

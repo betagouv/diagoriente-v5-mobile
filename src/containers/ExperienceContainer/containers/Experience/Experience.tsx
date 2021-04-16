@@ -1,5 +1,7 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
-import parcourContext from 'contexts/ParcourContext';
+import React, {
+ useContext, useState, useEffect, useRef,
+} from 'react';
+import parcourContext from 'common/contexts/ParcourContext';
 import Title from 'components/common/TitleImage/TitleImage';
 import Avatar from 'components/common/Avatar/Avatar';
 import IlluExpPerso from 'assets/images/illu_xp_perso.png';

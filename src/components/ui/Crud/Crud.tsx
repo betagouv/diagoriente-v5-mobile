@@ -9,7 +9,7 @@ import path from 'path';
 import { decodeUri, encodeUri } from 'utils/url';
 import { graphQLResult } from 'utils/graphql';
 
-import { useError } from 'hooks/apollo';
+import { useError } from 'common/hooks/apollo';
 
 import Loader from '@material-ui/core/CircularProgress/CircularProgress';
 import Button from '@material-ui/core/Button/Button';

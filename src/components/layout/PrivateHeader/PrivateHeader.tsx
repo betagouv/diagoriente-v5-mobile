@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-
 import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import logo from 'assets/svg/diagoriente_logo_05_bg_transparent.svg';
-import DrawerContext from 'contexts/DrawerContext';
-import UserContext from 'contexts/UserContext';
+import DrawerContext from 'common/contexts/DrawerContext';
+import UserContext from 'common/contexts/UserContext';
 import menu from 'assets/images/menu.png';
 
 import close from 'assets/svg/close.svg';
@@ -24,7 +23,9 @@ export interface Props {
   showUser: boolean;
 }
 
-const PrivateHeader = ({ openLogoIcon, closeLogoIcon, openIcon, closeIcon, className, showUser }: Props) => {
+const PrivateHeader = ({
+ openLogoIcon, closeLogoIcon, openIcon, closeIcon, className, showUser,
+}: Props) => {
   const classes = useStyles();
   const { open, setOpen } = useContext(DrawerContext);
   const { user } = useContext(UserContext);
@@ -38,16 +39,22 @@ const PrivateHeader = ({ openLogoIcon, closeLogoIcon, openIcon, closeIcon, class
   return (
     <AppBar position="fixed" className={classNames(classes.appBar, className)}>
       <Toolbar className={classes.toolbarContainer}>
-        <div  className={classes.centerContainer}>
-        <div className={classes.flexCenter}>
-          <img src={open ? closeIcon : openIcon} alt="menu" height={20} className={classes.menuIcon} onClick={toggle} />
+        <div className={classes.centerContainer}>
+          <div className={classes.flexCenter}>
+            <img
+              src={open ? closeIcon : openIcon}
+              alt="menu"
+              height={20}
+              className={classes.menuIcon}
+              onClick={toggle}
+            />
           </div>
-          <div  className={classes.diagLogoContainer}>
-          <Link to="/" className={classes.logoContainer}>
-            <img src={openLogoIcon } alt="diagoriente_logo" height={44} />
-          </Link>
+          <div className={classes.diagLogoContainer}>
+            <Link to="/" className={classes.logoContainer}>
+              <img src={openLogoIcon} alt="diagoriente_logo" height={44} />
+            </Link>
+          </div>
         </div>
-        </div> 
 
         {/* {showUser && (
           <div className={classes.flexCenter}>

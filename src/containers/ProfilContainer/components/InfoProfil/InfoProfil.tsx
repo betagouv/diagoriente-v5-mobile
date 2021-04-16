@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
 
-import { useForm } from 'hooks/useInputs';
+import { useForm } from 'common/hooks/useInputs';
 import classNames from 'utils/classNames';
-import { useAvatars } from 'requests/auth';
-import { useLocation } from 'requests/location';
-import { useUpdateUser } from 'requests/user';
+import { useAvatars } from 'common/requests/auth';
+import { useLocation } from 'common/requests/location';
+import { useUpdateUser } from 'common/requests/user';
 import _ from 'lodash';
 import AutoComplete from 'components/inputs/AutoComplete/AutoComplete';
-import UserContext from 'contexts/UserContext';
+import UserContext from 'common/contexts/UserContext';
 import Input from 'components/inputs/Input/Input';
 import Spinner from 'components/Spinner/Spinner';
 import PasswordValidation from 'components/common/PasswordValidation/PasswordValidation';
@@ -18,9 +18,9 @@ import LogoLocation from 'assets/svg/locationlogo.svg';
 import edit from 'assets/svg/editIcon.svg';
 import SnackBar from 'components/SnackBar/SnackBar';
 import defaultAvatar from 'assets/svg/defaultAvatar.svg';
+import redarrow from 'assets/svg/redarrow.svg';
 import InfoProfilRow from '../InfoProfilRow/InfoProfilRow';
 import Arrow from '../Arrow/Arrow';
-import redarrow from 'assets/svg/redarrow.svg';
 
 import useStyles from './styles';
 
@@ -139,7 +139,7 @@ const InfoProfil = () => {
       <div className={classes.InfoContainer}>
         <SnackBar variant="error" message={error} open={!!error} handleClose={() => setError('')} />
         <div className={classes.titleContainer}>
-        <Arrow url= "/profile" arrowIcon={redarrow }/>
+          <Arrow url="/profile" arrowIcon={redarrow} />
           {/* <Arrow /> */}
           <Title title="MES INFOS PERSONNELLES" color="#424242" size={42} className={classes.title} />
           <div className={classes.empty} />

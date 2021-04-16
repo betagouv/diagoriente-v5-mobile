@@ -1,5 +1,5 @@
 import React, { forwardRef, Ref } from 'react';
-import { SkillType } from 'requests/types';
+import { SkillType } from 'common/requests/types';
 import { Unpacked } from 'utils/types';
 
 import classNames from 'utils/classNames';

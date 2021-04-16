@@ -1,9 +1,9 @@
 import React from 'react';
 import Loupe from 'assets/svg/loupe';
 import Button from 'components/button/Button';
-import { Jobs } from 'requests/types';
-import AutoComplete from '../Autocomplete/AutoCompleteJob';
+import { Jobs } from 'common/requests/types';
 import loupe from 'assets/svg/magnif.svg';
+import AutoComplete from '../Autocomplete/AutoCompleteJob';
 import useStyles from './styles';
 
 interface IProps {
