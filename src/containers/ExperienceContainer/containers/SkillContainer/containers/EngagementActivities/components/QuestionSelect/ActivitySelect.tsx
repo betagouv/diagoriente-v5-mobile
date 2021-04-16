@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
 import { Question, Option } from 'requests/types';
 import Select from 'components/Select/Select';
+import AnswerSelect from '../AnswerSelect/AnswerSelect';
 import { useOptions, useAddOption, useDeleteOption } from 'requests/options';
 import Remove from '@material-ui/icons/DeleteForever';
 import UserContext from 'contexts/UserContext';
@@ -97,24 +98,25 @@ const ActivitySelect = ({ question, onChange, open, value, openActivity, setOpen
       </div>
     );
   };
-  console.log('index', index);
+
   return (
-    <Select
-      index={index}
-      label={question.title}
-      value={value}
-      onChange={handleChange}
-      options={options}
-      open={open}
-      openActivity={openActivity}
-      setOpen={setOpen}
-      handleClose={() => handleClose(question.id)}
-      onChangeValue={onChangeValue}
-      rootClassName={classes.rootClassName}
-      styleSelectClassName={classes.styleSelect}
-      className={classes.borderSelect}
-      renderOption={renderOption}
-    />
+    <>
+      <AnswerSelect
+        question={question}
+        index={index}
+        label={question.title}
+        value={value}
+        onChange={handleChange}
+        options={options}
+        open={open}
+        openActivity={openActivity}
+        setOpen={setOpen}
+        handleClose={() => handleClose(question.id)}
+        onChangeValue={onChangeValue}
+        rootClassName={classes.rootClassName}
+        styleSelectClassName={classes.styleSelect}
+      />
+    </>
   );
 };
 
