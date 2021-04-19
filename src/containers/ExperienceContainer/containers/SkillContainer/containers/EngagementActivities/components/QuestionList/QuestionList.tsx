@@ -25,7 +25,7 @@ const QuestionList = ({ setOptionActivities, optionActivities, index, handleVali
 
   useEffect(() => {
     if (data) {
-      const question = data.questions.data.sort((a, b) => {
+      const question = data.questions.data.slice().sort((a, b) => {
         if (!a.parent) return -1;
         if (!b.parent) return 1;
         if (a.id === b.parent.id) return -1;

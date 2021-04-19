@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import SelectBase, { SelectProps } from '@material-ui/core/Select/Select';
-import { Question } from 'requests/types';
+import { Question } from 'common/requests/types';
 import MenuItem from '@material-ui/core/MenuItem/MenuItem';
-import { useListener } from 'hooks/useListener';
+import { useListener } from 'common/hooks/useListener';
 import classNames from 'utils/classNames';
 import darkarrow from 'assets/svg/darkarrowblue.svg';
 import pictoClose from 'assets/svg/pictoClose.svg';
