@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import UserContext from 'contexts/UserContext';
+import UserContext from 'common/contexts/UserContext';
 import logo from 'assets/svg/diagoriente_logo_01_bg_transparent 2.svg';
 import betaGouv from 'assets/svg/logo-beta.gouv 3.svg';
 import useStyles from './styles';

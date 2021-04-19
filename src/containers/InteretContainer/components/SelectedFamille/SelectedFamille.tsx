@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Families } from 'requests/types';
+import { Families } from 'common/requests/types';
 import Dotdotdot from 'react-dotdotdot';
 import Reset from 'components/common/Rest/Rest';
 import close from 'assets/svg/picto poubelle.svg';
@@ -12,7 +12,9 @@ interface IProps {
   direction: 'vertical' | 'horizontal';
   type?: string;
 }
-const SelectedFamille = ({ handleClick, famille, index, direction, type }: IProps) => {
+const SelectedFamille = ({
+ handleClick, famille, index, direction, type,
+}: IProps) => {
   const [hover, setHover] = useState(false);
   const classes = useStyles({ direction, hover });
 
@@ -40,7 +42,7 @@ const SelectedFamille = ({ handleClick, famille, index, direction, type }: IProp
       </div>
       <div className={classes.elements}>
         <Dotdotdot clamp={5}>
-          <div className={classes.text} >{res}</div>
+          <div className={classes.text}>{res}</div>
         </Dotdotdot>
       </div>
       {type !== 'ordre' && (

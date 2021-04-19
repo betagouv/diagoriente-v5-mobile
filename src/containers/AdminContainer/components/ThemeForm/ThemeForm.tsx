@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from 'react';
 
 import { THEME_TYPES_OPTIONS } from 'utils/generic';
 
-import { useForm } from 'hooks/useInputs';
-import { useActivities } from 'requests/activities';
-import { useThemes } from 'requests/themes';
-import { Theme } from 'requests/types';
+import { useForm } from 'common/hooks/useInputs';
+import { useActivities } from 'common/requests/activities';
+import { useThemes } from 'common/requests/themes';
+import { Theme } from 'common/requests/types';
 
 import AdminTextField from 'components/inputs/AdminTextField/AdminTextField';
 import AdminCheckBox from 'components/inputs/AdminCheckbox/AdminCheckbox';

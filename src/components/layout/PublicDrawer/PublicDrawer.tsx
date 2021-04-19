@@ -4,7 +4,7 @@ import List from '@material-ui/core/List';
 import Select from 'components/inputs/Select/Select';
 import beta from 'assets/images/marianne.png';
 import betaGouv from 'assets/images/beta_gov.png';
-import DrawerContext from 'contexts/DrawerContext';
+import DrawerContext from 'common/contexts/DrawerContext';
 import logo from 'assets/svg/diagoriente_logo.svg';
 
 import useStyles from './styles';

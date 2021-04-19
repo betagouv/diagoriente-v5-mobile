@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Competence } from 'requests/types';
+import { Competence } from 'common/requests/types';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import itemArrow from 'assets/svg/darkArrow.svg';
 import classNames from 'utils/classNames';
@@ -41,13 +41,12 @@ const SkillCheckbox = ({
 
   const onClickHeader = (e: Event) => {
     if (document.getElementsByClassName('ignore-onclickHeader')[index].contains(e.target as any)) return;
-    else {
+
       if (!open) {
         setOpen(true);
         setOpenedIndex(index);
       } else if (open && index !== openedIndex) setOpenedIndex(index);
       else if (open && index === openedIndex) setOpen(false);
-    }
   };
   const addCompetence = (competence: Competence) => {
     if (competences.length < 4) {
@@ -72,7 +71,7 @@ const SkillCheckbox = ({
   }, [open, openedIndex]);
 
   useEffect(() => {
-    if (!!competences?.find((e) => e.id === competence.id)) setSelected(true);
+    if (competences?.find((e) => e.id === competence.id)) setSelected(true);
     else setSelected(false);
   }, [competences]);
   return (

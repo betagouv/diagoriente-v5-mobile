@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { CompetenceValues, Competence, Theme } from 'requests/types';
+import { CompetenceValues, Competence, Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import Select from 'components/inputs/SelectLevel/SelectLevel';
 import ValidationButton from 'components/valideButton/valideButton';

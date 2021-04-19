@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
-import { useForm } from 'hooks/useInputs';
-import { Context } from 'requests/types';
+import { useForm } from 'common/hooks/useInputs';
+import { Context } from 'common/requests/types';
 
 import AdminTextField from 'components/inputs/AdminTextField/AdminTextField';
 import Button from '@material-ui/core/Button/Button';

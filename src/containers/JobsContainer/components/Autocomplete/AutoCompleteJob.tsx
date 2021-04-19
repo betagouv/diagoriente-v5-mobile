@@ -5,7 +5,7 @@ import LogoLoupe from 'assets/svg/loupe.svg';
 import LogoLoupeComponent from 'assets/svg/loupe';
 import LogoLoupeOrange from 'assets/svg/loupeOrange.svg';
 import classNames from 'utils/classNames';
-import useOnclickOutside from 'hooks/useOnclickOutside';
+import useOnclickOutside from 'common/hooks/useOnclickOutside';
 
 import useStyles from './style';
 

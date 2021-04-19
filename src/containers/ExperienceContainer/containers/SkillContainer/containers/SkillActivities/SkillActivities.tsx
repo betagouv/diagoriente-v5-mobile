@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { useTheme } from 'requests/themes';
-import { Theme } from 'requests/types';
+import { useTheme } from 'common/requests/themes';
+import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
@@ -21,7 +21,9 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   isCreate?: boolean;
 }
 
-const ExperienceActivity = ({ match, activities, setActivities, history, theme, isCreate, location }: Props) => {
+const ExperienceActivity = ({
+ match, activities, setActivities, history, theme, isCreate, location,
+}: Props) => {
   const classes = useStyles();
   const { redirect } = decodeUri(location.search);
   const addActivity = (activite: Activity) => {

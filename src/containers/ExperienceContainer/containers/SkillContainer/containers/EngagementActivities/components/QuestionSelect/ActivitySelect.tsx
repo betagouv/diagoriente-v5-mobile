@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useContext, useMemo } from 'react';
-import { Question, Option } from 'requests/types';
+import React, {
+ useState, useEffect, useContext, useMemo,
+} from 'react';
+import { Question, Option } from 'common/requests/types';
 import Select from 'components/Select/Select';
-import { useOptions, useAddOption, useDeleteOption } from 'requests/options';
+import { useOptions, useAddOption, useDeleteOption } from 'common/requests/options';
 import Remove from '@material-ui/icons/DeleteForever';
-import UserContext from 'contexts/UserContext';
+import UserContext from 'common/contexts/UserContext';
 
 import useStyles from './styles';
 
@@ -17,7 +19,9 @@ interface Props {
   parent?: string;
   index?: number;
 }
-const ActivitySelect = ({ question, onChange, open, value, openActivity, setOpen, parent, index }: Props) => {
+const ActivitySelect = ({
+ question, onChange, open, value, openActivity, setOpen, parent, index,
+}: Props) => {
   const classes = useStyles();
   const { user } = useContext(UserContext);
   const ownOption = (id: string) => {

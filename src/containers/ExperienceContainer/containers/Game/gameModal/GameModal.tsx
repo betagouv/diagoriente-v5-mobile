@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import GameLogo from 'assets/images/ServiceCivique_RéférentielRectec-page-001.jpg';
-import { useUpdateParcour } from 'requests/parcours';
+import { useUpdateParcour } from 'common/requests/parcours';
 import Button from 'components/button/Button';
 import { Link, useHistory } from 'react-router-dom';
-import ParcourContext from 'contexts/ParcourContext';
+import ParcourContext from 'common/contexts/ParcourContext';
 import useStyles from './style';
 
 const Game = () => {

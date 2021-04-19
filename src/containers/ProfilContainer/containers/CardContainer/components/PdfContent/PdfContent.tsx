@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 import React, { forwardRef, Ref } from 'react';
-import useParcourSkills from 'hooks/useParcourSkills';
+import useParcourSkills from 'common/hooks/useParcourSkills';
 
 import classNames from 'utils/classNames';
 

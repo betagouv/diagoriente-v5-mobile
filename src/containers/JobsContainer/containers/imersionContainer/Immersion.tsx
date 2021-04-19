@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import { useJob } from 'requests/jobs';
-import { useImmersion } from 'requests/immersion';
-import { Company, Jobs } from 'requests/types';
+import { useJob } from 'common/requests/jobs';
+import { useImmersion } from 'common/requests/immersion';
+import { Company, Jobs } from 'common/requests/types';
 
-import { useForm } from 'hooks/useInputs';
-import { useDidMount } from 'hooks/useLifeCycle';
+import { useForm } from 'common/hooks/useInputs';
+import { useDidMount } from 'common/hooks/useLifeCycle';
 import classNames from 'utils/classNames';
 import ModalContainer from 'components/common/Modal/ModalContainer';
 import ImageTitle from 'components/common/TitleImage/TitleImage';
