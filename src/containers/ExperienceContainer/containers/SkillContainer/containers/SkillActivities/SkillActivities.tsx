@@ -38,6 +38,7 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
   const onNavigate = () => {
     if (activities.length) history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
   };
+  console.log('data?.theme.activities', data?.theme.activities);
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -60,7 +61,7 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
             )}
 
             {data?.theme.activities
-              .sort((a, b) => a.title.toLowerCase().charCodeAt(0) - b.title.toLowerCase().charCodeAt(0))
+              // .sort((a, b) => a.title.toLowerCase().charCodeAt(0) - b.title.toLowerCase().charCodeAt(0))
               .map((act) => {
                 const selected = activities.find((e) => e.id === act.id);
                 return (

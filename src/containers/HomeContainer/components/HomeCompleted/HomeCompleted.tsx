@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useContext, useState, useMemo, useCallback, useEffect } from 'react';
 import UserContext from 'common/contexts/UserContext';
 import { Link, useHistory } from 'react-router-dom';
@@ -41,7 +42,16 @@ const HomeCompleted = () => {
     }
     if (p) history.push(`${p}`);
   };
-
+  useEffect(() => {
+    const state: string[] = [];
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    dashboardContent.map((e, i) => {
+      const s = getState(i);
+      state.push(s);
+    });
+    const res = state.some((e) => e === 'open');
+    setIsOpen(res);
+  });
   const renderContentItem = useCallback(
     (
       title: string,
@@ -78,13 +88,13 @@ const HomeCompleted = () => {
             {renderContentItem(
               'MES EXPÉRIENCES',
               // eslint-disable-next-line
-              'Complète tes expériences et évalue tes compétences.',
+               'Complète tes expériences et évalue tes compétences.',
               { path: '/experience', buttonClassName: classes.blue },
             )}
             {renderContentItem(
               'MES CENTRES D’INTÉRÊT',
               // eslint-disable-next-line
-              'Aimes-tu plutôt être dehors, travailler en équipe, manipuler des outils... ?',
+               'Aimes-tu plutôt être dehors, travailler en équipe, manipuler des outils... ?',
               { path: '/interet', buttonClassName: classes.purple },
             )}
           </div>
@@ -105,7 +115,7 @@ const HomeCompleted = () => {
         openChildren: renderContentItem(
           'MES PISTES MÉTIERS',
           // eslint-disable-next-line
-          "Dès que tu auras rempli tes expériences et tes centres d'intérêts, explore des métiers qui te correspondent.",
+           "Dès que tu auras rempli tes expériences et tes centres d'intérêts, explore des métiers qui te correspondent.",
           { path: '/jobs', descriptionClassName: classes.black },
         ),
       },
@@ -126,17 +136,7 @@ const HomeCompleted = () => {
     ],
     [classes, renderContentItem],
   );
-  useEffect(() => {
-    const state: string[] = [];
-    // eslint-disable-next-line array-callback-return
-    dashboardContent.map((e, i) => {
-      const s = getState(i);
-      state.push(s);
-    });
-    const res = state.some((e) => e === 'open');
-    setIsOpen(res);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
   return (
     <>
       <div className={classes.container}>
