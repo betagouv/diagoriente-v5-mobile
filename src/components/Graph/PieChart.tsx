@@ -16,8 +16,7 @@ const options = {
   labels: ['A', 'B', 'C', 'D'],
 };
 
-const PieChart = () => {
-  return (
+const PieChart = () => (
     /*    <svg height="80" width="80" viewBox="0 0 20 20">
       <circle r="10" cx="10" cy="10" fill={color[1]} />
       <circle
@@ -31,8 +30,7 @@ const PieChart = () => {
         transform="rotate(-90) translate(-20)"
       />
     </svg> */
-    <Chart options={options.options} series={options.series} type="pie" width="320" />
+  <div />
   );
-};
 
 export default PieChart;
