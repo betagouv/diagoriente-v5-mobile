@@ -1,6 +1,4 @@
-import React, {
- useEffect, useState, useRef, useContext,
-} from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { useCompetences } from 'common/requests/competences';
 import { Competence, Theme } from 'common/requests/types';
@@ -55,10 +53,9 @@ const ExperienceCompetence = ({
 
   useOnclickOutside(divInfo, (e: Event) => {
     if (
-      currentBtn >= 0
-      && document.getElementsByClassName('ignore-onclickoutside')[currentBtn].contains(e.target as any)
+      currentBtn >= 0 &&
+      document.getElementsByClassName('ignore-onclickoutside')[currentBtn].contains(e.target as any)
     ) {
-
     } else if (showInfo && divInfo) {
       setShowInfo(false);
     }
@@ -115,7 +112,9 @@ const ExperienceCompetence = ({
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   });
   const onNavigate = () => {
-    if (competences.length && competences.length <= 4) { history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`); }
+    if (competences.length && competences.length <= 4) {
+      history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
+    }
     setOpened(false);
   };
   console.log('comptences', data?.competences.data);

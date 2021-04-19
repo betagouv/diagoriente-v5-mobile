@@ -1,6 +1,4 @@
-import React, {
- useEffect, useState, useRef, useContext,
-} from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Input from 'components/inputs/Input/Input';
@@ -219,12 +217,12 @@ const Register = () => {
               placeholder="*******"
               autoComplete="off"
               error={
-                touched.password
-                && errors.password !== ''
-                && hasUppercase(values.password)
-                && hasLowercase(values.password)
-                && hasNumber(values.password)
-                && hasSpecial(values.password)
+                touched.password &&
+                errors.password !== '' &&
+                hasUppercase(values.password) &&
+                hasLowercase(values.password) &&
+                hasNumber(values.password) &&
+                hasSpecial(values.password)
               }
               errorText={touched.password ? errors.password : ''}
             />
@@ -236,11 +234,7 @@ const Register = () => {
                 <Grid item>
                   <div className={classes.passeItem}>
                     <div className={classes.optionItem}>
-                      Ton mot de passe doit comporter 6
-                      {' '}
-                      <br />
-                      {' '}
-                      caractères minimum, dont au moins :
+                      Ton mot de passe doit comporter 6 <br /> caractères minimum, dont au moins :
                     </div>
                     <div className={classes.option}>
                       <div className={classes.optionWrapper}>
@@ -312,11 +306,7 @@ const Register = () => {
                 </Grid>
                 <Grid item>
                   <div className={classes.groupText}>
-                    Si tu es dans un groupe, renseigne ici
-                    {' '}
-                    <br />
-                    {' '}
-                    le code qui t&lsquo;a été remis.
+                    Si tu es dans un groupe, renseigne ici <br /> le code qui t&lsquo;a été remis.
                   </div>
                 </Grid>
               </Grid>
@@ -337,11 +327,8 @@ const Register = () => {
                       border="#00B2DB"
                     />
                     <div className={classes.conditionText} onClick={onClickCondition}>
-                      J&lsquo;accepte les
-                      {' '}
-                      <span className={classes.conditionColorText}>conditions d&lsquo;utilisation</span>
-                      {' '}
-                      de Diagoriente
+                      J&lsquo;accepte les{' '}
+                      <span className={classes.conditionColorText}>conditions d&lsquo;utilisation</span> de Diagoriente
                       <span className={classes.start}>*</span>
                     </div>
                   </div>

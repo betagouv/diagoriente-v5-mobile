@@ -1,6 +1,4 @@
-import React, {
- useEffect, useState, useMemo, useContext,
-} from 'react';
+import React, { useEffect, useState, useMemo, useContext } from 'react';
 import { Switch, useLocation } from 'react-router-dom';
 import Route from 'components/ui/Route/Route';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';

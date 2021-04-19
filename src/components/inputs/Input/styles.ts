@@ -1,7 +1,6 @@
 import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
-
 export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) => ({
   rootGrid: {
     display: 'grid',
@@ -122,10 +121,6 @@ export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) =
       color: '#424242',
       transition: 'background-color 5000s ease-in-out 0s',
     },
-
-    
-
-
   },
   labelContainer: {
     gridArea: 'label',
@@ -151,9 +146,8 @@ export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) =
         alignItems: 'flex-start',
         height: 'auto',
       },
-      width: "-webkit-max-content"
-
-        },
+      width: '-webkit-max-content',
+    },
   },
   label: {
     fontWeight: 'bold',
@@ -190,5 +184,4 @@ export default makeStyles<Theme, { error: boolean; isfull?: boolean }>((theme) =
   showPasswordImage: {
     cursor: 'pointer',
   },
-  
 }));

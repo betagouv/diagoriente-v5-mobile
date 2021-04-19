@@ -4,7 +4,11 @@ import { RouteComponentProps } from 'react-router-dom';
 import { Header } from 'components/ui/Table/Table';
 import { Question } from 'common/requests/types';
 import {
- useQuestions, useDeleteQuestion, useAddQuestion, useQuestion, useUpdateQuestion,
+  useQuestions,
+  useDeleteQuestion,
+  useAddQuestion,
+  useQuestion,
+  useUpdateQuestion,
 } from 'common/requests/questions';
 
 import Crud from 'components/ui/Crud/Crud';

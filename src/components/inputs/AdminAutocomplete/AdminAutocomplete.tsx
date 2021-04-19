@@ -16,8 +16,7 @@ interface AdminAutocompleteBaseProps<
   T extends { id: string },
   Multiple extends boolean | undefined,
   DisableClearable extends boolean | undefined
->
-  extends Omit<
+> extends Omit<
     AutocompleteProps<{ value: string; label: string }, Multiple, DisableClearable, false>,
     'freeSolo' | 'options' | 'onInputChange' | 'renderInput' | 'getOptionLabel' | 'getOptionSelected'
   > {

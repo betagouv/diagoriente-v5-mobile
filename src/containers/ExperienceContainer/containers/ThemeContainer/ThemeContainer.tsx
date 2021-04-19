@@ -1,6 +1,4 @@
-import React, {
- useState, useEffect, useContext, useMemo,
-} from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import Title from 'components/common/TitleImage/TitleImage';
 import SelectionContext from 'common/contexts/SelectionContext';
 import { useThemes } from 'common/requests/themes';
@@ -75,8 +73,7 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
           <div className={classes.selectThemeContainer}>
             {themeFiltered.length === 0 && !loading ? (
               <div className={classes.errorMessage}>
-                Il n&apos;y a plus de thèmes disponible, vous les avez deja tous choisis !
-                {' '}
+                Il n&apos;y a plus de thèmes disponible, vous les avez deja tous choisis !{' '}
               </div>
             ) : (
               <p className={classes.themeTitle}>Choisis un thème :</p>

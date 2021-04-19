@@ -13,9 +13,7 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   theme: Theme;
 }
 
-const ResultCompetences = ({
- theme, match, history, location,
-}: Props) => {
+const ResultCompetences = ({ theme, match, history, location }: Props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const { parcours } = useContext(ParcourContext);
@@ -58,11 +56,7 @@ const ResultCompetences = ({
         )}
         <div className={classes.description}>
           <p className={classes.text}>
-            Tu as ajouté une expérience
-            {' '}
-            {typeXp}
-            {' '}
-            à ton parcours et identifié de nouvelles compétences.
+            Tu as ajouté une expérience {typeXp} à ton parcours et identifié de nouvelles compétences.
           </p>
         </div>
         <div className={classes.btnContainer}>
@@ -85,12 +79,13 @@ const ResultCompetences = ({
         <Recommendation
           // eslint-disable-next-line no-confusing-arrow
           onSuccess={() =>
-            isEdit === '?edit'
-            || isEdit === '?add'
-            || isEdit === `?/profile/experience?type=${skill?.theme.type}`
-            || isEdit === '?/profile/experience'
+            isEdit === '?edit' ||
+            isEdit === '?add' ||
+            isEdit === `?/profile/experience?type=${skill?.theme.type}` ||
+            isEdit === '?/profile/experience'
               ? history.push(`/profile/experience?type=${skill?.theme.type}`)
-              : history.push(`/experience/skill/${skill.theme.id}/done`)}
+              : history.push(`/experience/skill/${skill.theme.id}/done`)
+          }
           skill={skill}
           open={open}
           setOpen={setOpen}

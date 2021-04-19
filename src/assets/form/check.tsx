@@ -5,7 +5,7 @@ interface props {
   width?: string;
   height?: string;
   background?: string;
-  border?:string
+  border?: string;
 }
 const Check = ({ color, height, width, background, border }: props) => {
   return (

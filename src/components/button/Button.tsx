@@ -12,9 +12,7 @@ export interface IProps extends ButtonProps {
 }
 
 const Button = forwardRef(
-  ({
- children, className, childrenClassName, fetching, ...rest
-}: IProps, ref: Ref<HTMLButtonElement>) => {
+  ({ children, className, childrenClassName, fetching, ...rest }: IProps, ref: Ref<HTMLButtonElement>) => {
     const classes = useStyles();
     return (
       <MuiButton ref={ref} className={classNames(className, classes.root)} {...rest}>

@@ -42,10 +42,8 @@ const ModalContainer = ({
       BackdropProps={{ className: classes.backdrop }}
       {...rest}
     >
-
       <div className={classes.modalContainer}>
         <div className={classes.modal}>
-     
           <div className={classes.modalContainerBody}>{children}</div>
         </div>
       </div>

@@ -12,9 +12,7 @@ interface AdminTextFieldProps extends Omit<OutlinedTextFieldProps, 'error' | 'la
   label?: string;
 }
 
-const AdminTextField = ({
- error, className, label, ...rest
-}: AdminTextFieldProps) => {
+const AdminTextField = ({ error, className, label, ...rest }: AdminTextFieldProps) => {
   const classes = useStyles();
   return (
     <div className={classNames(classes.fullWidth, className)}>

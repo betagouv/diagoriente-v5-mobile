@@ -12,7 +12,7 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElem
   image?: string;
   titleBackground?: string;
   isOpen?: boolean;
-  bkGround?:string;
+  bkGround?: string;
 }
 
 const DashboardStep = ({
@@ -28,7 +28,7 @@ const DashboardStep = ({
   bkGround,
   ...other
 }: Props) => {
-  const classes = useStyles({ background, secondBackground, state, isOpen , bkGround });
+  const classes = useStyles({ background, secondBackground, state, isOpen, bkGround });
 
   return (
     <div {...other} className={classes.container}>
@@ -38,9 +38,9 @@ const DashboardStep = ({
             <div className={classes.avatar}>{image && <img className={classes.image} alt="" src={image} />}</div>
           </div>
           <div className={classes.titleBk} style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-            <div className={classes.title} >
-            <div style={{ marginLeft:20}}>  {title} </div> 
-          {/* <div>  {titleBackground && <img src={titleBackground} alt="" className={classes.titleBackground} />} </div>    */}
+            <div className={classes.title}>
+              <div style={{ marginLeft: 20 }}> {title} </div>
+              {/* <div>  {titleBackground && <img src={titleBackground} alt="" className={classes.titleBackground} />} </div>    */}
             </div>
           </div>
         </div>

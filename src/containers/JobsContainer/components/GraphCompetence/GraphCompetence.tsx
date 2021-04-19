@@ -101,11 +101,11 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
                   className={classes.competenceTitle}
                   style={{
                     fontWeight:
-                      (select === 'jobCompetence' && compValue === 4)
-                      || (select === 'parcoursCompetence'
-                        && isExist(competence.id)
-                        && !isLess(competence.id)
-                        && getCompetenceValue(competence.id) === 4)
+                      (select === 'jobCompetence' && compValue === 4) ||
+                      (select === 'parcoursCompetence' &&
+                        isExist(competence.id) &&
+                        !isLess(competence.id) &&
+                        getCompetenceValue(competence.id) === 4)
                         ? 700
                         : 400,
                   }}

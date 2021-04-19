@@ -29,7 +29,7 @@ const MainInteret = () => {
         <TitleImage
           title="COMMENT ÇA MARCHE ?"
           color="#420FAB"
-          size={32 }
+          size={32}
           backgroudColor="#fff"
           className={classes.tContainer}
         />
@@ -61,7 +61,9 @@ const MainInteret = () => {
             </div>
 
             {width < 370 ? (
-              <div>Travailler avec <br/> d’autres personnes</div>
+              <div>
+                Travailler avec <br /> d’autres personnes
+              </div>
             ) : (
               <div>Travailler avec d’autres personnes</div>
             )}
@@ -72,9 +74,9 @@ const MainInteret = () => {
           link={{
             pathname: `/interet/parcours/${0}`,
           }}
-          btnClassName={classes.validContainer} />
+          btnClassName={classes.validContainer}
+        />
       </div>
-     
     </div>
   );
 };

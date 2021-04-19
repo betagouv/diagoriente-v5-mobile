@@ -1,6 +1,4 @@
-import React, {
- useContext, useEffect, useState, useRef,
-} from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import parcoursContext from 'common/contexts/ParcourContext';
 import useOnclickOutside from 'common/hooks/useOnclickOutside';
 import { updateParcours, useUpdateParcour } from 'common/requests/parcours';
@@ -112,9 +110,7 @@ const SelectModal = () => {
                 name="job"
                 value={[accessibility]}
                 placeholder={getAccebilityName(accessibility)}
-                className={classNames(
-                  classes.containerAutoComp,
-                )}
+                className={classNames(classes.containerAutoComp)}
                 open={openType}
                 modal
                 onClick={() => setOpenType(!openType)}
@@ -124,7 +120,6 @@ const SelectModal = () => {
                 arrowColor="#00B2DB"
                 from="interest"
                 borderColor="#424242"
-
               />
             </ThemeProvider>
           </div>
@@ -145,10 +140,7 @@ const SelectModal = () => {
     default:
       return (
         <div className={classes.modalBody}>
-          <div className={classes.titleModal}>
-            Encore une petite chose !
-            {/* 1/2 */}
-          </div>
+          <div className={classes.titleModal}>Encore une petite chose !{/* 1/2 */}</div>
           <div className={classes.descriptionModal}>Sélectionne les expériences qui comptent le plus pour toi :</div>
 
           <div className={classes.experienceContainer}>
@@ -248,8 +240,7 @@ const SelectModal = () => {
                 <div className={classes.loaderContainer}>
                   <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
                 </div>
-              )}
-              {' '}
+              )}{' '}
             </div>
           ) : (
             ''

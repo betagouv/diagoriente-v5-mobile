@@ -14,9 +14,7 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   activities: string[];
 }
 
-const EngagementContext = ({
- history, setContext, contextCheck, theme, match, activities, location,
-}: Props) => {
+const EngagementContext = ({ history, setContext, contextCheck, theme, match, activities, location }: Props) => {
   const classes = useStyles();
 
   const { data } = useContext();

@@ -1,6 +1,4 @@
-import React, {
- useState, useContext, useMemo, useEffect,
-} from 'react';
+import React, { useState, useContext, useMemo, useEffect } from 'react';
 import { useFamilies } from 'common/requests/familles';
 import Button from 'components/button/Button';
 import { Families } from 'common/requests/types';
@@ -237,8 +235,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
             <div>
               <div className={classes.headerModelConfirm}>
                 <span className={classes.textModelConfirm}>
-                  Ma sélection (
-                  {selectedInterest?.length}
+                  Ma sélection ({selectedInterest?.length}
                   /5)
                 </span>
                 <Arrow color="white" width="22" height="22" className={classes.arrowStyle} />

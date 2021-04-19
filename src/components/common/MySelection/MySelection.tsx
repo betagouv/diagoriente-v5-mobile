@@ -36,9 +36,7 @@ const MySelection = ({ theme, activities }: Props) => {
                   >
                     <img src={theme?.resources?.icon} alt="" className={classes.avatarStyle} height={90} />
                   </Avatar>
-                ) : (
-                  undefined
-                )}
+                ) : undefined}
                 {theme?.type === 'professional' ? (
                   <p className={classes.text}>{theme?.title}</p>
                 ) : (
@@ -53,11 +51,7 @@ const MySelection = ({ theme, activities }: Props) => {
                 <div className={classes.label}>Mes activités</div>
                 <div className={classes.selection}>
                   {activities.map((a) => (
-                    <span className={classes.text}>
-                      •
-                      {' '}
-                      {a}
-                    </span>
+                    <span className={classes.text}>• {a}</span>
                   ))}
                 </div>
               </div>

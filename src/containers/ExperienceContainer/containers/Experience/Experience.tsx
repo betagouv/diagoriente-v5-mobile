@@ -1,6 +1,4 @@
-import React, {
- useContext, useState, useEffect, useRef,
-} from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import parcourContext from 'common/contexts/ParcourContext';
 import Title from 'components/common/TitleImage/TitleImage';
 import Avatar from 'components/common/Avatar/Avatar';

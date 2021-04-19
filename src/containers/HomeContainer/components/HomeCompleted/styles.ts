@@ -6,15 +6,14 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     flex: '1 1 0%',
     flexDirection: 'column',
     alignItems: 'center',
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    backgroundColor:'#F3F2F4 '
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    backgroundColor: '#F3F2F4 ',
   },
   headerWrapper: {
     display: 'flex',
     flexDirection: 'column',
     marginTop: 20,
     width: '90%',
-
   },
   profileHeader: {
     color: '#223A7A',
@@ -28,7 +27,6 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
   },
   firstSpan: {
     marginRight: '6px',
-
   },
   logo: {
     marginTop: 4,
@@ -95,7 +93,7 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     width: '90%',
     fontSize: '30px',
     fontFamily: 'Ocean',
-    borderRadius:10,
+    borderRadius: 10,
     fontWeight: 900,
     paddingTop: 11,
     lineHeight: '32px',
@@ -127,7 +125,7 @@ export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
     textAlign: 'left',
     fontSize: '12px',
     color: '#fff',
-    margin:'10px 20px'
+    margin: '10px 20px',
   },
   black: {
     color: '#ffff',

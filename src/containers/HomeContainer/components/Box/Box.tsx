@@ -14,9 +14,7 @@ interface IProps {
   openModal: (state: boolean) => void;
 }
 
-const Box = ({
-  title, logo, subTitle, color, link, colorText, played, openModal,
-}: IProps) => {
+const Box = ({ title, logo, subTitle, color, link, colorText, played, openModal }: IProps) => {
   const history = useHistory();
   const classes = useStyles({ color, colorText });
   const onNavigate = () => {

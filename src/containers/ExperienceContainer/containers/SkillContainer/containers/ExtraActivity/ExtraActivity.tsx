@@ -14,9 +14,7 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   theme: Theme;
 }
 
-const ExtraActivity = ({
- match, history, extraActivity, setExtraActivity, theme, location,
-}: Props) => {
+const ExtraActivity = ({ match, history, extraActivity, setExtraActivity, theme, location }: Props) => {
   const classes = useStyles();
 
   const activityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,11 +53,7 @@ const ExtraActivity = ({
             className={classes.textArea}
             variant="outlined"
           />
-          <p className={classes.activityCaracter}>
-            {140 - extraActivity.length}
-            {' '}
-            caractères restants
-          </p>
+          <p className={classes.activityCaracter}>{140 - extraActivity.length} caractères restants</p>
         </div>
       </div>
       {extraActivity.length > 0 && (

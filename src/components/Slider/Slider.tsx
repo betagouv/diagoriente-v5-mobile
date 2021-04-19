@@ -26,9 +26,7 @@ interface IProps {
   isChecked: any;
   defaultIndex: number;
 }
-const Slider = ({
- data, handleClick, isChecked, defaultIndex,
-}: IProps, { location }: RouteComponentProps) => {
+const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps, { location }: RouteComponentProps) => {
   const classes = useStyles();
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
@@ -38,7 +36,6 @@ const Slider = ({
   title1 = window.location.toString();
   return (
     <>
-
       <div className={classes.slideTitle}>
         <div className={classes.imgSlide}>
           {currentIndex == 0 ? (
@@ -109,7 +106,6 @@ const Slider = ({
         afterSlide={(index) => setCurrentIndex(index)}
         renderCenterLeftControls={({ previousSlide }) => (
           <div className={classNames(currentIndex === 0 && classes.hide, classes.wrapperBtn, classes.prevWrap)}>
-
             <div className={classes.titleContainerArrow} />
           </div>
         )}
@@ -121,7 +117,6 @@ const Slider = ({
               classes.nextWrap,
             )}
           >
-
             <div className={classes.titleContainerArrow} />
           </div>
         )}
@@ -142,7 +137,6 @@ const Slider = ({
                     className={e.resources.length === 1 ? classes.subitem1 : classes.subitem}
                   >
                     <div className={classNames(selected ? classes.selected : classes.imageContainer)}>
-
                       <img src={e.resources[0]} alt="" className={classes.deselected} />
                       <div className={classNames(selected ? classes.titleSelected1 : classes.titleContainer1)}>
                         {res}
@@ -156,7 +150,6 @@ const Slider = ({
           </div>
         ))}
       </Carousel>
-
     </>
   );
 };

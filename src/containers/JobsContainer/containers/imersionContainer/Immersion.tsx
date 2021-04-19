@@ -84,9 +84,7 @@ const ImmersionContainer = ({
       switch: true,
       switchRayon: '',
       distance: '30',
-
     },
-
   });
   const [immersionCall, immersionState] = useImmersion();
   const { search } = location;
@@ -168,17 +166,15 @@ const ImmersionContainer = ({
     immersionCall,
     // page,
   ]);
-console.log(distances,'dis')
+  console.log(distances, 'dis');
   const getData = (pg: number) => {
     setPage(pg);
   };
 
   const tri = [
- 
     {
-      label:'Tri optimisé',
+      label: 'Tri optimisé',
       value: 'tri optimisé',
-
     },
     {
       label: 'Distance',
@@ -294,7 +290,6 @@ console.log(distances,'dis')
       page_size: 6,
       distance: 5,
       // distance: 30,
-
     };
     immersionCall({ variables: dataTo });
   };
@@ -302,7 +297,14 @@ console.log(distances,'dis')
   return (
     <div className={classes.root}>
       <div className={classes.content}>
-        <ImageTitle title="TROUVER UNE IMMERSION"  backgroudColor={'#ffff'} color="#DB8F00" size={32} btnImage={filter} onClick={onOpenFilter} />
+        <ImageTitle
+          title="TROUVER UNE IMMERSION"
+          backgroudColor={'#ffff'}
+          color="#DB8F00"
+          size={32}
+          btnImage={filter}
+          onClick={onOpenFilter}
+        />
 
         <div className={classes.wrapper}>
           <div className={classes.filtersContainer}>
@@ -357,7 +359,6 @@ console.log(distances,'dis')
                     {tri.map((el) => (
                       <CheckBox key={el.label} label={el.label} onClick={() => onChangeTri(el)} value={selectedTri} />
                       // <CheckBox key={el.label} label={el.label} onClick={() => onChangeTri(el)} value={selectedTri} />
-
                     ))}
                   </div>
 
@@ -374,7 +375,7 @@ console.log(distances,'dis')
                       />
                     ))}
                   </div>
-      
+
                   <div className={classes.distanceContainer}>
                     <div className={classes.filterTitle}>Distance</div>
                     {distance.map((el) => (
@@ -386,7 +387,6 @@ console.log(distances,'dis')
                       />
                     ))}
                   </div>
-                  
                 </div>
               </div>
             )}

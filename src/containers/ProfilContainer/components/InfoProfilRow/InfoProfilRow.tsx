@@ -10,9 +10,7 @@ interface Props {
   logo?: string;
   children?: React.ReactChild;
 }
-const InfoProfilRow = ({
- title, className, children,
-}: Props) => {
+const InfoProfilRow = ({ title, className, children }: Props) => {
   const classes = useStyles();
 
   return (

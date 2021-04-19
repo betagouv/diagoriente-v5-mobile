@@ -12,9 +12,7 @@ interface IProps {
   direction: 'vertical' | 'horizontal';
   type?: string;
 }
-const SelectedFamille = ({
- handleClick, famille, index, direction, type,
-}: IProps) => {
+const SelectedFamille = ({ handleClick, famille, index, direction, type }: IProps) => {
   const [hover, setHover] = useState(false);
   const classes = useStyles({ direction, hover });
 
@@ -49,7 +47,6 @@ const SelectedFamille = ({
         <div onClick={type !== 'ordre' ? () => handleClick(index) : () => {}} className={classes.closeContainer}>
           {/* <Reset color="#420FAB" size={20} /> */}
           <img src={close} alt="" width={20} height={20} />
-
         </div>
       )}
     </div>

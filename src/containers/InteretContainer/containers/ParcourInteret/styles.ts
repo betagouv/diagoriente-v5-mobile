@@ -132,7 +132,7 @@ export default makeStyles<Theme>((theme) => ({
     '-ms-overflow-style': 'none',
   },
   btn: {
-    textAlign:'center'
+    textAlign: 'center',
   },
   contentBtn: {
     display: 'flex',
@@ -153,7 +153,7 @@ export default makeStyles<Theme>((theme) => ({
     padding: '85px 25px',
     display: 'flex',
     justifyContent: 'center',
-    alignItems:'center',
+    alignItems: 'center',
   },
   modal: {
     position: 'relative',
@@ -179,7 +179,7 @@ export default makeStyles<Theme>((theme) => ({
     padding: '55px 40px 60px 22px',
     display: 'flex',
     justifyContent: 'center',
-    alignItems:'center',
+    alignItems: 'center',
   },
   modal1: {
     position: 'relative',
@@ -189,7 +189,7 @@ export default makeStyles<Theme>((theme) => ({
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     borderRadius: 5,
     minWidth: 330,
-    overflow:'auto',
+    overflow: 'auto',
     [theme.breakpoints.down(380)]: {
       minWidth: '100%',
     },
@@ -203,7 +203,7 @@ export default makeStyles<Theme>((theme) => ({
     position: 'absolute',
     top: 48,
     right: 103,
-    zIndex:1,
+    zIndex: 1,
     [theme.breakpoints.down(415)]: {
       right: 37,
     },
@@ -309,11 +309,11 @@ export default makeStyles<Theme>((theme) => ({
     justifyContent: 'flexStart',
     alignItems: 'center',
   },
-  circleNumber:{
-border:'none',
+  circleNumber: {
+    border: 'none',
   },
-  placeHolderCircle:{
-margin:'7px'
+  placeHolderCircle: {
+    margin: '7px',
   },
   circle: {
     borderRadius: '50%',
@@ -331,7 +331,7 @@ margin:'7px'
     height: 30,
     color: '#7533FF',
   },
- 
+
   circleSelected: {
     borderRadius: '50%',
     border: '1px solid #fff',
@@ -350,12 +350,11 @@ margin:'7px'
     // [theme.breakpoints.down(380)]: {
     //   margin: '7px',
     // },
- 
   },
   diagPop: {
     height: ' 600px',
     width: '400px',
-    position:'relative',
+    position: 'relative',
     [theme.breakpoints.down(426)]: {
       height: ' 530px',
     },
@@ -374,7 +373,6 @@ margin:'7px'
       right: '5px',
       top: '50px',
     },
-
   },
   closePop1: {
     right: '10px',
@@ -383,7 +381,6 @@ margin:'7px'
     [theme.breakpoints.down(380)]: {
       right: '4px',
     },
-
   },
   comprisButton: {
     color: '#7533FF',

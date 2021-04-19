@@ -1,11 +1,11 @@
-import React, {  ChangeEvent, ReactElement } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import Arrow from 'assets/svg/arrow';
 import Menu from 'assets/svg/Group.svg';
 import classNames from 'utils/classNames';
 import { useTheme } from '@material-ui/core';
 import OptionList from '../optionsList/OptionsList';
 import Divider from '@material-ui/core/Divider';
-import closeIcon from 'assets/svg/picto close.svg'
+import closeIcon from 'assets/svg/picto close.svg';
 import Slide from '@material-ui/core/Slide';
 import arrowClose from 'assets/svg/orangeArrow.svg';
 import checked from 'assets/form/checkboxchecked.svg';
@@ -16,8 +16,8 @@ import useStyles from './styles';
 
 interface IProps {
   label?: string;
-  onChange?:(e: ChangeEvent<HTMLInputElement>) => void;
-  
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+
   onSelectText: (e: string | undefined) => void;
   value?: string[] | undefined;
   name?: string;
@@ -46,10 +46,10 @@ interface IProps {
   background?: string;
   from: string;
   inputBorder?: string;
-  borderColor?:string;
-  check?:boolean;
-  bkColor?:string;
-  placeHolderColor?:string
+  borderColor?: string;
+  check?: boolean;
+  bkColor?: string;
+  placeHolderColor?: string;
 }
 const SelectJobs = ({
   onChange,
@@ -76,8 +76,7 @@ const SelectJobs = ({
   inputBorder,
   placeHolderColor,
 }: IProps) => {
-  const classes = useStyles({ fullSelect, fullScreenModal, open, arrowColor , borderColor , placeHolderColor
-  });
+  const classes = useStyles({ fullSelect, fullScreenModal, open, arrowColor, borderColor, placeHolderColor });
   const isInclude = (id: string) => value && value.includes(id);
   const theme = useTheme();
   const [openModal, setOpenModal] = React.useState(open);
@@ -89,8 +88,6 @@ const SelectJobs = ({
   const handleClose = () => {
     setOpenModal(false);
   };
-
-
 
   return (
     <div className={classes.content} ref={reference}>
@@ -105,7 +102,11 @@ const SelectJobs = ({
           name={name}
           placeholder={placeholder}
           disabled
-          className={classNames(from && classes.inputContainer1 , classes.inputBorder , isInclude && classes.selectedInput )}
+          className={classNames(
+            from && classes.inputContainer1,
+            classes.inputBorder,
+            isInclude && classes.selectedInput,
+          )}
         />
         <div className={classes.logoContainer}>
           <Arrow
@@ -122,47 +123,42 @@ const SelectJobs = ({
             <Slide direction="right" in={open} mountOnEnter unmountOnExit>
               <div className={classes.secteurContainerFullScreen}>
                 <div className={classes.closeFullModelContainer} onClick={onClose}>
-
-            
                   <span className={classes.closeModelLabel}> {placeholder} </span>
                   <img src={closeIcon} alt="close" className={classes.close} />
-
                 </div>
                 {options?.map((el) => (
                   <div key={el.title} className={classes.fullScreenItem}>
-                    <div className={classNames(classes.itemSecteurWrapper , isInclude(el.id) && classes.selected) } onClick={() => onSelectText(el.id)} >
-                    <div className={classes.CheckBoxStyle}>
-                          <CheckBox
-                            checked={isInclude(el.id)}
-                            img={ checked}
-                            className={classes.checkBox}
-                            classNameLogo={classes.checkBoxImg}
-                            border="#DB8F00 "
-                            background="#fff"
-                            color="#DB8F00 "
-
-
-                          />
-                        </div>
-                      <div
-                        key={el.title}
-                      >
-                        <span className={classNames(classes.item)}>
-                          {el.title}
-                        </span>
+                    <div
+                      className={classNames(classes.itemSecteurWrapper, isInclude(el.id) && classes.selected)}
+                      onClick={() => onSelectText(el.id)}
+                    >
+                      <div className={classes.CheckBoxStyle}>
+                        <CheckBox
+                          checked={isInclude(el.id)}
+                          img={checked}
+                          className={classes.checkBox}
+                          classNameLogo={classes.checkBoxImg}
+                          border="#DB8F00 "
+                          background="#fff"
+                          color="#DB8F00 "
+                        />
+                      </div>
+                      <div key={el.title}>
+                        <span className={classNames(classes.item)}>{el.title}</span>
                       </div>
                     </div>
                     <Divider />
-                    {  isInclude(el.id) && <ValidationButton onClick={onClose} label="Valider" bgColor="#FFA600" color="#ffff" btnClassName={classes.btn} />
-                }
-                     
+                    {isInclude(el.id) && (
+                      <ValidationButton
+                        onClick={onClose}
+                        label="Valider"
+                        bgColor="#FFA600"
+                        color="#ffff"
+                        btnClassName={classes.btn}
+                      />
+                    )}
                   </div>
-                
-                             
-                              
                 ))}
- 
-
               </div>
             </Slide>
           ) : modal ? (
@@ -170,7 +166,6 @@ const SelectJobs = ({
               <div className={classes.backdrop} onClick={onClose} />
               <div className={classes.modalItemsContainer}>
                 <div className={classes.closeModelContainer} onClick={onClose}>
-             
                   <span className={classes.closeModelLabel}> {placeholder}</span>
                   <Arrow
                     color={arrowColor ? arrowColor : '#420FAB'}
@@ -189,7 +184,7 @@ const SelectJobs = ({
                   background={from === 'job' ? '#ffff' : '#7AE6FF'}
                   check={check}
                   bkColor={bkColor}
-                  checkColor={"#DB8F00 "}
+                  checkColor={'#DB8F00 '}
                 />
               </div>
             </div>
@@ -213,7 +208,6 @@ const SelectJobs = ({
               name={name}
               border={border}
               background={background}
-
             />
           )}
         </div>

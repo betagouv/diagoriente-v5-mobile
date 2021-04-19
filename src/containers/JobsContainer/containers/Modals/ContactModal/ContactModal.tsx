@@ -76,19 +76,10 @@ const ContactModal = ({ setOpen, openContact, handleClose }: Props) => {
         <span className={classes.closeModelLabel}> Retour </span>
       </div>
       <div className={classes.maxWidth}>
-        <div className={classes.titleContainer}>
-          CONTACTER
-          {' '}
-          {openContact.name}
-        </div>
+        <div className={classes.titleContainer}>CONTACTER {openContact.name}</div>
         <div>
           <div className={classes.contactContainer}>
-            Le message qui sera envoyé à
-            {' '}
-            <b className={classes.textBold}>
-              {' '}
-              {openContact.name}
-            </b>
+            Le message qui sera envoyé à <b className={classes.textBold}> {openContact.name}</b>
           </div>
           <div className={classes.information}>{defaultMessage}</div>
           <div className={classes.text}>Tu peux ajouter une note personnelle si tu le souhaites</div>
@@ -117,15 +108,8 @@ const ContactModal = ({ setOpen, openContact, handleClose }: Props) => {
           </div>
           <div className={classes.ideaText}>
             • Réfléchis à une courte explication du fonctionnement de l’immersion ou du stage : tout le monde n’est pas
-            au courant !
-            {' '}
-            <br />
-            • Prépare à l’avance quelques phrases pour te présenter et expliquer l’environnement pro
-            que tu aimerais découvrir.
-            {' '}
-            <br />
-            {' '}
-            • Pas besoin de tourner autour du pot : sois clair et direct dans ta
+            au courant ! <br />• Prépare à l’avance quelques phrases pour te présenter et expliquer l’environnement pro
+            que tu aimerais découvrir. <br /> • Pas besoin de tourner autour du pot : sois clair et direct dans ta
             demande.
           </div>
         </div>
@@ -143,9 +127,7 @@ const ContactModal = ({ setOpen, openContact, handleClose }: Props) => {
           />
           <span className={classes.checkboxText} onClick={() => checkBoxRef.current?.click()}>
             <b className={classes.textBold}>Joindre ma carte de compétences</b>
-            <br />
-            {' '}
-            Cela aidera l’entreprise à mieux te connaître
+            <br /> Cela aidera l’entreprise à mieux te connaître
           </span>
         </div>
         <Button

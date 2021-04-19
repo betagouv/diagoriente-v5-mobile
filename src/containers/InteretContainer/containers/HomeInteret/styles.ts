@@ -36,10 +36,7 @@ export default makeStyles<Theme>((theme) => ({
     [theme.breakpoints.down(330)]: {
       paddingLeft: '20px',
       paddingRight: '20px',
-
-
     },
-    
   },
   avatarContainer: {
     width: '100%',
@@ -75,6 +72,5 @@ export default makeStyles<Theme>((theme) => ({
     'text-align': 'start',
   },
 
-  tContainer:{height:'80px'}
-
+  tContainer: { height: '80px' },
 }));

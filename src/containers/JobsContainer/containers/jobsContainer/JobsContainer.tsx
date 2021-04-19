@@ -6,13 +6,11 @@ import { Link } from 'react-router-dom';
 import useOnclickOutside from 'common/hooks/useOnclickOutside';
 import ParcoursContext from 'common/contexts/ParcourContext';
 import { Jobs } from 'common/requests/types';
-import { useAccessibility } from 'common/requests/accessibility';
 import pictoFilter from 'assets/svg/picto filtres.svg';
 import Slide from '@material-ui/core/Slide';
 import arrow from 'assets/svg/Vector (12).svg';
 import Reset from 'components/common/Rest/Rest';
 import Spinner from 'components/Spinner/Spinner';
-import TextField from 'components/inputs/Input/Input';
 
 import Button from 'components/button/Button';
 import classesNames from 'utils/classNames';
@@ -20,7 +18,6 @@ import Autocomplete from '../../components/Autocomplete/AutoCompleteJob';
 import JobCard from '../../components/Card/CardJob';
 import Select from '../../components/Select/Select';
 import SelectData from '../../components/SelectData/SelectData';
-import { useDidMount } from 'common/hooks/useLifeCycle';
 
 import useStyles from './styles';
 
@@ -119,7 +116,7 @@ const JobsContainer = ({
     setClearMessage(true);
     await localForage.setItem('messages', false);
   };
-  
+
   const onSelect = (label?: string) => {
     setSearch(label);
     // setOpen(false);
@@ -186,46 +183,55 @@ const JobsContainer = ({
   const renderedJobs = jobs?.slice(0, jobsToShow);
 
   const getDomaineName = (domaine: string[] | undefined) => {
-
-      if(listSecteurData && domaine!==undefined && domaine.length!==0) {
-        const firstItem = listSecteurData.find(item => item.id===domaine[0])
-        return `${firstItem?.title} ${domaine.length > 1 ? `(+${domaine.length-1 })`  : ''}`
-
-      }
-    return 'Domaine d’activité'
+    if (listSecteurData && domaine !== undefined && domaine.length !== 0) {
+      const firstItem = listSecteurData.find((item) => item.id === domaine[0]);
+      return `${firstItem?.title} ${domaine.length > 1 ? `(+${domaine.length - 1})` : ''}`;
+    }
+    return 'Domaine d’activité';
   };
   useEffect(() => {
- getDomaineName(domaine)
-  }, [  listSecteurData, domaine]);
+    getDomaineName(domaine);
+  }, [listSecteurData, domaine]);
 
-const getEnvName = (environments: string[] | undefined) => {
+  const getEnvName = (environments: string[] | undefined) => {
+    if (listTypeData && environments !== undefined && environments.length !== 0) {
+      const firstItem = listTypeData.find((item) => item.id === environments[0]);
+      return `${firstItem?.title} ${environments.length > 1 ? `(+${environments.length - 1}) ` : ''}`;
+    }
+    return 'Type de métier';
+  };
+  useEffect(() => {
+    getEnvName(environments);
+  }, [listSecteurData, environments]);
 
-  if(listTypeData && environments!==undefined && environments.length!==0) {
-    const firstItem = listTypeData.find(item => item.id===environments[0])
-    return `${firstItem?.title} ${environments.length > 1 ? `(+${environments.length-1 }) `  : ''}`
+  const getAccName = (accessibility: string[] | undefined) => {
+    if (listAccData && accessibility !== undefined && accessibility.length !== 0) {
+      const firstItem = listAccData.find((item) => item.id === accessibility[0]);
+      return `${firstItem?.name} ${accessibility.length > 1 ? `(+${accessibility.length - 1})` : ''}`;
+    }
+    return 'Niveau d’accès';
+  };
+  useEffect(() => {
+    getEnvName(accessibility);
+  }, [listAccData, accessibility]);
+  const renderJobs = () => {
+    if (renderedJobs?.length) {
+      return renderedJobs?.map((el) => (
+        <Link to={`/jobs/job/${el.id}`}>
+          <JobCard
+            key={el.id}
+            id={el.id}
+            title={el.title}
+            description={el.description}
+            accessibility={el.accessibility}
+            favoris={el.favorite}
+          />
+        </Link>
+      ));
+    }
 
-  }
-return 'Type de métier'
-};
-useEffect(() => {
-getEnvName(environments)
-}, [  listSecteurData, environments]);
-
-const getAccName = (accessibility: string[] | undefined) => {
-
-  if(listAccData&& accessibility!==undefined && accessibility.length!==0) {
-    const firstItem = listAccData.find(item => item.id===accessibility[0])
-    return `${firstItem?.name} ${accessibility.length > 1 ? `(+${accessibility.length-1 })`  : ''}`
-
-  }
-return 'Niveau d’accès'
-};
-useEffect(() => {
-getEnvName(accessibility)
-}, [  listAccData, accessibility]);
-console.log(search,'search')
-console.log(!parcours?.completed,'par')
-console.log(renderedJobs,'render')
+    return 'Aucun resultat trouvé !';
+  };
   return (
     <div className={classes.wrapper}>
       {!clearMessage && (
@@ -275,7 +281,6 @@ console.log(renderedJobs,'render')
               name="search"
               placeholder="Rechercher"
               className={classes.containerAutoComp}
-               
             />
             <Select
               options={listSecteurData}
@@ -291,9 +296,9 @@ console.log(renderedJobs,'render')
               referenceFullScreen={divDomaine}
               arrowColor="#DB8F00"
               from="job"
-              borderColor={'#C9C9C7'}
-              bkColor={"#FFD382"}
-              placeHolderColor={"#DB8F00"}
+              borderColor="#C9C9C7"
+              bkColor="#FFD382"
+              placeHolderColor="#DB8F00"
             />
             <Select
               options={listTypeData}
@@ -309,12 +314,10 @@ console.log(renderedJobs,'render')
               reference={divType}
               arrowColor="#DB8F00"
               from="job"
-              borderColor={'#C9C9C7'}
+              borderColor="#C9C9C7"
               check
-              bkColor={"#FFD382"}
-              placeHolderColor={"#DB8F00"}
-
-
+              bkColor="#FFD382"
+              placeHolderColor="#DB8F00"
             />
             <Select
               options={listAccData}
@@ -330,36 +333,21 @@ console.log(renderedJobs,'render')
               reference={divAcc}
               arrowColor="#DB8F00"
               from="job"
-              borderColor={'#C9C9C7'}
+              borderColor="#C9C9C7"
               check
-              bkColor={"#FFD382"}
-              placeHolderColor={"#DB8F00"}
-
-
+              bkColor="#FFD382"
+              placeHolderColor="#DB8F00"
             />
           </div>
-    {loading ? (
+          {loading ? (
             <div className={classes.spinnerContainer}>
               <Spinner />
             </div>
           ) : (
-         <div className={classes.boxsContainer}>
-            {!parcours?.completed && <Spinner />}
-            {renderedJobs?.length === 0
-              ? 'Aucun resultat trouvé !'
-              : renderedJobs?.map((el) => (
-                  <Link to={`/jobs/job/${el.id}`}>
-                    <JobCard
-                      key={el.id}
-                      id={el.id}
-                      title={el.title}
-                      description={el.description}
-                      accessibility={el.accessibility}
-                      favoris={el.favorite}
-                    />
-                  </Link>
-                ))}
-          </div>
+            <div className={classes.boxsContainer}>
+              {!parcours?.completed && <Spinner />}
+              {renderJobs()}
+            </div>
           )}
         </div>
       </div>
@@ -419,81 +407,74 @@ console.log(renderedJobs,'render')
                     </div>
                   </div>
                   <Autocomplete
-              options={filteredArray}
-              onChange={(e)=>{
-                setSearch(e.target.value)
-              }}
-              onSelectText={onSelect}
-              // onKeyPress={}
-              value={search || ''}
-              name="search"
-              placeholder="Rechercher"
-              className={classes.containerAutoComp}
-              //  open
-            /> 
-     
-      
+                    options={filteredArray}
+                    onChange={(e) => {
+                      setSearch(e.target.value);
+                    }}
+                    onSelectText={onSelect}
+                    // onKeyPress={}
+                    value={search || ''}
+                    name="search"
+                    placeholder="Rechercher"
+                    className={classes.containerAutoComp}
+                  />
 
-            <Select
-              options={listSecteurData}
-              onSelectText={onSelectDomaine}
-              name="domaine"
-              value={domaine}
-              placeholder={getDomaineName(domaine)}
-              // className={classes.containerAutoComp}
-              open={openDomain}
-              fullScreenModal
-              onClick={() => setOpenDomain(!openDomain)}
-              onClose={() => setOpenDomain(false)}
-              referenceFullScreen={divDomaine}
-              arrowColor="#DB8F00"
-              from="job"
-              borderColor={'#C9C9C7'}
-              bkColor={"#FFD382"}
-              placeHolderColor={"#DB8F00"}
-            />
-            <Select
-              options={listTypeData}
-              onSelectText={onSelectType}
-              name="job"
-              value={environments}
-              placeholder={getEnvName(environments)}
-              className={classes.containerAutoComp}
-              open={openType}
-              modal
-              onClick={() => setOpenType(!openType)}
-              onClose={() => setOpenType(false)}
-              reference={divType}
-              arrowColor="#DB8F00"
-              from="job"
-              borderColor={'#C9C9C7'}
-              check
-              bkColor={"#FFD382"}
-              placeHolderColor={"#DB8F00"}
-
-
-            />
-            <Select
-              options={listAccData}
-              onSelectText={onSelectAcc}
-              name="accessibility"
-              placeholder={getAccName(accessibility)}
-              value={accessibility}
-              className={classes.containerAutoComp}
-              open={openAcc}
-              modal
-              onClick={() => setOpenAcc(!openAcc)}
-              onClose={() => setOpenAcc(false)}
-              reference={divAcc}
-              arrowColor="#DB8F00"
-              from="job"
-              borderColor={'#C9C9C7'}
-              check
-              bkColor={"#FFD382"}
-              placeHolderColor={"#DB8F00"}
-
-
-            />
+                  <Select
+                    options={listSecteurData}
+                    onSelectText={onSelectDomaine}
+                    name="domaine"
+                    value={domaine}
+                    placeholder={getDomaineName(domaine)}
+                    // className={classes.containerAutoComp}
+                    open={openDomain}
+                    fullScreenModal
+                    onClick={() => setOpenDomain(!openDomain)}
+                    onClose={() => setOpenDomain(false)}
+                    referenceFullScreen={divDomaine}
+                    arrowColor="#DB8F00"
+                    from="job"
+                    borderColor="#C9C9C7"
+                    bkColor="#FFD382"
+                    placeHolderColor="#DB8F00"
+                  />
+                  <Select
+                    options={listTypeData}
+                    onSelectText={onSelectType}
+                    name="job"
+                    value={environments}
+                    placeholder={getEnvName(environments)}
+                    className={classes.containerAutoComp}
+                    open={openType}
+                    modal
+                    onClick={() => setOpenType(!openType)}
+                    onClose={() => setOpenType(false)}
+                    reference={divType}
+                    arrowColor="#DB8F00"
+                    from="job"
+                    borderColor="#C9C9C7"
+                    check
+                    bkColor="#FFD382"
+                    placeHolderColor="#DB8F00"
+                  />
+                  <Select
+                    options={listAccData}
+                    onSelectText={onSelectAcc}
+                    name="accessibility"
+                    placeholder={getAccName(accessibility)}
+                    value={accessibility}
+                    className={classes.containerAutoComp}
+                    open={openAcc}
+                    modal
+                    onClick={() => setOpenAcc(!openAcc)}
+                    onClose={() => setOpenAcc(false)}
+                    reference={divAcc}
+                    arrowColor="#DB8F00"
+                    from="job"
+                    borderColor="#C9C9C7"
+                    check
+                    bkColor="#FFD382"
+                    placeHolderColor="#DB8F00"
+                  />
                   <Button onClick={() => setOpenModal(!openModal)} className={classes.rechercheButton}>
                     Rechercher
                   </Button>

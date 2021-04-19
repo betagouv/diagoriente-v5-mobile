@@ -100,9 +100,7 @@ const Select = ({
 
   useListener('resize', () => {
     if (selectRef.current && openSelect) {
-      const {
- top, left, height, width: w,
-} = selectRef.current?.getBoundingClientRect();
+      const { top, left, height, width: w } = selectRef.current?.getBoundingClientRect();
       setDimension([left, top + height + 8]);
       setWidth(w);
     }
@@ -142,7 +140,7 @@ const Select = ({
           value && styleSelectClassName,
         )}
         IconComponent={() =>
-          (!arrowDate ? (
+          !arrowDate ? (
             <div
               className={classNames(classes.circle, openSelect && classes.darkcircle)}
               onClick={() => {
@@ -160,7 +158,8 @@ const Select = ({
             >
               <img src={arrowDate} alt="" />
             </div>
-          ))}
+          )
+        }
         inputProps={{
           classes: {
             root: classes.select,
@@ -219,9 +218,7 @@ const Select = ({
               />
             </div>
           </MenuItem>
-        ) : (
-          undefined
-        )}
+        ) : undefined}
       </SelectBase>
     </div>
   );

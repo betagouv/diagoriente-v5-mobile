@@ -13,9 +13,7 @@ interface IProps {
   id: string;
   favoris: any;
 }
-const CardJob = ({
- title, description, accessibility, id, favoris,
-}: IProps) => {
+const CardJob = ({ title, description, accessibility, id, favoris }: IProps) => {
   const [selected, setSelected] = useState(false);
   const onHover = () => setSelected(true);
   const onLeave = () => setSelected(false);
@@ -32,10 +30,9 @@ const CardJob = ({
       </div>
       {selected && (
         <div className={classes.btnContainer}>
-          
-            <Button className={classes.btn}>
-              <div className={classes.btnLabel}>En savoir plus</div>
-            </Button>
+          <Button className={classes.btn}>
+            <div className={classes.btnLabel}>En savoir plus</div>
+          </Button>
         </div>
       )}
       <div className={classes.footerCard}>

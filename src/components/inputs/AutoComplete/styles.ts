@@ -19,19 +19,18 @@ export default makeStyles<Theme, { error: boolean }>((theme) => ({
       alignItems: 'center',
       // justifyContent: 'center',
       margin: '15px -18px 0px 0px',
-        }
-    
+    },
   },
-gridItem:{
-  '& .MuiGrid-grid-xs-12':{
-    flexBasis:'40%'
+  gridItem: {
+    '& .MuiGrid-grid-xs-12': {
+      flexBasis: '40%',
+    },
+    [theme.breakpoints.down(450)]: {
+      '& .MuiGrid-grid-xs-12': {
+        flexBasis: '60%',
+      },
+    },
   },
-      [theme.breakpoints.down(450)]: {
-        '& .MuiGrid-grid-xs-12':{
-          flexBasis:'60%'
-        },
-    }
-},
   dropDown: {
     padding: '0px !important',
     height: 300,
@@ -113,9 +112,8 @@ gridItem:{
     marginRight: 14,
     fontWeight: 'bold',
     [theme.breakpoints.down(450)]: {
-          paddingTop:30
-
-  }
+      paddingTop: 30,
+    },
   },
   wrapperInput: {
     display: 'flex',

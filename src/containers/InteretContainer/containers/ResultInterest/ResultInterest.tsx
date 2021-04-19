@@ -31,12 +31,11 @@ const ResultInterest = () => {
             qui peuvent te plaire.
           </div>
         </div>
-  
-        <div className={classes.btnContainer}onClick={() => handleOpen()}>
+
+        <div className={classes.btnContainer} onClick={() => handleOpen()}>
           <div className={classes.suivantContainer}>
             <div className={classes.btnLabel}>Voir mes pistes métiers</div>
           </div>
-       
         </div>
         <Link to="/experience?redirect=profil" className={classes.link}>
           <div className={classes.info}>Je n&lsquo;ai pas encore ajouté d&lsquo;expériences</div>

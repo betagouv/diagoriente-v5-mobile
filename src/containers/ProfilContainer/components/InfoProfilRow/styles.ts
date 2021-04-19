@@ -7,13 +7,11 @@ export default makeStyles((theme) =>
       padding: '13px 0px',
       alignItems: 'center',
       [theme.breakpoints.down(420)]: {
-     padding: '13px 24px',
-
+        padding: '13px 24px',
       },
       [theme.breakpoints.down(330)]: {
         padding: '13px 0px',
-   
-         },
+      },
     },
     title: {
       fontSize: 14,
@@ -25,7 +23,7 @@ export default makeStyles((theme) =>
       marginRight: 26,
       [theme.breakpoints.down(380)]: {
         width: 155,
-        marginRight:16
+        marginRight: 16,
       },
       [theme.breakpoints.down(450)]: {
         textAlign: 'left',
@@ -33,11 +31,10 @@ export default makeStyles((theme) =>
       [theme.breakpoints.down(330)]: {
         paddingLeft: 11,
       },
-
     },
     userInfo: {
       fontSize: 14,
       flex: '1 1 auto',
-  
     },
-  }));
+  }),
+);

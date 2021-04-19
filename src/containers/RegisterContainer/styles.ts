@@ -10,7 +10,6 @@ export default makeStyles((theme: Theme) => ({
     height: '100%',
     paddingBottom: 80,
     paddingTop: 60,
-
   },
   registerContainer: {
     maxWidth: 757,
@@ -35,16 +34,15 @@ export default makeStyles((theme: Theme) => ({
     lineHeight: 1.8,
   },
   formContainer: {
-
-    width:'min-content',
+    width: 'min-content',
   },
   form: {
     marginTop: 30,
     display: 'flex',
-    alignItems:'center',
+    alignItems: 'center',
     flexDirection: 'column',
     [theme.breakpoints.down(500)]: {
-      alignItems:'center',
+      alignItems: 'center',
     },
     [theme.breakpoints.down(420)]: {
       paddingLeft: 60,
@@ -52,29 +50,26 @@ export default makeStyles((theme: Theme) => ({
     [theme.breakpoints.down(350)]: {
       paddingLeft: 20,
     },
-  
   },
   avatarsWrapper: {
     margin: '9px 0px',
     [theme.breakpoints.down(500)]: {
       margin: '20px 0px',
     },
-
   },
-  avatarContainer:{
-    display:'flex',
+  avatarContainer: {
+    display: 'flex',
     [theme.breakpoints.down(450)]: {
-      display:'inline',
+      display: 'inline',
     },
   },
-  subAvatar:{
-    width:'70%',
-    marginLeft:10,
+  subAvatar: {
+    width: '70%',
+    marginLeft: 10,
     [theme.breakpoints.down(450)]: {
-      width:'80%',
-      marginLeft:0,
+      width: '80%',
+      marginLeft: 0,
     },
-    
   },
   avatarsContainer: {
     width: '100%',
@@ -87,17 +82,14 @@ export default makeStyles((theme: Theme) => ({
     [theme.breakpoints.down(470)]: {
       marginRight: 0,
       marginBottom: 5,
-    //  [theme.breakpoints.down(470)]: {
-    //   paddingTop:20,
-    // }
-    // [theme.breakpoints.down('xs')]: {
-    //   textAlign: 'left',
-    //   marginRight: 0,
-    //   marginBottom: 5,
-    // },
-
-
-
+      //  [theme.breakpoints.down(470)]: {
+      //   paddingTop:20,
+      // }
+      // [theme.breakpoints.down('xs')]: {
+      //   textAlign: 'left',
+      //   marginRight: 0,
+      //   marginBottom: 5,
+      // },
     },
   },
   label: {
@@ -132,8 +124,8 @@ export default makeStyles((theme: Theme) => ({
   paddingBtn: {
     paddingLeft: 120,
     [theme.breakpoints.down(470)]: {
-      paddingLeft:0
-      },
+      paddingLeft: 0,
+    },
   },
   btn: {
     backgroundColor: theme.palette.secondary.main,
@@ -158,27 +150,27 @@ export default makeStyles((theme: Theme) => ({
   },
   groupText: {
     fontSize: 12,
-    paddingLeft:'155px',
+    paddingLeft: '155px',
     [theme.breakpoints.down(470)]: {
-      paddingLeft:5
-      },
+      paddingLeft: 5,
+    },
   },
   conditionText: {
     fontSize: 14,
     marginLeft: 8,
-    marginRight:15,
+    marginRight: 15,
     width: 'max-content',
     cursor: 'pointer',
     [theme.breakpoints.down(500)]: {
-     width: 255,
-     marginTop:30,
+      width: 255,
+      marginTop: 30,
     },
   },
   containerCheckbox: {
     display: 'flex',
     alignItems: 'center',
     marginTop: 14,
-    paddingTop:10,
+    paddingTop: 10,
   },
   conditionColorText: {
     color: theme.palette.success.main,
@@ -220,7 +212,6 @@ export default makeStyles((theme: Theme) => ({
     textAlign: 'center',
     [theme.breakpoints.down(470)]: {
       textAlign: 'left',
-
     },
   },
 
@@ -238,7 +229,7 @@ export default makeStyles((theme: Theme) => ({
   requiredInput: {
     color: theme.palette.success.main,
   },
-  inputContainer:{
+  inputContainer: {
     display: 'grid',
     gridTemplateAreas: '"label input"',
     gridTemplateColumns: '140px 229px',
@@ -249,19 +240,19 @@ export default makeStyles((theme: Theme) => ({
     margin: '0px 0px 0px 0px',
     width: '100%',
     [theme.breakpoints.down(470)]: {
-      display:'flex',
-      flexDirection:'column',
-      gridGap:0,
-      alignItems:'flex-start',
-      marginTop:20
-      },
+      display: 'flex',
+      flexDirection: 'column',
+      gridGap: 0,
+      alignItems: 'flex-start',
+      marginTop: 20,
+    },
   },
 
-passeItem:{
-  paddingLeft:154,
-  
-  [theme.breakpoints.down(500)]: {
-    paddingLeft:5
+  passeItem: {
+    paddingLeft: 154,
+
+    [theme.breakpoints.down(500)]: {
+      paddingLeft: 5,
     },
-}
+  },
 }));

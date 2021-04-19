@@ -1,6 +1,4 @@
-import React, {
- useContext, useEffect, useState, useMemo, useRef,
-} from 'react';
+import React, { useContext, useEffect, useState, useMemo, useRef } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import Title from 'components/common/TitleImage/TitleImage';
 import { useJobs } from 'common/requests/jobs';
@@ -139,10 +137,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
       return topJobs.map((j) => (
         <div key={j?.id} className={classes.favoriContainer}>
           <img src={littlestar} alt="" height={20} />
-          <div className={classes.job}>
-            {j?.title}
-            {' '}
-          </div>
+          <div className={classes.job}>{j?.title} </div>
         </div>
       ));
     }
@@ -156,10 +151,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
       return favoriteJobs.map((j) => (
         <div key={j?.id} className={classes.favoriContainer}>
           <img src={littleheart} alt="" height={20} />
-          <div className={classes.job}>
-            {j?.title}
-            {' '}
-          </div>
+          <div className={classes.job}>{j?.title} </div>
         </div>
       ));
     }
@@ -180,11 +172,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.headerAccordion}
           >
             <AccordionSummary
-              expandIcon={(
+              expandIcon={
                 <div className={classes.iconInfo}>
                   <ExpandMoreIcon />
                 </div>
-              )}
+              }
               // aria-controls="panel1bh-content"
               // id="panel1bh-header"
               className={classes.infoAccordion}
@@ -218,11 +210,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionContainer}
           >
             <AccordionSummary
-              expandIcon={(
+              expandIcon={
                 <div className={classes.iconInteret}>
                   <ExpandMoreIcon />
                 </div>
-              )}
+              }
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.headerInteret}
@@ -253,11 +245,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionCarte}
           >
             <AccordionSummary
-              expandIcon={(
+              expandIcon={
                 <div className={classes.iconCompetence}>
                   <ExpandMoreIcon />
                 </div>
-              )}
+              }
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.headerCompetence}
@@ -272,9 +264,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
                   </div>
                   <div className={classes.cardCompetence}>
                     <div className={classes.txtCarte}>
-                      Toutes tes expériences et compétences
-                      {' '}
-                      <br />
+                      Toutes tes expériences et compétences <br />
                       au même endroit pour partager à tes futurs employeurs
                     </div>
                   </div>
@@ -299,11 +289,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.headerAccordion}
           >
             <AccordionSummary
-              expandIcon={(
+              expandIcon={
                 <div>
                   <ExpandMoreIcon className={classes.iconPerso} />
                 </div>
-              )}
+              }
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.persoAccordion}
@@ -352,11 +342,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionContainer}
           >
             <AccordionSummary
-              expandIcon={(
+              expandIcon={
                 <div>
                   <ExpandMoreIcon className={classes.iconPerso} />
                 </div>
-              )}
+              }
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.persoAccordion}
@@ -407,11 +397,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionContainer}
           >
             <AccordionSummary
-              expandIcon={(
+              expandIcon={
                 <div>
                   <ExpandMoreIcon className={classes.iconPerso} />
                 </div>
-              )}
+              }
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.persoAccordion}
@@ -464,11 +454,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.headerAccordion}
           >
             <AccordionSummary
-              expandIcon={(
+              expandIcon={
                 <div>
                   <ExpandMoreIcon className={classes.iconTop} />
                 </div>
-              )}
+              }
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.topAccordion}
@@ -476,8 +466,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
               <Typography className={classes.topText}>
                 <div className={classes.logoStar}>
                   <div>
-                    <img src={star} alt="" height={30} className={classes.star} />
-                    {' '}
+                    <img src={star} alt="" height={30} className={classes.star} />{' '}
                   </div>
                   <div> MON TOP MÉTIERS </div>
                 </div>
@@ -495,11 +484,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionContainer}
           >
             <AccordionSummary
-              expandIcon={(
+              expandIcon={
                 <div>
                   <ExpandMoreIcon className={classes.iconTop} />
                 </div>
-              )}
+              }
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.topAccordion}
@@ -507,8 +496,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
               <Typography className={classes.topText}>
                 <div className={classes.logoStar}>
                   <div className={classes.containerHeart}>
-                    <img src={fullHeart} alt="" height={20} className={classes.starHeart} />
-                    {' '}
+                    <img src={fullHeart} alt="" height={20} className={classes.starHeart} />{' '}
                   </div>
                   <div> MES MÉTIERS FAVORIS </div>
                 </div>
@@ -526,11 +514,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionContainer}
           >
             <AccordionSummary
-              expandIcon={(
+              expandIcon={
                 <div>
                   <ExpandMoreIcon className={classes.iconTop} />
                 </div>
-              )}
+              }
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.topAccordion}

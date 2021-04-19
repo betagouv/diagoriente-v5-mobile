@@ -18,8 +18,8 @@ export default makeStyles({
     color: '#D60051',
     fontFamily: 'Ocean',
     textTransform: 'uppercase',
-    marginBottom:20,
-    width:290
+    marginBottom: 20,
+    width: 290,
   },
   subTitle: {
     color: '#D60051',

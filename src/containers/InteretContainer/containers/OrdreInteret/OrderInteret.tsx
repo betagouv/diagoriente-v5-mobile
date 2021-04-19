@@ -135,7 +135,6 @@ const OrderInteret = ({ history, location }: RouteComponentProps) => {
             </div>
           </div>
           <div className={classes.btnContainer} onClick={onUpdate}>
-
             <div className={classes.suivantContainer}>
               <div className={classes.btnLabel}>Suivant</div>
             </div>

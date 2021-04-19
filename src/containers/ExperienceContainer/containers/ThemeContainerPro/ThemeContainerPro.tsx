@@ -188,11 +188,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                             {isOpen && currentTheme === index && (
                               <div className={classes.ativityContainer}>
                                 {job?.activities.map((a) => (
-                                  <span className={classes.activity}>
-                                    •
-                                    {' '}
-                                    {a.title}
-                                  </span>
+                                  <span className={classes.activity}>• {a.title}</span>
                                 ))}
                               </div>
                             )}
@@ -227,11 +223,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                             {isOpen && currentTheme === index && (
                               <div className={classes.ativityContainer}>
                                 {job?.activities.map((a) => (
-                                  <span className={classes.activity}>
-                                    •
-                                    {' '}
-                                    {a.title}
-                                  </span>
+                                  <span className={classes.activity}>• {a.title}</span>
                                 ))}
                               </div>
                             )}

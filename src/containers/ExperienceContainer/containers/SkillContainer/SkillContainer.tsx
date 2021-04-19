@@ -1,13 +1,9 @@
-import React, {
- useState, useEffect, useContext, useMemo,
-} from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import path from 'path';
 import moment from 'moment';
 import { useWillUnmount } from 'common/hooks/useLifeCycle';
 
-import {
- RouteComponentProps, Switch, Route, Redirect, matchPath,
-} from 'react-router-dom';
+import { RouteComponentProps, Switch, Route, Redirect, matchPath } from 'react-router-dom';
 import { useTheme } from 'common/requests/themes';
 import { useAddSkill, useUpdateSkill, useLazySkill } from 'common/requests/skills';
 
@@ -89,7 +85,8 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
         setEndDate(moment(selectedSkill.engagement.endDate).format('YYYY-MM-DD'));
         setOptionActivities(
           selectedSkill.engagement.options.map((question) =>
-            question.option.map((q) => ({ id: q.id, title: q.title }))),
+            question.option.map((q) => ({ id: q.id, title: q.title })),
+          ),
         );
         setActivity(selectedSkill.engagement.activity);
       }
@@ -320,7 +317,8 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
     return <Redirect to={path.join(match.url, `/activities${location.search}`)} />;
   }
 
-  const activitiesTitles = data?.theme.type === 'engagement'
+  const activitiesTitles =
+    data?.theme.type === 'engagement'
       ? optionActivities.map((e) => e.map((o) => o.title).join(' '))
       : activities.map((a) => a.title);
   if (data?.theme.type === 'engagement' && activity) activitiesTitles.push(activity);
@@ -338,7 +336,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
       <Switch>
         <Route
           render={(props) =>
-            (data.theme.type === 'engagement' ? (
+            data.theme.type === 'engagement' ? (
               <EngagementActivites
                 {...props}
                 isCreate={!selectedSkillId}
@@ -356,13 +354,14 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
                 setActivities={setActivities}
                 theme={data.theme}
               />
-            ))}
+            )
+          }
           path={`${match.path}/activities`}
           exact
         />
         <Route
           render={(props) =>
-            (data.theme.type === 'engagement' ? (
+            data.theme.type === 'engagement' ? (
               <ExtraActivity {...props} extraActivity={activity} setExtraActivity={setActivity} theme={data.theme} />
             ) : (
               <ExtraActivity
@@ -371,7 +370,8 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
                 setExtraActivity={setExtraActivity}
                 theme={data.theme}
               />
-            ))}
+            )
+          }
           path={`${match.path}/extraActivity`}
           exact
         />

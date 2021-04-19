@@ -126,13 +126,7 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
         <Title title={getTitle()} color="#4D6EC5" size={42} className={classes.title} />
         <div className={classes.empty} />
       </div>
-      <span className={classes.text}>
-        Liste des expériences
-        {' '}
-        {getSubTitle()}
-        {' '}
-        que tu as renseignées
-      </span>
+      <span className={classes.text}>Liste des expériences {getSubTitle()} que tu as renseignées</span>
       {skillState.loading ? (
         <div className={classes.spinner}>
           <Spinner />
@@ -162,11 +156,8 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
                   />
                 </Grid>
               ))}
-
           </Grid>
-
         </div>
-
       )}
       {skill && <Recommendation skill={skill} open={open} setOpen={setOpen} />}
 
@@ -193,16 +184,11 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
       <div className={classes.btnEx}>
         <Link to={getUrl()} className={classes.link}>
           <Button className={classes.btn}>
-            <span className={classes.textButton}>
-              J’ajoute une expérience
-              {' '}
-              {getSubTitle()}
-            </span>
+            <span className={classes.textButton}>J’ajoute une expérience {getSubTitle()}</span>
           </Button>
         </Link>
       </div>
     </div>
-
   );
 };
 export default ExperienceComponent;

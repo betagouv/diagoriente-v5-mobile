@@ -14,11 +14,11 @@ export default makeStyles<Theme>((theme) => ({
     textAlign: 'center',
     color: '#420FAB',
     textTransform: 'uppercase',
-    height:100,
-    backgroundColor:'#fff',
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
+    height: 100,
+    backgroundColor: '#fff',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   CheckBoxStyle: {
     paddingLeft: '5%',
@@ -55,21 +55,21 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    paddingTop:'20px',
-    marginBottom:'20px'
+    paddingTop: '20px',
+    marginBottom: '20px',
   },
   titlePerso: {
     color: '#424242',
     fontWeight: 900,
     fontSize: 16,
-    padding:'20px'
+    padding: '20px',
   },
   titlePro: {
     color: '#424242',
     fontWeight: 900,
     fontSize: 16,
-    padding:'20px',
-    marginTop:'50px',
+    padding: '20px',
+    marginTop: '50px',
   },
   avatarStyle: {
     position: 'relative',
@@ -78,41 +78,38 @@ export default makeStyles<Theme>((theme) => ({
   },
   themesContainer: {
     display: 'flex',
-    flexDirection:'column',
-width:'100%',
-
+    flexDirection: 'column',
+    width: '100%',
   },
-  square:{
-    height:'60px !important',
-
+  square: {
+    height: '60px !important',
   },
   themeContainer: {
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    height:'55px',
+    height: '55px',
     padding: 20,
 
     [theme.breakpoints.down(330)]: {
       padding: 0,
       width: '80%',
-
-    }
+    },
   },
-circle:{   [theme.breakpoints.down(380)]: {
-  width : '100px' ,    }, 
-  [theme.breakpoints.down(330)]: {
-    width : '70px' ,    
-
-  },},
+  circle: {
+    [theme.breakpoints.down(380)]: {
+      width: '100px',
+    },
+    [theme.breakpoints.down(330)]: {
+      width: '70px',
+    },
+  },
   themeContainerProSelected: {
     backgroundColor: '#7AE6FF',
-
   },
   themeContainerPersoSelected: {
     backgroundColor: '#7AE6FF',
-
   },
   checkBox: {
     marginRight: 10,
@@ -120,30 +117,29 @@ circle:{   [theme.breakpoints.down(380)]: {
   checkBoxImg: {
     width: 20,
     height: 20,
-    backgroundColor:'#fff'
+    backgroundColor: '#fff',
   },
-
 
   themeTitle: {
     textAlign: 'inherit',
     fontSize: 14,
     marginBottom: 3,
     [theme.breakpoints.down(380)]: {
-      width : 'fit-content' ,    }
+      width: 'fit-content',
+    },
   },
-  themeTitleSelected:{
-    fontWeight:'bold'
+  themeTitleSelected: {
+    fontWeight: 'bold',
   },
   btnContainerModal: {
     display: 'flex',
     justifyContent: 'center',
-    borderRadius:'none !important',
+    borderRadius: 'none !important',
 
-    width:'100%',
-    position:'fixed',
-    bottom:0,
-    height:48
-
+    width: '100%',
+    position: 'fixed',
+    bottom: 0,
+    height: 48,
   },
   link: {
     fontSize: 14,
@@ -151,25 +147,23 @@ circle:{   [theme.breakpoints.down(380)]: {
   },
   btnContainer: {
     width: '100%',
-    position:'fixed',
-    bottom:0
+    position: 'fixed',
+    bottom: 0,
   },
   btn: {
     backgroundColor: '#7533FF !important',
-    width:'100%',
-    height:50,
-    display:'flex',
-    flexDirection:'row',
-    justifyContent:'center',
-    alignItems:'center',
-
+    width: '100%',
+    height: 50,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   btnLabel: {
     color: '#FFF',
-    '& .MuiButton-root-96:hover' :{
+    '& .MuiButton-root-96:hover': {
       backgroundColor: '#7533FF',
-
-    } 
+    },
   },
   aide: {
     width: 51,
@@ -200,24 +194,18 @@ circle:{   [theme.breakpoints.down(380)]: {
     [theme.breakpoints.up(700)]: {
       paddingTop: 30,
       paddingBottom: 70,
-
     },
     [theme.breakpoints.down(560)]: {
       paddingTop: 30,
       paddingBottom: 30,
-
     },
-    
   },
-  rotadArrow:{
+  rotadArrow: {
     transform: 'rotate(180deg)',
-    paddingRight:5
-
+    paddingRight: 5,
   },
-  arrowClass:{
-  paddingBottom:20,
-  display:'flex'
+  arrowClass: {
+    paddingBottom: 20,
+    display: 'flex',
   },
-
-
 }));

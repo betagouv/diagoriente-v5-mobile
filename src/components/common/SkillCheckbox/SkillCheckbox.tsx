@@ -42,11 +42,11 @@ const SkillCheckbox = ({
   const onClickHeader = (e: Event) => {
     if (document.getElementsByClassName('ignore-onclickHeader')[index].contains(e.target as any)) return;
 
-      if (!open) {
-        setOpen(true);
-        setOpenedIndex(index);
-      } else if (open && index !== openedIndex) setOpenedIndex(index);
-      else if (open && index === openedIndex) setOpen(false);
+    if (!open) {
+      setOpen(true);
+      setOpenedIndex(index);
+    } else if (open && index !== openedIndex) setOpenedIndex(index);
+    else if (open && index === openedIndex) setOpen(false);
   };
   const addCompetence = (competence: Competence) => {
     if (competences.length < 4) {

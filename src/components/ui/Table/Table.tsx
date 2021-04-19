@@ -37,7 +37,8 @@ export function useActionsHeader<T extends { id: string }>(
     if (!data.length && values.length) valuesChange([]);
     else {
       valuesChange((prevValues) =>
-        data.map(({ id }) => prevValues.find((value) => value.id === id) || { id, checked: false }));
+        data.map(({ id }) => prevValues.find((value) => value.id === id) || { id, checked: false }),
+      );
     }
     // eslint-disable-next-line
   }, [data]);
@@ -174,14 +175,14 @@ function Table<T extends { id: string }>({
         <TableBody>
           {data.length
             ? data.map((row, i) => (
-              <TableRow
-                onClick={() => {
+                <TableRow
+                  onClick={() => {
                     if (onRowClick) onRowClick(row, i);
                   }}
-                className={rowClassName}
-                key={row.id}
-              >
-                {headers.map((header) => {
+                  className={rowClassName}
+                  key={row.id}
+                >
+                  {headers.map((header) => {
                     let value: any = header.dataIndex ? row[header.dataIndex] : null;
                     if (header.render) {
                       value = header.render(value, row, i);
@@ -193,7 +194,7 @@ function Table<T extends { id: string }>({
                       </TableCell>
                     );
                   })}
-              </TableRow>
+                </TableRow>
               ))
             : null}
         </TableBody>

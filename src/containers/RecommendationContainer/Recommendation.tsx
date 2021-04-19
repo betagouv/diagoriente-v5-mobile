@@ -3,9 +3,7 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import { useGetSkill } from 'common/requests/skills';
 
-import {
- Switch, Route, RouteComponentProps, Redirect,
-} from 'react-router-dom';
+import { Switch, Route, RouteComponentProps, Redirect } from 'react-router-dom';
 import NotFoundPage from 'components/layout/NotFoundPage';
 import { decodeUri } from 'utils/url';
 import FirstRecommendation from './components/FirstRecommendation/FirstRecommendation';

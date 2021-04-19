@@ -49,4 +49,5 @@ export default makeStyles<Theme, { background: string; color: string }>(() =>
       width: 45,
       marginLeft: 40,
     },
-  }));
+  }),
+);

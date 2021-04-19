@@ -12,9 +12,7 @@ interface Props {
   onlyMySelection?: boolean;
 }
 
-const BreadCrumb = ({
- level, routes, theme, activities, onlyMySelection,
-}: Props) => {
+const BreadCrumb = ({ level, routes, theme, activities, onlyMySelection }: Props) => {
   const classes = useStyles();
   const l = routes?.length;
   return (

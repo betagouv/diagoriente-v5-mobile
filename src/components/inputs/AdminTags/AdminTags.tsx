@@ -25,9 +25,7 @@ interface AdminAutocompleteProps
   onChange: (value: string[]) => void;
 }
 
-function AdminAutocomplete({
- label, error, className, value, onChange, ...rest
-}: AdminAutocompleteProps) {
+function AdminAutocomplete({ label, error, className, value, onChange, ...rest }: AdminAutocompleteProps) {
   const [inputValue, setInputValue] = useState('');
   const classes = useStyles();
 
