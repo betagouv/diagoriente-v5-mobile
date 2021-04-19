@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import MySelection from 'components/common/MySelection/MySelection';
 import useStyles from './styles';
 
@@ -12,9 +12,11 @@ interface Props {
   onlyMySelection?: boolean;
 }
 
-const BreadCrumb = ({ level, routes, theme, activities, onlyMySelection }: Props) => {
+const BreadCrumb = ({
+ level, routes, theme, activities, onlyMySelection,
+}: Props) => {
   const classes = useStyles();
-  let l = routes?.length;
+  const l = routes?.length;
   return (
     <div className={classes.breadCrumb}>
       {!onlyMySelection && (

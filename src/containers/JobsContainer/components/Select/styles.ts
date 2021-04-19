@@ -126,6 +126,8 @@ export default makeStyles<
     flexWrap: 'wrap',
     overflow: 'auto',
     zIndex: 99999,
+    paddingBottom:50,
+
   },
   fullScreenItem: {
     height: 'auto',

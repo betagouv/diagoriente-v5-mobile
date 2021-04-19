@@ -4,10 +4,10 @@ import { RouteComponentProps } from 'react-router-dom';
 import { formatType } from 'utils/generic';
 
 import { Header } from 'components/ui/Table/Table';
-import { Activity } from 'requests/types';
+import { Activity } from 'common/requests/types';
 import {
  useActivities, useDeleteActivity, useAddActivity, useActivity, useUpdateActivity,
-} from 'requests/activities';
+} from 'common/requests/activities';
 
 import Crud from 'components/ui/Crud/Crud';
 import DefaultFilter from 'components/filters/DefaultFilter/DefaultFilter';

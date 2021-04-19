@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 
-import { useForm } from 'hooks/useInputs';
-import { Option } from 'requests/types';
-import { useLazyOptions } from 'requests/options';
-import { useQuestions } from 'requests/questions';
+import { useForm } from 'common/hooks/useInputs';
+import { Option } from 'common/requests/types';
+import { useLazyOptions } from 'common/requests/options';
+import { useQuestions } from 'common/requests/questions';
 
 import AdminTextField from 'components/inputs/AdminTextField/AdminTextField';
 import Button from '@material-ui/core/Button/Button';

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Switch, Route as BaseRoute, RouteComponentProps, Redirect } from 'react-router-dom';
-import UserContext from 'contexts/UserContext';
+import UserContext from 'common/contexts/UserContext';
 
 import Route from 'components/ui/Route/Route';
 

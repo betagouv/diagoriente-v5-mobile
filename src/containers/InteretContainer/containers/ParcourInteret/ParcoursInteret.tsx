@@ -1,7 +1,9 @@
-import React, { useState, useContext, useMemo, useEffect } from 'react';
-import { useFamilies } from 'requests/familles';
+import React, {
+ useState, useContext, useMemo, useEffect,
+} from 'react';
+import { useFamilies } from 'common/requests/familles';
 import Button from 'components/button/Button';
-import { Families } from 'requests/types';
+import { Families } from 'common/requests/types';
 import ModalContainer from 'components/common/Modal/ModalContainer';
 import { useParams, Link, RouteComponentProps } from 'react-router-dom';
 import { TransitionProps } from '@material-ui/core/transitions';
@@ -16,8 +18,8 @@ import Arrow from 'assets/svg/arrow';
 
 /* import classNames from 'utils/classNames';
  */
-import interestContext from 'contexts/InterestSelected';
-import parcoursContext from 'contexts/ParcourContext';
+import interestContext from 'common/contexts/InterestSelected';
+import parcoursContext from 'common/contexts/ParcourContext';
 import Slider from 'components/Slider/Slider';
 import closeButton from 'assets/svg/closeX.svg';
 import logo from 'assets/svg/picto_attention.svg';
@@ -57,8 +59,6 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
     setInterest(selectedInterests);
   }, [setInterest, selectedInterests]);
 
-
-
   const { data, loading } = useFamilies();
   const formattedData: { title: string; data: Families[] }[] = useMemo(
     () =>
@@ -73,8 +73,8 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
     for (let i = 1; i <= 5; i += 1) {
       array.push(
         <div
-        key={ i }       
-           className={classNames(
+          key={i}
+          className={classNames(
             selectedInterest?.length && i <= selectedInterest?.length && classes.circleSelected,
             classes.circle,
           )}
@@ -156,7 +156,6 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
                 data={formattedData}
                 handleClick={handleClick}
                 isChecked={isChecked}
-
                 defaultIndex={Number((param as any).id)}
               />
             )}
@@ -181,79 +180,95 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
           </div>
         </div>
       </div>
-      {open &&   <div className={classes.modalContainer}>
+      {open && (
+        <div className={classes.modalContainer}>
           <div className={classes.modal}>
-          <img src={closeButton} alt="att" width={50} className={classes.closeImg} height={50} onClick={onHandelClose} />
-          <div className={classes.titleContainerModal}>ATTENTION !</div>
-          <div className={classes.textModal}>
-            Tu as déjà choisi 5 familles d’intérêts, tu dois en supprimer si tu souhaites en ajouter de nouvelles.
+            <img
+              src={closeButton}
+              alt="att"
+              width={50}
+              className={classes.closeImg}
+              height={50}
+              onClick={onHandelClose}
+            />
+            <div className={classes.titleContainerModal}>ATTENTION !</div>
+            <div className={classes.textModal}>
+              Tu as déjà choisi 5 familles d’intérêts, tu dois en supprimer si tu souhaites en ajouter de nouvelles.
+            </div>
+            <div>
+              <Button onClick={onHandelClose} className={classes.btn}>
+                <div className={classes.comprisButton}>J'ai compris !</div>
+              </Button>
+            </div>
           </div>
-          <div>
-            <Button onClick={onHandelClose} className={classes.btn}>
-              <div className={classes.comprisButton}>J'ai compris !</div>
-            </Button>
-          </div>
-          </div>
-        </div> }
-    
- 
-            {openWarning &&  
-             <div className={classes.modalContainer}>
-          <div className={classes.modal}>
-          <img src={closeButton} alt="att" width={50}  className={classes.closeImg} height={50} onClick={onHandelCloseWarning} />
-          <div className={classes.titleContainerModal}>UNE PETITE MINUTE...</div>
-          <div className={classes.textModal} style={height < 400 ? { padding: '0px' } : {}}>
-            Tu as choisi tes familles d’intérêts seulement dans la 1ère partie, es-tu sûr.e d’avoir exploré toutes les
-            familles d’intérêts
-          </div>
-          <div className={classes.btn}  >
-            <Button onClick={onHandelCloseWarning} >
-              <div className={classes.comprisButton}>J'ai compris !</div>
-            </Button>
-          </div>
-          </div>
-        </div> }
+        </div>
+      )}
 
-                  {openConfirm &&  
-             <div className={classes.modalContainer1}>
-                           <img src={closeButton} alt="att" width={35} height={35} className={classes.closeImg1}  onClick={handelClose} />
+      {openWarning && (
+        <div className={classes.modalContainer}>
+          <div className={classes.modal}>
+            <img
+              src={closeButton}
+              alt="att"
+              width={50}
+              className={classes.closeImg}
+              height={50}
+              onClick={onHandelCloseWarning}
+            />
+            <div className={classes.titleContainerModal}>UNE PETITE MINUTE...</div>
+            <div className={classes.textModal} style={height < 400 ? { padding: '0px' } : {}}>
+              Tu as choisi tes familles d’intérêts seulement dans la 1ère partie, es-tu sûr.e d’avoir exploré toutes les
+              familles d’intérêts
+            </div>
+            <div className={classes.btn}>
+              <Button onClick={onHandelCloseWarning}>
+                <div className={classes.comprisButton}>J'ai compris !</div>
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {openConfirm && (
+        <div className={classes.modalContainer1}>
+          <img src={closeButton} alt="att" width={35} height={35} className={classes.closeImg1} onClick={handelClose} />
 
           <div className={classes.modal1}>
-          <div >
-   
-          <div className={classes.headerModelConfirm}>
-            <span className={classes.textModelConfirm}>
-              Ma sélection ({selectedInterest?.length}
-              /5)
-            </span>
-            <Arrow color="white" width="22" height="22" className={classes.arrowStyle} />
+            <div>
+              <div className={classes.headerModelConfirm}>
+                <span className={classes.textModelConfirm}>
+                  Ma sélection (
+                  {selectedInterest?.length}
+                  /5)
+                </span>
+                <Arrow color="white" width="22" height="22" className={classes.arrowStyle} />
+              </div>
+              <div
+                style={{
+                  overflow: 'auto  !important',
+                }}
+              >
+                {selectedInterests.map((el, i) => (
+                  <>
+                    <div>
+                      <div className={classes.itemRow} key={el.id}>
+                        <FamileSelected
+                          handleClick={() => deleteFamille(i)}
+                          famille={el}
+                          index={i}
+                          direction="horizontal"
+                        />
+                      </div>
+                    </div>
+                    <Divider style={{ margin: '-1' }} />
+                  </>
+                ))}
+              </div>
+              {!loading && renderPlaceholder()}
+            </div>
           </div>
-          <div
-            style={{
-              overflow: 'auto  !important',
-            }}
-          >
-            {selectedInterests.map((el, i) => (
-              <>
-                <div>
-                  <div className={classes.itemRow} key={el.id}>
-                    <FamileSelected
-                      handleClick={() => deleteFamille(i)}
-                      famille={el}
-                      index={i}
-                      direction="horizontal"
-                    />
-                  </div>
-                </div>
-                <Divider style={{ margin: '-1' }} />
-              </>
-            ))}
-          </div>
-          {!loading && renderPlaceholder()}
         </div>
-          </div>
-        </div> }
-
+      )}
     </div>
   );
 };

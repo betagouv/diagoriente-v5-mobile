@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from 'react';
 import Button from 'components/button/Button';
 import { useHistory } from 'react-router-dom';
-import { useUpdateParcour } from 'requests/parcours';
-import ParcourContext from 'contexts/ParcourContext';
+import { useUpdateParcour } from 'common/requests/parcours';
+import ParcourContext from 'common/contexts/ParcourContext';
 import UploadFile from './ServiceCivique.pdf';
 import useStyles from './style';
 
@@ -42,7 +42,8 @@ const GameContainer = () => {
           </div>
           <Button className={classes.btn}>
             <a className={classes.btnLabel} href={UploadFile} download>
-              Télécharger le Référentiel{' '}
+              Télécharger le Référentiel
+              {' '}
             </a>
           </Button>
         </div>

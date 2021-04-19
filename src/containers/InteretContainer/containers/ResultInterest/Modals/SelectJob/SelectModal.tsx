@@ -1,7 +1,9 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
-import parcoursContext from 'contexts/ParcourContext';
-import useOnclickOutside from 'hooks/useOnclickOutside';
-import { updateParcours, useUpdateParcour } from 'requests/parcours';
+import React, {
+ useContext, useEffect, useState, useRef,
+} from 'react';
+import parcoursContext from 'common/contexts/ParcourContext';
+import useOnclickOutside from 'common/hooks/useOnclickOutside';
+import { updateParcours, useUpdateParcour } from 'common/requests/parcours';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Select from 'containers/JobsContainer/components/Select/Select';
 import { useHistory } from 'react-router-dom';
@@ -12,14 +14,15 @@ import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 // import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import Button from 'components/button/Button';
 import classNames from 'utils/classNames';
-import { useAccessibility } from 'requests/accessibility';
-import useStyles from './style';
+import { useAccessibility } from 'common/requests/accessibility';
 import checked from 'assets/form/checkboxchecked.svg';
 // import Arrow from 'containers/ProfilContainer/components/Arrow/Arrow';
 // import redarrow from 'assets/svg/redarrow.svg';
 import Divider from '@material-ui/core/Divider';
 
 import Arrow from 'assets/svg/arrow';
+import useStyles from './style';
+
 enum Steps {
   THEMES,
   ACCESSIBILITY,
@@ -51,7 +54,7 @@ const SelectModal = () => {
   const [accessibility, setAccessibility] = useState('');
   const isChecked = (id: string): any => selectedThemes.includes(id);
   const divType = useRef<HTMLDivElement>(null);
-  var x = false;
+  const x = false;
 
   useEffect(() => {
     accessibilityCall();
@@ -76,9 +79,7 @@ const SelectModal = () => {
 
   const getAccebilityName = (id: string | undefined) => {
     if (id) {
-      const niveau = accessibilityState.data?.accessibilities.data.find((o) => {
-        return o.id === id;
-      });
+      const niveau = accessibilityState.data?.accessibilities.data.find((o) => o.id === id);
       return niveau?.name;
     }
     return 'Niveau de diplôme';
@@ -120,9 +121,9 @@ const SelectModal = () => {
                 onClose={() => setOpenType(false)}
                 reference={divType}
                 color={x}
-                arrowColor={'#00B2DB'}
+                arrowColor="#00B2DB"
                 from="interest"
-                borderColor={'#424242'}
+                borderColor="#424242"
 
               />
             </ThemeProvider>
@@ -144,7 +145,10 @@ const SelectModal = () => {
     default:
       return (
         <div className={classes.modalBody}>
-          <div className={classes.titleModal}>Encore une petite chose !{/* 1/2 */}</div>
+          <div className={classes.titleModal}>
+            Encore une petite chose !
+            {/* 1/2 */}
+          </div>
           <div className={classes.descriptionModal}>Sélectionne les expériences qui comptent le plus pour toi :</div>
 
           <div className={classes.experienceContainer}>
@@ -155,7 +159,7 @@ const SelectModal = () => {
                   .filter((p) => p.theme?.type === 'personal')
                   .map((pr) => (
                     <>
-                      <Divider variant={'fullWidth'} />
+                      <Divider variant="fullWidth" />
 
                       <div
                         key={pr.theme.id}
@@ -190,7 +194,7 @@ const SelectModal = () => {
                       </div>
                     </>
                   ))}
-                <Divider variant={'fullWidth'} />
+                <Divider variant="fullWidth" />
               </div>
             </div>
             <div className={classes.expContainer}>
@@ -200,7 +204,7 @@ const SelectModal = () => {
                   .filter((p) => p.theme?.type === 'professional')
                   .map((pr) => (
                     <>
-                      <Divider variant={'fullWidth'} />
+                      <Divider variant="fullWidth" />
                       <div
                         key={pr.theme.id}
                         onClick={() => addTheme(pr.theme.id)}
@@ -231,20 +235,21 @@ const SelectModal = () => {
                       </div>
                     </>
                   ))}
-                <Divider variant={'fullWidth'} />
+                <Divider variant="fullWidth" />
               </div>
             </div>
           </div>
           {selectedThemes.length > 0 ? (
             <div className={classes.btnContainerModal}>
               <div className={classes.btn} onClick={() => setStep(Steps.ACCESSIBILITY)}>
-                <div className={classes.btnLabel}>{'Valider'}</div>
+                <div className={classes.btnLabel}>Valider</div>
               </div>
               {updateState.loading && (
                 <div className={classes.loaderContainer}>
                   <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
                 </div>
-              )}{' '}
+              )}
+              {' '}
             </div>
           ) : (
             ''

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
-import { Question, Option } from 'requests/types';
+import { Question, Option } from 'common/requests/types';
 import Select from 'components/Select/Select';
 import AnswerSelect from '../AnswerSelect/AnswerSelect';
-import { useOptions, useAddOption, useDeleteOption } from 'requests/options';
+import { useOptions, useAddOption, useDeleteOption } from 'common/requests/options';
 import Remove from '@material-ui/icons/DeleteForever';
-import UserContext from 'contexts/UserContext';
+import UserContext from 'common/contexts/UserContext';
 
 import useStyles from './styles';
 

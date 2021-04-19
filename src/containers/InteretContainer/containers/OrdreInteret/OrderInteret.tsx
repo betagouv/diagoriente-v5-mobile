@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Redirect, Link, RouteComponentProps } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { Families } from 'requests/types';
-import { useUpdateParcour } from 'requests/parcours';
+import { Families } from 'common/requests/types';
+import { useUpdateParcour } from 'common/requests/parcours';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
-import interestContext from 'contexts/InterestSelected';
-import ParcourContext from 'contexts/ParcourContext';
+import interestContext from 'common/contexts/InterestSelected';
+import ParcourContext from 'common/contexts/ParcourContext';
 import ValideButton from 'components/valideButton/valideButton';
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 
@@ -135,8 +135,8 @@ const OrderInteret = ({ history, location }: RouteComponentProps) => {
             </div>
           </div>
           <div className={classes.btnContainer} onClick={onUpdate}>
-  
-            <div className={classes.suivantContainer} >
+
+            <div className={classes.suivantContainer}>
               <div className={classes.btnLabel}>Suivant</div>
             </div>
             {updateState.loading && (

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import logo from 'assets/svg/arrowSelect.svg';
-import useOnclickOutside from 'hooks/useOnclickOutside';
+import useOnclickOutside from 'common/hooks/useOnclickOutside';
 import classNames from 'utils/classNames';
 
 import useStyles from './styles';

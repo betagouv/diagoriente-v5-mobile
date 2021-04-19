@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { graphQLResult } from 'utils/graphql';
 import { uniqBy } from 'lodash';
 import { QueryResult } from '@apollo/react-common';
-import { useDidUpdate } from 'hooks/useLifeCycle';
+import { useDidUpdate } from 'common/hooks/useLifeCycle';
 import classNames from 'utils/classNames';
 
 import Autocomplete, { AutocompleteProps } from '@material-ui/lab/Autocomplete/Autocomplete';

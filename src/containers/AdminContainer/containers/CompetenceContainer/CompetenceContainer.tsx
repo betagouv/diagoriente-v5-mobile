@@ -2,14 +2,14 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import { Header } from 'components/ui/Table/Table';
-import { Competence } from 'requests/types';
+import { Competence } from 'common/requests/types';
 import {
   useLazyCompetences,
   useDeleteCompetence,
   useAddCompetence,
   useCompetence,
   useUpdateCompetence,
-} from 'requests/competences';
+} from 'common/requests/competences';
 
 import Crud from 'components/ui/Crud/Crud';
 import DefaultFilter from 'components/filters/DefaultFilter/DefaultFilter';

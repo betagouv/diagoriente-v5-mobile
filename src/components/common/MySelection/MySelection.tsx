@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import Close from 'assets/svg/closeModal.svg';
 import Avatar from 'components/common/Avatar/Avatar';
 import useStyles from './styles';
@@ -53,7 +53,11 @@ const MySelection = ({ theme, activities }: Props) => {
                 <div className={classes.label}>Mes activités</div>
                 <div className={classes.selection}>
                   {activities.map((a) => (
-                    <span className={classes.text}>• {a}</span>
+                    <span className={classes.text}>
+                      •
+                      {' '}
+                      {a}
+                    </span>
                   ))}
                 </div>
               </div>

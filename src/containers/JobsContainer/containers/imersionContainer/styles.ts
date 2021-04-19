@@ -313,5 +313,6 @@ export default makeStyles<Theme>((theme) => ({
     flexDirection: 'column',
     overflow: 'auto',
     zIndex: 99999,
+
   },
 }));

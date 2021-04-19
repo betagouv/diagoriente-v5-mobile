@@ -1,6 +1,6 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import Input from 'components/inputs/Input/Input';
 import ValidationButton from 'components/valideButton/valideButton';

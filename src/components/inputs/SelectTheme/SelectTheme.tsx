@@ -10,7 +10,7 @@ import Dialog from '@material-ui/core/Dialog';
 import Divider from '@material-ui/core/Divider';
 import Slide from '@material-ui/core/Slide';
 import { TransitionProps } from '@material-ui/core/transitions';
-import { useDidMount } from 'hooks/useLifeCycle';
+import { useDidMount } from 'common/hooks/useLifeCycle';
 import ValidationButton from 'components/valideButton/valideButton';
 import { encodeUri } from 'utils/url';
 import useStyles from './styles';
@@ -23,7 +23,9 @@ interface Props {
   redirect?: any;
 }
 
-const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect }: Props) => {
+const SelectTheme = ({
+ avatarsTab, selectedTheme, showAvatar, history, redirect,
+}: Props) => {
   const classes = useStyles();
   const closeTitle = 'Choisis un thème ';
   const [defaultTheme, setDefaultTheme] = useState('');
@@ -87,7 +89,7 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect 
           ),
         }}
         onClick={onOpenSelect}
-      ></TextField>
+      />
       <Dialog fullScreen open={open} style={{ zIndex: 99999 }}>
         <MenuItem
           key={closeTitle}
@@ -97,7 +99,11 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect 
         >
           <div className={classes.itemContainer}>
             <div className={classes.closeModelContainer}>
-              <span className={classes.closeModelLabel}> {closeTitle} </span>
+              <span className={classes.closeModelLabel}>
+                {' '}
+                {closeTitle}
+                {' '}
+              </span>
               <img src={pictoClose} alt="close" />
             </div>
           </div>
@@ -139,11 +145,13 @@ const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect 
                   <div className={classes.activitiesContainer}>
                     {activities?.map((a) => (
                       <span key={a.id} className={classes.activityTitle}>
-                        • {a.title}
+                        •
+                        {' '}
+                        {a.title}
                       </span>
                     ))}
-                    {avatarsTab.filter((act) => act.id === selectedTheme?.id).map((a) => a.activities)[0]?.length >
-                      4 && <span className={classes.activityTitle}>...</span>}
+                    {avatarsTab.filter((act) => act.id === selectedTheme?.id).map((a) => a.activities)[0]?.length
+                      > 4 && <span className={classes.activityTitle}>...</span>}
                   </div>
                 </>
               )}

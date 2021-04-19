@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import GameLogo from 'assets/svg/game.svg';
-import { useUpdateParcour } from 'requests/parcours';
+import { useUpdateParcour } from 'common/requests/parcours';
 import Button from 'components/button/Button';
 import { Link } from 'react-router-dom';
-import ParcourContext from 'contexts/ParcourContext';
+import ParcourContext from 'common/contexts/ParcourContext';
 import useStyles from './styles';
 
 interface IProps {

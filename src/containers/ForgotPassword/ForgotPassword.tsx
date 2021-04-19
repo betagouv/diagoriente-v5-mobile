@@ -3,9 +3,9 @@ import Input from 'components/inputs/Input/Input';
 import Button from 'components/button/Button';
 import { validateEmail } from 'utils/validation';
 import { Link } from 'react-router-dom';
-import { useForgot } from 'requests/auth';
+import { useForgot } from 'common/requests/auth';
 
-import { useForm } from 'hooks/useInputs';
+import { useForm } from 'common/hooks/useInputs';
 import useStyles from './styles';
 
 const ForgotPassword = () => {

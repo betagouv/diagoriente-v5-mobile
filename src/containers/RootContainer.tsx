@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import { User, UserParcour } from 'requests/types';
-import { useDidMount } from 'hooks/useLifeCycle';
+import { User, UserParcour } from 'common/requests/types';
+import { useDidMount } from 'common/hooks/useLifeCycle';
 import startup from 'utils/startup';
-import { useThemes } from 'requests/themes';
+import { useThemes } from 'common/requests/themes';
 
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Switch, Route as BaseRoute } from 'react-router-dom';
@@ -19,13 +19,14 @@ import RenewPasswordContainer from 'containers/RenewPassword';
 import ConfiramtionContainer from 'containers/Confirmation';
 import GameContainer from 'containers/GameContainer';
 import NotFoundPage from 'components/layout/NotFoundPage';
-import UserContext from 'contexts/UserContext';
+import UserContext from 'common/contexts/UserContext';
 import ExperienceComponent from 'containers/ExperienceContainer';
-import ParcourContext from 'contexts/ParcourContext';
-import SecteurContext from 'contexts/SecteurContext';
+import ParcourContext from 'common/contexts/ParcourContext';
+import SecteurContext from 'common/contexts/SecteurContext';
 import Recommendation from 'containers/RecommendationContainer';
 import Profil from 'containers/ProfilContainer';
 import AdminContainer from 'containers/AdminContainer';
+import ScopeContainer from 'containers/Scope';
 
 const theme = createMuiTheme({
   palette: {
@@ -70,6 +71,7 @@ const RootContainer = () => {
               <BaseRoute exact path="/" component={HomeContainer} />
               <Route footer path="/login" exact component={LoginContainer} />
               <Route footer path="/register" exact component={RegisterContainer} />
+              <Route footer path="/scope" component={ScopeContainer} />
               <Route footer path="/confirmation" exact component={ConfiramtionContainer} />
               <Route footer path="/recommendation" component={Recommendation} />
               <BaseRoute path="/profile" component={Profil} />

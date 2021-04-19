@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import ValidationButton from 'components/valideButton/valideButton';
 import add from 'assets/svg/pictoadd.svg';
@@ -61,8 +61,9 @@ const EngagementActivities = ({
   };
 
   const onNavigate = () => {
-    if (optionActivities[0].length === 0 ? activity.length : valid.findIndex((e) => !e) === -1)
+    if (optionActivities[0].length === 0 ? activity.length : valid.findIndex((e) => !e) === -1) {
       history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
+    }
   };
 
   return (

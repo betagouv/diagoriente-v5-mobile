@@ -5,7 +5,7 @@ import Button from 'components/button/Button';
 
 import medaille from 'assets/svg/medaille.svg';
 
-import { PublicSkill } from 'requests/types';
+import { PublicSkill } from 'common/requests/types';
 import useStyles from './styles';
 
 const DoneRecommendation = ({ skill }: { skill: PublicSkill }) => {

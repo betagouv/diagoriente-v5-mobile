@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { useListener } from 'hooks/useListener';
+import { useListener } from 'common/hooks/useListener';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Link } from 'react-router-dom';
 import Select from 'components/selectpublic/Select';
-import DrawerContext from 'contexts/DrawerContext';
+import DrawerContext from 'common/contexts/DrawerContext';
 import logo from 'assets/svg/diagoriente_logo.svg';
 import smallbeta from 'assets/svg/smallbeta.svg';
 import beta from 'assets/images/marianne.png';

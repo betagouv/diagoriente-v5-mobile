@@ -1,5 +1,5 @@
 import React from 'react';
-import { Families } from 'requests/types';
+import { Families } from 'common/requests/types';
 import RestLogo from 'components/common/Rest/Rest';
 import classNames from 'utils/classNames';
 import Placeholder from '../placeholderInterest/Placeholder';

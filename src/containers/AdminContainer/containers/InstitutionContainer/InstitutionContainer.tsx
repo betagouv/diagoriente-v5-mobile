@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import { Header } from 'components/ui/Table/Table';
-import { Institution } from 'requests/types';
+import { Institution } from 'common/requests/types';
 import Crud from 'components/ui/Crud/Crud';
 import {
   useAddInstitution,
@@ -10,7 +10,7 @@ import {
   useLazyInstitution,
   useDeleteInstitution,
   useUpdateInstitution,
-} from 'requests/institution';
+} from 'common/requests/institution';
 import institutionForm from '../../components/InstitutionForm/InstitutionForm';
 
 const headers: Header<Institution>[] = [
