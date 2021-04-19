@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const PADDING_CARD = '15px 60px';
 export default makeStyles((theme) => ({
   container: {
     padding: '50px 0px',

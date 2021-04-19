@@ -1,6 +1,6 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles<Theme, { mobile?: boolean }>((theme) => ({
+export default makeStyles<Theme, { mobile?: boolean }>(() => ({
   echelonContainer: {
     display: 'flex',
     flexDirection: (props) => (props.mobile ? 'column' : 'row'),

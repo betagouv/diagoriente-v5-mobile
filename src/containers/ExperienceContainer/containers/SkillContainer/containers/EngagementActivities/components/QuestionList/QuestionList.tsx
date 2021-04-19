@@ -35,7 +35,6 @@ const QuestionList = ({ setOptionActivities, optionActivities, index, handleVali
       });
       setQuestions(question);
     }
-    console.log('questions', data);
     // eslint-disable-next-line
   }, [data?.questions.data]);
 

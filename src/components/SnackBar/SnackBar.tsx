@@ -37,12 +37,12 @@ function MySnackbarContentWrapper(props: Props) {
     <div className={classes.root}>
       <SnackbarContent
         className={classNames(classes[variant], className)}
-        message={
+        message={() => (
           <span className={classes.message}>
             <Icon className={classNames(classes.icon, classes.iconVariant)} />
             {message ? message[0].toUpperCase() + message.slice(1) : ''}
           </span>
-        }
+        )}
         action={[
           <IconButton key="close" aria-label="close" color="inherit" onClick={onClose}>
             <CloseIcon className={classes.icon} />

@@ -6,7 +6,6 @@ import { PublicSkill } from 'common/requests/types';
 import TitleSection from 'components/common/TitleSection/TitleSection';
 import NextButton from 'components/nextButton/nextButton';
 
-import attention from 'assets/svg/blueattention.svg';
 import medaille from 'assets/svg/medaille.svg';
 import classNames from 'utils/classNames';
 import CompetenceEchelon from '../Echelon/Echelon';
@@ -26,8 +25,8 @@ const FirstRecommendation = ({ skill, location, comment, setComment }: Props) =>
       Bonjour {` ${skill.comment.firstName} ${skill.comment.lastName}`}
       ,
       <br />
-      Vous pouvez renseigner ci dessous votre appréciation du travail de {skill.user.firstName} {skill.user.lastName}{' '}
-      lorsque vous étiez son tuteur/sa tutrice
+      Vous pouvez renseigner ci dessous votre appréciation du travail de
+      {skill.user.firstName} {skill.user.lastName} lorsque vous étiez son tuteur/sa tutrice
     </span>
   );
 

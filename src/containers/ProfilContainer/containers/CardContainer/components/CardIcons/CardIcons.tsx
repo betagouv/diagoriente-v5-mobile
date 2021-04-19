@@ -7,7 +7,7 @@ import Spinner from '../loading/Spinner';
 
 import useStyles from './styles';
 
-interface CardIcons {
+interface CardIconsProps {
   onDownload: (i: string) => void;
   onPrint: (i: string) => void;
   onGame: (i: string) => void;
@@ -15,7 +15,7 @@ interface CardIcons {
   fetchingPrint?: boolean;
 }
 
-const CardIcons = ({ onDownload, onPrint, fetching, fetchingPrint, onGame }: CardIcons) => {
+const CardIcons = ({ onDownload, onPrint, fetching, fetchingPrint, onGame }: CardIconsProps) => {
   const classes = useStyles();
 
   return (

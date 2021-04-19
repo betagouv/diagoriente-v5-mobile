@@ -1,4 +1,3 @@
-import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles<
@@ -33,6 +32,7 @@ export default makeStyles<
     width: 320,
     fontFamily: 'Andika New Basic',
     border: (props) =>
+      // eslint-disable-next-line no-nested-ternary
       `1px solid ${props.open ? theme.palette.success.main : '#424242' ? props.borderColor : props.borderColor}`,
     borderRadius: 5,
     margin: '6px 0px',

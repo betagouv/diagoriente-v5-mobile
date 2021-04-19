@@ -12,18 +12,16 @@ import useStyles from './styles';
 interface Props {
   className?: string;
   title: string;
-  logo?: string;
   competence: { _id: Competence; value: number }[];
   id: string;
   edit?: (id: string) => void;
   remove?: (id: string) => void;
   recommendation?: (id: string) => void;
   src?: string;
-  type?: string;
   icon?: string;
 }
 
-const Card = ({ title, src, className, competence, id, edit, remove, recommendation, type, icon }: Props) => {
+const Card = ({ title, src, className, competence, id, edit, remove, recommendation, icon }: Props) => {
   const classes = useStyles();
   const Tab = [
     {

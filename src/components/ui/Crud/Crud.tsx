@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { MutationTuple, QueryTuple, QueryOptions } from '@apollo/react-hooks';
+import { MutationTuple, QueryTuple, QueryOptions, QueryResult } from '@apollo/react-hooks';
 import { ApolloError } from 'apollo-boost';
-import { QueryResult } from '@apollo/react-common';
 import { Route, matchPath, RouteComponentProps, match as Match, Link, Switch } from 'react-router-dom';
 import path from 'path';
 import { decodeUri, encodeUri } from 'utils/url';
@@ -89,8 +88,8 @@ const Crud = <
 }: Props<K, T, L, C, U, G, P>) => {
   const classes = useStyle();
 
-  const mutationPlaceholder = <T, V>(): MutationTuple<T, V> => [() => {}, {}] as any;
-  const getQueryPlaceholder = <T, V>(): QueryTuple<T, V> => [() => {}, {}] as any;
+  const mutationPlaceholder = <D, V>(): MutationTuple<D, V> => [() => {}, {}] as any;
+  const getQueryPlaceholder = <D, V>(): QueryTuple<D, V> => [() => {}, {}] as any;
   /* ----- List current params extract ----- */
   const uri = decodeUri(location.search);
 

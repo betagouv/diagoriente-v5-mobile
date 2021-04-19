@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 const transition = 'all 225ms ease-out';

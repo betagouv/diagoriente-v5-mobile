@@ -319,7 +319,7 @@ const InfoProfil = () => {
               {open && (
                 <div className={classes.passwordRoot}>
                   {/* <div className={classes.emptyDiv} /> */}
-                  <span>Si tu es dans un groupe, renseigne ici le code qui t'a été remis.</span>
+                  <span>Si tu es dans un groupe, renseigne ici le code qui t&lsquo;a été remis.</span>
                 </div>
               )}
             </>

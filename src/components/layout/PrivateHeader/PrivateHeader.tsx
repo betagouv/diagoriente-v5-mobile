@@ -4,12 +4,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import logo from 'assets/svg/diagoriente_logo_05_bg_transparent.svg';
 import DrawerContext from 'common/contexts/DrawerContext';
-import UserContext from 'common/contexts/UserContext';
 import menu from 'assets/images/menu.png';
 
 import close from 'assets/svg/close.svg';
-import defaultAvatar from 'assets/svg/defaultAvatar.svg';
-
 import classNames from 'utils/classNames';
 
 import useStyles from './styles';
@@ -23,16 +20,13 @@ export interface Props {
   showUser: boolean;
 }
 
-const PrivateHeader = ({ openLogoIcon, closeLogoIcon, openIcon, closeIcon, className, showUser }: Props) => {
+const PrivateHeader = ({ openLogoIcon, openIcon, closeIcon, className }: Props) => {
   const classes = useStyles();
   const { open, setOpen } = useContext(DrawerContext);
-  const { user } = useContext(UserContext);
 
   const toggle = () => {
     setOpen(!open);
   };
-
-  const userName = `${user?.profile.firstName || ''} ${user?.profile.lastName || ''}`.trim() || user?.email;
 
   return (
     <AppBar position="fixed" className={classNames(classes.appBar, className)}>

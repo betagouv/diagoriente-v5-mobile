@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Trait from 'assets/images/trait_violet.png';
+import React from 'react';
 import TitleImage from 'components/common/TitleImage/TitleImage';
-import InterestLogo from 'assets/svg/interetHome.svg';
 import GifIntro from 'assets/gif/intro_interets.gif';
-import Button from 'components/button/Button';
 import ValideButton from 'components/valideButton/valideButton';
-import { Link } from 'react-router-dom';
 
 import useStyles from './styles';
 
 const HomeInteret = () => {
   const classes = useStyles();
-  const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
 
   return (
     <div className={classes.container}>

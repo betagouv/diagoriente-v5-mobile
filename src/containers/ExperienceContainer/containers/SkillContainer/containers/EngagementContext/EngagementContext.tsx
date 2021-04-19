@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useContext } from 'common/requests/context';
 import { Theme } from 'common/requests/types';
@@ -22,17 +22,10 @@ const EngagementContext = ({ history, setContext, contextCheck, theme, match, ac
     setContext(e.target.checked ? id : '');
   };
   const onNavigate = () => {
-    {
-      contextCheck && history.push(`/experience/skill/${match.params.themeId}/organization${location.search}`);
-    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    contextCheck && history.push(`/experience/skill/${match.params.themeId}/organization${location.search}`);
   };
 
-  const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
   return (
     <div className={classes.root}>
       <BreadCrumb theme={theme} activities={activities} />

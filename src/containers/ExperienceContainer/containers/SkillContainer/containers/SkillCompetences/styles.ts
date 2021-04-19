@@ -1,7 +1,6 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { SKILL_CONTAINER_PADDING } from 'utils/generic';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles(() =>
   createStyles({
     root: {
       display: 'flex',

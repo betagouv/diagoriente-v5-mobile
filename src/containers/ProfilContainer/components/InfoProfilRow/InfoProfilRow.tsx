@@ -6,8 +6,6 @@ import useStyles from './styles';
 interface Props {
   className?: string;
   title?: string;
-  userInfo?: string;
-  logo?: string;
   children?: React.ReactChild;
 }
 const InfoProfilRow = ({ title, className, children }: Props) => {

@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
-import useStyles from './styles';
 import classNames from 'utils/classNames';
-import { makeStyles } from '@material-ui/core';
+import useStyles from './styles';
+
 interface Props {
   refs: React.MutableRefObject<(HTMLDivElement | null)[]>;
   options: string[];
 }
 const FooterInfo = ({ refs, options }: Props) => {
   const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-  const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
+  const [width] = useState(isBrowser ? window.innerWidth : 0);
+  const [height] = useState(isBrowser ? window.innerHeight : 0);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const divSelect = useRef<HTMLDivElement>(null);
@@ -27,6 +27,7 @@ const FooterInfo = ({ refs, options }: Props) => {
 
   useEffect(() => {
     const scrollCallBack: any = window.addEventListener('scroll', () => {
+      // eslint-disable-next-line no-plusplus
       for (let i = refs.current.length - 1; i > -1; i--) {
         const currentRef = refs.current[i];
         if (currentRef) {

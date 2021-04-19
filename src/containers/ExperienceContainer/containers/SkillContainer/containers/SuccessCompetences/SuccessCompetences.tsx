@@ -6,7 +6,6 @@ import Recommendation from 'components/ui/RecommendationModal/RecommendationModa
 import Button from 'components/button/Button';
 import ParcourContext from 'common/contexts/ParcourContext';
 import classNames from 'common/utils/classNames';
-import check from 'assets/svg/check.svg';
 import useStyles from './styles';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
@@ -37,7 +36,6 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
     default:
       typeXp = 'personnelle';
   }
-  console.log('avatar', theme.resources?.icon);
   return (
     <div className={classes.root}>
       <div className={classes.header}>

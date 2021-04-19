@@ -23,12 +23,12 @@ const BreadCrumb = ({ level, routes, theme, activities, onlyMySelection }: Props
             <>
               {level && i !== level - 1 ? (
                 <Link to={r.url}>
-                  <span key={i} className={level - 1 === i ? classes.currentRoute : classes.route}>
+                  <span key={r.title} className={level - 1 === i ? classes.currentRoute : classes.route}>
                     {r.title}
                   </span>
                 </Link>
               ) : (
-                <span key={i} className={level && level - 1 === i ? classes.currentRoute : classes.route}>
+                <span key={r.title} className={level && level - 1 === i ? classes.currentRoute : classes.route}>
                   {r.title}
                 </span>
               )}

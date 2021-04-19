@@ -1,36 +1,21 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import Arrow from 'assets/svg/arrow';
 import classNames from 'utils/classNames';
 import { useTheme } from '@material-ui/core';
 import useStyles from './style';
 
 interface IProps {
-  label?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onSelectText: (e: number | undefined) => void;
-  value?: number | undefined;
   name?: string;
   placeholder?: string;
   options: number[] | undefined;
-  icon?: ReactElement;
-  className?: string;
   open?: boolean;
   onClick: () => void;
-  loading?: boolean;
   reference?: any;
 }
 
-const SelectJobs = ({
-  onChange,
-  value,
-  name,
-  placeholder,
-  options,
-  open,
-  onSelectText,
-  onClick,
-  reference,
-}: IProps) => {
+const SelectJobs = ({ onChange, name, placeholder, options, open, onSelectText, onClick, reference }: IProps) => {
   const classes = useStyles({ open });
   const theme = useTheme();
   return (

@@ -28,7 +28,6 @@ const Login = ({ location }: RouteComponentProps) => {
 
   const [loginCall, loginState] = useAuth(useLogin, state.values.stayConnected);
   const [errorCount, setErrorCount] = useState(0);
-  const [openVerif, setOpenVerif] = useState(false);
 
   const [errorForm, setErrorForm] = useState<string>('');
   const checkBoxRef = useRef(null);

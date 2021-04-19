@@ -1,13 +1,14 @@
+/* eslint-disable max-len */
 import React from 'react';
 
-interface props {
+interface Props {
   color?: string;
   width?: string;
   height?: string;
   background?: string;
   border?: string;
 }
-const Check = ({ color, height, width, background, border }: props) => {
+const Check = ({ color, height, width, background, border }: Props) => {
   return (
     <svg
       width={width || 19}

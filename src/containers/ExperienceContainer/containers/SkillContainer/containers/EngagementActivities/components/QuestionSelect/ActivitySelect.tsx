@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
 import { Question, Option } from 'common/requests/types';
-import Select from 'components/Select/Select';
-import AnswerSelect from '../AnswerSelect/AnswerSelect';
 import { useOptions, useAddOption, useDeleteOption } from 'common/requests/options';
 import Remove from '@material-ui/icons/DeleteForever';
 import UserContext from 'common/contexts/UserContext';
+import AnswerSelect from '../AnswerSelect/AnswerSelect';
 
 import useStyles from './styles';
 
@@ -80,6 +79,7 @@ const ActivitySelect = ({ question, onChange, open, value, openActivity, setOpen
       variables: { id },
     });
   };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const renderOption = (option: { label: string | number; value: string | number }, openSelect: boolean) => {
     const optionUser = dataOption?.options.data.find((o) => o.id === option.value)?.user;
     return (

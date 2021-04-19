@@ -48,7 +48,7 @@ const CompetenceForm = ({ onSubmit, competence }: ContextFormProps) => {
     e.preventDefault();
     const data = { ...values, rank: Number(values.rank) };
 
-    if (!data.type || data.type === 'default') delete data.type;
+    if (!data.type || data.type === 'default') delete (data as any).type;
     onSubmit(data);
   }
 

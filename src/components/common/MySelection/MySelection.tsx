@@ -13,7 +13,6 @@ interface Props {
 const MySelection = ({ theme, activities }: Props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  console.log('themeS', theme);
   return (
     <div className={classes.container}>
       <div className={classes.title} onClick={() => setOpen(true)}>

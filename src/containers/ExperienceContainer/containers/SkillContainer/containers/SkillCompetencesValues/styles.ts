@@ -1,7 +1,6 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import bluearrow from 'assets/svg/bluearrow.svg';
 import darkbluearrow from 'assets/svg/darkbluearrow.svg';
-import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 
 export default makeStyles((theme: Theme) =>
   createStyles({

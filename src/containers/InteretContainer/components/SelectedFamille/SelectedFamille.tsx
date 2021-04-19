@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Families } from 'common/requests/types';
 import Dotdotdot from 'react-dotdotdot';
-import Reset from 'components/common/Rest/Rest';
 import close from 'assets/svg/picto poubelle.svg';
 import useStyles from './styles';
 

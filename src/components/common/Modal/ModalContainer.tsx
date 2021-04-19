@@ -1,7 +1,5 @@
 import React from 'react';
 import Modal, { ModalProps } from '@material-ui/core/Modal';
-import Reset from 'components/common/Rest/Rest';
-import closeButton from 'assets/svg/closeX.svg';
 import useStyles from './styles';
 
 interface IProps extends ModalProps {
@@ -33,7 +31,7 @@ const ModalContainer = ({
   const classes = useStyles({ backdropColor, size, height });
   return (
     <Modal
-      style={{ zIndex: ZIndex ? ZIndex : 200 }}
+      style={{ zIndex: ZIndex || 200 }}
       open={open}
       onClose={handleClose}
       disablePortal

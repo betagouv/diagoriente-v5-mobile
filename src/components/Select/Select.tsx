@@ -179,7 +179,7 @@ const Select = ({
         </MenuItem>
         {options
           .filter((o) => o.label !== '___plus___')
-          .map((option, index) => (
+          .map((option, idx) => (
             <MenuItem
               onClick={selectClose}
               key={option.value}
@@ -187,7 +187,7 @@ const Select = ({
               className={classNames(
                 classes.menuItem,
                 menuItemClassName,
-                index === options.length - 1 && open && classes.lastChildBorder,
+                idx === options.length - 1 && open && classes.lastChildBorder,
                 option.value === value ? classes.backgroundRow : '',
               )}
             >

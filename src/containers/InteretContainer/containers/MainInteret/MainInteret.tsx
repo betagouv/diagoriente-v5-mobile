@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import mainIcon from 'assets/svg/mainIcon.svg';
 import teteIcon from 'assets/svg/teteIcon.svg';
 import personneIcon from 'assets/svg/personneIcon.svg';
 import ValideButton from 'components/valideButton/valideButton';
 
 import TitleImage from 'components/common/TitleImage/TitleImage';
-import Button from 'components/button/Button';
 import useStyle from './styles';
 
 const MainInteret = () => {
@@ -16,11 +14,6 @@ const MainInteret = () => {
   const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
-
-  const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
-  useEffect(() => {
-    window.addEventListener('resize', () => setHeight(window.innerHeight));
   });
 
   return (

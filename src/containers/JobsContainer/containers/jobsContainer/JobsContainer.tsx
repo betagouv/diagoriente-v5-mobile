@@ -129,7 +129,7 @@ const JobsContainer = ({
     setFiltredArray(jobs?.filter((el: any) => el.title.toLowerCase().indexOf(v.toLowerCase()) !== -1));
   };
   const onSelectDomaine = (label?: string) => {
-    if (label) {
+    if (label && domaine) {
       const array = [...domaine];
       if (array.includes(label)) {
         const index = array.indexOf(label);
@@ -141,16 +141,19 @@ const JobsContainer = ({
     }
   };
   useEffect(() => {
-    const array = [...accessibility];
-    if (parcours?.accessibility) {
-      array.push(parcours?.accessibility.id);
+    if (accessibility) {
+      const array = [...accessibility];
+      if (parcours?.accessibility) {
+        array.push(parcours?.accessibility.id);
+      }
+      setAccessibility(array);
     }
-    setAccessibility(array);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [parcours?.accessibility]);
 
   const onSelectAcc = (label?: string) => {
-    if (label) {
+    if (label && accessibility) {
       const array = [...accessibility];
       if (array.includes(label)) {
         const index = array.indexOf(label);
@@ -162,7 +165,7 @@ const JobsContainer = ({
     }
   };
   const onSelectType = (label?: string) => {
-    if (label) {
+    if (label && environments) {
       const array = [...environments];
       if (array.includes(label)) {
         const index = array.indexOf(label);
@@ -182,37 +185,40 @@ const JobsContainer = ({
   };
   const renderedJobs = jobs?.slice(0, jobsToShow);
 
-  const getDomaineName = (domaine: string[] | undefined) => {
-    if (listSecteurData && domaine !== undefined && domaine.length !== 0) {
-      const firstItem = listSecteurData.find((item) => item.id === domaine[0]);
-      return `${firstItem?.title} ${domaine.length > 1 ? `(+${domaine.length - 1})` : ''}`;
+  const getDomaineName = (domaineParam: string[] | undefined) => {
+    if (listSecteurData && domaineParam !== undefined && domaineParam.length !== 0) {
+      const firstItem = listSecteurData.find((item) => item.id === domaineParam[0]);
+      return `${firstItem?.title} ${domaineParam.length > 1 ? `(+${domaineParam.length - 1})` : ''}`;
     }
     return 'Domaine d’activité';
   };
   useEffect(() => {
     getDomaineName(domaine);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listSecteurData, domaine]);
 
-  const getEnvName = (environments: string[] | undefined) => {
-    if (listTypeData && environments !== undefined && environments.length !== 0) {
-      const firstItem = listTypeData.find((item) => item.id === environments[0]);
-      return `${firstItem?.title} ${environments.length > 1 ? `(+${environments.length - 1}) ` : ''}`;
+  const getEnvName = (environmentsParam: string[] | undefined) => {
+    if (listTypeData && environmentsParam !== undefined && environmentsParam.length !== 0) {
+      const firstItem = listTypeData.find((item) => item.id === environmentsParam[0]);
+      return `${firstItem?.title} ${environmentsParam.length > 1 ? `(+${environmentsParam.length - 1}) ` : ''}`;
     }
     return 'Type de métier';
   };
   useEffect(() => {
     getEnvName(environments);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listSecteurData, environments]);
 
-  const getAccName = (accessibility: string[] | undefined) => {
-    if (listAccData && accessibility !== undefined && accessibility.length !== 0) {
-      const firstItem = listAccData.find((item) => item.id === accessibility[0]);
-      return `${firstItem?.name} ${accessibility.length > 1 ? `(+${accessibility.length - 1})` : ''}`;
+  const getAccName = (accessibilityParam: string[] | undefined) => {
+    if (listAccData && accessibilityParam !== undefined && accessibilityParam.length !== 0) {
+      const firstItem = listAccData.find((item) => item.id === accessibilityParam[0]);
+      return `${firstItem?.name} ${accessibilityParam.length > 1 ? `(+${accessibilityParam.length - 1})` : ''}`;
     }
     return 'Niveau d’accès';
   };
   useEffect(() => {
     getEnvName(accessibility);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listAccData, accessibility]);
   const renderJobs = () => {
     if (renderedJobs?.length) {
@@ -220,7 +226,6 @@ const JobsContainer = ({
         <Link to={`/jobs/job/${el.id}`}>
           <JobCard
             key={el.id}
-            id={el.id}
             title={el.title}
             description={el.description}
             accessibility={el.accessibility}
@@ -246,7 +251,7 @@ const JobsContainer = ({
                 </Link>{' '}
                 et tes{' '}
                 <Link to="/interet">
-                  <span className={classes.clearTextBold}>centres d'intérêt</span>
+                  <span className={classes.clearTextBold}>centres d&apos;intérêt</span>
                 </Link>{' '}
               </div>
             </div>
@@ -293,7 +298,6 @@ const JobsContainer = ({
               fullScreenModal
               onClick={() => setOpenDomain(!openDomain)}
               onClose={() => setOpenDomain(false)}
-              referenceFullScreen={divDomaine}
               arrowColor="#DB8F00"
               from="job"
               borderColor="#C9C9C7"
@@ -306,7 +310,6 @@ const JobsContainer = ({
               name="job"
               value={environments}
               placeholder={getEnvName(environments)}
-              className={classes.containerAutoComp}
               open={openType}
               modal
               onClick={() => setOpenType(!openType)}
@@ -325,7 +328,6 @@ const JobsContainer = ({
               name="accessibility"
               placeholder={getAccName(accessibility)}
               value={accessibility}
-              className={classes.containerAutoComp}
               open={openAcc}
               modal
               onClick={() => setOpenAcc(!openAcc)}
@@ -373,9 +375,7 @@ const JobsContainer = ({
                   options={[12, 24, 36]}
                   onSelectText={onSelectData}
                   name="dataToRender"
-                  value={dataToRender}
                   placeholder={`${dataToRender}`}
-                  className={classes.containerAutoComp}
                   open={openDataToRender}
                   onClick={() => setOpenDataToRender(!openDataToRender)}
                   reference={divData}
@@ -430,7 +430,6 @@ const JobsContainer = ({
                     fullScreenModal
                     onClick={() => setOpenDomain(!openDomain)}
                     onClose={() => setOpenDomain(false)}
-                    referenceFullScreen={divDomaine}
                     arrowColor="#DB8F00"
                     from="job"
                     borderColor="#C9C9C7"
@@ -443,7 +442,6 @@ const JobsContainer = ({
                     name="job"
                     value={environments}
                     placeholder={getEnvName(environments)}
-                    className={classes.containerAutoComp}
                     open={openType}
                     modal
                     onClick={() => setOpenType(!openType)}
@@ -462,7 +460,6 @@ const JobsContainer = ({
                     name="accessibility"
                     placeholder={getAccName(accessibility)}
                     value={accessibility}
-                    className={classes.containerAutoComp}
                     open={openAcc}
                     modal
                     onClick={() => setOpenAcc(!openAcc)}

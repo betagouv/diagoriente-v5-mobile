@@ -15,7 +15,6 @@ import { useAddSkillComment } from 'common/requests/skillComment';
 import classNames from 'utils/classNames';
 import UserContext from 'common/contexts/UserContext';
 import msg from 'assets/svg/msg.svg';
-import { Email } from '@material-ui/icons';
 import useStyles from './styles';
 
 interface Props {
@@ -72,7 +71,9 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
             user?.profile.lastName,
             // eslint-disable-next-line
           )
-        } a effectué une expérience professionnelle chez vous et sollicite une recommandation de votre part. Vous pouvez l'aider en montrant que vous validez cette expérience sur Diagoriente, la plateforme pour trouver son orientation et accéder à l'emploi.\n \nBien cordialement,`,
+        } a effectué une expérience professionnelle chez vous et sollicite une recommandation de votre part.
+        Vous pouvez l'aider en montrant que vous validez cette expérience sur Diagoriente, la plateforme pour
+        trouver son orientation et accéder à l'emploi.\n \nBien cordialement,`,
       });
     }
     // eslint-disable-next-line
@@ -116,12 +117,6 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
 
       setThirdOpen(true);
     }
-  };
-
-  const handlePreced = () => {
-    setSecondOpen(false);
-    setOpen(true);
-    setThirdOpen(false);
   };
 
   const handleClose = () => {

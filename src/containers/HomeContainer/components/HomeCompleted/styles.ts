@@ -1,6 +1,6 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles<Theme, { isOpen: boolean }>((theme) => ({
+export default makeStyles<Theme, { isOpen: boolean }>(() => ({
   container: {
     display: 'flex',
     flex: '1 1 0%',

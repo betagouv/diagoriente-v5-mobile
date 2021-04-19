@@ -62,8 +62,6 @@ const Register = () => {
   });
   const { values, errors, touched } = state;
   const [locationCall, { data, loading }] = useLocation({ variables: { search } });
-  const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
   const { loading: loadingAvatar, data: avatarData } = useAvatars();
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

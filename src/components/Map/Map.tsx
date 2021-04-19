@@ -3,7 +3,7 @@ import * as Leaflet from 'leaflet';
 import { Map as LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet';
 import './map.css';
 
-interface props {
+interface Props {
   lat?: number;
   lng?: number;
   name?: string;
@@ -11,7 +11,7 @@ interface props {
   handleClick?: (e: Leaflet.LeafletMouseEvent) => void;
 }
 
-const MapContainer = ({ lat, lng, name, className, handleClick }: props) => (
+const MapContainer = ({ lat, lng, name, className, handleClick }: Props) => (
   <LeafletMap
     center={lat && lng ? [lat, lng] : [51.505, -0.09]}
     zoom={14}

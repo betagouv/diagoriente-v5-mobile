@@ -28,7 +28,7 @@ export default makeStyles<Theme, { color: string; size?: number; font?: string; 
 
     '@media not all and (min-resolution:.001dpcm)': {
       fontWeight: 900,
-      fontSize: (props) => '42',
+      fontSize: () => '42',
       fontFamily: (props) => (props.font ? props.font : 'Ocean'),
       textTransform: 'uppercase',
       color: (props) => (props.color ? props.color : theme.palette.primary.main),

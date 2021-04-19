@@ -8,7 +8,6 @@ import { Company } from 'common/requests/types';
 import usePdf from 'hooks/usePdf';
 
 import idea from 'assets/svg/picto_ampoule_full.svg';
-import check from 'assets/svg/checkOrange.svg';
 import arrowClose from 'assets/svg/orangeArrow.svg';
 
 import useStyles from './styles';
@@ -121,7 +120,6 @@ const ContactModal = ({ setOpen, openContact, handleClose }: Props) => {
             checked={checked}
             name="acceptCondition"
             border="#DB8F00"
-            img={check}
             className={classes.checkbox}
             color="#DB8F00"
           />

@@ -1,7 +1,5 @@
 import React from 'react';
-import ModalContainer from 'components/common/Modal/ModalContainer';
 import Dialog from '@material-ui/core/Dialog';
-import Button from 'components/button/Button';
 import { Link } from 'react-router-dom';
 import ModalSelect from './Modals/SelectJob/SelectModal';
 import useStyles from './styles';
@@ -12,9 +10,6 @@ const ResultInterest = () => {
   const handleOpen = () => {
     setOpen(true);
   };
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div className={classes.root}>
@@ -24,11 +19,11 @@ const ResultInterest = () => {
         </div>
         <div className={classes.description}>
           <div className={classes.text}>
-            <b>Tu as sélectionné et classé 5 familles d'intérêt.</b>
+            <b>Tu as sélectionné et classé 5 familles d&apos;intérêt.</b>
           </div>
           <div className={classes.text}>
-            En fonction de tes expériences et de tes centres d'intérêt, nous allons maintenant te proposer des métiers
-            qui peuvent te plaire.
+            En fonction de tes expériences et de tes centres d&apos;intérêt, nous allons maintenant te proposer des
+            métiers qui peuvent te plaire.
           </div>
         </div>
 

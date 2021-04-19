@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from 'nuka-carousel';
 import { Families } from 'common/requests/types';
-import Arrow from 'assets/svg/arrow';
 import classNames from 'utils/classNames';
-import checked from 'assets/form/checkboxchecked.svg';
-import CheckBox from 'components/inputs/CheckBox/CheckBox';
-import TitleImage from 'components/common/TitleImage/TitleImage';
 import Divider from '@material-ui/core/Divider';
 import teLink from 'assets/svg/teLink.svg';
 import teteLink from 'assets/svg/tLink.svg';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import Button from 'components/button/Button';
 
 import personnesLink from 'assets/svg/personnesLink.svg';
 import perLink from 'assets/svg/perLink.svg';
@@ -26,19 +20,17 @@ interface IProps {
   isChecked: any;
   defaultIndex: number;
 }
-const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps, { location }: RouteComponentProps) => {
+const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
   const classes = useStyles();
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     if (defaultIndex) setCurrentIndex(defaultIndex);
   }, [defaultIndex]);
-  let title1: string;
-  title1 = window.location.toString();
   return (
     <>
       <div className={classes.slideTitle}>
         <div className={classes.imgSlide}>
-          {currentIndex == 0 ? (
+          {currentIndex === 0 ? (
             <img
               src={teteLink}
               alt=""
@@ -58,7 +50,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps, { locati
             />
           )}
 
-          {currentIndex == 1 ? (
+          {currentIndex === 1 ? (
             <img
               src={mLink}
               alt=""
@@ -78,7 +70,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps, { locati
             />
           )}
 
-          {currentIndex == 2 ? (
+          {currentIndex === 2 ? (
             <img
               src={perLink}
               alt=""
@@ -104,12 +96,12 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps, { locati
         dragging={false}
         slideIndex={currentIndex}
         afterSlide={(index) => setCurrentIndex(index)}
-        renderCenterLeftControls={({ previousSlide }) => (
+        renderCenterLeftControls={() => (
           <div className={classNames(currentIndex === 0 && classes.hide, classes.wrapperBtn, classes.prevWrap)}>
             <div className={classes.titleContainerArrow} />
           </div>
         )}
-        renderCenterRightControls={({ nextSlide }) => (
+        renderCenterRightControls={() => (
           <div
             className={classNames(
               currentIndex === data.length - 1 && classes.hide,
@@ -123,7 +115,7 @@ const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps, { locati
         renderBottomCenterControls={null}
         className={classes.root}
       >
-        {data.reverse().map((el, i) => (
+        {data.reverse().map((el) => (
           <div key={el.title} className={classes.item}>
             <div className={classes.avatarContainer}>
               {el.data.map((e) => {

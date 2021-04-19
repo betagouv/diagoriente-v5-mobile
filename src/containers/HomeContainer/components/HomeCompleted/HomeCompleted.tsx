@@ -41,15 +41,7 @@ const HomeCompleted = () => {
     }
     if (p) history.push(`${p}`);
   };
-  useEffect(() => {
-    const state: string[] = [];
-    dashboardContent.map((e, i) => {
-      const s = getState(i);
-      state.push(s);
-    });
-    const res = state.some((e) => e === 'open');
-    setIsOpen(res);
-  });
+
   const renderContentItem = useCallback(
     (
       title: string,
@@ -134,7 +126,17 @@ const HomeCompleted = () => {
     ],
     [classes, renderContentItem],
   );
-
+  useEffect(() => {
+    const state: string[] = [];
+    // eslint-disable-next-line array-callback-return
+    dashboardContent.map((e, i) => {
+      const s = getState(i);
+      state.push(s);
+    });
+    const res = state.some((e) => e === 'open');
+    setIsOpen(res);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <div className={classes.container}>

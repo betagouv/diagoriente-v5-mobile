@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Dotdotdot from 'react-dotdotdot';
 import Button from 'components/button/Button';
 import fullHeart from 'assets/svg/fullHeart.svg';
@@ -10,10 +9,9 @@ interface IProps {
   title: string;
   description: string;
   accessibility: string;
-  id: string;
   favoris: any;
 }
-const CardJob = ({ title, description, accessibility, id, favoris }: IProps) => {
+const CardJob = ({ title, description, accessibility, favoris }: IProps) => {
   const [selected, setSelected] = useState(false);
   const onHover = () => setSelected(true);
   const onLeave = () => setSelected(false);

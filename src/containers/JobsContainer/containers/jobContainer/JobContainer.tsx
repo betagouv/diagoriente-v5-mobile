@@ -5,7 +5,6 @@ import { useDidMount, useWillUnmount } from 'common/hooks/useLifeCycle';
 import { RouteComponentProps, Link } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
 import TestImage from 'assets/svg/test.svg';
-import LogoLocation from 'assets/form/location.png';
 import Spinner from 'components/Spinner/Spinner';
 import useOnclickOutside from 'common/hooks/useOnclickOutside';
 import HeartOutLine from 'assets/svg/outlineHeart.svg';
@@ -228,7 +227,6 @@ const JobContainer = ({
                 onSelect={onSelect}
                 selectedLocation={selectedLocation}
                 listLocation={listLocation}
-                LogoLocation={LogoLocation}
                 openLocation={openLocation}
                 onClickImmersion={onClickImmersion}
                 setOpenLocation={setOpenLocation}
