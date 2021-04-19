@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import ValidationButton from 'components/valideButton/valideButton';
 import add from 'assets/svg/pictoadd.svg';
 import useStyles from './styles';
 import QuestionList from './components/QuestionList/QuestionList';
+import classNames from 'utils/classNames';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
   theme: Theme;
@@ -60,10 +61,11 @@ const EngagementActivities = ({
   };
 
   const onNavigate = () => {
-    if (optionActivities[0].length === 0 ? activity.length : valid.findIndex((e) => !e) === -1) { history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`); }
+    if (optionActivities[0].length === 0 ? activity.length : valid.findIndex((e) => !e) === -1) {
+      history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
+    }
   };
-  console.log('optionsActivities', optionActivities);
-  console.log('valid', valid);
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -86,18 +88,24 @@ const EngagementActivities = ({
                   setOptionActivities={setOptionActivities}
                   handleValidate={handleValidate}
                   clearValid={clearValid}
+                  valid={valid}
                 />
               ))}
-              <img src={add} alt="" height={24} className={classes.addIcon} onClick={addActivityRow} />
+              {/* optionActivities[0].length !== 0 &&  */ valid.findIndex((e) => !e) === -1 && (
+                <div className={classNames(classes.addContainer, classes.addMargin)} onClick={addActivityRow}>
+                  <img src={add} alt="" />
+                  <span className={classes.extraActivityLabel}>Ajouter une autre activité</span>
+                </div>
+              )}
             </div>
-            <div className={classes.extraActivityLink} onClick={() => addExtraActivity()}>
+            <div className={classes.addContainer} onClick={() => addExtraActivity()}>
               <img src={add} alt="" />
               <span className={classes.extraActivityLabel}>Ajouter une activité non listée</span>
             </div>
           </div>
         </div>
       </div>
-      {optionActivities[0].length !== 0 && valid.findIndex((e) => !e) === -1 && (
+      {/* optionActivities[0].length !== 0 && */ valid.findIndex((e) => !e) === -1 && (
         <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => onNavigate()} />
       )}
     </div>

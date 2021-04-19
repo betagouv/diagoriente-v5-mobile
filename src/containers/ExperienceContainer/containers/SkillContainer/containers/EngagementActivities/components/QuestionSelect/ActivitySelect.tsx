@@ -1,8 +1,7 @@
-import React, {
- useState, useEffect, useContext, useMemo,
-} from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import { Question, Option } from 'common/requests/types';
 import Select from 'components/Select/Select';
+import AnswerSelect from '../AnswerSelect/AnswerSelect';
 import { useOptions, useAddOption, useDeleteOption } from 'common/requests/options';
 import Remove from '@material-ui/icons/DeleteForever';
 import UserContext from 'common/contexts/UserContext';
@@ -19,9 +18,7 @@ interface Props {
   parent?: string;
   index?: number;
 }
-const ActivitySelect = ({
- question, onChange, open, value, openActivity, setOpen, parent, index,
-}: Props) => {
+const ActivitySelect = ({ question, onChange, open, value, openActivity, setOpen, parent, index }: Props) => {
   const classes = useStyles();
   const { user } = useContext(UserContext);
   const ownOption = (id: string) => {
@@ -101,24 +98,25 @@ const ActivitySelect = ({
       </div>
     );
   };
-  console.log('index', index);
+
   return (
-    <Select
-      index={index}
-      label={question.title}
-      value={value}
-      onChange={handleChange}
-      options={options}
-      open={open}
-      openActivity={openActivity}
-      setOpen={setOpen}
-      handleClose={() => handleClose(question.id)}
-      onChangeValue={onChangeValue}
-      rootClassName={classes.rootClassName}
-      styleSelectClassName={classes.styleSelect}
-      className={classes.borderSelect}
-      renderOption={renderOption}
-    />
+    <>
+      <AnswerSelect
+        question={question}
+        index={index}
+        label={question.title}
+        value={value}
+        onChange={handleChange}
+        options={options}
+        open={open}
+        openActivity={openActivity}
+        setOpen={setOpen}
+        handleClose={() => handleClose(question.id)}
+        onChangeValue={onChangeValue}
+        rootClassName={classes.rootClassName}
+        styleSelectClassName={classes.styleSelect}
+      />
+    </>
   );
 };
 
