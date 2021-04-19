@@ -95,7 +95,7 @@ const QuestionList = ({ setOptionActivities, optionActivities, index, handleVali
               />
             </div>
 
-            {optionActivities[index].length > i && (
+            {(optionActivities[index].length > i || (optionActivities.length > 1 && index !== 0)) && (
               <div className={classes.deleteContainer} onClick={() => deleteAnswer(i)}>
                 <img src={deleteX} alt="" />
               </div>
