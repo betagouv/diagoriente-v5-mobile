@@ -12,10 +12,10 @@ export default makeStyles((theme) =>
       alignItems: 'center',
       paddingTop: 34,
       flex: 1,
-      paddingBottom:110,
+      paddingBottom: 110,
       padding: SKILL_CONTAINER_PADDING,
       [theme.breakpoints.down(330)]: {
-    padding:'0px 0px 110px 0px'
+        padding: '0px 0px 110px 0px',
       },
     },
 
@@ -23,21 +23,19 @@ export default makeStyles((theme) =>
       [theme.breakpoints.down(500)]: {
         display: 'flex',
         width: '100%',
-        flexDirection:'column',
+        flexDirection: 'column',
         paddingTop: 20,
       },
-   
     },
     cardGridContainer: {
       width: '100%',
       paddingTop: 57,
-      padding : '57px 35px 20px 35px',
+      padding: '57px 35px 20px 35px',
       [theme.breakpoints.down(500)]: {
-        padding : '10px 10px 10px 10px',
-
+        padding: '10px 10px 10px 10px',
       },
       [theme.breakpoints.down(350)]: {
-width:'97%'
+        width: '97%',
       },
     },
 
@@ -49,20 +47,17 @@ width:'97%'
       display: 'contents',
       alignItems: 'center',
       paddingBottom: 45,
-      paddingLeft:115,
+      paddingLeft: 115,
       // width: '100%',
       fontSize: 14,
       justifyContent: 'space-between',
       [theme.breakpoints.down(500)]: {
-        paddingLeft:35,
-
+        paddingLeft: 35,
       },
       [theme.breakpoints.down(350)]: {
-        paddingLeft:15,
-        display:'contents'
-
+        paddingLeft: 15,
+        display: 'contents',
       },
-
     },
     spinner: {
       flex: '1 1 0',
@@ -77,8 +72,7 @@ width:'97%'
       lineHeight: 1,
       paddingTop: 9,
       [theme.breakpoints.down(330)]: {
-        paddingTop:20,
-
+        paddingTop: 20,
       },
       '@media not all and (min-resolution:.001dpcm)': {
         fontFamily: 'Ocean',
@@ -87,12 +81,9 @@ width:'97%'
         lineHeight: 1,
         paddingTop: 9,
         [theme.breakpoints.down(330)]: {
-          paddingTop:20,
-  
+          paddingTop: 20,
         },
-      }
-
-  
+      },
     },
 
     logo: {
@@ -148,45 +139,42 @@ width:'97%'
     text: {
       fontSize: 18,
       [theme.breakpoints.down(500)]: {
-        textAlign:'justify',
-        padding: '15px 15px'
+        textAlign: 'justify',
+        padding: '15px 15px',
       },
       '@media not all and (min-resolution:.001dpcm)': {
         fontSize: 14,
         [theme.breakpoints.down(500)]: {
-          textAlign:'justify',
-          padding: '15px 15px'
+          textAlign: 'justify',
+          padding: '15px 15px',
         },
-      }
+      },
     },
- 
+
     btn: {
       backgroundColor: '#011A5E',
       '&:hover': {
         backgroundColor: '#223A7A',
       },
       [theme.breakpoints.down(330)]: {
-        margin: '0px 0px'
+        margin: '0px 0px',
       },
-   
     },
 
     textButton: {
       color: '#fff',
       fontSize: 18,
       width: 262,
-      padding:'0px 0px'
+      padding: '0px 0px',
     },
-
 
     link: {
       display: 'flex',
       alignItems: 'center',
       borderRadius: 10,
-       margin:10,
+      margin: 10,
       flex: 1,
-      justifyContent:'center'
-  
+      justifyContent: 'center',
     },
 
     popupContainer: {
@@ -224,15 +212,16 @@ width:'97%'
         color: '#00CFFF',
       },
     },
-    btnEx:{
-    backgroundColor:'#FFFFFF',
-    width:'100%',
-    position:'fixed',
-    bottom:0,
-    zIndex:1,
-    display:'flex',
-    flexDirection:'column',
-    alignItems:'center',
-    justifyContent:'center',
-    }
-  }));
+    btnEx: {
+      backgroundColor: '#FFFFFF',
+      width: '100%',
+      position: 'fixed',
+      bottom: 0,
+      zIndex: 1,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  }),
+);

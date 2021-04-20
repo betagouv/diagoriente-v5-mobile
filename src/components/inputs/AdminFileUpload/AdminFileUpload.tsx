@@ -16,9 +16,7 @@ interface AdminFileUploadProps
   defaultImage?: string;
 }
 
-const AdminFileUpload = ({
- label, onChange, className, defaultImage, ...rest
-}: AdminFileUploadProps) => {
+const AdminFileUpload = ({ label, onChange, className, defaultImage, ...rest }: AdminFileUploadProps) => {
   const classes = useStyles();
   const [image, setImage] = useState<string | null>(defaultImage || null);
   const inputRef = useRef<HTMLInputElement>(null);

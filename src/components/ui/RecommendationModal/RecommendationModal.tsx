@@ -15,7 +15,6 @@ import { useAddSkillComment } from 'common/requests/skillComment';
 import classNames from 'utils/classNames';
 import UserContext from 'common/contexts/UserContext';
 import msg from 'assets/svg/msg.svg';
-import { Email } from '@material-ui/icons';
 import useStyles from './styles';
 
 interface Props {
@@ -24,9 +23,7 @@ interface Props {
   setOpen: (open: boolean) => void;
   onSuccess?: () => void;
 }
-const RecommendationModal = ({
- skill, open, setOpen, onSuccess,
-}: Props) => {
+const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
   const classes = useStyles();
   const [secondOpen, setSecondOpen] = React.useState(false);
   const [thirdOpen, setThirdOpen] = React.useState(false);
@@ -66,12 +63,17 @@ const RecommendationModal = ({
   useEffect(() => {
     if (secondOpen) {
       actions.setValues({
-        comment: `Bonjour ${NameFormator(state.values.firstName)} ${NameFormator(state.values.lastName)}, \n\n${user
-          && NameFormator(user?.profile.firstName)} ${user
-          && NameFormator(
+        comment: `Bonjour ${NameFormator(state.values.firstName)} ${NameFormator(state.values.lastName)}, \n\n${
+          user && NameFormator(user?.profile.firstName)
+        } ${
+          user &&
+          NameFormator(
             user?.profile.lastName,
             // eslint-disable-next-line
-          )} a effectué une expérience professionnelle chez vous et sollicite une recommandation de votre part. Vous pouvez l'aider en montrant que vous validez cette expérience sur Diagoriente, la plateforme pour trouver son orientation et accéder à l'emploi.\n \nBien cordialement,`,
+          )
+        } a effectué une expérience professionnelle chez vous et sollicite une recommandation de votre part.
+        Vous pouvez l'aider en montrant que vous validez cette expérience sur Diagoriente, la plateforme pour
+        trouver son orientation et accéder à l'emploi.\n \nBien cordialement,`,
       });
     }
     // eslint-disable-next-line
@@ -79,11 +81,11 @@ const RecommendationModal = ({
 
   const handleSecondOpen = () => {
     if (
-      !state.values.firstName
-      || !state.values.lastName
-      || !state.values.email
-      || !state.values.confirmEmail
-      || state.values.email !== state.values.confirmEmail
+      !state.values.firstName ||
+      !state.values.lastName ||
+      !state.values.email ||
+      !state.values.confirmEmail ||
+      state.values.email !== state.values.confirmEmail
     ) {
       actions.setAllTouched(true);
       setSecondOpen(false);
@@ -115,12 +117,6 @@ const RecommendationModal = ({
 
       setThirdOpen(true);
     }
-  };
-
-  const handlePreced = () => {
-    setSecondOpen(false);
-    setOpen(true);
-    setThirdOpen(false);
   };
 
   const handleClose = () => {
@@ -233,10 +229,7 @@ const RecommendationModal = ({
             Le message pour
             {/* eslint-disable-next-line */}
             <b>{` ${NameFormator(state.values.firstName)} ${NameFormator(state.values.lastName)}`}</b>
-            <br />
-            (
-            {`${state.values.email}`}
-            )
+            <br />({`${state.values.email}`})
           </div>
           <form className={classes.experienceContainer}>
             <TextField
@@ -256,8 +249,7 @@ const RecommendationModal = ({
               error={state.touched.comment && state.errors.comment}
             />
             <div className={classes.message}>
-              <b> Attention </b>
-              : Tu peux modifier ou compléter ce message avant de l&apos;envoyer !
+              <b> Attention </b>: Tu peux modifier ou compléter ce message avant de l&apos;envoyer !
             </div>
           </form>
           <ValidationButton
@@ -293,9 +285,7 @@ const RecommendationModal = ({
         <div className={classes.popupContainer}>
           <p className={classes.popupDescription}>
             Veux-tu vraiment quitter ?
-            <br />
-            {' '}
-            Tes modifications ne seront pas enregistrées.
+            <br /> Tes modifications ne seront pas enregistrées.
           </p>
           <Button
             className={classes.incluse}

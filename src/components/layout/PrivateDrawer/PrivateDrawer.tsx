@@ -7,7 +7,6 @@ import { Link, useLocation, matchPath } from 'react-router-dom';
 import localforage from 'localforage';
 import DrawerContext from 'common/contexts/DrawerContext';
 import parcoursContext from 'common/contexts/ParcourContext';
-import Img from 'assets/images/fleche_fu.png';
 import userContext from 'common/contexts/UserContext';
 import { setAuthorizationBearer, client } from 'common/requests/client';
 import classNames from 'utils/classNames';

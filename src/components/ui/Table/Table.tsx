@@ -37,7 +37,8 @@ export function useActionsHeader<T extends { id: string }>(
     if (!data.length && values.length) valuesChange([]);
     else {
       valuesChange((prevValues) =>
-        data.map(({ id }) => prevValues.find((value) => value.id === id) || { id, checked: false }));
+        data.map(({ id }) => prevValues.find((value) => value.id === id) || { id, checked: false }),
+      );
     }
     // eslint-disable-next-line
   }, [data]);
@@ -159,6 +160,34 @@ function Table<T extends { id: string }>({
   ...rest
 }: TableProps<T>) {
   const classes = useStyles();
+  const renderTable = () => {
+    if (data.length) {
+      return data.map((row, i) => (
+        <TableRow
+          onClick={() => {
+            if (onRowClick) onRowClick(row, i);
+          }}
+          className={rowClassName}
+          key={row.id}
+        >
+          {headers.map((header) => {
+            let value: any = header.dataIndex ? row[header.dataIndex] : null;
+            if (header.render) {
+              value = header.render(value, row, i);
+            }
+
+            return (
+              <TableCell className={classes.rowItem} key={header.key} align="left">
+                {value}
+              </TableCell>
+            );
+          })}
+        </TableRow>
+      ));
+    }
+
+    return null;
+  };
   return (
     <Paper className={classes.root}>
       <BaseTable>
@@ -171,32 +200,7 @@ function Table<T extends { id: string }>({
             ))}
           </TableRow>
         </TableHead>
-        <TableBody>
-          {data.length
-            ? data.map((row, i) => (
-              <TableRow
-                onClick={() => {
-                    if (onRowClick) onRowClick(row, i);
-                  }}
-                className={rowClassName}
-                key={row.id}
-              >
-                {headers.map((header) => {
-                    let value: any = header.dataIndex ? row[header.dataIndex] : null;
-                    if (header.render) {
-                      value = header.render(value, row, i);
-                    }
-
-                    return (
-                      <TableCell className={classes.rowItem} key={header.key} align="left">
-                        {value}
-                      </TableCell>
-                    );
-                  })}
-              </TableRow>
-              ))
-            : null}
-        </TableBody>
+        <TableBody>{renderTable()}</TableBody>
         {rest.totalPages ? (
           <TableFooter>
             <TableRow>

@@ -33,9 +33,9 @@ export default makeStyles<Theme, { direction: 'vertical' | 'horizontal'; hover: 
     fontWeight: 'bold',
     // width:'min-content',
     lineHeight: '15px',
-    marginLeft: "4vh",
+    marginLeft: '4vh',
     [theme.breakpoints.down(330)]: {
-      marginLeft: "0vh",
+      marginLeft: '0vh',
     },
   },
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select from 'components/Select/Select';
 import classNames from 'utils/classNames';
 import moment from 'moment';
@@ -19,8 +19,6 @@ interface Props {
 moment.locale('fr');
 const DatePicker = ({ handleChange, day, month, year, days, months, years, autoWidthMenu }: Props) => {
   const classes = useStyles();
-  console.log('month', month);
-  console.log('months', months);
   return (
     <div className={classes.root}>
       {day && (
@@ -32,7 +30,7 @@ const DatePicker = ({ handleChange, day, month, year, days, months, years, autoW
           arrowDate={arrow}
           disabledClassName={classes.disabledClassName}
           menuItemClassName={classes.menuItemClassName}
-          autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
+          autoWidthMenu={autoWidthMenu || false}
         />
       )}
       <Select
@@ -43,7 +41,7 @@ const DatePicker = ({ handleChange, day, month, year, days, months, years, autoW
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
-        autoWidthMenu={autoWidthMenu ? autoWidthMenu : false}
+        autoWidthMenu={autoWidthMenu || false}
       />
       <Select
         value={year}
@@ -53,7 +51,7 @@ const DatePicker = ({ handleChange, day, month, year, days, months, years, autoW
         arrowDate={arrow}
         disabledClassName={classes.disabledClassName}
         menuItemClassName={classes.menuItemClassName}
-        autoWidth={autoWidthMenu ? autoWidthMenu : false}
+        autoWidth={autoWidthMenu || false}
       />
     </div>
   );

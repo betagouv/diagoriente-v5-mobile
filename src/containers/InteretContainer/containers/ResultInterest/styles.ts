@@ -6,18 +6,15 @@ export default makeStyles<Theme>((theme) => ({
     height: '90vh',
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor:'#F3F2F4',
+    backgroundColor: '#F3F2F4',
     [theme.breakpoints.up(500)]: {
       height: '87vh',
-
     },
     [theme.breakpoints.up(570)]: {
       height: '99vh',
-
     },
     [theme.breakpoints.up(666)]: {
       bottom: '-60vh',
-
     },
   },
   content: {
@@ -31,9 +28,9 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    alignItems:'center',
-    backgroundColor:'#ffff',
-    height:100,
+    alignItems: 'center',
+    backgroundColor: '#ffff',
+    height: 100,
     [theme.breakpoints.up(500)]: {
       marginTop: 0,
     },
@@ -53,7 +50,6 @@ export default makeStyles<Theme>((theme) => ({
     [theme.breakpoints.up(500)]: {
       marginBottom: 17,
       marginTop: 35,
-
     },
   },
   text: {
@@ -64,22 +60,20 @@ export default makeStyles<Theme>((theme) => ({
   },
   btnContainer: {
     width: '100%',
-    height:50,
-    border:'none',
+    height: 50,
+    border: 'none',
     position: 'absolute',
     bottom: '0px',
-    backgroundColor:'#7533FF',
-    display:'flex',
-    flexDirection:'row',
-    justifyContent:'center',
-    alignItems:'center',
+    backgroundColor: '#7533FF',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     [theme.breakpoints.up(500)]: {
       bottom: '0px',
-
     },
     [theme.breakpoints.up(567)]: {
       bottom: '-43px',
-
     },
     // [theme.breakpoints.up(666)]: {
     //   bottom: '-43px',

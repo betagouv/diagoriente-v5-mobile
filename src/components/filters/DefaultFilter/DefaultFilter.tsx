@@ -48,8 +48,8 @@ function DefaultFilter({ onChange, children }: DefaultFilterProps) {
                 label="Search"
               />
             </Grid>
-            {children
-              && children((data) => {
+            {children &&
+              children((data) => {
                 dataRef.current = data;
               }, uri)}
           </Grid>

@@ -39,6 +39,7 @@ const CardContainer = () => {
   useDidMount(() => {
     window.scrollTo({ top: 0, left: 0 });
   });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const icons = (
     <CardIcons
       onDownload={onClickIcon}
@@ -84,7 +85,8 @@ const CardContainer = () => {
           {skills.filter((s) => s?.theme?.type === 'engagement').length !== 0 && (
             <CardCompetence
               title="COMPÉTENCES D’ENGAGEMENT"
-              description="En relation avec les expériences d’engagement (Service civique, Service National Universel...)"
+              description={`En relation avec les expériences d’engagement 
+              (Service civique, Service National Universel...)`}
               type="engagement"
             />
           )}

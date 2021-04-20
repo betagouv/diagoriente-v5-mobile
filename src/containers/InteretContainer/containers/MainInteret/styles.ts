@@ -11,8 +11,6 @@ export default makeStyles<Theme>((theme) => ({
     backgroundColor: '#f3f2f4',
     [theme.breakpoints.down(330)]: {
       height: '87vh',
-
-
     },
   },
   content: {
@@ -94,12 +92,10 @@ export default makeStyles<Theme>((theme) => ({
     [theme.breakpoints.down(380)]: {
       paddingLeft: '20px',
       padding: '10px',
-
     },
     [theme.breakpoints.down(365)]: {
       paddingLeft: '20px',
       padding: '5px',
-
     },
   },
   avatarContainer: {
@@ -111,7 +107,5 @@ export default makeStyles<Theme>((theme) => ({
     lineHeight: '23px',
     color: '#420FAB',
   },
-  tContainer:{height:'80px'},
- 
-
+  tContainer: { height: '80px' },
 }));

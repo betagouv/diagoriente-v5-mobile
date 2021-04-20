@@ -1,6 +1,5 @@
-import React, {
- useContext, useState, useMemo, useCallback, useEffect,
-} from 'react';
+/* eslint-disable array-callback-return */
+import React, { useContext, useState, useMemo, useCallback, useEffect } from 'react';
 import UserContext from 'common/contexts/UserContext';
 import { Link, useHistory } from 'react-router-dom';
 import defaultAvatar from 'assets/svg/defaultAvatar.svg';
@@ -45,6 +44,7 @@ const HomeCompleted = () => {
   };
   useEffect(() => {
     const state: string[] = [];
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     dashboardContent.map((e, i) => {
       const s = getState(i);
       state.push(s);
@@ -79,14 +79,8 @@ const HomeCompleted = () => {
         image: IlluMeConnaitre,
         initialChildren: (
           <div className={classes.contentChild}>
-            Identifier mes
-            {' '}
-            <span className={classes.bold}>compétences</span>
-            <br />
-            {' '}
-            et explorer mes
-            {' '}
-            <span className={classes.bold}>intérêts</span>
+            Identifier mes <span className={classes.bold}>compétences</span>
+            <br /> et explorer mes <span className={classes.bold}>intérêts</span>
           </div>
         ),
         openChildren: (
@@ -94,13 +88,13 @@ const HomeCompleted = () => {
             {renderContentItem(
               'MES EXPÉRIENCES',
               // eslint-disable-next-line
-              'Complète tes expériences et évalue tes compétences.',
+               'Complète tes expériences et évalue tes compétences.',
               { path: '/experience', buttonClassName: classes.blue },
             )}
             {renderContentItem(
               'MES CENTRES D’INTÉRÊT',
               // eslint-disable-next-line
-              'Aimes-tu plutôt être dehors, travailler en équipe, manipuler des outils... ?',
+               'Aimes-tu plutôt être dehors, travailler en équipe, manipuler des outils... ?',
               { path: '/interet', buttonClassName: classes.purple },
             )}
           </div>
@@ -114,19 +108,14 @@ const HomeCompleted = () => {
         image: IlluMeProtejer,
         initialChildren: (
           <div className={classNames(classes.contentChild, classes.black)}>
-            Découvrir des
-            {' '}
-            <span className={classes.bold}>métiers</span>
-            {' '}
-            et identifier mon
-            {' '}
+            Découvrir des <span className={classes.bold}>métiers</span> et identifier mon{' '}
             <span className={classes.bold}>idéal professionnel</span>
           </div>
         ),
         openChildren: renderContentItem(
           'MES PISTES MÉTIERS',
           // eslint-disable-next-line
-          "Dès que tu auras rempli tes expériences et tes centres d'intérêts, explore des métiers qui te correspondent.",
+           "Dès que tu auras rempli tes expériences et tes centres d'intérêts, explore des métiers qui te correspondent.",
           { path: '/jobs', descriptionClassName: classes.black },
         ),
       },
@@ -138,15 +127,8 @@ const HomeCompleted = () => {
         image: IlluMengager,
         initialChildren: (
           <div className={classes.contentChild}>
-            Faire mes
-            {' '}
-            <span className={classes.bold}>choix</span>
-            {' '}
-            et identifier des
-            {' '}
-            <span className={classes.bold}>entreprises</span>
-            {' '}
-            à contacter
+            Faire mes <span className={classes.bold}>choix</span> et identifier des{' '}
+            <span className={classes.bold}>entreprises</span> à contacter
           </div>
         ),
         openChildren: renderContentItem('MES DÉMARCHES', 'Gère tes démarches avec les entreprises qui t’intéressent.'),
@@ -163,8 +145,7 @@ const HomeCompleted = () => {
             <div style={{ backgroundColor: '' }}>
               <p>
                 Pour accéder à la version Campus2023 vous devez poursuivre votre navigation sur ordinateur à l’adresse :
-                app.diagoriente.beta.gouv.fr
-                {' '}
+                app.diagoriente.beta.gouv.fr{' '}
               </p>
             </div>
           )}

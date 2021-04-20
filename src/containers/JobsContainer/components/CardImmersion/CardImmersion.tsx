@@ -19,7 +19,7 @@ interface IProps {
   lat: number;
 }
 
-const CardImmersion = ({ data, onClickContact, onClickConseil, showMap ,  lng, lat }: IProps) => {
+const CardImmersion = ({ data, onClickContact, onClickConseil, showMap, lng, lat }: IProps) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const toRad = (Value: number) => {
@@ -56,12 +56,13 @@ const CardImmersion = ({ data, onClickContact, onClickConseil, showMap ,  lng, l
           <div className={classes.logoItemDescription}>
             <img src={Location} alt="" />
             <div className={classes.textLogo}>
-                {/* {
+              {/* {
                   calcCrow(data?.place?.latitude, data?.place?.longitude, lat, lng)} */}
-                { calcCrow(data.lat, data.lon, lat, lng)}
-                {' Km '}
-                de ton lieu de recherche
-              </div>          </div>
+              {calcCrow(data.lat, data.lon, lat, lng)}
+              {' Km '}
+              de ton lieu de recherche
+            </div>{' '}
+          </div>
           <div className={classes.logoItemDescription}>
             <img src={Car} alt="" />
             <div className={classes.textLogo}>4 min en voiture</div>

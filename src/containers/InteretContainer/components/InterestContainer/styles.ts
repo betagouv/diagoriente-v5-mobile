@@ -22,7 +22,7 @@ export default makeStyles<Theme, { height: number; full?: boolean }>((theme) => 
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
-    padding:'0px 3px'
+    padding: '0px 3px',
   },
   resetLogo: {
     position: 'absolute',

@@ -65,7 +65,6 @@ export default makeStyles((theme) => ({
     },
   },
   btnLabel: {
-    
     color: '#fff',
     textTransform: 'none',
     fontWeight: 'bold',
@@ -83,8 +82,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginTop: 14,
-    color:"#00B2DB"
-
+    color: '#00B2DB',
   },
   conditionText: {
     fontSize: 14,
@@ -116,33 +114,31 @@ export default makeStyles((theme) => ({
       color: '#00CFFF',
     },
   },
-  groupBtnTextContainer:{
+  groupBtnTextContainer: {
     justifyContent: 'center',
-    width:'max-content',
-    paddingLeft:75,
+    width: 'max-content',
+    paddingLeft: 75,
     [theme.breakpoints.down(450)]: {
-      display:'flex',
-      flexDirection:'column',
-      paddingRight:69,
-      justifyContent:'flex-end',
-      paddingLeft:0,
-
+      display: 'flex',
+      flexDirection: 'column',
+      paddingRight: 69,
+      justifyContent: 'flex-end',
+      paddingLeft: 0,
+    },
+    '@media not all and (min-resolution:.001dpcm)': {
+      justifyContent: 'center',
+      width: 'max-content',
+      paddingLeft: 99,
+      [theme.breakpoints.down(450)]: {
+        display: 'flex',
+        flexDirection: 'column',
+        paddingRight: 69,
+        justifyContent: 'flex-end',
+        paddingLeft: 0,
       },
-      '@media not all and (min-resolution:.001dpcm)': {
-        justifyContent: 'center',
-        width:'max-content',
-        paddingLeft:99,
-        [theme.breakpoints.down(450)]: {
-          display:'flex',
-          flexDirection:'column',
-          paddingRight:69,
-          justifyContent:'flex-end',
-          paddingLeft:0,
-    
-          },
-          },
+    },
   },
-  inputContainer:{
+  inputContainer: {
     display: 'grid',
     gridTemplateAreas: '"label input"',
     gridTemplateColumns: '138px 269px',
@@ -152,13 +148,13 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
     margin: '0px 0px 0px 0px',
     width: '100%',
-   [theme.breakpoints.down(450)]: {
-     display:'flex',
-     flexDirection:'column',
-     gridGap:0,
-     alignItems:'flex-start',
-     },
-     '@media not all and (min-resolution:.001dpcm)': {
+    [theme.breakpoints.down(450)]: {
+      display: 'flex',
+      flexDirection: 'column',
+      gridGap: 0,
+      alignItems: 'flex-start',
+    },
+    '@media not all and (min-resolution:.001dpcm)': {
       display: 'grid',
       gridTemplateAreas: '"label input"',
       gridTemplateColumns: '138px 269px',
@@ -168,15 +164,12 @@ export default makeStyles((theme) => ({
       justifyContent: 'center',
       margin: '0px 0px 0px 0px',
       width: '100%',
-     [theme.breakpoints.down(450)]: {
-       display:'flex',
-       flexDirection:'column',
-       gridGap:0,
-       alignItems:'flex-start',
-       },
-        },
+      [theme.breakpoints.down(450)]: {
+        display: 'flex',
+        flexDirection: 'column',
+        gridGap: 0,
+        alignItems: 'flex-start',
+      },
+    },
   },
-
-
-
 }));

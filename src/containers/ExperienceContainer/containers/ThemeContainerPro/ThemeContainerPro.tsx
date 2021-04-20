@@ -15,7 +15,6 @@ import useStyles from './styles';
 
 const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const classes = useStyles();
-
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
   const [valueSearch, setValueSearch] = useState('');
   const { redirect } = decodeUri(location.search);
@@ -31,22 +30,18 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const [breaker, setBreaker] = useState(0);
   const jobsId = [] as string[];
   const tagsId = [] as string[];
-
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setValueSearch(value);
   };
-
   useEffect(() => {
     if (selectedTheme) {
       localStorage.setItem('theme', selectedTheme?.id);
     }
   }, [selectedTheme]);
-
   const onNavigate = () => {
     if (selectedTheme) history.push(`/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}`);
   };
-
   const onClickTheme = (theme: Theme, index: number) => {
     if (!isOpen && currentTheme !== index) {
       setIsOpen(true);
@@ -60,7 +55,6 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
       if (selectedTheme) setValueSearch(selectedTheme?.title);
     }
   };
-
   const highlighter = (text: string) => {
     const rep = text.replace(new RegExp('[//,]', 'g'), '\n');
     const spl = rep.split(new RegExp(valueSearch, 'i'));
@@ -77,20 +71,18 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     }
     return title;
   };
-
   useEffect(() => {
     if (data && valueSearch !== '') {
       data.themes.data
         .filter((theme) => !parcours?.skills.find((id) => theme.id === id.theme?.id))
-        .map((theme, index) => {
+        // eslint-disable-next-line array-callback-return
+        .map((theme) => {
           const t = theme.title.replace(new RegExp('[//,]', 'g'), '\n');
           const x = t.split(new RegExp(valueSearch, 'i'));
-          {
-            if (x.length === 1) {
-              tagsId.push(theme.id);
-            } else {
-              jobsId.push(theme.id);
-            }
+          if (x.length === 1) {
+            tagsId.push(theme.id);
+          } else {
+            jobsId.push(theme.id);
           }
         });
       if (jobsId.length !== 0) {
@@ -100,17 +92,16 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
         setTags(data.themes.data.filter((theme) => tagsId.find((id) => theme.id === id)));
       } else setTags([]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
-
   useEffect(() => {
     setJobsNTags([...jobs, ...tags]);
     setBreaker(jobs.length);
   }, [jobs, tags]);
-
   useEffect(() => {
     if (selectedTheme) setValueSearch(selectedTheme?.title);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedTheme?.title]);
-
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -125,7 +116,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                   icon={valueSearch && valueSearch !== selectedTheme?.title ? LoupeBlue : LoupeGray}
                   value={valueSearch}
                   onChange={onChangeValue}
-                  placeholder="Ex : j’ai vendu des fleurs"
+                  placeholder="Ex : j'ai vendu des fleurs"
                   wrapperInputClassName={classes.wrapperInput}
                   inputClassName={classes.input}
                   inputBaseClassName={classes.inputBase}

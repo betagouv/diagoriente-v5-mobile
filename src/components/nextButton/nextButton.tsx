@@ -29,6 +29,7 @@ const NextButton = ({
   ...props
 }: IProps & Props) => {
   const classes = useStyles();
+  const condition = disabled ? '#4D6EC5' : '#223A7A';
   return (
     <Button
       type="submit"
@@ -41,9 +42,9 @@ const NextButton = ({
           {children || 'Suivant'}
         </div>
         <Arrow
-          color={ArrowColor ? '#ffffff' && "#7533FF" : disabled ? '#4D6EC5' : '#223A7A'}
-          width={arrowWidth ? arrowWidth : '12'}
-          height={arrowHeight ? arrowHeight : '19'}
+          color={ArrowColor ? '#ffffff' && '#7533FF' : condition}
+          width={arrowWidth || '12'}
+          height={arrowHeight || '19'}
           className={classes.arrow}
         />
         {fetching && (

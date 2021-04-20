@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { RouteComponentProps, Link } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { useJob } from 'common/requests/jobs';
 import { useImmersion } from 'common/requests/immersion';
 import { Company, Jobs } from 'common/requests/types';
@@ -12,27 +12,20 @@ import ImageTitle from 'components/common/TitleImage/TitleImage';
 import Spinner from 'components/Spinner/Spinner';
 import Button from 'components/nextButton/nextButton';
 
-import Arrow from 'assets/svg/arrow';
-import TraitJaune from 'assets/images/trait_jaune.svg';
 import filter from 'assets/svg/filter.svg';
 import Edit from 'assets/svg/edit.svg';
-import LogoLocation from 'assets/form/location.png';
 import msg from 'assets/svg/msgorange.svg';
 import arrowClose from 'assets/svg/orangeArrow.svg';
 import attention from 'assets/svg/attentionpink.svg';
 import { decodeUri } from 'utils/url';
-
-import Loupe from 'assets/svg/loupe';
 
 import ImmersionForm from '../../components/Immersion/ImmersionForm';
 import ModalConseil from '../Modals/ConseilModal/ConseilModal';
 import ModalContact from '../Modals/ContactModal/ContactModal';
 import CardImmersion from '../../components/CardImmersion/CardImmersion';
 import CheckBox from '../../components/checkBox/ChexBox';
-import Switch from '../../components/Switch/Switch';
 // import SwitchRayon from '../../components/SwitchRayon/SwitchRayon';
 import useStyles from './styles';
-import { ContactsOutlined } from '@material-ui/icons';
 
 interface IProps extends RouteComponentProps<{ id: string }> {
   jobs: Jobs[];
@@ -62,16 +55,12 @@ const ImmersionContainer = ({
 
   const [selectedTaille, setSelectedTaille] = useState('Toutes tailles');
   const [selectedDistance, setSelectedDistance] = useState('30 km');
-  const [selectedTrier, setSelectedTrier] = useState('Toutes tailles');
-
   const [selectedTri, setSelectedTri] = useState('Tri optimisé');
 
   const [selectedImmersion, setSelectedImmersion] = useState<string | undefined>('');
   const [selectedImmersionCode, setSelectedImmersionCode] = useState('');
   const [coordinates, setCoordinates] = useState<number[]>([]);
   const [filteredArray, setFiltredArray] = useState<Jobs[] | undefined>([]);
-  const [typeApiImmersion, setTypeApi] = useState('');
-
   const [page, setPage] = useState(1);
   const [items, setItems] = useState<number[]>([]);
 
@@ -84,15 +73,13 @@ const ImmersionContainer = ({
       switch: true,
       switchRayon: '',
       distance: '30',
-
     },
-
   });
   const [immersionCall, immersionState] = useImmersion();
   const { search } = location;
   const { romeCodes, latitude, longitude, pageSize, distances, selectedLoc } = decodeUri(search);
   const param = match.params.id;
-  const [loadJob, { data, loading }] = useJob({ variables: { id: param } });
+  const [loadJob, { data }] = useJob({ variables: { id: param } });
   useDidMount(() => {
     loadJob();
   });
@@ -168,17 +155,14 @@ const ImmersionContainer = ({
     immersionCall,
     // page,
   ]);
-console.log(distances,'dis')
   const getData = (pg: number) => {
     setPage(pg);
   };
 
   const tri = [
- 
     {
-      label:'Tri optimisé',
+      label: 'Tri optimisé',
       value: 'tri optimisé',
-
     },
     {
       label: 'Distance',
@@ -294,7 +278,6 @@ console.log(distances,'dis')
       page_size: 6,
       distance: 5,
       // distance: 30,
-
     };
     immersionCall({ variables: dataTo });
   };
@@ -302,7 +285,14 @@ console.log(distances,'dis')
   return (
     <div className={classes.root}>
       <div className={classes.content}>
-        <ImageTitle title="TROUVER UNE IMMERSION"  backgroudColor={'#ffff'} color="#DB8F00" size={32} btnImage={filter} onClick={onOpenFilter} />
+        <ImageTitle
+          title="TROUVER UNE IMMERSION"
+          backgroudColor="#ffff"
+          color="#DB8F00"
+          size={32}
+          btnImage={filter}
+          onClick={onOpenFilter}
+        />
 
         <div className={classes.wrapper}>
           <div className={classes.filtersContainer}>
@@ -318,7 +308,6 @@ console.log(distances,'dis')
                   onSelect={onSelect}
                   selectedLocation={selectedLocation}
                   listLocation={listLocation}
-                  LogoLocation={LogoLocation}
                   openLocation={openLocation}
                   setOpenLocation={setOpenLocation}
                   onClickImmersion={onClickImmersion}
@@ -356,8 +345,6 @@ console.log(distances,'dis')
                     <div className={classes.filterMainTitle}>Trier</div>
                     {tri.map((el) => (
                       <CheckBox key={el.label} label={el.label} onClick={() => onChangeTri(el)} value={selectedTri} />
-                      // <CheckBox key={el.label} label={el.label} onClick={() => onChangeTri(el)} value={selectedTri} />
-
                     ))}
                   </div>
 
@@ -374,7 +361,7 @@ console.log(distances,'dis')
                       />
                     ))}
                   </div>
-      
+
                   <div className={classes.distanceContainer}>
                     <div className={classes.filterTitle}>Distance</div>
                     {distance.map((el) => (
@@ -386,7 +373,6 @@ console.log(distances,'dis')
                       />
                     ))}
                   </div>
-                  
                 </div>
               </div>
             )}

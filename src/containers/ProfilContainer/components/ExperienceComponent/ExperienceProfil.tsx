@@ -5,10 +5,8 @@ import { UserParcour } from 'common/requests/types';
 import { Unpacked } from 'utils/types';
 
 import { decodeUri, encodeUri } from 'utils/url';
-import { useWillUnmount } from 'common/hooks/useLifeCycle';
 import useParcourSkills from 'common/hooks/useParcourSkills';
 import parcoursContext from 'common/contexts/ParcourContext';
-import classNames from 'utils/classNames';
 import Grid from '@material-ui/core/Grid';
 import Recommendation from 'components/ui/RecommendationModal/RecommendationModal';
 import Popup from 'components/common/Popup/Popup';
@@ -34,13 +32,10 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
   const { data: secteurs } = useContext(SecteurContext);
 
   const { setParcours } = useContext(parcoursContext);
-  const [rowSize, setRowSize] = useState(window.innerWidth < 1280 ? 2 : 3);
 
   const [deleteSkill, stateSkill] = useDeleteSkill();
 
   const skills = skillState.data?.skills.data;
-
-  const showAddCard = !skills || skills.length % rowSize !== 0;
 
   useEffect(() => {
     if (stateSkill.data) {
@@ -66,17 +61,6 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
   const handleDelete = (id: string) => {
     setDeleteId(id);
   };
-
-  const onWindowResize = () => {
-    setRowSize(window.innerWidth < 1280 ? 2 : 3);
-  };
-  useEffect(() => {
-    window.addEventListener('resize', onWindowResize);
-  }, []);
-
-  useWillUnmount(() => {
-    window.removeEventListener('resize', onWindowResize);
-  });
 
   if (type !== 'personal' && type !== 'professional' && type !== 'engagement') {
     return <NotFoundPage />;
@@ -126,13 +110,7 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
         <Title title={getTitle()} color="#4D6EC5" size={42} className={classes.title} />
         <div className={classes.empty} />
       </div>
-      <span className={classes.text}>
-        Liste des expériences
-        {' '}
-        {getSubTitle()}
-        {' '}
-        que tu as renseignées
-      </span>
+      <span className={classes.text}>Liste des expériences {getSubTitle()} que tu as renseignées</span>
       {skillState.loading ? (
         <div className={classes.spinner}>
           <Spinner />
@@ -157,16 +135,12 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
                         ? secteurs?.themes.data.find((secteur) => secteur.id === s.theme.parentId)?.resources?.icon
                         : s.theme.resources?.icon
                     }
-                    type={type}
                     icon={s?.engagement?.context?.icon}
                   />
                 </Grid>
               ))}
-
           </Grid>
-
         </div>
-
       )}
       {skill && <Recommendation skill={skill} open={open} setOpen={setOpen} />}
 
@@ -193,16 +167,11 @@ const ExperienceComponent = ({ location, history }: RouteComponentProps) => {
       <div className={classes.btnEx}>
         <Link to={getUrl()} className={classes.link}>
           <Button className={classes.btn}>
-            <span className={classes.textButton}>
-              J’ajoute une expérience
-              {' '}
-              {getSubTitle()}
-            </span>
+            <span className={classes.textButton}>J’ajoute une expérience {getSubTitle()}</span>
           </Button>
         </Link>
       </div>
     </div>
-
   );
 };
 export default ExperienceComponent;

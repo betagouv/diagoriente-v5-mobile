@@ -54,11 +54,7 @@ const ResultCompetences = ({ theme, match }: Props) => {
 
         <div className={classes.description}>
           <p className={classes.text}>
-            Tu as ajouté une expérience
-            {' '}
-            {typeXp}
-            {' '}
-            à ton parcours et identifié de nouvelles compétences.
+            Tu as ajouté une expérience {typeXp} à ton parcours et identifié de nouvelles compétences.
           </p>
         </div>
 

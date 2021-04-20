@@ -1,10 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { MutationTuple, QueryTuple, QueryOptions } from '@apollo/react-hooks';
+import { MutationTuple, QueryTuple, QueryOptions, QueryResult } from '@apollo/react-hooks';
 import { ApolloError } from 'apollo-boost';
-import { QueryResult } from '@apollo/react-common';
-import {
- Route, matchPath, RouteComponentProps, match as Match, Link, Switch,
-} from 'react-router-dom';
+import { Route, matchPath, RouteComponentProps, match as Match, Link, Switch } from 'react-router-dom';
 import path from 'path';
 import { decodeUri, encodeUri } from 'utils/url';
 import { graphQLResult } from 'utils/graphql';
@@ -91,8 +88,8 @@ const Crud = <
 }: Props<K, T, L, C, U, G, P>) => {
   const classes = useStyle();
 
-  const mutationPlaceholder = <T, V>(): MutationTuple<T, V> => [() => {}, {}] as any;
-  const getQueryPlaceholder = <T, V>(): QueryTuple<T, V> => [() => {}, {}] as any;
+  const mutationPlaceholder = <D, V>(): MutationTuple<D, V> => [() => {}, {}] as any;
+  const getQueryPlaceholder = <D, V>(): QueryTuple<D, V> => [() => {}, {}] as any;
   /* ----- List current params extract ----- */
   const uri = decodeUri(location.search);
 
@@ -106,18 +103,16 @@ const Crud = <
   const [deleteCall, deleteState] = remove || mutationPlaceholder();
   const [error, setError] = useState('');
 
-  const {
- data, page: currentPage, totalPages, count,
-} = useMemo(
+  const { data, page: currentPage, totalPages, count } = useMemo(
     () =>
-      (list.data
+      list.data
         ? graphQLResult(list.data)
         : {
             data: [] as T[],
             page: 1,
             totalPages: 0,
             count: 0,
-          }),
+          },
     [list.data],
   );
   const fetching = list.loading || createState.loading || updateState.loading || deleteState.loading;
@@ -285,11 +280,8 @@ const Crud = <
                   <p className={classes.popupDescription}>
                     Êtes-vous sûr ?
                     <br />
-                    Souhaitez-vous vraiment supprimer
-                    {' '}
-                    {isDelete && isDelete.params.id.split(',').length > 1 ? 'ces documents' : 'ce document'}
-                    {' '}
-                    ?
+                    Souhaitez-vous vraiment supprimer{' '}
+                    {isDelete && isDelete.params.id.split(',').length > 1 ? 'ces documents' : 'ce document'} ?
                     <br />
                     Ce processus est irréversible !
                   </p>

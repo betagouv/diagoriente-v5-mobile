@@ -88,4 +88,5 @@ export default makeStyles(() =>
     empty: {
       width: 160,
     },
-  }));
+  }),
+);

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Families } from 'common/requests/types';
 import Dotdotdot from 'react-dotdotdot';
-import Reset from 'components/common/Rest/Rest';
 import close from 'assets/svg/picto poubelle.svg';
 import useStyles from './styles';
 
@@ -12,9 +11,7 @@ interface IProps {
   direction: 'vertical' | 'horizontal';
   type?: string;
 }
-const SelectedFamille = ({
- handleClick, famille, index, direction, type,
-}: IProps) => {
+const SelectedFamille = ({ handleClick, famille, index, direction, type }: IProps) => {
   const [hover, setHover] = useState(false);
   const classes = useStyles({ direction, hover });
 
@@ -49,7 +46,6 @@ const SelectedFamille = ({
         <div onClick={type !== 'ordre' ? () => handleClick(index) : () => {}} className={classes.closeContainer}>
           {/* <Reset color="#420FAB" size={20} /> */}
           <img src={close} alt="" width={20} height={20} />
-
         </div>
       )}
     </div>

@@ -15,7 +15,6 @@ export default makeStyles((theme) => ({
     height: '92%',
     paddingBottom: 12,
     paddingTop: 35,
-
   },
   frameOverlayContainer: {
     width: '80%',

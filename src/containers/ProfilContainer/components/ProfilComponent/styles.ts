@@ -31,7 +31,6 @@ export default makeStyles((theme) =>
     logoStar: {
       display: 'flex',
       alignItems: 'center',
-
     },
     star: {
       paddingRight: 20,

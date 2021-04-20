@@ -18,21 +18,21 @@ export default makeStyles((theme: Theme) => ({
     },
 
     '@media not all and (min-resolution:.001dpcm)': {
-    // position: 'absolute',
-    backgroundColor: '#00CFFF',
-    // bottom: -25,
-    left: '50%',
-    minWidth: "24vh",
-    [theme.breakpoints.down(400)]: {
-      minWidth: "24vh",
+      // position: 'absolute',
+      backgroundColor: '#00CFFF',
+      // bottom: -25,
+      left: '50%',
+      minWidth: '24vh',
+      [theme.breakpoints.down(400)]: {
+        minWidth: '24vh',
+      },
+      transform: 'translate(-50%,0)',
+      height: 50,
+      borderRadius: 10,
+      '&:hover': {
+        backgroundColor: '#00B2DB ',
+      },
     },
-    transform: 'translate(-50%,0)',
-    height: 50,
-    borderRadius: 10,
-    '&:hover': {
-      backgroundColor: '#00B2DB ',
-    },
-    }
   },
   btnPersoDisabled: {
     backgroundColor: '#7AE6FF',
@@ -65,7 +65,7 @@ export default makeStyles((theme: Theme) => ({
       lineHeight: '26px',
       paddingBottom: 4,
       flex: 1,
-      }
+    },
   },
   btnLabelDisabled: {
     color: '#4D6EC5 !important',

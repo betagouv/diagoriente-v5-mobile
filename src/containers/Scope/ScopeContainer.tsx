@@ -35,9 +35,7 @@ const ScopeContainer = () => {
   return (
     <div>
       <div style={{ textAlign: 'center', fontSize: 24 }}>
-        Veuillez patienter
-        {' '}
-        <Spinner />
+        Veuillez patienter <Spinner />
       </div>
     </div>
   );

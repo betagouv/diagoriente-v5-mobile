@@ -22,9 +22,7 @@ interface AdminSelectProps
   onChange: (e: React.ChangeEvent<{ name?: string; value: string }>) => void;
   selectClassName?: string;
 }
-const AdminSelect = ({
- label, className, options, selectClassName, error, ...rest
-}: AdminSelectProps) => {
+const AdminSelect = ({ label, className, options, selectClassName, error, ...rest }: AdminSelectProps) => {
   const [open, setOpen] = useState(false);
   const [rects, setRects] = useState({ width: 0 });
 

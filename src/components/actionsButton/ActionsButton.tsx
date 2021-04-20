@@ -9,9 +9,7 @@ export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTML
   icon: string;
 }
 
-const ActionButton = ({
- className, icon, text, ...other
-}: Props) => {
+const ActionButton = ({ className, icon, text, ...other }: Props) => {
   const classes = useStyles();
   return (
     <div {...other} className={classes.root}>

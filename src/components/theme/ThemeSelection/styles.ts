@@ -43,25 +43,21 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       maxHeight: 'calc(29vh - 70px)',
       [theme.breakpoints.down(330)]: {
         maxHeight: 'calc(35vh - 70px)',
-
+      },
+      [theme.breakpoints.up(560)]: {
+        maxHeight: 'calc(35vh - 10px)',
+      },
+      '@media not all and (min-resolution:.001dpcm)': {
+        background: '#FFFFFF',
+        overflow: 'hidden',
+        maxHeight: 'calc(29vh - 70px)',
+        [theme.breakpoints.down(330)]: {
+          maxHeight: 'calc(35vh - 70px)',
         },
         [theme.breakpoints.up(560)]: {
           maxHeight: 'calc(35vh - 10px)',
-
-          },
-          '@media not all and (min-resolution:.001dpcm)': {
-            background: '#FFFFFF',
-            overflow: 'hidden',
-            maxHeight: 'calc(29vh - 70px)',
-            [theme.breakpoints.down(330)]: {
-              maxHeight: 'calc(35vh - 70px)',
-
-              },
-              [theme.breakpoints.up(560)]: {
-                maxHeight: 'calc(35vh - 10px)',
-
-                },
-          },
+        },
+      },
     },
 
     header: {
@@ -137,8 +133,7 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       [theme.breakpoints.down(380)]: {
         padding: '0px 15px',
         height: 78,
-
-        },
+      },
     },
 
     themeTile: {
@@ -221,4 +216,5 @@ export default makeStyles<Theme, { theme?: Omit<RequestTheme, 'activities'> | nu
       display: 'flex',
       alignItems: 'center',
     },
-  }));
+  }),
+);

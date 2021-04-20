@@ -1,8 +1,7 @@
-import React, { useMemo, useEffect, useState } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import React, { useMemo, useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
-import Input from 'components/inputs/Input/Input';
 import moment from 'moment';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import ValidationButton from 'components/valideButton/valideButton';
@@ -15,33 +14,16 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   endDate: string;
   setEndDate: (e: string) => void;
   addSkill: () => void;
-  addSkillState: boolean;
   theme: Theme | null;
   activities: string[];
 }
-const EngagementDate = ({
-  history,
-  setStartDate,
-  startDate,
-  endDate,
-  setEndDate,
-  addSkill,
-  addSkillState,
-  match,
-  location,
-  theme,
-  activities,
-}: Props) => {
+const EngagementDate = ({ setStartDate, startDate, endDate, setEndDate, addSkill, theme, activities }: Props) => {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
   const handleChange = (date: string, type: 'Begin' | 'End') => {
     if (type === 'Begin') setStartDate(date);
     else setEndDate(date);
   };
-  /*  const handelChangeInput = (e: React.ChangeEvent<any>) => {
-    const { value } = e.target;
-    setOrganization(value);
-  }; */
 
   const startDateEngagement = useMemo(() => moment(startDate), [startDate]);
 
@@ -50,19 +32,12 @@ const EngagementDate = ({
   const isBeginDateValid = startDateEngagement.month() === Number(moment(startDate).format('MM')) - 1;
   const isEndDateValid = endDateEngagement.month() === Number(moment(endDate).format('MM')) - 1;
   const errorText = 'La date est invalide';
-  const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
 
   const handleOnGoingClick = (e: Event) => {
     e.preventDefault();
     setChecked(!checked);
   };
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
 
-  console.log('startDate', startDate);
-  console.log('endDate', endDate);
   return (
     <div className={classes.root}>
       <BreadCrumb theme={theme} activities={activities} />

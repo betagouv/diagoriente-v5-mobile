@@ -1,6 +1,4 @@
-import React, {
- useContext, useEffect, useRef, useState,
-} from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import Input from 'components/inputs/Input/Input';
 import { useDidMount } from 'common/hooks/useLifeCycle';
 
@@ -30,7 +28,6 @@ const Login = ({ location }: RouteComponentProps) => {
 
   const [loginCall, loginState] = useAuth(useLogin, state.values.stayConnected);
   const [errorCount, setErrorCount] = useState(0);
-  const [openVerif, setOpenVerif] = useState(false);
 
   const [errorForm, setErrorForm] = useState<string>('');
   const checkBoxRef = useRef(null);
@@ -42,13 +39,13 @@ const Login = ({ location }: RouteComponentProps) => {
   useEffect(() => {
     if (loginState.error?.graphQLErrors.length !== 0) {
       if (
-        loginState.error?.graphQLErrors[0].message
-        && typeof loginState.error?.graphQLErrors[0].message === 'object'
+        loginState.error?.graphQLErrors[0].message &&
+        typeof loginState.error?.graphQLErrors[0].message === 'object'
       ) {
         setErrorForm((loginState.error?.graphQLErrors[0].message as any).message);
       } else if (
-        loginState.error?.graphQLErrors[0].message
-        && typeof loginState.error?.graphQLErrors[0].message === 'string'
+        loginState.error?.graphQLErrors[0].message &&
+        typeof loginState.error?.graphQLErrors[0].message === 'string'
       ) {
         setErrorCount(errorCount + 1);
 

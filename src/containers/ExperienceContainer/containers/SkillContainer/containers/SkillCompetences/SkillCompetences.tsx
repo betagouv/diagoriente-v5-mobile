@@ -14,38 +14,24 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   competences: Competence[];
   setCompetences: (Competences: Competence[]) => void;
   theme: Theme | null;
-  isCreate?: boolean;
   activities: string[];
 }
-
-const ExperienceCompetence = ({
-  match,
-  competences,
-  setCompetences,
-  theme,
-  history,
-  isCreate,
-  activities,
-  location,
-}: Props) => {
+const ExperienceCompetence = ({ match, competences, setCompetences, theme, history, activities, location }: Props) => {
   const classes = useStyles();
   const { data, loading } = useCompetences({ variables: theme?.type === 'engagement' ? { type: 'engagement' } : {} });
   const [opened, setOpened] = React.useState(false);
   const [text, setText] = React.useState('');
   const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(-1);
   const [openDescription, setOpenDescription] = useState(false);
-
   const handleClose = () => {
     setOpened(false);
   };
-
   const onNavigate = () => {
     if (competences.length && competences.length <= 4) {
       history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
     }
     setOpened(false);
   };
-
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -100,7 +86,6 @@ const ExperienceCompetence = ({
         </Popup>
         {competences.length > 0 && competences.length < 5 && <div className={classes.emptyDiv} />}
       </div>
-
       {competences.length > 0 && competences.length < 5 && (
         <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => onNavigate()} />
       )}

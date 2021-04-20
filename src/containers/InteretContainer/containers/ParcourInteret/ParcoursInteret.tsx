@@ -1,17 +1,11 @@
-import React, {
- useState, useContext, useMemo, useEffect,
-} from 'react';
+import React, { useState, useContext, useMemo, useEffect } from 'react';
 import { useFamilies } from 'common/requests/familles';
 import Button from 'components/button/Button';
 import { Families } from 'common/requests/types';
-import ModalContainer from 'components/common/Modal/ModalContainer';
 import { useParams, Link, RouteComponentProps } from 'react-router-dom';
-import { TransitionProps } from '@material-ui/core/transitions';
 import Divider from '@material-ui/core/Divider';
-import Slide from '@material-ui/core/Slide';
 import classNames from 'utils/classNames';
 
-import Dialog from '@material-ui/core/Dialog';
 import { groupBy } from 'lodash';
 import PlaceHolder from 'containers/InteretContainer/components/placeholderInterest/Placeholder';
 import Arrow from 'assets/svg/arrow';
@@ -22,7 +16,6 @@ import interestContext from 'common/contexts/InterestSelected';
 import parcoursContext from 'common/contexts/ParcourContext';
 import Slider from 'components/Slider/Slider';
 import closeButton from 'assets/svg/closeX.svg';
-import logo from 'assets/svg/picto_attention.svg';
 import Spinner from '../../components/SpinnerInterest/Spinner';
 import FamileSelected from '../../components/SelectedFamille/SelectedFamille';
 
@@ -32,10 +25,6 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   const classes = useStyles();
   const param = useParams();
   const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
 
   const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
   useEffect(() => {
@@ -87,6 +76,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
     return array;
   };
 
+  // eslint-disable-next-line consistent-return
   const renderPlaceholder = () => {
     const array: JSX.Element[] = [];
 
@@ -197,7 +187,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
             </div>
             <div>
               <Button onClick={onHandelClose} className={classes.btn}>
-                <div className={classes.comprisButton}>J'ai compris !</div>
+                <div className={classes.comprisButton}>J&apos;ai compris !</div>
               </Button>
             </div>
           </div>
@@ -222,7 +212,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
             </div>
             <div className={classes.btn}>
               <Button onClick={onHandelCloseWarning}>
-                <div className={classes.comprisButton}>J'ai compris !</div>
+                <div className={classes.comprisButton}>J&apos;ai compris !</div>
               </Button>
             </div>
           </div>
@@ -237,8 +227,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
             <div>
               <div className={classes.headerModelConfirm}>
                 <span className={classes.textModelConfirm}>
-                  Ma sélection (
-                  {selectedInterest?.length}
+                  Ma sélection ({selectedInterest?.length}
                   /5)
                 </span>
                 <Arrow color="white" width="22" height="22" className={classes.arrowStyle} />

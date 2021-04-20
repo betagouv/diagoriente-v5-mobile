@@ -15,7 +15,6 @@ interface Props {
   font?: string;
   width?: number;
   className?: string;
-  classNameTitle?: string;
   backgroudColor?: string;
   btnImage?: string;
   onClick?: () => void;
@@ -36,7 +35,6 @@ const TitleImage = ({
   btnImage,
   onClick,
   backgroudColor,
-  classNameTitle,
 }: Props) => {
   const classes = useStyles({
     color,

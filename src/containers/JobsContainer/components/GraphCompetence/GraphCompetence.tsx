@@ -1,9 +1,6 @@
 /* eslint-disable default-case */
 import React, { useState, useRef } from 'react';
-import { echelon } from 'utils/generic';
 import { useCompetences } from 'common/requests/competences';
-import Divider from '@material-ui/core/Divider';
-import Point from 'assets/svg/point.svg';
 import useStyles from './styles';
 
 interface IProps {
@@ -32,6 +29,7 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
   let competenceValue = 0;
 
   const getCompetenceValue = (id: string) => {
+    // eslint-disable-next-line array-callback-return
     competenceUser?.map((el) => {
       if (el.value === 1 && el.id === id) competenceValue = 1;
       if (el.value === 2 && el.id === id) competenceValue = 2;
@@ -101,11 +99,11 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
                   className={classes.competenceTitle}
                   style={{
                     fontWeight:
-                      (select === 'jobCompetence' && compValue === 4)
-                      || (select === 'parcoursCompetence'
-                        && isExist(competence.id)
-                        && !isLess(competence.id)
-                        && getCompetenceValue(competence.id) === 4)
+                      (select === 'jobCompetence' && compValue === 4) ||
+                      (select === 'parcoursCompetence' &&
+                        isExist(competence.id) &&
+                        !isLess(competence.id) &&
+                        getCompetenceValue(competence.id) === 4)
                         ? 700
                         : 400,
                   }}
@@ -128,6 +126,7 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
                     {[...Array(getCompetenceValue(competence.id))].map((p, point) => (
                       // eslint-disable-next-line
                       <div
+                        // eslint-disable-next-line react/no-array-index-key
                         key={point}
                         className={classes.point}
                         style={{ background: isExist(competence.id) && !isLess(competence.id) ? '#00CFFF' : '#FFA600' }}
@@ -136,6 +135,7 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
                     {[...Array(4 - getCompetenceValue(competence.id))].map((p, point) => (
                       // eslint-disable-next-line
                       <div
+                        // eslint-disable-next-line react/no-array-index-key
                         key={point}
                         className={classes.point}
                         style={{ background: isExist(competence.id) && !isLess(competence.id) ? '#7AE6FF' : '#FFD382' }}

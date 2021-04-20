@@ -8,7 +8,7 @@ import RootContainer from 'containers/RootContainer';
 
 function App() {
   return (
-    <ApolloProvider client={client as any}>
+    <ApolloProvider client={client}>
       <BrowserRouter>
         <RootContainer />
       </BrowserRouter>
