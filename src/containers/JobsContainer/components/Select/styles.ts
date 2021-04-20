@@ -31,6 +31,7 @@ export default makeStyles<
     height: 46,
     width: 320,
     fontFamily: 'Andika New Basic',
+
     // border: (props) => `1px solid ${'#C9C9C7' && props.borderColor} ` ,
     border: (props) =>
       // eslint-disable-next-line no-nested-ternary
