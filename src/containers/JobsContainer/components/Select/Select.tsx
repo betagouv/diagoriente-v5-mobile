@@ -78,7 +78,7 @@ const SelectJobs = ({
           className={classNames(
             from && classes.inputContainer1,
             classes.inputBorder,
-            isInclude && classes.selectedInput,
+            // isInclude && classes.selectedInput,
           )}
         />
         <div className={classes.logoContainer}>

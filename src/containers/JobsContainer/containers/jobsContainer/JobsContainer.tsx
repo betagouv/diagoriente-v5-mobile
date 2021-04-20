@@ -8,13 +8,12 @@ import ParcoursContext from 'common/contexts/ParcourContext';
 import { Jobs } from 'common/requests/types';
 import pictoFilter from 'assets/svg/picto filtres.svg';
 import Slide from '@material-ui/core/Slide';
-import classNames from 'utils/classNames';
 import arrow from 'assets/svg/Vector (12).svg';
 import Reset from 'components/common/Rest/Rest';
 import Spinner from 'components/Spinner/Spinner';
+import classNames from 'utils/classNames';
 
 import Button from 'components/button/Button';
-import classesNames from 'utils/classNames';
 import Autocomplete from '../../components/Autocomplete/AutoCompleteJob';
 import JobCard from '../../components/Card/CardJob';
 import Select from '../../components/Select/Select';
@@ -293,18 +292,17 @@ const JobsContainer = ({
               name="domaine"
               value={domaine}
               placeholder={getDomaineName(domaine)}
-              className={classNames( domaine && classes.selectedDomaineSelect, classes.domaineSelect)}      
+              // className={classNames(domaine&&classes.selectedDomaineSelect, classes.domaineSelect)}
               open={openDomain}
               fullScreenModal
               onClick={() => setOpenDomain(!openDomain)}
-              onCloseSelect={closeSelect}
+              // onCloseSelect={closeSelect}
               onClose={() => setOpenDomain(false)}
               arrowColor="#DB8F00"
               from="job"
-              borderColor={domaine?.length!==0  ? '#DB8F00  ' :'#C9C9C7 '}
-              bkColor={"#FFD382"}
-              placeHolderColor={domaine?.length!==0 ?  '#DB8F00' :'#424242'}
-
+              borderColor={domaine?.length !== 0 ? '#DB8F00  ' : '#C9C9C7 '}
+              bkColor="#FFD382"
+              placeHolderColor={domaine?.length !== 0 ? '#DB8F00' : '#424242'}
             />
             <Select
               options={listTypeData}
@@ -320,11 +318,9 @@ const JobsContainer = ({
               arrowColor="#DB8F00"
               from="job"
               check
-              borderColor={environments?.length!==0? '#DB8F00  ' :'#C9C9C7  '}
-              bkColor={"#FFD382"}
-              placeHolderColor={environments?.length!==0 ?  '#DB8F00' :'#424242'}
-
-
+              borderColor={environments?.length !== 0 ? '#DB8F00  ' : '#C9C9C7  '}
+              bkColor="#FFD382"
+              placeHolderColor={environments?.length !== 0 ? '#DB8F00' : '#424242'}
             />
             <Select
               options={listAccData}
@@ -340,11 +336,9 @@ const JobsContainer = ({
               arrowColor="#DB8F00"
               from="job"
               check
-              borderColor={accessibility?.length!==0? '#DB8F00 ' :'#C9C9C7 '}
-              bkColor={"#FFD382"}
-              placeHolderColor={accessibility?.length!==0 ? '#DB8F00 ' : '#424242'}
-
-
+              borderColor={accessibility?.length !== 0 ? '#DB8F00 ' : '#C9C9C7 '}
+              bkColor="#FFD382"
+              placeHolderColor={accessibility?.length !== 0 ? '#DB8F00 ' : '#424242'}
             />
           </div>
           {loading ? (
@@ -363,7 +357,7 @@ const JobsContainer = ({
         <div className={classes.footerContainer}>
           <div className={classes.footerContent}>
             <div className={classes.itemFooter} />
-            <div className={classesNames(classes.itemFooter, classes.centerItem)}>
+            <div className={classNames(classes.itemFooter, classes.centerItem)}>
               <Button
                 onClick={() => {
                   scrollRef.current = window.scrollY;
@@ -374,7 +368,7 @@ const JobsContainer = ({
                 Voir plus de métiers
               </Button>
             </div>
-            <div className={classesNames(classes.itemFooter, classes.rightItem)}>
+            <div className={classNames(classes.itemFooter, classes.rightItem)}>
               <div className={classes.rightItem}>
                 <span className={classes.textSelect}>Afficher</span>
                 <SelectData

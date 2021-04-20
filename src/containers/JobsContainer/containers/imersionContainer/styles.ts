@@ -272,7 +272,6 @@ export default makeStyles<Theme>((theme) => ({
     lineHeight: '26px',
     color: '#DB8F00',
     marginLeft: 20,
- 
   },
 
   fullScreenItem: {

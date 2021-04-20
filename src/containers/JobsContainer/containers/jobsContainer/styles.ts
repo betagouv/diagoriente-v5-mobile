@@ -242,17 +242,12 @@ export default makeStyles((theme) => ({
     width: '280px',
     height: '50px',
     margin: 20,
-    fontWeight:900,
     '&:hover': {
       backgroundColor: '#DB8F00',
     },
   },
-  selectedDomaineSelect:{
-
-  },
-  domaineSelect:{
-
-  },
+  selectedDomaineSelect: {},
+  domaineSelect: {},
   itemFooter: { width: '100%' },
   centerItem: { display: 'flex', justifyContent: 'center' },
   rightItem: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 20 },
