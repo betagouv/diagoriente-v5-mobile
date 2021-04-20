@@ -1,6 +1,6 @@
-import React, { useMemo, useEffect, useState } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Theme } from 'requests/types';
+import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
+import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import Input from 'components/inputs/Input/Input';
 import ValidationButton from 'components/valideButton/valideButton';
@@ -28,9 +28,8 @@ const EngagementOrganisation = ({
     setOrganization(value);
   };
   const onNavigate = () => {
-    {
-      organization && history.push(`/experience/skill/${match.params.themeId}/date${location.search}`);
-    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    organization && history.push(`/experience/skill/${match.params.themeId}/date${location.search}`);
   };
   return (
     <div className={classes.root}>

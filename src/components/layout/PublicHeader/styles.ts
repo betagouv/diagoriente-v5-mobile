@@ -125,4 +125,5 @@ export default makeStyles((theme: Theme) =>
         height: 45,
       },
     },
-  }));
+  }),
+);

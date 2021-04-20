@@ -1,5 +1,5 @@
 import React, { forwardRef, Ref } from 'react';
-import { SkillType } from 'requests/types';
+import { SkillType } from 'common/requests/types';
 import { Unpacked } from 'utils/types';
 
 import classNames from 'utils/classNames';
@@ -14,19 +14,14 @@ interface Props extends CommentType {
 }
 
 const Comment = forwardRef(
-  ({
- firstName, lastName, location, commentText, className, children,
-}: Props, ref: Ref<HTMLDivElement>) => {
+  ({ firstName, lastName, location, commentText, className, children }: Props, ref: Ref<HTMLDivElement>) => {
     const classes = useStyles();
     return (
       <div ref={ref} className={classNames(classes.container, className)}>
         <div className={classes.title}>
-          Expérience validée par
-          {' '}
+          Expérience validée par{' '}
           <span className={classes.user}>
-            {firstName}
-            {' '}
-            {lastName}
+            {firstName} {lastName}
           </span>
           {location && (
             <>

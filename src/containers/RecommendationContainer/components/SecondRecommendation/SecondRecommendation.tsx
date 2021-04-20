@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect, RouteComponentProps } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField/TextField';
-import { useDidMount } from 'hooks/useLifeCycle';
+import { useDidMount } from 'common/hooks/useLifeCycle';
 import TitleSection from 'components/common/TitleSection/TitleSection';
 import RadioButton from 'components/radioButton/RadioButton';
 import AutoComplete from 'components/inputs/AutoComplete/AutoComplete';
@@ -10,9 +10,9 @@ import Button from 'components/button/Button';
 import medaille from 'assets/svg/medaille.svg';
 import LogoLocation from 'assets/form/location.png';
 
-import { useLocation } from 'requests/location';
-import { useUpdateSkillComment } from 'requests/skillComment';
-import { PublicSkill } from 'requests/types';
+import { useLocation } from 'common/requests/location';
+import { useUpdateSkillComment } from 'common/requests/skillComment';
+import { PublicSkill } from 'common/requests/types';
 
 import useStyles from './styles';
 
@@ -35,13 +35,7 @@ const SecondRecommendation = ({ skill, comment, location }: Props) => {
 
   const title = (
     <span>
-      Recommanderiez-vous le travail de
-      {' '}
-      {skill.user.firstName}
-      {' '}
-      {skill.user.lastName}
-      {' '}
-      à des recruteurs
+      Recommanderiez-vous le travail de {skill.user.firstName} {skill.user.lastName} à des recruteurs
       <br />
       (votre réponse restera confidentielle) ?
     </span>

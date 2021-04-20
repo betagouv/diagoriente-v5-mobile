@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useForm } from 'hooks/useInputs';
-import { Competence } from 'requests/types';
+import { useForm } from 'common/hooks/useInputs';
+import { Competence } from 'common/requests/types';
 import AdminTextField from 'components/inputs/AdminTextField/AdminTextField';
 import Button from '@material-ui/core/Button/Button';
 import AdminSelect from 'components/inputs/AdminSelect/AdminSelect';
@@ -48,7 +48,7 @@ const CompetenceForm = ({ onSubmit, competence }: ContextFormProps) => {
     e.preventDefault();
     const data = { ...values, rank: Number(values.rank) };
 
-    if (!data.type || data.type === 'default') delete data.type;
+    if (!data.type || data.type === 'default') delete (data as any).type;
     onSubmit(data);
   }
 

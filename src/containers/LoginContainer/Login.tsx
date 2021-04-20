@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import Input from 'components/inputs/Input/Input';
-import { useDidMount } from 'hooks/useLifeCycle';
+import { useDidMount } from 'common/hooks/useLifeCycle';
 
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import Button from 'components/button/Button';
 import Grid from '@material-ui/core/Grid';
 import { Redirect, RouteComponentProps, Link } from 'react-router-dom';
-import UserContext from 'contexts/UserContext';
+import UserContext from 'common/contexts/UserContext';
 import { decodeUri } from 'utils/url';
 import { validateEmail } from 'utils/validation';
-import { useForm } from 'hooks/useInputs';
-import { useLogin } from 'requests/auth';
+import { useForm } from 'common/hooks/useInputs';
+import { useLogin } from 'common/requests/auth';
 
-import useAuth from 'hooks/useAuth';
+import useAuth from 'common/hooks/useAuth';
 import useStyles from './styles';
 
 const Login = ({ location }: RouteComponentProps) => {
@@ -28,7 +28,6 @@ const Login = ({ location }: RouteComponentProps) => {
 
   const [loginCall, loginState] = useAuth(useLogin, state.values.stayConnected);
   const [errorCount, setErrorCount] = useState(0);
-  const [openVerif, setOpenVerif] = useState(false);
 
   const [errorForm, setErrorForm] = useState<string>('');
   const checkBoxRef = useRef(null);

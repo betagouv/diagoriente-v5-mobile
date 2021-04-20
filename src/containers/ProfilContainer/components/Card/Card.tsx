@@ -6,26 +6,22 @@ import editIcon from 'assets/svg/editblue.svg';
 import recoIcon from 'assets/svg/pmedaille.svg';
 import removeIcon from 'assets/svg/delete.svg';
 
-import { Competence } from 'requests/types';
+import { Competence } from 'common/requests/types';
 import useStyles from './styles';
 
 interface Props {
   className?: string;
   title: string;
-  logo?: string;
   competence: { _id: Competence; value: number }[];
   id: string;
   edit?: (id: string) => void;
   remove?: (id: string) => void;
   recommendation?: (id: string) => void;
   src?: string;
-  type?: string;
   icon?: string;
 }
 
-const Card = ({
- title, src, className, competence, id, edit, remove, recommendation, type, icon,
-}: Props) => {
+const Card = ({ title, src, className, competence, id, edit, remove, recommendation, icon }: Props) => {
   const classes = useStyles();
   const Tab = [
     {
@@ -55,9 +51,9 @@ const Card = ({
     <div className={classNames(classes.cardContainer, className)}>
       <div className={classes.root}>
         <div className={classes.titleContainer}>
-       <div>   {src && <img src={src} alt="" className={classes.image} height={85} width={85} />} </div>
+          <div> {src && <img src={src} alt="" className={classes.image} height={85} width={85} />} </div>
           <span className={classes.title}>{title}</span>
-        <div>  {icon && <img src={icon} alt="" className={classes.icon} height={44} width={44} />} </div>
+          <div> {icon && <img src={icon} alt="" className={classes.icon} height={44} width={44} />} </div>
         </div>
 
         {competence.map((comp) => (

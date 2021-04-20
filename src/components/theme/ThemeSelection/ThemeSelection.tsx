@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { useWillUnmount } from 'hooks/useLifeCycle';
-import SelectionContext from 'contexts/SelectionContext';
+import { useWillUnmount } from 'common/hooks/useLifeCycle';
+import SelectionContext from 'common/contexts/SelectionContext';
 import { matchPath, useLocation } from 'react-router-dom';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import Avatar from 'components/common/Avatar/Avatar';
 import Button from 'components/button/Button';
 
@@ -16,7 +16,7 @@ interface Props {
   activities: string[];
 }
 
-const PrivateHeader = ({ theme, activities  }: Props) => {
+const PrivateHeader = ({ theme, activities }: Props) => {
   const classes = useStyles({ theme });
   const location = useLocation();
   const isTheme = Boolean(matchPath(location.pathname, { path: '/experience/theme', exact: true }));
@@ -63,23 +63,22 @@ const PrivateHeader = ({ theme, activities  }: Props) => {
     <div className={classes.appBar}>
       <div onClick={toggle} className={classes.container}>
         <div className={classes.selctionBlob}>
-        <p className={classes.titleSelection}>Ta sélection</p>
-        {((isAct && activities.length > 0) || (isTheme && theme)) && (
-          <div className={classNames(classes.blob, EffectState && classes.animation)}>
-            <div className={classes.badgeText}>{(isAct && activities.length) || (isTheme && theme && '1')}</div>
-          </div>
-        )}
+          <p className={classes.titleSelection}>Ta sélection</p>
+          {((isAct && activities.length > 0) || (isTheme && theme)) && (
+            <div className={classNames(classes.blob, EffectState && classes.animation)}>
+              <div className={classes.badgeText}>{(isAct && activities.length) || (isTheme && theme && '1')}</div>
+            </div>
+          )}
         </div>
-       
+
         <img
           src={arrow}
           alt="menu"
           height={12}
           className={classNames(classes.menuIcon, !open ? classes.menuIconClosed : undefined)}
         />
-     
       </div>
-    
+
       {open && (
         <div className={classes.childrenSelection}>
           <div className={classes.themeRoot}>
@@ -95,9 +94,7 @@ const PrivateHeader = ({ theme, activities  }: Props) => {
                     >
                       <img src={theme.resources?.icon} alt="" className={classes.avatarStyle} height={90} />
                     </Avatar>
-                  ) : (
-                    undefined
-                  )}
+                  ) : undefined}
                   {theme.type === 'professional' ? (
                     <li className={classes.dot}>{theme.title}</li>
                   ) : (

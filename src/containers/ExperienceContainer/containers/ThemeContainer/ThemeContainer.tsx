@@ -1,24 +1,19 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
 import Title from 'components/common/TitleImage/TitleImage';
-import SelectionContext from 'contexts/SelectionContext';
-import { useThemes } from 'requests/themes';
+import { useThemes } from 'common/requests/themes';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import { RouteComponentProps } from 'react-router-dom';
-import parcoursContext from 'contexts/ParcourContext';
+import parcoursContext from 'common/contexts/ParcourContext';
 import Spinner from 'components/SpinnerXp/Spinner';
 import SelectTheme from 'components/inputs/SelectTheme/SelectTheme';
-import { decodeUri, encodeUri } from 'utils/url';
-import { Theme } from 'requests/types';
+import { decodeUri } from 'utils/url';
+import { Theme } from 'common/requests/types';
 import useStyles from './styles';
 
 const ThemeContainer = ({ location, history }: RouteComponentProps) => {
   const classes = useStyles();
-  const { setOpen } = useContext(SelectionContext);
-
   const [selectedTheme, setSelectedTheme] = useState<Omit<Theme, 'activities'> | null>(null);
-
   const { type, redirect } = decodeUri(location.search);
-
   const showAvatar = (theme: Omit<Theme, 'activities'>) => {
     setSelectedTheme(theme);
   };
@@ -26,26 +21,16 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
     variables: { type: type === 'engagement' ? 'engagement' : 'personal' },
   });
   const { parcours } = useContext(parcoursContext);
-
   const themeFiltereds = useMemo(
     () => (data ? data.themes.data.filter((theme) => !parcours?.skills.find((id) => theme.id === id.theme?.id)) : []),
     [data, parcours],
   );
   const themeNotFiltered = useMemo(() => (data ? data.themes.data : []), [data]);
-
   const themeFiltered = useMemo(() => (type === 'engagement' ? themeNotFiltered : themeFiltereds), [
     themeFiltereds,
     themeNotFiltered,
     type,
   ]);
-
-  const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
-
   useEffect(() => {
     if (data) {
       const id = localStorage.getItem('theme');
@@ -53,13 +38,11 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
       if (selected) setSelectedTheme(selected);
     }
   }, [data]);
-
   useEffect(() => {
     if (selectedTheme) {
       localStorage.setItem('theme', selectedTheme?.id);
     }
   }, [selectedTheme]);
-
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -67,7 +50,6 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
           title={type === 'engagement' ? 'mes expériences d’engagement' : 'mes expériences personnelles'}
           color="#FFFFFF"
           size={32}
-          sizecont={classes.sizeTitle}
         />
         <BreadCrumb level={1} routes={[{ title: 'Thème', url: '' }]} />
         <div className={classes.themeContainer}>

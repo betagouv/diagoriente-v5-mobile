@@ -1,7 +1,4 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { CollectionsBookmarkOutlined } from '@material-ui/icons';
-import { size } from 'lodash';
-import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 
 export default makeStyles((theme: Theme) =>
   createStyles({
@@ -48,17 +45,6 @@ export default makeStyles((theme: Theme) =>
       [theme.breakpoints.down(340)]: {
         padding: '60px 20px 0px 20px ',
       },
-      '@media not all and (min-resolution:.001dpcm)': {
-        [theme.breakpoints.down(570)]: {
-          padding: '50px 5px 0px 5px ',
-
-          },
-        [theme.breakpoints.down(330)]: {
-          padding: '60px 5px 0px 5px ',
-
-          },
-      
-          },
     },
 
     boxSearchTitle: {
@@ -68,9 +54,6 @@ export default makeStyles((theme: Theme) =>
       lineHeight: ' 20px',
       textAlign: 'center',
       color: '#223A7A',
- 
-
-
     },
     searchProp: {
       color: '#00CFFF',
@@ -225,12 +208,6 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'bold',
       lineHeight: '20px',
       marginTop: 20,
-      '@media not all and (min-resolution:.001dpcm)': {
-        [theme.breakpoints.down(570)]: {
-          marginTop: ' 15px',
-
-          },
-        },
     },
   }),
 );

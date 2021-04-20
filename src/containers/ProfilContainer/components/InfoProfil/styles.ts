@@ -12,22 +12,22 @@ export default makeStyles((theme) =>
       flex: 1,
       '@media not all and (min-resolution:.001dpcm)': {
         display: 'flex',
-        padding: "24px 22px 28vh 10px",
+        padding: '24px 22px 28vh 10px',
         flexDirection: 'column',
         alignItems: 'center',
         paddingTop: 34,
         flex: 1,
-      }
+      },
     },
-    root:{
-      width:'auto'
-     },
+    root: {
+      width: 'auto',
+    },
     titleContainer: {
       display: 'list-item',
       alignItems: 'center',
       paddingBottom: 45,
-      flexDirection:'column',
-      textAlign:'center',
+      flexDirection: 'column',
+      textAlign: 'center',
       width: '100%',
       justifyContent: 'space-between',
     },
@@ -38,7 +38,6 @@ export default makeStyles((theme) =>
       fontSize: '2.2em',
       lineHeight: 1,
       paddingTop: 9,
-
     },
 
     empty: {
@@ -60,7 +59,7 @@ export default makeStyles((theme) =>
     userInfo: {
       fontSize: 14,
       flex: '1 1 auto',
-      width:'min-content',
+      width: 'min-content',
       [theme.breakpoints.down(330)]: {
         paddingRight: 10,
       },
@@ -78,7 +77,6 @@ export default makeStyles((theme) =>
     location: {
       display: 'flex',
       alignItems: 'center',
-    
     },
 
     locationlogo: {
@@ -106,7 +104,6 @@ export default makeStyles((theme) =>
       // [theme.breakpoints.down(450)]: {
       //   display: 'inline',
       // },
-
     },
 
     paddingClassName: {
@@ -117,35 +114,29 @@ export default makeStyles((theme) =>
       display: 'initial',
       width: '45%',
       paddingBottom: 13,
-      marginLeft:209,
+      marginLeft: 209,
       [theme.breakpoints.down(450)]: {
-        marginLeft:72,
-
+        marginLeft: 72,
       },
       [theme.breakpoints.down(420)]: {
         width: '60%',
-        marginLeft:90,
-
+        marginLeft: 90,
       },
       [theme.breakpoints.down(380)]: {
         width: '60%',
-        marginLeft:85,
-
+        marginLeft: 85,
       },
       [theme.breakpoints.down(330)]: {
-        marginLeft:48,
-
+        marginLeft: 48,
       },
-  
     },
 
     passwordContainer: {
       display: 'flex',
       flexDirection: 'column',
       [theme.breakpoints.down(450)]: {
-        marginRight:20,
-
-      }
+        marginRight: 20,
+      },
     },
 
     avatarsContainer: {
@@ -154,23 +145,16 @@ export default makeStyles((theme) =>
       display: 'flex',
       flexWrap: 'wrap',
       [theme.breakpoints.down(450)]: {
-        paddingLeft:27,
-
+        paddingLeft: 27,
       },
       [theme.breakpoints.down(380)]: {
         width: 328,
-        paddingLeft:27,
-
-
-
+        paddingLeft: 27,
       },
       [theme.breakpoints.down(330)]: {
         width: 293,
-        paddingLeft:12,
-
-
-
-      }
+        paddingLeft: 12,
+      },
     },
 
     avatar: {
@@ -191,7 +175,7 @@ export default makeStyles((theme) =>
       alignItems: 'flex-start',
       [theme.breakpoints.down(450)]: {
         alignItems: 'center',
-        display:'flex'
+        display: 'flex',
       },
     },
 
@@ -203,14 +187,14 @@ export default makeStyles((theme) =>
       margin: '3px 20px 3px 5px',
       width: 'auto',
     },
-    infoRow:{
+    infoRow: {
       // display:'inline'
     },
-    modifierInfo:{
+    modifierInfo: {
       display: 'flex',
       padding: '13px 0px',
       alignItems: 'center',
-      paddingLeft:11,
+      paddingLeft: 11,
       [theme.breakpoints.down(450)]: {
         padding: '13px 0px',
         display: 'grid',
@@ -218,32 +202,27 @@ export default makeStyles((theme) =>
         gridTemplateRows: '35px',
         alignItems: 'flex-start',
         margin: '0px 35px 0px 40px',
-             },
-             [theme.breakpoints.down(380)]: {
-              margin: '0px 0px 0px 30px',
-                   },
-             [theme.breakpoints.down(330)]: {
-              margin: '0px 0px 0px 20px',
-                   },
-
-    
-  },
-  profilRow:{
-    dispaly:'flex',
-  },
-  villeResidence:{
-  
+      },
+      [theme.breakpoints.down(380)]: {
+        margin: '0px 0px 0px 30px',
+      },
+      [theme.breakpoints.down(330)]: {
+        margin: '0px 0px 0px 20px',
+      },
+    },
+    profilRow: {
+      dispaly: 'flex',
+    },
+    villeResidence: {
       [theme.breakpoints.down(480)]: {
-      margin: '0px 0px 0px 40px',
-
+        margin: '0px 0px 0px 40px',
+      },
+      [theme.breakpoints.down(380)]: {
+        margin: '0px 0px 0px 36px',
+      },
+      [theme.breakpoints.down(330)]: {
+        margin: '0px 0px 0px 21px',
+      },
     },
-    [theme.breakpoints.down(380)]: {
-      margin: '0px 0px 0px 36px',
-
-    },
-    [theme.breakpoints.down(330)]: {
-      margin: '0px 0px 0px 21px',
-
-    }
-  }
-  }));
+  }),
+);

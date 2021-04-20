@@ -1,9 +1,7 @@
 import React from 'react';
 import classNames from 'utils/classNames';
 
-import {
- hasUppercase, hasLowercase, hasNumber, hasSpecial,
-} from 'utils/validation';
+import { hasUppercase, hasLowercase, hasNumber, hasSpecial } from 'utils/validation';
 import useStyles from './styles';
 
 interface Props {

@@ -10,7 +10,7 @@ export default makeStyles<Theme>((theme) => ({
       flexDirection: 'column',
       alignItems: 'center',
       overflow: 'hidden',
-    }
+    },
   },
   content: {
     width: '100%',
@@ -255,7 +255,7 @@ export default makeStyles<Theme>((theme) => ({
       flexDirection: 'column',
       zIndex: 99999,
       overflow: 'hidden',
-    }
+    },
   },
   closeFullModelContainer: {
     width: '100%',
@@ -313,6 +313,5 @@ export default makeStyles<Theme>((theme) => ({
     flexDirection: 'column',
     overflow: 'auto',
     zIndex: 99999,
-
   },
 }));

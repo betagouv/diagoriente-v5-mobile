@@ -1,4 +1,3 @@
-import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 

@@ -1,5 +1,4 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { size } from 'lodash';
 
 export default makeStyles<
   Theme,

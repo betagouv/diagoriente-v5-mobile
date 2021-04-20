@@ -3,7 +3,6 @@ import useStyles from './styles';
 
 interface IProps {
   label: string;
-  checked?: boolean;
   onClick: () => void;
   value?: string;
 }

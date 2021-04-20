@@ -4,16 +4,14 @@ import classNames from 'utils/classNames';
 import useStyles from './styles';
 
 interface Props {
-  title: any ;
+  title: any;
   image: string;
   width?: number;
   className?: string;
   textClassName?: string;
 }
 
-const TitleSection = ({
- title, image, width, className, textClassName,
-}: Props) => {
+const TitleSection = ({ title, image, width, className, textClassName }: Props) => {
   const classes = useStyles({ width });
   return (
     <div className={classNames(classes.container, className)}>

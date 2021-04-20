@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
     width: '100%',
     // height: 'calc(100vh - 113px)',
     paddingBottom: 40,
-    paddingTop:40,
+    paddingTop: 40,
     alignItems: 'center',
   },
   title: {
@@ -23,7 +23,7 @@ export default makeStyles((theme) => ({
     fontSize: 14,
     textAlign: 'center',
     marginBottom: 40,
-    padding:'0px 13px',
+    padding: '0px 13px',
   },
   subTitleSent: {
     fontSize: 14,
@@ -73,7 +73,7 @@ export default makeStyles((theme) => ({
   emptyDiv: {
     width: 260,
   },
-  inputContainer:{
+  inputContainer: {
     display: 'grid',
     gridTemplateAreas: '"label input"',
     gridTemplateColumns: '138px 229px',
@@ -84,13 +84,12 @@ export default makeStyles((theme) => ({
     margin: '0px 0px 0px 0px',
     width: '100%',
     [theme.breakpoints.down(400)]: {
-      display:'flex',
+      display: 'flex',
       // flexDirection:'column',
       // gridGap:0,
-      flexWrap:'wrap',
-      alignItems:'center',
-      justifyContent:'center'
-
-      },
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   },
 }));

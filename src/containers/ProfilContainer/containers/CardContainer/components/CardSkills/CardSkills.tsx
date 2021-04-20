@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid/Grid';
 import Button from '@material-ui/core/Button/Button';
 
-import { SkillType } from 'requests/types';
+import { SkillType } from 'common/requests/types';
 import CardPart from '../CardPart/CardPart';
 import CardSkill from '../CardSkill/CardSkill';
 import useStyles from './styles';
@@ -23,7 +23,7 @@ const CardSkills = ({ title, path, emptyButton, emptyMessage, showBtn, skills }:
   return (
     <CardPart title={title}>
       {skills.length ? (
-        <Grid className={classes.skillsContainer}  container spacing={3}>
+        <Grid className={classes.skillsContainer} container spacing={3}>
           {skills.map((skill) => (
             <CardSkill key={skill.id} {...skill} />
           ))}
@@ -32,7 +32,7 @@ const CardSkills = ({ title, path, emptyButton, emptyMessage, showBtn, skills }:
         <>
           <div className={classes.emptyMessage}>{emptyMessage}</div>
           {!showBtn && (
-            <Link to={path} >
+            <Link to={path}>
               <Button className={classes.emptyButton} variant="contained">
                 {emptyButton}
               </Button>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import MySelection from 'components/common/MySelection/MySelection';
 import useStyles from './styles';
 
@@ -14,7 +14,7 @@ interface Props {
 
 const BreadCrumb = ({ level, routes, theme, activities, onlyMySelection }: Props) => {
   const classes = useStyles();
-  let l = routes?.length;
+  const l = routes?.length;
   return (
     <div className={classes.breadCrumb}>
       {!onlyMySelection && (
@@ -23,12 +23,12 @@ const BreadCrumb = ({ level, routes, theme, activities, onlyMySelection }: Props
             <>
               {level && i !== level - 1 ? (
                 <Link to={r.url}>
-                  <span key={i} className={level - 1 === i ? classes.currentRoute : classes.route}>
+                  <span key={r.title} className={level - 1 === i ? classes.currentRoute : classes.route}>
                     {r.title}
                   </span>
                 </Link>
               ) : (
-                <span key={i} className={level && level - 1 === i ? classes.currentRoute : classes.route}>
+                <span key={r.title} className={level && level - 1 === i ? classes.currentRoute : classes.route}>
                   {r.title}
                 </span>
               )}

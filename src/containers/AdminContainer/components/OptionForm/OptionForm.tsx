@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 
-import { useForm } from 'hooks/useInputs';
-import { Option } from 'requests/types';
-import { useLazyOptions } from 'requests/options';
-import { useQuestions } from 'requests/questions';
+import { useForm } from 'common/hooks/useInputs';
+import { Option } from 'common/requests/types';
+import { useLazyOptions } from 'common/requests/options';
+import { useQuestions } from 'common/requests/questions';
 
 import AdminTextField from 'components/inputs/AdminTextField/AdminTextField';
 import Button from '@material-ui/core/Button/Button';
@@ -47,7 +47,8 @@ const OptionForm = ({ onSubmit, option }: OptionFormProps) => {
         parent:
           option.parent.length > 0
             ? option.parent.map((parentList) =>
-                parentList.path.map((parent) => ({ label: parent.title, value: parent.id })))
+                parentList.path.map((parent) => ({ label: parent.title, value: parent.id })),
+              )
             : [[]],
         question: { label: option.question.title, value: option.question.id },
       });

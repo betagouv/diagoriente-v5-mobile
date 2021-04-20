@@ -66,19 +66,14 @@ function StyledRadio(props: RadioProps) {
       checkedIcon={<span className={classNames(classes.icon, classes.checkedIcon)} />}
       icon={<span className={classes.icon} />}
       {...props}
-      onChange={(e) => {
-      }}
     />
   );
 }
 
-export default function RadioButton({ onChange, value }: Props) {
+export default function RadioButton({ onChange }: Props) {
   return (
-    <RadioGroup
-      onChange={onChange as any}
-      style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}
-    >
-      <FormControlLabel value="Oui" control={<StyledRadio  />} label="Oui" />
+    <RadioGroup onChange={onChange as any} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+      <FormControlLabel value="Oui" control={<StyledRadio />} label="Oui" />
       <img src={check} alt="check" height={11} style={{ marginRight: 40 }} />
 
       <FormControlLabel value="Non" control={<StyledRadio />} label="Non" />

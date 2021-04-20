@@ -14,7 +14,7 @@ export default makeStyles((theme: Theme) =>
       lineHeight: '18px',
       fontWeight: 700,
       height: '165px',
-      flexWrap:'wrap',
+      flexWrap: 'wrap',
       textAlign: 'center',
       /* max-height: 180px; */
       position: 'fixed',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import Close from 'assets/svg/closeModal.svg';
 import Avatar from 'components/common/Avatar/Avatar';
 import useStyles from './styles';
@@ -13,7 +13,6 @@ interface Props {
 const MySelection = ({ theme, activities }: Props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  console.log('themeS', theme);
   return (
     <div className={classes.container}>
       <div className={classes.title} onClick={() => setOpen(true)}>
@@ -36,9 +35,7 @@ const MySelection = ({ theme, activities }: Props) => {
                   >
                     <img src={theme?.resources?.icon} alt="" className={classes.avatarStyle} height={90} />
                   </Avatar>
-                ) : (
-                  undefined
-                )}
+                ) : undefined}
                 {theme?.type === 'professional' ? (
                   <p className={classes.text}>{theme?.title}</p>
                 ) : (

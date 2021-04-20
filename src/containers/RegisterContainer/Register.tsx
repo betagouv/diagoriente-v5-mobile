@@ -7,11 +7,11 @@ import Button from 'components/button/Button';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 
 import Spinner from 'components/Spinner/Spinner';
-import { useForm } from 'hooks/useInputs';
-import { useRegister, useAvatars } from 'requests/auth';
+import { useForm } from 'common/hooks/useInputs';
+import { useRegister, useAvatars } from 'common/requests/auth';
 import Attention from 'assets/svg/attention.svg';
 import LogoLocation from 'assets/form/location.png';
-import { useLocation } from 'requests/location';
+import { useLocation } from 'common/requests/location';
 import {
   validateEmail,
   validatePassword,
@@ -22,8 +22,8 @@ import {
   hasSpecial,
 } from 'utils/validation';
 import classNames from 'utils/classNames';
-import useAuth from 'hooks/useAuth';
-import UserContext from 'contexts/UserContext';
+import useAuth from 'common/hooks/useAuth';
+import UserContext from 'common/contexts/UserContext';
 import useStyles from './styles';
 
 const Register = () => {
@@ -62,8 +62,6 @@ const Register = () => {
   });
   const { values, errors, touched } = state;
   const [locationCall, { data, loading }] = useLocation({ variables: { search } });
-  const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
   const { loading: loadingAvatar, data: avatarData } = useAvatars();
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

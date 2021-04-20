@@ -1,31 +1,24 @@
-import React, { useContext, useEffect, useState, useMemo, useRef } from 'react';
-import { Link } from 'react-router-dom';
+/* eslint-disable prettier/prettier */
+import React, { useContext, useMemo, useRef } from 'react';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import Title from 'components/common/TitleImage/TitleImage';
-import { useJobs } from 'requests/jobs';
-import { useDidMount } from 'hooks/useLifeCycle';
-import { Families, Jobs } from 'requests/types';
+import { useJobs } from 'common/requests/jobs';
+import { useDidMount } from 'common/hooks/useLifeCycle';
+import { Jobs } from 'common/requests/types';
 import Button from 'components/button/Button';
-import arrow from 'assets/svg/arrw.svg';
-import { Accordion } from '@material-ui/core';
-import { AccordionDetails } from '@material-ui/core';
-import { AccordionSummary } from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary } from '@material-ui/core';
+
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Carousel from 'nuka-carousel';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Grid from '@material-ui/core/Grid';
-import classNames from 'utils/classNames';
 import FooterInfo from 'containers/ProfilContainer/components/FooterInfo/FooterInfo';
-import UserContext from 'contexts/UserContext';
-import parcoursContext from 'contexts/ParcourContext';
+import UserContext from 'common/contexts/UserContext';
+import parcoursContext from 'common/contexts/ParcourContext';
 
 import Spinner from 'components/Spinner/Spinner';
 // import Title from 'components/common/Title/Title';
-import Card from 'components/common/Card/Card';
 import Avatar from '@material-ui/core/Avatar';
 import Circle from 'components/common/Avatar/Avatar';
-import Arrow from 'assets/svg/arrow';
 
 import defaultAvatar from 'assets/svg/defaultAvatar.svg';
 import star from 'assets/svg/star.svg';
@@ -33,15 +26,10 @@ import littlestar from 'assets/svg/littlestar.svg';
 
 import carte from 'assets/svg/carte.svg';
 import location from 'assets/svg/localisation.svg';
-import heart from 'assets/svg/heart.svg';
 import littleheart from 'assets/svg/littleheart.svg';
-import littleheart2 from 'assets/svg/littleHeart2.svg';
 import fullHeart from 'assets/svg/fullHeart.svg';
 
-import { RouteComponentProps } from 'react-router-dom';
-import { decodeUri, encodeUri } from 'utils/url';
-
-import SecteurContext from 'contexts/SecteurContext';
+import SecteurContext from 'common/contexts/SecteurContext';
 import useStyles from './styles';
 
 const ProfilComponent = ({ history }: RouteComponentProps) => {
@@ -54,9 +42,6 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
   const { data: secteurs } = useContext(SecteurContext);
   const [callJobs, stateJobs] = useJobs({ fetchPolicy: 'network-only' });
 
-  const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-  const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
 
   const [expandedInfo, setExpandedInfo] = React.useState<boolean>(true);
   const [expandedInteret, setExpandedInteret] = React.useState<boolean>(true);
@@ -97,19 +82,8 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
   const handleChangeEnregistre = () => {
     setExpandedEnregistre(!expandedEnregistre);
   };
-  const [value, setValue] = React.useState(0);
-
   useDidMount(() => {
     callJobs();
-  });
-
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
   });
 
   const persoSkills = parcours?.skills.filter((p) => p.theme?.type === 'personal') || [];
@@ -158,12 +132,13 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
       ));
     }
     if (stateJobs.loading) return <Spinner />;
-    return <div className={classes.metier}></div>;
+    return <div className={classes.metier} />;
     // eslint-disable-next-line
   }, [stateJobs.loading, stateJobs.data]);
 
   return (
     <div>
+      {/* eslint-disable-next-line no-return-assign */}
       <div className={classes.profilContainer} ref={(ref) => (rowRef.current[0] = ref)}>
         <Title title="MON PROFIL" color="#ffffff" size={32} className={classes.titlePro} />
         <div className={classes.rootContainer}>
@@ -174,11 +149,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.headerAccordion}
           >
             <AccordionSummary
-              expandIcon={
+              expandIcon={(
                 <div className={classes.iconInfo}>
                   <ExpandMoreIcon />
                 </div>
-              }
+              )}
               // aria-controls="panel1bh-content"
               // id="panel1bh-header"
               className={classes.infoAccordion}
@@ -212,11 +187,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionContainer}
           >
             <AccordionSummary
-              expandIcon={
+              expandIcon={(
                 <div className={classes.iconInteret}>
                   <ExpandMoreIcon />
                 </div>
-              }
+              )}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.headerInteret}
@@ -247,11 +222,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionCarte}
           >
             <AccordionSummary
-              expandIcon={
+              expandIcon={(
                 <div className={classes.iconCompetence}>
                   <ExpandMoreIcon />
                 </div>
-              }
+              )}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.headerCompetence}
@@ -281,6 +256,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
           </Accordion>
         </div>
       </div>
+      {/* eslint-disable-next-line no-return-assign */}
       <div className={classes.experienceContainer} ref={(ref) => (rowRef.current[1] = ref)}>
         <Title title="MES EXPÉRIENCES" color="#ffffff" size={32} className={classes.titleExp} />
         <div className={classes.accordionContainer}>
@@ -291,11 +267,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.headerAccordion}
           >
             <AccordionSummary
-              expandIcon={
+              expandIcon={(
                 <div>
                   <ExpandMoreIcon className={classes.iconPerso} />
                 </div>
-              }
+              )}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.persoAccordion}
@@ -344,11 +320,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionContainer}
           >
             <AccordionSummary
-              expandIcon={
+              expandIcon={(
                 <div>
                   <ExpandMoreIcon className={classes.iconPerso} />
                 </div>
-              }
+              )}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.persoAccordion}
@@ -399,11 +375,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionContainer}
           >
             <AccordionSummary
-              expandIcon={
+              expandIcon={(
                 <div>
                   <ExpandMoreIcon className={classes.iconPerso} />
                 </div>
-              }
+              )}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.persoAccordion}
@@ -446,6 +422,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
           </Accordion>
         </div>
       </div>
+      {/* eslint-disable-next-line no-return-assign */}
       <div className={classes.demarcheContainer} ref={(ref) => (rowRef.current[2] = ref)}>
         <Title title="MES DÉMARCHES" color="#ffffff" size={32} className={classes.titleDemarche} />
         <div className={classes.accordionContainer}>
@@ -456,11 +433,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.headerAccordion}
           >
             <AccordionSummary
-              expandIcon={
+              expandIcon={(
                 <div>
                   <ExpandMoreIcon className={classes.iconTop} />
                 </div>
-              }
+              )}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.topAccordion}
@@ -486,11 +463,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionContainer}
           >
             <AccordionSummary
-              expandIcon={
+              expandIcon={(
                 <div>
                   <ExpandMoreIcon className={classes.iconTop} />
                 </div>
-              }
+              )}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.topAccordion}
@@ -516,11 +493,11 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
             className={classes.accordionContainer}
           >
             <AccordionSummary
-              expandIcon={
+              expandIcon={(
                 <div>
                   <ExpandMoreIcon className={classes.iconTop} />
                 </div>
-              }
+              )}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
               className={classes.topAccordion}
@@ -528,7 +505,7 @@ const ProfilComponent = ({ history }: RouteComponentProps) => {
               <Typography className={classes.topText}> MES ENTREPRISES ENREGISTREES </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <div className={classes.competenceContainer}></div>
+              <div className={classes.competenceContainer} />
             </AccordionDetails>
           </Accordion>
           <FooterInfo options={SelectTitles} refs={rowRef} />

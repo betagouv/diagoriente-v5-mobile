@@ -1,4 +1,3 @@
-import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Bandeau from 'assets/svg/bandeau.svg';
 
@@ -19,7 +18,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop:5
+    paddingTop: 5,
   },
   jobTitle: {
     maxWidth: 'calc(100% - 40px)',
@@ -42,7 +41,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginBottom: 25,
-    cursor:'none'
+    cursor: 'none',
   },
   arrow: {
     transform: 'rotate(180deg)',

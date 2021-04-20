@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import SelectBase, { SelectProps } from '@material-ui/core/Select/Select';
 import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 import Input from '@material-ui/core/TextField/TextField';
-import { useListener } from 'hooks/useListener';
+import { useListener } from 'common/hooks/useListener';
 
 import classNames from 'utils/classNames';
-import useOnclickOutside from 'hooks/useOnclickOutside';
+import useOnclickOutside from 'common/hooks/useOnclickOutside';
 import arrow from 'assets/svg/arrowblue.svg';
 import darkarrow from 'assets/svg/darkarrowblue.svg';
 
@@ -120,7 +120,7 @@ const Select = ({
   return (
     <div className={classNames(classes.root, rootClassName)}>
       <SelectBase
-        autoWidth={autoWidthMenu ? true : false}
+        autoWidth={!!autoWidthMenu}
         style={{ width: changeWidth() }}
         value={getValue()}
         ref={selectRef}
@@ -179,7 +179,7 @@ const Select = ({
         </MenuItem>
         {options
           .filter((o) => o.label !== '___plus___')
-          .map((option, index) => (
+          .map((option, idx) => (
             <MenuItem
               onClick={selectClose}
               key={option.value}
@@ -187,7 +187,7 @@ const Select = ({
               className={classNames(
                 classes.menuItem,
                 menuItemClassName,
-                index === options.length - 1 && open && classes.lastChildBorder,
+                idx === options.length - 1 && open && classes.lastChildBorder,
                 option.value === value ? classes.backgroundRow : '',
               )}
             >
@@ -218,9 +218,7 @@ const Select = ({
               />
             </div>
           </MenuItem>
-        ) : (
-          undefined
-        )}
+        ) : undefined}
       </SelectBase>
     </div>
   );

@@ -5,13 +5,12 @@ import Button from 'components/button/Button';
 import List from '@material-ui/core/List';
 import { Link, useLocation, matchPath } from 'react-router-dom';
 import localforage from 'localforage';
-import DrawerContext from 'contexts/DrawerContext';
-import parcoursContext from 'contexts/ParcourContext';
-import Img from 'assets/images/fleche_fu.png';
-import userContext from 'contexts/UserContext';
-import { setAuthorizationBearer, client } from 'requests/client';
+import DrawerContext from 'common/contexts/DrawerContext';
+import parcoursContext from 'common/contexts/ParcourContext';
+import userContext from 'common/contexts/UserContext';
+import { setAuthorizationBearer, client } from 'common/requests/client';
 import classNames from 'utils/classNames';
-import { useUpdateParcour } from 'requests/parcours';
+import { useUpdateParcour } from 'common/requests/parcours';
 
 import useStyles from './styles';
 

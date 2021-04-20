@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid/Grid';
 
 import { decodeUri } from 'utils/url';
 
-import { useInput } from 'hooks/useInputs';
+import { useInput } from 'common/hooks/useInputs';
 import useStyles from './styles';
 
 export interface DefaultFilterProps {
@@ -48,8 +48,8 @@ function DefaultFilter({ onChange, children }: DefaultFilterProps) {
                 label="Search"
               />
             </Grid>
-            {children
-              && children((data) => {
+            {children &&
+              children((data) => {
                 dataRef.current = data;
               }, uri)}
           </Grid>

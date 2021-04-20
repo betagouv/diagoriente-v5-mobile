@@ -150,7 +150,7 @@ export default makeStyles((theme) =>
     secondContainer: {
       display: 'flex',
       flexDirection: 'column',
-      alignItems:'center',
+      alignItems: 'center',
       paddingTop: 0,
     },
 

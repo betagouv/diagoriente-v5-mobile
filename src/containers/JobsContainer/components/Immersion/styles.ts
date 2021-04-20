@@ -25,16 +25,14 @@ export default makeStyles<Theme>((theme) => ({
     textAlign: 'center',
     marginBottom: 10,
   },
-  btnImersionContainer: {
-  },
+  btnImersionContainer: {},
   btnImersion: {
     backgroundColor: theme.palette.primary.main,
     '&:hover': {
       backgroundColor: theme.palette.primary.main,
     },
     marginTop: 20,
-    padding:'7px 60px'
-
+    padding: '7px 60px',
   },
   btnLabel: { color: '#011A5E', fontWeight: 'bold' },
 

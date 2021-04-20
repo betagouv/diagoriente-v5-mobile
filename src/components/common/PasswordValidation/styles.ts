@@ -150,7 +150,7 @@ export default makeStyles((theme: Theme) => ({
     fontSize: 12,
   },
   checkOption: {
-    color: "#00B2DB",
+    color: '#00B2DB',
     textDecoration: 'line-through',
   },
   errorCondition: {

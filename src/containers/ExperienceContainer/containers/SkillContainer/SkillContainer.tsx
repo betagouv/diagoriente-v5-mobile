@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
 import path from 'path';
 import moment from 'moment';
-import { useWillUnmount } from 'hooks/useLifeCycle';
+import { useWillUnmount } from 'common/hooks/useLifeCycle';
 
-import { RouteComponentProps, Switch, Route, Redirect, matchPath } from 'react-router-dom';
-import { useTheme } from 'requests/themes';
-import { useAddSkill, useUpdateSkill, useLazySkill } from 'requests/skills';
+import { RouteComponentProps, Switch, Route, Redirect } from 'react-router-dom';
+import { useTheme } from 'common/requests/themes';
+import { useAddSkill, useUpdateSkill, useLazySkill } from 'common/requests/skills';
 
-import ParcourContext from 'contexts/ParcourContext';
+import ParcourContext from 'common/contexts/ParcourContext';
 
 import NotFoundPage from 'components/layout/NotFoundPage/NotFoundPage';
 import SnackBar from 'components/SnackBar/SnackBar';
 import Spinner from 'components/SpinnerXp/Spinner';
 
 import { decodeUri } from 'utils/url';
-import { SkillType, Competence } from 'requests/types';
+import { SkillType, Competence } from 'common/requests/types';
 import SkillActivities from './containers/SkillActivities';
 import ExtraActivity from './containers/ExtraActivity';
 import SkillCompetences from './containers/SkillCompetences';
@@ -65,7 +65,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
   }, [addSkillState]);
 
   const handleCloseSB = () => {
-    if (!!addSkillState.error) setOpenSnackBar(false);
+    if (addSkillState.error) setOpenSnackBar(false);
   };
 
   useEffect(() => {
@@ -205,7 +205,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
           theme: data.theme.id,
           activities: activities.map((a) => a.id),
           competences: competencesValues.map((competence) => ({ _id: competence.id, value: competence.value })),
-          extraActivity: extraActivity,
+          extraActivity,
         },
       });
     }
@@ -267,7 +267,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
       setParcours(addSkillState.data.addSkill);
       history.push({
         pathname: `/experience/skill/${match.params.themeId}/success`,
-        search: redirect ? redirect : 'add',
+        search: redirect || 'add',
       });
       localStorage.removeItem('theme');
       localStorage.removeItem('activities');
@@ -338,18 +338,15 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
           render={(props) =>
             data.theme.type === 'engagement' ? (
               <EngagementActivites
-                {...props}
-                isCreate={!selectedSkillId}
+                {...(props as any)}
                 theme={data.theme}
                 setOptionActivities={setOptionActivities}
                 optionActivities={optionActivities}
                 activity={activity}
-                setActivity={setActivity}
               />
             ) : (
               <SkillActivities
-                {...props}
-                isCreate={!selectedSkillId}
+                {...(props as any)}
                 activities={activities}
                 setActivities={setActivities}
                 theme={data.theme}
@@ -362,10 +359,15 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
         <Route
           render={(props) =>
             data.theme.type === 'engagement' ? (
-              <ExtraActivity {...props} extraActivity={activity} setExtraActivity={setActivity} theme={data.theme} />
+              <ExtraActivity
+                {...(props as any)}
+                extraActivity={activity}
+                setExtraActivity={setActivity}
+                theme={data.theme}
+              />
             ) : (
               <ExtraActivity
-                {...props}
+                {...(props as any)}
                 extraActivity={extraActivity}
                 setExtraActivity={setExtraActivity}
                 theme={data.theme}
@@ -379,12 +381,11 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
           render={(props) => (
             // if (!activities.length) return <Redirect to={path.join(match.url, `/activities${location.search}`)} />;
             <SkillCompetences
-              {...props}
+              {...(props as any)}
               competences={competences}
               setCompetences={setCompetences}
               theme={data.theme}
               activities={activitiesTitles}
-              isCreate={!selectedSkillId}
             />
           )}
           path={`${match.path}/competences`}
@@ -395,7 +396,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
             if (!competences.length) return <Redirect to={path.join(match.url, `/competences${location.search}`)} />;
             return (
               <SkillCompetencesValues
-                {...props}
+                {...(props as any)}
                 competencesValues={competencesValues}
                 setCompetencesValues={setCompetencesValues}
                 competences={competences}
@@ -414,7 +415,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
         <Route
           render={(props) => (
             <EngagementContext
-              {...props}
+              {...(props as any)}
               setContext={setContext}
               contextCheck={context}
               theme={data.theme}
@@ -427,7 +428,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
         <Route
           render={(props) => (
             <EngagementOrganization
-              {...props}
+              {...(props as any)}
               setOrganization={setOrganization}
               organization={organization}
               theme={data.theme}
@@ -440,13 +441,12 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
         <Route
           render={(props) => (
             <EngagementDate
-              {...props}
+              {...(props as any)}
               setStartDate={setStartDate}
               startDate={startDate}
               endDate={endDate}
               setEndDate={setEndDate}
               addSkill={selectedSkillId ? editSkillEngagement : addSkillEngagement}
-              addSkillState={selectedSkillId ? updateSkillState.loading : addSkillState.loading}
               theme={data.theme}
               activities={activitiesTitles}
             />
@@ -455,12 +455,12 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
           exact
         />
         <Route
-          render={(props) => <SuccessCompetences {...props} theme={data.theme} />}
+          render={(props) => <SuccessCompetences {...(props as any)} theme={data.theme} />}
           path={`${match.path}/success`}
           exact
         />
         <Route
-          render={(props) => <DoneCompetences {...props} theme={data.theme} />}
+          render={(props) => <DoneCompetences {...(props as any)} theme={data.theme} />}
           path={`${match.path}/done`}
           exact
         />

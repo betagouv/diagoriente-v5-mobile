@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import arrow from 'assets/images/Arrow.png';
-import useStyles from './styles';
 import arrowClose from 'assets/svg/arrowDown.svg';
 import Dialog from '@material-ui/core/Dialog';
 import Divider from '@material-ui/core/Divider';
-import Slide from '@material-ui/core/Slide';
 import classNames from 'common/utils/classNames';
-import { TransitionProps } from '@material-ui/core/transitions';
 
 import { echelon, echelonValue } from 'utils/generic';
+import useStyles from './styles';
 
 interface Props {
   skill: any;
@@ -33,17 +31,11 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
     setOpen(false);
   };
 
-  const Transition = React.forwardRef(function Transition(
-    props: TransitionProps & { children?: React.ReactElement },
-    ref: React.Ref<unknown>,
-  ) {
-    return <Slide direction="right" ref={ref} {...props} />;
-  });
-
   useEffect(() => {
     for (let i = 0; i < selectedLevels.length; i += 1) {
       if (skill.id === selectedLevels[i].id) setIndexSelectedLevel(selectedLevels[i].value - 1);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLevels]);
 
   const handleClose = (event: any, e: string) => {
@@ -81,7 +73,7 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
           ),
         }}
         onClick={onOpenSelect}
-      ></TextField>
+      />
       <Dialog
         fullWidth
         classes={{
@@ -110,10 +102,13 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
 
         {echelon.map((e, index) => (
           <MenuItem
-            key={index}
+            key={e}
             value={e}
             className={index === indexSelectedLevel ? classes.selectedItem : classes.item}
-            onClick={() => (handleLevelSelection(skill.id, echelonValue[index]), setOpen(false))}
+            onClick={() => {
+              handleLevelSelection(skill.id, echelonValue[index]);
+              setOpen(false);
+            }}
           >
             <div className={classes.itemContainer}>
               <div className={classes.ItemMenuContent}>
@@ -131,7 +126,7 @@ const SelectLevel = ({ skill, handleLevelSelection, selectedLevels }: Props) => 
                   </div>
                 </div>
                 <div className={classes.levelTitle}>
-                  <span> "{levelsTab[index].title}" </span>
+                  <span> &quot;{levelsTab[index].title}&quot; </span>
                 </div>
               </div>
               <Divider />

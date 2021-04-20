@@ -7,16 +7,15 @@ import NameFormator from 'utils/NameFormator';
 import { Unpacked } from 'utils/types';
 import Button from 'components/button/Button';
 import ValidationButton from 'components/valideButton/valideButton';
-import { UserParcour } from 'requests/types';
+import { UserParcour } from 'common/requests/types';
 import { TextField } from '@material-ui/core';
-import { useForm } from 'hooks/useInputs';
+import { useForm } from 'common/hooks/useInputs';
 import { validateEmail } from 'utils/validation';
-import { useAddSkillComment } from 'requests/skillComment';
+import { useAddSkillComment } from 'common/requests/skillComment';
 import classNames from 'utils/classNames';
-import UserContext from 'contexts/UserContext';
+import UserContext from 'common/contexts/UserContext';
 import msg from 'assets/svg/msg.svg';
 import useStyles from './styles';
-import { Email } from '@material-ui/icons';
 
 interface Props {
   skill: Unpacked<UserParcour['skills']>;
@@ -64,12 +63,17 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
   useEffect(() => {
     if (secondOpen) {
       actions.setValues({
-        comment: `Bonjour ${NameFormator(state.values.firstName)} ${NameFormator(state.values.lastName)}, \n\n${user &&
-          NameFormator(user?.profile.firstName)} ${user &&
+        comment: `Bonjour ${NameFormator(state.values.firstName)} ${NameFormator(state.values.lastName)}, \n\n${
+          user && NameFormator(user?.profile.firstName)
+        } ${
+          user &&
           NameFormator(
             user?.profile.lastName,
             // eslint-disable-next-line
-          )} a effectué une expérience professionnelle chez vous et sollicite une recommandation de votre part. Vous pouvez l'aider en montrant que vous validez cette expérience sur Diagoriente, la plateforme pour trouver son orientation et accéder à l'emploi.\n \nBien cordialement,`,
+          )
+        } a effectué une expérience professionnelle chez vous et sollicite une recommandation de votre part.
+        Vous pouvez l'aider en montrant que vous validez cette expérience sur Diagoriente, la plateforme pour
+        trouver son orientation et accéder à l'emploi.\n \nBien cordialement,`,
       });
     }
     // eslint-disable-next-line
@@ -113,12 +117,6 @@ const RecommendationModal = ({ skill, open, setOpen, onSuccess }: Props) => {
 
       setThirdOpen(true);
     }
-  };
-
-  const handlePreced = () => {
-    setSecondOpen(false);
-    setOpen(true);
-    setThirdOpen(false);
   };
 
   const handleClose = () => {

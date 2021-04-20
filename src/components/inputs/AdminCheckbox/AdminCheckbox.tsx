@@ -5,11 +5,11 @@ import classNames from 'utils/classNames';
 
 import useStyles from './styles';
 
-interface AdminCheckbox extends CheckboxProps {
+interface AdminCheckboxProps extends CheckboxProps {
   label: string;
 }
 
-const AdminCheckbox = ({ label, className, ...rest }: AdminCheckbox) => {
+const AdminCheckbox = ({ label, className, ...rest }: AdminCheckboxProps) => {
   const classes = useStyles();
   const checkboxRef = useRef<HTMLInputElement>(null);
 

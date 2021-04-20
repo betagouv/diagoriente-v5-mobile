@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import parcoursContext from 'contexts/ParcourContext';
+import parcoursContext from 'common/contexts/ParcourContext';
 import Title from 'components/common/Title/Title';
 import InterestContainer from 'containers/InteretContainer/components/InterestContainer/InterestContainer';
 import Button from 'components/button/Button';
-import Arrow from '../Arrow/Arrow';
 
 import useStyles from './styles';
 

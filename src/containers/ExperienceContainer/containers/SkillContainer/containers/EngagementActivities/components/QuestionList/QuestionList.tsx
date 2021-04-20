@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Question, Option } from 'requests/types';
+import { Question, Option } from 'common/requests/types';
 import classNames from 'utils/classNames';
 
-import { useQuestions } from 'requests/questions';
+import { useQuestions } from 'common/requests/questions';
 
 import Remove from '@material-ui/icons/RemoveCircle';
 import Select from '../QuestionSelect/ActivitySelect';
@@ -35,7 +35,6 @@ const QuestionList = ({ setOptionActivities, optionActivities, index, handleVali
       });
       setQuestions(question);
     }
-    console.log('questions', data);
     // eslint-disable-next-line
   }, [data?.questions.data]);
 

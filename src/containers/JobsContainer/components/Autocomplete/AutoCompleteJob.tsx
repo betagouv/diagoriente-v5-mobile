@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useRef } from 'react';
 import TextField from 'components/inputs/Input/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -5,7 +6,7 @@ import LogoLoupe from 'assets/svg/loupe.svg';
 import LogoLoupeComponent from 'assets/svg/loupe';
 import LogoLoupeOrange from 'assets/svg/loupeOrange.svg';
 import classNames from 'utils/classNames';
-import useOnclickOutside from 'hooks/useOnclickOutside';
+import useOnclickOutside from 'common/hooks/useOnclickOutside';
 
 import useStyles from './style';
 
@@ -19,7 +20,6 @@ interface IProps {
   error?: boolean;
   errorText?: string;
   options: any;
-  icon?: any;
   className?: string;
   errorForm?: string;
   open?: boolean;
@@ -84,6 +84,8 @@ const AutoCompleteJob = ({
       />
       {open && (
         <div className={classes.optionsContainer}>
+          {/* eslint-disable-next-line array-callback-return */}
+          {/* eslint-disable-next-line consistent-return */}
           {data?.map((el: any) => {
             const t = el.label.toLowerCase().split(value?.toLowerCase());
             for (let i = 0; i < t.length; i += 1) {

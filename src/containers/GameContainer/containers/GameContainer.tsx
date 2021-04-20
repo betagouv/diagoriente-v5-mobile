@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from 'react';
 import Button from 'components/button/Button';
 import { useHistory } from 'react-router-dom';
-import { useUpdateParcour } from 'requests/parcours';
-import ParcourContext from 'contexts/ParcourContext';
+import { useUpdateParcour } from 'common/requests/parcours';
+import ParcourContext from 'common/contexts/ParcourContext';
 import UploadFile from './Diagoriente_RéférentielRectec.pdf';
 import useStyles from './style';
 

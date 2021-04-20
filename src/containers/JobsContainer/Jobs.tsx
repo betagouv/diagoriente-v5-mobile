@@ -1,16 +1,14 @@
-import React, {
- useEffect, useState, useMemo, useContext,
-} from 'react';
+import React, { useEffect, useState, useMemo, useContext } from 'react';
 import { Switch, useLocation } from 'react-router-dom';
 import Route from 'components/ui/Route/Route';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { useJobs } from 'requests/jobs';
-import { useDidMount } from 'hooks/useLifeCycle';
-import { useAccessibility } from 'requests/accessibility';
-import { useTypeJob } from 'requests/environment';
-import { useSecteurs } from 'requests/themes';
-import { useLocation as locationcall } from 'requests/location';
-import ParcoursContext from 'contexts/ParcourContext';
+import { useJobs } from 'common/requests/jobs';
+import { useDidMount } from 'common/hooks/useLifeCycle';
+import { useAccessibility } from 'common/requests/accessibility';
+import { useTypeJob } from 'common/requests/environment';
+import { useSecteurs } from 'common/requests/themes';
+import { useLocation as locationcall } from 'common/requests/location';
+import ParcoursContext from 'common/contexts/ParcourContext';
 
 import CloseIcon from 'assets/svg/close_drawer.svg';
 import NotFoundPage from 'components/layout/NotFoundPage';
@@ -63,7 +61,7 @@ const Jobs = () => {
   useEffect(() => {
     if (parcours?.completed) {
       const fn = data ? refetch : loadJobs;
-      fn();
+      if (fn) fn();
     }
     // eslint-disable-next-line
   }, [parcours]);
@@ -107,7 +105,7 @@ const Jobs = () => {
           path="/jobs/job/:id"
           render={(props) => (
             <JobContainer
-              {...props}
+              {...(props as any)}
               jobs={jobs}
               locationCall={locationCall}
               listLocation={listLocation?.location}
@@ -131,7 +129,7 @@ const Jobs = () => {
           path="/jobs/immersion/:id"
           render={(props) => (
             <ImmersionContainer
-              {...props}
+              {...(props as any)}
               jobs={jobs}
               locationCall={locationCall}
               listLocation={listLocation?.location}

@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Title from 'components/common/TitleImage/TitleImage';
 import Input from 'components/inputs/Input/Input';
-import { useThemes } from 'requests/themes';
+import { useThemes } from 'common/requests/themes';
 import { RouteComponentProps } from 'react-router-dom';
-import parcoursContext from 'contexts/ParcourContext';
+import parcoursContext from 'common/contexts/ParcourContext';
 import LoupeGray from 'assets/svg/loupe.svg';
 import LoupeBlue from 'assets/svg/loupeBlue.svg';
 import { decodeUri, encodeUri } from 'utils/url';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import classNames from 'utils/classNames';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import ValidationButton from 'components/valideButton/valideButton';
@@ -15,12 +15,8 @@ import useStyles from './styles';
 
 const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const classes = useStyles();
-
-  const isBrowser = typeof window !== 'undefined';
-  const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
   const [valueSearch, setValueSearch] = useState('');
-
   const { redirect } = decodeUri(location.search);
   const { data } = useThemes({
     variables: { type: 'professional', search: valueSearch },
@@ -34,34 +30,15 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const [breaker, setBreaker] = useState(0);
   const jobsId = [] as string[];
   const tagsId = [] as string[];
-  /*  const [jobsId, setJobsId] = useState<string[]>();
-  const [tagsId, setTagsId] = useState<string[]>();
- */
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setValueSearch(value);
   };
-
   useEffect(() => {
     if (selectedTheme) {
       localStorage.setItem('theme', selectedTheme?.id);
     }
   }, [selectedTheme]);
-
-  useEffect(() => {
-    const handleResize = () => setHeight(window.innerHeight);
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  });
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
-
   const onNavigate = () => {
     if (selectedTheme) history.push(`/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}`);
   };
@@ -77,12 +54,10 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
       setCurrentTheme(-1);
       if (selectedTheme) setValueSearch(selectedTheme?.title);
     }
-    console.log('Index', index);
   };
   const highlighter = (text: string) => {
     const rep = text.replace(new RegExp('[//,]', 'g'), '\n');
     const spl = rep.split(new RegExp(valueSearch, 'i'));
-    const spl1 = rep.split(new RegExp(' ', 'i'));
     const title = [];
     for (let i = 0; i < spl.length; i += 1) {
       title.push(spl[i]);
@@ -94,26 +69,20 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
         );
       }
     }
-
-    /*  console.log('rep', rep.length);
-    console.log('spl', spl);
-    console.log('spl1', spl1); */
     return title;
   };
   useEffect(() => {
     if (data && valueSearch !== '') {
       data.themes.data
         .filter((theme) => !parcours?.skills.find((id) => theme.id === id.theme?.id))
-        .map((theme, index) => {
+        // eslint-disable-next-line array-callback-return
+        .map((theme) => {
           const t = theme.title.replace(new RegExp('[//,]', 'g'), '\n');
           const x = t.split(new RegExp(valueSearch, 'i'));
-          const title = [];
-          {
-            if (x.length === 1) {
-              tagsId.push(theme.id);
-            } else {
-              jobsId.push(theme.id);
-            }
+          if (x.length === 1) {
+            tagsId.push(theme.id);
+          } else {
+            jobsId.push(theme.id);
           }
         });
       if (jobsId.length !== 0) {
@@ -122,27 +91,17 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
       if (tagsId.length !== 0) {
         setTags(data.themes.data.filter((theme) => tagsId.find((id) => theme.id === id)));
       } else setTags([]);
-      console.log('IDSJob', jobsId);
-      console.log('IDSTag', tagsId);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   useEffect(() => {
     setJobsNTags([...jobs, ...tags]);
     setBreaker(jobs.length);
   }, [jobs, tags]);
-
   useEffect(() => {
     if (selectedTheme) setValueSearch(selectedTheme?.title);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedTheme?.title]);
-
-  console.log('data', data);
-  console.log('skills', parcours?.skills);
-  console.log('Jobs', jobs);
-  console.log('Tags', tags);
-
-  console.log('j&t', jobsNtags);
-  console.log('breaker', breaker);
-
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -157,7 +116,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                   icon={valueSearch && valueSearch !== selectedTheme?.title ? LoupeBlue : LoupeGray}
                   value={valueSearch}
                   onChange={onChangeValue}
-                  placeholder="Ex : j’ai vendu des fleurs"
+                  placeholder="Ex : j'ai vendu des fleurs"
                   wrapperInputClassName={classes.wrapperInput}
                   inputClassName={classes.input}
                   inputBaseClassName={classes.inputBase}

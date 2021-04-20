@@ -1,29 +1,25 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
-import { useJob } from 'requests/jobs';
+import { useJob } from 'common/requests/jobs';
 import Title from 'components/common/Title/Title';
-import { useDidMount, useWillUnmount } from 'hooks/useLifeCycle';
+import { useDidMount, useWillUnmount } from 'common/hooks/useLifeCycle';
 import { RouteComponentProps, Link } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
-import Divider from '@material-ui/core/Divider';
-import Slide from '@material-ui/core/Slide';
 import TestImage from 'assets/svg/test.svg';
-import LogoLocation from 'assets/form/location.png';
 import Spinner from 'components/Spinner/Spinner';
-import useOnclickOutside from 'hooks/useOnclickOutside';
+import useOnclickOutside from 'common/hooks/useOnclickOutside';
 import HeartOutLine from 'assets/svg/outlineHeart.svg';
 import fullHeart from 'assets/svg/fullHeart.svg';
-import userContext from 'contexts/UserContext';
-import parcoursContext from 'contexts/ParcourContext';
-import ModalContainer from 'components/common/Modal/ModalContainer';
+import userContext from 'common/contexts/UserContext';
+import parcoursContext from 'common/contexts/ParcourContext';
 import defaultAvatar from 'assets/svg/defaultAvatar.svg';
-import { Jobs } from 'requests/types';
-import { useFamilies } from 'requests/familles';
-import { useAddFavoris, useDeleteFavoris, useListFavoris } from 'requests/favoris';
+import { Jobs } from 'common/requests/types';
+import { useFamilies } from 'common/requests/familles';
+import { useAddFavoris, useDeleteFavoris, useListFavoris } from 'common/requests/favoris';
+import Arrow from 'assets/svg/arrow';
 import ImmersionForm from '../../components/Immersion/ImmersionForm';
 import ModalContainerInfo from '../Modals/JobInfo';
 import ModalQuestion from '../Modals/ModalQuestion/ModalQuestion';
 import Graph from '../../components/GraphCompetence/GraphCompetence';
-import Arrow from 'assets/svg/arrow';
 import useStyles from './styles';
 
 interface IProps extends RouteComponentProps<{ id: string }> {
@@ -93,14 +89,14 @@ const JobContainer = ({
   useEffect(() => {
     if (addFavState.data) {
       const fn = data ? refetch : loadJob;
-      fn();
+      if (fn) fn();
     }
   }, [addFavState.data, loadJob, data, refetch]);
 
   useEffect(() => {
     if (deleteFavState.data) {
       const fn = FavData ? refetch : loadJob;
-      fn();
+      if (fn) fn();
     }
   }, [deleteFavState.data, loadJob, FavData, refetch]);
 
@@ -231,7 +227,6 @@ const JobContainer = ({
                 onSelect={onSelect}
                 selectedLocation={selectedLocation}
                 listLocation={listLocation}
-                LogoLocation={LogoLocation}
                 openLocation={openLocation}
                 onClickImmersion={onClickImmersion}
                 setOpenLocation={setOpenLocation}
@@ -280,9 +275,12 @@ const JobContainer = ({
                   </span>{' '}
                   en commun avec les tiens.
                 </div>
-                <div> {matchedInterest.length <= 2
-                  ? 'Ce métier ne semble pas correspondre à tes interêts'
-                  : 'Ce métier semble plutôt bien te correspondre !'} </div>
+                <div>
+                  {' '}
+                  {matchedInterest.length <= 2
+                    ? 'Ce métier ne semble pas correspondre à tes interêts'
+                    : 'Ce métier semble plutôt bien te correspondre !'}{' '}
+                </div>
               </div>
             </div>
           </div>

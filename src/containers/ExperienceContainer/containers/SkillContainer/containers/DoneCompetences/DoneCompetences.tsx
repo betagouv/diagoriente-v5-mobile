@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import ParcoursContext from 'contexts/ParcourContext';
+import ParcoursContext from 'common/contexts/ParcourContext';
 
 import Button from 'components/button/Button';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import check from 'assets/svg/check.svg';
 
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 
 import useStyles from './styles';
 

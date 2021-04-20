@@ -1,9 +1,7 @@
 import React from 'react';
-import Loupe from 'assets/svg/loupe';
 import Button from 'components/button/Button';
-import { Jobs } from 'requests/types';
+import { Jobs } from 'common/requests/types';
 import AutoComplete from '../Autocomplete/AutoCompleteJob';
-import loupe from 'assets/svg/magnif.svg';
 import useStyles from './styles';
 
 interface IProps {
@@ -16,7 +14,6 @@ interface IProps {
   onSelect: (e?: string) => void;
   selectedLocation: string;
   listLocation?: { label: string; coordinates: string[] }[];
-  LogoLocation: string;
   openLocation: boolean;
   onClickImmersion: () => void;
   setOpenLocation?: (open: boolean) => void;
@@ -33,7 +30,6 @@ const ImmersionForm = ({
   onSelect,
   selectedLocation,
   listLocation,
-  LogoLocation,
   openLocation,
   onClickImmersion,
   setOpenLocation,
@@ -42,10 +38,7 @@ const ImmersionForm = ({
   const classes = useStyles();
   return (
     <div className={classes.immersion}>
-      <div className={classes.logoContainer}>
-        {/* <Loupe color="#FFA600" width="29" height="92" /> */}
-        <img src={loupe} />
-      </div>
+      <div className={classes.logoContainer}>{/* <Loupe color="#FFA600" width="29" height="92" /> */}</div>
       <div className={classes.titleImersion}>Trouver une immersion ou une formation</div>
       {/* <div>Je recherche :</div> */}
       <div className={classes.autocompleteContainer}>
@@ -69,7 +62,6 @@ const ImmersionForm = ({
           name="location"
           placeholder="à Paris, Dijon, Lille..."
           options={listLocation}
-          icon={LogoLocation}
           type="location"
           open={openLocation}
           error={errorLocation && !selectedLocation}

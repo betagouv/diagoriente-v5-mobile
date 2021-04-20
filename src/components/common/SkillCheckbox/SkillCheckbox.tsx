@@ -1,5 +1,6 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
-import { Competence } from 'requests/types';
+import { Competence } from 'common/requests/types';
 import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import itemArrow from 'assets/svg/darkArrow.svg';
 import classNames from 'utils/classNames';
@@ -41,17 +42,16 @@ const SkillCheckbox = ({
 
   const onClickHeader = (e: Event) => {
     if (document.getElementsByClassName('ignore-onclickHeader')[index].contains(e.target as any)) return;
-    else {
-      if (!open) {
-        setOpen(true);
-        setOpenedIndex(index);
-      } else if (open && index !== openedIndex) setOpenedIndex(index);
-      else if (open && index === openedIndex) setOpen(false);
-    }
+
+    if (!open) {
+      setOpen(true);
+      setOpenedIndex(index);
+    } else if (open && index !== openedIndex) setOpenedIndex(index);
+    else if (open && index === openedIndex) setOpen(false);
   };
-  const addCompetence = (competence: Competence) => {
+  const addCompetence = (competenceParam: Competence) => {
     if (competences.length < 4) {
-      setCompetences([...competences, competence]);
+      setCompetences([...competences, competenceParam]);
     } else if (competences.length === 4) {
       setErrorMsg('Tu as déjà choisi 4 compétences');
       setOpenModal(true);
@@ -61,18 +61,19 @@ const SkillCheckbox = ({
   const deleteCompetence = (id: string) => {
     setCompetences(competences.filter((comp) => comp.id !== id));
   };
-  const onClickCheckbox = (competence: any, id: string, e: Event) => {
+  const onClickCheckbox = (competenceParam: any, id: string, e: Event) => {
     e.preventDefault();
-    if (!selected) addCompetence(competence);
+    if (!selected) addCompetence(competenceParam);
     else deleteCompetence(id);
   };
   useEffect(() => {
     if (open && openedIndex === index) setOpened(true);
     else setOpened(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, openedIndex]);
 
   useEffect(() => {
-    if (!!competences?.find((e) => e.id === competence.id)) setSelected(true);
+    if (competences?.find((e) => e.id === competence.id)) setSelected(true);
     else setSelected(false);
   }, [competences]);
   return (

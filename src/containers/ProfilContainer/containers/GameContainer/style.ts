@@ -16,8 +16,8 @@ export default makeStyles((theme) => ({
     overflow: 'hidden',
   },
   frameOverlayContainer: {
-    width: "100vw",
-    height: "100%",
+    width: '100vw',
+    height: '100%',
     borderRadius: 10,
     position: 'relative',
     display: 'flex',

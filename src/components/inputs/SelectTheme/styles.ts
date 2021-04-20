@@ -1,6 +1,4 @@
-import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { calculateBorderBoxPath } from 'html2canvas/dist/types/render/bound-curves';
 
 export default makeStyles((theme: Theme) => ({
   root: {

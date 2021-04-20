@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Families } from 'requests/types';
+import { Families } from 'common/requests/types';
 import Dotdotdot from 'react-dotdotdot';
-import Reset from 'components/common/Rest/Rest';
 import close from 'assets/svg/picto poubelle.svg';
 import useStyles from './styles';
 
@@ -40,14 +39,13 @@ const SelectedFamille = ({ handleClick, famille, index, direction, type }: IProp
       </div>
       <div className={classes.elements}>
         <Dotdotdot clamp={5}>
-          <div className={classes.text} >{res}</div>
+          <div className={classes.text}>{res}</div>
         </Dotdotdot>
       </div>
       {type !== 'ordre' && (
         <div onClick={type !== 'ordre' ? () => handleClick(index) : () => {}} className={classes.closeContainer}>
           {/* <Reset color="#420FAB" size={20} /> */}
           <img src={close} alt="" width={20} height={20} />
-
         </div>
       )}
     </div>

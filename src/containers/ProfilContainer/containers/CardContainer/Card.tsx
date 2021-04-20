@@ -7,15 +7,14 @@ import { encodeUri } from 'utils/url';
 import Paper from '@material-ui/core/Paper/Paper';
 import carte from 'assets/svg/carte.svg';
 import Picto from 'assets/svg/picto_ampoule_blue.svg';
-import useParcourSkills from 'hooks/useParcourSkills';
+import useParcourSkills from 'common/hooks/useParcourSkills';
+import { useDidMount } from 'common/hooks/useLifeCycle';
+import redarrow from 'assets/svg/redarrow.svg';
 import Arrow from '../../components/Arrow/Arrow';
 import CardHeader from './components/CardHeader/CardHeader';
 import CardIcons from './components/CardIcons/CardIcons';
 import CardCompetence from './components/CardCompetence/CardCompetence';
 import CardSkills from './components/CardSkills/CardSkills';
-import { useDidMount } from 'hooks/useLifeCycle';
-import redarrow from 'assets/svg/redarrow.svg';
-
 
 import useStyles from './styles';
 
@@ -40,6 +39,7 @@ const CardContainer = () => {
   useDidMount(() => {
     window.scrollTo({ top: 0, left: 0 });
   });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const icons = (
     <CardIcons
       onDownload={onClickIcon}
@@ -67,7 +67,7 @@ const CardContainer = () => {
   return (
     <div className={classes.container}>
       <div className={classes.header}>
-        <Arrow className={classes.arrowStyle} url= "/profile" arrowIcon={redarrow }/>
+        <Arrow className={classes.arrowStyle} url="/profile" arrowIcon={redarrow} />
         <div className={classes.headerTitle}>
           <img className={classes.headerImage} src={carte} alt="" />
           <span className={classes.title}>CARTE DE COMPÉTENCES</span>
@@ -85,7 +85,8 @@ const CardContainer = () => {
           {skills.filter((s) => s?.theme?.type === 'engagement').length !== 0 && (
             <CardCompetence
               title="COMPÉTENCES D’ENGAGEMENT"
-              description="En relation avec les expériences d’engagement (Service civique, Service National Universel...)"
+              description={`En relation avec les expériences d’engagement 
+              (Service civique, Service National Universel...)`}
               type="engagement"
             />
           )}

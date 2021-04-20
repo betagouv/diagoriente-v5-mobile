@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import Recommendation from 'components/ui/RecommendationModal/RecommendationModal';
 import Button from 'components/button/Button';
-import ParcourContext from 'contexts/ParcourContext';
+import ParcourContext from 'common/contexts/ParcourContext';
 import classNames from 'common/utils/classNames';
-import check from 'assets/svg/check.svg';
 import useStyles from './styles';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
@@ -37,7 +36,6 @@ const ResultCompetences = ({ theme, match, history, location }: Props) => {
     default:
       typeXp = 'personnelle';
   }
-  console.log('avatar', theme.resources?.icon);
   return (
     <div className={classes.root}>
       <div className={classes.header}>

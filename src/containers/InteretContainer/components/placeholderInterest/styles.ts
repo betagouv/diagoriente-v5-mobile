@@ -8,7 +8,7 @@ export default makeStyles<
     marginTop?: number;
     footer?: boolean;
     full?: boolean;
-    fontSizeNumber? : number;
+    fontSizeNumber?: number;
   }
 >((theme) => ({
   root: {
@@ -32,7 +32,7 @@ export default makeStyles<
     opacity: (props) => (props.footer ? 0.3 : 0.5),
     marginBottom: (props) => (props.direction === 'horizontal' ? 0 : 10),
   },
-  circleSelected:{
+  circleSelected: {
     width: (props) => props.size || 77,
     height: (props) => props.size || 77,
     borderRadius: '50%',
@@ -44,7 +44,6 @@ export default makeStyles<
     opacity: (props) => (props.footer ? 0.3 : 0.5),
     marginBottom: (props) => (props.direction === 'horizontal' ? 0 : 10),
     backgroundColor: '#ffff',
-
   },
   number: {
     color: theme.palette.primary.main,

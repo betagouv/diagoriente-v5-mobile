@@ -16,7 +16,6 @@ export default makeStyles((theme) => ({
     padding: '110px 40px 30px 40px',
     height: '100vh',
     backgroundColor: '#F3F2F4',
- 
     [theme.breakpoints.down(330)]: {
       height: 'auto',
       padding: '110px 20px 30px 20px',
@@ -24,23 +23,6 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.up(560)]: {
       height: 'auto',
     },
-    '@media not all and (min-resolution:.001dpcm)': {
-      width: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: '90px 20px 30px 20px',
-      height: '100vh',
-      backgroundColor: '#F3F2F4',
- 
-        [theme.breakpoints.up(560)]: {
-          padding: '80px 20px 10px 20px',
-  
-    
-          },
-    }
-    
-
   },
   paddingPro: {
     padding: '50px 40px 30px 40px',
@@ -87,14 +69,6 @@ export default makeStyles((theme) => ({
     marginBottom: 30,
     alignItems: 'center',
     fontSize: 14,
-    '@media not all and (min-resolution:.001dpcm)': {
-      marginBottom: 10,
-      alignItems: 'center',
-      fontSize: 14,
-      [theme.breakpoints.up(560)]: {
-        marginBottom: 10,
-      },
-    },
   },
 
   textDescription: {
@@ -103,14 +77,6 @@ export default makeStyles((theme) => ({
     fontSize: 18,
     [theme.breakpoints.down(340)]: {
       maxWidth: 320,
-    },
-    '@media not all and (min-resolution:.001dpcm)': {
-      marginBottom: 0,
-      alignItems: 'center',
-      fontSize: 18,
-      [theme.breakpoints.up(560)]: {
-        marginBottom: 10,
-      },
     },
   },
 

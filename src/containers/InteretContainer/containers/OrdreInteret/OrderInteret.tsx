@@ -1,22 +1,20 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import React, { useState, useContext, useEffect } from 'react';
-import { Redirect, Link, RouteComponentProps } from 'react-router-dom';
+import { Redirect, RouteComponentProps } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { Families } from 'requests/types';
-import { useUpdateParcour } from 'requests/parcours';
+import { Families } from 'common/requests/types';
+import { useUpdateParcour } from 'common/requests/parcours';
 import classNames from 'utils/classNames';
 import { decodeUri } from 'utils/url';
-import interestContext from 'contexts/InterestSelected';
-import ParcourContext from 'contexts/ParcourContext';
-import ValideButton from 'components/valideButton/valideButton';
+import interestContext from 'common/contexts/InterestSelected';
+import ParcourContext from 'common/contexts/ParcourContext';
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 
-import NextButton from 'components/nextButton/nextButton';
 import FamileSelected from '../../components/SelectedFamille/SelectedFamille';
 import useStyles from './styles';
 
 const OrderInteret = ({ history, location }: RouteComponentProps) => {
   const [updateCall, updateState] = useUpdateParcour();
-  const [error, setError] = useState('');
   const { selectedInterest, setInterest } = useContext(interestContext);
   const { setParcours } = useContext(ParcourContext);
   const classes = useStyles();
@@ -34,11 +32,6 @@ const OrderInteret = ({ history, location }: RouteComponentProps) => {
 
     setOrderedArray(copySelected);
   };
-  useEffect(() => {
-    if (orderedArray.length === selectedInterest?.length || orderedArray.length === 0) {
-      setError('');
-    }
-  }, [selectedInterest, orderedArray]);
 
   useEffect(() => {
     if (updateState.data && !updateState.error) {
@@ -94,6 +87,7 @@ const OrderInteret = ({ history, location }: RouteComponentProps) => {
                 {selectedInterest && (
                   <DragDropContext onDragEnd={onDragEnd}>
                     <Droppable droppableId="droppable">
+                      {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
                       {(provided, snapshot) => (
                         <div {...provided.droppableProps} ref={provided.innerRef}>
                           {selectedInterest.map((ele, index) => (
@@ -128,15 +122,14 @@ const OrderInteret = ({ history, location }: RouteComponentProps) => {
               </div>
 
               <div className={classes.hiddenList}>
-                {selectedInterest.map((el) => (
+                {selectedInterest.map(() => (
                   <div className={classes.holderItem} />
                 ))}
               </div>
             </div>
           </div>
           <div className={classes.btnContainer} onClick={onUpdate}>
-  
-            <div className={classes.suivantContainer} >
+            <div className={classes.suivantContainer}>
               <div className={classes.btnLabel}>Suivant</div>
             </div>
             {updateState.loading && (

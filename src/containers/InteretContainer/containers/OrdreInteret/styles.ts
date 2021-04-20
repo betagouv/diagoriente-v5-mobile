@@ -6,7 +6,7 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flex: 1,
-    backgroundColor:'#F3F2F4'
+    backgroundColor: '#F3F2F4',
   },
   content: {
     maxWidth: 1080,
@@ -14,7 +14,6 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  
   },
   header: {
     display: 'flex',
@@ -54,13 +53,13 @@ export default makeStyles<Theme>((theme) => ({
   },
   subTitle: {
     textAlign: 'center',
-    backgroundColor:'#fff',
-    width:'100%',
-    height:'85px',
-    display:'flex',
-    padding:20,
-    flexDirection:'column',
-    justifyContent:'start'
+    backgroundColor: '#fff',
+    width: '100%',
+    height: '85px',
+    display: 'flex',
+    padding: 20,
+    flexDirection: 'column',
+    justifyContent: 'start',
   },
   listSelected: {
     display: 'flex',
@@ -68,7 +67,7 @@ export default makeStyles<Theme>((theme) => ({
     padding: 40,
     [theme.breakpoints.down(330)]: {
       padding: 15,
-      marginBottom:12
+      marginBottom: 12,
     },
   },
   circle: {
@@ -88,27 +87,27 @@ export default makeStyles<Theme>((theme) => ({
   },
   btnContainer: {
     width: '100%',
-    height:50,
-    border:'none',
+    height: 50,
+    border: 'none',
     position: 'fixed',
-    zIndex:1,
+    zIndex: 1,
     bottom: '0px',
-    backgroundColor:'#7533FF',
-    display:'flex',
-    flexDirection:'row',
-    justifyContent:'center',
-    alignItems:'center'
+    backgroundColor: '#7533FF',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   btn: {
     backgroundColor: theme.palette.success.main,
     '&:hover': {
       backgroundColor: theme.palette.primary.main,
     },
-    width:'100%',
-    height:'50px',
+    width: '100%',
+    height: '50px',
     color: '#fff',
-    borderRadius:'inherit',
-    zIndex:1,
+    borderRadius: 'inherit',
+    zIndex: 1,
   },
   contentBtn: {
     display: 'flex',
@@ -119,9 +118,9 @@ export default makeStyles<Theme>((theme) => ({
   },
   btnLabel: {
     color: '#fff',
-    fontSize:'16px',
-    fontWeight:700,
-    fontFamily:'Andika New Basic'
+    fontSize: '16px',
+    fontWeight: 700,
+    fontFamily: 'Andika New Basic',
   },
   errorContainer: {
     width: '100%',

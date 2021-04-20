@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from 'react';
 import Button from 'components/button/Button';
 import { useHistory } from 'react-router-dom';
-import { useUpdateParcour } from 'requests/parcours';
-import ParcourContext from 'contexts/ParcourContext';
+import { useUpdateParcour } from 'common/requests/parcours';
+import ParcourContext from 'common/contexts/ParcourContext';
 import useStyles from './style';
 
 const GameContainer = () => {
@@ -39,7 +39,6 @@ const GameContainer = () => {
               <div className={classes.btnLabel}>Je commence à ajouter mes expériences</div>
             </Button>
           </div>
-
         </div>
       </div>
     </div>

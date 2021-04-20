@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 
 import Grid from '@material-ui/core/Grid/Grid';
-import ParcourContext from 'contexts/ParcourContext';
+import ParcourContext from 'common/contexts/ParcourContext';
 import CompetenceEchelon from 'components/common/CompetenceEchelon/CompetenceEchelon';
 import { isEmpty } from 'lodash';
 import useStyles from './styles';
@@ -42,8 +42,7 @@ const CardCompetence = ({ title, description, type }: IProps) => {
           </Grid>
         ) : (
           <div className={classes.emptyCompetences}>
-            Pour évaluer tes compétences, tu dois d&lsquo;abord
-            {' '}
+            Pour évaluer tes compétences, tu dois d&lsquo;abord{' '}
             <span className={classes.emptyCompetencesBold}>
               ajouter des expériences personnelles ou professionnelles
             </span>

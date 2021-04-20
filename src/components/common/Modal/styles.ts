@@ -1,13 +1,12 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
-export default makeStyles<Theme, { backdropColor: string; size?: number,height?:number }>((theme) => ({
+export default makeStyles<Theme, { backdropColor: string; size?: number; height?: number }>((theme) => ({
   modalContainer: {
     width: '100%',
     height: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   backdrop: {
     backgroundColor: (props) => `${props.backdropColor} !important`,
@@ -26,10 +25,8 @@ export default makeStyles<Theme, { backdropColor: string; size?: number,height?:
     '@media not all and (min-resolution:.001dpcm)': {
       overflow: 'auto',
       height: '100vh',
-      flex: 1, 
-    }
-
-    
+      flex: 1,
+    },
   },
   header: {
     display: 'flex',

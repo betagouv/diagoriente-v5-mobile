@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { useTheme } from 'requests/themes';
-import { Theme } from 'requests/types';
+import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import TextField from '@material-ui/core/TextField/TextField';
-import { decodeUri } from 'utils/url';
 import ValidationButton from 'components/valideButton/valideButton';
 import useStyles from './styles';
 

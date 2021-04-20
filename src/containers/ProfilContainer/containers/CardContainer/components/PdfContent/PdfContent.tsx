@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 import React, { forwardRef, Ref } from 'react';
-import useParcourSkills from 'hooks/useParcourSkills';
+import useParcourSkills from 'common/hooks/useParcourSkills';
 
 import classNames from 'utils/classNames';
 
@@ -47,7 +47,8 @@ const PdfContent = forwardRef((props, ref: Ref<HTMLDivElement>) => {
           {skills.filter((s) => s.theme.type === 'engagement').length !== 0 && (
             <CardCompetence
               title="COMPÉTENCES D’ENGAGEMENT"
-              description="En relation avec les expériences d’engagement (Service civique, Service National Universel...)"
+              description={`En relation avec les expériences d’engagement
+              (Service civique, Service National Universel...)`}
               type="engagement"
             />
           )}

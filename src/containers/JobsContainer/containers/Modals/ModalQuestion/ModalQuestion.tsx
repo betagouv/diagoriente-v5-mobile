@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Jobs } from 'requests/types';
+import { Jobs } from 'common/requests/types';
 import { useLocation } from 'react-router-dom';
-import { useResponseJob, useUpdateResponseJob, useGetResponseJob } from 'requests/jobs';
-import { useDidMount } from 'hooks/useLifeCycle';
+import { useResponseJob, useUpdateResponseJob, useGetResponseJob } from 'common/requests/jobs';
+import { useDidMount } from 'common/hooks/useLifeCycle';
 import Button from 'components/button/Button';
 import classNames from 'utils/classNames';
-import Slider from '../../../components/SliderQuestion/Slider';
 import arrowClose from 'assets/svg/orangeArrow.svg';
+import Slider from '../../../components/SliderQuestion/Slider';
 import useStyles from './styles';
 
 interface IProps {
@@ -47,7 +47,7 @@ const ModalQuestion = ({ job, onClose }: IProps) => {
     }
   };
   useEffect(() => {
-    if (responseState.data || updateResponseState.data) {
+    if ((responseState.data && refetch) || (updateResponseState.data && refetch)) {
       refetch({ variables: { JobId: param } });
       if (slideRef?.current) {
         (slideRef.current as any).nextSlide();
@@ -57,8 +57,6 @@ const ModalQuestion = ({ job, onClose }: IProps) => {
       }
     }
   }, [responseState.data, updateResponseState.data, getListResponses, param, refetch, job, onClose]);
-  console.log('questions', job?.questionJobs);
-  console.log('responses', data?.responseJobs.data);
   return (
     <div className={classes.root}>
       <div className={classes.closeFullModelContainer} onClick={onClose}>
@@ -79,8 +77,8 @@ const ModalQuestion = ({ job, onClose }: IProps) => {
               terminé !
             </div>
             <div className={classes.descriptionContainer}>
-              <div className={classes.textDescription}>Ces questions t'ont donné un aperçu de la réalité</div>
-              <div className={classes.textDescription}>du métier. Néanmoins Il n'y a rien de tel qu'une</div>
+              <div className={classes.textDescription}>Ces questions t&apos;ont donné un aperçu de la réalité</div>
+              <div className={classes.textDescription}>du métier. Néanmoins Il n&apos;y a rien de tel qu&apos;une</div>
               <div className={classes.textDescription}>immersion sur le terrain !</div>
             </div>
             <div className={classes.btnContainer}>

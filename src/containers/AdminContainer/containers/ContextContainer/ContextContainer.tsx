@@ -2,10 +2,8 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import { Header } from 'components/ui/Table/Table';
-import { Context } from 'requests/types';
-import {
- useContexts, useDeleteContext, useAddContext, useContext, useUpdateContext,
-} from 'requests/contexts';
+import { Context } from 'common/requests/types';
+import { useContexts, useDeleteContext, useAddContext, useContext, useUpdateContext } from 'common/requests/contexts';
 
 import Crud from 'components/ui/Crud/Crud';
 import ContextForm from '../../components/ContextForm/ContextForm';

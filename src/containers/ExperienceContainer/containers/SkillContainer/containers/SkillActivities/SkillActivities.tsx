@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { useTheme } from 'requests/themes';
-import { Theme } from 'requests/types';
+import { useTheme } from 'common/requests/themes';
+import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import classNames from 'utils/classNames';
-import { decodeUri } from 'utils/url';
 import Button from 'components/button/Button';
 import Spinner from 'components/SpinnerXp/Spinner';
 import ValidationButton from 'components/valideButton/valideButton';
@@ -18,12 +17,10 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   theme: Theme;
   activities: Activity[];
   setActivities: (activities: Activity[]) => void;
-  isCreate?: boolean;
 }
 
-const ExperienceActivity = ({ match, activities, setActivities, history, theme, isCreate, location }: Props) => {
+const ExperienceActivity = ({ match, activities, setActivities, history, theme, location }: Props) => {
   const classes = useStyles();
-  const { redirect } = decodeUri(location.search);
   const addActivity = (activite: Activity) => {
     setActivities([...activities, activite]);
   };
@@ -34,13 +31,6 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
 
   const { data, loading } = useTheme({ variables: { id: match.params.themeId } });
 
-  const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
-
   const addExtraActivity = () => {
     history.push(`/experience/skill/${match.params.themeId}/extraActivity${location.search}`);
   };
@@ -48,6 +38,7 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
   const onNavigate = () => {
     if (activities.length) history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
   };
+  console.log('data?.theme.activities', data?.theme.activities);
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -70,7 +61,7 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
             )}
 
             {data?.theme.activities
-              .sort((a, b) => a.title.toLowerCase().charCodeAt(0) - b.title.toLowerCase().charCodeAt(0))
+              // .sort((a, b) => a.title.toLowerCase().charCodeAt(0) - b.title.toLowerCase().charCodeAt(0))
               .map((act) => {
                 const selected = activities.find((e) => e.id === act.id);
                 return (

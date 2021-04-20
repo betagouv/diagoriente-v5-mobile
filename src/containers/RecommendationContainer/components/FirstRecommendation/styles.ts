@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const PADDING_CARD = '15px 60px';
 export default makeStyles((theme) => ({
   container: {
     padding: '50px 0px',
@@ -12,9 +11,6 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
   },
 
-
-
-
   cardContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -25,8 +21,6 @@ export default makeStyles((theme) => ({
     height: 'auto',
     marginTop: 29,
   },
-
-
 
   headerCard: {
     display: 'flex',
@@ -41,7 +35,7 @@ export default makeStyles((theme) => ({
   header: {
     display: 'flex',
     flexDirection: 'column',
-    "margin-left": "5vh",
+    'margin-left': '5vh',
   },
 
   themeHeader: {
@@ -69,12 +63,9 @@ export default makeStyles((theme) => ({
     fontWeight: 'bold',
     marginTop: 17,
     marginBottom: 11,
-    "margin-left": "5vh",
+    'margin-left': '5vh',
   },
-  titleSection:{
-    
-  },
-
+  titleSection: {},
 
   bodyCard: {
     display: 'flex',
@@ -95,7 +86,7 @@ export default makeStyles((theme) => ({
     resize: 'none',
     width: '50vh',
     maxWidth: '660px',
-    "padding-bottom": "2vh",
+    'padding-bottom': '2vh',
   },
 
   defaultValue: {
@@ -122,8 +113,6 @@ export default makeStyles((theme) => ({
     lineHeight: '20px',
   },
 
-
-  
   disabled: {
     pointerEvents: 'none',
   },
