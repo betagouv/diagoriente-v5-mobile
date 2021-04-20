@@ -32,11 +32,6 @@ export default makeStyles((theme: Theme) =>
       height: '100vh',
     },
 
-    themeTitle: {
-      color: '#424242',
-      fontSize: 14,
-    },
-
     searchContainer: {
       width: '100%',
     },
@@ -58,16 +53,26 @@ export default makeStyles((theme: Theme) =>
       textAlign: 'center',
       color: '#223A7A',
     },
-    searchProp: {
-      color: '#00CFFF',
-    },
+
     inputSearchContainer: {
       marginTop: 15,
       width: '100%',
     },
-    wrapperInput: { width: '100%', justifyContent: 'center' },
-    inputBase: { width: 290, margin: '0px' },
-    input: { fontWeight: 700 },
+
+    wrapperInput: {
+      width: '100%',
+      justifyContent: 'center',
+    },
+
+    inputBase: {
+      width: 290,
+      margin: '0px',
+    },
+
+    input: {
+      fontWeight: 700,
+    },
+
     resultsContainer: {
       width: '100%',
       display: 'flex',
@@ -75,6 +80,7 @@ export default makeStyles((theme: Theme) =>
       boxShadow: '0px -4px 5px 0px rgb(50 50 50 / 25%)',
       position: 'absolute',
     },
+
     titleWrapper: {
       width: '100%',
       minHeight: 36,
@@ -87,14 +93,7 @@ export default makeStyles((theme: Theme) =>
         padding: '0px 20px',
       },
     },
-    resultWrapper: {
-      backgroundColor: '#FFFFFF',
-      borderBottom: '1px solid #C9C9C7',
-    },
-    selectedResult: {
-      backgroundColor: 'rgba(122, 230, 255, 0.5)',
-      borderBottom: 'none',
-    },
+
     resultTitle: {
       fontWeight: 'bold',
       fontSize: 14,
@@ -104,12 +103,14 @@ export default makeStyles((theme: Theme) =>
       maxWidth: '100%',
     },
 
-    title: {
-      fontWeight: 900,
-      fontSize: 42,
-      fontFamily: 'Ocean',
-      color: '#223A7A',
-      marginTop: 50,
+    selectedResult: {
+      backgroundColor: 'rgba(122, 230, 255, 0.5)',
+      borderBottom: 'none',
+    },
+
+    resultWrapper: {
+      backgroundColor: '#FFFFFF',
+      borderBottom: '1px solid #C9C9C7',
     },
 
     ativityContainer: {
@@ -125,6 +126,7 @@ export default makeStyles((theme: Theme) =>
         padding: '10px 20px 5px 40px',
       },
     },
+
     activity: {
       fontSize: 12,
       lineHeight: '15px',
@@ -132,78 +134,6 @@ export default makeStyles((theme: Theme) =>
       marginBottom: 10,
     },
 
-    marginTitle: {
-      margin: '0 15px',
-      color: '#424242',
-      fontSize: 14,
-    },
-
-    textSelected: {
-      margin: '0 15px',
-      fontWeight: 'bold',
-      fontSize: 14,
-      color: '#424242',
-    },
-
-    text: {
-      fontWeight: 'normal',
-    },
-
-    loadingContainer: {
-      width: '100%',
-      height: 'calc(100vh - 166px)',
-      backgroundColor: '#E5E5E5',
-    },
-
-    avatarStyle: {
-      position: 'relative',
-      maxHeight: '100%',
-      maxWidth: '100%',
-      '&:hover': {
-        opacity: 0.5,
-      },
-    },
-
-    themeRoot: {
-      padding: '0 40px',
-    },
-
-    titleSelection: {
-      color: '#424242',
-      fontSize: 14,
-      paddingTop: 31,
-      margin: 0,
-    },
-
-    themeText: {
-      fontWeight: 600,
-    },
-
-    themeSelection: {
-      display: 'flex',
-      paddingTop: 15,
-      alignItems: 'center',
-      paddingBottom: 25,
-    },
-
-    themeTile: {
-      paddingLeft: 2,
-      fontSize: 14,
-      flex: 1,
-    },
-
-    themeAvatar: {
-      paddingRight: 2,
-    },
-
-    margin: {
-      margin: '0px 20px',
-    },
-    selectedImg: {
-      '&:not(.nohover):hover': {
-        opacity: 1,
-      },
-    },
     errorMsg: {
       color: '#D60051',
       fontSize: 14,

@@ -16,11 +16,8 @@ import useStyles from './styles';
 const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const classes = useStyles();
 
-  const isBrowser = typeof window !== 'undefined';
-  const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
   const [valueSearch, setValueSearch] = useState('');
-
   const { redirect } = decodeUri(location.search);
   const { data } = useThemes({
     variables: { type: 'professional', search: valueSearch },
@@ -34,9 +31,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   const [breaker, setBreaker] = useState(0);
   const jobsId = [] as string[];
   const tagsId = [] as string[];
-  /*  const [jobsId, setJobsId] = useState<string[]>();
-  const [tagsId, setTagsId] = useState<string[]>();
- */
+
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setValueSearch(value);
@@ -48,23 +43,10 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
     }
   }, [selectedTheme]);
 
-  useEffect(() => {
-    const handleResize = () => setHeight(window.innerHeight);
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  });
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
-
   const onNavigate = () => {
     if (selectedTheme) history.push(`/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}`);
   };
+
   const onClickTheme = (theme: Theme, index: number) => {
     if (!isOpen && currentTheme !== index) {
       setIsOpen(true);
@@ -77,12 +59,11 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
       setCurrentTheme(-1);
       if (selectedTheme) setValueSearch(selectedTheme?.title);
     }
-    console.log('Index', index);
   };
+
   const highlighter = (text: string) => {
     const rep = text.replace(new RegExp('[//,]', 'g'), '\n');
     const spl = rep.split(new RegExp(valueSearch, 'i'));
-    const spl1 = rep.split(new RegExp(' ', 'i'));
     const title = [];
     for (let i = 0; i < spl.length; i += 1) {
       title.push(spl[i]);
@@ -94,12 +75,9 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
         );
       }
     }
-
-    /*  console.log('rep', rep.length);
-    console.log('spl', spl);
-    console.log('spl1', spl1); */
     return title;
   };
+
   useEffect(() => {
     if (data && valueSearch !== '') {
       data.themes.data
@@ -107,7 +85,6 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
         .map((theme, index) => {
           const t = theme.title.replace(new RegExp('[//,]', 'g'), '\n');
           const x = t.split(new RegExp(valueSearch, 'i'));
-          const title = [];
           {
             if (x.length === 1) {
               tagsId.push(theme.id);
@@ -122,10 +99,9 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
       if (tagsId.length !== 0) {
         setTags(data.themes.data.filter((theme) => tagsId.find((id) => theme.id === id)));
       } else setTags([]);
-      console.log('IDSJob', jobsId);
-      console.log('IDSTag', tagsId);
     }
   }, [data]);
+
   useEffect(() => {
     setJobsNTags([...jobs, ...tags]);
     setBreaker(jobs.length);
@@ -134,14 +110,6 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
   useEffect(() => {
     if (selectedTheme) setValueSearch(selectedTheme?.title);
   }, [selectedTheme?.title]);
-
-  console.log('data', data);
-  console.log('skills', parcours?.skills);
-  console.log('Jobs', jobs);
-  console.log('Tags', tags);
-
-  console.log('j&t', jobsNtags);
-  console.log('breaker', breaker);
 
   return (
     <div className={classes.root}>
@@ -188,11 +156,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                             {isOpen && currentTheme === index && (
                               <div className={classes.ativityContainer}>
                                 {job?.activities.map((a) => (
-                                  <span className={classes.activity}>
-                                    •
-                                    {' '}
-                                    {a.title}
-                                  </span>
+                                  <span className={classes.activity}>• {a.title}</span>
                                 ))}
                               </div>
                             )}
@@ -227,11 +191,7 @@ const ThemeContainerPro = ({ location, history }: RouteComponentProps) => {
                             {isOpen && currentTheme === index && (
                               <div className={classes.ativityContainer}>
                                 {job?.activities.map((a) => (
-                                  <span className={classes.activity}>
-                                    •
-                                    {' '}
-                                    {a.title}
-                                  </span>
+                                  <span className={classes.activity}>• {a.title}</span>
                                 ))}
                               </div>
                             )}
