@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import { graphQLResult } from 'utils/graphql';
 import { uniqBy } from 'lodash';
-import { QueryResult } from '@apollo/react-common';
+import { QueryResult, QueryTuple } from '@apollo/react-hooks';
 import { useDidUpdate } from 'common/hooks/useLifeCycle';
 import classNames from 'utils/classNames';
 
 import Autocomplete, { AutocompleteProps } from '@material-ui/lab/Autocomplete/Autocomplete';
 import TextField from '@material-ui/core/TextField/TextField';
-import { QueryTuple } from '@apollo/react-hooks';
+
 import Label from '../Label/Label';
 
 import useStyles from './styles';
@@ -16,8 +16,7 @@ interface AdminAutocompleteBaseProps<
   T extends { id: string },
   Multiple extends boolean | undefined,
   DisableClearable extends boolean | undefined
->
-  extends Omit<
+> extends Omit<
     AutocompleteProps<{ value: string; label: string }, Multiple, DisableClearable, false>,
     'freeSolo' | 'options' | 'onInputChange' | 'renderInput' | 'getOptionLabel' | 'getOptionSelected'
   > {

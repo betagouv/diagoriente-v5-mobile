@@ -6,9 +6,7 @@ interface Props extends React.SVGProps<SVGSVGElement> {
   height: string;
   className?: string;
 }
-const arrow = ({
- color, height, width, className, ...other
-}: Props) => (
+const arrow = ({ color, height, width, className, ...other }: Props) => (
   <div className={className}>
     <svg width={width} height={height} viewBox="0 0 12 19" fill="none" {...other}>
       <path

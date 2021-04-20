@@ -100,6 +100,7 @@ const ActivityForm = ({ onSubmit, activity }: ThemeFormProps) => {
           list={useInterests}
           onChange={(e, v) => setValues({ interests: v })}
           className={classes.interests}
+          lazy={false}
         />
 
         <AdminCheckBox

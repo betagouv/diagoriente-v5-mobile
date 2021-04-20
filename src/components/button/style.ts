@@ -13,9 +13,8 @@ export default makeStyles((theme) => ({
     justifyContent: 'flex-start',
     width: 'fit-content',
     [theme.breakpoints.down(330)]: {
-      margin:'0px 0px'
+      margin: '0px 0px',
     },
-  
   },
   loaderContainer: {
     marginLeft: 7,

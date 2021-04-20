@@ -20,5 +20,4 @@ export default makeStyles({
       color: '#011A5E',
     },
   },
-
 });

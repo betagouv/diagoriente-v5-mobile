@@ -10,41 +10,32 @@ import classNames from 'utils/classNames';
 import useStyles from './styles';
 
 interface Props {
- selectedTheme:any;
- nextLink : string;
- previousLink: string
-  }
-const NavigationButton = ({ selectedTheme, nextLink, previousLink }:Props) => {
-const { redirect } = decodeUri(window.location.search);
+  selectedTheme: any;
+  nextLink: string;
+  previousLink: string;
+}
+const NavigationButton = ({ selectedTheme, nextLink, previousLink }: Props) => {
+  const { redirect } = decodeUri(window.location.search);
 
   const classes = useStyles();
   return (
     <div className={classes.previousNext}>
-
       <div>
         <Link
-    //   to="/experience"
+          //   to="/experience"
           to={previousLink}
           className={classes.hideLine}
         >
-          <PreviousButton
-            disabled={!selectedTheme}
-            classNameTitle={classes.classNameTitle}
-            ArrowColor="#4D6EC5"
-          />
+          <PreviousButton disabled={!selectedTheme} classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
         </Link>
       </div>
       <div>
         <Link
           to={nextLink}
-    //   to={selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''}
+          //   to={selectedTheme ? `/experience/skill/${selectedTheme.id}${redirect ? encodeUri({ redirect }) : ''}` : ''}
           className={classes.hideLine}
         >
-          <NextButton
-            disabled={!selectedTheme}
-            classNameTitle={classes.classNameTitle}
-            ArrowColor="#4D6EC5"
-          />
+          <NextButton disabled={!selectedTheme} classNameTitle={classes.classNameTitle} ArrowColor="#4D6EC5" />
         </Link>
       </div>
     </div>

@@ -1,21 +1,17 @@
-import React, {
- useState, useEffect, useContext, useMemo,
-} from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import Title from 'components/common/TitleImage/TitleImage';
-import SelectionContext from 'common/contexts/SelectionContext';
 import { useThemes } from 'common/requests/themes';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import { RouteComponentProps } from 'react-router-dom';
 import parcoursContext from 'common/contexts/ParcourContext';
 import Spinner from 'components/SpinnerXp/Spinner';
 import SelectTheme from 'components/inputs/SelectTheme/SelectTheme';
-import { decodeUri, encodeUri } from 'utils/url';
+import { decodeUri } from 'utils/url';
 import { Theme } from 'common/requests/types';
 import useStyles from './styles';
 
 const ThemeContainer = ({ location, history }: RouteComponentProps) => {
   const classes = useStyles();
-  const { setOpen } = useContext(SelectionContext);
 
   const [selectedTheme, setSelectedTheme] = useState<Omit<Theme, 'activities'> | null>(null);
 
@@ -40,13 +36,6 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
     themeNotFiltered,
     type,
   ]);
-
-  const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
 
   useEffect(() => {
     if (data) {
@@ -75,8 +64,7 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
           <div className={classes.selectThemeContainer}>
             {themeFiltered.length === 0 && !loading ? (
               <div className={classes.errorMessage}>
-                Il n&apos;y a plus de thèmes disponible, vous les avez deja tous choisis !
-                {' '}
+                Il n&apos;y a plus de thèmes disponible, vous les avez deja tous choisis !{' '}
               </div>
             ) : (
               <p className={classes.themeTitle}>Choisis un thème :</p>

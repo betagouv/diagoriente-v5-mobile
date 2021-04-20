@@ -145,23 +145,23 @@ export default makeStyles((theme) => ({
     height: '50px',
     position: 'fixed',
     top: 0,
-    zIndex:99999,
-    backgroundColor: '#FFE9C0',
-    display:'flex',
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center'
+    zIndex: 9999,
+    backgroundColor: 'rgba(255,211,130, 1)',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   titreHeader: {
     fontFamily: 'Andika New Basic',
     fontWeight: 700,
-    color:'#424242',
+    color: '#424242',
     fontSize: ' 14px',
-    padding:20,
+    padding: 20,
     lineHeight: '20px',
   },
   iconHeader: {
-    padding:'20px'
+    padding: '20px',
   },
   filtersContainer1: {
     backgroundColor: 'rgba(255,211,130, 0.5)',
@@ -231,24 +231,21 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     borderBottom: '0.5px solid #C9C9C7',
-    justifyContent:'space-around',
-    
+    justifyContent: 'space-around',
   },
-  borderInput:{
+  borderInput: {
     border: '1px solid #C9C9C7 !important',
-
   },
   rechercheButton: {
     backgroundColor: theme.palette.primary.main,
     alignSelf: 'center',
-    width:'280px',
-    height:'50px',
-    margin:20,
+    width: '280px',
+    height: '50px',
+    margin: 20,
     fontWeight:900,
     '&:hover': {
       backgroundColor: '#DB8F00',
     },
-  
   },
   selectedDomaineSelect:{
 

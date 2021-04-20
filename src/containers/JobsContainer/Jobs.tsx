@@ -1,6 +1,4 @@
-import React, {
- useEffect, useState, useMemo, useContext,
-} from 'react';
+import React, { useEffect, useState, useMemo, useContext } from 'react';
 import { Switch, useLocation } from 'react-router-dom';
 import Route from 'components/ui/Route/Route';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -63,7 +61,7 @@ const Jobs = () => {
   useEffect(() => {
     if (parcours?.completed) {
       const fn = data ? refetch : loadJobs;
-      fn();
+      if (fn) fn();
     }
     // eslint-disable-next-line
   }, [parcours]);
@@ -107,7 +105,7 @@ const Jobs = () => {
           path="/jobs/job/:id"
           render={(props) => (
             <JobContainer
-              {...props}
+              {...(props as any)}
               jobs={jobs}
               locationCall={locationCall}
               listLocation={listLocation?.location}
@@ -131,7 +129,7 @@ const Jobs = () => {
           path="/jobs/immersion/:id"
           render={(props) => (
             <ImmersionContainer
-              {...props}
+              {...(props as any)}
               jobs={jobs}
               locationCall={locationCall}
               listLocation={listLocation?.location}

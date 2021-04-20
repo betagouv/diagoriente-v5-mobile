@@ -11,9 +11,7 @@ interface Props {
   className?: string;
 }
 
-const TitleImage = ({
- title, color, size, font, className,
-}: Props) => {
+const TitleImage = ({ title, color, size, font, className }: Props) => {
   const classes = useStyles({
     color,
     size,

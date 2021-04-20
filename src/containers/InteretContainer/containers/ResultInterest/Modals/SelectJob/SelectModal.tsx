@@ -1,9 +1,7 @@
-import React, {
- useContext, useEffect, useState, useRef,
-} from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import parcoursContext from 'common/contexts/ParcourContext';
 import useOnclickOutside from 'common/hooks/useOnclickOutside';
-import { updateParcours, useUpdateParcour } from 'common/requests/parcours';
+import { useUpdateParcour } from 'common/requests/parcours';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Select from 'containers/JobsContainer/components/Select/Select';
 import { useHistory } from 'react-router-dom';
@@ -11,16 +9,9 @@ import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 
 import Avatar from 'components/common/AvatarTheme/AvatarTheme';
-// import CheckBox from 'components/inputs/CheckBox/CheckBox';
-import Button from 'components/button/Button';
 import classNames from 'utils/classNames';
 import { useAccessibility } from 'common/requests/accessibility';
-import checked from 'assets/form/checkboxchecked.svg';
-// import Arrow from 'containers/ProfilContainer/components/Arrow/Arrow';
-// import redarrow from 'assets/svg/redarrow.svg';
 import Divider from '@material-ui/core/Divider';
-
-import Arrow from 'assets/svg/arrow';
 import useStyles from './style';
 
 enum Steps {
@@ -54,7 +45,6 @@ const SelectModal = () => {
   const [accessibility, setAccessibility] = useState('');
   const isChecked = (id: string): any => selectedThemes.includes(id);
   const divType = useRef<HTMLDivElement>(null);
-  const x = false;
 
   useEffect(() => {
     accessibilityCall();
@@ -112,19 +102,14 @@ const SelectModal = () => {
                 name="job"
                 value={[accessibility]}
                 placeholder={getAccebilityName(accessibility)}
-                className={classNames(
-                  classes.containerAutoComp,
-                )}
                 open={openType}
                 modal
                 onClick={() => setOpenType(!openType)}
                 onClose={() => setOpenType(false)}
                 reference={divType}
-                color={x}
                 arrowColor="#00B2DB"
                 from="interest"
                 borderColor="#424242"
-
               />
             </ThemeProvider>
           </div>
@@ -145,10 +130,7 @@ const SelectModal = () => {
     default:
       return (
         <div className={classes.modalBody}>
-          <div className={classes.titleModal}>
-            Encore une petite chose !
-            {/* 1/2 */}
-          </div>
+          <div className={classes.titleModal}>Encore une petite chose !{/* 1/2 */}</div>
           <div className={classes.descriptionModal}>Sélectionne les expériences qui comptent le plus pour toi :</div>
 
           <div className={classes.experienceContainer}>
@@ -172,9 +154,7 @@ const SelectModal = () => {
                         <div className={classes.CheckBoxStyle}>
                           <CheckBox
                             checked={isChecked(pr.theme.id)}
-                            img={isChecked(pr.theme.id) && checked}
                             className={classes.checkBox}
-                            classNameLogo={classes.checkBoxImg}
                             color="#7AE6FF"
                             border="##00B2DB"
                             background="#fff"
@@ -218,7 +198,6 @@ const SelectModal = () => {
                           <CheckBox
                             checked={isChecked(pr.theme.id)}
                             className={classes.checkBox}
-                            classNameLogo={classes.checkBoxImg}
                             color="#7AE6FF"
                             border="##00B2DB"
                             background="#fff"
@@ -248,8 +227,7 @@ const SelectModal = () => {
                 <div className={classes.loaderContainer}>
                   <CircularProgress classes={{ colorPrimary: classes.colorPrimaryLoader }} size={24} />
                 </div>
-              )}
-              {' '}
+              )}{' '}
             </div>
           ) : (
             ''

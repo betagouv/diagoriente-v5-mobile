@@ -1,6 +1,4 @@
-import React, {
- useContext, useEffect, useRef, useState,
-} from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useWillUnmount } from 'common/hooks/useLifeCycle';
 import SelectionContext from 'common/contexts/SelectionContext';
 import { matchPath, useLocation } from 'react-router-dom';
@@ -67,10 +65,10 @@ const PrivateHeader = ({ theme, activities }: Props) => {
         <div className={classes.selctionBlob}>
           <p className={classes.titleSelection}>Ta sélection</p>
           {((isAct && activities.length > 0) || (isTheme && theme)) && (
-          <div className={classNames(classes.blob, EffectState && classes.animation)}>
-            <div className={classes.badgeText}>{(isAct && activities.length) || (isTheme && theme && '1')}</div>
-          </div>
-        )}
+            <div className={classNames(classes.blob, EffectState && classes.animation)}>
+              <div className={classes.badgeText}>{(isAct && activities.length) || (isTheme && theme && '1')}</div>
+            </div>
+          )}
         </div>
 
         <img
@@ -79,7 +77,6 @@ const PrivateHeader = ({ theme, activities }: Props) => {
           height={12}
           className={classNames(classes.menuIcon, !open ? classes.menuIconClosed : undefined)}
         />
-
       </div>
 
       {open && (
@@ -97,9 +94,7 @@ const PrivateHeader = ({ theme, activities }: Props) => {
                     >
                       <img src={theme.resources?.icon} alt="" className={classes.avatarStyle} height={90} />
                     </Avatar>
-                  ) : (
-                    undefined
-                  )}
+                  ) : undefined}
                   {theme.type === 'professional' ? (
                     <li className={classes.dot}>{theme.title}</li>
                   ) : (

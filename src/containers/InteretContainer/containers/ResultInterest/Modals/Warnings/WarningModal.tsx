@@ -17,8 +17,7 @@ const WarningModal = () => {
           <br />
           Pour avoir des recommandations plus fines, il faudra que tu
           <br />
-          ajoutes le plus d’expérience
-          possible.
+          ajoutes le plus d’expérience possible.
         </div>
       </div>
       <div className={classes.btnContainerModal}>
@@ -28,7 +27,6 @@ const WarningModal = () => {
           </Button>
         </Link>
       </div>
-
     </div>
   );
 };

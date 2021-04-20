@@ -35,13 +35,7 @@ const SecondRecommendation = ({ skill, comment, location }: Props) => {
 
   const title = (
     <span>
-      Recommanderiez-vous le travail de
-      {' '}
-      {skill.user.firstName}
-      {' '}
-      {skill.user.lastName}
-      {' '}
-      à des recruteurs
+      Recommanderiez-vous le travail de {skill.user.firstName} {skill.user.lastName} à des recruteurs
       <br />
       (votre réponse restera confidentielle) ?
     </span>

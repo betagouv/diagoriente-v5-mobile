@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import SelectBase, { SelectProps } from '@material-ui/core/Select/Select';
 import { Question } from 'common/requests/types';
 import MenuItem from '@material-ui/core/MenuItem/MenuItem';
-import { useListener } from 'common/hooks/useListener';
 import classNames from 'utils/classNames';
 import darkarrow from 'assets/svg/darkarrowblue.svg';
 import pictoClose from 'assets/svg/pictoClose.svg';
@@ -43,9 +42,6 @@ const AnswerSelect = ({
 }: Props) => {
   const classes = useStyles();
   const [openSelect, setOpenSelect] = useState(false);
-  const [dimension, setDimension] = useState([] as number[]);
-  const selectRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState('auto' as number | string);
 
   const selectClose = () => {
     if (setOpenSelect) setOpenSelect(false);
@@ -102,13 +98,13 @@ const AnswerSelect = ({
             </div>
           </div>
         </MenuItem>
-        {options.map((option, index) => (
+        {options.map((option, idx) => (
           <MenuItem
             key={option.value}
             value={option.value}
             className={classNames(
               classes.menuItem,
-              index === options.length - 1 && open && classes.lastChildBorder,
+              idx === options.length - 1 && open && classes.lastChildBorder,
               option.value === value ? classes.selectedItem : '',
             )}
           >

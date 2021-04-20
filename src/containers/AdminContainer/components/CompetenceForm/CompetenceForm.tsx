@@ -35,9 +35,10 @@ const CompetenceForm = ({ onSubmit, competence }: ContextFormProps) => {
         ...competence,
         type: competence.type || 'default',
         niveau: [...new Array(4)].map((c, i) =>
-          (competence.niveau[i]
+          competence.niveau[i]
             ? { title: competence.niveau[i].title, sub_title: competence.niveau[i].sub_title }
-            : { title: '', sub_title: '' })),
+            : { title: '', sub_title: '' },
+        ),
       });
     }
     // eslint-disable-next-line
@@ -47,7 +48,7 @@ const CompetenceForm = ({ onSubmit, competence }: ContextFormProps) => {
     e.preventDefault();
     const data = { ...values, rank: Number(values.rank) };
 
-    if (!data.type || data.type === 'default') delete data.type;
+    if (!data.type || data.type === 'default') delete (data as any).type;
     onSubmit(data);
   }
 
@@ -82,7 +83,8 @@ const CompetenceForm = ({ onSubmit, competence }: ContextFormProps) => {
                 onChange={(e) =>
                   setValues({
                     niveau: values.niveau.map((n, i) => (index !== i ? n : { ...n, title: e.target.value })),
-                  })}
+                  })
+                }
                 label={`Titre du niveau ${index + 1}`}
                 value={niveau.title}
                 className={classes.title}
@@ -91,7 +93,8 @@ const CompetenceForm = ({ onSubmit, competence }: ContextFormProps) => {
                 onChange={(e) =>
                   setValues({
                     niveau: values.niveau.map((n, i) => (index !== i ? n : { ...n, sub_title: e.target.value })),
-                  })}
+                  })
+                }
                 label={`Sous-titre de niveau ${index + 1}`}
                 value={niveau.sub_title}
                 className={classes.subTitle}

@@ -14,9 +14,7 @@ const CardHeader = ({ children }: CardHeaderProps) => {
   let userInfo = (
     <div className={classes.userInfo}>
       <div className={classes.userName}>
-        {user?.profile.firstName}
-        {' '}
-        {user?.profile.lastName}
+        {user?.profile.firstName} {user?.profile.lastName}
       </div>
       {user?.location}
     </div>

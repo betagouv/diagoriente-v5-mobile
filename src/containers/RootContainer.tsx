@@ -66,7 +66,7 @@ const RootContainer = () => {
     <ThemeProvider theme={theme}>
       <UserContext.Provider value={{ user, setUser }}>
         <ParcourContext.Provider value={{ parcours, setParcours }}>
-          <SecteurContext.Provider value={secteursData}>
+          <SecteurContext.Provider value={secteursData as any}>
             <Switch>
               <BaseRoute exact path="/" component={HomeContainer} />
               <Route footer path="/login" exact component={LoginContainer} />

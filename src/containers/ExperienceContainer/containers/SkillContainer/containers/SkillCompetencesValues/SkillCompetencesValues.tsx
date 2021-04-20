@@ -4,7 +4,6 @@ import { CompetenceValues, Competence, Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import Select from 'components/inputs/SelectLevel/SelectLevel';
 import ValidationButton from 'components/valideButton/valideButton';
-import { decodeUri } from 'utils/url';
 import useStyles from './styles';
 
 interface Props extends RouteComponentProps<{ themeId: string }> {
@@ -12,9 +11,7 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   setCompetencesValues: (CompetencesValues: CompetenceValues[]) => void;
   competences: Competence[];
   addSkill: () => void;
-  addSkillState: boolean;
   theme: Theme | null;
-  isCreate?: boolean;
   activities: string[];
 }
 
@@ -24,10 +21,7 @@ const SkillCompetencesValues = ({
   setCompetencesValues,
   competences,
   addSkill,
-  addSkillState,
-  history,
   theme,
-  isCreate,
   location,
   activities,
 }: Props) => {
@@ -37,7 +31,6 @@ const SkillCompetencesValues = ({
 
   // eslint-disable-next-line
   const [fixRef, setFixRef] = useState(0);
-  const { redirect } = decodeUri(location.search);
   const pointClick = (id: string, value: number) => {
     const nextCompetenceValues = [...competencesValues];
     const index = nextCompetenceValues.findIndex((v) => v.id === id);
@@ -65,13 +58,6 @@ const SkillCompetencesValues = ({
     // eslint-disable-next-line
   }, [competences]);
 
-  const isBrowser = typeof window !== 'undefined';
-  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0);
-
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  });
-
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -90,13 +76,14 @@ const SkillCompetencesValues = ({
             <p className={classes.title}>En rapport avec les compétences que tu as choisies, comment te sens-tu ?</p>
             <div className={classes.echelonContainer}>
               <div className={classes.competencesContainer}>
-                {competences.map((competence, i) => {
+                {competences.map((competence) => {
                   const valueCompetence = competencesValues.find((selected) => selected.id === competence.id);
                   let width = 0;
                   if (valueCompetence && arrowRef.current) {
                     const circle = circleRef.current[valueCompetence.value - 1];
 
                     if (circle) {
+                      // eslint-disable-next-line @typescript-eslint/no-unused-vars
                       width = circle.getBoundingClientRect().left - arrowRef.current.getBoundingClientRect().left + 9;
                     }
                   }

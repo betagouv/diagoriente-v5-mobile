@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+
 const MAX_WIDTH = 600;
 const FONT_SIZE = 14;
 export const PADDING = '25px 45px 50px 45px';

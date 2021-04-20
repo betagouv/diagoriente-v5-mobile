@@ -8,8 +8,6 @@ import Avatar from 'components/common/AvatarTheme/AvatarTheme';
 import pictoClose from 'assets/svg/pictoClose.svg';
 import Dialog from '@material-ui/core/Dialog';
 import Divider from '@material-ui/core/Divider';
-import Slide from '@material-ui/core/Slide';
-import { TransitionProps } from '@material-ui/core/transitions';
 import { useDidMount } from 'common/hooks/useLifeCycle';
 import ValidationButton from 'components/valideButton/valideButton';
 import { encodeUri } from 'utils/url';
@@ -23,12 +21,11 @@ interface Props {
   redirect?: any;
 }
 
-const SelectTheme = ({
- avatarsTab, selectedTheme, showAvatar, history, redirect,
-}: Props) => {
+const SelectTheme = ({ avatarsTab, selectedTheme, showAvatar, history, redirect }: Props) => {
   const classes = useStyles();
   const closeTitle = 'Choisis un thème ';
   const [defaultTheme, setDefaultTheme] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [theme, setTheme] = useState(defaultTheme);
   const [open, setOpen] = useState(false);
   const [openedItem, setOpenedItem] = useState(false);
@@ -99,11 +96,7 @@ const SelectTheme = ({
         >
           <div className={classes.itemContainer}>
             <div className={classes.closeModelContainer}>
-              <span className={classes.closeModelLabel}>
-                {' '}
-                {closeTitle}
-                {' '}
-              </span>
+              <span className={classes.closeModelLabel}> {closeTitle} </span>
               <img src={pictoClose} alt="close" />
             </div>
           </div>
@@ -145,13 +138,11 @@ const SelectTheme = ({
                   <div className={classes.activitiesContainer}>
                     {activities?.map((a) => (
                       <span key={a.id} className={classes.activityTitle}>
-                        •
-                        {' '}
-                        {a.title}
+                        • {a.title}
                       </span>
                     ))}
-                    {avatarsTab.filter((act) => act.id === selectedTheme?.id).map((a) => a.activities)[0]?.length
-                      > 4 && <span className={classes.activityTitle}>...</span>}
+                    {avatarsTab.filter((act) => act.id === selectedTheme?.id).map((a) => a.activities)[0]?.length >
+                      4 && <span className={classes.activityTitle}>...</span>}
                   </div>
                 </>
               )}

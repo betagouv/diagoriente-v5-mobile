@@ -1,9 +1,15 @@
-import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles<
   Theme,
-  { fullSelect?: boolean; fullScreenModal?: boolean; open?: boolean; arrowColor?: string ; borderColor?:string , placeHolderColor?:string}
+  {
+    fullSelect?: boolean;
+    fullScreenModal?: boolean;
+    open?: boolean;
+    arrowColor?: string;
+    borderColor?: string;
+    placeHolderColor?: string;
+  }
 >((theme: Theme) => ({
   content: {
     position: 'relative',
@@ -27,7 +33,10 @@ export default makeStyles<
     fontFamily: 'Andika New Basic',
     // border: (props) => `1px solid ${props.open ? theme.palette.success.main : '#424242' ? props.borderColor  : props.borderColor  }`,
 
-    border: (props) => `1px solid ${'#C9C9C7' && props.borderColor} ` ,
+    // border: (props) => `1px solid ${'#C9C9C7' && props.borderColor} ` ,
+    border: (props) =>
+      // eslint-disable-next-line no-nested-ternary
+      `1px solid ${props.open ? theme.palette.success.main : '#424242' ? props.borderColor : props.borderColor}`,
     borderRadius: 5,
     margin: '6px 0px',
     background: '#fff',
@@ -52,8 +61,10 @@ export default makeStyles<
     },
   },
   selectedInput:{
-    border: (props) => `1px solid ${'#C9C9C7' && props.borderColor} ` ,
+    // border: (props) => `1px solid ${'#C9C9C7' && props.borderColor} ` ,
     textOverflow:'ellipsis',
+  selectedInput: {
+    border: (props) => `1px solid  ${props.open && theme.palette.success.main}`,
     height: 46,
     width: 320,
     fontFamily: 'Andika New Basic',
@@ -129,8 +140,7 @@ export default makeStyles<
     flexWrap: 'wrap',
     overflow: 'auto',
     zIndex: 99999,
-    paddingBottom:50,
-
+    paddingBottom: 50,
   },
   fullScreenItem: {
     height: 'auto',
@@ -180,9 +190,9 @@ export default makeStyles<
     //   color: '#424242',
     // },
   },
-btn:{
-  zIndex:1
-},
+  btn: {
+    zIndex: 1,
+  },
   modalWrapper: {
     width: '100%',
     height: '100%',
@@ -222,7 +232,7 @@ btn:{
       bottom: 0,
       left: 0,
       width: '100%',
-        }
+    },
   },
 
   optionList: {
@@ -240,13 +250,14 @@ btn:{
     [theme.breakpoints.down(330)]: {
       width: 'auto',
     },
+    // justifyContent: 'space-around',
   },
   closeFullModelContainer: {
     width: '100%',
     height: 80,
     display: 'flex',
     alignItems: 'center',
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
     borderBottom: '0.5px solid #C9C9C7',
     [theme.breakpoints.down(420)]: {
       width: 'inherit',
@@ -305,4 +316,7 @@ btn:{
       top:'15px'
     },
   }
-}));
+  // close: {
+  //   padding: '20px',
+  // },
+}}));

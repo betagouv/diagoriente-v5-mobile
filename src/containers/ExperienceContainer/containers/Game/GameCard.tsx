@@ -39,7 +39,6 @@ const GameContainer = () => {
               <div className={classes.btnLabel}>Je commence à ajouter mes expériences</div>
             </Button>
           </div>
-
         </div>
       </div>
     </div>

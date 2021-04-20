@@ -9,7 +9,7 @@ export default makeStyles((theme) =>
       background: '#fff',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       borderRadius: 10,
-      position: "relative",
+      position: 'relative',
     },
 
     root: {
@@ -29,7 +29,7 @@ export default makeStyles((theme) =>
       paddingBottom: 9,
       paddingLeft: 25,
       [theme.breakpoints.down(500)]: {
-        paddingLeft: 0, 
+        paddingLeft: 0,
       },
       '@media not all and (min-resolution:.001dpcm)': {
         display: 'flex',
@@ -41,10 +41,9 @@ export default makeStyles((theme) =>
         paddingBottom: 9,
         paddingLeft: 25,
         [theme.breakpoints.down(500)]: {
-          paddingLeft: 0, 
+          paddingLeft: 0,
         },
-      }
-      
+      },
     },
 
     childrenCardContainer: {
@@ -52,7 +51,7 @@ export default makeStyles((theme) =>
       width: '100%',
       paddingTop: 20,
       [theme.breakpoints.down(500)]: {
-        flexDirection:'column',
+        flexDirection: 'column',
       },
     },
 
@@ -65,7 +64,6 @@ export default makeStyles((theme) =>
       WebkitTextStroke: '#424242',
       WebkitTextStrokeWidth: '0.4px',
       justifyContent: 'center',
-     
     },
 
     link: {
@@ -80,14 +78,12 @@ export default makeStyles((theme) =>
       width: 200,
       [theme.breakpoints.down(500)]: {
         margin: '20px 0px',
-
-
       },
     },
 
     footerCardContainer: {
       display: 'flex',
-      alignItems:'flex-end',
+      alignItems: 'flex-end',
       background: 'rgba(77, 110, 197, 0.2)',
       borderRadius: '0px 0px 10px 10px',
       padding: '5px 20px',
@@ -132,9 +128,9 @@ export default makeStyles((theme) =>
         position: 'absolute',
         top: 1,
         right: 1,
-        height: "6vh",
-        width: "6vh",
-      }
+        height: '6vh',
+        width: '6vh',
+      },
     },
 
     themeTitle: {
@@ -144,7 +140,8 @@ export default makeStyles((theme) =>
       flex: 0,
       margin: 0,
     },
-    iconWidth:{
-      width:'56px'
-    }
-  }));
+    iconWidth: {
+      width: '56px',
+    },
+  }),
+);

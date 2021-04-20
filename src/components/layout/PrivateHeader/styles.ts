@@ -14,29 +14,27 @@ export default makeStyles((theme: Theme) =>
     toolbarContainer: {
       display: 'flex',
       minHeight: 'auto !important',
-      flexDirection:'row',
+      flexDirection: 'row',
     },
-centerContainer:{
-  display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    marginLeft:'40px'
-},
+    centerContainer: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      marginLeft: '40px',
+    },
     flexCenter: {
       alignItems: 'center',
-      display: "flex",
-    position: "absolute",
-    left: "20px",
+      display: 'flex',
+      position: 'absolute',
+      left: '20px',
     },
 
     logoContainer: {
       display: 'flex',
       alignItems: 'center',
     },
-diagLogoContainer:{
-
-},
+    diagLogoContainer: {},
     menuIcon: {
       marginRight: 8,
       cursor: 'pointer',
@@ -53,4 +51,5 @@ diagLogoContainer:{
       display: 'flex',
       alignItems: 'center',
     },
-  }));
+  }),
+);

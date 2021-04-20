@@ -47,7 +47,7 @@ const ModalQuestion = ({ job, onClose }: IProps) => {
     }
   };
   useEffect(() => {
-    if (responseState.data || updateResponseState.data) {
+    if ((responseState.data && refetch) || (updateResponseState.data && refetch)) {
       refetch({ variables: { JobId: param } });
       if (slideRef?.current) {
         (slideRef.current as any).nextSlide();
@@ -57,8 +57,6 @@ const ModalQuestion = ({ job, onClose }: IProps) => {
       }
     }
   }, [responseState.data, updateResponseState.data, getListResponses, param, refetch, job, onClose]);
-  console.log('questions', job?.questionJobs);
-  console.log('responses', data?.responseJobs.data);
   return (
     <div className={classes.root}>
       <div className={classes.closeFullModelContainer} onClick={onClose}>
@@ -79,8 +77,8 @@ const ModalQuestion = ({ job, onClose }: IProps) => {
               terminé !
             </div>
             <div className={classes.descriptionContainer}>
-              <div className={classes.textDescription}>Ces questions t'ont donné un aperçu de la réalité</div>
-              <div className={classes.textDescription}>du métier. Néanmoins Il n'y a rien de tel qu'une</div>
+              <div className={classes.textDescription}>Ces questions t&apos;ont donné un aperçu de la réalité</div>
+              <div className={classes.textDescription}>du métier. Néanmoins Il n&apos;y a rien de tel qu&apos;une</div>
               <div className={classes.textDescription}>immersion sur le terrain !</div>
             </div>
             <div className={classes.btnContainer}>

@@ -25,15 +25,19 @@ const Card = ({
   childrenCardClassName,
 }: Props) => {
   const classes = useStyles({ background, color });
-  const component = !path ? <div /> : <Link to={path} />
+  const component = !path ? <div /> : <Link to={path} />;
   return (
     <div className={classNames(classes.cardContainer, className)}>
       {titleCard}
-      {React.cloneElement(component, {className: classes.link},<div className={classNames(classes.titleContainer, logo && classes.titleSpacing)}>
+      {React.cloneElement(
+        component,
+        { className: classes.link },
+        <div className={classNames(classes.titleContainer, logo && classes.titleSpacing)}>
           {logo && <img src={logo} alt=" " height={40} className={classes.logo} />}
           {title}
           {logo && <div className={classes.logo} />}
-        </div> )}
+        </div>,
+      )}
       <div className={classNames(classes.childrenCard, childrenCardClassName)}>{children}</div>
     </div>
   );

@@ -47,13 +47,7 @@ const JobInfo = ({ job, handleClose }: IProps) => {
               <span className={classes.offresTitle}>La semaine dernière</span>
             </div>
             <div>
-              <b>22</b>
-              {' '}
-              offres pour
-              {' '}
-              <b>550</b>
-              {' '}
-              demandeurs d&lsquo;emploi
+              <b>22</b> offres pour <b>550</b> demandeurs d&lsquo;emploi
             </div>
           </div>
           <div className={classes.offreConatinerItems}>
@@ -62,13 +56,7 @@ const JobInfo = ({ job, handleClose }: IProps) => {
               <span className={classes.offresTitle}>Sur les 12 derniers mois, en moyenne :</span>
             </div>
             <div>
-              <b>4</b>
-              {' '}
-              offres pour
-              {' '}
-              <b>10</b>
-              {' '}
-              demandeurs d&lsquo;emploi
+              <b>4</b> offres pour <b>10</b> demandeurs d&lsquo;emploi
             </div>
           </div>
         </div>

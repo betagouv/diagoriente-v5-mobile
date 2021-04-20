@@ -9,12 +9,11 @@ export default makeStyles((theme) => ({
     height: 'calc(100vh - 113px)',
     paddingBottom: 40,
     alignItems: 'center',
-
   },
   title: {
     fontFamily: 'ocean',
     fontWeight: 900,
-    fontSize: 42,     
+    fontSize: 42,
     textAlign: 'center',
     color: theme.palette.info.main,
     marginBottom: 40,
@@ -53,7 +52,7 @@ export default makeStyles((theme) => ({
       '&::-webkit-scrollbar': {
         display: 'none',
       },
-    }
+    },
   },
   btnContainer: {
     width: '100%',
@@ -81,7 +80,7 @@ export default makeStyles((theme) => ({
       textTransform: 'none',
       fontWeight: 'bold',
       fontSize: 12,
-    }
+    },
   },
   emptyDiv: {
     width: 260,

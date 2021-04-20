@@ -36,7 +36,6 @@ const Interet = () => {
           <Route protected path="/interet/result" component={ResultInteret} />
           <Route component={NotFoundPage} />
         </Switch>
-    
       </InterestContext.Provider>
     </ThemeProvider>
   );

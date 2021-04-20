@@ -1,5 +1,4 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { FullscreenExit, Height } from '@material-ui/icons';
 
 export default makeStyles<Theme>((theme) => ({
   root: {
@@ -51,7 +50,7 @@ export default makeStyles<Theme>((theme) => ({
     // textTransform: 'uppercase',
     width: '90%',
     // lineHeight:20,
-    padding:10,
+    padding: 10,
   },
   traitLogo: {
     position: 'absolute',
@@ -99,18 +98,18 @@ export default makeStyles<Theme>((theme) => ({
   selected: {
     position: 'relative',
     // backgroundColor: 'rgba(223, 212, 255, 0.5)',
-    backgroundColor:"#A275FF",
-    padding:'10px'
+    backgroundColor: '#A275FF',
+    padding: '10px',
   },
-  titleSelected1:{
+  titleSelected1: {
     fontWeight: 400,
     fontSize: 14,
     fontFamily: 'Andika New Basic',
     color: '#fff',
     textAlign: 'center',
     width: '90%',
-    padding:10,
-    ligneHeight:'20px'
+    padding: 10,
+    ligneHeight: '20px',
   },
   // wrapperBtn: {
   //   display: 'flex',
@@ -175,7 +174,6 @@ export default makeStyles<Theme>((theme) => ({
     [theme.breakpoints.up(620)]: {
       top: '-46.6vh',
     },
-
   },
   rotatedArrow: {
     transform: 'rotate(180deg)',
@@ -237,7 +235,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   imageContainer: {
     position: 'relative',
-    padding:'10px'
+    padding: '10px',
   },
   show: {
     opacity: 1,
@@ -252,39 +250,39 @@ export default makeStyles<Theme>((theme) => ({
     width: 20,
     height: 20,
   },
-  slideTitle:{
-    display:'flex',
-    flexDirection:'row',
-    alignItems:'center',
-    height:55,
-    width:'100%',
+  slideTitle: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 55,
+    width: '100%',
     backgroundColor: '#FFFFFF',
-boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   },
-  imgHeader:{
-    margin:10,
+  imgHeader: {
+    margin: 10,
     [theme.breakpoints.down(330)]: {
-      margin:3,
+      margin: 3,
     },
   },
- 
-  imgHeaderPersonnes:{
-    margin:10,
 
-    marginRight:'50px',
+  imgHeaderPersonnes: {
+    margin: 10,
+
+    marginRight: '50px',
     [theme.breakpoints.down(380)]: {
-      marginRight:'20px',
+      marginRight: '20px',
     },
     [theme.breakpoints.down(330)]: {
-      margin:2,
+      margin: 2,
     },
   },
-  btnTitle:{
-    fontFamily:'Andika New Basic',
-    fontWeight:700,
-    fontSize:14,
-    lineHeight:20,
-    color:'#420FAB',
-    marginLeft:'10px'
-  }
+  btnTitle: {
+    fontFamily: 'Andika New Basic',
+    fontWeight: 700,
+    fontSize: 14,
+    lineHeight: 20,
+    color: '#420FAB',
+    marginLeft: '10px',
+  },
 }));

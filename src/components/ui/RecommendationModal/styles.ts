@@ -1,4 +1,3 @@
-import { display } from 'html2canvas/dist/types/css/property-descriptors/display';
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({

@@ -19,11 +19,7 @@ const DoneRecommendation = ({ skill }: { skill: PublicSkill }) => {
       <br />
       Votre recommandation a été envoyée
       <br />
-      Elle aidera
-      {' '}
-      {skill.user.firstName}
-      {' '}
-      à s'améliorer et décrocher de futures expériences professionnelles.
+      Elle aidera {skill.user.firstName} à s&apos;améliorer et décrocher de futures expériences professionnelles.
     </span>
   );
   return (

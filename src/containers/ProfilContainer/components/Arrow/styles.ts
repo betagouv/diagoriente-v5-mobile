@@ -6,7 +6,7 @@ export default makeStyles((theme) =>
       display: 'flex',
       alignItems: 'center',
       width: 160,
-      marginBottom:20
+      marginBottom: 20,
     },
     txt: {
       color: '#6B6B6A',
@@ -16,11 +16,12 @@ export default makeStyles((theme) =>
       position: 'relative',
       bottom: 1,
     },
-    linkContainer:{
-      width:'100%',
+    linkContainer: {
+      width: '100%',
       [theme.breakpoints.down(330)]: {
         marginTop: 30,
-        marginLeft:20
+        marginLeft: 20,
       },
-    }
-  }));
+    },
+  }),
+);

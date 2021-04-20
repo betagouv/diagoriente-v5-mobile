@@ -42,8 +42,7 @@ const GameContainer = () => {
           </div>
           <Button className={classes.btn}>
             <a className={classes.btnLabel} href={UploadFile} download>
-              Télécharger le Référentiel
-              {' '}
+              Télécharger le Référentiel{' '}
             </a>
           </Button>
         </div>

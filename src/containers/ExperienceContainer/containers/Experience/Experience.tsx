@@ -1,7 +1,4 @@
-import React, {
- useContext, useState, useEffect, useRef,
-} from 'react';
-import parcourContext from 'common/contexts/ParcourContext';
+import React from 'react';
 import Title from 'components/common/TitleImage/TitleImage';
 import Avatar from 'components/common/Avatar/Avatar';
 import IlluExpPerso from 'assets/images/illu_xp_perso.png';
@@ -14,28 +11,6 @@ import useStyles from './styles';
 const Experience = () => {
   const classes = useStyles();
   const history = useHistory();
-  const [open, setOpen] = useState(false);
-  const [openEng, setOpenEng] = useState(false);
-  const openModal = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const openModalEng = () => setOpenEng(true);
-  const handleEngClose = () => setOpenEng(false);
-  const { parcours } = useContext(parcourContext);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  useEffect(() => {
-    if (!parcours?.played) openModal();
-  }, [parcours]);
-
-  const onClickEng = () => {
-    const p = '/experience/theme?type=engagement';
-    if (!parcours?.playedEng) {
-      openModalEng();
-    } else {
-      history.push(p);
-    }
-  };
 
   const onClickLink = (link: string) => {
     history.push(link);
@@ -86,7 +61,12 @@ const Experience = () => {
             titleClassName={classes.avatarTitle}
             circleClassName={classes.circleStyleEng}
           >
-            <img src={illExpEng} alt="ill" className={classes.illus} onClick={onClickEng} />
+            <img
+              src={illExpEng}
+              alt="ill"
+              className={classes.illus}
+              onClick={() => onClickLink('/experience/theme?type=engagement')}
+            />
           </Avatar>
         </Link>
         <Link to="/experience/theme?type=sport" className={classes.circleContainer}>
@@ -99,7 +79,12 @@ const Experience = () => {
             titleClassName={classes.avatarTitle}
             circleClassName={classes.circleStyleEng}
           >
-            <img src={illExpSport} alt="ill" className={classes.illus} onClick={onClickEng} />
+            <img
+              src={illExpSport}
+              alt="ill"
+              className={classes.illus}
+              onClick={() => onClickLink('/experience/theme?type=engagement')}
+            />
           </Avatar>
         </Link>
       </div>

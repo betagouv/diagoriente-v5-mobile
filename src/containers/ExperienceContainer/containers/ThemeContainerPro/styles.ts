@@ -1,7 +1,4 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { CollectionsBookmarkOutlined } from '@material-ui/icons';
-import { size } from 'lodash';
-import { SKILL_CONTAINER_PADDING } from 'utils/generic';
 
 export default makeStyles((theme: Theme) =>
   createStyles({
