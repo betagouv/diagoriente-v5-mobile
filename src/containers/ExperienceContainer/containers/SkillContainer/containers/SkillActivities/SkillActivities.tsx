@@ -21,9 +21,7 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   isCreate?: boolean;
 }
 
-const ExperienceActivity = ({
- match, activities, setActivities, history, theme, isCreate, location,
-}: Props) => {
+const ExperienceActivity = ({ match, activities, setActivities, history, theme, isCreate, location }: Props) => {
   const classes = useStyles();
   const { redirect } = decodeUri(location.search);
   const addActivity = (activite: Activity) => {
@@ -72,6 +70,7 @@ const ExperienceActivity = ({
             )}
 
             {data?.theme.activities
+              .slice()
               .sort((a, b) => a.title.toLowerCase().charCodeAt(0) - b.title.toLowerCase().charCodeAt(0))
               .map((act) => {
                 const selected = activities.find((e) => e.id === act.id);
