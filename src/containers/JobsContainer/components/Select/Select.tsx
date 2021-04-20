@@ -21,6 +21,8 @@ interface IProps {
   options: any[] | undefined;
   open?: boolean;
   onClose?: () => void;
+  onCloseSelect?: () => void;
+
   onClick: () => void;
   fullSelect?: boolean;
   reference?: any;
@@ -44,6 +46,8 @@ const SelectJobs = ({
   open,
   check,
   onClose,
+  onCloseSelect,
+
   onSelectText,
   bkColor,
   onClick,
@@ -78,7 +82,7 @@ const SelectJobs = ({
           className={classNames(
             from && classes.inputContainer1,
             classes.inputBorder,
-            isInclude && classes.selectedInput,
+            // isInclude && classes.selectedInput,
           )}
         />
         <div className={classes.logoContainer}>
@@ -96,9 +100,9 @@ const SelectJobs = ({
           {fullScreenModal ? (
             <Slide direction="right" in={open} mountOnEnter unmountOnExit>
               <div className={classes.secteurContainerFullScreen}>
-                <div className={classes.closeFullModelContainer} onClick={onClose}>
-                  <span className={classes.closeModelLabel}> {placeholder} </span>
-                  <img src={closeIcon} alt="close" className={classes.close} />
+                <div className={classes.closeFullModelContainer}>
+                  <span className={classes.closeModelLabel}> Domaine d’activité </span>
+                  <img src={closeIcon} alt="close" className={classes.close} onClick={onCloseSelect} />
                 </div>
                 {options?.map((el) => (
                   <div key={el.title} className={classes.fullScreenItem}>
@@ -125,7 +129,7 @@ const SelectJobs = ({
                         onClick={onClose}
                         label="Valider"
                         bgColor="#FFA600"
-                        color="#ffff"
+                        color="#424242"
                         btnClassName={classes.btn}
                       />
                     )}

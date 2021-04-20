@@ -139,6 +139,7 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   headerRecherche: {
     width: '100%',
     height: '50px',
@@ -245,7 +246,8 @@ export default makeStyles((theme) => ({
       backgroundColor: '#DB8F00',
     },
   },
-
+  selectedDomaineSelect: {},
+  domaineSelect: {},
   itemFooter: { width: '100%' },
   centerItem: { display: 'flex', justifyContent: 'center' },
   rightItem: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 20 },
