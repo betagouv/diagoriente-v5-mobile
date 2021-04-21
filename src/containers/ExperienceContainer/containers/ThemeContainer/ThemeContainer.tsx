@@ -12,11 +12,8 @@ import useStyles from './styles';
 
 const ThemeContainer = ({ location, history }: RouteComponentProps) => {
   const classes = useStyles();
-
   const [selectedTheme, setSelectedTheme] = useState<Omit<Theme, 'activities'> | null>(null);
-
   const { type, redirect } = decodeUri(location.search);
-
   const showAvatar = (theme: Omit<Theme, 'activities'>) => {
     setSelectedTheme(theme);
   };
@@ -24,19 +21,16 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
     variables: { type: type === 'engagement' ? 'engagement' : 'personal' },
   });
   const { parcours } = useContext(parcoursContext);
-
   const themeFiltereds = useMemo(
     () => (data ? data.themes.data.filter((theme) => !parcours?.skills.find((id) => theme.id === id.theme?.id)) : []),
     [data, parcours],
   );
   const themeNotFiltered = useMemo(() => (data ? data.themes.data : []), [data]);
-
   const themeFiltered = useMemo(() => (type === 'engagement' ? themeNotFiltered : themeFiltereds), [
     themeFiltereds,
     themeNotFiltered,
     type,
   ]);
-
   useEffect(() => {
     if (data) {
       const id = localStorage.getItem('theme');
@@ -44,13 +38,11 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
       if (selected) setSelectedTheme(selected);
     }
   }, [data]);
-
   useEffect(() => {
     if (selectedTheme) {
       localStorage.setItem('theme', selectedTheme?.id);
     }
   }, [selectedTheme]);
-
   return (
     <div className={classes.root}>
       <div className={classes.container}>

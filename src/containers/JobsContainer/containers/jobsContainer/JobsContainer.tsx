@@ -219,6 +219,11 @@ const JobsContainer = ({
     getEnvName(accessibility);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listAccData, accessibility]);
+
+  const closeSelect = () => {
+    if (domaine) domaine.splice(0, domaine.length);
+    setOpenDomain(false);
+  };
   const renderJobs = () => {
     if (renderedJobs?.length) {
       return renderedJobs?.map((el) => (
@@ -292,11 +297,11 @@ const JobsContainer = ({
               name="domaine"
               value={domaine}
               placeholder={getDomaineName(domaine)}
-              // className={classNames(domaine&&classes.selectedDomaineSelect, classes.domaineSelect)}
+              // className={classNames(domaine && classes.selectedDomaineSelect, classes.domaineSelect)}
               open={openDomain}
               fullScreenModal
               onClick={() => setOpenDomain(!openDomain)}
-              // onCloseSelect={closeSelect}
+              onCloseSelect={closeSelect}
               onClose={() => setOpenDomain(false)}
               arrowColor="#DB8F00"
               from="job"

@@ -8,13 +8,11 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       height: '100vh',
     },
-
     container: {
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
     },
-
     themeContainer: {
       position: 'relative',
       width: '100%',
@@ -29,7 +27,6 @@ export default makeStyles((theme: Theme) =>
         height: '130vh',
       },
     },
-
     themeTitle: {
       color: '#223A7A',
       fontSize: 16,
@@ -37,13 +34,11 @@ export default makeStyles((theme: Theme) =>
       fontWeight: 'bold',
       marginBottom: 18,
     },
-
     selectThemeContainer: {
       display: 'flex',
       flexDirection: 'column',
       padding: '0px 40px',
     },
-
     gridContainer: {
       padding: SKILL_CONTAINER_PADDING,
       width: '100%',
@@ -53,13 +48,11 @@ export default makeStyles((theme: Theme) =>
         padding: '30px 30px',
       },
     },
-
     circleContainer: {
       display: 'flex',
       width: '100%',
       alignItems: 'stretch',
     },
-
     circle: {
       width: '100%',
       minWidth: 130,
@@ -94,13 +87,11 @@ export default makeStyles((theme: Theme) =>
       color: '#223A7A',
       marginTop: 50,
     },
-
     marginTitle: {
       margin: '0 15px',
       color: '#424242',
       fontSize: 14,
     },
-
     textSelected: {
       margin: '0 15px',
       fontWeight: 'bold',
@@ -108,56 +99,46 @@ export default makeStyles((theme: Theme) =>
       color: '#424242',
       maxWidth: 'max-width: calc(100% - 50px)',
     },
-
     text: {
       fontWeight: 'normal',
     },
-
     loadingContainer: {
       width: '100%',
       height: 'calc(100vh - 166px)',
       display: 'flex',
       justifyContent: 'center',
     },
-
     avatarStyle: {
       position: 'relative',
       maxHeight: '100%',
       maxWidth: '100%',
     },
-
     themeRoot: {
       padding: '0 40px',
     },
-
     titleSelection: {
       color: '#424242',
       fontSize: 14,
       paddingTop: 31,
       margin: 0,
     },
-
     themeText: {
       fontWeight: 600,
     },
-
     themeSelection: {
       display: 'flex',
       paddingTop: 15,
       alignItems: 'center',
       paddingBottom: 25,
     },
-
     themeTile: {
       paddingLeft: 2,
       fontSize: 14,
       flex: 1,
     },
-
     themeAvatar: {
       paddingRight: 2,
     },
-
     tooltipRight: {
       left: '-50px !important',
     },
@@ -167,7 +148,6 @@ export default makeStyles((theme: Theme) =>
     margin: {
       margin: '0px 20px',
     },
-
     dot: {
       textAlign: 'left',
       listStyle: 'inside',
