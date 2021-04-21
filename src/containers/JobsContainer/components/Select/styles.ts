@@ -215,17 +215,10 @@ export default makeStyles<
     left: 0,
     width: '100%',
     '@media not all and (min-resolution:.001dpcm)': {
-      display: 'flex',
-      flexDirection: 'column',
-      background: '#FFFFFF',
-      border: '1px solid #C9C9C7',
-      boxSizing: 'border-box',
-      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.15)',
-      borderRadius: '10px 10px 0px 0px',
-      position: 'fixed',
-      bottom: 0,
-      left: 0,
-      width: '100%',
+      [theme.breakpoints.up(566)]: {
+        height: '85%',
+        overflow: 'auto',
+      },
     },
   },
 

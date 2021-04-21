@@ -31,6 +31,7 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
     themeNotFiltered,
     type,
   ]);
+
   useEffect(() => {
     if (data) {
       const id = localStorage.getItem('theme');
@@ -38,11 +39,13 @@ const ThemeContainer = ({ location, history }: RouteComponentProps) => {
       if (selected) setSelectedTheme(selected);
     }
   }, [data]);
+
   useEffect(() => {
     if (selectedTheme) {
       localStorage.setItem('theme', selectedTheme?.id);
     }
   }, [selectedTheme]);
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>

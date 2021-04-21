@@ -31,6 +31,7 @@ const SkillCompetencesValues = ({
 
   // eslint-disable-next-line
   const [fixRef, setFixRef] = useState(0);
+
   const pointClick = (id: string, value: number) => {
     const nextCompetenceValues = [...competencesValues];
     const index = nextCompetenceValues.findIndex((v) => v.id === id);
@@ -58,13 +59,32 @@ const SkillCompetencesValues = ({
     // eslint-disable-next-line
   }, [competences]);
 
+  let themeXp = '';
+
+  switch (theme?.type) {
+    case 'engagement':
+      themeXp = 'theme?type=engagement';
+      break;
+    case 'personal':
+      themeXp = 'theme';
+      break;
+    case 'professional':
+      themeXp = 'theme-pro';
+      break;
+    /*  case 'sport':
+        themeXp = 'sport';
+        break; */
+    default:
+      themeXp = 'theme';
+  }
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
         <BreadCrumb
           level={3}
           routes={[
-            { title: 'Thème', url: `/experience/${theme?.type === 'professional' ? 'theme-pro' : 'theme'}` },
+            { title: 'Thème', url: `/experience/${themeXp}` },
             { title: 'Activités', url: `/experience/skill/${match.params.themeId}/activities${location.search}` },
             { title: 'Compétences', url: '' },
           ]}

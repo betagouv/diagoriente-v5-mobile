@@ -61,7 +61,8 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
             )}
 
             {data?.theme.activities
-              // .sort((a, b) => a.title.toLowerCase().charCodeAt(0) - b.title.toLowerCase().charCodeAt(0))
+              .slice()
+              .sort((a, b) => a.title.toLowerCase().charCodeAt(0) - b.title.toLowerCase().charCodeAt(0))
               .map((act) => {
                 const selected = activities.find((e) => e.id === act.id);
                 return (
