@@ -38,7 +38,7 @@ export default makeStyles((theme: Theme) =>
       alignItems: 'center',
       padding: '60px 40px 0px 40px ',
       [theme.breakpoints.down(340)]: {
-        padding: '60px 20px 0px 20px ',
+        padding: '60px 19px 0px 20px ',
       },
     },
 
