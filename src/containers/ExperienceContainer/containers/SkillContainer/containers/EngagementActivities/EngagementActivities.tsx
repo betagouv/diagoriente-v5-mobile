@@ -56,7 +56,7 @@ const EngagementActivities = ({
         <BreadCrumb
           level={2}
           routes={[
-            { title: 'Thème', url: `/experience/${theme.type === 'professional' ? 'theme-pro' : 'theme'}` },
+            { title: 'Thème', url: '/experience/theme?type=engagement' },
             { title: 'Activités', url: '' },
           ]}
           theme={theme}

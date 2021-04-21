@@ -8,22 +8,31 @@ import useStyles from './styles';
 interface Props {
   title?: string;
   className?: string;
-  checked?: boolean;
-  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   icon?: string;
+  id: string;
+  context: string;
+  setContext: (e: string) => void;
 }
-const Context = ({ className, checked, handleChange, title, icon }: Props) => {
+const Context = ({ className, title, icon, id, context, setContext }: Props) => {
   const classes = useStyles();
+
+  const onContextClick = () => {
+    if (context === id) setContext('');
+    else setContext(id);
+  };
+
   return (
-    <div className={classNames(classes.root, checked && classes.rootChecked, className)}>
+    <div
+      className={classNames(classes.root, id === context && classes.rootChecked, className)}
+      onClick={onContextClick}
+    >
       <div className={classes.checkboxContainer}>
         <CheckBox
           color="#00B2DB"
           border="#00B2DB"
           background="#FFFFFF"
           className={classes.checkbox}
-          checked={checked}
-          onChange={handleChange}
+          checked={id === context}
         />
         <span className={classes.title}>{title}</span>
       </div>

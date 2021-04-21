@@ -18,9 +18,7 @@ const EngagementContext = ({ history, setContext, contextCheck, theme, match, ac
   const classes = useStyles();
 
   const { data } = useContext();
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
-    setContext(e.target.checked ? id : '');
-  };
+
   const onNavigate = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     contextCheck && history.push(`/experience/skill/${match.params.themeId}/organization${location.search}`);
@@ -35,10 +33,11 @@ const EngagementContext = ({ history, setContext, contextCheck, theme, match, ac
           {data?.contexts.data.map((context) => (
             <Context
               title={context.title}
-              checked={context.id === contextCheck}
-              handleChange={(e) => handleChange(e, context.id)}
               icon={context.icon}
               key={context.id}
+              id={context.id}
+              context={contextCheck}
+              setContext={setContext}
             />
           ))}
         </div>
