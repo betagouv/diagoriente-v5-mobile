@@ -19,7 +19,9 @@ export default makeStyles((theme: Theme) =>
       alignItems: 'center',
       width: 'calc(100% - 80px)',
     },
-    checkbox: {},
+    checkbox: {
+      pointerEvents: 'none',
+    },
 
     title: {
       fontSize: 16,
