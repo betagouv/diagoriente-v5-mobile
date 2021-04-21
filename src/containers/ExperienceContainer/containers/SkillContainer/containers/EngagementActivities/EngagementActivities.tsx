@@ -74,27 +74,23 @@ const EngagementActivities = ({
                   clearValid={clearValid}
                 />
               ))}
-              {
-                /* optionActivities[0].length !== 0 &&  */ valid.findIndex((e) => !e) === -1 && (
-                  <div onClick={addActivityRow}>
-                    <img src={add} alt="" />
-                    <span className={classes.extraActivityLabel}>Ajouter une autre activité</span>
-                  </div>
-                )
-              }
+              {optionActivities[0].length !== 0 && valid.findIndex((e) => !e) === -1 && (
+                <div className={classes.extraActivityLink} onClick={addActivityRow}>
+                  <img src={add} alt="" />
+                  <span className={classes.extraActivityLabel}>Ajouter une autre activité</span>
+                </div>
+              )}
             </div>
-            <div onClick={() => addExtraActivity()}>
+            <div className={classes.extraActivityLink} onClick={() => addExtraActivity()}>
               <img src={add} alt="" />
               <span className={classes.extraActivityLabel}>Ajouter une activité non listée</span>
             </div>
           </div>
         </div>
       </div>
-      {
-        /* optionActivities[0].length !== 0 && */ valid.findIndex((e) => !e) === -1 && (
-          <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => onNavigate()} />
-        )
-      }
+      {optionActivities[0].length !== 0 && valid.findIndex((e) => !e) === -1 && (
+        <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => onNavigate()} />
+      )}
     </div>
   );
 };

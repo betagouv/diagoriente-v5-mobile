@@ -14,9 +14,6 @@ export default makeStyles(() =>
       width: '100%',
       height: '100%',
     },
-    modal: {
-      width: 250,
-    },
 
     themeContainer: {
       position: 'relative',
@@ -26,11 +23,13 @@ export default makeStyles(() =>
       alignItems: 'center',
       flexGrow: 1,
     },
+
     titleContainer: {
       padding: '35px 40px 40px 40px',
       display: 'flex',
       flexDirection: 'column',
     },
+
     title: {
       fontWeight: 'bold',
       fontSize: 16,
@@ -39,9 +38,6 @@ export default makeStyles(() =>
       width: '100%',
     },
 
-    subtitle: {
-      width: '100%',
-    },
     skillsContainer: {
       display: 'flex',
       flexDirection: 'column',
@@ -57,87 +53,21 @@ export default makeStyles(() =>
       alignItems: 'center',
     },
 
-    avatarStyle: {
-      position: 'relative',
-      maxHeight: '100%',
-      maxWidth: '100%',
+    iconClassName: {
+      marginBottom: 31,
     },
 
-    competences: {
-      width: '100%',
-      margin: 0,
-      border: '1px solid #4D6EC5',
-      borderRadius: 5,
-      padding: 10,
-      fontSize: 18,
-      color: '#424242',
-    },
-    infoDisplyed: {
-      width: '100%',
-      margin: 0,
-      border: '1px solid #4D6EC5',
-      borderRadius: 5,
-      padding: 10,
-      fontSize: 18,
-      color: '#424242',
-      backgroundColor: ' rgba(77, 110, 197, 0.2)',
-      '&:hover': {
-        backgroundColor: ' rgba(77, 110, 197, 0.2)',
-      },
-    },
-
-    themeRoot: {
-      padding: '0 40px',
-    },
-
-    titleSelection: {
-      color: '#424242',
-      fontSize: 14,
-      paddingTop: 31,
-      margin: 0,
-    },
-
-    themeSelection: {
+    popupContainer: {
       display: 'flex',
-      paddingTop: 15,
-      alignItems: 'center',
-      paddingBottom: 25,
-    },
-
-    themeTile: {
-      paddingLeft: 2,
-      fontSize: 14,
-      flex: 1,
-    },
-
-    themeAvatar: {
-      paddingRight: 2,
-    },
-
-    selected: {
+      flexDirection: 'column',
       width: '100%',
+      alignItems: 'center',
+      flex: '1 1 0%',
+      justifyContent: 'space-between',
     },
 
-    activityContainer: {
-      paddingBottom: 54,
-    },
-
-    selectedCompetence: {
-      backgroundColor: '#4D6EC5',
-      color: '#fff',
-      fontSize: 18,
-      fontWeight: 'bold',
-      '&:hover': {
-        backgroundColor: '#4D6EC5',
-      },
-    },
-
-    tooltip: {
-      background: '#4D6EC5',
-    },
-
-    margin: {
-      margin: 0,
+    popupDescription: {
+      textAlign: 'center',
     },
 
     incluse: {
@@ -147,26 +77,6 @@ export default makeStyles(() =>
       '&:hover': {
         backgroundColor: '#D60051',
       },
-    },
-    popupContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-      width: '100%',
-      alignItems: 'center',
-      flex: '1 1 0%',
-      justifyContent: 'space-between',
-    },
-    iconClassName: {
-      marginBottom: 31,
-    },
-    popupDescription: {
-      textAlign: 'center',
-    },
-    footerContainer: {
-      position: 'fixed',
-      bottom: 0,
-      width: '100%',
-      backgroundColor: 'white',
     },
 
     emptyDiv: {

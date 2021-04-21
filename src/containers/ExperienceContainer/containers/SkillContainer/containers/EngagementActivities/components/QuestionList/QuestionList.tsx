@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Question, Option } from 'common/requests/types';
 import classNames from 'utils/classNames';
-
 import { useQuestions } from 'common/requests/questions';
-
-import Remove from '@material-ui/icons/RemoveCircle';
+import deleteX from 'assets/svg/deleteX.svg';
 import Select from '../QuestionSelect/ActivitySelect';
 import useStyles from './styles';
 
@@ -14,9 +12,10 @@ interface Props {
   index: number;
   handleValidate?: (valid: boolean, index: number) => void;
   clearValid?: (index: number) => void;
+  valid?: boolean[];
 }
 
-const QuestionList = ({ setOptionActivities, optionActivities, index, handleValidate, clearValid }: Props) => {
+const QuestionList = ({ setOptionActivities, optionActivities, index, handleValidate, clearValid, valid }: Props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -26,7 +25,7 @@ const QuestionList = ({ setOptionActivities, optionActivities, index, handleVali
 
   useEffect(() => {
     if (data) {
-      const question = data.questions.data.sort((a, b) => {
+      const question = data.questions.data.slice().sort((a, b) => {
         if (!a.parent) return -1;
         if (!b.parent) return 1;
         if (a.id === b.parent.id) return -1;
@@ -35,6 +34,7 @@ const QuestionList = ({ setOptionActivities, optionActivities, index, handleVali
       });
       setQuestions(question);
     }
+
     // eslint-disable-next-line
   }, [data?.questions.data]);
 
@@ -66,33 +66,52 @@ const QuestionList = ({ setOptionActivities, optionActivities, index, handleVali
       setOptionActivities([[]]);
     }
   };
+  const deleteAnswer = (i: number) => {
+    const nextOptionsActivities = [...optionActivities];
+    const newValuesRow = nextOptionsActivities[index];
+    const newOptionsValues = newValuesRow.slice(0, i);
+    nextOptionsActivities[index] = newOptionsValues;
+    setOptionActivities(nextOptionsActivities);
+  };
+
+  const handleDelete = (i: number) => {
+    if (i === 0) deleteActivity();
+    else deleteAnswer(i);
+  };
 
   return (
     <>
-      {/* <div className={classes.questionRow}> */}
       {questions.map((question, i) => (
-        <div key={question.id} className={classNames(classes.rowActivity)}>
-          <div className={classes.selectContainer}>
-            <Select
-              index={i}
-              openActivity={openActivity}
-              onChange={(e) => handleChange(e, i)}
-              value={optionActivities && optionActivities[index][i] ? optionActivities[index][i].id : ''}
-              setOpen={setOpen}
-              open={open}
-              question={question}
-              parent={optionActivities[index]
-                .slice(0, i)
-                .map((e) => e.id)
-                .join(',')}
-            />
+        <>
+          <div key={question.id} className={classNames(classes.rowActivity)}>
+            <div className={classes.selectContainer}>
+              <Select
+                index={i}
+                openActivity={openActivity}
+                onChange={(e) => handleChange(e, i)}
+                value={optionActivities && optionActivities[index][i] ? optionActivities[index][i].id : ''}
+                setOpen={setOpen}
+                open={open}
+                question={question}
+                parent={optionActivities[index]
+                  .slice(0, i)
+                  .map((e) => e.id)
+                  .join(',')}
+              />
+            </div>
+
+            {(optionActivities[index].length > i || (optionActivities.length > 1 && index !== 0)) && (
+              <div className={classes.deleteContainer} onClick={() => handleDelete(i)}>
+                <img src={deleteX} alt="" />
+              </div>
+            )}
           </div>
-        </div>
+          {optionActivities.length > 1 &&
+            index !== optionActivities.length - 1 &&
+            ((valid && valid[index] && i === optionActivities[index].length - 1) ||
+              (valid && !valid[index] && i === optionActivities[index].length)) && <div className={classes.divider} />}
+        </>
       ))}
-      {(optionActivities.length > 1 || questions.length > 1) && (
-        <Remove className={classes.deleteIcon} onClick={deleteActivity} />
-      )}
-      {/* </div> */}
     </>
   );
 };
