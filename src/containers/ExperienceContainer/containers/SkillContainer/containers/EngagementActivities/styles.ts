@@ -20,10 +20,10 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: '#F3F2F4',
       display: 'flex',
       flexDirection: 'column',
-      padding: '35px 40px 70px 40px',
+      padding: '35px 40px 80px 40px',
       flexGrow: 1,
       [theme.breakpoints.down(340)]: {
-        padding: '35px 20px 70px 20px',
+        padding: '35px 20px 80px 20px',
       },
     },
 

@@ -23,22 +23,44 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
   const [text, setText] = React.useState('');
   const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(-1);
   const [openDescription, setOpenDescription] = useState(false);
+
+  let themeXp = '';
+
+  switch (theme?.type) {
+    case 'engagement':
+      themeXp = 'theme?type=engagement';
+      break;
+    case 'personal':
+      themeXp = 'theme';
+      break;
+    case 'professional':
+      themeXp = 'theme-pro';
+      break;
+    /*  case 'sport':
+        themeXp = 'sport';
+        break; */
+    default:
+      themeXp = 'theme';
+  }
+
   const handleClose = () => {
     setOpened(false);
   };
+
   const onNavigate = () => {
     if (competences.length && competences.length <= 4) {
       history.push(`/experience/skill/${match.params.themeId}/competencesValues${location.search}`);
     }
     setOpened(false);
   };
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
         <BreadCrumb
           level={3}
           routes={[
-            { title: 'Thème', url: `/experience/${theme?.type === 'professional' ? 'theme-pro' : 'theme'}` },
+            { title: 'Thème', url: `/experience/${themeXp}` },
             { title: 'Activités', url: `/experience/skill/${match.params.themeId}/activities${location.search}` },
             { title: 'Compétences', url: '' },
           ]}
