@@ -2,9 +2,9 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import { useJob } from 'common/requests/jobs';
 import Title from 'components/common/Title/Title';
 import { useDidMount, useWillUnmount } from 'common/hooks/useLifeCycle';
-import { RouteComponentProps, Link } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
-import TestImage from 'assets/svg/test.svg';
+// import TestImage from 'assets/svg/test.svg';
 import Spinner from 'components/Spinner/Spinner';
 import useOnclickOutside from 'common/hooks/useOnclickOutside';
 import HeartOutLine from 'assets/svg/outlineHeart.svg';
@@ -12,10 +12,10 @@ import fullHeart from 'assets/svg/fullHeart.svg';
 import userContext from 'common/contexts/UserContext';
 import parcoursContext from 'common/contexts/ParcourContext';
 import defaultAvatar from 'assets/svg/defaultAvatar.svg';
-import { Jobs } from 'common/requests/types';
+// import { Jobs } from 'common/requests/types';
 import { useFamilies } from 'common/requests/familles';
 import { useAddFavoris, useDeleteFavoris, useListFavoris } from 'common/requests/favoris';
-import Arrow from 'assets/svg/arrow';
+// import Arrow from 'assets/svg/arrow';
 import ImmersionForm from '../../components/Immersion/ImmersionForm';
 import ModalContainerInfo from '../Modals/JobInfo';
 import ModalQuestion from '../Modals/ModalQuestion/ModalQuestion';
@@ -23,7 +23,7 @@ import Graph from '../../components/GraphCompetence/GraphCompetence';
 import useStyles from './styles';
 
 interface IProps extends RouteComponentProps<{ id: string }> {
-  jobs?: Jobs[];
+  // jobs?: Jobs[];
   locationCall: (i: any) => any;
   listLocation?: { label: string; coordinates: string[] }[];
   setSelectedLocation: (i: string) => void;
@@ -33,7 +33,7 @@ interface IProps extends RouteComponentProps<{ id: string }> {
 const JobContainer = ({
   location,
   history,
-  jobs,
+  // jobs,
   locationCall,
   listLocation,
   setSelectedLocation,
@@ -43,12 +43,12 @@ const JobContainer = ({
   const divRef = useRef<HTMLDivElement>(null);
   const [openTest, setOpenTest] = useState(false);
   const [openInfo, setInfo] = useState(false);
-  const [selectedImmersion, setSelectedImmersion] = useState<string | undefined>('');
+  // const [selectedImmersion, setSelectedImmersion] = useState<string | undefined>('');
   const [selectedImmersionCode, setSelectedImmersionCode] = useState('');
   const [coordinates, setCoordinates] = useState<string[]>([]);
-  const [openImmersion, setOpenImmersion] = useState(false);
+  // const [openImmersion, setOpenImmersion] = useState(false);
   const [openLocation, setOpenLocation] = useState(false);
-  const [filteredArray, setFiltredArray] = useState<Jobs[] | undefined>([]);
+  // const [filteredArray, setFiltredArray] = useState<Jobs[] | undefined>([]);
   const [errorLocation, setErrorLocation] = useState(false);
   const [isFav, setIsFav] = useState('');
   const param = location.pathname.substr(10);
@@ -81,7 +81,7 @@ const JobContainer = ({
 
   useEffect(() => {
     if (data?.job) {
-      setSelectedImmersion(data?.job.title);
+      // setSelectedImmersion(data?.job.title);
       setSelectedImmersionCode(data.job.rome_codes);
     }
   }, [data, loadFamille]);
@@ -115,12 +115,12 @@ const JobContainer = ({
     }
   }, [listLocation, selectedLocation]);
 
-  const onChangeImmersion = (e: any) => {
-    const { value } = e.target;
-    setSelectedImmersion(value);
-    setOpenImmersion(true);
-    setFiltredArray(jobs?.filter((el: any) => el.title.toLowerCase().indexOf(value.toLowerCase()) !== -1));
-  };
+  // const onChangeImmersion = (e: any) => {
+  //   const { value } = e.target;
+  //   setSelectedImmersion(value);
+  //   setOpenImmersion(true);
+  //   setFiltredArray(jobs?.filter((el: any) => el.title.toLowerCase().indexOf(value.toLowerCase()) !== -1));
+  // };
 
   const onChangeLocation = (e: any) => {
     const { value } = e.target;
@@ -153,13 +153,13 @@ const JobContainer = ({
       setOpenLocation(false);
     }
   };
-  const onSelectImmersion = (e: any | undefined) => {
-    if (e) {
-      setSelectedImmersion(e.label);
-      setSelectedImmersionCode(e.value);
-      setOpenImmersion(false);
-    }
-  };
+  // const onSelectImmersion = (e: any | undefined) => {
+  //   if (e) {
+  //     setSelectedImmersion(e.label);
+  //     setSelectedImmersionCode(e.value);
+  //     setOpenImmersion(false);
+  //   }
+  // };
   const addToFav = () => {
     const dataFav = {
       interested: true,
@@ -199,30 +199,32 @@ const JobContainer = ({
       <div className={classes.contentInfo}>
         <div className={classes.JobInfo}>
           <div className={classes.jobDescription}>
-            <Link to="/jobs">
+            {/* <Link to="/jobs">
               <div className={classes.back}>
                 <Arrow color="#DB8F00" height="15" width="9.5" className={classes.arrow} />
                 <div className={classes.textBack}>Retour à Mon Top métiers</div>
               </div>
-            </Link>
-            <div>{data?.job.description}</div>
+            </Link> */}
             <div className={classes.footerDescription}>
-              <div className={classes.textTest} onClick={() => setInfo(true)}>
-                En savoir plus
-              </div>
               <div className={classes.favoris} onClick={!data?.job.favorite ? addToFav : deleteFromFav}>
                 <img src={data?.job.favorite ? fullHeart : HeartOutLine} alt="" />
               </div>
+              <div className={classes.favorisText}> Ajouter à mes favoris </div>
+            </div>
+
+            <div>{data?.job.description}</div>
+            <div className={classes.textTest} onClick={() => setInfo(true)}>
+              En savoir plus
             </div>
           </div>
           <div className={classes.favorisContainer}>
             <div className={classes.immersionFormContainer}>
               <ImmersionForm
-                filteredArray={filteredArray}
-                onChangeImmersion={onChangeImmersion}
-                onSelectImmersion={onSelectImmersion}
-                selectedImmersion={selectedImmersion}
-                openImmersion={openImmersion}
+                // filteredArray={filteredArray}
+                // onChangeImmersion={onChangeImmersion}
+                // onSelectImmersion={onSelectImmersion}
+                // selectedImmersion={selectedImmersion}
+                // openImmersion={openImmersion}
                 onChangeLocation={onChangeLocation}
                 onSelect={onSelect}
                 selectedLocation={selectedLocation}
@@ -234,12 +236,12 @@ const JobContainer = ({
               />
             </div>
           </div>
-          <div className={classes.testContainer}>
+          {/* <div className={classes.testContainer}>
             <img src={TestImage} alt="" className={classes.testLogo} />
             <div className={classes.textTest} onClick={() => setOpenTest(true)}>
               Ce métier est-il fait pour toi ?
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className={classes.interestInfo}>
@@ -265,9 +267,6 @@ const JobContainer = ({
               })}
             </div>
             <div className={classes.infoInterst}>
-              <div className={classes.logo}>
-                <img src={user?.logo || defaultAvatar} alt="" width={69} height={69} />
-              </div>
               <div className={classes.infoTextContainer}>
                 <div className={classes.communInfoText}>
                   <span className={classes.infoInterestPurpleText}>
@@ -281,6 +280,9 @@ const JobContainer = ({
                     ? 'Ce métier ne semble pas correspondre à tes interêts'
                     : 'Ce métier semble plutôt bien te correspondre !'}{' '}
                 </div>
+              </div>
+              <div className={classes.logo}>
+                <img src={user?.logo || defaultAvatar} alt="" width={69} height={69} />
               </div>
             </div>
           </div>

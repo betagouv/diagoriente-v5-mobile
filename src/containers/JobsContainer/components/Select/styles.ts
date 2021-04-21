@@ -132,7 +132,7 @@ export default makeStyles<
     height: '100%',
     display: 'flex',
     flexWrap: 'wrap',
-    overflow: 'auto',
+    overflowY: 'auto',
     zIndex: 99999,
     paddingBottom: 50,
   },
@@ -257,6 +257,7 @@ export default makeStyles<
     },
     [theme.breakpoints.down(330)]: {
       marginLeft: 5,
+      width: '98%',
     },
   },
 
@@ -285,8 +286,8 @@ export default makeStyles<
     color: (props) => props.arrowColor || '#420FAB',
     marginLeft: 10,
     [theme.breakpoints.down(330)]: {
-      width: 'inherit',
       marginLeft: 5,
+      width: 248,
     },
   },
   CheckBoxStyle: {
@@ -299,12 +300,6 @@ export default makeStyles<
     padding: '20px',
     [theme.breakpoints.down(420)]: {
       padding: '10px',
-    },
-    [theme.breakpoints.down(330)]: {
-      padding: 0,
-      position: 'absolute',
-      right: '5px',
-      top: '15px',
     },
   },
 }));

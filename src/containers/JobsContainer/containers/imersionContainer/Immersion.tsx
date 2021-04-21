@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useJob } from 'common/requests/jobs';
 import { useImmersion } from 'common/requests/immersion';
-import { Company, Jobs } from 'common/requests/types';
+import { Company } from 'common/requests/types';
+// import { Company, Jobs } from 'common/requests/types';
 
 import { useForm } from 'common/hooks/useInputs';
 import { useDidMount } from 'common/hooks/useLifeCycle';
@@ -28,7 +29,7 @@ import CheckBox from '../../components/checkBox/ChexBox';
 import useStyles from './styles';
 
 interface IProps extends RouteComponentProps<{ id: string }> {
-  jobs: Jobs[];
+  // jobs: Jobs[];
   locationCall: (i: any) => any;
   listLocation?: { label: string; coordinates: string[] }[];
   setSelectedLocation: (i: string) => void;
@@ -38,7 +39,7 @@ interface IProps extends RouteComponentProps<{ id: string }> {
 const ImmersionContainer = ({
   location,
   match,
-  jobs,
+  // jobs,
   locationCall,
   listLocation,
   setSelectedLocation,
@@ -48,7 +49,7 @@ const ImmersionContainer = ({
   const [openContact, openContactState] = useState(null as null | Company);
   const [openConseil, openConseilState] = useState(false);
   const [open, setOpen] = React.useState(false);
-  const [openImmersion, setOpenImmersion] = useState(false);
+  // const [openImmersion, setOpenImmersion] = useState(false);
   const [openLocation, setOpenLocation] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
   const [update, setUpdate] = useState(false);
@@ -57,10 +58,10 @@ const ImmersionContainer = ({
   const [selectedDistance, setSelectedDistance] = useState('30 km');
   const [selectedTri, setSelectedTri] = useState('Tri optimisé');
 
-  const [selectedImmersion, setSelectedImmersion] = useState<string | undefined>('');
+  // const [selectedImmersion, setSelectedImmersion] = useState<string | undefined>('');
   const [selectedImmersionCode, setSelectedImmersionCode] = useState('');
   const [coordinates, setCoordinates] = useState<number[]>([]);
-  const [filteredArray, setFiltredArray] = useState<Jobs[] | undefined>([]);
+  // const [filteredArray, setFiltredArray] = useState<Jobs[] | undefined>([]);
   const [page, setPage] = useState(1);
   const [items, setItems] = useState<number[]>([]);
 
@@ -84,7 +85,7 @@ const ImmersionContainer = ({
     loadJob();
   });
   useEffect(() => {
-    setSelectedImmersion(data?.job.title);
+    // setSelectedImmersion(data?.job.title);
     setSelectedLocation(selectedLoc);
     setSelectedImmersionCode(romeCodes);
     setCoordinates([Number(longitude), Number(latitude)]);
@@ -245,12 +246,12 @@ const ImmersionContainer = ({
       // setPage(1);
     }
   };
-  const onChangeImmersion = (e: any) => {
-    const { value } = e.target;
-    setSelectedImmersion(value);
-    setOpenImmersion(true);
-    setFiltredArray(jobs?.filter((el: any) => el.title.toLowerCase().indexOf(value.toLowerCase()) !== -1));
-  };
+  // const onChangeImmersion = (e: any) => {
+  //   const { value } = e.target;
+  //   setSelectedImmersion(value);
+  //   setOpenImmersion(true);
+  //   setFiltredArray(jobs?.filter((el: any) => el.title.toLowerCase().indexOf(value.toLowerCase()) !== -1));
+  // };
   const onChangeLocation = (e: any) => {
     const { value } = e.target;
     setOpenLocation(true);
@@ -263,13 +264,13 @@ const ImmersionContainer = ({
       setOpenLocation(false);
     }
   };
-  const onSelectImmersion = (e: any | undefined) => {
-    if (e) {
-      setSelectedImmersion(e.label);
-      setSelectedImmersionCode(e.value);
-      setOpenImmersion(false);
-    }
-  };
+  // const onSelectImmersion = (e: any | undefined) => {
+  //   if (e) {
+  //     setSelectedImmersion(e.label);
+  //     setSelectedImmersionCode(e.value);
+  //     setOpenImmersion(false);
+  //   }
+  // };
   const onClickImmersion = () => {
     const dataTo = {
       rome_codes: selectedImmersionCode,
@@ -299,11 +300,11 @@ const ImmersionContainer = ({
             {update ? (
               <div className={classes.immersionFormContainer}>
                 <ImmersionForm
-                  filteredArray={filteredArray}
-                  onChangeImmersion={onChangeImmersion}
-                  onSelectImmersion={onSelectImmersion}
-                  selectedImmersion={selectedImmersion}
-                  openImmersion={openImmersion}
+                  // filteredArray={filteredArray}
+                  // onChangeImmersion={onChangeImmersion}
+                  // onSelectImmersion={onSelectImmersion}
+                  // selectedImmersion={selectedImmersion}
+                  // openImmersion={openImmersion}
                   onChangeLocation={onChangeLocation}
                   onSelect={onSelect}
                   selectedLocation={selectedLocation}
