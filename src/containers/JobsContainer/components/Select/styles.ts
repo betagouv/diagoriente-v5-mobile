@@ -237,6 +237,11 @@ export default makeStyles<
     [theme.breakpoints.down(330)]: {
       width: 'auto',
     },
+    '@media not all and (min-resolution:.001dpcm)': {
+      [theme.breakpoints.up(566)]: {
+        justifyContent: 'space-between',
+      },
+    },
   },
   closeFullModelContainer: {
     width: '100%',
@@ -269,6 +274,11 @@ export default makeStyles<
     width: 12,
     height: 19,
     transform: 'rotate(90deg)',
+    '@media not all and (min-resolution:.001dpcm)': {
+      [theme.breakpoints.up(566)]: {
+        marginRight: '24px',
+      },
+    },
   },
   closeModelLabel: {
     fontFamily: 'Andika New Basic',
@@ -278,6 +288,11 @@ export default makeStyles<
     width: 295,
     color: (props) => props.arrowColor || '#420FAB',
     marginLeft: 10,
+    '@media not all and (min-resolution:.001dpcm)': {
+      [theme.breakpoints.up(566)]: {
+        marginLeft: 24,
+      },
+    },
     [theme.breakpoints.down(330)]: {
       marginLeft: 5,
       width: 248,
@@ -288,6 +303,11 @@ export default makeStyles<
     display: 'flex',
     padding: '20px 0px',
     pointerEvents: 'none',
+    '@media not all and (min-resolution:.001dpcm)': {
+      [theme.breakpoints.up(566)]: {
+        paddingLeft: '0px',
+      },
+    },
   },
   close: {
     padding: '20px',
