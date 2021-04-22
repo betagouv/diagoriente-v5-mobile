@@ -172,6 +172,11 @@ export default makeStyles<
     fontFamily: 'Andika New Basic',
     fontSize: 14,
     lineHeight: '26px',
+    '@media not all and (min-resolution:.001dpcm)': {
+      [theme.breakpoints.down(330)]: {
+        fontSize: 13,
+      },
+    },
     // '&:hover': {
     //   color: '#DB8F00',
     // },
@@ -306,6 +311,9 @@ export default makeStyles<
     '@media not all and (min-resolution:.001dpcm)': {
       [theme.breakpoints.up(566)]: {
         paddingLeft: '0px',
+      },
+      [theme.breakpoints.down(330)]: {
+        paddingLeft: '2%',
       },
     },
   },
