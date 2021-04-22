@@ -47,7 +47,7 @@ export default makeStyles<Theme>((theme) => ({
     position: 'relative',
   },
   containerSelect: {
-    width: '100%',
+    width: '70%',
     height: '36px',
     display: 'flex',
     position: 'relative',
@@ -56,6 +56,16 @@ export default makeStyles<Theme>((theme) => ({
     borderRadius: '4px',
     boxSizing: 'border-box',
     backgroundColor: '#ffff',
+
+    [theme.breakpoints.down(380)]: {
+      width: '80%',
+    },
+    [theme.breakpoints.down(361)]: {
+      width: '85%',
+    },
+    [theme.breakpoints.down(330)]: {
+      width: '100%',
+    },
   },
   labelSelect: {
     fontWeight: 'bold',
@@ -90,10 +100,17 @@ export default makeStyles<Theme>((theme) => ({
     },
   },
   rotated: {
+    transform: 'rotate(270deg)',
+    transition: '0.5s ease',
+    position: 'absolute',
+    top: '8px',
+    right: '20px',
+  },
+  rotatedBase: {
     transform: 'rotate(90deg)',
     transition: '0.5s ease',
     position: 'absolute',
-    top: '10px',
+    top: '8px',
     right: '20px',
   },
 }));

@@ -43,11 +43,20 @@ const ImmersionForm = ({
 IProps) => {
   const classes = useStyles();
   const [isOpen, setIsOpen] = useState(false);
+  const [placeholder, setPlaceholder] = React.useState('Je recherche :');
 
   // const divSelect = useRef<HTMLDivElement>(null);
 
   const onClickSelect = () => setIsOpen(!isOpen);
-
+  const handleChange = (event: any, e: string) => {
+    setPlaceholder(e);
+    setIsOpen(false);
+  };
+  // useOnclickOutside(divSelect, () => {
+  //   if (isOpen) {
+  //     setIsOpen(!isOpen);
+  //   }
+  // });
   const options = [
     {
       label: 'formation',
@@ -63,9 +72,9 @@ IProps) => {
       </div>
       <div className={classes.titleImersion}>Trouver une immersion ou une formation</div>
       <div className={classes.containerSelect} onClick={onClickSelect}>
-        <span className={classes.labelSelect}>Je recherche :</span>
+        <span className={classes.labelSelect}> {placeholder} </span>
         <div className={classes.logoContainer}>
-          <Arrow color="#DB8F00" width="9" height="14" className={classes.rotated} />
+          <Arrow color="#424242" width="9" height="14" className={!isOpen ? classes.rotatedBase : classes.rotated} />
         </div>
         {isOpen && (
           <div className={classes.containerOptions}>
@@ -73,7 +82,7 @@ IProps) => {
               <div
                 key={option.label}
                 className={classes.itemOption}
-                // onClick={(ev) => onSelectItem(ev, option.label)}
+                onClick={(event) => handleChange(event, option.label)}
               >
                 {option.label}
               </div>
@@ -81,7 +90,6 @@ IProps) => {
           </div>
         )}
       </div>
-      {/* <div>Je recherche :</div> */}
       <div className={classes.autocompleteContainer}>
         {/* <AutoComplete
           options={filteredArray}

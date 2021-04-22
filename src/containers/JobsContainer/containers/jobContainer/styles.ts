@@ -109,6 +109,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   testLogo: {
     paddingRight: 17,
+    paddingTop: 22,
   },
   textTest: {
     color: '#011A5E',
@@ -240,6 +241,7 @@ export default makeStyles<Theme>((theme) => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
+    backgroundColor: '#F3F2F4',
   },
   competenceContainer: {
     width: '100%',

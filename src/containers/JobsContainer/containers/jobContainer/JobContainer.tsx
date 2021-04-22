@@ -4,7 +4,7 @@ import Title from 'components/common/Title/Title';
 import { useDidMount, useWillUnmount } from 'common/hooks/useLifeCycle';
 import { RouteComponentProps } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
-// import TestImage from 'assets/svg/test.svg';
+import TestImage from 'assets/svg/test.svg';
 import Spinner from 'components/Spinner/Spinner';
 import useOnclickOutside from 'common/hooks/useOnclickOutside';
 import HeartOutLine from 'assets/svg/outlineHeart.svg';
@@ -236,12 +236,6 @@ const JobContainer = ({
               />
             </div>
           </div>
-          {/* <div className={classes.testContainer}>
-            <img src={TestImage} alt="" className={classes.testLogo} />
-            <div className={classes.textTest} onClick={() => setOpenTest(true)}>
-              Ce métier est-il fait pour toi ?
-            </div>
-          </div> */}
         </div>
       </div>
       <div className={classes.interestInfo}>
@@ -285,6 +279,12 @@ const JobContainer = ({
                 <img src={user?.logo || defaultAvatar} alt="" width={69} height={69} />
               </div>
             </div>
+            <div className={classes.testContainer}>
+              <img src={TestImage} alt="" className={classes.testLogo} />
+              <div className={classes.textTest} onClick={() => setOpenTest(true)}>
+                Ce métier est-il fait pour toi ?
+              </div>
+            </div>{' '}
           </div>
         </div>
       </div>
@@ -292,7 +292,7 @@ const JobContainer = ({
         <div className={classes.competenceContainer}>
           <div className={classes.interestTitleContainer}>
             <span className={classes.interestTitle}>Compétences</span>
-            <span className={classes.descriptionTitle}>Voici les compétences associées à ce métier :</span>
+            {/* <span className={classes.descriptionTitle}>Voici les compétences associées à ce métier :</span> */}
           </div>
           <Graph competencesrequises={data?.job.competences} competenceUser={competences} />
         </div>
