@@ -19,7 +19,9 @@ export default makeStyles((theme: Theme) =>
         padding: '20px',
       },
     },
-
+    error: {
+      color: 'red',
+    },
     /*  themeContainer: {
       position: 'relative',
       backgroundColor: '#F3F2F4',
@@ -315,6 +317,15 @@ export default makeStyles((theme: Theme) =>
       lineHeight: '24px',
       color: '#424242',
       marginLeft: 12,
+    },
+    yearContainer: {
+      width: 73,
+      height: '100%',
+      border: '1px solid #D1D5DE',
+      borderRadius: 5,
+      textAlign: 'center',
+      color: '#424242',
+      margin: '0px 10px',
     },
   }),
 );
