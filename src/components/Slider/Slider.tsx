@@ -86,7 +86,7 @@ const Slider = ({ data, handleClick, isChecked }: IProps) => {
             />
           )}
         </div>
-        <div className={classes.btnTitle}>{data[currentIndex].title}</div>
+        <div className={classes.btnTitle}>{data.reverse()[currentIndex].title}</div>
       </div>
       <Carousel
         dragging={false}

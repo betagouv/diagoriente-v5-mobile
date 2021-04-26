@@ -92,7 +92,6 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
       return array;
     }
   };
-
   const isChecked = (id?: string): boolean => !!selectedInterests.find((elem) => elem.id === id);
   const handleClick = (e: Families) => {
     let copySelected: Families[] = [...selectedInterests];
@@ -115,7 +114,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
     }
   };
   useEffect(() => {
-    const test = selectedInterest?.every((interet) => interet.category === "avec d'autres personnes");
+    const test = selectedInterest?.every((interet) => interet.category === 'avec sa tête');
 
     if (selectedInterest?.length === 5 && test) setWarning(true);
   }, [selectedInterest]);
