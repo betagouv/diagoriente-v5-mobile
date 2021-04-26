@@ -50,10 +50,12 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   const { data, loading } = useFamilies();
   const formattedData: { title: string; data: Families[] }[] = useMemo(
     () =>
-      Object.entries(groupBy(data?.families.data, 'category')).map((el) => ({
-        title: el[0],
-        data: el[1],
-      })),
+      Object.entries(groupBy(data?.families.data, 'category'))
+        .reverse()
+        .map((el) => ({
+          title: el[0],
+          data: el[1],
+        })),
     [data],
   );
   const renderAllPlaceholder = () => {

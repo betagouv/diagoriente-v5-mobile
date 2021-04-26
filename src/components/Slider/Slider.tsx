@@ -86,7 +86,7 @@ const Slider = ({ data, handleClick, isChecked }: IProps) => {
             />
           )}
         </div>
-        <div className={classes.btnTitle}>{data.reverse()[currentIndex].title}</div>
+        <div className={classes.btnTitle}>{data[currentIndex].title}</div>
       </div>
       <Carousel
         dragging={false}
@@ -111,7 +111,7 @@ const Slider = ({ data, handleClick, isChecked }: IProps) => {
         renderBottomCenterControls={null}
         className={classes.root}
       >
-        {data.reverse().map((el) => (
+        {data.map((el) => (
           <div key={el.title} className={classes.item}>
             <div className={classes.avatarContainer}>
               {el.data.map((e) => {
