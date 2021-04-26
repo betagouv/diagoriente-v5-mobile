@@ -24,6 +24,11 @@ export default makeStyles((theme: Theme) =>
       [theme.breakpoints.down(340)]: {
         padding: '35px 20px 40px 20px',
       },
+      '@media not all and (min-resolution:.001dpcm)': {
+        [theme.breakpoints.down(330)]: {
+          padding: '35px 14px 40px 14px ',
+        },
+      },
     },
     activitiesContainer: {
       display: 'flex',

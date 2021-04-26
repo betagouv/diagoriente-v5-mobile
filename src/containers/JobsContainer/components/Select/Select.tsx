@@ -18,6 +18,8 @@ interface IProps {
   value?: string[] | undefined;
   name?: string;
   placeholder?: string | undefined;
+  placeholderSelect?: string;
+
   options: any[] | undefined;
   open?: boolean;
   onClose?: () => void;
@@ -60,6 +62,7 @@ const SelectJobs = ({
   background,
   arrowColor,
   borderColor,
+  placeholderSelect,
   placeHolderColor,
 }: IProps) => {
   const classes = useStyles({ fullSelect, fullScreenModal, open, arrowColor, borderColor, placeHolderColor });
@@ -143,7 +146,7 @@ const SelectJobs = ({
               <div className={classes.backdrop} onClick={onClose} />
               <div className={classes.modalItemsContainer}>
                 <div className={classes.closeModelContainer} onClick={onClose}>
-                  <span className={classes.closeModelLabel}> {placeholder}</span>
+                  <span className={classes.closeModelLabel}> {placeholderSelect}</span>
                   <Arrow
                     color={arrowColor || '#420FAB'}
                     width="12"

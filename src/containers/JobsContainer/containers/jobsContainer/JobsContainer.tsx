@@ -323,6 +323,7 @@ const JobsContainer = ({
               arrowColor="#DB8F00"
               from="job"
               check
+              placeholderSelect="Type de métier"
               borderColor={environments?.length !== 0 ? '#DB8F00  ' : '#C9C9C7  '}
               bkColor="#FFD382"
               placeHolderColor={environments?.length !== 0 ? '#DB8F00' : '#424242'}
@@ -341,6 +342,7 @@ const JobsContainer = ({
               arrowColor="#DB8F00"
               from="job"
               check
+              placeholderSelect="Niveau d’accès"
               borderColor={accessibility?.length !== 0 ? '#DB8F00 ' : '#C9C9C7 '}
               bkColor="#FFD382"
               placeHolderColor={accessibility?.length !== 0 ? '#DB8F00 ' : '#424242'}

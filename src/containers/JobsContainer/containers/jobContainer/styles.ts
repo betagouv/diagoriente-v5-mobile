@@ -70,6 +70,8 @@ export default makeStyles<Theme>((theme) => ({
     display: 'flex',
     alignItems: 'flex-end',
     marginBottom: 35,
+    marginTop: 4,
+    marginRight: 10,
   },
   textFavoris: {
     textDecorationLine: 'underline',
@@ -95,8 +97,8 @@ export default makeStyles<Theme>((theme) => ({
   },
   footerDescription: {
     display: 'flex',
-    justifyContent: 'flex-end',
     marginTop: 19,
+    justifyContent: 'center',
   },
   testContainer: {
     display: 'flex',
@@ -107,6 +109,7 @@ export default makeStyles<Theme>((theme) => ({
   },
   testLogo: {
     paddingRight: 17,
+    paddingTop: 22,
   },
   textTest: {
     color: '#011A5E',
@@ -114,6 +117,15 @@ export default makeStyles<Theme>((theme) => ({
     fontWeight: 'bold',
     fontSize: 14,
     marginRight: 40,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    marginTop: 19,
+  },
+  favorisText: {
+    color: '#011A5E',
+    textDecorationLine: 'underline',
+    fontWeight: 'bold',
+    fontSize: 14,
   },
   immersion: {
     width: 285,
@@ -143,11 +155,11 @@ export default makeStyles<Theme>((theme) => ({
   },
   btnLabel: { color: '#011A5E', fontWeight: 'bold' },
   interestInfo: {
-    backgroundColor: '#F3F2F4',
+    backgroundColor: '#ffff',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    padding: '28px 17px',
+    padding: '28px 10px',
   },
   wrapInterest: {
     maxWidth: '1080px',
@@ -161,9 +173,11 @@ export default makeStyles<Theme>((theme) => ({
   },
   interestTitle: {
     fontWeight: 'bold',
-    fontSize: 24,
-    lineHeight: '26px',
+    fontSize: 32,
+    lineHeight: '32px',
     marginBottom: 10,
+    color: '#DB8F00',
+    fontFamily: 'Ocean Six',
   },
   interestContainer: {
     display: 'flex',
@@ -204,6 +218,9 @@ export default makeStyles<Theme>((theme) => ({
     position: 'relative',
     marginTop: 60,
     display: 'flex',
+    padding: '17px 13px',
+    backgroundColor: '#F3F2F4',
+    borderRadius: 10,
   },
   communInfoText: {},
   infoTextContainer: {
@@ -218,12 +235,13 @@ export default makeStyles<Theme>((theme) => ({
   },
   logo: {
     width: 'auto',
-    marginRight: 30,
+    marginLeft: 30,
   },
   competenceInfo: {
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
+    backgroundColor: '#F3F2F4',
   },
   competenceContainer: {
     width: '100%',

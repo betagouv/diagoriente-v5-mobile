@@ -2,7 +2,7 @@ import React, { useState, useContext, useMemo, useEffect } from 'react';
 import { useFamilies } from 'common/requests/familles';
 import Button from 'components/button/Button';
 import { Families } from 'common/requests/types';
-import { useParams, Link, RouteComponentProps } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
 import classNames from 'utils/classNames';
 
@@ -23,7 +23,6 @@ import useStyles from './styles';
 
 const ParcoursInteret = ({ location }: RouteComponentProps) => {
   const classes = useStyles();
-  const param = useParams();
   const isBrowser = typeof window !== 'undefined';
 
   const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
@@ -51,10 +50,12 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
   const { data, loading } = useFamilies();
   const formattedData: { title: string; data: Families[] }[] = useMemo(
     () =>
-      Object.entries(groupBy(data?.families.data, 'category')).map((el) => ({
-        title: el[0],
-        data: el[1],
-      })),
+      Object.entries(groupBy(data?.families.data, 'category'))
+        .reverse()
+        .map((el) => ({
+          title: el[0],
+          data: el[1],
+        })),
     [data],
   );
   const renderAllPlaceholder = () => {
@@ -93,7 +94,6 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
       return array;
     }
   };
-
   const isChecked = (id?: string): boolean => !!selectedInterests.find((elem) => elem.id === id);
   const handleClick = (e: Families) => {
     let copySelected: Families[] = [...selectedInterests];
@@ -116,7 +116,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
     }
   };
   useEffect(() => {
-    const test = selectedInterest?.every((interet) => interet.category === "avec d'autres personnes");
+    const test = selectedInterest?.every((interet) => interet.category === 'avec sa tête');
 
     if (selectedInterest?.length === 5 && test) setWarning(true);
   }, [selectedInterest]);
@@ -142,12 +142,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
                 <Spinner />
               </div>
             ) : (
-              <Slider
-                data={formattedData}
-                handleClick={handleClick}
-                isChecked={isChecked}
-                defaultIndex={Number((param as any).id)}
-              />
+              <Slider data={formattedData} handleClick={handleClick} isChecked={isChecked} />
             )}
           </div>
         </div>

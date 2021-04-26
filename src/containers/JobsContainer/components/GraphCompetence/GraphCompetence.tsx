@@ -1,6 +1,7 @@
 /* eslint-disable default-case */
 import React, { useState, useRef } from 'react';
 import { useCompetences } from 'common/requests/competences';
+import classNames from 'utils/classNames';
 import useStyles from './styles';
 
 interface IProps {
@@ -62,7 +63,7 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
           Tes meilleures compétences pour ce métier
         </div>
       </div>
-      <div>
+      <div className={classes.competencesBack}>
         <div className={classes.competencesContainer}>
           {competences?.competences.data.map((competence) => {
             let compValue = 0;
@@ -89,11 +90,18 @@ const GraphCompetence = ({ competencesrequises, competenceUser }: IProps) => {
             return (
               <div
                 key={competence.id}
-                className={
+                className={classNames(
                   select === 'parcoursCompetence' && (!isExist(competence.id) || isLess(competence.id))
                     ? classes.competencesValuesNotExist
-                    : classes.competencesValues
-                }
+                    : classes.competencesValues,
+                  select === 'jobCompetence' && compValue === 4 ? classes.jobSelect : classes.competencesValues,
+                  select === 'parcoursCompetence' &&
+                    isExist(competence.id) &&
+                    !isLess(competence.id) &&
+                    getCompetenceValue(competence.id) === 4
+                    ? classes.parcoursSelect
+                    : classes.competencesValues,
+                )}
               >
                 <p
                   className={classes.competenceTitle}

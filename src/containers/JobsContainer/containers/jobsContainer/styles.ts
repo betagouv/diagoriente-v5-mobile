@@ -146,7 +146,7 @@ export default makeStyles((theme) => ({
     position: 'fixed',
     top: 0,
     zIndex: 9999,
-    backgroundColor: 'rgba(255,211,130, 1)',
+    backgroundColor: '#FFE9C0',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',

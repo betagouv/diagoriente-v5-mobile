@@ -132,7 +132,7 @@ export default makeStyles<
     height: '100%',
     display: 'flex',
     flexWrap: 'wrap',
-    overflow: 'auto',
+    overflowY: 'auto',
     zIndex: 99999,
     paddingBottom: 50,
   },
@@ -172,6 +172,11 @@ export default makeStyles<
     fontFamily: 'Andika New Basic',
     fontSize: 14,
     lineHeight: '26px',
+    '@media not all and (min-resolution:.001dpcm)': {
+      [theme.breakpoints.down(330)]: {
+        fontSize: 13,
+      },
+    },
     // '&:hover': {
     //   color: '#DB8F00',
     // },
@@ -215,17 +220,10 @@ export default makeStyles<
     left: 0,
     width: '100%',
     '@media not all and (min-resolution:.001dpcm)': {
-      display: 'flex',
-      flexDirection: 'column',
-      background: '#FFFFFF',
-      border: '1px solid #C9C9C7',
-      boxSizing: 'border-box',
-      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.15)',
-      borderRadius: '10px 10px 0px 0px',
-      position: 'fixed',
-      bottom: 0,
-      left: 0,
-      width: '100%',
+      [theme.breakpoints.up(566)]: {
+        height: '85%',
+        overflow: 'auto',
+      },
     },
   },
 
@@ -244,6 +242,11 @@ export default makeStyles<
     [theme.breakpoints.down(330)]: {
       width: 'auto',
     },
+    '@media not all and (min-resolution:.001dpcm)': {
+      [theme.breakpoints.up(566)]: {
+        justifyContent: 'space-between',
+      },
+    },
   },
   closeFullModelContainer: {
     width: '100%',
@@ -257,6 +260,7 @@ export default makeStyles<
     },
     [theme.breakpoints.down(330)]: {
       marginLeft: 5,
+      width: '98%',
     },
   },
 
@@ -275,6 +279,11 @@ export default makeStyles<
     width: 12,
     height: 19,
     transform: 'rotate(90deg)',
+    '@media not all and (min-resolution:.001dpcm)': {
+      [theme.breakpoints.up(566)]: {
+        marginRight: '24px',
+      },
+    },
   },
   closeModelLabel: {
     fontFamily: 'Andika New Basic',
@@ -284,9 +293,14 @@ export default makeStyles<
     width: 295,
     color: (props) => props.arrowColor || '#420FAB',
     marginLeft: 10,
+    '@media not all and (min-resolution:.001dpcm)': {
+      [theme.breakpoints.up(566)]: {
+        marginLeft: 24,
+      },
+    },
     [theme.breakpoints.down(330)]: {
-      width: 'inherit',
       marginLeft: 5,
+      width: 248,
     },
   },
   CheckBoxStyle: {
@@ -294,17 +308,19 @@ export default makeStyles<
     display: 'flex',
     padding: '20px 0px',
     pointerEvents: 'none',
+    '@media not all and (min-resolution:.001dpcm)': {
+      [theme.breakpoints.up(566)]: {
+        paddingLeft: '0px',
+      },
+      [theme.breakpoints.down(330)]: {
+        paddingLeft: '2%',
+      },
+    },
   },
   close: {
     padding: '20px',
     [theme.breakpoints.down(420)]: {
       padding: '10px',
-    },
-    [theme.breakpoints.down(330)]: {
-      padding: 0,
-      position: 'absolute',
-      right: '5px',
-      top: '15px',
     },
   },
 }));

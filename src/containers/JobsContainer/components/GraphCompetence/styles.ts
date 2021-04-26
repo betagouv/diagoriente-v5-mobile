@@ -6,7 +6,7 @@ import darkbluearrow from 'assets/svg/darkbluearrow.svg';
 
 export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
   root: {
-    borderTop: '1px solid #C9C9C7',
+    // borderTop: '1px solid #C9C9C7',
     boxSizing: 'border-box',
     marginTop: 35,
   },
@@ -14,6 +14,7 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     display: 'flex',
     width: '100%',
     height: 74,
+    margin: '0px 20px ',
   },
   empty: {
     width: 330,
@@ -22,31 +23,36 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     fontWeight: 'bold',
     fontSize: 12,
     lineHeight: '15px',
-    color: '#DB8F00',
-    width: '50%',
+    color: (props) => (props.select === 'jobCompetence' ? '#DB8F00' : '#A4AEB1'),
+    width: '45%',
     padding: '0px 25px',
-    backgroundColor: (props) => (props.select === 'jobCompetence' ? '#fff' : '#F3F2F4'),
-    borderBottom: (props) => (props.select === 'jobCompetence' ? '#fff' : '1px solid #C9C9C7'),
-    borderRight: (props) => (props.select === 'jobCompetence' ? '#fff' : '1px solid #C9C9C7'),
+    backgroundColor: (props) => (props.select === 'jobCompetence' ? '#fff' : '#FFEBC6'),
+    // borderBottom: (props) => (props.select === 'jobCompetence' ? '#fff' : '1px solid #C9C9C7'),
+    // borderRight: (props) => (props.select === 'jobCompetence' ? '#fff' : '1px solid #C9C9C7'),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
+    // boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.15)',
+    borderRadius: '20px 20px 0px 0px',
   },
   titleParcoursCompetence: {
-    width: '50%',
+    width: '45%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: 'bold',
     fontSize: 12,
     lineHeight: '15px',
-    color: '#00B2DB',
-    backgroundColor: (props) => (props.select === 'parcoursCompetence' ? '#fff' : '#F3F2F4'),
-    borderBottom: (props) => (props.select === 'parcoursCompetence' ? '#fff' : '1px solid #C9C9C7'),
-    borderLeft: (props) => (props.select === 'parcoursCompetence' ? '#fff' : '1px solid #C9C9C7'),
+    color: (props) => (props.select === 'parcoursCompetence' ? '#00B2DB' : '#A4AEB1'),
+
+    backgroundColor: (props) => (props.select === 'parcoursCompetence' ? '#fff' : '#E4FAFF'),
+    // borderBottom: (props) => (props.select === 'parcoursCompetence' ? '#fff' : '1px solid #C9C9C7'),
+    // borderLeft: (props) => (props.select === 'parcoursCompetence' ? '#fff' : '1px solid #C9C9C7'),
     padding: '0px 25px',
     cursor: 'pointer',
+    // boxShadow: '4px 4px 4px rgba(0, 0, 0, 0.15)',
+    borderRadius: '20px 20px 0px 0px',
   },
   echelonContainer: {
     display: 'flex',
@@ -54,6 +60,9 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     alignItems: 'stretch',
     alignSelf: 'flex-start',
     padding: 30,
+  },
+  competencesBack: {
+    backgroundColor: '#ffff',
   },
   echelonTitle: {
     fontSize: 14,
@@ -87,7 +96,6 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
   competencesContainer: {
     display: 'flex',
     flexDirection: 'column',
-    marginTop: 30,
     padding: '0px 15px',
     [theme.breakpoints.up(415)]: {
       padding: '0px 45px',
@@ -98,11 +106,31 @@ export default makeStyles<Theme, { select: string }>((theme: Theme) => ({
     display: 'flex',
     width: '100%',
     padding: '10px 0px 10px 30px',
-    borderBottom: '0.5px solid #C9C9C7',
     '&:last-child': {
       paddingBottom: 36,
     },
   },
+  jobSelect: {
+    display: 'flex',
+    width: '100%',
+    padding: '4px 0px 4px 30px',
+    '&:last-child': {
+      paddingBottom: 36,
+    },
+    borderRadius: 20,
+    backgroundColor: '#FFEBC6',
+  },
+  parcoursSelect: {
+    display: 'flex',
+    width: '100%',
+    padding: '4px 0px 4px 30px',
+    '&:last-child': {
+      paddingBottom: 36,
+    },
+    borderRadius: 20,
+    backgroundColor: '#E5FAFF',
+  },
+
   competencesValuesNotExist: {
     display: 'flex',
     width: '100%',

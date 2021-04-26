@@ -27,6 +27,11 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       height: '100vh',
+      '@media not all and (min-resolution:.001dpcm)': {
+        [theme.breakpoints.up(566)]: {
+          height: '55vh',
+        },
+      },
     },
 
     searchContainer: {
@@ -37,6 +42,11 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       padding: '60px 40px 0px 40px ',
+      '@media not all and (min-resolution:.001dpcm)': {
+        [theme.breakpoints.up(566)]: {
+          padding: '35px 40px 0px 40px ',
+        },
+      },
       [theme.breakpoints.down(340)]: {
         padding: '60px 19px 0px 20px ',
       },
