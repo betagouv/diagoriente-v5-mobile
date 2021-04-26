@@ -2,17 +2,13 @@ import React, { useState, useEffect, useContext, useMemo } from 'react';
 import path from 'path';
 import moment from 'moment';
 import { useWillUnmount } from 'common/hooks/useLifeCycle';
-
 import { RouteComponentProps, Switch, Route, Redirect } from 'react-router-dom';
 import { useTheme } from 'common/requests/themes';
 import { useAddSkill, useUpdateSkill, useLazySkill } from 'common/requests/skills';
-
 import ParcourContext from 'common/contexts/ParcourContext';
-
 import NotFoundPage from 'components/layout/NotFoundPage/NotFoundPage';
 import SnackBar from 'components/SnackBar/SnackBar';
 import Spinner from 'components/SpinnerXp/Spinner';
-
 import { decodeUri } from 'utils/url';
 import { SkillType, Competence } from 'common/requests/types';
 import SkillActivities from './containers/SkillActivities';
@@ -25,6 +21,7 @@ import EngagementActivites from './containers/EngagementActivities/EngagementAct
 import EngagementContext from './containers/EngagementContext/EngagementContext';
 import EngagementOrganization from './containers/EngagementOrganization/EngagementOrganization';
 import EngagementDate from './containers/EngagementDate/EngagementDate';
+import SkillDate from './containers/SkillDate/SkillDate';
 
 import useStyles from './style';
 
@@ -60,6 +57,28 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
   const [updateSkillCall, updateSkillState] = useUpdateSkill();
 
   const [openSnackBar, setOpenSnackBar] = useState(false);
+
+  const [errorText, setErrorText] = useState('');
+
+  const renderError = () => {
+    let localText = '';
+    const isBeginDateValid = moment(startDate).isAfter(moment());
+    const isEndDateValid = moment(endDate).isBefore(moment(startDate));
+    // comments
+    if (isBeginDateValid) {
+      localText = 'La date début doit être ultérieur à la date actuelle!';
+      return localText;
+    }
+    if (endDate) {
+      if (isEndDateValid) {
+        localText = 'La date de fin doit être supérieur à la date de début!';
+        return localText;
+      }
+    }
+
+    return localText;
+  };
+
   useEffect(() => {
     setOpenSnackBar(!!addSkillState.error);
   }, [addSkillState]);
@@ -196,18 +215,32 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
     } // eslint-disable-next-line
   }, [context, match.params.themeId]);
 
-  const addSkill = () => {
+  const valuesNext = () => {
     if (data?.theme.type === 'engagement') {
       history.push(`/experience/skill/${match.params.themeId}/context`);
-    } else if (data) {
-      addSkillCall({
-        variables: {
-          theme: data.theme.id,
-          activities: activities.map((a) => a.id),
-          competences: competencesValues.map((competence) => ({ _id: competence.id, value: competence.value })),
-          extraActivity,
-        },
-      });
+    } else {
+      history.push(`/experience/skill/${match.params.themeId}/skillDate`);
+    }
+  };
+
+  const addSkill = () => {
+    const error = renderError();
+    if (!error) {
+      if (data) {
+        setErrorText('');
+        addSkillCall({
+          variables: {
+            theme: data.theme.id,
+            activities: activities.map((a) => a.id),
+            competences: competencesValues.map((competence) => ({ _id: competence.id, value: competence.value })),
+            extraActivity,
+            startDate,
+            endDate: endDate !== 'Invalid date' ? endDate : moment().format('YYYY-MM-DD'),
+          },
+        });
+      }
+    } else {
+      setErrorText(error);
     }
   };
 
@@ -231,16 +264,22 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
   };
 
   const editSkill = () => {
-    if (data?.theme.type === 'engagement') {
-      history.push(`/experience/skill/${match.params.themeId}/context`);
-    } else if (selectedSkillId) {
-      updateSkillCall({
-        variables: {
-          id: selectedSkillId,
-          activities: activities.map((a) => a.id),
-          competences: competencesValues.map((competence) => ({ _id: competence.id, value: competence.value })),
-        },
-      });
+    const error = renderError();
+    if (selectedSkillId) {
+      if (!error) {
+        updateSkillCall({
+          variables: {
+            id: selectedSkillId,
+            activities: activities.map((a) => a.id),
+            competences: competencesValues.map((competence) => ({ _id: competence.id, value: competence.value })),
+            extraActivity,
+            startDate,
+            endDate: endDate !== 'Invalid date' ? endDate : moment().format('YYYY-MM-DD'),
+          },
+        });
+      } else {
+        setErrorText(error);
+      }
     }
   };
 
@@ -310,7 +349,6 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
       </div>
     );
   }
-
   if (!data) return <NotFoundPage />;
 
   if (match.isExact) {
@@ -400,8 +438,9 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
                 competencesValues={competencesValues}
                 setCompetencesValues={setCompetencesValues}
                 competences={competences}
-                addSkill={selectedSkillId ? editSkill : addSkill}
-                addSkillState={selectedSkillId ? updateSkillState.loading : addSkillState.loading}
+                valuesNext={valuesNext}
+                /*  addSkill={selectedSkillId ? editSkill : addSkill}
+                addSkillState={selectedSkillId ? updateSkillState.loading : addSkillState.loading} */
                 theme={data.theme}
                 isCreate={!selectedSkillId}
                 activities={activitiesTitles}
@@ -452,6 +491,24 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
             />
           )}
           path={`${match.path}/date`}
+          exact
+        />
+        <Route
+          render={(props) => (
+            <SkillDate
+              {...(props as any)}
+              startDate=""
+              setStartDate={setStartDate}
+              endDate=""
+              setEndDate={setEndDate}
+              addSkillState={selectedSkillId ? updateSkillState.loading : addSkillState.loading}
+              addSkill={selectedSkillId ? editSkill : addSkill}
+              theme={data.theme}
+              activities={activitiesTitles}
+              errorText={errorText}
+            />
+          )}
+          path={`${match.path}/skillDate`}
           exact
         />
         <Route
