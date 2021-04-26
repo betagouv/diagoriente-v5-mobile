@@ -10,7 +10,7 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   competencesValues: CompetenceValues[];
   setCompetencesValues: (CompetencesValues: CompetenceValues[]) => void;
   competences: Competence[];
-  /*  addSkill: () => void; */
+  addSkill: () => void;
   valuesNext: () => void;
   theme: Theme | null;
   activities: string[];
@@ -21,7 +21,7 @@ const SkillCompetencesValues = ({
   competencesValues,
   setCompetencesValues,
   competences,
-  /* addSkill, */
+  addSkill,
   valuesNext,
   theme,
   location,
@@ -46,7 +46,11 @@ const SkillCompetencesValues = ({
   };
 
   const handleNextClick = () => {
-    if (competencesValues.length === competences.length) valuesNext();
+    if (theme?.type === 'professional' || theme?.type === 'engagement' || theme?.type === 'sport') {
+      if (competencesValues.length === competences.length) valuesNext();
+    } else if (competencesValues.length === competences.length) {
+      addSkill();
+    }
   };
 
   useEffect(() => {
@@ -121,7 +125,7 @@ const SkillCompetencesValues = ({
         </div>
       </div>
       {competencesValues.length === competences.length && (
-        <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => handleNextClick()} />
+        <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={handleNextClick} />
       )}
     </div>
   );
