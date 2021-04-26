@@ -22,13 +22,33 @@ const ExtraActivity = ({ match, history, extraActivity, setExtraActivity, theme,
   const onNavigate = () => {
     history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
   };
+
+  let themeXp = '';
+
+  switch (theme?.type) {
+    case 'engagement':
+      themeXp = 'theme?type=engagement';
+      break;
+    case 'personal':
+      themeXp = 'theme';
+      break;
+    case 'professional':
+      themeXp = 'theme-pro';
+      break;
+    case 'sport':
+      themeXp = 'theme?type=sport';
+      break;
+    default:
+      themeXp = 'theme';
+  }
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
         <BreadCrumb
           level={2}
           routes={[
-            { title: 'Thème', url: `/experience/${theme.type === 'professional' ? 'theme-pro' : 'theme'}` },
+            { title: 'Thème', url: `/experience/${themeXp}` },
             { title: 'Activités', url: '' },
           ]}
           theme={theme}
