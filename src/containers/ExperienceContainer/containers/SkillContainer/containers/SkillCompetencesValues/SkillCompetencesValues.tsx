@@ -10,7 +10,8 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   competencesValues: CompetenceValues[];
   setCompetencesValues: (CompetencesValues: CompetenceValues[]) => void;
   competences: Competence[];
-  addSkill: () => void;
+  /*  addSkill: () => void; */
+  valuesNext: () => void;
   theme: Theme | null;
   activities: string[];
 }
@@ -20,7 +21,8 @@ const SkillCompetencesValues = ({
   competencesValues,
   setCompetencesValues,
   competences,
-  addSkill,
+  /* addSkill, */
+  valuesNext,
   theme,
   location,
   activities,
@@ -44,7 +46,7 @@ const SkillCompetencesValues = ({
   };
 
   const handleNextClick = () => {
-    if (competencesValues.length === competences.length) addSkill();
+    if (competencesValues.length === competences.length) valuesNext();
   };
 
   useEffect(() => {
@@ -71,9 +73,9 @@ const SkillCompetencesValues = ({
     case 'professional':
       themeXp = 'theme-pro';
       break;
-    /*  case 'sport':
-        themeXp = 'sport';
-        break; */
+    case 'sport':
+      themeXp = 'theme?type=sport';
+      break;
     default:
       themeXp = 'theme';
   }

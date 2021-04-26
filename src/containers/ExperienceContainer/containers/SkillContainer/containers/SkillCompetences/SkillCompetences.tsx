@@ -36,9 +36,9 @@ const ExperienceCompetence = ({ match, competences, setCompetences, theme, histo
     case 'professional':
       themeXp = 'theme-pro';
       break;
-    /*  case 'sport':
-        themeXp = 'sport';
-        break; */
+    case 'sport':
+      themeXp = 'theme?type=sport';
+      break;
     default:
       themeXp = 'theme';
   }
