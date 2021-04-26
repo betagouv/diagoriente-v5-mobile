@@ -65,7 +65,7 @@ const MainInteret = () => {
         <ValideButton
           label="J’ai compris !"
           link={{
-            pathname: `/interet/parcours/${0}`,
+            pathname: `/interet/parcours`,
           }}
           btnClassName={classes.validContainer}
         />

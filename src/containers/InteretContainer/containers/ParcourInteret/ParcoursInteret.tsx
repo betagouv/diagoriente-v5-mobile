@@ -2,7 +2,7 @@ import React, { useState, useContext, useMemo, useEffect } from 'react';
 import { useFamilies } from 'common/requests/familles';
 import Button from 'components/button/Button';
 import { Families } from 'common/requests/types';
-import { useParams, Link, RouteComponentProps } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
 import classNames from 'utils/classNames';
 
@@ -23,7 +23,6 @@ import useStyles from './styles';
 
 const ParcoursInteret = ({ location }: RouteComponentProps) => {
   const classes = useStyles();
-  const param = useParams();
   const isBrowser = typeof window !== 'undefined';
 
   const [height, setHeight] = useState(isBrowser ? window.innerHeight : 0);
@@ -142,12 +141,7 @@ const ParcoursInteret = ({ location }: RouteComponentProps) => {
                 <Spinner />
               </div>
             ) : (
-              <Slider
-                data={formattedData}
-                handleClick={handleClick}
-                isChecked={isChecked}
-                defaultIndex={Number((param as any).id)}
-              />
+              <Slider data={formattedData} handleClick={handleClick} isChecked={isChecked} />
             )}
           </div>
         </div>

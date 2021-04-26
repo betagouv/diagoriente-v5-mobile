@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Carousel from 'nuka-carousel';
 import { Families } from 'common/requests/types';
 import classNames from 'utils/classNames';
@@ -18,14 +18,10 @@ interface IProps {
   data: { title: string; data: Families[] }[];
   handleClick: (e: any) => void;
   isChecked: any;
-  defaultIndex: number;
 }
-const Slider = ({ data, handleClick, isChecked, defaultIndex }: IProps) => {
+const Slider = ({ data, handleClick, isChecked }: IProps) => {
   const classes = useStyles();
   const [currentIndex, setCurrentIndex] = useState(0);
-  useEffect(() => {
-    if (defaultIndex) setCurrentIndex(defaultIndex);
-  }, [defaultIndex]);
   return (
     <>
       <div className={classes.slideTitle}>

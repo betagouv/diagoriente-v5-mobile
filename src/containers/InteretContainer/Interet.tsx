@@ -31,7 +31,7 @@ const Interet = () => {
         <Switch>
           <Route protected exact path="/interet" component={HomeInteret} />
           <Route protected path="/interet/main" component={MainInteret} />
-          <Route protected path="/interet/parcours/:id" component={ParcoursInteret} />
+          <Route protected path="/interet/parcours" component={ParcoursInteret} />
           <Route protected path="/interet/ordre" component={OrdreInteret} />
           <Route protected path="/interet/result" component={ResultInteret} />
           <Route component={NotFoundPage} />
