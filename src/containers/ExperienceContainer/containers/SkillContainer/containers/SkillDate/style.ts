@@ -325,7 +325,7 @@ export default makeStyles((theme: Theme) =>
         color: '#C9C9C7',
       },
       '&:hover': {
-        outlineColor: '#223A7A',
+        outlineColor: '#00CFFF',
       },
     },
   }),
