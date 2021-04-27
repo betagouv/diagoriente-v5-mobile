@@ -26,7 +26,7 @@ export default makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '25px 30px 75px 30px',
+      padding: '70px 30px 75px 30px',
     },
   },
 
