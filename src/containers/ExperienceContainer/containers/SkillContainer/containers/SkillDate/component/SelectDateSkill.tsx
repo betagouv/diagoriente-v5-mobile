@@ -22,7 +22,7 @@ const SelectDateSkill = forwardRef<HTMLDivElement, Props>(
     useCaptureRef(containerRef.current, Ref);
 
     return (
-      <div className={classes.wrapperSelect} ref={containerRef}>
+      <div className={classes.wrapperSelect} ref={containerRef} onClick={onClick}>
         <input
           name={name}
           value={value}
@@ -31,7 +31,7 @@ const SelectDateSkill = forwardRef<HTMLDivElement, Props>(
           className={classNames(classes.selectContainer, value ? classes.selectedContainer : '')}
           disabled
         />
-        <div className={classNames(classes.arrowContainer, value ? classes.selectedContainer : '')} onClick={onClick}>
+        <div className={classNames(classes.arrowContainer, value ? classes.selectedContainer : '')}>
           <img src={arrow} alt="arrow" />
         </div>
         {isOpen && (
