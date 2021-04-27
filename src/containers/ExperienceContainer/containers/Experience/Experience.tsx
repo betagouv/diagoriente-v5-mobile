@@ -83,7 +83,7 @@ const Experience = () => {
               src={illExpSport}
               alt="ill"
               className={classes.illus}
-              onClick={() => onClickLink('/experience/theme?type=engagement')}
+              onClick={() => onClickLink('/experience/theme?type=sport')}
             />
           </Avatar>
         </Link>

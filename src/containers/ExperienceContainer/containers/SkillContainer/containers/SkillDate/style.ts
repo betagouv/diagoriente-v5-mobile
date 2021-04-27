@@ -183,10 +183,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      marginTop: 40,
-      [theme.breakpoints.down(420)]: {
-        marginTop: 10,
-      },
+      margin: '30px 0px',
     },
     textContainer: {
       display: 'flex',
@@ -236,11 +233,8 @@ export default makeStyles((theme: Theme) =>
 
     errorText: {
       display: 'flex',
-      alignItems: 'center',
-      height: 20,
       fontSize: 14,
       color: theme.palette.error.main,
-      marginLeft: 32,
     },
     previousNext: {
       display: 'flex',
@@ -326,6 +320,10 @@ export default makeStyles((theme: Theme) =>
       textAlign: 'center',
       color: '#424242',
       margin: '0px 10px',
+      fontSize: 16,
+      '&::placeholder': {
+        color: '#C9C9C7',
+      },
     },
   }),
 );

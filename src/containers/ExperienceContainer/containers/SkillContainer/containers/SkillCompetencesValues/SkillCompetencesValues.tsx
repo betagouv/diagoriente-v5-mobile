@@ -11,6 +11,7 @@ interface Props extends RouteComponentProps<{ themeId: string }> {
   setCompetencesValues: (CompetencesValues: CompetenceValues[]) => void;
   competences: Competence[];
   addSkill: () => void;
+  valuesNext: () => void;
   theme: Theme | null;
   activities: string[];
 }
@@ -21,6 +22,7 @@ const SkillCompetencesValues = ({
   setCompetencesValues,
   competences,
   addSkill,
+  valuesNext,
   theme,
   location,
   activities,
@@ -44,7 +46,11 @@ const SkillCompetencesValues = ({
   };
 
   const handleNextClick = () => {
-    if (competencesValues.length === competences.length) addSkill();
+    if (theme?.type === 'professional' || theme?.type === 'engagement' || theme?.type === 'sport') {
+      if (competencesValues.length === competences.length) valuesNext();
+    } else if (competencesValues.length === competences.length) {
+      addSkill();
+    }
   };
 
   useEffect(() => {
@@ -71,9 +77,9 @@ const SkillCompetencesValues = ({
     case 'professional':
       themeXp = 'theme-pro';
       break;
-    /*  case 'sport':
-        themeXp = 'sport';
-        break; */
+    case 'sport':
+      themeXp = 'theme?type=sport';
+      break;
     default:
       themeXp = 'theme';
   }
@@ -119,7 +125,7 @@ const SkillCompetencesValues = ({
         </div>
       </div>
       {competencesValues.length === competences.length && (
-        <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={() => handleNextClick()} />
+        <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={handleNextClick} />
       )}
     </div>
   );

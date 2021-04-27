@@ -38,6 +38,23 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
   const onNavigate = () => {
     if (activities.length) history.push(`/experience/skill/${match.params.themeId}/competences${location.search}`);
   };
+
+  let themeXp = '';
+
+  switch (theme?.type) {
+    case 'personal':
+      themeXp = 'theme';
+      break;
+    case 'professional':
+      themeXp = 'theme-pro';
+      break;
+    case 'sport':
+      themeXp = 'theme?type=sport';
+      break;
+    default:
+      themeXp = 'theme';
+  }
+
   console.log('data?.theme.activities', data?.theme.activities);
   return (
     <div className={classes.root}>
@@ -45,7 +62,7 @@ const ExperienceActivity = ({ match, activities, setActivities, history, theme, 
         <BreadCrumb
           level={2}
           routes={[
-            { title: 'Thème', url: `/experience/${theme.type === 'professional' ? 'theme-pro' : 'theme'}` },
+            { title: 'Thème', url: `/experience/${themeXp}` },
             { title: 'Activités', url: '' },
           ]}
           theme={theme}
