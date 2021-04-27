@@ -324,6 +324,9 @@ export default makeStyles((theme: Theme) =>
       '&::placeholder': {
         color: '#C9C9C7',
       },
+      '&:hover': {
+        outlineColor: '#223A7A',
+      },
     },
   }),
 );
