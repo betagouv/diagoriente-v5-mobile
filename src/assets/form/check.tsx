@@ -12,7 +12,7 @@ const Check = ({ color, height, width, background, border }: Props) => {
   return (
     <svg
       width={width || 19}
-      height={height || 19}
+      height={height || 20}
       viewBox="0 0 19 20"
       fill={background || 'none'}
       xmlns="http://www.w3.org/2000/svg"
