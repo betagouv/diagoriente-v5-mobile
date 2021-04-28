@@ -74,7 +74,10 @@ export default makeStyles((theme) => ({
     position: 'absolute',
     top: 150,
   },
-
+  image: {
+    height: 90,
+    width: 90,
+  },
   btnskillContainer: {
     display: 'flex',
     flexDirection: 'column',

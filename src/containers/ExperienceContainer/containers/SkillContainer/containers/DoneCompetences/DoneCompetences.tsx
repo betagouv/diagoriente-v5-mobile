@@ -31,6 +31,9 @@ const ResultCompetences = ({ theme, match }: Props) => {
     case 'professional':
       typeXp = 'professionnelle';
       break;
+    case 'sport':
+      typeXp = 'sportive';
+      break;
     default:
       typeXp = ' personnelle';
   }
@@ -48,7 +51,7 @@ const ResultCompetences = ({ theme, match }: Props) => {
           </div>
         ) : (
           <Avatar titleClassName={classes.avatarTitle} title={theme.title} size={170} className={classes.avatar}>
-            <img src={theme.resources?.icon} alt="" />
+            <img src={theme.resources?.icon} alt="" className={classes.image} />
           </Avatar>
         )}
 

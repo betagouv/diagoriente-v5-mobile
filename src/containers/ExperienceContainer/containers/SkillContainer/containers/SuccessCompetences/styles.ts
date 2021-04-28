@@ -65,6 +65,10 @@ export default makeStyles((theme) => ({
       padding: '0px 20px',
     },
   },
+  image: {
+    height: 90,
+    width: 90,
+  },
   description: {
     marginBottom: 30,
     alignItems: 'center',
