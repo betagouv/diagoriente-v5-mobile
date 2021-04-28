@@ -4,6 +4,7 @@ import { Theme } from 'common/requests/types';
 import BreadCrumb from 'components/common/BreadCrumb/BreadCrumb';
 import moment from 'moment';
 import useOnclickOutside from 'common/hooks/useOnclickOutside';
+import CheckBox from 'components/inputs/CheckBox/CheckBox';
 import ValidationButton from 'components/valideButton/valideButton';
 import Select from './component/SelectDateSkill';
 import useStyles from './style';
@@ -46,6 +47,7 @@ const SkillDate = ({
   const [monthEndText, setMonthEndText] = useState(endDate ? moment(endDate).format('MMMM') : '');
   const [yearStart, setYearStart] = useState(startDate ? moment(startDate).format('YYYY') : '');
   const [yearEnd, setYearEnd] = useState(endDate ? moment(endDate).format('YYYY') : '');
+  const [checked, setChecked] = useState(false);
 
   useOnclickOutside(startRef, () => {
     if (isOpenStart) setIsOpenStart(false);
@@ -60,11 +62,22 @@ const SkillDate = ({
     }
   }, [yearStart, monthStart]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (yearEnd && monthEnd) {
       setEndDate(moment(`${yearEnd}-${monthEnd}-01`).format('YYYY-MM-DD'));
-    }
-  }, [yearEnd, monthEnd]);
+    } else setEndDate('');
+  }, [yearEnd, monthEnd]); */
+
+  useEffect(() => {
+    if (checked) {
+      setEndDate(moment().format('YYYY-MM-DD'));
+      setYearEnd('');
+      setMonthEndText('');
+      setMonthEnd('');
+    } else if (yearEnd && monthEnd) {
+      setEndDate(moment(`${yearEnd}-${monthEnd}-01`).format('YYYY-MM-DD'));
+    } else setEndDate('');
+  }, [checked, yearEnd, monthEnd]);
 
   const onClickItem = (e: { label: string; value: string }, type: string) => {
     if (type === 'begin') {
@@ -76,6 +89,11 @@ const SkillDate = ({
       setMonthEndText(e.label);
       setIsOpenEnd(false);
     }
+  };
+
+  const handleOnGoingClick = (e: Event) => {
+    e.preventDefault();
+    setChecked(!checked);
   };
 
   const renderType = (text?: string) => {
@@ -113,14 +131,23 @@ const SkillDate = ({
       setError('Veuillez renseigner le mois de la date de début');
     } else if (!yearStart && monthStart) {
       setError("Veuillez renseigner l'année de la date de début");
-    } else if (yearStart && monthStart && !yearEnd && monthEnd) {
+    } else if (!yearEnd && monthEnd) {
       setError("Veuillez renseigner l'année de la date de fin");
-    } else if (yearStart && monthStart && yearEnd && !monthEnd) {
+    } else if (yearEnd && !monthEnd) {
       setError('Veuillez renseigner le mois de la date de fin');
-    } else if ((!yearStart && yearEnd && monthEnd) || (!monthStart && yearEnd && monthEnd)) {
-      setError(' Les champs de la date de début sont obligatoires');
-    } else if (yearStart && monthStart && ((yearEnd && monthEnd) || (!yearEnd && !monthEnd))) setError('');
+      /*  } else if ((!yearStart && yearEnd && monthEnd) || (!monthStart && yearEnd && monthEnd)) {
+      setError(' Les champs de la date de début sont obligatoires'); */
+    } else if (
+      ((yearStart && monthStart) || (!yearStart && !monthStart)) &&
+      ((yearEnd && monthEnd) || (!yearEnd && !monthEnd))
+    )
+      setError('');
   }, [yearStart, monthStart, yearEnd, monthEnd]);
+
+  console.log('monthEnd', monthEnd);
+  console.log('yearEnd', yearEnd);
+  console.log('monthEndText', monthEndText);
+  console.log('endDate', endDate);
 
   return (
     <div className={classes.root}>
@@ -133,7 +160,7 @@ const SkillDate = ({
         <div className={classes.date}>
           <div className={classes.textContainer}>
             <span className={classes.text}>Date de début</span>
-            <span className={classes.note}>(obligatoire)</span>
+            <span className={classes.note}>(optionnelle)</span>
           </div>
           <div className={classes.datePickerContainer}>
             <Select
@@ -180,17 +207,20 @@ const SkillDate = ({
               placeholder="AAAA"
               onChange={(e) => setYearEnd(e.target.value)}
               type="number"
+              disabled={checked}
             />
             <span className={classes.example}>Ex: 2018</span>
+          </div>
+          <div className={classes.onGoingContainer} onClick={(e) => handleOnGoingClick(e as any)}>
+            <CheckBox checked={checked} color="#00B2DB" border="#00B2DB" background="#FFFFFF" />
+            <span className={classes.onGoingLabel}>Expérience toujours en cours</span>
           </div>
         </div>
         {/*  <div className={classes.errorText}>{!isEndDateValid ? errorText : ''}</div> */}
         <div className={classes.errorText}>{errorText || ''}</div>
       </div>
 
-      {monthStart && yearStart && (
-        <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={addSkill} />
-      )}
+      <ValidationButton label="Valider" bgColor="#00CFFF" color="#223A7A" onClick={addSkill} />
     </div>
   );
 };

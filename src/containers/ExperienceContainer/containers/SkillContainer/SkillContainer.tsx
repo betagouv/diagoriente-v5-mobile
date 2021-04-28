@@ -20,7 +20,7 @@ import DoneCompetences from './containers/DoneCompetences/DoneCompetences';
 import EngagementActivites from './containers/EngagementActivities/EngagementActivities';
 import EngagementContext from './containers/EngagementContext/EngagementContext';
 import EngagementOrganization from './containers/EngagementOrganization/EngagementOrganization';
-import EngagementDate from './containers/EngagementDate/EngagementDate';
+/* import EngagementDate from './containers/EngagementDate/EngagementDate'; */
 import SkillDate from './containers/SkillDate/SkillDate';
 
 import useStyles from './style';
@@ -47,8 +47,13 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
   const [context, setContext] = useState('');
   const [organization, setOrganization] = useState('');
 
-  const [startDate, setStartDate] = useState(moment().format('YYYY-MM-DD'));
-  const [endDate, setEndDate] = useState(moment().format('YYYY-MM-DD'));
+  /*  const [startDate, setStartDate] = useState(moment().format('YYYY-MM-DD'));
+  const [endDate, setEndDate] = useState(moment().format('YYYY-MM-DD')); */
+
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+
+  console.log('endDate', endDate);
 
   const [optionActivities, setOptionActivities] = useState([[]] as { id: string; title: string }[][]);
   const [activity, setActivity] = useState('');
@@ -219,7 +224,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
     if (data?.theme.type === 'engagement') {
       history.push(`/experience/skill/${match.params.themeId}/context`);
     } else {
-      history.push(`/experience/skill/${match.params.themeId}/skillDate`);
+      history.push(`/experience/skill/${match.params.themeId}/date`);
     }
   };
 
@@ -235,7 +240,8 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
             competences: competencesValues.map((competence) => ({ _id: competence.id, value: competence.value })),
             extraActivity,
             startDate,
-            endDate: endDate !== 'Invalid date' ? endDate : moment().format('YYYY-MM-DD'),
+            endDate,
+            /* endDate: endDate !== 'Invalid date' ? endDate : moment().format('YYYY-MM-DD'), */
           },
         });
       }
@@ -274,7 +280,8 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
             competences: competencesValues.map((competence) => ({ _id: competence.id, value: competence.value })),
             extraActivity,
             startDate,
-            endDate: endDate !== 'Invalid date' ? endDate : moment().format('YYYY-MM-DD'),
+            endDate,
+            /*  endDate: endDate !== 'Invalid date' ? endDate : moment().format('YYYY-MM-DD'), */
           },
         });
       } else {
@@ -477,7 +484,7 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
           path={`${match.path}/organization`}
           exact
         />
-        <Route
+        {/*   <Route
           render={(props) => (
             <EngagementDate
               {...(props as any)}
@@ -492,23 +499,37 @@ const SkillContainer = ({ match, location, history }: RouteComponentProps<{ them
           )}
           path={`${match.path}/date`}
           exact
-        />
+        /> */}
         <Route
-          render={(props) => (
-            <SkillDate
-              {...(props as any)}
-              startDate=""
-              setStartDate={setStartDate}
-              endDate=""
-              setEndDate={setEndDate}
-              addSkillState={selectedSkillId ? updateSkillState.loading : addSkillState.loading}
-              addSkill={selectedSkillId ? editSkill : addSkill}
-              theme={data.theme}
-              activities={activitiesTitles}
-              errorText={errorText}
-            />
-          )}
-          path={`${match.path}/skillDate`}
+          render={(props) =>
+            data.theme.type === 'engagement' ? (
+              <SkillDate
+                {...(props as any)}
+                startDate={startDate}
+                setStartDate={setStartDate}
+                endDate={endDate}
+                setEndDate={setEndDate}
+                addSkill={selectedSkillId ? editSkillEngagement : addSkillEngagement}
+                theme={data.theme}
+                activities={activitiesTitles}
+                errorText={errorText}
+              />
+            ) : (
+              <SkillDate
+                {...(props as any)}
+                startDate={startDate}
+                setStartDate={setStartDate}
+                endDate={endDate}
+                setEndDate={setEndDate}
+                addSkillState={selectedSkillId ? updateSkillState.loading : addSkillState.loading}
+                addSkill={selectedSkillId ? editSkill : addSkill}
+                theme={data.theme}
+                activities={activitiesTitles}
+                errorText={errorText}
+              />
+            )
+          }
+          path={`${match.path}/date`}
           exact
         />
         <Route

@@ -13,7 +13,7 @@ export default makeStyles((theme: Theme) =>
       flexDirection: 'column',
       width: '100%',
       backgroundColor: '#F3F2F4',
-      height: '100vh',
+      /*  height: '100vh', */
       padding: '20px 40px',
       [theme.breakpoints.down(340)]: {
         padding: '20px',
@@ -304,6 +304,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'baseline',
       marginTop: 30,
+      marginBottom: 195,
       pointerEvents: 'auto',
     },
     onGoingLabel: {
@@ -314,7 +315,7 @@ export default makeStyles((theme: Theme) =>
     },
     yearContainer: {
       width: 73,
-      height: '100%',
+      height: 39,
       border: '1px solid #D1D5DE',
       borderRadius: 5,
       textAlign: 'center',
